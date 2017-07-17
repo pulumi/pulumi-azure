@@ -7,7 +7,7 @@ import (
 
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/pulumi/lumi/pkg/tokens"
-
+	"github.com/pulumi/terraform-bridge/pkg/tfbridge"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
 )
 
@@ -45,16 +45,17 @@ func azuretok(mod string, res string) tokens.Type {
 	return tokens.Type(azurePkg + ":" + mod + "/" + fn + ":" + res)
 }
 
-func azureProvider() ProviderInfo {
-	git, err := getGitInfo("azurerm")
+// Provider returns additional overlaid schema and metadata associated with the azure package.
+func Provider() tfbridge.ProviderInfo {
+	git, err := tfbridge.GetGitInfo("azurerm")
 	if err != nil {
 		panic(err)
 	}
 	p := azurerm.Provider().(*schema.Provider)
-	prov := ProviderInfo{
+	prov := tfbridge.ProviderInfo{
 		P:   p,
 		Git: git,
-		Resources: map[string]ResourceInfo{
+		Resources: map[string]tfbridge.ResourceInfo{
 			// AppInsights
 			"azurerm_application_insights": {Tok: azuretok(azureAppInsightsMod, "Insights")},
 			// Azure Container Service
@@ -142,8 +143,8 @@ func azureProvider() ProviderInfo {
 	// For all resources with name properties, we will add an auto-name property.
 	for resname := range prov.Resources {
 		if schema := p.ResourcesMap[resname]; schema != nil {
-			if _, has := schema.Schema[NameProperty]; has {
-				prov.Resources[resname] = autoName(prov.Resources[resname], -1)
+			if _, has := schema.Schema[tfbridge.NameProperty]; has {
+				prov.Resources[resname] = tfbridge.AutoName(prov.Resources[resname], -1)
 			}
 		}
 	}
