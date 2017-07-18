@@ -1,0 +1,6 @@
+name: azure
+description: A Lumi resource provider for azure.
+dependencies:
+    lumi: "*"
+    lumirt: "*"
+
