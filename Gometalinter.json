@@ -2,7 +2,6 @@
     "Deadline": "5m",
     "DisableAll": true,
     "Enable": [
-        "aligncheck",
         "deadcode",
         "errcheck",
         "gas",
@@ -20,6 +19,9 @@
         "varcheck",
         "vet",
         "vetshadow"
+    ],
+    "Exclude": [
+        "/usr/local/go"
     ],
     "LineLength": 120
 }
