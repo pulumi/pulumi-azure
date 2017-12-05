@@ -4,9 +4,10 @@ package main
 
 import (
 	azure "github.com/pulumi/pulumi-azure"
+	"github.com/pulumi/pulumi-azure/pkg/version"
 	"github.com/pulumi/pulumi-terraform/pkg/tfgen"
 )
 
 func main() {
-	tfgen.Main("azure", azure.Provider())
+	tfgen.Main("azurerm", version.Version, azure.Provider())
 }

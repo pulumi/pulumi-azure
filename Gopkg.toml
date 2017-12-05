@@ -21,17 +21,18 @@
 #  version = "2.4.0"
 
 
-[[constraint]]
-  name = "github.com/hashicorp/terraform"
-  version = "0.11.0"
+[[override]]
+  branch = "master"
+  name = "github.com/pulumi/pulumi"
 
-[[constraint]]
-  name = "github.com/pulumi/pulumi-fabric"
-  version = "0.8.3"
-
-[[constraint]]
+[[override]]
+  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
-  version = "0.7.0"
+
+[[override]]
+  name = "github.com/hashicorp/terraform"
+  source = "github.com/pulumi/terraform"
+  branch = "pulumi-master"
 
 [[constraint]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"

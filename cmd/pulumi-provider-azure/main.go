@@ -4,9 +4,10 @@ package main
 
 import (
 	azure "github.com/pulumi/pulumi-azure"
+	"github.com/pulumi/pulumi-azure/pkg/version"
 	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
 )
 
 func main() {
-	tfbridge.Main("azure", azure.Provider())
+	tfbridge.Main("azurerm", version.Version, azure.Provider())
 }
