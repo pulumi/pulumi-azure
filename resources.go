@@ -17,6 +17,7 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
+	azureMod                 = "index"
 	azureAppInsightsMod      = "appinsights"      // AppInsights
 	azureApplicationGateway  = "application"      // Application gateway
 	azureAppServieMod        = "appservice"       // App Service
@@ -31,6 +32,7 @@ const (
 	azureImage               = "image"            // Image
 	azureKeyVault            = "keyvault"         // Key Vault
 	azureLB                  = "lb"               // Load Balancer
+	azureLog                 = "log"              // Log analytics
 	azureDisk                = "disk"             // Managed Disks
 	azureMySQL               = "mysql"            // MySql
 	azureNetwork             = "network"          // Networking
@@ -40,6 +42,7 @@ const (
 	azureRole                = "role"             // Azure Role
 	azureSearch              = "search"           // Search
 	azureServiceBus          = "servicebus"       // ServiceBus
+	azureSnapshot            = "snapshot"         // Snapshot
 	azureSQL                 = "sql"              // SQL
 	azureStorage             = "storage"          // Storage
 	azureTrafficManager      = "trafficmanager"   // Traffic Manager
@@ -123,14 +126,40 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_key_vault_certificate": {Tok: azureResource(azureKeyVault, "Certifiate")},
 			"azurerm_key_vault_key":         {Tok: azureResource(azureKeyVault, "Key")},
 			"azurerm_key_vault_secret":      {Tok: azureResource(azureKeyVault, "Secret")},
-
 			// LoadBalancer
-			"azurerm_lb":                      {Tok: azureResource(azureLB, "LoadBalancer")},
-			"azurerm_lb_backend_address_pool": {Tok: azureResource(azureLB, "BackendAddressPool")},
-			"azurerm_lb_nat_rule":             {Tok: azureResource(azureLB, "NatRule")},
-			"azurerm_lb_nat_pool":             {Tok: azureResource(azureLB, "NatPool")},
-			"azurerm_lb_probe":                {Tok: azureResource(azureLB, "Probe")},
-			"azurerm_lb_rule":                 {Tok: azureResource(azureLB, "Rule")},
+
+			"azurerm_lb": {
+				Tok: azureResource(azureLB, "LoadBalancer"),
+				Docs: &tfbridge.DocInfo{
+					Source: "loadbalancer.html.markdown",
+				},
+			},
+			"azurerm_lb_backend_address_pool": {Tok: azureResource(azureLB, "BackendAddressPool"),
+				Docs: &tfbridge.DocInfo{
+					Source: "loadbalancer_backend_address_pool.html.markdown",
+				},
+			},
+			"azurerm_lb_nat_rule": {Tok: azureResource(azureLB, "NatRule"),
+				Docs: &tfbridge.DocInfo{
+					Source: "loadbalancer_nat_rule.html.markdown",
+				},
+			},
+			"azurerm_lb_nat_pool": {Tok: azureResource(azureLB, "NatPool"),
+				Docs: &tfbridge.DocInfo{
+					Source: "loadbalancer_nat_pool.html.markdown",
+				}},
+			"azurerm_lb_probe": {Tok: azureResource(azureLB, "Probe"),
+				Docs: &tfbridge.DocInfo{
+					Source: "loadbalancer_probe.html.markdown",
+				},
+			},
+			"azurerm_lb_rule": {Tok: azureResource(azureLB, "Rule"),
+				Docs: &tfbridge.DocInfo{
+					Source: "loadbalancer_rule.html.markdown",
+				},
+			},
+			// Log Analytics
+			"azurerm_log_analytics_workspace": {Tok: azureResource(azureLog, "AnalyticsWorkspace")},
 			// Managed Disks
 			"azurerm_managed_disk": {Tok: azureResource(azureDisk, "ManagedDisk")},
 			// Network
@@ -169,6 +198,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_servicebus_queue":        {Tok: azureResource(azureServiceBus, "Queue")},
 			"azurerm_servicebus_subscription": {Tok: azureResource(azureServiceBus, "Subscription")},
 			"azurerm_servicebus_topic":        {Tok: azureResource(azureServiceBus, "Topic")},
+			// Snapshot
+			"azurerm_snapshot": {Tok: azureResource(azureSnapshot, "Snapshot")},
 			// SQL
 			"azurerm_sql_elasticpool":   {Tok: azureResource(azureSQL, "ElasticPool")},
 			"azurerm_sql_database":      {Tok: azureResource(azureSQL, "Database")},
@@ -191,6 +222,20 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine_scale_set": {Tok: azureResource(azureVirtualMachine, "ScaleSet")},
 			"azurerm_virtual_network":           {Tok: azureResource(azureVirtualMachine, "Network")},
 			"azurerm_virtual_network_peering":   {Tok: azureResource(azureVirtualMachine, "NetworkPeering")},
+		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"azurerm_client_config":           {Tok: azureDataSource(azureMod, "getClientConfig")},
+			"azurerm_image":                   {Tok: azureDataSource(azureMod, "getImage")},
+			"azurerm_key_vault_access_policy": {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
+			"azurerm_public_ip":               {Tok: azureDataSource(azureNetwork, "getPublicIP")},
+			"azurerm_resource_group":          {Tok: azureDataSource(azureMod, "getResourceGroup")},
+			"azurerm_snapshot":                {Tok: azureDataSource(azureSnapshot, "getSnapshot")},
+			"azurerm_subnet":                  {Tok: azureDataSource(azureNetwork, "getSubnet")},
+			"azurerm_subscription":            {Tok: azureDataSource(azureMod, "getSubscription")},
+			"azurerm_platform_image":          {Tok: azureDataSource(azureMod, "getPlatformImage")},
+			"azurerm_managed_disk":            {Tok: azureDataSource(azureDisk, "getManagedDisk")},
+			"azurerm_role_definition":         {Tok: azureDataSource(azureRole, "getRoleDefinition")},
+			"azurerm_builtin_role_definition": {Tok: azureDataSource(azureRole, "getBuiltinRoleDefinition")},
 		},
 		Overlay: &tfbridge.OverlayInfo{
 			Files:        []string{},
