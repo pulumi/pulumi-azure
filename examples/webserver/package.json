@@ -1,0 +1,20 @@
+{
+    "name": "webserver",
+    "version": "0.1",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "devDependencies": {
+        "typescript": "^2.5.3"
+    },
+    "peerDependencies": {
+        "@pulumi/azurerm": "*",
+        "pulumi": "*"
+    },
+    "dependencies": {
+        "@types/node": "^8.0.26"
+    },
+    "license": "MIT"
+}
