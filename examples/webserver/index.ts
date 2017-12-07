@@ -42,10 +42,10 @@ let networkInterface = new azure.network.NetworkInterface(
     }
 )
 
-/* let storageAccount = new azure.storage.Account(
+let storageAccount = new azure.storage.Account(
     "accsa1", {
         resourceGroupName: resourceGroup.name,
-        location: "West US 2",
+        location: "West US",
         accountTier: "Standard",
         accountReplicationType: "LRS",
         tags: [
@@ -60,7 +60,7 @@ let storageContainer = new azure.storage.Container(
         storageAccountName: storageAccount.name,
         containerAccessType: "private"
     }
-) */
+)
 
 let vm = new azure.virtualmachine.VirtualMachine(
     "acctvm", {
