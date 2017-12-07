@@ -13,6 +13,10 @@ import (
 )
 
 func TestExamples(t *testing.T) {
+	environ := os.Getenv("AZURE_ENVIRONMENT")
+	if environ == "" {
+		t.Skipf("Skipping test due to missing AWS_REGION environment variable")
+	}
 	cwd, err := os.Getwd()
 	if !assert.NoError(t, err, "expected a valid working directory: %v", err) {
 		return
@@ -20,6 +24,9 @@ func TestExamples(t *testing.T) {
 
 	// base options shared amongst all tests.
 	base := integration.ProgramTestOptions{
+		Config: map[string]string{
+			"azurerm:config:environment": environ,
+		},
 		Dependencies: []string{
 			"pulumi",
 			"@pulumi/azurerm",
