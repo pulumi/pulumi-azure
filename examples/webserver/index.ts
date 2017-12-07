@@ -35,7 +35,7 @@ let networkInterface = new azure.network.NetworkInterface(
         ipConfiguration: [
             {
                 name: "testcfg1", 
-                subnetId: mysubnet.name, 
+                subnetId: mysubnet.id, 
                 privateIpAddressAllocation: "dynamic"
             }
         ]
@@ -67,10 +67,18 @@ let vm = new azure.virtualmachine.VirtualMachine(
         name: "acctvm",
         resourceGroupName: resourceGroup.name,
         location: "West US",
-        networkInterfaceIds: [networkInterface.name],
+        networkInterfaceIds: [networkInterface.id],
         vmSize: "Standard_A0",
         deleteDataDisksOnTermination: true,
         deleteOsDiskOnTermination: true,
+        osProfile: [{
+            computerName: "hostname",
+            adminUsername: "testadmin",
+            adminPassword: "Password1234!",
+        }],
+        osProfileLinuxConfig: [{
+            disablePasswordAuthentication: false,
+        }],
         storageOsDisk: [
             {
                 createOption: "FromImage",
