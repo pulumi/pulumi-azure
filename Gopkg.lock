@@ -10,8 +10,8 @@
 [[projects]]
   name = "github.com/Azure/go-autorest"
   packages = ["autorest","autorest/adal","autorest/azure","autorest/azure/cli","autorest/date","autorest/to","autorest/validation"]
-  revision = "cab8279ba5cd5e165c58201f798712f2ec0f49d6"
-  version = "v9.4.2"
+  revision = "4695056df7a8950d06bf23e340643d4f6198b4af"
+  version = "v9.5.0"
 
 [[projects]]
   name = "github.com/agext/levenshtein"
@@ -41,6 +41,12 @@
   name = "github.com/armon/go-radix"
   packages = ["."]
   revision = "1fca145dffbcaa8fe914309b1ec0cfc67500fe61"
+
+[[projects]]
+  name = "github.com/aws/aws-sdk-go"
+  packages = ["aws","aws/awserr","aws/awsutil","aws/client","aws/client/metadata","aws/corehandlers","aws/credentials","aws/credentials/ec2rolecreds","aws/credentials/endpointcreds","aws/credentials/stscreds","aws/defaults","aws/ec2metadata","aws/endpoints","aws/request","aws/session","aws/signer/v4","internal/shareddefaults","private/protocol","private/protocol/query","private/protocol/query/queryutil","private/protocol/rest","private/protocol/restxml","private/protocol/xml/xmlutil","service/s3","service/sts"]
+  revision = "991fe2497a95d757bb53f95cbcebf3d26134c9fe"
+  version = "v1.12.32"
 
 [[projects]]
   branch = "master"
@@ -257,13 +263,13 @@
   branch = "master"
   name = "github.com/pulumi/pulumi"
   packages = ["pkg/diag","pkg/diag/colors","pkg/encoding","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/proto/go"]
-  revision = "6843162f98f5483f670893f293e0ba39fcf13de1"
+  revision = "9680fc3604981255f46eb3c5deada2eb29b7cf9f"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "0e6f6669dc02d4552d845aa2a8199d6b09cd3549"
+  revision = "25e7cc0658da81842ac40f79d312290c9aae3839"
 
 [[projects]]
   branch = "master"
@@ -286,7 +292,7 @@
   branch = "master"
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "de2d9c4eca8f3c1de17d48b096b6504e0296f003"
+  revision = "c156af39849842c87f2ce59882c5f4bd98977c43"
 
 [[projects]]
   name = "github.com/spf13/pflag"
@@ -337,13 +343,13 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix","windows"]
-  revision = "8b4580aae2a0dd0c231a45d3ccb8434ff533b840"
+  revision = "9167dbfd0f8e88b731dd88cbf73a270701a37bb4"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/text"
   packages = ["collate","collate/build","internal/colltab","internal/gen","internal/tag","internal/triegen","internal/ucd","language","secure/bidirule","transform","unicode/bidi","unicode/cldr","unicode/norm","unicode/rangetable"]
-  revision = "57961680700a5336d15015c8c50686ca5ba362a4"
+  revision = "f9878be4819f7f135610e129dc370d21841b06e7"
 
 [[projects]]
   branch = "master"
@@ -366,6 +372,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "9a73f69196fdd636679591142e2304c64dbebbdfb44ac5232089acf5849c7ba2"
+  inputs-digest = "b7a1e415f88d8dbdcdc77e6418802b48e120b40a4601532a91c93d50c89271ec"
   solver-name = "gps-cdcl"
   solver-version = 1
