@@ -22,8 +22,8 @@
 [[projects]]
   name = "github.com/apache/thrift"
   packages = ["lib/go/thrift"]
-  revision = "b2a4d4ae21c789b689dd162deb819665567f481c"
-  version = "0.10.0"
+  revision = "327ebb6c2b6df8bf075da02ef45a2a034e9b79ba"
+  version = "0.11.0"
 
 [[projects]]
   name = "github.com/apparentlymart/go-cidr"
@@ -254,6 +254,12 @@
   version = "v0.8.0"
 
 [[projects]]
+  name = "github.com/pmezard/go-difflib"
+  packages = ["difflib"]
+  revision = "792786c7400a136282c1664665ae0a8db921c6c2"
+  version = "v1.0.0"
+
+[[projects]]
   name = "github.com/posener/complete"
   packages = [".","cmd","cmd/install","match"]
   revision = "dc2bc5a81accba8782bebea28628224643a8286a"
@@ -262,14 +268,14 @@
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi"
-  packages = ["pkg/diag","pkg/diag/colors","pkg/encoding","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/plugin","pkg/resource/provider","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/workspace","sdk/proto/go"]
-  revision = "9680fc3604981255f46eb3c5deada2eb29b7cf9f"
+  packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/engine","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/version","pkg/workspace","sdk/proto/go"]
+  revision = "aa7c1598ac7c017597e037d4e194ce16fa3ca046"
 
 [[projects]]
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "25e7cc0658da81842ac40f79d312290c9aae3839"
+  revision = "f55cdd0b2887e6c0846a67cc8fbac75ff38d28f5"
 
 [[projects]]
   branch = "master"
@@ -290,15 +296,27 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/sergi/go-diff"
+  packages = ["diffmatchpatch"]
+  revision = "1744e2970ca51c86172c8190fadad617561ed6e7"
+
+[[projects]]
+  branch = "master"
   name = "github.com/spf13/cobra"
   packages = ["."]
-  revision = "c156af39849842c87f2ce59882c5f4bd98977c43"
+  revision = "ccaecb155a2177302cb56cae929251a256d0f646"
 
 [[projects]]
   name = "github.com/spf13/pflag"
   packages = ["."]
   revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
   version = "v1.0.0"
+
+[[projects]]
+  name = "github.com/stretchr/testify"
+  packages = ["assert"]
+  revision = "69483b4bd14f5845b5a1e55bca19e954e827f1d0"
+  version = "v1.1.4"
 
 [[projects]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
@@ -343,13 +361,13 @@
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix","windows"]
-  revision = "9167dbfd0f8e88b731dd88cbf73a270701a37bb4"
+  revision = "a0f4589a76f1f83070cb9e5613809e1d07b97c13"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/text"
   packages = ["collate","collate/build","internal/colltab","internal/gen","internal/tag","internal/triegen","internal/ucd","language","secure/bidirule","transform","unicode/bidi","unicode/cldr","unicode/norm","unicode/rangetable"]
-  revision = "f9878be4819f7f135610e129dc370d21841b06e7"
+  revision = "be25de41fadfae372d6470bda81ca6beb55ef551"
 
 [[projects]]
   branch = "master"
@@ -372,6 +390,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "b7a1e415f88d8dbdcdc77e6418802b48e120b40a4601532a91c93d50c89271ec"
+  inputs-digest = "5faac0b092fcbebcb5a2bdb1389163799721cceb2bc0eed4bce1caf1271ff737"
   solver-name = "gps-cdcl"
   solver-version = 1
