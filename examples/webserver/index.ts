@@ -2,14 +2,14 @@
 
 import * as azure from "@pulumi/azurerm";
 
-let resourceGroup = new azure.resources.ResourceGroup(
+let resourceGroup = new azure.base.ResourceGroup(
     "acctestrg", {
         location:"West US",
         name: "acctestrg",
     }
 );
 
-let vn = new azure.virtualmachine.Network(
+let vn = new azure.network.VirtualNetwork(
     "acctvn", {
         name: "acctvn",
         addressSpace: ["10.0.0.0/16"],
@@ -62,7 +62,7 @@ let storageContainer = new azure.storage.Container(
     }
 )
 
-let vm = new azure.virtualmachine.VirtualMachine(
+let vm = new azure.compute.VirtualMachine(
     "acctvm", {
         name: "acctvm",
         resourceGroupName: resourceGroup.name,
