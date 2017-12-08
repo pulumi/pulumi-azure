@@ -1,5 +1,4 @@
-# examples/scenarios/aws/webserver
+# examples/scenarios/azure/webserver
 
-An example based on the basic Amazon EC2 Instance sample at:
-http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/deploying.applications.html.
-
+This is a basic example of creating a webserver on Virtual Machine in Azure based on examples from Terraform
+https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html

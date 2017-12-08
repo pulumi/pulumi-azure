@@ -37,10 +37,10 @@ copy_package() {
 }
 
 # Build binaries
-run_go_build "${ROOT}/cmd/pulumi-provider-azure"
+run_go_build "${ROOT}/cmd/pulumi-provider-azurerm"
 
 # Copy Packages
-copy_package "${ROOT}/pack/bin/." "@pulumi/azure"
+copy_package "${ROOT}/pack/bin/." "@pulumi/azurerm"
 
 # Tar up the file and then print it out for use by the caller or script.
 tar -czf ${PUBFILE} -C ${PUBDIR} .
