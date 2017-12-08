@@ -13,9 +13,9 @@ import (
 )
 
 func TestExamples(t *testing.T) {
-	environ := os.Getenv("AZURE_ENVIRONMENT")
+	environ := os.Getenv("ARM_ENVIRONMENT")
 	if environ == "" {
-		t.Skipf("Skipping test due to missing AWS_REGION environment variable")
+		t.Skipf("Skipping test due to missing ARM_ENVIRONMENT variable")
 	}
 	cwd, err := os.Getwd()
 	if !assert.NoError(t, err, "expected a valid working directory: %v", err) {
