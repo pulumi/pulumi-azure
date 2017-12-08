@@ -1,4 +1,4 @@
 # azure
 
-A Microsoft Azure Lumi resource package.
+A Microsoft Azure Pulumi resource package.
 
