@@ -17,7 +17,7 @@ const (
 	azurePkg = "azurerm"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
-	azureBase             = "base"             // Base Resources
+	azureCore             = "core"             // Base Resources
 	azureAppInsights      = "appinsights"      // AppInsights
 	azureAppServie        = "appservice"       // App Service
 	azureAutomation       = "automation"       // Automation
@@ -91,7 +91,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_group":    {Tok: azureResource(azureContainerService, "Group")},
 
 			// Base Resources
-			"azurerm_resource_group": {Tok: azureResource(azureBase, "ResourceGroup")},
+			"azurerm_resource_group": {Tok: azureResource(azureCore, "ResourceGroup")},
 
 			// CDN Resources
 			"azurerm_cdn_endpoint": {Tok: azureResource(azureCDN, "Endpoint")},
@@ -214,7 +214,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_redis_firewall_rule": {Tok: azureResource(azureRedis, "FirewallRule")},
 
 			// Template deployment
-			"azurerm_template_deployment": {Tok: azureResource(azureBase, "TemplateDeployment")},
+			"azurerm_template_deployment": {Tok: azureResource(azureCore, "TemplateDeployment")},
 			// Search
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},
 
@@ -227,14 +227,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_table":     {Tok: azureResource(azureStorage, "Table")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"azurerm_client_config":           {Tok: azureDataSource(azureBase, "getClientConfig")},
+			"azurerm_client_config":           {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_image":                   {Tok: azureDataSource(azureCompute, "getImage")},
 			"azurerm_key_vault_access_policy": {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
 			"azurerm_public_ip":               {Tok: azureDataSource(azureNetwork, "getPublicIP")},
-			"azurerm_resource_group":          {Tok: azureDataSource(azureBase, "getResourceGroup")},
+			"azurerm_resource_group":          {Tok: azureDataSource(azureCore, "getResourceGroup")},
 			"azurerm_snapshot":                {Tok: azureDataSource(azureCompute, "getSnapshot")},
 			"azurerm_subnet":                  {Tok: azureDataSource(azureNetwork, "getSubnet")},
-			"azurerm_subscription":            {Tok: azureDataSource(azureBase, "getSubscription")},
+			"azurerm_subscription":            {Tok: azureDataSource(azureCore, "getSubscription")},
 			"azurerm_platform_image":          {Tok: azureDataSource(azureCompute, "getPlatformImage")},
 			"azurerm_managed_disk":            {Tok: azureDataSource(azureCompute, "getManagedDisk")},
 			"azurerm_role_definition":         {Tok: azureDataSource(azureRole, "getRoleDefinition")},

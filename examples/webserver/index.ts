@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azurerm";
 
-let resourceGroup = new azure.base.ResourceGroup(
+let resourceGroup = new azure.core.ResourceGroup(
     "acctestrg", {
         location:"West US",
         name: "acctestrg",
