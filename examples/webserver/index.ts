@@ -4,14 +4,12 @@ import * as azure from "@pulumi/azurerm";
 
 let resourceGroup = new azure.core.ResourceGroup(
     "acctestrg", {
-        location:"West US",
-        name: "acctestrg",
+        location:"West US"
     }
 );
 
 let vn = new azure.network.VirtualNetwork(
     "acctvn", {
-        name: "acctvn",
         addressSpace: ["10.0.0.0/16"],
         location: "West US",
         resourceGroupName: resourceGroup.name
@@ -20,7 +18,6 @@ let vn = new azure.network.VirtualNetwork(
 
 let mysubnet = new azure.network.Subnet(
     "acctsub", {
-        name:"acctsub",
         resourceGroupName: resourceGroup.name,
         virtualNetworkName: vn.name,
         addressPrefix: "10.0.2.0/24"
@@ -29,7 +26,6 @@ let mysubnet = new azure.network.Subnet(
 
 let networkInterface = new azure.network.NetworkInterface(
     "acctni", {
-        name: "acctni",
         location: "West US",
         resourceGroupName: resourceGroup.name,
         ipConfiguration: [
@@ -55,7 +51,6 @@ let storageAccount = new azure.storage.Account(
 
 let storageContainer = new azure.storage.Container(
     "acctsc", {
-        name: "acctsc",
         resourceGroupName: resourceGroup.name,
         storageAccountName: storageAccount.name,
         containerAccessType: "private"
@@ -64,7 +59,6 @@ let storageContainer = new azure.storage.Container(
 
 let vm = new azure.compute.VirtualMachine(
     "acctvm", {
-        name: "acctvm",
         resourceGroupName: resourceGroup.name,
         location: "West US",
         networkInterfaceIds: [networkInterface.id],
