@@ -2,71 +2,50 @@
 
 import * as azure from "@pulumi/azurerm";
 
-let resourceGroup = new azure.core.ResourceGroup(
-    "acctestrg", {
-        location:"West US",
-        name: "acctestrg",
-    }
-);
+let resourceGroup = new azure.core.ResourceGroup("webserverrg", {
+        location:"West US"
+});
 
-let vn = new azure.network.VirtualNetwork(
-    "acctvn", {
-        name: "acctvn",
+let vn = new azure.network.VirtualNetwork("webservervn", {
         addressSpace: ["10.0.0.0/16"],
-        location: "West US",
+        location: resourceGroup.location,
         resourceGroupName: resourceGroup.name
-    }
-);
+});
 
-let mysubnet = new azure.network.Subnet(
-    "acctsub", {
-        name:"acctsub",
+let mysubnet = new azure.network.Subnet("webserversub", {
         resourceGroupName: resourceGroup.name,
         virtualNetworkName: vn.name,
         addressPrefix: "10.0.2.0/24"
-    }
-)
+});
 
-let networkInterface = new azure.network.NetworkInterface(
-    "acctni", {
-        name: "acctni",
-        location: "West US",
+let networkInterface = new azure.network.NetworkInterface("webserverni", {
+        location: resourceGroup.location,
         resourceGroupName: resourceGroup.name,
-        ipConfiguration: [
-            {
-                name: "testcfg1", 
+        ipConfiguration: [{
+                name: "webserveripcfg", 
                 subnetId: mysubnet.id, 
                 privateIpAddressAllocation: "dynamic"
-            }
-        ]
-    }
-)
+        }]
+});
 
-let storageAccount = new azure.storage.Account(
-    "accsa1", {
+let storageAccount = new azure.storage.Account("webserversa", {
         resourceGroupName: resourceGroup.name,
-        location: "West US",
+        location: resourceGroup.location,
         accountTier: "Standard",
         accountReplicationType: "LRS",
         tags: [
             {environment : "test"}]
-    }
-)
+});
 
-let storageContainer = new azure.storage.Container(
-    "acctsc", {
-        name: "acctsc",
+let storageContainer = new azure.storage.Container("webserversc", {
         resourceGroupName: resourceGroup.name,
         storageAccountName: storageAccount.name,
         containerAccessType: "private"
-    }
-)
+});
 
-let vm = new azure.compute.VirtualMachine(
-    "acctvm", {
-        name: "acctvm",
+let vm = new azure.compute.VirtualMachine("webservervm", {
         resourceGroupName: resourceGroup.name,
-        location: "West US",
+        location: resourceGroup.location,
         networkInterfaceIds: [networkInterface.id],
         vmSize: "Standard_A0",
         deleteDataDisksOnTermination: true,
@@ -79,19 +58,14 @@ let vm = new azure.compute.VirtualMachine(
         osProfileLinuxConfig: [{
             disablePasswordAuthentication: false,
         }],
-        storageOsDisk: [
-            {
+        storageOsDisk: [{
                 createOption: "FromImage",
                 name: "myosdisk1"
-            }
-        ],
-        storageImageReference: [
-            {
+        }],
+        storageImageReference: [{
                 publisher: "canonical",
                 offer: "UbuntuServer",
                 sku: "16.04-LTS",
                 version: "latest"
-            }
-        ]
-    }
-)
+        }]
+});
