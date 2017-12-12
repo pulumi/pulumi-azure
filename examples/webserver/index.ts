@@ -4,35 +4,29 @@ import * as azure from "@pulumi/azurerm";
 
 let resourceGroup = new azure.core.ResourceGroup("webserverrg", {
         location:"West US"
-    }
-);
+});
 
 let vn = new azure.network.VirtualNetwork("webservervn", {
         addressSpace: ["10.0.0.0/16"],
         location: resourceGroup.location,
         resourceGroupName: resourceGroup.name
-    }
-);
+});
 
 let mysubnet = new azure.network.Subnet("webserversub", {
         resourceGroupName: resourceGroup.name,
         virtualNetworkName: vn.name,
         addressPrefix: "10.0.2.0/24"
-    }
-)
+});
 
 let networkInterface = new azure.network.NetworkInterface("webserverni", {
         location: resourceGroup.location,
         resourceGroupName: resourceGroup.name,
-        ipConfiguration: [
-            {
+        ipConfiguration: [{
                 name: "webserveripcfg", 
                 subnetId: mysubnet.id, 
                 privateIpAddressAllocation: "dynamic"
-            }
-        ]
-    }
-)
+        }]
+});
 
 let storageAccount = new azure.storage.Account("webserversa", {
         resourceGroupName: resourceGroup.name,
@@ -41,15 +35,13 @@ let storageAccount = new azure.storage.Account("webserversa", {
         accountReplicationType: "LRS",
         tags: [
             {environment : "test"}]
-    }
-)
+});
 
 let storageContainer = new azure.storage.Container("webserversc", {
         resourceGroupName: resourceGroup.name,
         storageAccountName: storageAccount.name,
         containerAccessType: "private"
-    }
-)
+});
 
 let vm = new azure.compute.VirtualMachine("webservervm", {
         resourceGroupName: resourceGroup.name,
@@ -66,19 +58,14 @@ let vm = new azure.compute.VirtualMachine("webservervm", {
         osProfileLinuxConfig: [{
             disablePasswordAuthentication: false,
         }],
-        storageOsDisk: [
-            {
+        storageOsDisk: [{
                 createOption: "FromImage",
                 name: "myosdisk1"
-            }
-        ],
-        storageImageReference: [
-            {
+        }],
+        storageImageReference: [{
                 publisher: "canonical",
                 offer: "UbuntuServer",
                 sku: "16.04-LTS",
                 version: "latest"
-            }
-        ]
-    }
-)
+        }]
+});
