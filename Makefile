@@ -16,8 +16,8 @@ GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
 TESTPARALLELISM := 10
 
 build::
-	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
-	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+	go install -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
+	go install -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 	$(TFGEN) --out pack/
 	cd pack/ && yarn install
 	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Pulumi's stdlibs.
