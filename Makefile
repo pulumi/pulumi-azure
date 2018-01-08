@@ -16,8 +16,8 @@ GOMETALINTER=${GOMETALINTERBIN} --config=Gometalinter.json
 TESTPARALLELISM := 10
 
 build::
-	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
-	go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+	go install -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
+	go install -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 	$(TFGEN) --out pack/
 	cd pack/ && yarn install
 	cd ${PACKDIR} && yarn link pulumi # ensure we resolve to Pulumi's stdlibs.
@@ -27,7 +27,7 @@ lint::
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
 
 install::
-	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-aws/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
+	GOBIN=$(PULUMI_BIN) go install -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
 	[ ! -e "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)" ] || rm -rf "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	mkdir -p "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"
 	cp -r pack/bin/. "$(PULUMI_NODE_MODULES)/$(NODE_MODULE_NAME)"

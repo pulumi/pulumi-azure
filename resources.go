@@ -40,24 +40,24 @@ const (
 	azureCompute          = "compute"          // Virtual Machines
 )
 
-// awsMember manufactures a type token for the AWS package and the given module and type.
+// azureMember manufactures a type token for the Azure package and the given module and type.
 func azureMember(mod string, mem string) tokens.ModuleMember {
 	return tokens.ModuleMember(azurePkg + ":" + mod + ":" + mem)
 }
 
-// awsType manufactures a type token for the AWS package and the given module and type.
+// azureType manufactures a type token for the Azure package and the given module and type.
 func azureType(mod string, typ string) tokens.Type {
 	return tokens.Type(azureMember(mod, typ))
 }
 
-// awsDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the AWS
+// azureDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the Azure
 // package and names the file by simply lower casing the data source's first character.
 func azureDataSource(mod string, res string) tokens.ModuleMember {
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
 	return azureMember(mod+"/"+fn, res)
 }
 
-// awsResource manufactures a standard resource token given a module and resource name.  It automatically uses the AWS
+// azureResource manufactures a standard resource token given a module and resource name.  It automatically uses the Azure
 // package and names the file by simply lower casing the resource's first character.
 func azureResource(mod string, res string) tokens.Type {
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
