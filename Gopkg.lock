@@ -3,7 +3,7 @@
 
 [[projects]]
   name = "github.com/Azure/azure-sdk-for-go"
-  packages = ["arm/appinsights","arm/authorization","arm/automation","arm/cdn","arm/compute","arm/containerinstance","arm/containerregistry","arm/containerservice","arm/cosmos-db","arm/disk","arm/dns","arm/eventgrid","arm/eventhub","arm/graphrbac","arm/keyvault","arm/mysql","arm/network","arm/operationalinsights","arm/postgresql","arm/redis","arm/resources/resources","arm/resources/subscriptions","arm/scheduler","arm/search","arm/servicebus","arm/sql","arm/storage","arm/trafficmanager","arm/web","dataplane/keyvault","storage"]
+  packages = ["arm/appinsights","arm/authorization","arm/automation","arm/cdn","arm/compute","arm/containerinstance","arm/containerregistry","arm/containerservice","arm/cosmos-db","arm/disk","arm/dns","arm/eventgrid","arm/eventhub","arm/graphrbac","arm/keyvault","arm/mysql","arm/network","arm/operationalinsights","arm/postgresql","arm/redis","arm/resources/locks","arm/resources/resources","arm/resources/subscriptions","arm/scheduler","arm/search","arm/servicebus","arm/sql","arm/storage","arm/trafficmanager","arm/web","dataplane/keyvault","storage"]
   revision = "7692b0cef22674113fcf71cc17ac3ccc1a7fef48"
   version = "v11.2.2-beta"
 
@@ -320,9 +320,9 @@
 
 [[projects]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
-  packages = ["azurerm","azurerm/utils"]
-  revision = "c4eec2f50cc5a74fd9e78d64a33a10fb97a69a29"
-  version = "v0.3.3"
+  packages = ["azurerm","azurerm/helpers/authentication","azurerm/utils"]
+  revision = "787d6614bd3a480aefced703466816fc3ba1321e"
+  version = "v1.0.1"
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
@@ -390,6 +390,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "5faac0b092fcbebcb5a2bdb1389163799721cceb2bc0eed4bce1caf1271ff737"
+  inputs-digest = "bc5faf768cb9fd7fa93e506b5612285d21c246624ab4b86e6e2c63f132fa723c"
   solver-name = "gps-cdcl"
   solver-version = 1
