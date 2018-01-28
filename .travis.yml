@@ -15,6 +15,8 @@ before_install:
     # Install Yarn as per https://yarnpkg.com/lang/en/docs/install-ci/#travis-tab.
     - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.2.1
     - export PATH=$HOME/.yarn/bin:$PATH
+    # Ensure that we can access Pulumi's private NPM org.
+    - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > ~/.npmrc
     # Install the AWS CLI so that we can publish the resulting release (if applicable) at the end.
     - pip install --upgrade --user awscli
 install:
@@ -27,5 +29,3 @@ script:
     - make travis_${TRAVIS_EVENT_TYPE}
 notifications:
     webhooks: https://ufci1w66n3.execute-api.us-west-2.amazonaws.com/stage/travis
-
-

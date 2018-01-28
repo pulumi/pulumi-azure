@@ -266,16 +266,14 @@
   version = "v1.1"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pulumi/pulumi"
-  packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/engine","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/ioutil","pkg/util/mapper","pkg/util/rpcutil","pkg/version","pkg/workspace","sdk/proto/go"]
-  revision = "aa8f8eadcd7fcff7fd7e2f65202361cc5f1c15af"
+  packages = ["pkg/compiler/errors","pkg/diag","pkg/diag/colors","pkg/encoding","pkg/engine","pkg/pack","pkg/resource","pkg/resource/config","pkg/resource/deploy","pkg/resource/plugin","pkg/resource/provider","pkg/resource/stack","pkg/testing","pkg/testing/integration","pkg/tokens","pkg/tools","pkg/util/cmdutil","pkg/util/contract","pkg/util/fsutil","pkg/util/mapper","pkg/util/rpcutil","pkg/version","pkg/workspace","sdk/proto/go"]
+  revision = "ce05cce77f06439e139bbc035fd3649f7bd23d4f"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
   packages = ["pkg/tfbridge","pkg/tfgen"]
-  revision = "346b5844c168a88de621e2146ac590f219fce27b"
-  version = "v0.9.9"
+  revision = "69e34ed8ec71b00b4b1a3f2e3880ff80a260923a"
 
 [[projects]]
   branch = "master"
@@ -390,6 +388,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "bc5faf768cb9fd7fa93e506b5612285d21c246624ab4b86e6e2c63f132fa723c"
+  inputs-digest = "97489c1a4911bad4d15bf220735d2dc9a5ae75ae54fdf0a1da681116104d11e2"
   solver-name = "gps-cdcl"
   solver-version = 1

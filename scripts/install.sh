@@ -9,4 +9,3 @@ if [ ! -f $PUBLISH ]; then
 fi
 
 ${INSTALL} pulumi-azure $1 $2
-

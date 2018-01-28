@@ -74,8 +74,12 @@ func azureResource(mod string, res string) tokens.Type {
 func Provider() tfbridge.ProviderInfo {
 	p := azurerm.Provider().(*schema.Provider)
 	prov := tfbridge.ProviderInfo{
-		P:    p,
-		Name: "azurerm",
+		P:           p,
+		Name:        "azurerm",
+		Description: "A Pulumi package for creating and managing Microsoft Azure cloud resources.",
+		Keywords:    []string{"pulumi", "azure"},
+		Homepage:    "https://pulumi.io/azure",
+		Repository:  "https://github.com/pulumi/pulumi-azure",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AppInsights
 			"azurerm_application_insights": {Tok: azureResource(azureAppInsights, "Insights")},
@@ -248,9 +252,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_builtin_role_definition": {Tok: azureDataSource(azureRole, "getBuiltinRoleDefinition")},
 		},
 		Overlay: &tfbridge.OverlayInfo{
-			Files:        []string{},
-			Modules:      map[string]*tfbridge.OverlayInfo{},
-			Dependencies: map[string]string{},
+			Files:   []string{},
+			Modules: map[string]*tfbridge.OverlayInfo{},
+			DevDependencies: map[string]string{
+				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
+			},
 		},
 	}
 
