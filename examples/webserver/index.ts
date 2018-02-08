@@ -12,6 +12,13 @@ let network = new azure.network.VirtualNetwork(name, {
     resourceGroupName: resourceGroup.name,
     location: resourceGroup.location,
     addressSpace: ["10.0.0.0/16"],
+    // Workaround two issues:
+    // (1) The Azure API recently regressed and now fails when no subnets are defined at Network creation time.
+    // (2) The Azure Terraform provider does not return the ID of the created subnets - so this cannot actually be used.
+    subnet: [{
+        name: "default",
+        addressPrefix: "10.0.1.0/24",
+    }],
 });
 
 let subnet = new azure.network.Subnet(name, {
