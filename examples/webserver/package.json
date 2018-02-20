@@ -7,14 +7,12 @@
         "build": "tsc"
     },
     "devDependencies": {
+        "@types/node": "^8.0.26",
         "typescript": "^2.5.3"
     },
     "peerDependencies": {
         "@pulumi/azurerm": "*",
-        "pulumi": "*"
-    },
-    "dependencies": {
-        "@types/node": "^8.0.26"
+        "@pulumi/pulumi": "*"
     },
     "license": "MIT"
 }

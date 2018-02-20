@@ -28,7 +28,7 @@ func TestExamples(t *testing.T) {
 			"azurerm:config:environment": environ,
 		},
 		Dependencies: []string{
-			"pulumi",
+			"@pulumi/pulumi",
 			"@pulumi/azurerm",
 		},
 	}
