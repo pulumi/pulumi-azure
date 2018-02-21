@@ -8,7 +8,7 @@ PROJECT          := github.com/pulumi/pulumi-azure
 NODE_MODULE_NAME := @pulumi/azurerm
 
 TFGEN           := pulumi-tfgen-${PACK}
-PROVIDER        := pulumi-provider-${PACK}
+PROVIDER        := pulumi-resource-${PACK}
 VERSION			:=$(shell git describe --tags --dirty 2>/dev/null)
 
 GOMETALINTERBIN=gometalinter

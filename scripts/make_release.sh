@@ -37,7 +37,7 @@ copy_package() {
 }
 
 # Build binaries
-run_go_build "${ROOT}/cmd/pulumi-provider-azurerm"
+run_go_build "${ROOT}/cmd/pulumi-resource-azurerm"
 
 # Copy Packages
 copy_package "${ROOT}/pack/bin/." "@pulumi/azurerm"
