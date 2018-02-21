@@ -19,7 +19,7 @@ fi
 go build \
    -ldflags "-X github.com/pulumi/pulumi-azure/pkg/version.Version=${VERSION}" \
    -o "${WORK_PATH}/pulumi-resource-azurerm${BIN_SUFFIX}" \
-   "${ROOT}/cmd/pulumi-resource-azure"
+   "${ROOT}/cmd/pulumi-resource-azurerm"
 
 # Tar up the plugin
 tar -czf ${PLUGIN_PACKAGE_PATH} -C ${WORK_PATH} .
@@ -27,7 +27,7 @@ tar -czf ${PLUGIN_PACKAGE_PATH} -C ${WORK_PATH} .
 # rel.pulumi.com is in our production account, so assume that role first
 CREDS_JSON=$(aws sts assume-role \
                  --role-arn "arn:aws:iam::058607598222:role/UploadPulumiReleases" \
-                 --role-session-name "upload-plugin-pulumi-resource-azure" \
+                 --role-session-name "upload-plugin-pulumi-resource-azurerm" \
                  --external-id "upload-pulumi-release")
 
 # Use the credentials we just assumed

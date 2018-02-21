@@ -156,6 +156,12 @@
   revision = "6c6132ff69f0f6c088739067407b5d32c52e1d0f"
 
 [[projects]]
+  name = "github.com/djherbis/times"
+  packages = ["."]
+  revision = "95292e44976d1217cf3611dc7c8d9466877d3ed5"
+  version = "v1.0.1"
+
+[[projects]]
   name = "github.com/go-ini/ini"
   packages = ["."]
   revision = "32e4c1e6bc4e7d0d8451aa6b75200d19e37a536a"
@@ -409,7 +415,6 @@
     "pkg/diag/colors",
     "pkg/encoding",
     "pkg/engine",
-    "pkg/pack",
     "pkg/resource",
     "pkg/resource/config",
     "pkg/resource/deploy",
@@ -430,7 +435,7 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "444ebdd1b52b72bbffa1a637626cdd77687afc70"
+  revision = "7aedf80fa2ea10ada802cfb77acb42b148e7429b"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -641,6 +646,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d82150a574e92b7314c593dc5cbde736846869819221059b092f0a3d5c5c59cc"
+  inputs-digest = "9c880ea907d77ffc132490cb12a3f7734e31a9728ee1e6aca5a4d68e6839abb3"
   solver-name = "gps-cdcl"
   solver-version = 1
