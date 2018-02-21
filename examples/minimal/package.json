@@ -11,6 +11,6 @@
     },
     "peerDependencies": {
         "@pulumi/azurerm": "*",
-        "pulumi": "*"
+        "@pulumi/pulumi": "*"
     }
 }
