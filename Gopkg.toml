@@ -17,4 +17,5 @@
 
 [[constraint]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
-  version = "=1.0.1"
+  source = "github.com/pulumi/terraform-provider-azurerm"
+  branch = "pulumi-master"
