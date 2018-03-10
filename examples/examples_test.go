@@ -29,7 +29,7 @@ func TestExamples(t *testing.T) {
 		},
 		Dependencies: []string{
 			"@pulumi/pulumi",
-			"@pulumi/azurerm",
+			"@pulumi/azure",
 		},
 	}
 

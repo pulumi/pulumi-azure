@@ -1,11 +1,11 @@
 PROJECT_NAME := Microsoft Azure Package
 include build/common.mk
 
-PACK             := azurerm
+PACK             := azure
 PACKDIR          := pack
 PACKBIN          := ${PACKDIR}/bin
 PROJECT          := github.com/pulumi/pulumi-azure
-NODE_MODULE_NAME := @pulumi/azurerm
+NODE_MODULE_NAME := @pulumi/azure
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}

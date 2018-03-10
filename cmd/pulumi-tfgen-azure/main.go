@@ -9,5 +9,5 @@ import (
 )
 
 func main() {
-	tfgen.Main("azurerm", version.Version, azure.Provider())
+	tfgen.Main("azure", version.Version, azure.Provider())
 }
