@@ -162,6 +162,12 @@
   version = "v1.0.1"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/gedex/inflector"
+  packages = ["."]
+  revision = "16278e9db8130ac7ec405dc174cfb94344f16325"
+
+[[projects]]
   name = "github.com/go-ini/ini"
   packages = ["."]
   revision = "32e4c1e6bc4e7d0d8451aa6b75200d19e37a536a"
@@ -442,7 +448,7 @@
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen"
-  ] 
+  ]
   revision = "fe4b00ca832323f3c9461bf64118c523e8792812"
 
 [[projects]]
@@ -646,6 +652,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "9c880ea907d77ffc132490cb12a3f7734e31a9728ee1e6aca5a4d68e6839abb3"
+  inputs-digest = "c1dee747569e02f32268d2b6a261987da29390da315d74d306f83265ca923280"
   solver-name = "gps-cdcl"
   solver-version = 1
