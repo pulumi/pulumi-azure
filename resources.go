@@ -33,7 +33,7 @@ const (
 	azureFunctions           = "functions"           // Functions
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureLB                  = "lb"                  // Load Balancer
-	azureMgmtResource		 = "managementresource"	 // Management Resource
+	azureMgmtResource        = "managementresource"  // Management Resource
 	azureMySQL               = "mysql"               // MySql
 	azureNetwork             = "network"             // Networking
 	azureNetworkWatcher      = "networkwatcher"      // Network Watcher
@@ -88,7 +88,7 @@ func Provider() tfbridge.ProviderInfo {
 			// App Service
 			"azurerm_app_service":      {Tok: azureResource(azureAppService, "AppService")},
 			"azurerm_app_service_plan": {Tok: azureResource(azureAppService, "Plan")},
-			"azurerm_function_app": {Tok: azureResource(azureAppService, "FunctionApp")},
+			"azurerm_function_app":     {Tok: azureResource(azureAppService, "FunctionApp")},
 
 			// Automation
 			"azurerm_automation_account":    {Tok: azureResource(azureAutomation, "Account")},
@@ -145,7 +145,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_servicebus_topic":            {Tok: azureResource(azureMessaging, "Topic")},
 
 			// KeyVault
-			"azurerm_key_vault":             {Tok: azureResource(azureKeyVault, "KeyVault"),
+			"azurerm_key_vault": {Tok: azureResource(azureKeyVault, "KeyVault"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Use "sku" instead of "sku" to match AWS APIs
 					"sku": {Name: "sku"},
@@ -222,7 +222,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_interface":       {Tok: azureResource(azureNetwork, "NetworkInterface")},
 			"azurerm_network_security_group":  {Tok: azureResource(azureNetwork, "NetworkSecurityGroup")},
 			"azurerm_network_security_rule":   {Tok: azureResource(azureNetwork, "NetworkSecurityRule")},
-			"azurerm_network_watcher": 		   {Tok: azureResource(azureNetwork, "NetworkWatcher")},
+			"azurerm_network_watcher":         {Tok: azureResource(azureNetwork, "NetworkWatcher")},
 			"azurerm_public_ip":               {Tok: azureResource(azureNetwork, "PublicIp")},
 			"azurerm_route":                   {Tok: azureResource(azureNetwork, "Route")},
 			"azurerm_route_table":             {Tok: azureResource(azureNetwork, "RouteTable")},
@@ -249,7 +249,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_table":     {Tok: azureResource(azureStorage, "Table")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"azurerm_app_service_plan": 		{Tok: azureDataSource(azureAppService, "getAppServicePlan"),
+			"azurerm_app_service_plan": {Tok: azureDataSource(azureAppService, "getAppServicePlan"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Use "sku" instead of "sku" to match AWS APIs
 					"sku": {Name: "sku"},
@@ -259,7 +259,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_client_config":           {Tok: azureDataSource(azureCore, "getClientConfig")},
 			"azurerm_image":                   {Tok: azureDataSource(azureCompute, "getImage")},
 			"azurerm_key_vault_access_policy": {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
-			"azurerm_virtual_network":		   {Tok: azureDataSource(azureNetwork, "getVirtualNetwork")},
+			"azurerm_virtual_network":         {Tok: azureDataSource(azureNetwork, "getVirtualNetwork")},
 			"azurerm_network_security_group":  {Tok: azureDataSource(azureNetwork, "getNetworkSecurityGroup")},
 			"azurerm_public_ip":               {Tok: azureDataSource(azureNetwork, "getPublicIP")},
 			"azurerm_resource_group":          {Tok: azureDataSource(azureCore, "getResourceGroup")},
