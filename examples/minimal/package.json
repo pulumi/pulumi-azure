@@ -10,7 +10,7 @@
         "typescript": "^2.5.3"
     },
     "peerDependencies": {
-        "@pulumi/azurerm": "*",
+        "@pulumi/azure": "*",
         "@pulumi/pulumi": "*"
     }
 }
