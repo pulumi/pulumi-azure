@@ -104,11 +104,14 @@
     "aws/signer/v4",
     "internal/shareddefaults",
     "private/protocol",
+    "private/protocol/json/jsonutil",
+    "private/protocol/jsonrpc",
     "private/protocol/query",
     "private/protocol/query/queryutil",
     "private/protocol/rest",
     "private/protocol/restxml",
     "private/protocol/xml/xmlutil",
+    "service/cloudwatchlogs",
     "service/s3",
     "service/sts"
   ]
@@ -416,11 +419,14 @@
 [[projects]]
   name = "github.com/pulumi/pulumi"
   packages = [
-    "pkg/compiler/errors",
+    "pkg/apitype",
+    "pkg/backend",
+    "pkg/backend/local",
     "pkg/diag",
     "pkg/diag/colors",
     "pkg/encoding",
     "pkg/engine",
+    "pkg/operations",
     "pkg/resource",
     "pkg/resource/config",
     "pkg/resource/deploy",
@@ -441,7 +447,7 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "7aedf80fa2ea10ada802cfb77acb42b148e7429b"
+  revision = "7e14a09b3b63bfab1aaeac47fdad944ac466b241"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -652,6 +658,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c1dee747569e02f32268d2b6a261987da29390da315d74d306f83265ca923280"
+  inputs-digest = "47b0a48a7203b80f59e3673d215d89271f1ee4e779fd28551417951b6dcc4854"
   solver-name = "gps-cdcl"
   solver-version = 1
