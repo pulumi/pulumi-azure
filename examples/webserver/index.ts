@@ -9,7 +9,7 @@ let resourceGroup = new azure.core.ResourceGroup(name, {
     location: "West US",
 });
 
-/* let network = new azure.network.VirtualNetwork(name, {
+let network = new azure.network.VirtualNetwork(name, {
     resourceGroupName: resourceGroup.name,
     location: resourceGroup.location,
     addressSpaces: ["10.0.0.0/16"],
@@ -63,4 +63,4 @@ let vm = new azure.compute.VirtualMachine("webservervm", {
         sku: "16.04-LTS",
         version: "latest",
     },
-}); */
+});
