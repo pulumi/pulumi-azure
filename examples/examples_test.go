@@ -25,8 +25,7 @@ func TestExamples(t *testing.T) {
 	// base options shared amongst all tests.
 	base := integration.ProgramTestOptions{
 		Config: map[string]string{
-			"azure:config:environment": environ,
-			// "azure:environment": environ,
+			"azure:environment": environ,
 		},
 		Dependencies: []string{
 			"@pulumi/pulumi",
