@@ -17,7 +17,7 @@ import (
 // all of the Azure token components used below.
 const (
 	// packages:
-	azurePkg = "azurerm"
+	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
 	azureAppInsights         = "appinsights"         // AppInsights

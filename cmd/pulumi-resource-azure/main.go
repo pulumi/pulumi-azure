@@ -9,5 +9,5 @@ import (
 )
 
 func main() {
-	tfbridge.Main("azurerm", version.Version, azure.Provider())
+	tfbridge.Main("azure", version.Version, azure.Provider())
 }
