@@ -5,6 +5,7 @@ import * as azure from "@pulumi/azure";
 const name = "webserver";
 
 let resourceGroup = new azure.core.ResourceGroup(name, {
+    name: "testwebserver1",
     location: "West US",
 });
 
