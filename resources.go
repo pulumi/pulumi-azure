@@ -274,11 +274,18 @@ func Provider() tfbridge.ProviderInfo {
 		Overlay: &tfbridge.OverlayInfo{
 			Files:   []string{},
 			Modules: map[string]*tfbridge.OverlayInfo{},
+		},
+		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 			PeerDependencies: map[string]string{
 				"@pulumi/pulumi": "^0.11.0",
+			},
+		},
+		Python: &tfbridge.PythonInfo{
+			Requires: map[string]string{
+				"pulumi": ">=0.11.0",
 			},
 		},
 	}
