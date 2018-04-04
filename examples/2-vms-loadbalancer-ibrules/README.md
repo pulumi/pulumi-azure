@@ -1,5 +1,3 @@
-# examples/scenarios/azure/webserver
+# examples/scenarios/azure/2-vms-loadbalancer-ibrules
 
-This is a basic example of creating a webserver on Virtual Machine in Azure based on examples from Terraform https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html
-This sample requires a configuration value of 'adminpassword' which needs to be set for the stack.
-
+This is a basic example of creating 2 Virtual Machines under a Load balancer and configures Load Balancing rules for the VMs https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/2-vms-loadbalancer-lbrules

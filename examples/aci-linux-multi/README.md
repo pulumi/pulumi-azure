@@ -1,4 +1,3 @@
-# examples/scenarios/azure/webserver
+# examples/scenarios/azure/aci-linux-multi
 
-This is a basic example of creating a webserver on Virtual Machine in Azure based on examples from Terraform
-https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html
+This is a basic example of Create a container group https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/aci-linux-multi
