@@ -37,8 +37,8 @@
     "dataplane/keyvault",
     "storage"
   ]
-  revision = "7692b0cef22674113fcf71cc17ac3ccc1a7fef48"
-  version = "v11.2.2-beta"
+  revision = "21b68149ccf7c16b3f028bb4c7fd0ab458fe308f"
+  version = "v14.0.0"
 
 [[projects]]
   name = "github.com/Azure/go-autorest"
@@ -51,14 +51,13 @@
     "autorest/to",
     "autorest/validation"
   ]
-  revision = "4695056df7a8950d06bf23e340643d4f6198b4af"
-  version = "v9.5.0"
+  revision = "fc3b03a2d2d1f43fad3007038bd16f044f870722"
+  version = "v9.10.0"
 
 [[projects]]
   name = "github.com/agext/levenshtein"
   packages = ["."]
   revision = "5f10fee965225ac1eecdc234c09daf5cd9e7f7b6"
-  version = "v1.2.1"
 
 [[projects]]
   name = "github.com/apache/thrift"
@@ -69,7 +68,7 @@
 [[projects]]
   name = "github.com/apparentlymart/go-cidr"
   packages = ["cidr"]
-  revision = "2bd8b58cf4275aeb086ade613de226773e29e853"
+  revision = "7e4b007599d4e2076d9a81be723b3912852dda2c"
 
 [[projects]]
   branch = "master"
@@ -133,7 +132,7 @@
 [[projects]]
   name = "github.com/blang/semver"
   packages = ["."]
-  revision = "4a1e882c79dcf4ec00d2e29fac74b9c8938d5052"
+  revision = "2ee87856327ba09384cabd113bc6b5d174e9ec0f"
 
 [[projects]]
   branch = "master"
@@ -149,8 +148,7 @@
 [[projects]]
   name = "github.com/dgrijalva/jwt-go"
   packages = ["."]
-  revision = "dbeaa9332f19a944acb5736b4456cfcc02140e29"
-  version = "v3.1.0"
+  revision = "f0777076321ab64f6efc15a82d9d23b98539b943"
 
 [[projects]]
   branch = "master"
@@ -195,7 +193,7 @@
     "ptypes/struct",
     "ptypes/timestamp"
   ]
-  revision = "1e59b77b52bf8e4b449a57e6f79f21226d571845"
+  revision = "130e6b02ab059e7b717a096f397c5b60111cae74"
 
 [[projects]]
   branch = "master"
@@ -220,7 +218,7 @@
     ".",
     "helper/url"
   ]
-  revision = "994f50a6f071b07cfbea9eca9618c9674091ca51"
+  revision = "64040d90d4ab861e7e833d689dc76a0f176d8dec"
 
 [[projects]]
   name = "github.com/hashicorp/go-multierror"
@@ -262,7 +260,7 @@
     "hcldec",
     "hclparse"
   ]
-  revision = "44bad6dbf5490f5da17ec991e664df3d017b706f"
+  revision = "998a3053e207853cf21b90e451772fbecfd1d1bc"
 
 [[projects]]
   name = "github.com/hashicorp/hil"
@@ -272,7 +270,7 @@
     "parser",
     "scanner"
   ]
-  revision = "fa9f258a92500514cc8e9c67020487709df92432"
+  revision = "fac2259da677551de1fb92b844c4d020a38d8468"
 
 [[projects]]
   name = "github.com/hashicorp/logutils"
@@ -280,7 +278,6 @@
   revision = "0dc08b1671f34c4250ce212759ebd880f743d883"
 
 [[projects]]
-  branch = "pulumi-master"
   name = "github.com/hashicorp/terraform"
   packages = [
     "config",
@@ -298,8 +295,10 @@
     "helper/schema",
     "helper/structure",
     "helper/validation",
+    "httpclient",
     "moduledeps",
     "plugin/discovery",
+    "registry",
     "registry/regsrc",
     "registry/response",
     "svchost",
@@ -309,8 +308,8 @@
     "tfdiags",
     "version"
   ]
-  revision = "aad0b3801b6e590b41305b6ab938669e834e5ca7"
-  source = "github.com/pulumi/terraform"
+  revision = "342c529aa58d824f2f2ed1f6ec6118059876aad0"
+  version = "v0.11.5"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -322,6 +321,11 @@
   name = "github.com/jmespath/go-jmespath"
   packages = ["."]
   revision = "0b12d6b5"
+
+[[projects]]
+  name = "github.com/marstr/guid"
+  packages = ["."]
+  revision = "8bdf7d1a087ccc975cf37dd6507da50698fd19ca"
 
 [[projects]]
   name = "github.com/mattn/go-isatty"
@@ -467,7 +471,8 @@
 [[projects]]
   name = "github.com/satori/go.uuid"
   packages = ["."]
-  revision = "b061729afc07e77a8aa4fad0a2fd840958f1942a"
+  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
+  version = "v1.2.0"
 
 [[projects]]
   name = "github.com/satori/uuid"
@@ -504,10 +509,12 @@
   packages = [
     "azurerm",
     "azurerm/helpers/authentication",
+    "azurerm/helpers/response",
+    "azurerm/helpers/subscription",
     "azurerm/utils"
   ]
-  revision = "787d6614bd3a480aefced703466816fc3ba1321e"
-  version = "v1.0.1"
+  revision = ""
+  version = "v1.3.1"
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
@@ -659,6 +666,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "c27ad8665ae67210180f905153bf2ef6c5c84cdf812e01a9cfbfd75c719c792f"
+  inputs-digest = "ec12ef45a18e096d5dc8c1fd80550f15a6056b0ef94bef037727a546d157667a"
   solver-name = "gps-cdcl"
   solver-version = 1
