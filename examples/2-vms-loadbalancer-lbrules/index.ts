@@ -1,11 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as azure from "@pulumi/azure";
-import { Config } from "@pulumi/pulumi";
-
-const config = new Config("2-vms-loadbalancer-lbrules");
-
-const password = config.require("adminpassword");
 
 const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
     location: "West US",
@@ -60,11 +55,13 @@ const lb = new azure.lb.LoadBalancer("lb", {
 
 const backendPool = new azure.lb.BackendAddressPool("backendPool", {
     resourceGroupName: resourceGroup.name,
+    location: resourceGroup.location,
     loadbalancerId: lb.id,
 });
 
 const tcp = new azure.lb.NatRule("tcp", {
     resourceGroupName: resourceGroup.name,
+    location: resourceGroup.location,
     loadbalancerId: lb.id,
     protocol: "tcp",
     frontendPort: 5000,
@@ -74,6 +71,7 @@ const tcp = new azure.lb.NatRule("tcp", {
 
 const lbprobe = new azure.lb.Probe("lbprobe", {
     resourceGroupName: resourceGroup.name,
+    location: resourceGroup.location,
     loadbalancerId: lb.id,
     protocol: "tcp",
     port: 80,
@@ -83,6 +81,7 @@ const lbprobe = new azure.lb.Probe("lbprobe", {
 
 const lbrule = new azure.lb.Rule("lbrule", {
     resourceGroupName: resourceGroup.name,
+    location: resourceGroup.location,
     loadbalancerId: lb.id,
     protocol: "tcp",
     frontendPort: 80,
@@ -126,8 +125,8 @@ const vm = new azure.compute.VirtualMachine("vm", {
         createOption: "FromImage"
     },
     osProfile: {
-        computerName: "vmhost",
-        adminUsername: "vmadmin",
-        adminPassword: password,
+        computerName: "hostname",
+        adminUsername: "testadmin",
+        adminPassword: "Password1234!",
     },
 });

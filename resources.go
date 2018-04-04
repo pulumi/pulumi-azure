@@ -35,7 +35,7 @@ const (
 	azureLB                  = "lb"                  // Load Balancer
 	azureIot                 = "iot"                 // IoT resource
 	azureMgmtResource        = "managementresource"  // Management Resource
-	azureMonitoring          = "montor"              // Metrics/monitoring resources
+	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMySQL               = "mysql"               // MySql
 	azureNetwork             = "network"             // Networking
 	azureNetworkWatcher      = "networkwatcher"      // Network Watcher
