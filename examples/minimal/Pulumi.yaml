@@ -1,4 +1,4 @@
-name: azurerm/minimal
+name: minimal
 description: An empty Pulumi Azure test script.
 runtime: nodejs
 

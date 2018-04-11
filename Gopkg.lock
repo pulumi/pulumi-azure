@@ -4,41 +4,53 @@
 [[projects]]
   name = "github.com/Azure/azure-sdk-for-go"
   packages = [
-    "arm/appinsights",
-    "arm/authorization",
-    "arm/automation",
-    "arm/cdn",
-    "arm/compute",
-    "arm/containerinstance",
-    "arm/containerregistry",
-    "arm/containerservice",
-    "arm/cosmos-db",
-    "arm/disk",
-    "arm/dns",
-    "arm/eventgrid",
-    "arm/eventhub",
-    "arm/graphrbac",
-    "arm/keyvault",
-    "arm/mysql",
-    "arm/network",
-    "arm/operationalinsights",
-    "arm/postgresql",
-    "arm/redis",
-    "arm/resources/locks",
-    "arm/resources/resources",
-    "arm/resources/subscriptions",
-    "arm/scheduler",
-    "arm/search",
-    "arm/servicebus",
-    "arm/sql",
-    "arm/storage",
-    "arm/trafficmanager",
-    "arm/web",
-    "dataplane/keyvault",
+    "services/appinsights/mgmt/2015-05-01/insights",
+    "services/authorization/mgmt/2015-07-01/authorization",
+    "services/automation/mgmt/2015-10-31/automation",
+    "services/cdn/mgmt/2017-04-02/cdn",
+    "services/compute/mgmt/2017-12-01/compute",
+    "services/containerinstance/mgmt/2018-02-01-preview/containerinstance",
+    "services/containerregistry/mgmt/2017-10-01/containerregistry",
+    "services/containerservice/mgmt/2017-09-30/containerservice",
+    "services/cosmos-db/mgmt/2015-04-08/documentdb",
+    "services/dns/mgmt/2016-04-01/dns",
+    "services/eventgrid/mgmt/2017-09-15-preview/eventgrid",
+    "services/eventhub/mgmt/2017-04-01/eventhub",
+    "services/graphrbac/1.6/graphrbac",
+    "services/iothub/mgmt/2017-07-01/devices",
+    "services/keyvault/2016-10-01/keyvault",
+    "services/keyvault/mgmt/2016-10-01/keyvault",
+    "services/monitor/mgmt/2017-05-01-preview/insights",
+    "services/mysql/mgmt/2017-04-30-preview/mysql",
+    "services/network/mgmt/2017-09-01/network",
+    "services/operationalinsights/mgmt/2015-11-01-preview/operationalinsights",
+    "services/operationsmanagement/mgmt/2015-11-01-preview/operationsmanagement",
+    "services/postgresql/mgmt/2017-04-30-preview/postgresql",
+    "services/redis/mgmt/2016-04-01/redis",
+    "services/resources/mgmt/2016-06-01/subscriptions",
+    "services/resources/mgmt/2016-09-01/locks",
+    "services/resources/mgmt/2016-12-01/policy",
+    "services/resources/mgmt/2017-05-10/resources",
+    "services/scheduler/mgmt/2016-03-01/scheduler",
+    "services/search/mgmt/2015-08-19/search",
+    "services/servicebus/mgmt/2017-04-01/servicebus",
+    "services/sql/mgmt/2015-05-01-preview/sql",
+    "services/storage/mgmt/2017-10-01/storage",
+    "services/trafficmanager/mgmt/2017-05-01/trafficmanager",
+    "services/web/mgmt/2016-09-01/web",
     "storage"
   ]
   revision = "21b68149ccf7c16b3f028bb4c7fd0ab458fe308f"
   version = "v14.0.0"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/Azure/go-ansiterm"
+  packages = [
+    ".",
+    "winterm"
+  ]
+  revision = "d6e3b3328b783f23731bc4d058875b0371ff8109"
 
 [[projects]]
   name = "github.com/Azure/go-autorest"
@@ -53,6 +65,12 @@
   ]
   revision = "fc3b03a2d2d1f43fad3007038bd16f044f870722"
   version = "v9.10.0"
+
+[[projects]]
+  name = "github.com/Sirupsen/logrus"
+  packages = ["."]
+  revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
+  version = "v1.0.5"
 
 [[projects]]
   name = "github.com/agext/levenshtein"
@@ -161,6 +179,25 @@
   packages = ["."]
   revision = "95292e44976d1217cf3611dc7c8d9466877d3ed5"
   version = "v1.0.1"
+
+[[projects]]
+  name = "github.com/docker/docker"
+  packages = [
+    "pkg/jsonlog",
+    "pkg/jsonmessage",
+    "pkg/progress",
+    "pkg/streamformatter",
+    "pkg/term",
+    "pkg/term/windows"
+  ]
+  revision = "092cba3727bb9b4a2f0e922cd6c0f93ea270e363"
+  version = "v1.13.1"
+
+[[projects]]
+  name = "github.com/docker/go-units"
+  packages = ["."]
+  revision = "47565b4f722fb6ceae66b95f853feed578a4a51c"
+  version = "v0.3.3"
 
 [[projects]]
   branch = "master"
@@ -447,20 +484,20 @@
     "pkg/util/mapper",
     "pkg/util/retry",
     "pkg/util/rpcutil",
+    "pkg/util/rpcutil/rpcerror",
     "pkg/version",
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "7e14a09b3b63bfab1aaeac47fdad944ac466b241"
+  revision = "479a2e6ad511fc818b234f32031bb2e9985cfb9d"
 
 [[projects]]
-  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "33ab819907cb672b078d41d9b83c75a7dcef1552"
+  revision = "06100dcb730d85c58d8c94da85a35e7baa7f3372"
 
 [[projects]]
   branch = "master"
@@ -627,6 +664,12 @@
 
 [[projects]]
   branch = "master"
+  name = "golang.org/x/time"
+  packages = ["rate"]
+  revision = "26559e0f760e39c24d730d3224364aef164ee23f"
+
+[[projects]]
+  branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
   revision = "7f0da29060c682909f650ad8ed4e515bd74fa12a"
@@ -666,6 +709,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "ec12ef45a18e096d5dc8c1fd80550f15a6056b0ef94bef037727a546d157667a"
+  inputs-digest = "6f44cc9453fdb6cd5b25fa8c1570b4a07f1e02053b07872b0bc719b79dc9b073"
   solver-name = "gps-cdcl"
   solver-version = 1
