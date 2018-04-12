@@ -204,7 +204,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Operational Insights
 			"azurerm_log_analytics_workspace": {Tok: azureResource(azureOperationalInsights, "AnalyticsWorkspace")},
-			"azurerm_log_analytics_solution":  {Tok: azureResource(azureOperationalInsights, "AnalyticsSolution"),
+			"azurerm_log_analytics_solution": {Tok: azureResource(azureOperationalInsights, "AnalyticsSolution"),
 				Docs: &tfbridge.DocInfo{
 					Source: "log_analytics_solution.html.markdown",
 				}},
@@ -234,11 +234,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_definition": {Tok: azureResource(azurePolicy, "Definition")},
 
 			// SQL
-			"azurerm_sql_elasticpool":                    {Tok: azureResource(azureSQL, "ElasticPool")},
-			"azurerm_sql_database":                       {Tok: azureResource(azureSQL, "Database")},
-			"azurerm_sql_firewall_rule":                  {Tok: azureResource(azureSQL, "FirewallRule")},
-			"azurerm_sql_server":                         {Tok: azureResource(azureSQL, "SqlServer")},
-			"azurerm_sql_virtual_network_rule":           {Tok: azureResource(azureSQL, "VirtualNetworkRule"),
+			"azurerm_sql_elasticpool":   {Tok: azureResource(azureSQL, "ElasticPool")},
+			"azurerm_sql_database":      {Tok: azureResource(azureSQL, "Database")},
+			"azurerm_sql_firewall_rule": {Tok: azureResource(azureSQL, "FirewallRule")},
+			"azurerm_sql_server":        {Tok: azureResource(azureSQL, "SqlServer")},
+			"azurerm_sql_virtual_network_rule": {Tok: azureResource(azureSQL, "VirtualNetworkRule"),
 				Docs: &tfbridge.DocInfo{
 					Source: "sql_virtual_network_rule.html.markdown",
 				},
@@ -246,28 +246,28 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sql_active_directory_administrator": {Tok: azureResource(azureSQL, "ActiveDirectoryAdministrator")},
 
 			// Network
-			"azurerm_virtual_network":                     {Tok: azureResource(azureNetwork, "VirtualNetwork")},
-			"azurerm_virtual_network_peering":             {Tok: azureResource(azureNetwork, "VirtualNetworkPeering")},
-			"azurerm_virtual_network_gateway":             {Tok: azureResource(azureNetwork, "VirtualNetworkGateway")},
-			"azurerm_virtual_network_gateway_connection":  {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection")},
-			"azurerm_local_network_gateway":               {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
-			"azurerm_application_gateway":                 {Tok: azureResource(azureNetwork, "ApplicationGateway")},
-			"azurerm_application_security_group":          {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
-			"azurerm_network_interface":                   {Tok: azureResource(azureNetwork, "NetworkInterface")},
-			"azurerm_network_security_group":              {Tok: azureResource(azureNetwork, "NetworkSecurityGroup")},
-			"azurerm_network_security_rule":               {Tok: azureResource(azureNetwork, "NetworkSecurityRule")},
-			"azurerm_network_watcher":                     {Tok: azureResource(azureNetwork, "NetworkWatcher")},
-			"azurerm_public_ip":                           {Tok: azureResource(azureNetwork, "PublicIp")},
-			"azurerm_route":                               {Tok: azureResource(azureNetwork, "Route")},
-			"azurerm_route_table":                         {Tok: azureResource(azureNetwork, "RouteTable")},
-			"azurerm_subnet":                              {Tok: azureResource(azureNetwork, "Subnet")},
-			"azurerm_express_route_circuit":               {Tok: azureResource(azureNetwork, "ExpressRouteCircuit")},
+			"azurerm_virtual_network":                    {Tok: azureResource(azureNetwork, "VirtualNetwork")},
+			"azurerm_virtual_network_peering":            {Tok: azureResource(azureNetwork, "VirtualNetworkPeering")},
+			"azurerm_virtual_network_gateway":            {Tok: azureResource(azureNetwork, "VirtualNetworkGateway")},
+			"azurerm_virtual_network_gateway_connection": {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection")},
+			"azurerm_local_network_gateway":              {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
+			"azurerm_application_gateway":                {Tok: azureResource(azureNetwork, "ApplicationGateway")},
+			"azurerm_application_security_group":         {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
+			"azurerm_network_interface":                  {Tok: azureResource(azureNetwork, "NetworkInterface")},
+			"azurerm_network_security_group":             {Tok: azureResource(azureNetwork, "NetworkSecurityGroup")},
+			"azurerm_network_security_rule":              {Tok: azureResource(azureNetwork, "NetworkSecurityRule")},
+			"azurerm_network_watcher":                    {Tok: azureResource(azureNetwork, "NetworkWatcher")},
+			"azurerm_public_ip":                          {Tok: azureResource(azureNetwork, "PublicIp")},
+			"azurerm_route":                              {Tok: azureResource(azureNetwork, "Route")},
+			"azurerm_route_table":                        {Tok: azureResource(azureNetwork, "RouteTable")},
+			"azurerm_subnet":                             {Tok: azureResource(azureNetwork, "Subnet")},
+			"azurerm_express_route_circuit":              {Tok: azureResource(azureNetwork, "ExpressRouteCircuit")},
 			"azurerm_express_route_circuit_authorization": {Tok: azureResource(azureNetwork, "ExpressRouteCircuitAuthorization"),
 				Docs: &tfbridge.DocInfo{
 					Source: "express_route_circuit_authorization.html.markdown",
 				},
 			},
-			"azurerm_express_route_circuit_peering":       {Tok: azureResource(azureNetwork, "ExpressRouteCircuitPeering"),
+			"azurerm_express_route_circuit_peering": {Tok: azureResource(azureNetwork, "ExpressRouteCircuitPeering"),
 				Docs: &tfbridge.DocInfo{
 					Source: "express_route_circuit_authorization.html.markdown",
 				},
@@ -337,12 +337,12 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 			PeerDependencies: map[string]string{
-				"@pulumi/pulumi": "^0.11.1",
+				"@pulumi/pulumi": "^0.11.3-rc1",
 			},
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.11.1",
+				"pulumi": ">=0.11.3-rc1",
 			},
 		},
 	}
