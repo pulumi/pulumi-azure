@@ -6,15 +6,10 @@
   name = "github.com/pulumi/pulumi-terraform"
   branch = "release/0.11"
 
-[[override]]
-  name = "github.com/aws/aws-sdk-go"
-  version = "=1.12.32"
-
-[[override]]
-  name = "github.com/hashicorp/terraform"
-  source = "github.com/pulumi/terraform"
-  branch = "pulumi-master"
-
 [[constraint]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
-  version = "=1.0.1"
+  version = "=1.3.1"
+
+[[override]]
+  name = "github.com/pulumi/terraform"
+  branch = "pulumi-master"
