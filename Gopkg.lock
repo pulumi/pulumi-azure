@@ -26,7 +26,7 @@
     "services/operationalinsights/mgmt/2015-11-01-preview/operationalinsights",
     "services/operationsmanagement/mgmt/2015-11-01-preview/operationsmanagement",
     "services/postgresql/mgmt/2017-04-30-preview/postgresql",
-    "services/redis/mgmt/2016-04-01/redis",
+    "services/redis/mgmt/2018-03-01/redis",
     "services/resources/mgmt/2016-06-01/subscriptions",
     "services/resources/mgmt/2016-09-01/locks",
     "services/resources/mgmt/2016-12-01/policy",
@@ -38,10 +38,11 @@
     "services/storage/mgmt/2017-10-01/storage",
     "services/trafficmanager/mgmt/2017-05-01/trafficmanager",
     "services/web/mgmt/2016-09-01/web",
-    "storage"
+    "storage",
+    "version"
   ]
-  revision = "21b68149ccf7c16b3f028bb4c7fd0ab458fe308f"
-  version = "v14.0.0"
+  revision = "060bf9b93ad98bc41813ca23f5328843f6c0e90b"
+  version = "v15.2.0"
 
 [[projects]]
   branch = "master"
@@ -63,8 +64,8 @@
     "autorest/to",
     "autorest/validation"
   ]
-  revision = "fc3b03a2d2d1f43fad3007038bd16f044f870722"
-  version = "v9.10.0"
+  revision = "9ad9326b278af8fa5cc67c30c0ce9a58cc0862b2"
+  version = "v10.6.0"
 
 [[projects]]
   name = "github.com/Sirupsen/logrus"
@@ -166,7 +167,8 @@
 [[projects]]
   name = "github.com/dgrijalva/jwt-go"
   packages = ["."]
-  revision = "f0777076321ab64f6efc15a82d9d23b98539b943"
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
 
 [[projects]]
   branch = "master"
@@ -362,7 +364,8 @@
 [[projects]]
   name = "github.com/marstr/guid"
   packages = ["."]
-  revision = "8bdf7d1a087ccc975cf37dd6507da50698fd19ca"
+  revision = "8bd9a64bf37eb297b492a4101fb28e80ac0b290f"
+  version = "v1.1.0"
 
 [[projects]]
   name = "github.com/mattn/go-isatty"
@@ -381,6 +384,7 @@
   revision = "5af94aef99f597e6a9e1f6ac6be6ce0f3c96b49d"
 
 [[projects]]
+  branch = "master"
   name = "github.com/mitchellh/go-homedir"
   packages = ["."]
   revision = "b8bc1bf767474819792c23f32d8286a45736f1c6"
@@ -498,7 +502,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "28cef72de7316f1f42aa79d11c76c0cea9123bf8"
+  revision = "009195b534821a97f44a109927cef48f79535435"
 
 [[projects]]
   branch = "master"
@@ -551,8 +555,8 @@
     "azurerm/helpers/subscription",
     "azurerm/utils"
   ]
-  revision = ""
-  version = "v1.3.1"
+  revision = "7a9c1a978970259615bf2d1a446ab51eae8f4ad0"
+  version = "v1.3.3"
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
@@ -710,6 +714,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7f750932aa880dabef04e2a5443b35a338bafa95baa76df0511cebacebb5d3e6"
+  inputs-digest = "aea31825e303cbd642f3bbe18b54091a9416f59c3185e7ddad72dc2ab2301894"
   solver-name = "gps-cdcl"
   solver-version = 1
