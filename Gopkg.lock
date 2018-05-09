@@ -487,8 +487,8 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "d9230719301375bd56dfef365c0f9d6dbf69a646"
-  version = "v0.12.0"
+  revision = "c345fd7a2f655e9fb0fb8e8ce94e8de83843b61b"
+  version = "v0.12.1"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
