@@ -67,6 +67,12 @@
   version = "v9.10.0"
 
 [[projects]]
+  name = "github.com/Nvveen/Gotty"
+  packages = ["."]
+  revision = "a8b993ba6abdb0e0c12b0125c603323a71c7790c"
+  source = "https://github.com/ijc25/Gotty"
+
+[[projects]]
   name = "github.com/Sirupsen/logrus"
   packages = ["."]
   revision = "c155da19408a8799da419ed3eeb0cb5db0ad5dbc"
@@ -183,21 +189,11 @@
 [[projects]]
   name = "github.com/docker/docker"
   packages = [
-    "pkg/jsonlog",
-    "pkg/jsonmessage",
-    "pkg/progress",
-    "pkg/streamformatter",
     "pkg/term",
     "pkg/term/windows"
   ]
   revision = "092cba3727bb9b4a2f0e922cd6c0f93ea270e363"
   version = "v1.13.1"
-
-[[projects]]
-  name = "github.com/docker/go-units"
-  packages = ["."]
-  revision = "47565b4f722fb6ceae66b95f853feed578a4a51c"
-  version = "v0.3.3"
 
 [[projects]]
   branch = "master"
@@ -478,6 +474,8 @@
     "pkg/testing/integration",
     "pkg/tokens",
     "pkg/tools",
+    "pkg/util/buildutil",
+    "pkg/util/cancel",
     "pkg/util/cmdutil",
     "pkg/util/contract",
     "pkg/util/fsutil",
@@ -490,7 +488,7 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "9ba6584bbfbda7c54e116b0e04c93c8480a5ed28"
+  revision = "7b27f00602c7eeaa380321c055b34313c9d243f8"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -498,7 +496,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "28cef72de7316f1f42aa79d11c76c0cea9123bf8"
+  revision = "3c809d5b5a993ede15ff4f393237086582aff855"
 
 [[projects]]
   branch = "master"
@@ -665,12 +663,6 @@
 
 [[projects]]
   branch = "master"
-  name = "golang.org/x/time"
-  packages = ["rate"]
-  revision = "26559e0f760e39c24d730d3224364aef164ee23f"
-
-[[projects]]
-  branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
   revision = "7f0da29060c682909f650ad8ed4e515bd74fa12a"
@@ -710,6 +702,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "7f750932aa880dabef04e2a5443b35a338bafa95baa76df0511cebacebb5d3e6"
+  inputs-digest = "78538680dbff690f5a9814b8c4a6c6fabc2eaaeb7d5bc305bb383b37a0abf7ff"
   solver-name = "gps-cdcl"
   solver-version = 1
