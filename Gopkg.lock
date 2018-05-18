@@ -474,11 +474,13 @@
     "pkg/testing/integration",
     "pkg/tokens",
     "pkg/tools",
+    "pkg/util/buildutil",
     "pkg/util/cancel",
     "pkg/util/cmdutil",
     "pkg/util/contract",
     "pkg/util/fsutil",
     "pkg/util/httputil",
+    "pkg/util/logging",
     "pkg/util/mapper",
     "pkg/util/retry",
     "pkg/util/rpcutil",
@@ -487,8 +489,8 @@
     "pkg/workspace",
     "sdk/proto/go"
   ]
-  revision = "c345fd7a2f655e9fb0fb8e8ce94e8de83843b61b"
-  version = "v0.12.1"
+  revision = "550a8c02742a8630041818a6e24590333145bb4e"
+  version = "v0.12.2"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -496,8 +498,8 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "9ea4c6e9927e5197a5adce6cd7677cb3eb9db2cb"
-  version = "v0.12.0"
+  revision = "5dc51ed431d5211958b9192c3aad18d0d45c70c2"
+  version = "v0.12.2"
 
 [[projects]]
   branch = "master"
