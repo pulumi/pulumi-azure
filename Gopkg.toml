@@ -1,10 +1,10 @@
 [[override]]
   name = "github.com/pulumi/pulumi"
-  revision = "7b27f00602c7eeaa380321c055b34313c9d243f8"
+  version = "v0.12.2"
 
 [[override]]
   name = "github.com/pulumi/pulumi-terraform"
-  revision = "ea783305995aa83b79d503187d446bbd0c55505e"
+  version = "v0.12.2"
 
 [[constraint]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
