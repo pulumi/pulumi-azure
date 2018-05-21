@@ -496,7 +496,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "3c809d5b5a993ede15ff4f393237086582aff855"
+  revision = "ea783305995aa83b79d503187d446bbd0c55505e"
 
 [[projects]]
   branch = "master"
@@ -702,6 +702,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "78538680dbff690f5a9814b8c4a6c6fabc2eaaeb7d5bc305bb383b37a0abf7ff"
+  inputs-digest = "aa9668f2bc42ff31e2e8e5223bfc32ee28d14ae2203aeb2b5fd896561e2b3b0a"
   solver-name = "gps-cdcl"
   solver-version = 1
