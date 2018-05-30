@@ -6,13 +6,15 @@
     "scripts": {
         "build": "tsc"
     },
+    "dependencies": {
+        "@pulumi/pulumi": "^0.12.2"
+    },   
     "devDependencies": {
         "@types/node": "^8.0.26",
         "typescript": "^2.5.3"
     },
     "peerDependencies": {
-        "@pulumi/azure": "*",
-        "@pulumi/pulumi": "*"
+        "@pulumi/azure": "*"
     },
     "license": "MIT"
 }
