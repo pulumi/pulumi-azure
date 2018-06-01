@@ -28,7 +28,6 @@ func TestExamples(t *testing.T) {
 			"azure:environment": environ,
 		},
 		Dependencies: []string{
-			"@pulumi/pulumi",
 			"@pulumi/azure",
 		},
 	}
