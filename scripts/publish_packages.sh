@@ -17,6 +17,7 @@ echo "Publishing Plugin archive to s3://rel.pulumi.com/:"
 
     # Publish the NPM package.
     echo "Publishing NPM package to NPMjs.com:"
+    pushd ${ROOT}/pack/nodejs/bin
 
     NPM_TAG="dev"
 
@@ -30,6 +31,7 @@ echo "Publishing Plugin archive to s3://rel.pulumi.com/:"
     # Now, perform the publish.
     npm publish -tag ${NPM_TAG}
     npm info 2>/dev/null
+    popd
 
     # Next, publish the PyPI package.
     echo "Publishing Pip package to pulumi.com:"
