@@ -2,7 +2,7 @@ PROJECT_NAME := Microsoft Azure Package
 include build/common.mk
 
 PACK             := azure
-PACKDIR          := pack
+PACKDIR          := sdk
 PROJECT          := github.com/pulumi/pulumi-azure
 NODE_MODULE_NAME := @pulumi/azure
 
