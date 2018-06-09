@@ -1,0 +1,24 @@
+{
+    "name": "@pulumi/azure",
+    "version": "v0.13.1-dev-1528308311-gb83e506-dirty",
+    "description": "A Pulumi package for creating and managing Microsoft Azure cloud resources.",
+    "keywords": [
+        "pulumi",
+        "azure"
+    ],
+    "homepage": "https://pulumi.io/azure",
+    "repository": "https://github.com/pulumi/pulumi-azure",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^0.12.2"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.25",
+        "typescript": "^2.6.2"
+    },
+    "pulumi": {
+        "resource": true
+    }
+}

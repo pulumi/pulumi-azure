@@ -41,7 +41,7 @@ copy_package() {
 run_go_build "${ROOT}/cmd/pulumi-resource-azure"
 
 # Copy Packages
-copy_package "${ROOT}/pack/nodejs/bin/." "@pulumi/azure"
+copy_package "${ROOT}/sdk/nodejs/bin/." "@pulumi/azure"
 
 # Tar up the file and then print it out for use by the caller or script.
 tar -czf ${PUBFILE} -C ${PUBDIR} .

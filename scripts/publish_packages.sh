@@ -20,9 +20,9 @@ echo "Publishing Plugin archive to s3://rel.pulumi.com/:"
 
     # First create the package.json to publish. We need to add our install script to it.
     node $(dirname $0)/promote.js < \
-        ${ROOT}/pack/nodejs/bin/package.json > \
-        ${ROOT}/pack/nodejs/bin/package.json.publish
-    pushd ${ROOT}/pack/nodejs/bin
+        ${ROOT}/sdk/nodejs/bin/package.json > \
+        ${ROOT}/sdk/nodejs/bin/package.json.publish
+    pushd ${ROOT}/sdk/nodejs/bin
     mv package.json package.json.dev
     mv package.json.publish package.json
 
@@ -49,5 +49,5 @@ echo "Publishing Plugin archive to s3://rel.pulumi.com/:"
     twine upload \
         --repository-url https://pypi.pulumi.com?token=${PULUMI_API_TOKEN} \
         -u pulumi -p pulumi \
-        ${ROOT}/pack/python/bin/dist/*.tar.gz
+        ${ROOT}/sdk/python/bin/dist/*.tar.gz
 fi
