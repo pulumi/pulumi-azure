@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: pulumi-azure
-Version: 0.13.1.dev1528308311+gb83e506.dirty
+Version: 0.13.1.dev1528505913+g2086006.dirty
 Summary: A Pulumi package for creating and managing Microsoft Azure cloud resources.
 Home-page: https://pulumi.io/azure
 Author: UNKNOWN
