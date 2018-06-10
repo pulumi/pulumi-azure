@@ -383,16 +383,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_account_sas":                   {Tok: azureDataSource(azureStorage, "getAccountSAS")},
 			"azurerm_traffic_manager_geographical_location": {Tok: azureDataSource(azureTrafficManager, "getGeographicalLocation")},
 		},
-		Overlay: &tfbridge.OverlayInfo{
-			Files:   []string{},
-			Modules: map[string]*tfbridge.OverlayInfo{},
-		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^0.12.2",
+			},
+			Overlay: &tfbridge.OverlayInfo{
+				Files:   []string{},
+				Modules: map[string]*tfbridge.OverlayInfo{},
 			},
 		},
 		Python: &tfbridge.PythonInfo{
