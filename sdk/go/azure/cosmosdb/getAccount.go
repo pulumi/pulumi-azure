@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure CosmosDB (formally DocumentDB) Account.
-func Lookupccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
+func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,53 +18,38 @@ func Lookupccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAccountResult{}
-	if v, ok := outputs["consistencyPolicies"]; ok {
-		ret.ConsistencyPolicies = v
+	return &GetAccountResult{
+		ConsistencyPolicies: outputs["consistencyPolicies"],
 	}
-	if v, ok := outputs["enableAutomaticFailover"]; ok {
-		ret.EnableAutomaticFailover = v
+		EnableAutomaticFailover: outputs["enableAutomaticFailover"],
 	}
-	if v, ok := outputs["endpoint"]; ok {
-		ret.Endpoint = v
+		Endpoint: outputs["endpoint"],
 	}
-	if v, ok := outputs["geoLocations"]; ok {
-		ret.GeoLocations = v
+		GeoLocations: outputs["geoLocations"],
 	}
-	if v, ok := outputs["ipRangeFilter"]; ok {
-		ret.IpRangeFilter = v
+		IpRangeFilter: outputs["ipRangeFilter"],
 	}
-	if v, ok := outputs["kind"]; ok {
-		ret.Kind = v
+		Kind: outputs["kind"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["offerType"]; ok {
-		ret.OfferType = v
+		OfferType: outputs["offerType"],
 	}
-	if v, ok := outputs["primaryMasterKey"]; ok {
-		ret.PrimaryMasterKey = v
+		PrimaryMasterKey: outputs["primaryMasterKey"],
 	}
-	if v, ok := outputs["primaryReadonlyMasterKey"]; ok {
-		ret.PrimaryReadonlyMasterKey = v
+		PrimaryReadonlyMasterKey: outputs["primaryReadonlyMasterKey"],
 	}
-	if v, ok := outputs["readEndpoints"]; ok {
-		ret.ReadEndpoints = v
+		ReadEndpoints: outputs["readEndpoints"],
 	}
-	if v, ok := outputs["secondaryMasterKey"]; ok {
-		ret.SecondaryMasterKey = v
+		SecondaryMasterKey: outputs["secondaryMasterKey"],
 	}
-	if v, ok := outputs["secondaryReadonlyMasterKey"]; ok {
-		ret.SecondaryReadonlyMasterKey = v
+		SecondaryReadonlyMasterKey: outputs["secondaryReadonlyMasterKey"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["writeEndpoints"]; ok {
-		ret.WriteEndpoints = v
+		WriteEndpoints: outputs["writeEndpoints"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAccount.

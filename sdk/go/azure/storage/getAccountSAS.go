@@ -13,7 +13,7 @@ import (
 // 
 // Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
 // and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
-func LookupccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs) (*GetAccountSASResult, error) {
+func LookupAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs) (*GetAccountSASResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["connectionString"] = args.ConnectionString
@@ -28,11 +28,10 @@ func LookupccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs) (*GetAccountS
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAccountSASResult{}
-	if v, ok := outputs["sas"]; ok {
-		ret.Sas = v
+	return &GetAccountSASResult{
+		Sas: outputs["sas"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAccountSAS.

@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure subscription.
-func Lookupubscription(ctx *pulumi.Context, args *GetSubscriptionArgs) (*GetSubscriptionResult, error) {
+func LookupSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs) (*GetSubscriptionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["subscriptionId"] = args.SubscriptionId
@@ -17,26 +17,20 @@ func Lookupubscription(ctx *pulumi.Context, args *GetSubscriptionArgs) (*GetSubs
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSubscriptionResult{}
-	if v, ok := outputs["displayName"]; ok {
-		ret.DisplayName = v
+	return &GetSubscriptionResult{
+		DisplayName: outputs["displayName"],
 	}
-	if v, ok := outputs["locationPlacementId"]; ok {
-		ret.LocationPlacementId = v
+		LocationPlacementId: outputs["locationPlacementId"],
 	}
-	if v, ok := outputs["quotaId"]; ok {
-		ret.QuotaId = v
+		QuotaId: outputs["quotaId"],
 	}
-	if v, ok := outputs["spendingLimit"]; ok {
-		ret.SpendingLimit = v
+		SpendingLimit: outputs["spendingLimit"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["subscriptionId"]; ok {
-		ret.SubscriptionId = v
+		SubscriptionId: outputs["subscriptionId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSubscription.

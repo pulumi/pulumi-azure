@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure scheduler job collection.
-func LookupobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJobCollectionResult, error) {
+func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJobCollectionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,23 +18,18 @@ func LookupobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJo
 	if err != nil {
 		return nil, err
 	}
-	ret := GetJobCollectionResult{}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+	return &GetJobCollectionResult{
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["quotas"]; ok {
-		ret.Quotas = v
+		Quotas: outputs["quotas"],
 	}
-	if v, ok := outputs["sku"]; ok {
-		ret.Sku = v
+		Sku: outputs["sku"],
 	}
-	if v, ok := outputs["state"]; ok {
-		ret.State = v
+		State: outputs["state"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getJobCollection.

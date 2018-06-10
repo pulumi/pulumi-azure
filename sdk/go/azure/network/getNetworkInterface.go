@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure Network Interface.
-func LookupetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) (*GetNetworkInterfaceResult, error) {
+func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) (*GetNetworkInterfaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,50 +18,36 @@ func LookupetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) (
 	if err != nil {
 		return nil, err
 	}
-	ret := GetNetworkInterfaceResult{}
-	if v, ok := outputs["appliedDnsServers"]; ok {
-		ret.AppliedDnsServers = v
+	return &GetNetworkInterfaceResult{
+		AppliedDnsServers: outputs["appliedDnsServers"],
 	}
-	if v, ok := outputs["dnsServers"]; ok {
-		ret.DnsServers = v
+		DnsServers: outputs["dnsServers"],
 	}
-	if v, ok := outputs["enableAcceleratedNetworking"]; ok {
-		ret.EnableAcceleratedNetworking = v
+		EnableAcceleratedNetworking: outputs["enableAcceleratedNetworking"],
 	}
-	if v, ok := outputs["enableIpForwarding"]; ok {
-		ret.EnableIpForwarding = v
+		EnableIpForwarding: outputs["enableIpForwarding"],
 	}
-	if v, ok := outputs["internalDnsNameLabel"]; ok {
-		ret.InternalDnsNameLabel = v
+		InternalDnsNameLabel: outputs["internalDnsNameLabel"],
 	}
-	if v, ok := outputs["internalFqdn"]; ok {
-		ret.InternalFqdn = v
+		InternalFqdn: outputs["internalFqdn"],
 	}
-	if v, ok := outputs["ipConfigurations"]; ok {
-		ret.IpConfigurations = v
+		IpConfigurations: outputs["ipConfigurations"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["macAddress"]; ok {
-		ret.MacAddress = v
+		MacAddress: outputs["macAddress"],
 	}
-	if v, ok := outputs["networkSecurityGroupId"]; ok {
-		ret.NetworkSecurityGroupId = v
+		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
 	}
-	if v, ok := outputs["privateIpAddress"]; ok {
-		ret.PrivateIpAddress = v
+		PrivateIpAddress: outputs["privateIpAddress"],
 	}
-	if v, ok := outputs["privateIpAddresses"]; ok {
-		ret.PrivateIpAddresses = v
+		PrivateIpAddresses: outputs["privateIpAddresses"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["virtualMachineId"]; ok {
-		ret.VirtualMachineId = v
+		VirtualMachineId: outputs["virtualMachineId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getNetworkInterface.

@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure resource group.
-func LookupesourceGroup(ctx *pulumi.Context, args *GetResourceGroupArgs) (*GetResourceGroupResult, error) {
+func LookupResourceGroup(ctx *pulumi.Context, args *GetResourceGroupArgs) (*GetResourceGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -17,14 +17,12 @@ func LookupesourceGroup(ctx *pulumi.Context, args *GetResourceGroupArgs) (*GetRe
 	if err != nil {
 		return nil, err
 	}
-	ret := GetResourceGroupResult{}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+	return &GetResourceGroupResult{
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getResourceGroup.

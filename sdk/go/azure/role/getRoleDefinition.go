@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of a custom Role Definition. To access information about a built-in Role Definition, [please see the `azurerm_builtin_role_definition` data source](builtin_role_definition.html) instead.
-func LookupoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*GetRoleDefinitionResult, error) {
+func LookupRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*GetRoleDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["roleDefinitionId"] = args.RoleDefinitionId
@@ -18,23 +18,18 @@ func LookupoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*Get
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRoleDefinitionResult{}
-	if v, ok := outputs["assignableScopes"]; ok {
-		ret.AssignableScopes = v
+	return &GetRoleDefinitionResult{
+		AssignableScopes: outputs["assignableScopes"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["name"]; ok {
-		ret.Name = v
+		Name: outputs["name"],
 	}
-	if v, ok := outputs["permissions"]; ok {
-		ret.Permissions = v
+		Permissions: outputs["permissions"],
 	}
-	if v, ok := outputs["type"]; ok {
-		ret.Type = v
+		Type: outputs["type"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getRoleDefinition.

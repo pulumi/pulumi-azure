@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of a built-in Role Definition. To access information about a custom Role Definition, [please see the `azurerm_role_definition` data source](role_definition.html) instead.
-func LookupuiltinRoleDefinition(ctx *pulumi.Context, args *GetBuiltinRoleDefinitionArgs) (*GetBuiltinRoleDefinitionResult, error) {
+func LookupBuiltinRoleDefinition(ctx *pulumi.Context, args *GetBuiltinRoleDefinitionArgs) (*GetBuiltinRoleDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -17,20 +17,16 @@ func LookupuiltinRoleDefinition(ctx *pulumi.Context, args *GetBuiltinRoleDefinit
 	if err != nil {
 		return nil, err
 	}
-	ret := GetBuiltinRoleDefinitionResult{}
-	if v, ok := outputs["assignableScopes"]; ok {
-		ret.AssignableScopes = v
+	return &GetBuiltinRoleDefinitionResult{
+		AssignableScopes: outputs["assignableScopes"],
 	}
-	if v, ok := outputs["description"]; ok {
-		ret.Description = v
+		Description: outputs["description"],
 	}
-	if v, ok := outputs["permissions"]; ok {
-		ret.Permissions = v
+		Permissions: outputs["permissions"],
 	}
-	if v, ok := outputs["type"]; ok {
-		ret.Type = v
+		Type: outputs["type"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getBuiltinRoleDefinition.

@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of a Snapshot of an Disk.
-func Lookupnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
+func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,32 +18,24 @@ func Lookupnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSnapshotResult{}
-	if v, ok := outputs["creationOption"]; ok {
-		ret.CreationOption = v
+	return &GetSnapshotResult{
+		CreationOption: outputs["creationOption"],
 	}
-	if v, ok := outputs["diskSizeGb"]; ok {
-		ret.DiskSizeGb = v
+		DiskSizeGb: outputs["diskSizeGb"],
 	}
-	if v, ok := outputs["encryptionSettings"]; ok {
-		ret.EncryptionSettings = v
+		EncryptionSettings: outputs["encryptionSettings"],
 	}
-	if v, ok := outputs["osType"]; ok {
-		ret.OsType = v
+		OsType: outputs["osType"],
 	}
-	if v, ok := outputs["sourceResourceId"]; ok {
-		ret.SourceResourceId = v
+		SourceResourceId: outputs["sourceResourceId"],
 	}
-	if v, ok := outputs["sourceUri"]; ok {
-		ret.SourceUri = v
+		SourceUri: outputs["sourceUri"],
 	}
-	if v, ok := outputs["storageAccountId"]; ok {
-		ret.StorageAccountId = v
+		StorageAccountId: outputs["storageAccountId"],
 	}
-	if v, ok := outputs["timeCreated"]; ok {
-		ret.TimeCreated = v
+		TimeCreated: outputs["timeCreated"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSnapshot.

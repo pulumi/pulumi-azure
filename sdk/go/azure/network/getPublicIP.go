@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an existing Azure Public IP Address.
-func LookupublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPResult, error) {
+func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -19,23 +19,18 @@ func LookupublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetPublicIPResult{}
-	if v, ok := outputs["domainNameLabel"]; ok {
-		ret.DomainNameLabel = v
+	return &GetPublicIPResult{
+		DomainNameLabel: outputs["domainNameLabel"],
 	}
-	if v, ok := outputs["fqdn"]; ok {
-		ret.Fqdn = v
+		Fqdn: outputs["fqdn"],
 	}
-	if v, ok := outputs["idleTimeoutInMinutes"]; ok {
-		ret.IdleTimeoutInMinutes = v
+		IdleTimeoutInMinutes: outputs["idleTimeoutInMinutes"],
 	}
-	if v, ok := outputs["ipAddress"]; ok {
-		ret.IpAddress = v
+		IpAddress: outputs["ipAddress"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getPublicIP.

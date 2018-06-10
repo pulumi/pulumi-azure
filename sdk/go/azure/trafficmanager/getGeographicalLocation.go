@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
-func LookupeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs) error {
+func LookupGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs) error {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name

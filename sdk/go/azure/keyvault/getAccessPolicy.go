@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access information about the permissions from the Management Key Vault Templates.
-func LookupccessPolicy(ctx *pulumi.Context, args *GetAccessPolicyArgs) (*GetAccessPolicyResult, error) {
+func LookupAccessPolicy(ctx *pulumi.Context, args *GetAccessPolicyArgs) (*GetAccessPolicyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -17,17 +17,14 @@ func LookupccessPolicy(ctx *pulumi.Context, args *GetAccessPolicyArgs) (*GetAcce
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAccessPolicyResult{}
-	if v, ok := outputs["certificatePermissions"]; ok {
-		ret.CertificatePermissions = v
+	return &GetAccessPolicyResult{
+		CertificatePermissions: outputs["certificatePermissions"],
 	}
-	if v, ok := outputs["keyPermissions"]; ok {
-		ret.KeyPermissions = v
+		KeyPermissions: outputs["keyPermissions"],
 	}
-	if v, ok := outputs["secretPermissions"]; ok {
-		ret.SecretPermissions = v
+		SecretPermissions: outputs["secretPermissions"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAccessPolicy.

@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to obtain information about a DNS Zone.
-func Lookupone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
+func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,23 +18,18 @@ func Lookupone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	ret := GetZoneResult{}
-	if v, ok := outputs["maxNumberOfRecordSets"]; ok {
-		ret.MaxNumberOfRecordSets = v
+	return &GetZoneResult{
+		MaxNumberOfRecordSets: outputs["maxNumberOfRecordSets"],
 	}
-	if v, ok := outputs["nameServers"]; ok {
-		ret.NameServers = v
+		NameServers: outputs["nameServers"],
 	}
-	if v, ok := outputs["numberOfRecordSets"]; ok {
-		ret.NumberOfRecordSets = v
+		NumberOfRecordSets: outputs["numberOfRecordSets"],
 	}
-	if v, ok := outputs["resourceGroupName"]; ok {
-		ret.ResourceGroupName = v
+		ResourceGroupName: outputs["resourceGroupName"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getZone.

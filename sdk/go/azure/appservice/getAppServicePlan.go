@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to obtain information about an App Service Plan (formerly known as a `Server Farm`).
-func LookupppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs) (*GetAppServicePlanResult, error) {
+func LookupAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs) (*GetAppServicePlanResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,26 +18,20 @@ func LookupppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs) (*Get
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAppServicePlanResult{}
-	if v, ok := outputs["kind"]; ok {
-		ret.Kind = v
+	return &GetAppServicePlanResult{
+		Kind: outputs["kind"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["maximumNumberOfWorkers"]; ok {
-		ret.MaximumNumberOfWorkers = v
+		MaximumNumberOfWorkers: outputs["maximumNumberOfWorkers"],
 	}
-	if v, ok := outputs["properties"]; ok {
-		ret.Properties = v
+		Properties: outputs["properties"],
 	}
-	if v, ok := outputs["sku"]; ok {
-		ret.Sku = v
+		Sku: outputs["sku"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAppServicePlan.

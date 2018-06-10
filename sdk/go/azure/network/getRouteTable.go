@@ -8,7 +8,7 @@ import (
 )
 
 // Gets information about a Route Table
-func LookupouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
+func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,20 +18,16 @@ func LookupouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTab
 	if err != nil {
 		return nil, err
 	}
-	ret := GetRouteTableResult{}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+	return &GetRouteTableResult{
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["routes"]; ok {
-		ret.Routes = v
+		Routes: outputs["routes"],
 	}
-	if v, ok := outputs["subnets"]; ok {
-		ret.Subnets = v
+		Subnets: outputs["subnets"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getRouteTable.

@@ -12,7 +12,7 @@ import (
 // ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 // 
-func LookupubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs) (*GetKubernetesClusterResult, error) {
+func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs) (*GetKubernetesClusterResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -22,38 +22,28 @@ func LookupubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetKubernetesClusterResult{}
-	if v, ok := outputs["agentPoolProfiles"]; ok {
-		ret.AgentPoolProfiles = v
+	return &GetKubernetesClusterResult{
+		AgentPoolProfiles: outputs["agentPoolProfiles"],
 	}
-	if v, ok := outputs["dnsPrefix"]; ok {
-		ret.DnsPrefix = v
+		DnsPrefix: outputs["dnsPrefix"],
 	}
-	if v, ok := outputs["fqdn"]; ok {
-		ret.Fqdn = v
+		Fqdn: outputs["fqdn"],
 	}
-	if v, ok := outputs["kubeConfigs"]; ok {
-		ret.KubeConfigs = v
+		KubeConfigs: outputs["kubeConfigs"],
 	}
-	if v, ok := outputs["kubeConfigRaw"]; ok {
-		ret.KubeConfigRaw = v
+		KubeConfigRaw: outputs["kubeConfigRaw"],
 	}
-	if v, ok := outputs["kubernetesVersion"]; ok {
-		ret.KubernetesVersion = v
+		KubernetesVersion: outputs["kubernetesVersion"],
 	}
-	if v, ok := outputs["linuxProfiles"]; ok {
-		ret.LinuxProfiles = v
+		LinuxProfiles: outputs["linuxProfiles"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["servicePrincipals"]; ok {
-		ret.ServicePrincipals = v
+		ServicePrincipals: outputs["servicePrincipals"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getKubernetesCluster.

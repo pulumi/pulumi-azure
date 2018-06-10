@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure Subnet located within a Virtual Network.
-func Lookupubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, error) {
+func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -19,20 +19,16 @@ func Lookupubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSubnetResult{}
-	if v, ok := outputs["addressPrefix"]; ok {
-		ret.AddressPrefix = v
+	return &GetSubnetResult{
+		AddressPrefix: outputs["addressPrefix"],
 	}
-	if v, ok := outputs["ipConfigurations"]; ok {
-		ret.IpConfigurations = v
+		IpConfigurations: outputs["ipConfigurations"],
 	}
-	if v, ok := outputs["networkSecurityGroupId"]; ok {
-		ret.NetworkSecurityGroupId = v
+		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
 	}
-	if v, ok := outputs["routeTableId"]; ok {
-		ret.RouteTableId = v
+		RouteTableId: outputs["routeTableId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSubnet.

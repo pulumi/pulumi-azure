@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access a filtered list of Public IP Addresses
-func LookupublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs) (*GetPublicIPsResult, error) {
+func LookupPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs) (*GetPublicIPsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["allocationType"] = args.AllocationType
@@ -20,11 +20,10 @@ func LookupublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs) (*GetPublicIPsR
 	if err != nil {
 		return nil, err
 	}
-	ret := GetPublicIPsResult{}
-	if v, ok := outputs["publicIps"]; ok {
-		ret.PublicIps = v
+	return &GetPublicIPsResult{
+		PublicIps: outputs["publicIps"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getPublicIPs.

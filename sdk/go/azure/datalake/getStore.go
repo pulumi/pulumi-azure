@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to obtain information about a Data Lake Store.
-func Lookuptore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, error) {
+func LookupStore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,17 +18,14 @@ func Lookuptore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetStoreResult{}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+	return &GetStoreResult{
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["tier"]; ok {
-		ret.Tier = v
+		Tier: outputs["tier"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getStore.

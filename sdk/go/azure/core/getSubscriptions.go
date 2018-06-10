@@ -8,16 +8,15 @@ import (
 )
 
 // Use this data source to access a list of all Azure subscription currently available.
-func Lookupubscriptions(ctx *pulumi.Context) (*GetSubscriptionsResult, error) {
+func LookupSubscriptions(ctx *pulumi.Context) (*GetSubscriptionsResult, error) {
 	outputs, err := ctx.Invoke("azure:core/getSubscriptions:getSubscriptions", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSubscriptionsResult{}
-	if v, ok := outputs["subscriptions"]; ok {
-		ret.Subscriptions = v
+	return &GetSubscriptionsResult{
+		Subscriptions: outputs["subscriptions"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getSubscriptions.

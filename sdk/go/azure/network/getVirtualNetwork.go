@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure Virtual Network.
-func LookupirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*GetVirtualNetworkResult, error) {
+func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*GetVirtualNetworkResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,20 +18,16 @@ func LookupirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*Get
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVirtualNetworkResult{}
-	if v, ok := outputs["addressSpaces"]; ok {
-		ret.AddressSpaces = v
+	return &GetVirtualNetworkResult{
+		AddressSpaces: outputs["addressSpaces"],
 	}
-	if v, ok := outputs["dnsServers"]; ok {
-		ret.DnsServers = v
+		DnsServers: outputs["dnsServers"],
 	}
-	if v, ok := outputs["subnets"]; ok {
-		ret.Subnets = v
+		Subnets: outputs["subnets"],
 	}
-	if v, ok := outputs["vnetPeerings"]; ok {
-		ret.VnetPeerings = v
+		VnetPeerings: outputs["vnetPeerings"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVirtualNetwork.

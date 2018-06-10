@@ -8,7 +8,7 @@ import (
 )
 
 // Gets information about a Key Vault.
-func LookupeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultResult, error) {
+func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,35 +18,26 @@ func LookupeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultResu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetKeyVaultResult{}
-	if v, ok := outputs["accessPolicies"]; ok {
-		ret.AccessPolicies = v
+	return &GetKeyVaultResult{
+		AccessPolicies: outputs["accessPolicies"],
 	}
-	if v, ok := outputs["enabledForDeployment"]; ok {
-		ret.EnabledForDeployment = v
+		EnabledForDeployment: outputs["enabledForDeployment"],
 	}
-	if v, ok := outputs["enabledForDiskEncryption"]; ok {
-		ret.EnabledForDiskEncryption = v
+		EnabledForDiskEncryption: outputs["enabledForDiskEncryption"],
 	}
-	if v, ok := outputs["enabledForTemplateDeployment"]; ok {
-		ret.EnabledForTemplateDeployment = v
+		EnabledForTemplateDeployment: outputs["enabledForTemplateDeployment"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["sku"]; ok {
-		ret.Sku = v
+		Sku: outputs["sku"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["tenantId"]; ok {
-		ret.TenantId = v
+		TenantId: outputs["tenantId"],
 	}
-	if v, ok := outputs["vaultUri"]; ok {
-		ret.VaultUri = v
+		VaultUri: outputs["vaultUri"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getKeyVault.

@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to obtain information about an App Service.
-func LookupppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServiceResult, error) {
+func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServiceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -19,47 +19,34 @@ func LookupppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServi
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAppServiceResult{}
-	if v, ok := outputs["appServicePlanId"]; ok {
-		ret.AppServicePlanId = v
+	return &GetAppServiceResult{
+		AppServicePlanId: outputs["appServicePlanId"],
 	}
-	if v, ok := outputs["appSettings"]; ok {
-		ret.AppSettings = v
+		AppSettings: outputs["appSettings"],
 	}
-	if v, ok := outputs["clientAffinityEnabled"]; ok {
-		ret.ClientAffinityEnabled = v
+		ClientAffinityEnabled: outputs["clientAffinityEnabled"],
 	}
-	if v, ok := outputs["connectionStrings"]; ok {
-		ret.ConnectionStrings = v
+		ConnectionStrings: outputs["connectionStrings"],
 	}
-	if v, ok := outputs["defaultSiteHostname"]; ok {
-		ret.DefaultSiteHostname = v
+		DefaultSiteHostname: outputs["defaultSiteHostname"],
 	}
-	if v, ok := outputs["enabled"]; ok {
-		ret.Enabled = v
+		Enabled: outputs["enabled"],
 	}
-	if v, ok := outputs["httpsOnly"]; ok {
-		ret.HttpsOnly = v
+		HttpsOnly: outputs["httpsOnly"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["outboundIpAddresses"]; ok {
-		ret.OutboundIpAddresses = v
+		OutboundIpAddresses: outputs["outboundIpAddresses"],
 	}
-	if v, ok := outputs["siteConfig"]; ok {
-		ret.SiteConfig = v
+		SiteConfig: outputs["siteConfig"],
 	}
-	if v, ok := outputs["siteCredentials"]; ok {
-		ret.SiteCredentials = v
+		SiteCredentials: outputs["siteCredentials"],
 	}
-	if v, ok := outputs["sourceControls"]; ok {
-		ret.SourceControls = v
+		SourceControls: outputs["sourceControls"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAppService.

@@ -11,7 +11,7 @@ import (
 // 
 // ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](/docs/state/sensitive-data.html).
-func Lookupecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, error) {
+func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -21,20 +21,16 @@ func Lookupecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, er
 	if err != nil {
 		return nil, err
 	}
-	ret := GetSecretResult{}
-	if v, ok := outputs["contentType"]; ok {
-		ret.ContentType = v
+	return &GetSecretResult{
+		ContentType: outputs["contentType"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["value"]; ok {
-		ret.Value = v
+		Value: outputs["value"],
 	}
-	if v, ok := outputs["version"]; ok {
-		ret.Version = v
+		Version: outputs["version"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getSecret.

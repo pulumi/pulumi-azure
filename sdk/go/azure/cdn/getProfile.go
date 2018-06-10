@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access information about a CDN Profile.
-func Lookuprofile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult, error) {
+func LookupProfile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,17 +18,14 @@ func Lookuprofile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetProfileResult{}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+	return &GetProfileResult{
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["sku"]; ok {
-		ret.Sku = v
+		Sku: outputs["sku"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getProfile.

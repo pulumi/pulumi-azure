@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure Virtual Network Gateway.
-func LookupirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGatewayArgs) (*GetVirtualNetworkGatewayResult, error) {
+func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGatewayArgs) (*GetVirtualNetworkGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,41 +18,30 @@ func LookupirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGate
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVirtualNetworkGatewayResult{}
-	if v, ok := outputs["activeActive"]; ok {
-		ret.ActiveActive = v
+	return &GetVirtualNetworkGatewayResult{
+		ActiveActive: outputs["activeActive"],
 	}
-	if v, ok := outputs["bgpSettings"]; ok {
-		ret.BgpSettings = v
+		BgpSettings: outputs["bgpSettings"],
 	}
-	if v, ok := outputs["defaultLocalNetworkGatewayId"]; ok {
-		ret.DefaultLocalNetworkGatewayId = v
+		DefaultLocalNetworkGatewayId: outputs["defaultLocalNetworkGatewayId"],
 	}
-	if v, ok := outputs["enableBgp"]; ok {
-		ret.EnableBgp = v
+		EnableBgp: outputs["enableBgp"],
 	}
-	if v, ok := outputs["ipConfigurations"]; ok {
-		ret.IpConfigurations = v
+		IpConfigurations: outputs["ipConfigurations"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["sku"]; ok {
-		ret.Sku = v
+		Sku: outputs["sku"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["type"]; ok {
-		ret.Type = v
+		Type: outputs["type"],
 	}
-	if v, ok := outputs["vpnClientConfigurations"]; ok {
-		ret.VpnClientConfigurations = v
+		VpnClientConfigurations: outputs["vpnClientConfigurations"],
 	}
-	if v, ok := outputs["vpnType"]; ok {
-		ret.VpnType = v
+		VpnType: outputs["vpnType"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVirtualNetworkGateway.

@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an Azure Platform Image.
-func LookuplatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs) (*GetPlatformImageResult, error) {
+func LookupPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs) (*GetPlatformImageResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["location"] = args.Location
@@ -20,11 +20,10 @@ func LookuplatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs) (*GetPl
 	if err != nil {
 		return nil, err
 	}
-	ret := GetPlatformImageResult{}
-	if v, ok := outputs["version"]; ok {
-		ret.Version = v
+	return &GetPlatformImageResult{
+		Version: outputs["version"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getPlatformImage.

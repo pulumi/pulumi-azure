@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of an existing Azure Managed Disk.
-func LookupanagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManagedDiskResult, error) {
+func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManagedDiskResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -20,29 +20,22 @@ func LookupanagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManage
 	if err != nil {
 		return nil, err
 	}
-	ret := GetManagedDiskResult{}
-	if v, ok := outputs["diskSizeGb"]; ok {
-		ret.DiskSizeGb = v
+	return &GetManagedDiskResult{
+		DiskSizeGb: outputs["diskSizeGb"],
 	}
-	if v, ok := outputs["osType"]; ok {
-		ret.OsType = v
+		OsType: outputs["osType"],
 	}
-	if v, ok := outputs["sourceResourceId"]; ok {
-		ret.SourceResourceId = v
+		SourceResourceId: outputs["sourceResourceId"],
 	}
-	if v, ok := outputs["sourceUri"]; ok {
-		ret.SourceUri = v
+		SourceUri: outputs["sourceUri"],
 	}
-	if v, ok := outputs["storageAccountType"]; ok {
-		ret.StorageAccountType = v
+		StorageAccountType: outputs["storageAccountType"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	if v, ok := outputs["zones"]; ok {
-		ret.Zones = v
+		Zones: outputs["zones"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getManagedDisk.

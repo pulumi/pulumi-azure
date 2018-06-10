@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of a Network Security Group.
-func LookupetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGroupArgs) (*GetNetworkSecurityGroupResult, error) {
+func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGroupArgs) (*GetNetworkSecurityGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,17 +18,14 @@ func LookupetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGrou
 	if err != nil {
 		return nil, err
 	}
-	ret := GetNetworkSecurityGroupResult{}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+	return &GetNetworkSecurityGroupResult{
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["securityRules"]; ok {
-		ret.SecurityRules = v
+		SecurityRules: outputs["securityRules"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getNetworkSecurityGroup.

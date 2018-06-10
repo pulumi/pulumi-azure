@@ -10,7 +10,7 @@ import (
 // Get information about an Application Security Group.
 // 
 // -> **Note:** Application Security Groups are currently in Public Preview on an opt-in basis. [More information, including how you can register for the Preview, and which regions Application Security Groups are available in are available here](https://docs.microsoft.com/en-us/azure/virtual-network/create-network-security-group-preview)
-func LookuppplicationSecurityGroup(ctx *pulumi.Context, args *GetApplicationSecurityGroupArgs) (*GetApplicationSecurityGroupResult, error) {
+func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *GetApplicationSecurityGroupArgs) (*GetApplicationSecurityGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -20,14 +20,12 @@ func LookuppplicationSecurityGroup(ctx *pulumi.Context, args *GetApplicationSecu
 	if err != nil {
 		return nil, err
 	}
-	ret := GetApplicationSecurityGroupResult{}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+	return &GetApplicationSecurityGroupResult{
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getApplicationSecurityGroup.

@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access the properties of a Recovery Services Vault.
-func Lookupault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, error) {
+func LookupVault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,17 +18,14 @@ func Lookupault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetVaultResult{}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+	return &GetVaultResult{
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["sku"]; ok {
-		ret.Sku = v
+		Sku: outputs["sku"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getVault.

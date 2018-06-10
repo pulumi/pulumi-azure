@@ -9,28 +9,23 @@ import (
 
 // Use this data source to access the configuration of the Azure Resource Manager
 // provider.
-func LookuplientConfig(ctx *pulumi.Context) (*GetClientConfigResult, error) {
+func LookupClientConfig(ctx *pulumi.Context) (*GetClientConfigResult, error) {
 	outputs, err := ctx.Invoke("azure:core/getClientConfig:getClientConfig", nil)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetClientConfigResult{}
-	if v, ok := outputs["clientId"]; ok {
-		ret.ClientId = v
+	return &GetClientConfigResult{
+		ClientId: outputs["clientId"],
 	}
-	if v, ok := outputs["servicePrincipalApplicationId"]; ok {
-		ret.ServicePrincipalApplicationId = v
+		ServicePrincipalApplicationId: outputs["servicePrincipalApplicationId"],
 	}
-	if v, ok := outputs["servicePrincipalObjectId"]; ok {
-		ret.ServicePrincipalObjectId = v
+		ServicePrincipalObjectId: outputs["servicePrincipalObjectId"],
 	}
-	if v, ok := outputs["subscriptionId"]; ok {
-		ret.SubscriptionId = v
+		SubscriptionId: outputs["subscriptionId"],
 	}
-	if v, ok := outputs["tenantId"]; ok {
-		ret.TenantId = v
+		TenantId: outputs["tenantId"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of values returned by getClientConfig.

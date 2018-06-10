@@ -8,7 +8,7 @@ import (
 )
 
 // Gets information about the specified Storage Account.
-func Lookupccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
+func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,86 +18,60 @@ func Lookupccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult,
 	if err != nil {
 		return nil, err
 	}
-	ret := GetAccountResult{}
-	if v, ok := outputs["accessTier"]; ok {
-		ret.AccessTier = v
+	return &GetAccountResult{
+		AccessTier: outputs["accessTier"],
 	}
-	if v, ok := outputs["accountEncryptionSource"]; ok {
-		ret.AccountEncryptionSource = v
+		AccountEncryptionSource: outputs["accountEncryptionSource"],
 	}
-	if v, ok := outputs["accountKind"]; ok {
-		ret.AccountKind = v
+		AccountKind: outputs["accountKind"],
 	}
-	if v, ok := outputs["accountReplicationType"]; ok {
-		ret.AccountReplicationType = v
+		AccountReplicationType: outputs["accountReplicationType"],
 	}
-	if v, ok := outputs["accountTier"]; ok {
-		ret.AccountTier = v
+		AccountTier: outputs["accountTier"],
 	}
-	if v, ok := outputs["customDomain"]; ok {
-		ret.CustomDomain = v
+		CustomDomain: outputs["customDomain"],
 	}
-	if v, ok := outputs["enableBlobEncryption"]; ok {
-		ret.EnableBlobEncryption = v
+		EnableBlobEncryption: outputs["enableBlobEncryption"],
 	}
-	if v, ok := outputs["enableFileEncryption"]; ok {
-		ret.EnableFileEncryption = v
+		EnableFileEncryption: outputs["enableFileEncryption"],
 	}
-	if v, ok := outputs["enableHttpsTrafficOnly"]; ok {
-		ret.EnableHttpsTrafficOnly = v
+		EnableHttpsTrafficOnly: outputs["enableHttpsTrafficOnly"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["primaryAccessKey"]; ok {
-		ret.PrimaryAccessKey = v
+		PrimaryAccessKey: outputs["primaryAccessKey"],
 	}
-	if v, ok := outputs["primaryBlobConnectionString"]; ok {
-		ret.PrimaryBlobConnectionString = v
+		PrimaryBlobConnectionString: outputs["primaryBlobConnectionString"],
 	}
-	if v, ok := outputs["primaryBlobEndpoint"]; ok {
-		ret.PrimaryBlobEndpoint = v
+		PrimaryBlobEndpoint: outputs["primaryBlobEndpoint"],
 	}
-	if v, ok := outputs["primaryConnectionString"]; ok {
-		ret.PrimaryConnectionString = v
+		PrimaryConnectionString: outputs["primaryConnectionString"],
 	}
-	if v, ok := outputs["primaryFileEndpoint"]; ok {
-		ret.PrimaryFileEndpoint = v
+		PrimaryFileEndpoint: outputs["primaryFileEndpoint"],
 	}
-	if v, ok := outputs["primaryLocation"]; ok {
-		ret.PrimaryLocation = v
+		PrimaryLocation: outputs["primaryLocation"],
 	}
-	if v, ok := outputs["primaryQueueEndpoint"]; ok {
-		ret.PrimaryQueueEndpoint = v
+		PrimaryQueueEndpoint: outputs["primaryQueueEndpoint"],
 	}
-	if v, ok := outputs["primaryTableEndpoint"]; ok {
-		ret.PrimaryTableEndpoint = v
+		PrimaryTableEndpoint: outputs["primaryTableEndpoint"],
 	}
-	if v, ok := outputs["secondaryAccessKey"]; ok {
-		ret.SecondaryAccessKey = v
+		SecondaryAccessKey: outputs["secondaryAccessKey"],
 	}
-	if v, ok := outputs["secondaryBlobConnectionString"]; ok {
-		ret.SecondaryBlobConnectionString = v
+		SecondaryBlobConnectionString: outputs["secondaryBlobConnectionString"],
 	}
-	if v, ok := outputs["secondaryBlobEndpoint"]; ok {
-		ret.SecondaryBlobEndpoint = v
+		SecondaryBlobEndpoint: outputs["secondaryBlobEndpoint"],
 	}
-	if v, ok := outputs["secondaryConnectionString"]; ok {
-		ret.SecondaryConnectionString = v
+		SecondaryConnectionString: outputs["secondaryConnectionString"],
 	}
-	if v, ok := outputs["secondaryLocation"]; ok {
-		ret.SecondaryLocation = v
+		SecondaryLocation: outputs["secondaryLocation"],
 	}
-	if v, ok := outputs["secondaryQueueEndpoint"]; ok {
-		ret.SecondaryQueueEndpoint = v
+		SecondaryQueueEndpoint: outputs["secondaryQueueEndpoint"],
 	}
-	if v, ok := outputs["secondaryTableEndpoint"]; ok {
-		ret.SecondaryTableEndpoint = v
+		SecondaryTableEndpoint: outputs["secondaryTableEndpoint"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getAccount.

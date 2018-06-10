@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to access information about an Image.
-func Lookupmage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, error) {
+func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -20,20 +20,16 @@ func Lookupmage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, error
 	if err != nil {
 		return nil, err
 	}
-	ret := GetImageResult{}
-	if v, ok := outputs["dataDisks"]; ok {
-		ret.DataDisks = v
+	return &GetImageResult{
+		DataDisks: outputs["dataDisks"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["osDisks"]; ok {
-		ret.OsDisks = v
+		OsDisks: outputs["osDisks"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getImage.

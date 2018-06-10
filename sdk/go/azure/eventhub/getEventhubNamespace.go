@@ -8,7 +8,7 @@ import (
 )
 
 // Use this data source to obtain information about an EventHub Namespace.
-func LookupventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs) (*GetEventhubNamespaceResult, error) {
+func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs) (*GetEventhubNamespaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
@@ -18,38 +18,28 @@ func LookupventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs)
 	if err != nil {
 		return nil, err
 	}
-	ret := GetEventhubNamespaceResult{}
-	if v, ok := outputs["autoInflateEnabled"]; ok {
-		ret.AutoInflateEnabled = v
+	return &GetEventhubNamespaceResult{
+		AutoInflateEnabled: outputs["autoInflateEnabled"],
 	}
-	if v, ok := outputs["capacity"]; ok {
-		ret.Capacity = v
+		Capacity: outputs["capacity"],
 	}
-	if v, ok := outputs["defaultPrimaryConnectionString"]; ok {
-		ret.DefaultPrimaryConnectionString = v
+		DefaultPrimaryConnectionString: outputs["defaultPrimaryConnectionString"],
 	}
-	if v, ok := outputs["defaultPrimaryKey"]; ok {
-		ret.DefaultPrimaryKey = v
+		DefaultPrimaryKey: outputs["defaultPrimaryKey"],
 	}
-	if v, ok := outputs["defaultSecondaryConnectionString"]; ok {
-		ret.DefaultSecondaryConnectionString = v
+		DefaultSecondaryConnectionString: outputs["defaultSecondaryConnectionString"],
 	}
-	if v, ok := outputs["defaultSecondaryKey"]; ok {
-		ret.DefaultSecondaryKey = v
+		DefaultSecondaryKey: outputs["defaultSecondaryKey"],
 	}
-	if v, ok := outputs["location"]; ok {
-		ret.Location = v
+		Location: outputs["location"],
 	}
-	if v, ok := outputs["maximumThroughputUnits"]; ok {
-		ret.MaximumThroughputUnits = v
+		MaximumThroughputUnits: outputs["maximumThroughputUnits"],
 	}
-	if v, ok := outputs["sku"]; ok {
-		ret.Sku = v
+		Sku: outputs["sku"],
 	}
-	if v, ok := outputs["tags"]; ok {
-		ret.Tags = v
+		Tags: outputs["tags"],
 	}
-	return &ret, nil
+	}, nil
 }
 
 // A collection of arguments for invoking getEventhubNamespace.
