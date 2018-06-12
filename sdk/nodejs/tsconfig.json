@@ -186,6 +186,7 @@
         "storage/queue.ts",
         "storage/share.ts",
         "storage/table.ts",
+        "storage/zipBlob.ts",
         "trafficmanager/endpoint.ts",
         "trafficmanager/getGeographicalLocation.ts",
         "trafficmanager/index.ts",

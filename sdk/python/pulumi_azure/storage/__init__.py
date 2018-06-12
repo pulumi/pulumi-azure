@@ -9,5 +9,6 @@ from container import *
 from queue import *
 from share import *
 from table import *
+from zip_blob import *
 from get_account import *
 from get_account_s_a_s import *
