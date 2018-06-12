@@ -10,9 +10,7 @@ class GetAccountSASResult(object):
     A collection of values returned by getAccountSAS.
     """
     def __init__(__self__, sas=None):
-        if not sas:
-            raise TypeError('Missing required argument sas')
-        elif not isinstance(sas, basestring):
+        if sas and not isinstance(sas, basestring):
             raise TypeError('Expected argument sas to be a basestring')
         __self__.sas = sas
         """
@@ -40,4 +38,4 @@ def get_account_s_a_s(connection_string=None, expiry=None, https_only=None, perm
     __ret__ = pulumi.runtime.invoke('azure:storage/getAccountSAS:getAccountSAS', __args__)
 
     return GetAccountSASResult(
-        sas=__ret__['sas'])
+        sas=__ret__.get('sas'))

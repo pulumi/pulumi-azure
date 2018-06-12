@@ -20,23 +20,14 @@ func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultRes
 	}
 	return &GetKeyVaultResult{
 		AccessPolicies: outputs["accessPolicies"],
-	}
 		EnabledForDeployment: outputs["enabledForDeployment"],
-	}
 		EnabledForDiskEncryption: outputs["enabledForDiskEncryption"],
-	}
 		EnabledForTemplateDeployment: outputs["enabledForTemplateDeployment"],
-	}
 		Location: outputs["location"],
-	}
 		Sku: outputs["sku"],
-	}
 		Tags: outputs["tags"],
-	}
 		TenantId: outputs["tenantId"],
-	}
 		VaultUri: outputs["vaultUri"],
-	}
 	}, nil
 }
 

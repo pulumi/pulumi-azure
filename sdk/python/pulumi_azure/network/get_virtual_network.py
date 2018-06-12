@@ -10,33 +10,25 @@ class GetVirtualNetworkResult(object):
     A collection of values returned by getVirtualNetwork.
     """
     def __init__(__self__, address_spaces=None, dns_servers=None, subnets=None, vnet_peerings=None):
-        if not address_spaces:
-            raise TypeError('Missing required argument address_spaces')
-        elif not isinstance(address_spaces, list):
+        if address_spaces and not isinstance(address_spaces, list):
             raise TypeError('Expected argument address_spaces to be a list')
         __self__.address_spaces = address_spaces
         """
         The list of address spaces used by the virtual network.
         """
-        if not dns_servers:
-            raise TypeError('Missing required argument dns_servers')
-        elif not isinstance(dns_servers, list):
+        if dns_servers and not isinstance(dns_servers, list):
             raise TypeError('Expected argument dns_servers to be a list')
         __self__.dns_servers = dns_servers
         """
         The list of DNS servers used by the virtual network.
         """
-        if not subnets:
-            raise TypeError('Missing required argument subnets')
-        elif not isinstance(subnets, list):
+        if subnets and not isinstance(subnets, list):
             raise TypeError('Expected argument subnets to be a list')
         __self__.subnets = subnets
         """
         The list of name of the subnets that are attached to this virtual network.
         """
-        if not vnet_peerings:
-            raise TypeError('Missing required argument vnet_peerings')
-        elif not isinstance(vnet_peerings, dict):
+        if vnet_peerings and not isinstance(vnet_peerings, dict):
             raise TypeError('Expected argument vnet_peerings to be a dict')
         __self__.vnet_peerings = vnet_peerings
         """
@@ -54,7 +46,7 @@ def get_virtual_network(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualNetwork:getVirtualNetwork', __args__)
 
     return GetVirtualNetworkResult(
-        address_spaces=__ret__['addressSpaces'],
-        dns_servers=__ret__['dnsServers'],
-        subnets=__ret__['subnets'],
-        vnet_peerings=__ret__['vnetPeerings'])
+        address_spaces=__ret__.get('addressSpaces'),
+        dns_servers=__ret__.get('dnsServers'),
+        subnets=__ret__.get('subnets'),
+        vnet_peerings=__ret__.get('vnetPeerings'))

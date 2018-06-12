@@ -20,35 +20,20 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 	}
 	return &GetAccountResult{
 		ConsistencyPolicies: outputs["consistencyPolicies"],
-	}
 		EnableAutomaticFailover: outputs["enableAutomaticFailover"],
-	}
 		Endpoint: outputs["endpoint"],
-	}
 		GeoLocations: outputs["geoLocations"],
-	}
 		IpRangeFilter: outputs["ipRangeFilter"],
-	}
 		Kind: outputs["kind"],
-	}
 		Location: outputs["location"],
-	}
 		OfferType: outputs["offerType"],
-	}
 		PrimaryMasterKey: outputs["primaryMasterKey"],
-	}
 		PrimaryReadonlyMasterKey: outputs["primaryReadonlyMasterKey"],
-	}
 		ReadEndpoints: outputs["readEndpoints"],
-	}
 		SecondaryMasterKey: outputs["secondaryMasterKey"],
-	}
 		SecondaryReadonlyMasterKey: outputs["secondaryReadonlyMasterKey"],
-	}
 		Tags: outputs["tags"],
-	}
 		WriteEndpoints: outputs["writeEndpoints"],
-	}
 	}, nil
 }
 

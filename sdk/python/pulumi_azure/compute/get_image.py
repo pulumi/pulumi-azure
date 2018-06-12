@@ -10,33 +10,25 @@ class GetImageResult(object):
     A collection of values returned by getImage.
     """
     def __init__(__self__, data_disks=None, location=None, os_disks=None, tags=None):
-        if not data_disks:
-            raise TypeError('Missing required argument data_disks')
-        elif not isinstance(data_disks, list):
+        if data_disks and not isinstance(data_disks, list):
             raise TypeError('Expected argument data_disks to be a list')
         __self__.data_disks = data_disks
         """
         a collection of `data_disk` blocks as defined below.
         """
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         the Azure Location where this Image exists.
         """
-        if not os_disks:
-            raise TypeError('Missing required argument os_disks')
-        elif not isinstance(os_disks, list):
+        if os_disks and not isinstance(os_disks, list):
             raise TypeError('Expected argument os_disks to be a list')
         __self__.os_disks = os_disks
         """
         a `os_disk` block as defined below.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -56,7 +48,7 @@ def get_image(name=None, name_regex=None, resource_group_name=None, sort_descend
     __ret__ = pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__)
 
     return GetImageResult(
-        data_disks=__ret__['dataDisks'],
-        location=__ret__['location'],
-        os_disks=__ret__['osDisks'],
-        tags=__ret__['tags'])
+        data_disks=__ret__.get('dataDisks'),
+        location=__ret__.get('location'),
+        os_disks=__ret__.get('osDisks'),
+        tags=__ret__.get('tags'))

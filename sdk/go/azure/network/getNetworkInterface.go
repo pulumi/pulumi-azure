@@ -20,33 +20,19 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) 
 	}
 	return &GetNetworkInterfaceResult{
 		AppliedDnsServers: outputs["appliedDnsServers"],
-	}
 		DnsServers: outputs["dnsServers"],
-	}
 		EnableAcceleratedNetworking: outputs["enableAcceleratedNetworking"],
-	}
 		EnableIpForwarding: outputs["enableIpForwarding"],
-	}
 		InternalDnsNameLabel: outputs["internalDnsNameLabel"],
-	}
 		InternalFqdn: outputs["internalFqdn"],
-	}
 		IpConfigurations: outputs["ipConfigurations"],
-	}
 		Location: outputs["location"],
-	}
 		MacAddress: outputs["macAddress"],
-	}
 		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
-	}
 		PrivateIpAddress: outputs["privateIpAddress"],
-	}
 		PrivateIpAddresses: outputs["privateIpAddresses"],
-	}
 		Tags: outputs["tags"],
-	}
 		VirtualMachineId: outputs["virtualMachineId"],
-	}
 	}, nil
 }
 

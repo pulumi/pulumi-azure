@@ -10,17 +10,13 @@ class GetApplicationSecurityGroupResult(object):
     A collection of values returned by getApplicationSecurityGroup.
     """
     def __init__(__self__, location=None, tags=None):
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The supported Azure location where the Application Security Group exists.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -40,5 +36,5 @@ def get_application_security_group(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup', __args__)
 
     return GetApplicationSecurityGroupResult(
-        location=__ret__['location'],
-        tags=__ret__['tags'])
+        location=__ret__.get('location'),
+        tags=__ret__.get('tags'))

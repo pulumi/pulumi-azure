@@ -10,22 +10,16 @@ class GetVirtualNetworkGatewayResult(object):
     A collection of values returned by getVirtualNetworkGateway.
     """
     def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None):
-        if not active_active:
-            raise TypeError('Missing required argument active_active')
-        elif not isinstance(active_active, bool):
+        if active_active and not isinstance(active_active, bool):
             raise TypeError('Expected argument active_active to be a bool')
         __self__.active_active = active_active
         """
         (Optional) Is this an Active-Active Gateway?
         """
-        if not bgp_settings:
-            raise TypeError('Missing required argument bgp_settings')
-        elif not isinstance(bgp_settings, list):
+        if bgp_settings and not isinstance(bgp_settings, list):
             raise TypeError('Expected argument bgp_settings to be a list')
         __self__.bgp_settings = bgp_settings
-        if not default_local_network_gateway_id:
-            raise TypeError('Missing required argument default_local_network_gateway_id')
-        elif not isinstance(default_local_network_gateway_id, basestring):
+        if default_local_network_gateway_id and not isinstance(default_local_network_gateway_id, basestring):
             raise TypeError('Expected argument default_local_network_gateway_id to be a basestring')
         __self__.default_local_network_gateway_id = default_local_network_gateway_id
         """
@@ -34,66 +28,50 @@ class GetVirtualNetworkGatewayResult(object):
         gateway is created will be routed (*forced tunneling*). Refer to the
         [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         """
-        if not enable_bgp:
-            raise TypeError('Missing required argument enable_bgp')
-        elif not isinstance(enable_bgp, bool):
+        if enable_bgp and not isinstance(enable_bgp, bool):
             raise TypeError('Expected argument enable_bgp to be a bool')
         __self__.enable_bgp = enable_bgp
         """
         Will BGP (Border Gateway Protocol) will be enabled
         for this Virtual Network Gateway.
         """
-        if not ip_configurations:
-            raise TypeError('Missing required argument ip_configurations')
-        elif not isinstance(ip_configurations, list):
+        if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError('Expected argument ip_configurations to be a list')
         __self__.ip_configurations = ip_configurations
         """
         One or two `ip_configuration` blocks documented below.
         """
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The location/region where the Virtual Network Gateway is located.
         """
-        if not sku:
-            raise TypeError('Missing required argument sku')
-        elif not isinstance(sku, basestring):
+        if sku and not isinstance(sku, basestring):
             raise TypeError('Expected argument sku to be a basestring')
         __self__.sku = sku
         """
         Configuration of the size and capacity of the Virtual Network Gateway.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
         """
-        if not type:
-            raise TypeError('Missing required argument type')
-        elif not isinstance(type, basestring):
+        if type and not isinstance(type, basestring):
             raise TypeError('Expected argument type to be a basestring')
         __self__.type = type
         """
         The type of the Virtual Network Gateway.
         """
-        if not vpn_client_configurations:
-            raise TypeError('Missing required argument vpn_client_configurations')
-        elif not isinstance(vpn_client_configurations, list):
+        if vpn_client_configurations and not isinstance(vpn_client_configurations, list):
             raise TypeError('Expected argument vpn_client_configurations to be a list')
         __self__.vpn_client_configurations = vpn_client_configurations
         """
         A `vpn_client_configuration` block which is documented below.
         """
-        if not vpn_type:
-            raise TypeError('Missing required argument vpn_type')
-        elif not isinstance(vpn_type, basestring):
+        if vpn_type and not isinstance(vpn_type, basestring):
             raise TypeError('Expected argument vpn_type to be a basestring')
         __self__.vpn_type = vpn_type
         """
@@ -111,14 +89,14 @@ def get_virtual_network_gateway(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway', __args__)
 
     return GetVirtualNetworkGatewayResult(
-        active_active=__ret__['activeActive'],
-        bgp_settings=__ret__['bgpSettings'],
-        default_local_network_gateway_id=__ret__['defaultLocalNetworkGatewayId'],
-        enable_bgp=__ret__['enableBgp'],
-        ip_configurations=__ret__['ipConfigurations'],
-        location=__ret__['location'],
-        sku=__ret__['sku'],
-        tags=__ret__['tags'],
-        type=__ret__['type'],
-        vpn_client_configurations=__ret__['vpnClientConfigurations'],
-        vpn_type=__ret__['vpnType'])
+        active_active=__ret__.get('activeActive'),
+        bgp_settings=__ret__.get('bgpSettings'),
+        default_local_network_gateway_id=__ret__.get('defaultLocalNetworkGatewayId'),
+        enable_bgp=__ret__.get('enableBgp'),
+        ip_configurations=__ret__.get('ipConfigurations'),
+        location=__ret__.get('location'),
+        sku=__ret__.get('sku'),
+        tags=__ret__.get('tags'),
+        type=__ret__.get('type'),
+        vpn_client_configurations=__ret__.get('vpnClientConfigurations'),
+        vpn_type=__ret__.get('vpnType'))

@@ -15,7 +15,6 @@ func LookupSubscriptions(ctx *pulumi.Context) (*GetSubscriptionsResult, error) {
 	}
 	return &GetSubscriptionsResult{
 		Subscriptions: outputs["subscriptions"],
-	}
 	}, nil
 }
 

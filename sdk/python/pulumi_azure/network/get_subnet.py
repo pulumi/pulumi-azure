@@ -10,33 +10,25 @@ class GetSubnetResult(object):
     A collection of values returned by getSubnet.
     """
     def __init__(__self__, address_prefix=None, ip_configurations=None, network_security_group_id=None, route_table_id=None):
-        if not address_prefix:
-            raise TypeError('Missing required argument address_prefix')
-        elif not isinstance(address_prefix, basestring):
+        if address_prefix and not isinstance(address_prefix, basestring):
             raise TypeError('Expected argument address_prefix to be a basestring')
         __self__.address_prefix = address_prefix
         """
         The address prefix used for the subnet.
         """
-        if not ip_configurations:
-            raise TypeError('Missing required argument ip_configurations')
-        elif not isinstance(ip_configurations, list):
+        if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError('Expected argument ip_configurations to be a list')
         __self__.ip_configurations = ip_configurations
         """
         The collection of IP Configurations with IPs within this subnet.
         """
-        if not network_security_group_id:
-            raise TypeError('Missing required argument network_security_group_id')
-        elif not isinstance(network_security_group_id, basestring):
+        if network_security_group_id and not isinstance(network_security_group_id, basestring):
             raise TypeError('Expected argument network_security_group_id to be a basestring')
         __self__.network_security_group_id = network_security_group_id
         """
         The ID of the Network Security Group associated with the subnet.
         """
-        if not route_table_id:
-            raise TypeError('Missing required argument route_table_id')
-        elif not isinstance(route_table_id, basestring):
+        if route_table_id and not isinstance(route_table_id, basestring):
             raise TypeError('Expected argument route_table_id to be a basestring')
         __self__.route_table_id = route_table_id
         """
@@ -55,7 +47,7 @@ def get_subnet(name=None, resource_group_name=None, virtual_network_name=None):
     __ret__ = pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__)
 
     return GetSubnetResult(
-        address_prefix=__ret__['addressPrefix'],
-        ip_configurations=__ret__['ipConfigurations'],
-        network_security_group_id=__ret__['networkSecurityGroupId'],
-        route_table_id=__ret__['routeTableId'])
+        address_prefix=__ret__.get('addressPrefix'),
+        ip_configurations=__ret__.get('ipConfigurations'),
+        network_security_group_id=__ret__.get('networkSecurityGroupId'),
+        route_table_id=__ret__.get('routeTableId'))

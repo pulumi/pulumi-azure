@@ -10,83 +10,63 @@ class GetEventhubNamespaceResult(object):
     A collection of values returned by getEventhubNamespace.
     """
     def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, maximum_throughput_units=None, sku=None, tags=None):
-        if not auto_inflate_enabled:
-            raise TypeError('Missing required argument auto_inflate_enabled')
-        elif not isinstance(auto_inflate_enabled, bool):
+        if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
             raise TypeError('Expected argument auto_inflate_enabled to be a bool')
         __self__.auto_inflate_enabled = auto_inflate_enabled
         """
         Is Auto Inflate enabled for the EventHub Namespace?
         """
-        if not capacity:
-            raise TypeError('Missing required argument capacity')
-        elif not isinstance(capacity, int):
+        if capacity and not isinstance(capacity, int):
             raise TypeError('Expected argument capacity to be a int')
         __self__.capacity = capacity
         """
         The Capacity / Throughput Units for a `Standard` SKU namespace.
         """
-        if not default_primary_connection_string:
-            raise TypeError('Missing required argument default_primary_connection_string')
-        elif not isinstance(default_primary_connection_string, basestring):
+        if default_primary_connection_string and not isinstance(default_primary_connection_string, basestring):
             raise TypeError('Expected argument default_primary_connection_string to be a basestring')
         __self__.default_primary_connection_string = default_primary_connection_string
         """
         The primary connection string for the authorization
         rule `RootManageSharedAccessKey`.
         """
-        if not default_primary_key:
-            raise TypeError('Missing required argument default_primary_key')
-        elif not isinstance(default_primary_key, basestring):
+        if default_primary_key and not isinstance(default_primary_key, basestring):
             raise TypeError('Expected argument default_primary_key to be a basestring')
         __self__.default_primary_key = default_primary_key
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
-        if not default_secondary_connection_string:
-            raise TypeError('Missing required argument default_secondary_connection_string')
-        elif not isinstance(default_secondary_connection_string, basestring):
+        if default_secondary_connection_string and not isinstance(default_secondary_connection_string, basestring):
             raise TypeError('Expected argument default_secondary_connection_string to be a basestring')
         __self__.default_secondary_connection_string = default_secondary_connection_string
         """
         The secondary connection string for the
         authorization rule `RootManageSharedAccessKey`.
         """
-        if not default_secondary_key:
-            raise TypeError('Missing required argument default_secondary_key')
-        elif not isinstance(default_secondary_key, basestring):
+        if default_secondary_key and not isinstance(default_secondary_key, basestring):
             raise TypeError('Expected argument default_secondary_key to be a basestring')
         __self__.default_secondary_key = default_secondary_key
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The Azure location where the EventHub Namespace exists
         """
-        if not maximum_throughput_units:
-            raise TypeError('Missing required argument maximum_throughput_units')
-        elif not isinstance(maximum_throughput_units, int):
+        if maximum_throughput_units and not isinstance(maximum_throughput_units, int):
             raise TypeError('Expected argument maximum_throughput_units to be a int')
         __self__.maximum_throughput_units = maximum_throughput_units
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled.
         """
-        if not sku:
-            raise TypeError('Missing required argument sku')
-        elif not isinstance(sku, basestring):
+        if sku and not isinstance(sku, basestring):
             raise TypeError('Expected argument sku to be a basestring')
         __self__.sku = sku
         """
         Defines which tier to use.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -104,13 +84,13 @@ def get_eventhub_namespace(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getEventhubNamespace:getEventhubNamespace', __args__)
 
     return GetEventhubNamespaceResult(
-        auto_inflate_enabled=__ret__['autoInflateEnabled'],
-        capacity=__ret__['capacity'],
-        default_primary_connection_string=__ret__['defaultPrimaryConnectionString'],
-        default_primary_key=__ret__['defaultPrimaryKey'],
-        default_secondary_connection_string=__ret__['defaultSecondaryConnectionString'],
-        default_secondary_key=__ret__['defaultSecondaryKey'],
-        location=__ret__['location'],
-        maximum_throughput_units=__ret__['maximumThroughputUnits'],
-        sku=__ret__['sku'],
-        tags=__ret__['tags'])
+        auto_inflate_enabled=__ret__.get('autoInflateEnabled'),
+        capacity=__ret__.get('capacity'),
+        default_primary_connection_string=__ret__.get('defaultPrimaryConnectionString'),
+        default_primary_key=__ret__.get('defaultPrimaryKey'),
+        default_secondary_connection_string=__ret__.get('defaultSecondaryConnectionString'),
+        default_secondary_key=__ret__.get('defaultSecondaryKey'),
+        location=__ret__.get('location'),
+        maximum_throughput_units=__ret__.get('maximumThroughputUnits'),
+        sku=__ret__.get('sku'),
+        tags=__ret__.get('tags'))

@@ -8,10 +8,10 @@ from subprocess import check_call
 class InstallPluginCommand(install):
     def run(self):
         install.run(self)
-        check_call(['pulumi', 'plugin', 'install', 'resource', 'azure', 'v0.13.1-dev-1528663762-g4b925b7-dirty'])
+        check_call(['pulumi', 'plugin', 'install', 'resource', 'azure', '${PLUGIN_VERSION}'])
 
 setup(name='pulumi_azure',
-      version='0.13.1.dev1528663762+g4b925b7.dirty',
+      version='${VERSION}',
       description='A Pulumi package for creating and managing Microsoft Azure cloud resources.',
       cmdclass={
           'install': InstallPluginCommand,

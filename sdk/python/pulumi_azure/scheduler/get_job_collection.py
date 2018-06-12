@@ -10,41 +10,31 @@ class GetJobCollectionResult(object):
     A collection of values returned by getJobCollection.
     """
     def __init__(__self__, location=None, quotas=None, sku=None, state=None, tags=None):
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The Azure location where the resource exists. 
         """
-        if not quotas:
-            raise TypeError('Missing required argument quotas')
-        elif not isinstance(quotas, list):
+        if quotas and not isinstance(quotas, list):
             raise TypeError('Expected argument quotas to be a list')
         __self__.quotas = quotas
         """
         The Job collection quotas as documented in the `quota` block below. 
         """
-        if not sku:
-            raise TypeError('Missing required argument sku')
-        elif not isinstance(sku, basestring):
+        if sku and not isinstance(sku, basestring):
             raise TypeError('Expected argument sku to be a basestring')
         __self__.sku = sku
         """
         The Job Collection's pricing level's SKU. 
         """
-        if not state:
-            raise TypeError('Missing required argument state')
-        elif not isinstance(state, basestring):
+        if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
         """
         The Job Collection's state. 
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -62,8 +52,8 @@ def get_job_collection(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:scheduler/getJobCollection:getJobCollection', __args__)
 
     return GetJobCollectionResult(
-        location=__ret__['location'],
-        quotas=__ret__['quotas'],
-        sku=__ret__['sku'],
-        state=__ret__['state'],
-        tags=__ret__['tags'])
+        location=__ret__.get('location'),
+        quotas=__ret__.get('quotas'),
+        sku=__ret__.get('sku'),
+        state=__ret__.get('state'),
+        tags=__ret__.get('tags'))

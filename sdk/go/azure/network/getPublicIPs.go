@@ -22,7 +22,6 @@ func LookupPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs) (*GetPublicIPs
 	}
 	return &GetPublicIPsResult{
 		PublicIps: outputs["publicIps"],
-	}
 	}, nil
 }
 

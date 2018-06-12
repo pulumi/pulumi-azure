@@ -20,11 +20,8 @@ func LookupVault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, erro
 	}
 	return &GetVaultResult{
 		Location: outputs["location"],
-	}
 		Sku: outputs["sku"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

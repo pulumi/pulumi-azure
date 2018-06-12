@@ -10,49 +10,37 @@ class GetSubscriptionResult(object):
     A collection of values returned by getSubscription.
     """
     def __init__(__self__, display_name=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None):
-        if not display_name:
-            raise TypeError('Missing required argument display_name')
-        elif not isinstance(display_name, basestring):
+        if display_name and not isinstance(display_name, basestring):
             raise TypeError('Expected argument display_name to be a basestring')
         __self__.display_name = display_name
         """
         The subscription display name.
         """
-        if not location_placement_id:
-            raise TypeError('Missing required argument location_placement_id')
-        elif not isinstance(location_placement_id, basestring):
+        if location_placement_id and not isinstance(location_placement_id, basestring):
             raise TypeError('Expected argument location_placement_id to be a basestring')
         __self__.location_placement_id = location_placement_id
         """
         The subscription location placement ID.
         """
-        if not quota_id:
-            raise TypeError('Missing required argument quota_id')
-        elif not isinstance(quota_id, basestring):
+        if quota_id and not isinstance(quota_id, basestring):
             raise TypeError('Expected argument quota_id to be a basestring')
         __self__.quota_id = quota_id
         """
         The subscription quota ID.
         """
-        if not spending_limit:
-            raise TypeError('Missing required argument spending_limit')
-        elif not isinstance(spending_limit, basestring):
+        if spending_limit and not isinstance(spending_limit, basestring):
             raise TypeError('Expected argument spending_limit to be a basestring')
         __self__.spending_limit = spending_limit
         """
         The subscription spending limit.
         """
-        if not state:
-            raise TypeError('Missing required argument state')
-        elif not isinstance(state, basestring):
+        if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
         """
         The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
         """
-        if not subscription_id:
-            raise TypeError('Missing required argument subscription_id')
-        elif not isinstance(subscription_id, basestring):
+        if subscription_id and not isinstance(subscription_id, basestring):
             raise TypeError('Expected argument subscription_id to be a basestring')
         __self__.subscription_id = subscription_id
 
@@ -66,9 +54,9 @@ def get_subscription(subscription_id=None):
     __ret__ = pulumi.runtime.invoke('azure:core/getSubscription:getSubscription', __args__)
 
     return GetSubscriptionResult(
-        display_name=__ret__['displayName'],
-        location_placement_id=__ret__['locationPlacementId'],
-        quota_id=__ret__['quotaId'],
-        spending_limit=__ret__['spendingLimit'],
-        state=__ret__['state'],
-        subscription_id=__ret__['subscriptionId'])
+        display_name=__ret__.get('displayName'),
+        location_placement_id=__ret__.get('locationPlacementId'),
+        quota_id=__ret__.get('quotaId'),
+        spending_limit=__ret__.get('spendingLimit'),
+        state=__ret__.get('state'),
+        subscription_id=__ret__.get('subscriptionId'))

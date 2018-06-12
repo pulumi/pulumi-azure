@@ -22,7 +22,6 @@ func LookupPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs) (*GetP
 	}
 	return &GetPlatformImageResult{
 		Version: outputs["version"],
-	}
 	}, nil
 }
 

@@ -23,13 +23,9 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 	}
 	return &GetSecretResult{
 		ContentType: outputs["contentType"],
-	}
 		Tags: outputs["tags"],
-	}
 		Value: outputs["value"],
-	}
 		Version: outputs["version"],
-	}
 	}, nil
 }
 

@@ -10,29 +10,19 @@ class GetClientConfigResult(object):
     A collection of values returned by getClientConfig.
     """
     def __init__(__self__, client_id=None, service_principal_application_id=None, service_principal_object_id=None, subscription_id=None, tenant_id=None):
-        if not client_id:
-            raise TypeError('Missing required argument client_id')
-        elif not isinstance(client_id, basestring):
+        if client_id and not isinstance(client_id, basestring):
             raise TypeError('Expected argument client_id to be a basestring')
         __self__.client_id = client_id
-        if not service_principal_application_id:
-            raise TypeError('Missing required argument service_principal_application_id')
-        elif not isinstance(service_principal_application_id, basestring):
+        if service_principal_application_id and not isinstance(service_principal_application_id, basestring):
             raise TypeError('Expected argument service_principal_application_id to be a basestring')
         __self__.service_principal_application_id = service_principal_application_id
-        if not service_principal_object_id:
-            raise TypeError('Missing required argument service_principal_object_id')
-        elif not isinstance(service_principal_object_id, basestring):
+        if service_principal_object_id and not isinstance(service_principal_object_id, basestring):
             raise TypeError('Expected argument service_principal_object_id to be a basestring')
         __self__.service_principal_object_id = service_principal_object_id
-        if not subscription_id:
-            raise TypeError('Missing required argument subscription_id')
-        elif not isinstance(subscription_id, basestring):
+        if subscription_id and not isinstance(subscription_id, basestring):
             raise TypeError('Expected argument subscription_id to be a basestring')
         __self__.subscription_id = subscription_id
-        if not tenant_id:
-            raise TypeError('Missing required argument tenant_id')
-        elif not isinstance(tenant_id, basestring):
+        if tenant_id and not isinstance(tenant_id, basestring):
             raise TypeError('Expected argument tenant_id to be a basestring')
         __self__.tenant_id = tenant_id
 
@@ -46,8 +36,8 @@ def get_client_config():
     __ret__ = pulumi.runtime.invoke('azure:core/getClientConfig:getClientConfig', __args__)
 
     return GetClientConfigResult(
-        client_id=__ret__['clientId'],
-        service_principal_application_id=__ret__['servicePrincipalApplicationId'],
-        service_principal_object_id=__ret__['servicePrincipalObjectId'],
-        subscription_id=__ret__['subscriptionId'],
-        tenant_id=__ret__['tenantId'])
+        client_id=__ret__.get('clientId'),
+        service_principal_application_id=__ret__.get('servicePrincipalApplicationId'),
+        service_principal_object_id=__ret__.get('servicePrincipalObjectId'),
+        subscription_id=__ret__.get('subscriptionId'),
+        tenant_id=__ret__.get('tenantId'))

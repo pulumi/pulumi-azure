@@ -19,13 +19,9 @@ func LookupBuiltinRoleDefinition(ctx *pulumi.Context, args *GetBuiltinRoleDefini
 	}
 	return &GetBuiltinRoleDefinitionResult{
 		AssignableScopes: outputs["assignableScopes"],
-	}
 		Description: outputs["description"],
-	}
 		Permissions: outputs["permissions"],
-	}
 		Type: outputs["type"],
-	}
 	}, nil
 }
 

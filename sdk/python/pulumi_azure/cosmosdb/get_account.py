@@ -10,115 +10,85 @@ class GetAccountResult(object):
     A collection of values returned by getAccount.
     """
     def __init__(__self__, consistency_policies=None, enable_automatic_failover=None, endpoint=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, write_endpoints=None):
-        if not consistency_policies:
-            raise TypeError('Missing required argument consistency_policies')
-        elif not isinstance(consistency_policies, list):
+        if consistency_policies and not isinstance(consistency_policies, list):
             raise TypeError('Expected argument consistency_policies to be a list')
         __self__.consistency_policies = consistency_policies
-        if not enable_automatic_failover:
-            raise TypeError('Missing required argument enable_automatic_failover')
-        elif not isinstance(enable_automatic_failover, bool):
+        if enable_automatic_failover and not isinstance(enable_automatic_failover, bool):
             raise TypeError('Expected argument enable_automatic_failover to be a bool')
         __self__.enable_automatic_failover = enable_automatic_failover
         """
         If automatic failover is enabled for this CosmosDB Account.
         """
-        if not endpoint:
-            raise TypeError('Missing required argument endpoint')
-        elif not isinstance(endpoint, basestring):
+        if endpoint and not isinstance(endpoint, basestring):
             raise TypeError('Expected argument endpoint to be a basestring')
         __self__.endpoint = endpoint
         """
         The endpoint used to connect to the CosmosDB account.
         """
-        if not geo_locations:
-            raise TypeError('Missing required argument geo_locations')
-        elif not isinstance(geo_locations, list):
+        if geo_locations and not isinstance(geo_locations, list):
             raise TypeError('Expected argument geo_locations to be a list')
         __self__.geo_locations = geo_locations
-        if not ip_range_filter:
-            raise TypeError('Missing required argument ip_range_filter')
-        elif not isinstance(ip_range_filter, basestring):
+        if ip_range_filter and not isinstance(ip_range_filter, basestring):
             raise TypeError('Expected argument ip_range_filter to be a basestring')
         __self__.ip_range_filter = ip_range_filter
         """
         The current IP Filter for this CosmosDB account
         """
-        if not kind:
-            raise TypeError('Missing required argument kind')
-        elif not isinstance(kind, basestring):
+        if kind and not isinstance(kind, basestring):
             raise TypeError('Expected argument kind to be a basestring')
         __self__.kind = kind
         """
         The Kind of the CosmosDB account.
         """
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The name of the Azure region hosting replicated data.
         """
-        if not offer_type:
-            raise TypeError('Missing required argument offer_type')
-        elif not isinstance(offer_type, basestring):
+        if offer_type and not isinstance(offer_type, basestring):
             raise TypeError('Expected argument offer_type to be a basestring')
         __self__.offer_type = offer_type
         """
         The Offer Type to used by this CosmosDB Account.
         """
-        if not primary_master_key:
-            raise TypeError('Missing required argument primary_master_key')
-        elif not isinstance(primary_master_key, basestring):
+        if primary_master_key and not isinstance(primary_master_key, basestring):
             raise TypeError('Expected argument primary_master_key to be a basestring')
         __self__.primary_master_key = primary_master_key
         """
         The Primary master key for the CosmosDB Account.
         """
-        if not primary_readonly_master_key:
-            raise TypeError('Missing required argument primary_readonly_master_key')
-        elif not isinstance(primary_readonly_master_key, basestring):
+        if primary_readonly_master_key and not isinstance(primary_readonly_master_key, basestring):
             raise TypeError('Expected argument primary_readonly_master_key to be a basestring')
         __self__.primary_readonly_master_key = primary_readonly_master_key
         """
         The Primary read-only master Key for the CosmosDB Account.
         """
-        if not read_endpoints:
-            raise TypeError('Missing required argument read_endpoints')
-        elif not isinstance(read_endpoints, list):
+        if read_endpoints and not isinstance(read_endpoints, list):
             raise TypeError('Expected argument read_endpoints to be a list')
         __self__.read_endpoints = read_endpoints
         """
         A list of read endpoints available for this CosmosDB account.
         """
-        if not secondary_master_key:
-            raise TypeError('Missing required argument secondary_master_key')
-        elif not isinstance(secondary_master_key, basestring):
+        if secondary_master_key and not isinstance(secondary_master_key, basestring):
             raise TypeError('Expected argument secondary_master_key to be a basestring')
         __self__.secondary_master_key = secondary_master_key
         """
         The Secondary master key for the CosmosDB Account.
         """
-        if not secondary_readonly_master_key:
-            raise TypeError('Missing required argument secondary_readonly_master_key')
-        elif not isinstance(secondary_readonly_master_key, basestring):
+        if secondary_readonly_master_key and not isinstance(secondary_readonly_master_key, basestring):
             raise TypeError('Expected argument secondary_readonly_master_key to be a basestring')
         __self__.secondary_readonly_master_key = secondary_readonly_master_key
         """
         The Secondary read-only master key for the CosmosDB Account.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
         """
-        if not write_endpoints:
-            raise TypeError('Missing required argument write_endpoints')
-        elif not isinstance(write_endpoints, list):
+        if write_endpoints and not isinstance(write_endpoints, list):
             raise TypeError('Expected argument write_endpoints to be a list')
         __self__.write_endpoints = write_endpoints
         """
@@ -136,18 +106,18 @@ def get_account(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__)
 
     return GetAccountResult(
-        consistency_policies=__ret__['consistencyPolicies'],
-        enable_automatic_failover=__ret__['enableAutomaticFailover'],
-        endpoint=__ret__['endpoint'],
-        geo_locations=__ret__['geoLocations'],
-        ip_range_filter=__ret__['ipRangeFilter'],
-        kind=__ret__['kind'],
-        location=__ret__['location'],
-        offer_type=__ret__['offerType'],
-        primary_master_key=__ret__['primaryMasterKey'],
-        primary_readonly_master_key=__ret__['primaryReadonlyMasterKey'],
-        read_endpoints=__ret__['readEndpoints'],
-        secondary_master_key=__ret__['secondaryMasterKey'],
-        secondary_readonly_master_key=__ret__['secondaryReadonlyMasterKey'],
-        tags=__ret__['tags'],
-        write_endpoints=__ret__['writeEndpoints'])
+        consistency_policies=__ret__.get('consistencyPolicies'),
+        enable_automatic_failover=__ret__.get('enableAutomaticFailover'),
+        endpoint=__ret__.get('endpoint'),
+        geo_locations=__ret__.get('geoLocations'),
+        ip_range_filter=__ret__.get('ipRangeFilter'),
+        kind=__ret__.get('kind'),
+        location=__ret__.get('location'),
+        offer_type=__ret__.get('offerType'),
+        primary_master_key=__ret__.get('primaryMasterKey'),
+        primary_readonly_master_key=__ret__.get('primaryReadonlyMasterKey'),
+        read_endpoints=__ret__.get('readEndpoints'),
+        secondary_master_key=__ret__.get('secondaryMasterKey'),
+        secondary_readonly_master_key=__ret__.get('secondaryReadonlyMasterKey'),
+        tags=__ret__.get('tags'),
+        write_endpoints=__ret__.get('writeEndpoints'))

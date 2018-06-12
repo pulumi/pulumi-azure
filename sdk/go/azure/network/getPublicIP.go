@@ -21,15 +21,10 @@ func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPRes
 	}
 	return &GetPublicIPResult{
 		DomainNameLabel: outputs["domainNameLabel"],
-	}
 		Fqdn: outputs["fqdn"],
-	}
 		IdleTimeoutInMinutes: outputs["idleTimeoutInMinutes"],
-	}
 		IpAddress: outputs["ipAddress"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

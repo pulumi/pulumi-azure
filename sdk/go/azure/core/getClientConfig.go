@@ -16,15 +16,10 @@ func LookupClientConfig(ctx *pulumi.Context) (*GetClientConfigResult, error) {
 	}
 	return &GetClientConfigResult{
 		ClientId: outputs["clientId"],
-	}
 		ServicePrincipalApplicationId: outputs["servicePrincipalApplicationId"],
-	}
 		ServicePrincipalObjectId: outputs["servicePrincipalObjectId"],
-	}
 		SubscriptionId: outputs["subscriptionId"],
-	}
 		TenantId: outputs["tenantId"],
-	}
 	}, nil
 }
 

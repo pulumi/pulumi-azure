@@ -20,13 +20,9 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*Ge
 	}
 	return &GetVirtualNetworkResult{
 		AddressSpaces: outputs["addressSpaces"],
-	}
 		DnsServers: outputs["dnsServers"],
-	}
 		Subnets: outputs["subnets"],
-	}
 		VnetPeerings: outputs["vnetPeerings"],
-	}
 	}, nil
 }
 

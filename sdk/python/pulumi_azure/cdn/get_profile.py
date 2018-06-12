@@ -10,25 +10,19 @@ class GetProfileResult(object):
     A collection of values returned by getProfile.
     """
     def __init__(__self__, location=None, sku=None, tags=None):
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The Azure Region where the resource exists.
         """
-        if not sku:
-            raise TypeError('Missing required argument sku')
-        elif not isinstance(sku, basestring):
+        if sku and not isinstance(sku, basestring):
             raise TypeError('Expected argument sku to be a basestring')
         __self__.sku = sku
         """
         The pricing related information of current CDN profile.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -46,6 +40,6 @@ def get_profile(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:cdn/getProfile:getProfile', __args__)
 
     return GetProfileResult(
-        location=__ret__['location'],
-        sku=__ret__['sku'],
-        tags=__ret__['tags'])
+        location=__ret__.get('location'),
+        sku=__ret__.get('sku'),
+        tags=__ret__.get('tags'))

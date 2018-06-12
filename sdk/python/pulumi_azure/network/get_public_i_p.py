@@ -10,41 +10,31 @@ class GetPublicIPResult(object):
     A collection of values returned by getPublicIP.
     """
     def __init__(__self__, domain_name_label=None, fqdn=None, idle_timeout_in_minutes=None, ip_address=None, tags=None):
-        if not domain_name_label:
-            raise TypeError('Missing required argument domain_name_label')
-        elif not isinstance(domain_name_label, basestring):
+        if domain_name_label and not isinstance(domain_name_label, basestring):
             raise TypeError('Expected argument domain_name_label to be a basestring')
         __self__.domain_name_label = domain_name_label
         """
         The label for the Domain Name.
         """
-        if not fqdn:
-            raise TypeError('Missing required argument fqdn')
-        elif not isinstance(fqdn, basestring):
+        if fqdn and not isinstance(fqdn, basestring):
             raise TypeError('Expected argument fqdn to be a basestring')
         __self__.fqdn = fqdn
         """
         Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         """
-        if not idle_timeout_in_minutes:
-            raise TypeError('Missing required argument idle_timeout_in_minutes')
-        elif not isinstance(idle_timeout_in_minutes, int):
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
             raise TypeError('Expected argument idle_timeout_in_minutes to be a int')
         __self__.idle_timeout_in_minutes = idle_timeout_in_minutes
         """
         Specifies the timeout for the TCP idle connection.
         """
-        if not ip_address:
-            raise TypeError('Missing required argument ip_address')
-        elif not isinstance(ip_address, basestring):
+        if ip_address and not isinstance(ip_address, basestring):
             raise TypeError('Expected argument ip_address to be a basestring')
         __self__.ip_address = ip_address
         """
         The IP address value that was allocated.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -63,8 +53,8 @@ def get_public_i_p(name=None, resource_group_name=None, tags=None):
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIP:getPublicIP', __args__)
 
     return GetPublicIPResult(
-        domain_name_label=__ret__['domainNameLabel'],
-        fqdn=__ret__['fqdn'],
-        idle_timeout_in_minutes=__ret__['idleTimeoutInMinutes'],
-        ip_address=__ret__['ipAddress'],
-        tags=__ret__['tags'])
+        domain_name_label=__ret__.get('domainNameLabel'),
+        fqdn=__ret__.get('fqdn'),
+        idle_timeout_in_minutes=__ret__.get('idleTimeoutInMinutes'),
+        ip_address=__ret__.get('ipAddress'),
+        tags=__ret__.get('tags'))

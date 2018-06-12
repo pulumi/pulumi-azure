@@ -20,11 +20,8 @@ func LookupStore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, erro
 	}
 	return &GetStoreResult{
 		Location: outputs["location"],
-	}
 		Tags: outputs["tags"],
-	}
 		Tier: outputs["tier"],
-	}
 	}, nil
 }
 

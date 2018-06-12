@@ -21,31 +21,18 @@ func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServ
 	}
 	return &GetAppServiceResult{
 		AppServicePlanId: outputs["appServicePlanId"],
-	}
 		AppSettings: outputs["appSettings"],
-	}
 		ClientAffinityEnabled: outputs["clientAffinityEnabled"],
-	}
 		ConnectionStrings: outputs["connectionStrings"],
-	}
 		DefaultSiteHostname: outputs["defaultSiteHostname"],
-	}
 		Enabled: outputs["enabled"],
-	}
 		HttpsOnly: outputs["httpsOnly"],
-	}
 		Location: outputs["location"],
-	}
 		OutboundIpAddresses: outputs["outboundIpAddresses"],
-	}
 		SiteConfig: outputs["siteConfig"],
-	}
 		SiteCredentials: outputs["siteCredentials"],
-	}
 		SourceControls: outputs["sourceControls"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 
