@@ -3,22 +3,10 @@
 set -o nounset -o errexit -o pipefail
 ROOT=$(dirname $0)/..
 if [[ "${TRAVIS_OS_NAME:-}" == "linux" ]]; then
-echo "Publishing Plugin archive to s3://rel.pulumi.com/:"
-    for OS in "darwin" "linux" "windows"
-    do
-        for ARCH in "amd64"
-        do
-            export GOOS=${OS}
-            export GOARCH=${ARCH}
-
-            ${ROOT}/scripts/publish-plugin.sh
-        done
-    done
-
     # Publish the NPM package.
     echo "Publishing NPM package to NPMjs.com:"
 
-    # First create the package.json to publish. We need to add our install script to it.
+    # First, add an install script to our package.json
     node $(dirname $0)/promote.js < \
         ${ROOT}/sdk/nodejs/bin/package.json > \
         ${ROOT}/sdk/nodejs/bin/package.json.publish
@@ -47,7 +35,7 @@ echo "Publishing Plugin archive to s3://rel.pulumi.com/:"
     # Next, publish the PyPI package.
     echo "Publishing Pip package to pulumi.com:"
     twine upload \
-        --repository-url https://pypi.pulumi.com?token=${PULUMI_API_TOKEN} \
-        -u pulumi -p pulumi \
+        --repository-url https://test.pypi.org/legacy/ \
+        -u pulumi -p ${PYPI_TEST_PASSWORD} \
         ${ROOT}/sdk/python/bin/dist/*.tar.gz
 fi
