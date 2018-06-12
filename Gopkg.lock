@@ -513,6 +513,7 @@
     "pkg/testing/integration",
     "pkg/tokens",
     "pkg/tools",
+    "pkg/util/buildutil",
     "pkg/util/cancel",
     "pkg/util/cmdutil",
     "pkg/util/contract",
@@ -841,6 +842,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "78c8daa166ef3221f981d597e4d0ade78b893c764095cf2fb62287ef03bfeec1"
+  inputs-digest = "7655fdc3c55c65231e4eb7383b739e4a0d85d131a1cf0e5455243033ab6fbf7c"
   solver-name = "gps-cdcl"
   solver-version = 1
