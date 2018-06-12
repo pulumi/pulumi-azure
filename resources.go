@@ -98,6 +98,7 @@ func boolRef(b bool) *bool {
 // Provider returns additional overlaid schema and metadata associated with the azure package.
 func Provider() tfbridge.ProviderInfo {
 	p := azurerm.Provider().(*schema.Provider)
+
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "azurerm",
@@ -398,6 +399,22 @@ func Provider() tfbridge.ProviderInfo {
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
 				"pulumi": ">=0.12.2,<0.13.0",
+			},
+		},
+	}
+
+	// TODO[pulumi/pulumi#280]: Until we can pass an Archive as an Asset, create a resource type
+	// specifically for uploading ZIP blobs to Azure storage.
+	prov.P.ResourcesMap["azurerm_storage_zipblob"] = prov.P.ResourcesMap["azurerm_storage_blob"]
+	prov.Resources["azurerm_storage_zipblob"] = &tfbridge.ResourceInfo{
+		Tok: azureResource(azureStorage, "ZipBlob"),
+		Fields: map[string]*tfbridge.SchemaInfo{
+			"source": {
+				Name: "content",
+				Asset: &tfbridge.AssetTranslation{
+					Kind:   tfbridge.FileArchive,
+					Format: resource.ZIPArchive,
+				},
 			},
 		},
 	}
