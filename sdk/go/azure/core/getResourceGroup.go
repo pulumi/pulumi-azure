@@ -19,9 +19,7 @@ func LookupResourceGroup(ctx *pulumi.Context, args *GetResourceGroupArgs) (*GetR
 	}
 	return &GetResourceGroupResult{
 		Location: outputs["location"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

@@ -20,15 +20,10 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 	}
 	return &GetZoneResult{
 		MaxNumberOfRecordSets: outputs["maxNumberOfRecordSets"],
-	}
 		NameServers: outputs["nameServers"],
-	}
 		NumberOfRecordSets: outputs["numberOfRecordSets"],
-	}
 		ResourceGroupName: outputs["resourceGroupName"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

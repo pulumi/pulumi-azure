@@ -20,15 +20,10 @@ func LookupRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*Ge
 	}
 	return &GetRoleDefinitionResult{
 		AssignableScopes: outputs["assignableScopes"],
-	}
 		Description: outputs["description"],
-	}
 		Name: outputs["name"],
-	}
 		Permissions: outputs["permissions"],
-	}
 		Type: outputs["type"],
-	}
 	}, nil
 }
 

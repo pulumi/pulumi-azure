@@ -19,17 +19,11 @@ func LookupSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs) (*GetSub
 	}
 	return &GetSubscriptionResult{
 		DisplayName: outputs["displayName"],
-	}
 		LocationPlacementId: outputs["locationPlacementId"],
-	}
 		QuotaId: outputs["quotaId"],
-	}
 		SpendingLimit: outputs["spendingLimit"],
-	}
 		State: outputs["state"],
-	}
 		SubscriptionId: outputs["subscriptionId"],
-	}
 	}, nil
 }
 

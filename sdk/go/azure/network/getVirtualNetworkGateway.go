@@ -20,27 +20,16 @@ func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGat
 	}
 	return &GetVirtualNetworkGatewayResult{
 		ActiveActive: outputs["activeActive"],
-	}
 		BgpSettings: outputs["bgpSettings"],
-	}
 		DefaultLocalNetworkGatewayId: outputs["defaultLocalNetworkGatewayId"],
-	}
 		EnableBgp: outputs["enableBgp"],
-	}
 		IpConfigurations: outputs["ipConfigurations"],
-	}
 		Location: outputs["location"],
-	}
 		Sku: outputs["sku"],
-	}
 		Tags: outputs["tags"],
-	}
 		Type: outputs["type"],
-	}
 		VpnClientConfigurations: outputs["vpnClientConfigurations"],
-	}
 		VpnType: outputs["vpnType"],
-	}
 	}, nil
 }
 

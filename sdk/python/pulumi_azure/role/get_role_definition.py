@@ -10,38 +10,28 @@ class GetRoleDefinitionResult(object):
     A collection of values returned by getRoleDefinition.
     """
     def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, type=None):
-        if not assignable_scopes:
-            raise TypeError('Missing required argument assignable_scopes')
-        elif not isinstance(assignable_scopes, list):
+        if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError('Expected argument assignable_scopes to be a list')
         __self__.assignable_scopes = assignable_scopes
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         """
-        if not description:
-            raise TypeError('Missing required argument description')
-        elif not isinstance(description, basestring):
+        if description and not isinstance(description, basestring):
             raise TypeError('Expected argument description to be a basestring')
         __self__.description = description
         """
         the Description of the built-in Role.
         """
-        if not name:
-            raise TypeError('Missing required argument name')
-        elif not isinstance(name, basestring):
+        if name and not isinstance(name, basestring):
             raise TypeError('Expected argument name to be a basestring')
         __self__.name = name
-        if not permissions:
-            raise TypeError('Missing required argument permissions')
-        elif not isinstance(permissions, list):
+        if permissions and not isinstance(permissions, list):
             raise TypeError('Expected argument permissions to be a list')
         __self__.permissions = permissions
         """
         a `permissions` block as documented below.
         """
-        if not type:
-            raise TypeError('Missing required argument type')
-        elif not isinstance(type, basestring):
+        if type and not isinstance(type, basestring):
             raise TypeError('Expected argument type to be a basestring')
         __self__.type = type
         """
@@ -59,8 +49,8 @@ def get_role_definition(role_definition_id=None, scope=None):
     __ret__ = pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__)
 
     return GetRoleDefinitionResult(
-        assignable_scopes=__ret__['assignableScopes'],
-        description=__ret__['description'],
-        name=__ret__['name'],
-        permissions=__ret__['permissions'],
-        type=__ret__['type'])
+        assignable_scopes=__ret__.get('assignableScopes'),
+        description=__ret__.get('description'),
+        name=__ret__.get('name'),
+        permissions=__ret__.get('permissions'),
+        type=__ret__.get('type'))

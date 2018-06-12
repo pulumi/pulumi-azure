@@ -10,9 +10,7 @@ class GetPublicIPsResult(object):
     A collection of values returned by getPublicIPs.
     """
     def __init__(__self__, public_ips=None):
-        if not public_ips:
-            raise TypeError('Missing required argument public_ips')
-        elif not isinstance(public_ips, list):
+        if public_ips and not isinstance(public_ips, list):
             raise TypeError('Expected argument public_ips to be a list')
         __self__.public_ips = public_ips
         """
@@ -32,4 +30,4 @@ def get_public_i_ps(allocation_type=None, attached=None, name_prefix=None, resou
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__)
 
     return GetPublicIPsResult(
-        public_ips=__ret__['publicIps'])
+        public_ips=__ret__.get('publicIps'))

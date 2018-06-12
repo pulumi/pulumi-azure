@@ -10,73 +10,55 @@ class GetKeyVaultResult(object):
     A collection of values returned by getKeyVault.
     """
     def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, sku=None, tags=None, tenant_id=None, vault_uri=None):
-        if not access_policies:
-            raise TypeError('Missing required argument access_policies')
-        elif not isinstance(access_policies, list):
+        if access_policies and not isinstance(access_policies, list):
             raise TypeError('Expected argument access_policies to be a list')
         __self__.access_policies = access_policies
         """
         One or more `access_policy` blocks as defined below.
         """
-        if not enabled_for_deployment:
-            raise TypeError('Missing required argument enabled_for_deployment')
-        elif not isinstance(enabled_for_deployment, bool):
+        if enabled_for_deployment and not isinstance(enabled_for_deployment, bool):
             raise TypeError('Expected argument enabled_for_deployment to be a bool')
         __self__.enabled_for_deployment = enabled_for_deployment
         """
         Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
         """
-        if not enabled_for_disk_encryption:
-            raise TypeError('Missing required argument enabled_for_disk_encryption')
-        elif not isinstance(enabled_for_disk_encryption, bool):
+        if enabled_for_disk_encryption and not isinstance(enabled_for_disk_encryption, bool):
             raise TypeError('Expected argument enabled_for_disk_encryption to be a bool')
         __self__.enabled_for_disk_encryption = enabled_for_disk_encryption
         """
         Can Azure Disk Encryption retrieve secrets from the Key Vault?
         """
-        if not enabled_for_template_deployment:
-            raise TypeError('Missing required argument enabled_for_template_deployment')
-        elif not isinstance(enabled_for_template_deployment, bool):
+        if enabled_for_template_deployment and not isinstance(enabled_for_template_deployment, bool):
             raise TypeError('Expected argument enabled_for_template_deployment to be a bool')
         __self__.enabled_for_template_deployment = enabled_for_template_deployment
         """
         Can Azure Resource Manager retrieve secrets from the Key Vault?
         """
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The Azure Region in which the Key Vault exists.
         """
-        if not sku:
-            raise TypeError('Missing required argument sku')
-        elif not isinstance(sku, dict):
+        if sku and not isinstance(sku, dict):
             raise TypeError('Expected argument sku to be a dict')
         __self__.sku = sku
         """
         A `sku` block as described below.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
         A mapping of tags assigned to the Key Vault.
         """
-        if not tenant_id:
-            raise TypeError('Missing required argument tenant_id')
-        elif not isinstance(tenant_id, basestring):
+        if tenant_id and not isinstance(tenant_id, basestring):
             raise TypeError('Expected argument tenant_id to be a basestring')
         __self__.tenant_id = tenant_id
         """
         The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
         """
-        if not vault_uri:
-            raise TypeError('Missing required argument vault_uri')
-        elif not isinstance(vault_uri, basestring):
+        if vault_uri and not isinstance(vault_uri, basestring):
             raise TypeError('Expected argument vault_uri to be a basestring')
         __self__.vault_uri = vault_uri
         """
@@ -94,12 +76,12 @@ def get_key_vault(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getKeyVault:getKeyVault', __args__)
 
     return GetKeyVaultResult(
-        access_policies=__ret__['accessPolicies'],
-        enabled_for_deployment=__ret__['enabledForDeployment'],
-        enabled_for_disk_encryption=__ret__['enabledForDiskEncryption'],
-        enabled_for_template_deployment=__ret__['enabledForTemplateDeployment'],
-        location=__ret__['location'],
-        sku=__ret__['sku'],
-        tags=__ret__['tags'],
-        tenant_id=__ret__['tenantId'],
-        vault_uri=__ret__['vaultUri'])
+        access_policies=__ret__.get('accessPolicies'),
+        enabled_for_deployment=__ret__.get('enabledForDeployment'),
+        enabled_for_disk_encryption=__ret__.get('enabledForDiskEncryption'),
+        enabled_for_template_deployment=__ret__.get('enabledForTemplateDeployment'),
+        location=__ret__.get('location'),
+        sku=__ret__.get('sku'),
+        tags=__ret__.get('tags'),
+        tenant_id=__ret__.get('tenantId'),
+        vault_uri=__ret__.get('vaultUri'))

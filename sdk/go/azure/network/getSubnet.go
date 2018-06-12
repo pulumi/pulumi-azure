@@ -21,13 +21,9 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 	}
 	return &GetSubnetResult{
 		AddressPrefix: outputs["addressPrefix"],
-	}
 		IpConfigurations: outputs["ipConfigurations"],
-	}
 		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
-	}
 		RouteTableId: outputs["routeTableId"],
-	}
 	}, nil
 }
 

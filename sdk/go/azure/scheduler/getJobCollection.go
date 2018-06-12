@@ -20,15 +20,10 @@ func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJ
 	}
 	return &GetJobCollectionResult{
 		Location: outputs["location"],
-	}
 		Quotas: outputs["quotas"],
-	}
 		Sku: outputs["sku"],
-	}
 		State: outputs["state"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

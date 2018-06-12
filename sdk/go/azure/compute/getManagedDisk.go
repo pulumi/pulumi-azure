@@ -22,19 +22,12 @@ func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManag
 	}
 	return &GetManagedDiskResult{
 		DiskSizeGb: outputs["diskSizeGb"],
-	}
 		OsType: outputs["osType"],
-	}
 		SourceResourceId: outputs["sourceResourceId"],
-	}
 		SourceUri: outputs["sourceUri"],
-	}
 		StorageAccountType: outputs["storageAccountType"],
-	}
 		Tags: outputs["tags"],
-	}
 		Zones: outputs["zones"],
-	}
 	}, nil
 }
 

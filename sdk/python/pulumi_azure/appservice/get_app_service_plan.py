@@ -10,49 +10,37 @@ class GetAppServicePlanResult(object):
     A collection of values returned by getAppServicePlan.
     """
     def __init__(__self__, kind=None, location=None, maximum_number_of_workers=None, properties=None, sku=None, tags=None):
-        if not kind:
-            raise TypeError('Missing required argument kind')
-        elif not isinstance(kind, basestring):
+        if kind and not isinstance(kind, basestring):
             raise TypeError('Expected argument kind to be a basestring')
         __self__.kind = kind
         """
         The Operating System type of the App Service Plan
         """
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The Azure location where the App Service Plan exists
         """
-        if not maximum_number_of_workers:
-            raise TypeError('Missing required argument maximum_number_of_workers')
-        elif not isinstance(maximum_number_of_workers, int):
+        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, int):
             raise TypeError('Expected argument maximum_number_of_workers to be a int')
         __self__.maximum_number_of_workers = maximum_number_of_workers
         """
         Maximum number of instances that can be assigned to this App Service plan.
         """
-        if not properties:
-            raise TypeError('Missing required argument properties')
-        elif not isinstance(properties, list):
+        if properties and not isinstance(properties, list):
             raise TypeError('Expected argument properties to be a list')
         __self__.properties = properties
         """
         A `properties` block as documented below.
         """
-        if not sku:
-            raise TypeError('Missing required argument sku')
-        elif not isinstance(sku, dict):
+        if sku and not isinstance(sku, dict):
             raise TypeError('Expected argument sku to be a dict')
         __self__.sku = sku
         """
         A `sku` block as documented below.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -70,9 +58,9 @@ def get_app_service_plan(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__)
 
     return GetAppServicePlanResult(
-        kind=__ret__['kind'],
-        location=__ret__['location'],
-        maximum_number_of_workers=__ret__['maximumNumberOfWorkers'],
-        properties=__ret__['properties'],
-        sku=__ret__['sku'],
-        tags=__ret__['tags'])
+        kind=__ret__.get('kind'),
+        location=__ret__.get('location'),
+        maximum_number_of_workers=__ret__.get('maximumNumberOfWorkers'),
+        properties=__ret__.get('properties'),
+        sku=__ret__.get('sku'),
+        tags=__ret__.get('tags'))

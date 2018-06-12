@@ -10,33 +10,25 @@ class GetSecretResult(object):
     A collection of values returned by getSecret.
     """
     def __init__(__self__, content_type=None, tags=None, value=None, version=None):
-        if not content_type:
-            raise TypeError('Missing required argument content_type')
-        elif not isinstance(content_type, basestring):
+        if content_type and not isinstance(content_type, basestring):
             raise TypeError('Expected argument content_type to be a basestring')
         __self__.content_type = content_type
         """
         The content type for the Key Vault Secret.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
         Any tags assigned to this resource.
         """
-        if not value:
-            raise TypeError('Missing required argument value')
-        elif not isinstance(value, basestring):
+        if value and not isinstance(value, basestring):
             raise TypeError('Expected argument value to be a basestring')
         __self__.value = value
         """
         The value of the Key Vault Secret.
         """
-        if not version:
-            raise TypeError('Missing required argument version')
-        elif not isinstance(version, basestring):
+        if version and not isinstance(version, basestring):
             raise TypeError('Expected argument version to be a basestring')
         __self__.version = version
         """
@@ -57,7 +49,7 @@ def get_secret(name=None, vault_uri=None):
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__)
 
     return GetSecretResult(
-        content_type=__ret__['contentType'],
-        tags=__ret__['tags'],
-        value=__ret__['value'],
-        version=__ret__['version'])
+        content_type=__ret__.get('contentType'),
+        tags=__ret__.get('tags'),
+        value=__ret__.get('value'),
+        version=__ret__.get('version'))

@@ -22,9 +22,7 @@ func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *GetApplicationSec
 	}
 	return &GetApplicationSecurityGroupResult{
 		Location: outputs["location"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

@@ -20,11 +20,8 @@ func LookupProfile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult
 	}
 	return &GetProfileResult{
 		Location: outputs["location"],
-	}
 		Sku: outputs["sku"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

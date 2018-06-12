@@ -20,25 +20,15 @@ func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs
 	}
 	return &GetEventhubNamespaceResult{
 		AutoInflateEnabled: outputs["autoInflateEnabled"],
-	}
 		Capacity: outputs["capacity"],
-	}
 		DefaultPrimaryConnectionString: outputs["defaultPrimaryConnectionString"],
-	}
 		DefaultPrimaryKey: outputs["defaultPrimaryKey"],
-	}
 		DefaultSecondaryConnectionString: outputs["defaultSecondaryConnectionString"],
-	}
 		DefaultSecondaryKey: outputs["defaultSecondaryKey"],
-	}
 		Location: outputs["location"],
-	}
 		MaximumThroughputUnits: outputs["maximumThroughputUnits"],
-	}
 		Sku: outputs["sku"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

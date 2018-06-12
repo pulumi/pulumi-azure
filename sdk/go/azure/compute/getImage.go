@@ -22,13 +22,9 @@ func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, erro
 	}
 	return &GetImageResult{
 		DataDisks: outputs["dataDisks"],
-	}
 		Location: outputs["location"],
-	}
 		OsDisks: outputs["osDisks"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

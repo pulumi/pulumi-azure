@@ -24,25 +24,15 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 	}
 	return &GetKubernetesClusterResult{
 		AgentPoolProfiles: outputs["agentPoolProfiles"],
-	}
 		DnsPrefix: outputs["dnsPrefix"],
-	}
 		Fqdn: outputs["fqdn"],
-	}
 		KubeConfigs: outputs["kubeConfigs"],
-	}
 		KubeConfigRaw: outputs["kubeConfigRaw"],
-	}
 		KubernetesVersion: outputs["kubernetesVersion"],
-	}
 		LinuxProfiles: outputs["linuxProfiles"],
-	}
 		Location: outputs["location"],
-	}
 		ServicePrincipals: outputs["servicePrincipals"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

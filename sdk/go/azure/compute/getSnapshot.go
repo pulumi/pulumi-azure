@@ -20,21 +20,13 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 	}
 	return &GetSnapshotResult{
 		CreationOption: outputs["creationOption"],
-	}
 		DiskSizeGb: outputs["diskSizeGb"],
-	}
 		EncryptionSettings: outputs["encryptionSettings"],
-	}
 		OsType: outputs["osType"],
-	}
 		SourceResourceId: outputs["sourceResourceId"],
-	}
 		SourceUri: outputs["sourceUri"],
-	}
 		StorageAccountId: outputs["storageAccountId"],
-	}
 		TimeCreated: outputs["timeCreated"],
-	}
 	}, nil
 }
 

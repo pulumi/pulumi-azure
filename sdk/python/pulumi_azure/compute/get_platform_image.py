@@ -10,9 +10,7 @@ class GetPlatformImageResult(object):
     A collection of values returned by getPlatformImage.
     """
     def __init__(__self__, version=None):
-        if not version:
-            raise TypeError('Missing required argument version')
-        elif not isinstance(version, basestring):
+        if version and not isinstance(version, basestring):
             raise TypeError('Expected argument version to be a basestring')
         __self__.version = version
         """
@@ -32,4 +30,4 @@ def get_platform_image(location=None, offer=None, publisher=None, sku=None):
     __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__)
 
     return GetPlatformImageResult(
-        version=__ret__['version'])
+        version=__ret__.get('version'))

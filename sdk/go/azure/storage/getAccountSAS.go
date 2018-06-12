@@ -30,7 +30,6 @@ func LookupAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs) (*GetAccount
 	}
 	return &GetAccountSASResult{
 		Sas: outputs["sas"],
-	}
 	}, nil
 }
 

@@ -9,37 +9,37 @@ import (
 )
 
 func GetClientId(ctx *pulumi.Context) string {
-	return config.Get("azure:clientId")
+	return config.Get(ctx, "azure:clientId")
 }
 
 func GetClientSecret(ctx *pulumi.Context) string {
-	return config.Get("azure:clientSecret")
+	return config.Get(ctx, "azure:clientSecret")
 }
 
 func GetEnvironment(ctx *pulumi.Context) string {
-	return config.Require("azure:environment")
+	return config.Require(ctx, "azure:environment")
 }
 
 func GetMsiEndpoint(ctx *pulumi.Context) string {
-	return config.Get("azure:msiEndpoint")
+	return config.Get(ctx, "azure:msiEndpoint")
 }
 
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
-	return config.GetBool("azure:skipCredentialsValidation")
+	return config.GetBool(ctx, "azure:skipCredentialsValidation")
 }
 
 func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
-	return config.GetBool("azure:skipProviderRegistration")
+	return config.GetBool(ctx, "azure:skipProviderRegistration")
 }
 
 func GetSubscriptionId(ctx *pulumi.Context) string {
-	return config.Get("azure:subscriptionId")
+	return config.Get(ctx, "azure:subscriptionId")
 }
 
 func GetTenantId(ctx *pulumi.Context) string {
-	return config.Get("azure:tenantId")
+	return config.Get(ctx, "azure:tenantId")
 }
 
 func GetUseMsi(ctx *pulumi.Context) bool {
-	return config.GetBool("azure:useMsi")
+	return config.GetBool(ctx, "azure:useMsi")
 }

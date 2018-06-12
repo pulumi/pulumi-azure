@@ -10,81 +10,61 @@ class GetKubernetesClusterResult(object):
     A collection of values returned by getKubernetesCluster.
     """
     def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, service_principals=None, tags=None):
-        if not agent_pool_profiles:
-            raise TypeError('Missing required argument agent_pool_profiles')
-        elif not isinstance(agent_pool_profiles, list):
+        if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError('Expected argument agent_pool_profiles to be a list')
         __self__.agent_pool_profiles = agent_pool_profiles
         """
         One or more `agent_profile_pool` blocks as documented below.
         """
-        if not dns_prefix:
-            raise TypeError('Missing required argument dns_prefix')
-        elif not isinstance(dns_prefix, basestring):
+        if dns_prefix and not isinstance(dns_prefix, basestring):
             raise TypeError('Expected argument dns_prefix to be a basestring')
         __self__.dns_prefix = dns_prefix
         """
         The DNS Prefix of the managed Kubernetes cluster.
         """
-        if not fqdn:
-            raise TypeError('Missing required argument fqdn')
-        elif not isinstance(fqdn, basestring):
+        if fqdn and not isinstance(fqdn, basestring):
             raise TypeError('Expected argument fqdn to be a basestring')
         __self__.fqdn = fqdn
         """
         The FQDN of the Azure Kubernetes Managed Cluster.
         """
-        if not kube_configs:
-            raise TypeError('Missing required argument kube_configs')
-        elif not isinstance(kube_configs, list):
+        if kube_configs and not isinstance(kube_configs, list):
             raise TypeError('Expected argument kube_configs to be a list')
         __self__.kube_configs = kube_configs
         """
         A `kube_config` block as defined below.
         """
-        if not kube_config_raw:
-            raise TypeError('Missing required argument kube_config_raw')
-        elif not isinstance(kube_config_raw, basestring):
+        if kube_config_raw and not isinstance(kube_config_raw, basestring):
             raise TypeError('Expected argument kube_config_raw to be a basestring')
         __self__.kube_config_raw = kube_config_raw
         """
         Base64 encoded Kubernetes configuration.
         """
-        if not kubernetes_version:
-            raise TypeError('Missing required argument kubernetes_version')
-        elif not isinstance(kubernetes_version, basestring):
+        if kubernetes_version and not isinstance(kubernetes_version, basestring):
             raise TypeError('Expected argument kubernetes_version to be a basestring')
         __self__.kubernetes_version = kubernetes_version
         """
         The version of Kubernetes used on the managed Kubernetes Cluster.
         """
-        if not linux_profiles:
-            raise TypeError('Missing required argument linux_profiles')
-        elif not isinstance(linux_profiles, list):
+        if linux_profiles and not isinstance(linux_profiles, list):
             raise TypeError('Expected argument linux_profiles to be a list')
         __self__.linux_profiles = linux_profiles
         """
         A `linux_profile` block as documented below.
         """
-        if not location:
-            raise TypeError('Missing required argument location')
-        elif not isinstance(location, basestring):
+        if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
         The Azure Region in which the managed Kubernetes Cluster exists.
         """
-        if not service_principals:
-            raise TypeError('Missing required argument service_principals')
-        elif not isinstance(service_principals, list):
+        if service_principals and not isinstance(service_principals, list):
             raise TypeError('Expected argument service_principals to be a list')
         __self__.service_principals = service_principals
         """
         A `service_principal` block as documented below.
         """
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -106,13 +86,13 @@ def get_kubernetes_cluster(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesCluster:getKubernetesCluster', __args__)
 
     return GetKubernetesClusterResult(
-        agent_pool_profiles=__ret__['agentPoolProfiles'],
-        dns_prefix=__ret__['dnsPrefix'],
-        fqdn=__ret__['fqdn'],
-        kube_configs=__ret__['kubeConfigs'],
-        kube_config_raw=__ret__['kubeConfigRaw'],
-        kubernetes_version=__ret__['kubernetesVersion'],
-        linux_profiles=__ret__['linuxProfiles'],
-        location=__ret__['location'],
-        service_principals=__ret__['servicePrincipals'],
-        tags=__ret__['tags'])
+        agent_pool_profiles=__ret__.get('agentPoolProfiles'),
+        dns_prefix=__ret__.get('dnsPrefix'),
+        fqdn=__ret__.get('fqdn'),
+        kube_configs=__ret__.get('kubeConfigs'),
+        kube_config_raw=__ret__.get('kubeConfigRaw'),
+        kubernetes_version=__ret__.get('kubernetesVersion'),
+        linux_profiles=__ret__.get('linuxProfiles'),
+        location=__ret__.get('location'),
+        service_principals=__ret__.get('servicePrincipals'),
+        tags=__ret__.get('tags'))

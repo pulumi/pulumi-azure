@@ -10,38 +10,28 @@ class GetZoneResult(object):
     A collection of values returned by getZone.
     """
     def __init__(__self__, max_number_of_record_sets=None, name_servers=None, number_of_record_sets=None, resource_group_name=None, tags=None):
-        if not max_number_of_record_sets:
-            raise TypeError('Missing required argument max_number_of_record_sets')
-        elif not isinstance(max_number_of_record_sets, basestring):
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, basestring):
             raise TypeError('Expected argument max_number_of_record_sets to be a basestring')
         __self__.max_number_of_record_sets = max_number_of_record_sets
         """
         Maximum number of Records in the zone.
         """
-        if not name_servers:
-            raise TypeError('Missing required argument name_servers')
-        elif not isinstance(name_servers, list):
+        if name_servers and not isinstance(name_servers, list):
             raise TypeError('Expected argument name_servers to be a list')
         __self__.name_servers = name_servers
         """
         A list of values that make up the NS record for the zone.
         """
-        if not number_of_record_sets:
-            raise TypeError('Missing required argument number_of_record_sets')
-        elif not isinstance(number_of_record_sets, basestring):
+        if number_of_record_sets and not isinstance(number_of_record_sets, basestring):
             raise TypeError('Expected argument number_of_record_sets to be a basestring')
         __self__.number_of_record_sets = number_of_record_sets
         """
         The number of records already in the zone.
         """
-        if not resource_group_name:
-            raise TypeError('Missing required argument resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
+        if resource_group_name and not isinstance(resource_group_name, basestring):
             raise TypeError('Expected argument resource_group_name to be a basestring')
         __self__.resource_group_name = resource_group_name
-        if not tags:
-            raise TypeError('Missing required argument tags')
-        elif not isinstance(tags, dict):
+        if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
         """
@@ -59,8 +49,8 @@ def get_zone(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:dns/getZone:getZone', __args__)
 
     return GetZoneResult(
-        max_number_of_record_sets=__ret__['maxNumberOfRecordSets'],
-        name_servers=__ret__['nameServers'],
-        number_of_record_sets=__ret__['numberOfRecordSets'],
-        resource_group_name=__ret__['resourceGroupName'],
-        tags=__ret__['tags'])
+        max_number_of_record_sets=__ret__.get('maxNumberOfRecordSets'),
+        name_servers=__ret__.get('nameServers'),
+        number_of_record_sets=__ret__.get('numberOfRecordSets'),
+        resource_group_name=__ret__.get('resourceGroupName'),
+        tags=__ret__.get('tags'))

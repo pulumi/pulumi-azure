@@ -20,11 +20,8 @@ func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGro
 	}
 	return &GetNetworkSecurityGroupResult{
 		Location: outputs["location"],
-	}
 		SecurityRules: outputs["securityRules"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

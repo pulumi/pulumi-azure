@@ -20,13 +20,9 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 	}
 	return &GetRouteTableResult{
 		Location: outputs["location"],
-	}
 		Routes: outputs["routes"],
-	}
 		Subnets: outputs["subnets"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 

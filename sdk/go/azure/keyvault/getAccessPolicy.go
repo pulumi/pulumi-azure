@@ -19,11 +19,8 @@ func LookupAccessPolicy(ctx *pulumi.Context, args *GetAccessPolicyArgs) (*GetAcc
 	}
 	return &GetAccessPolicyResult{
 		CertificatePermissions: outputs["certificatePermissions"],
-	}
 		KeyPermissions: outputs["keyPermissions"],
-	}
 		SecretPermissions: outputs["secretPermissions"],
-	}
 	}, nil
 }
 

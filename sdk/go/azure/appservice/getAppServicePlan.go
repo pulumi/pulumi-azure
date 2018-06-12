@@ -20,17 +20,11 @@ func LookupAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs) (*Ge
 	}
 	return &GetAppServicePlanResult{
 		Kind: outputs["kind"],
-	}
 		Location: outputs["location"],
-	}
 		MaximumNumberOfWorkers: outputs["maximumNumberOfWorkers"],
-	}
 		Properties: outputs["properties"],
-	}
 		Sku: outputs["sku"],
-	}
 		Tags: outputs["tags"],
-	}
 	}, nil
 }
 
