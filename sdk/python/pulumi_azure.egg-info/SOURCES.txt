@@ -182,6 +182,7 @@ pulumi_azure/storage/get_account_s_a_s.py
 pulumi_azure/storage/queue.py
 pulumi_azure/storage/share.py
 pulumi_azure/storage/table.py
+pulumi_azure/storage/zip_blob.py
 pulumi_azure/trafficmanager/__init__.py
 pulumi_azure/trafficmanager/endpoint.py
 pulumi_azure/trafficmanager/get_geographical_location.py
