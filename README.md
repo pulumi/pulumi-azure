@@ -4,6 +4,8 @@
 
 The Microsoft Azure resource provider for Pulumi lets you use Azure resources in your cloud programs.
 
+Install using: ```npm install @pulumi/azure```
+
 This package is meant for use with the Pulumi CLI.  Please visit
 [docs.pulumi.com](https://docs.pulumi.com) for installation instructions.
 
