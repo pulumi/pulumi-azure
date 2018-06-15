@@ -10,3 +10,8 @@ This package is meant for use with the Pulumi CLI.  Please visit
 [docs.pulumi.com](https://docs.pulumi.com) for installation instructions.
 
 
+# Components
+
+The `@pulumi/azure` package provides a strongly-typed means to create cloud applications that create
+and interact closely with Azure resources.  Resources are exposed for nearly all of the Azure stack,
+including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault', etc. etc.
