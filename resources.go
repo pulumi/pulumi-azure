@@ -104,7 +104,8 @@ func Provider() tfbridge.ProviderInfo {
 		Name:        "azurerm",
 		Description: "A Pulumi package for creating and managing Microsoft Azure cloud resources.",
 		Keywords:    []string{"pulumi", "azure"},
-		Homepage:    "https://pulumi.io/azure",
+		Homepage:    "https://pulumi.io",
+		License:     "Apache 2.0",
 		Repository:  "https://github.com/pulumi/pulumi-azure",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// AppInsights

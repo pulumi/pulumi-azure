@@ -6,8 +6,9 @@
         "pulumi",
         "azure"
     ],
-    "homepage": "https://pulumi.io/azure",
+    "homepage": "https://pulumi.io",
     "repository": "https://github.com/pulumi/pulumi-azure",
+    "license": "Apache 2.0",
     "scripts": {
         "build": "tsc"
     },
