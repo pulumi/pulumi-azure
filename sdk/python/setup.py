@@ -17,10 +17,11 @@ setup(name='pulumi_azure',
           'install': InstallPluginCommand,
       },
       keywords='pulumi azure',
-      url='https://pulumi.io/azure',
+      url='https://pulumi.io',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-azure'
       },
+      license='Apache 2.0',
       packages=find_packages(),
       install_requires=[
           'pulumi>=0.14.0rc1,<0.15.0'
