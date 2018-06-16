@@ -1,6 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as azure from "@pulumi/azure";
+import * as pulumi from "@pulumi/pulumi"
 
 const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
     location: "West US",
@@ -25,7 +26,7 @@ const lbpip = new azure.network.PublicIp("lbpip", {
     resourceGroupName: resourceGroup.name,
     location: resourceGroup.location,
     publicIpAddressAllocation: "dynamic",
-    domainNameLabel: "pulumiazure",
+    domainNameLabel: `${pulumi.getStack()}`,
 });
 
 const vnet = new azure.network.VirtualNetwork("vnet", {
@@ -49,7 +50,7 @@ const lb = new azure.lb.LoadBalancer("lb", {
     location: resourceGroup.location,
     frontendIpConfigurations: [{
         name: "LoadBalancerFrontEnd",
-        publicIpAddressId: lbpip.id, 
+        publicIpAddressId: lbpip.id,
     }],
 });
 
@@ -119,7 +120,7 @@ const vm = new azure.compute.VirtualMachine("vm", {
         sku: "2012-R2-Datacenter",
         version: "latest"
     },
-    osProfileWindowsConfig: {}, 
+    osProfileWindowsConfig: {},
     storageOsDisk: {
         name: "osdisk",
         createOption: "FromImage"
