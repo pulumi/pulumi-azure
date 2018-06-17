@@ -31,7 +31,7 @@ To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-azure/sdk/go/...
 
-# Concepts
+## Concepts
 
 The `@pulumi/azure` package provides a strongly-typed means to build cloud applications that create
 and interact closely with Azure resources.  Resources are exposed for the entire Azure surface area,
