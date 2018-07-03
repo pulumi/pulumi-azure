@@ -63,4 +63,8 @@ export interface GetManagedDiskResult {
      * (Optional) A collection containing the availability zone the managed disk is allocated in.
      */
     readonly zones: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

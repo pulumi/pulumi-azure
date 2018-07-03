@@ -40,4 +40,8 @@ export interface GetStoreResult {
      * Current monthly commitment tier for the account.
      */
     readonly tier: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

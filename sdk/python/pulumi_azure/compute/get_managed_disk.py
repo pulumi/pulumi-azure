@@ -9,7 +9,7 @@ class GetManagedDiskResult(object):
     """
     A collection of values returned by getManagedDisk.
     """
-    def __init__(__self__, disk_size_gb=None, os_type=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None):
+    def __init__(__self__, disk_size_gb=None, os_type=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None, id=None):
         if disk_size_gb and not isinstance(disk_size_gb, int):
             raise TypeError('Expected argument disk_size_gb to be a int')
         __self__.disk_size_gb = disk_size_gb
@@ -52,6 +52,12 @@ class GetManagedDiskResult(object):
         """
         (Optional) A collection containing the availability zone the managed disk is allocated in.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None):
     """
@@ -72,4 +78,5 @@ def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None)
         source_uri=__ret__.get('sourceUri'),
         storage_account_type=__ret__.get('storageAccountType'),
         tags=__ret__.get('tags'),
-        zones=__ret__.get('zones'))
+        zones=__ret__.get('zones'),
+        id=__ret__.get('id'))

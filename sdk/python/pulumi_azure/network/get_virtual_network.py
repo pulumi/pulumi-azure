@@ -9,7 +9,7 @@ class GetVirtualNetworkResult(object):
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, address_spaces=None, dns_servers=None, subnets=None, vnet_peerings=None):
+    def __init__(__self__, address_spaces=None, dns_servers=None, subnets=None, vnet_peerings=None, id=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError('Expected argument address_spaces to be a list')
         __self__.address_spaces = address_spaces
@@ -34,6 +34,12 @@ class GetVirtualNetworkResult(object):
         """
         A mapping of name - virtual network id of the virtual network peerings.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_virtual_network(name=None, resource_group_name=None):
     """
@@ -49,4 +55,5 @@ def get_virtual_network(name=None, resource_group_name=None):
         address_spaces=__ret__.get('addressSpaces'),
         dns_servers=__ret__.get('dnsServers'),
         subnets=__ret__.get('subnets'),
-        vnet_peerings=__ret__.get('vnetPeerings'))
+        vnet_peerings=__ret__.get('vnetPeerings'),
+        id=__ret__.get('id'))

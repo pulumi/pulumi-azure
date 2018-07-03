@@ -9,7 +9,7 @@ class GetAccountResult(object):
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, consistency_policies=None, enable_automatic_failover=None, endpoint=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, write_endpoints=None):
+    def __init__(__self__, consistency_policies=None, enable_automatic_failover=None, endpoint=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, write_endpoints=None, id=None):
         if consistency_policies and not isinstance(consistency_policies, list):
             raise TypeError('Expected argument consistency_policies to be a list')
         __self__.consistency_policies = consistency_policies
@@ -94,6 +94,12 @@ class GetAccountResult(object):
         """
         A list of write endpoints available for this CosmosDB account.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_account(name=None, resource_group_name=None):
     """
@@ -120,4 +126,5 @@ def get_account(name=None, resource_group_name=None):
         secondary_master_key=__ret__.get('secondaryMasterKey'),
         secondary_readonly_master_key=__ret__.get('secondaryReadonlyMasterKey'),
         tags=__ret__.get('tags'),
-        write_endpoints=__ret__.get('writeEndpoints'))
+        write_endpoints=__ret__.get('writeEndpoints'),
+        id=__ret__.get('id'))

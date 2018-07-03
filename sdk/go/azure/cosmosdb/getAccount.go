@@ -34,6 +34,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		SecondaryReadonlyMasterKey: outputs["secondaryReadonlyMasterKey"],
 		Tags: outputs["tags"],
 		WriteEndpoints: outputs["writeEndpoints"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -75,4 +76,6 @@ type GetAccountResult struct {
 	Tags interface{}
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

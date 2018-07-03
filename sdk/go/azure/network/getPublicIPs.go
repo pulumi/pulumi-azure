@@ -22,6 +22,7 @@ func LookupPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs) (*GetPublicIPs
 	}
 	return &GetPublicIPsResult{
 		PublicIps: outputs["publicIps"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -41,4 +42,6 @@ type GetPublicIPsArgs struct {
 type GetPublicIPsResult struct {
 	// A List of `public_ips` blocks as defined below filtered by the criteria above.
 	PublicIps interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -27,6 +27,7 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 		SourceUri: outputs["sourceUri"],
 		StorageAccountId: outputs["storageAccountId"],
 		TimeCreated: outputs["timeCreated"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -52,4 +53,6 @@ type GetSnapshotResult struct {
 	// The ID of an storage account.
 	StorageAccountId interface{}
 	TimeCreated interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

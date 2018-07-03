@@ -24,6 +24,7 @@ func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJ
 		Sku: outputs["sku"],
 		State: outputs["state"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -47,4 +48,6 @@ type GetJobCollectionResult struct {
 	State interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

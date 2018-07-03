@@ -19,4 +19,8 @@ export interface GetSubscriptionsResult {
      * One or more `subscription` blocks as defined below.
      */
     readonly subscriptions: { displayName: string, locationPlacementId: string, quotaId: string, spendingLimit: string, state: string, subscriptionId: string }[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

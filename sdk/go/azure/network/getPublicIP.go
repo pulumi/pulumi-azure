@@ -25,6 +25,7 @@ func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPRes
 		IdleTimeoutInMinutes: outputs["idleTimeoutInMinutes"],
 		IpAddress: outputs["ipAddress"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -49,4 +50,6 @@ type GetPublicIPResult struct {
 	IpAddress interface{}
 	// A mapping of tags to assigned to the resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

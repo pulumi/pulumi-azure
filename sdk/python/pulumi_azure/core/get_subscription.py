@@ -9,7 +9,7 @@ class GetSubscriptionResult(object):
     """
     A collection of values returned by getSubscription.
     """
-    def __init__(__self__, display_name=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None):
+    def __init__(__self__, display_name=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None, id=None):
         if display_name and not isinstance(display_name, basestring):
             raise TypeError('Expected argument display_name to be a basestring')
         __self__.display_name = display_name
@@ -43,6 +43,12 @@ class GetSubscriptionResult(object):
         if subscription_id and not isinstance(subscription_id, basestring):
             raise TypeError('Expected argument subscription_id to be a basestring')
         __self__.subscription_id = subscription_id
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_subscription(subscription_id=None):
     """
@@ -59,4 +65,5 @@ def get_subscription(subscription_id=None):
         quota_id=__ret__.get('quotaId'),
         spending_limit=__ret__.get('spendingLimit'),
         state=__ret__.get('state'),
-        subscription_id=__ret__.get('subscriptionId'))
+        subscription_id=__ret__.get('subscriptionId'),
+        id=__ret__.get('id'))

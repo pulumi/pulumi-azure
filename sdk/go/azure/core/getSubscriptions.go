@@ -15,6 +15,7 @@ func LookupSubscriptions(ctx *pulumi.Context) (*GetSubscriptionsResult, error) {
 	}
 	return &GetSubscriptionsResult{
 		Subscriptions: outputs["subscriptions"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -22,4 +23,6 @@ func LookupSubscriptions(ctx *pulumi.Context) (*GetSubscriptionsResult, error) {
 type GetSubscriptionsResult struct {
 	// One or more `subscription` blocks as defined below.
 	Subscriptions interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

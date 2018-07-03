@@ -29,6 +29,7 @@ func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs
 		MaximumThroughputUnits: outputs["maximumThroughputUnits"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -64,4 +65,6 @@ type GetEventhubNamespaceResult struct {
 	Sku interface{}
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

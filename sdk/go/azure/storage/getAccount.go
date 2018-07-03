@@ -45,6 +45,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		SecondaryQueueEndpoint: outputs["secondaryQueueEndpoint"],
 		SecondaryTableEndpoint: outputs["secondaryTableEndpoint"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -113,4 +114,6 @@ type GetAccountResult struct {
 	SecondaryTableEndpoint interface{}
 	// A mapping of tags to assigned to the resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

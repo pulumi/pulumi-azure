@@ -28,6 +28,7 @@ func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManag
 		StorageAccountType: outputs["storageAccountType"],
 		Tags: outputs["tags"],
 		Zones: outputs["zones"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -57,4 +58,6 @@ type GetManagedDiskResult struct {
 	Tags interface{}
 	// (Optional) A collection containing the availability zone the managed disk is allocated in.
 	Zones interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

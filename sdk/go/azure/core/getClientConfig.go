@@ -20,6 +20,7 @@ func LookupClientConfig(ctx *pulumi.Context) (*GetClientConfigResult, error) {
 		ServicePrincipalObjectId: outputs["servicePrincipalObjectId"],
 		SubscriptionId: outputs["subscriptionId"],
 		TenantId: outputs["tenantId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -30,4 +31,6 @@ type GetClientConfigResult struct {
 	ServicePrincipalObjectId interface{}
 	SubscriptionId interface{}
 	TenantId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

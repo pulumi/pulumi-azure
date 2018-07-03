@@ -9,7 +9,7 @@ class GetEventhubNamespaceResult(object):
     """
     A collection of values returned by getEventhubNamespace.
     """
-    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, maximum_throughput_units=None, sku=None, tags=None):
+    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, maximum_throughput_units=None, sku=None, tags=None, id=None):
         if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
             raise TypeError('Expected argument auto_inflate_enabled to be a bool')
         __self__.auto_inflate_enabled = auto_inflate_enabled
@@ -72,6 +72,12 @@ class GetEventhubNamespaceResult(object):
         """
         A mapping of tags to assign to the EventHub Namespace.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_eventhub_namespace(name=None, resource_group_name=None):
     """
@@ -93,4 +99,5 @@ def get_eventhub_namespace(name=None, resource_group_name=None):
         location=__ret__.get('location'),
         maximum_throughput_units=__ret__.get('maximumThroughputUnits'),
         sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

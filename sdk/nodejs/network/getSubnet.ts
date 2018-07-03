@@ -52,4 +52,8 @@ export interface GetSubnetResult {
      * The ID of the Route Table associated with this subnet.
      */
     readonly routeTableId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

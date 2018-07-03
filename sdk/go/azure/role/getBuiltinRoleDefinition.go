@@ -22,6 +22,7 @@ func LookupBuiltinRoleDefinition(ctx *pulumi.Context, args *GetBuiltinRoleDefini
 		Description: outputs["description"],
 		Permissions: outputs["permissions"],
 		Type: outputs["type"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -41,4 +42,6 @@ type GetBuiltinRoleDefinitionResult struct {
 	Permissions interface{}
 	// the Type of the Role.
 	Type interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

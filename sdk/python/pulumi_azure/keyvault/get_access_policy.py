@@ -9,7 +9,7 @@ class GetAccessPolicyResult(object):
     """
     A collection of values returned by getAccessPolicy.
     """
-    def __init__(__self__, certificate_permissions=None, key_permissions=None, secret_permissions=None):
+    def __init__(__self__, certificate_permissions=None, key_permissions=None, secret_permissions=None, id=None):
         if certificate_permissions and not isinstance(certificate_permissions, list):
             raise TypeError('Expected argument certificate_permissions to be a list')
         __self__.certificate_permissions = certificate_permissions
@@ -28,6 +28,12 @@ class GetAccessPolicyResult(object):
         """
         the secret permissions for the access policy
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_access_policy(name=None):
     """
@@ -41,4 +47,5 @@ def get_access_policy(name=None):
     return GetAccessPolicyResult(
         certificate_permissions=__ret__.get('certificatePermissions'),
         key_permissions=__ret__.get('keyPermissions'),
-        secret_permissions=__ret__.get('secretPermissions'))
+        secret_permissions=__ret__.get('secretPermissions'),
+        id=__ret__.get('id'))

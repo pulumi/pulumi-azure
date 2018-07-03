@@ -20,6 +20,7 @@ func LookupResourceGroup(ctx *pulumi.Context, args *GetResourceGroupArgs) (*GetR
 	return &GetResourceGroupResult{
 		Location: outputs["location"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -35,4 +36,6 @@ type GetResourceGroupResult struct {
 	Location interface{}
 	// A mapping of tags assigned to the resource group.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

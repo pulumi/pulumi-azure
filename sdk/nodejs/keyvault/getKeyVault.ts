@@ -67,4 +67,8 @@ export interface GetKeyVaultResult {
      * The URI of the vault for performing operations on keys and secrets.
      */
     readonly vaultUri: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

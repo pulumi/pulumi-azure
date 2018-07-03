@@ -23,6 +23,7 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*Ge
 		DnsServers: outputs["dnsServers"],
 		Subnets: outputs["subnets"],
 		VnetPeerings: outputs["vnetPeerings"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -44,4 +45,6 @@ type GetVirtualNetworkResult struct {
 	Subnets interface{}
 	// A mapping of name - virtual network id of the virtual network peerings.
 	VnetPeerings interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

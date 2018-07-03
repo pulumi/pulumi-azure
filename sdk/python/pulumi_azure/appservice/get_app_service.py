@@ -9,7 +9,7 @@ class GetAppServiceResult(object):
     """
     A collection of values returned by getAppService.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, location=None, outbound_ip_addresses=None, site_config=None, site_credentials=None, source_controls=None, tags=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, location=None, outbound_ip_addresses=None, site_config=None, site_credentials=None, source_controls=None, tags=None, id=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, basestring):
             raise TypeError('Expected argument app_service_plan_id to be a basestring')
         __self__.app_service_plan_id = app_service_plan_id
@@ -76,6 +76,12 @@ class GetAppServiceResult(object):
         """
         A mapping of tags to assign to the resource.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_app_service(name=None, resource_group_name=None, site_config=None):
     """
@@ -101,4 +107,5 @@ def get_app_service(name=None, resource_group_name=None, site_config=None):
         site_config=__ret__.get('siteConfig'),
         site_credentials=__ret__.get('siteCredentials'),
         source_controls=__ret__.get('sourceControls'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

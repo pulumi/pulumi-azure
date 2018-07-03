@@ -75,4 +75,8 @@ export interface GetKubernetesClusterResult {
      * A mapping of tags assigned to this resource.
      */
     readonly tags: {[key: string]: any};
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

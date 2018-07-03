@@ -62,4 +62,8 @@ export interface GetAccountSASResult {
      * The computed Account Shared Access Signature (SAS). 
      */
     readonly sas: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

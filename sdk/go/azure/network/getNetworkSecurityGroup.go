@@ -22,6 +22,7 @@ func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGro
 		Location: outputs["location"],
 		SecurityRules: outputs["securityRules"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -41,4 +42,6 @@ type GetNetworkSecurityGroupResult struct {
 	SecurityRules interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }
