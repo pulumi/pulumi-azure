@@ -9,7 +9,7 @@ class GetRouteTableResult(object):
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, location=None, routes=None, subnets=None, tags=None):
+    def __init__(__self__, location=None, routes=None, subnets=None, tags=None, id=None):
         if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
@@ -34,6 +34,12 @@ class GetRouteTableResult(object):
         """
         A mapping of tags assigned to the Route Table.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_route_table(name=None, resource_group_name=None):
     """
@@ -49,4 +55,5 @@ def get_route_table(name=None, resource_group_name=None):
         location=__ret__.get('location'),
         routes=__ret__.get('routes'),
         subnets=__ret__.get('subnets'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

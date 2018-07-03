@@ -9,7 +9,7 @@ class GetZoneResult(object):
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, max_number_of_record_sets=None, name_servers=None, number_of_record_sets=None, resource_group_name=None, tags=None):
+    def __init__(__self__, max_number_of_record_sets=None, name_servers=None, number_of_record_sets=None, resource_group_name=None, tags=None, id=None):
         if max_number_of_record_sets and not isinstance(max_number_of_record_sets, basestring):
             raise TypeError('Expected argument max_number_of_record_sets to be a basestring')
         __self__.max_number_of_record_sets = max_number_of_record_sets
@@ -37,6 +37,12 @@ class GetZoneResult(object):
         """
         A mapping of tags to assign to the EventHub Namespace.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_zone(name=None, resource_group_name=None):
     """
@@ -53,4 +59,5 @@ def get_zone(name=None, resource_group_name=None):
         name_servers=__ret__.get('nameServers'),
         number_of_record_sets=__ret__.get('numberOfRecordSets'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

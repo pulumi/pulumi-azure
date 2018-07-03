@@ -9,7 +9,7 @@ class GetNetworkInterfaceResult(object):
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, internal_fqdn=None, ip_configurations=None, location=None, mac_address=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, tags=None, virtual_machine_id=None):
+    def __init__(__self__, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, internal_fqdn=None, ip_configurations=None, location=None, mac_address=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, tags=None, virtual_machine_id=None, id=None):
         if applied_dns_servers and not isinstance(applied_dns_servers, list):
             raise TypeError('Expected argument applied_dns_servers to be a list')
         __self__.applied_dns_servers = applied_dns_servers
@@ -94,6 +94,12 @@ class GetNetworkInterfaceResult(object):
         """
         The ID of the virtual machine that the specified network interface is attached to.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_network_interface(name=None, resource_group_name=None):
     """
@@ -119,4 +125,5 @@ def get_network_interface(name=None, resource_group_name=None):
         private_ip_address=__ret__.get('privateIpAddress'),
         private_ip_addresses=__ret__.get('privateIpAddresses'),
         tags=__ret__.get('tags'),
-        virtual_machine_id=__ret__.get('virtualMachineId'))
+        virtual_machine_id=__ret__.get('virtualMachineId'),
+        id=__ret__.get('id'))

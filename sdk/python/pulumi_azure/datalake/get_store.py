@@ -9,7 +9,7 @@ class GetStoreResult(object):
     """
     A collection of values returned by getStore.
     """
-    def __init__(__self__, location=None, tags=None, tier=None):
+    def __init__(__self__, location=None, tags=None, tier=None, id=None):
         if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
@@ -25,6 +25,12 @@ class GetStoreResult(object):
         """
         Current monthly commitment tier for the account.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_store(name=None, resource_group_name=None):
     """
@@ -39,4 +45,5 @@ def get_store(name=None, resource_group_name=None):
     return GetStoreResult(
         location=__ret__.get('location'),
         tags=__ret__.get('tags'),
-        tier=__ret__.get('tier'))
+        tier=__ret__.get('tier'),
+        id=__ret__.get('id'))

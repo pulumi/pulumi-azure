@@ -8,17 +8,28 @@ import (
 )
 
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
-func LookupGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs) error {
+func LookupGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs) (*GetGeographicalLocationResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
 	}
-	_, err := ctx.Invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", inputs)
-	return err
+	outputs, err := ctx.Invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", inputs)
+	if err != nil {
+		return nil, err
+	}
+	return &GetGeographicalLocationResult{
+		Id: outputs["id"],
+	}, nil
 }
 
 // A collection of arguments for invoking getGeographicalLocation.
 type GetGeographicalLocationArgs struct {
 	// Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
 	Name interface{}
+}
+
+// A collection of values returned by getGeographicalLocation.
+type GetGeographicalLocationResult struct {
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

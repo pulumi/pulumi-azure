@@ -9,7 +9,7 @@ class GetSecretResult(object):
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, content_type=None, tags=None, value=None, version=None):
+    def __init__(__self__, content_type=None, tags=None, value=None, version=None, id=None):
         if content_type and not isinstance(content_type, basestring):
             raise TypeError('Expected argument content_type to be a basestring')
         __self__.content_type = content_type
@@ -34,6 +34,12 @@ class GetSecretResult(object):
         """
         The current version of the Key Vault Secret.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_secret(name=None, vault_uri=None):
     """
@@ -52,4 +58,5 @@ def get_secret(name=None, vault_uri=None):
         content_type=__ret__.get('contentType'),
         tags=__ret__.get('tags'),
         value=__ret__.get('value'),
-        version=__ret__.get('version'))
+        version=__ret__.get('version'),
+        id=__ret__.get('id'))

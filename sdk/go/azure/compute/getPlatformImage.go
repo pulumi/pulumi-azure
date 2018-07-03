@@ -22,6 +22,7 @@ func LookupPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs) (*GetP
 	}
 	return &GetPlatformImageResult{
 		Version: outputs["version"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -41,4 +42,6 @@ type GetPlatformImageArgs struct {
 type GetPlatformImageResult struct {
 	// The latest version of the Platform Image.
 	Version interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

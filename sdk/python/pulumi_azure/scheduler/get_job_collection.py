@@ -9,7 +9,7 @@ class GetJobCollectionResult(object):
     """
     A collection of values returned by getJobCollection.
     """
-    def __init__(__self__, location=None, quotas=None, sku=None, state=None, tags=None):
+    def __init__(__self__, location=None, quotas=None, sku=None, state=None, tags=None, id=None):
         if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
@@ -40,6 +40,12 @@ class GetJobCollectionResult(object):
         """
         A mapping of tags assigned to the resource.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_job_collection(name=None, resource_group_name=None):
     """
@@ -56,4 +62,5 @@ def get_job_collection(name=None, resource_group_name=None):
         quotas=__ret__.get('quotas'),
         sku=__ret__.get('sku'),
         state=__ret__.get('state'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

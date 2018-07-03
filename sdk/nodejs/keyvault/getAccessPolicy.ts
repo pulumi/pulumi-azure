@@ -40,4 +40,8 @@ export interface GetAccessPolicyResult {
      * the secret permissions for the access policy
      */
     readonly secretPermissions: string[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

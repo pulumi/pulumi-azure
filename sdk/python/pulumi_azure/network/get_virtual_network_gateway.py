@@ -9,7 +9,7 @@ class GetVirtualNetworkGatewayResult(object):
     """
     A collection of values returned by getVirtualNetworkGateway.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None, id=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError('Expected argument active_active to be a bool')
         __self__.active_active = active_active
@@ -77,6 +77,12 @@ class GetVirtualNetworkGatewayResult(object):
         """
         The routing type of the Virtual Network Gateway.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_virtual_network_gateway(name=None, resource_group_name=None):
     """
@@ -99,4 +105,5 @@ def get_virtual_network_gateway(name=None, resource_group_name=None):
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),
         vpn_client_configurations=__ret__.get('vpnClientConfigurations'),
-        vpn_type=__ret__.get('vpnType'))
+        vpn_type=__ret__.get('vpnType'),
+        id=__ret__.get('id'))

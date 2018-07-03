@@ -23,6 +23,7 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 		Routes: outputs["routes"],
 		Subnets: outputs["subnets"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -44,4 +45,6 @@ type GetRouteTableResult struct {
 	Subnets interface{}
 	// A mapping of tags assigned to the Route Table.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

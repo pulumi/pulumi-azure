@@ -22,6 +22,7 @@ func LookupProfile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult
 		Location: outputs["location"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -41,4 +42,6 @@ type GetProfileResult struct {
 	Sku interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

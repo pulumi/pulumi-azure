@@ -26,6 +26,7 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 		Tags: outputs["tags"],
 		Value: outputs["value"],
 		Version: outputs["version"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -47,4 +48,6 @@ type GetSecretResult struct {
 	Value interface{}
 	// The current version of the Key Vault Secret.
 	Version interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

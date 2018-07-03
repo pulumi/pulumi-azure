@@ -87,4 +87,8 @@ export interface GetNetworkInterfaceResult {
      * The ID of the virtual machine that the specified network interface is attached to.
      */
     readonly virtualMachineId: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

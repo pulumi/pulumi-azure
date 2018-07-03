@@ -9,12 +9,18 @@ class GetSubscriptionsResult(object):
     """
     A collection of values returned by getSubscriptions.
     """
-    def __init__(__self__, subscriptions=None):
+    def __init__(__self__, subscriptions=None, id=None):
         if subscriptions and not isinstance(subscriptions, list):
             raise TypeError('Expected argument subscriptions to be a list')
         __self__.subscriptions = subscriptions
         """
         One or more `subscription` blocks as defined below.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_subscriptions():
@@ -26,4 +32,5 @@ def get_subscriptions():
     __ret__ = pulumi.runtime.invoke('azure:core/getSubscriptions:getSubscriptions', __args__)
 
     return GetSubscriptionsResult(
-        subscriptions=__ret__.get('subscriptions'))
+        subscriptions=__ret__.get('subscriptions'),
+        id=__ret__.get('id'))

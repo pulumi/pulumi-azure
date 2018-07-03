@@ -22,6 +22,7 @@ func LookupStore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, erro
 		Location: outputs["location"],
 		Tags: outputs["tags"],
 		Tier: outputs["tier"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -40,4 +41,6 @@ type GetStoreResult struct {
 	Tags interface{}
 	// Current monthly commitment tier for the account.
 	Tier interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }
