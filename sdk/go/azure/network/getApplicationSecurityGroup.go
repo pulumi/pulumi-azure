@@ -23,6 +23,7 @@ func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *GetApplicationSec
 	return &GetApplicationSecurityGroupResult{
 		Location: outputs["location"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -40,4 +41,6 @@ type GetApplicationSecurityGroupResult struct {
 	Location interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

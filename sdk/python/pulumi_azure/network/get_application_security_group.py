@@ -9,7 +9,7 @@ class GetApplicationSecurityGroupResult(object):
     """
     A collection of values returned by getApplicationSecurityGroup.
     """
-    def __init__(__self__, location=None, tags=None):
+    def __init__(__self__, location=None, tags=None, id=None):
         if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
@@ -21,6 +21,12 @@ class GetApplicationSecurityGroupResult(object):
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
+        """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
         """
 
 def get_application_security_group(name=None, resource_group_name=None):
@@ -37,4 +43,5 @@ def get_application_security_group(name=None, resource_group_name=None):
 
     return GetApplicationSecurityGroupResult(
         location=__ret__.get('location'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

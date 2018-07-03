@@ -73,4 +73,8 @@ export interface GetEventhubNamespaceResult {
      * A mapping of tags to assign to the EventHub Namespace.
      */
     readonly tags: {[key: string]: any};
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

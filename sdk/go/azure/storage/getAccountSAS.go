@@ -30,6 +30,7 @@ func LookupAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs) (*GetAccount
 	}
 	return &GetAccountSASResult{
 		Sas: outputs["sas"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -54,4 +55,6 @@ type GetAccountSASArgs struct {
 type GetAccountSASResult struct {
 	// The computed Account Shared Access Signature (SAS). 
 	Sas interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

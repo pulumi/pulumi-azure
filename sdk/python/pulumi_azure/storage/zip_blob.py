@@ -44,8 +44,8 @@ class ZipBlob(pulumi.CustomResource):
         __self__.size = size
         __props__['size'] = size
 
-        if content and not isinstance(content, basestring):
-            raise TypeError('Expected property content to be a basestring')
+        if content and not isinstance(content, pulumi.Archive):
+            raise TypeError('Expected property content to be a pulumi.Archive')
         __self__.content = content
         __props__['content'] = content
 

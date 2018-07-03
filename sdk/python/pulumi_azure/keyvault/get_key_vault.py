@@ -9,7 +9,7 @@ class GetKeyVaultResult(object):
     """
     A collection of values returned by getKeyVault.
     """
-    def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, sku=None, tags=None, tenant_id=None, vault_uri=None):
+    def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, sku=None, tags=None, tenant_id=None, vault_uri=None, id=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError('Expected argument access_policies to be a list')
         __self__.access_policies = access_policies
@@ -64,6 +64,12 @@ class GetKeyVaultResult(object):
         """
         The URI of the vault for performing operations on keys and secrets.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_key_vault(name=None, resource_group_name=None):
     """
@@ -84,4 +90,5 @@ def get_key_vault(name=None, resource_group_name=None):
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         tenant_id=__ret__.get('tenantId'),
-        vault_uri=__ret__.get('vaultUri'))
+        vault_uri=__ret__.get('vaultUri'),
+        id=__ret__.get('id'))

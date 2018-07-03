@@ -33,6 +33,7 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 		Location: outputs["location"],
 		ServicePrincipals: outputs["servicePrincipals"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -66,4 +67,6 @@ type GetKubernetesClusterResult struct {
 	ServicePrincipals interface{}
 	// A mapping of tags assigned to this resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

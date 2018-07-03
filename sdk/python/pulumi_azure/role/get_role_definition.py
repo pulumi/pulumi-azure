@@ -9,7 +9,7 @@ class GetRoleDefinitionResult(object):
     """
     A collection of values returned by getRoleDefinition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, type=None):
+    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, type=None, id=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError('Expected argument assignable_scopes to be a list')
         __self__.assignable_scopes = assignable_scopes
@@ -37,6 +37,12 @@ class GetRoleDefinitionResult(object):
         """
         the Type of the Role.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_role_definition(role_definition_id=None, scope=None):
     """
@@ -53,4 +59,5 @@ def get_role_definition(role_definition_id=None, scope=None):
         description=__ret__.get('description'),
         name=__ret__.get('name'),
         permissions=__ret__.get('permissions'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        id=__ret__.get('id'))

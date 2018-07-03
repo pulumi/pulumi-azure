@@ -24,6 +24,7 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 		NumberOfRecordSets: outputs["numberOfRecordSets"],
 		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -48,4 +49,6 @@ type GetZoneResult struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

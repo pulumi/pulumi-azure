@@ -42,4 +42,8 @@ export interface GetBuiltinRoleDefinitionResult {
      * the Type of the Role.
      */
     readonly type: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

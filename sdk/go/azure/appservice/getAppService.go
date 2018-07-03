@@ -33,6 +33,7 @@ func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServ
 		SiteCredentials: outputs["siteCredentials"],
 		SourceControls: outputs["sourceControls"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -69,4 +70,6 @@ type GetAppServiceResult struct {
 	SourceControls interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -9,7 +9,7 @@ class GetSubnetResult(object):
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, ip_configurations=None, network_security_group_id=None, route_table_id=None):
+    def __init__(__self__, address_prefix=None, ip_configurations=None, network_security_group_id=None, route_table_id=None, id=None):
         if address_prefix and not isinstance(address_prefix, basestring):
             raise TypeError('Expected argument address_prefix to be a basestring')
         __self__.address_prefix = address_prefix
@@ -34,6 +34,12 @@ class GetSubnetResult(object):
         """
         The ID of the Route Table associated with this subnet.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_subnet(name=None, resource_group_name=None, virtual_network_name=None):
     """
@@ -50,4 +56,5 @@ def get_subnet(name=None, resource_group_name=None, virtual_network_name=None):
         address_prefix=__ret__.get('addressPrefix'),
         ip_configurations=__ret__.get('ipConfigurations'),
         network_security_group_id=__ret__.get('networkSecurityGroupId'),
-        route_table_id=__ret__.get('routeTableId'))
+        route_table_id=__ret__.get('routeTableId'),
+        id=__ret__.get('id'))

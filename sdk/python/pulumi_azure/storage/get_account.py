@@ -9,7 +9,7 @@ class GetAccountResult(object):
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, location=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_connection_string=None, primary_file_endpoint=None, primary_location=None, primary_queue_endpoint=None, primary_table_endpoint=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_connection_string=None, secondary_location=None, secondary_queue_endpoint=None, secondary_table_endpoint=None, tags=None):
+    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, location=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_connection_string=None, primary_file_endpoint=None, primary_location=None, primary_queue_endpoint=None, primary_table_endpoint=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_connection_string=None, secondary_location=None, secondary_queue_endpoint=None, secondary_table_endpoint=None, tags=None, id=None):
         if access_tier and not isinstance(access_tier, basestring):
             raise TypeError('Expected argument access_tier to be a basestring')
         __self__.access_tier = access_tier
@@ -169,6 +169,12 @@ class GetAccountResult(object):
         """
         A mapping of tags to assigned to the resource.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_account(name=None, resource_group_name=None):
     """
@@ -206,4 +212,5 @@ def get_account(name=None, resource_group_name=None):
         secondary_location=__ret__.get('secondaryLocation'),
         secondary_queue_endpoint=__ret__.get('secondaryQueueEndpoint'),
         secondary_table_endpoint=__ret__.get('secondaryTableEndpoint'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

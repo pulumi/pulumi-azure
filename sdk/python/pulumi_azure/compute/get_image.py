@@ -9,7 +9,7 @@ class GetImageResult(object):
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, data_disks=None, location=None, os_disks=None, tags=None):
+    def __init__(__self__, data_disks=None, location=None, os_disks=None, tags=None, id=None):
         if data_disks and not isinstance(data_disks, list):
             raise TypeError('Expected argument data_disks to be a list')
         __self__.data_disks = data_disks
@@ -34,6 +34,12 @@ class GetImageResult(object):
         """
         a mapping of tags to assigned to the resource.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_image(name=None, name_regex=None, resource_group_name=None, sort_descending=None):
     """
@@ -51,4 +57,5 @@ def get_image(name=None, name_regex=None, resource_group_name=None, sort_descend
         data_disks=__ret__.get('dataDisks'),
         location=__ret__.get('location'),
         os_disks=__ret__.get('osDisks'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

@@ -9,7 +9,7 @@ class GetVaultResult(object):
     """
     A collection of values returned by getVault.
     """
-    def __init__(__self__, location=None, sku=None, tags=None):
+    def __init__(__self__, location=None, sku=None, tags=None, id=None):
         if location and not isinstance(location, basestring):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
@@ -28,6 +28,12 @@ class GetVaultResult(object):
         """
         A mapping of tags assigned to the resource.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_vault(name=None, resource_group_name=None):
     """
@@ -42,4 +48,5 @@ def get_vault(name=None, resource_group_name=None):
     return GetVaultResult(
         location=__ret__.get('location'),
         sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

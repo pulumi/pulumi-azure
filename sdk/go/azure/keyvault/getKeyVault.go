@@ -28,6 +28,7 @@ func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultRes
 		Tags: outputs["tags"],
 		TenantId: outputs["tenantId"],
 		VaultUri: outputs["vaultUri"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -59,4 +60,6 @@ type GetKeyVaultResult struct {
 	TenantId interface{}
 	// The URI of the vault for performing operations on keys and secrets.
 	VaultUri interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

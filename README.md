@@ -31,13 +31,13 @@ To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-azure/sdk/go/...
 
-# Components
+## Concepts
 
 The `@pulumi/azure` package provides a strongly-typed means to build cloud applications that create
 and interact closely with Azure resources.  Resources are exposed for the entire Azure surface area,
 including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault', and more.
 
-## Reference¬
+## Reference
 
 For detailed reference documentation, please visit [the API docs](
 https://pulumi.io/reference/pkg/nodejs/@pulumi/azure/index.html).

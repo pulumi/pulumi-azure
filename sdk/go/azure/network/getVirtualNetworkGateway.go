@@ -30,6 +30,7 @@ func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGat
 		Type: outputs["type"],
 		VpnClientConfigurations: outputs["vpnClientConfigurations"],
 		VpnType: outputs["vpnType"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -68,4 +69,6 @@ type GetVirtualNetworkGatewayResult struct {
 	VpnClientConfigurations interface{}
 	// The routing type of the Virtual Network Gateway.
 	VpnType interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

@@ -50,4 +50,8 @@ export interface GetSecretResult {
      * The current version of the Key Vault Secret.
      */
     readonly version: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

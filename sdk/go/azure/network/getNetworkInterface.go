@@ -33,6 +33,7 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) 
 		PrivateIpAddresses: outputs["privateIpAddresses"],
 		Tags: outputs["tags"],
 		VirtualMachineId: outputs["virtualMachineId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -74,4 +75,6 @@ type GetNetworkInterfaceResult struct {
 	Tags interface{}
 	// The ID of the virtual machine that the specified network interface is attached to.
 	VirtualMachineId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

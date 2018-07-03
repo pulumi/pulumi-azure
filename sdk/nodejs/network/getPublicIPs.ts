@@ -45,4 +45,8 @@ export interface GetPublicIPsResult {
      * A List of `public_ips` blocks as defined below filtered by the criteria above.
      */
     readonly publicIps: { domainNameLabel: string, fqdn: string, id: string, ipAddress: string, name: string }[];
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

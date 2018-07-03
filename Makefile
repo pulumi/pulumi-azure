@@ -31,11 +31,11 @@ build::
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
 	cd ${PACKDIR}/python/ && \
-		python setup.py clean --all 2>/dev/null && \
+		$(PYTHON) setup.py clean --all 2>/dev/null && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
 		sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
 		rm ./bin/setup.py.bak && \
-		cd ./bin && python setup.py build sdist
+		cd ./bin && $(PYTHON) setup.py build sdist
 
 lint::
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
@@ -50,7 +50,7 @@ install::
 		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
-	cd ${PACKDIR}/python && pip install --upgrade --user -e .
+	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
 
 test_all::
 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples
@@ -65,9 +65,13 @@ publish_packages:
 	$(call STEP_MESSAGE)
 	./scripts/publish_packages.sh
 
+.PHONY: check_clean_worktree
+check_clean_worktree:
+	$$(go env GOPATH)/src/github.com/pulumi/scripts/ci/check-worktree-is-clean.sh
+
 # The travis_* targets are entrypoints for CI.
 .PHONY: travis_cron travis_push travis_pull_request travis_api
 travis_cron: all
-travis_push: only_build publish_tgz only_test publish_packages
-travis_pull_request: all
+travis_push: only_build check_clean_worktree publish_tgz only_test publish_packages
+travis_pull_request: all check_clean_worktree
 travis_api: all

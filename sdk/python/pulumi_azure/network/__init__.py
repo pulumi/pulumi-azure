@@ -25,7 +25,7 @@ from virtual_network_peering import *
 from get_application_security_group import *
 from get_network_interface import *
 from get_network_security_group import *
-from get_public_i_p import *
+from get_public_ip import *
 from get_public_i_ps import *
 from get_route_table import *
 from get_subnet import *

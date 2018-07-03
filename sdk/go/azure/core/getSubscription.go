@@ -24,6 +24,7 @@ func LookupSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs) (*GetSub
 		SpendingLimit: outputs["spendingLimit"],
 		State: outputs["state"],
 		SubscriptionId: outputs["subscriptionId"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -46,4 +47,6 @@ type GetSubscriptionResult struct {
 	// The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
 	State interface{}
 	SubscriptionId interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

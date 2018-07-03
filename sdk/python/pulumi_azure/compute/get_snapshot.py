@@ -9,7 +9,7 @@ class GetSnapshotResult(object):
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, creation_option=None, disk_size_gb=None, encryption_settings=None, os_type=None, source_resource_id=None, source_uri=None, storage_account_id=None, time_created=None):
+    def __init__(__self__, creation_option=None, disk_size_gb=None, encryption_settings=None, os_type=None, source_resource_id=None, source_uri=None, storage_account_id=None, time_created=None, id=None):
         if creation_option and not isinstance(creation_option, basestring):
             raise TypeError('Expected argument creation_option to be a basestring')
         __self__.creation_option = creation_option
@@ -46,6 +46,12 @@ class GetSnapshotResult(object):
         if time_created and not isinstance(time_created, basestring):
             raise TypeError('Expected argument time_created to be a basestring')
         __self__.time_created = time_created
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_snapshot(name=None, resource_group_name=None):
     """
@@ -65,4 +71,5 @@ def get_snapshot(name=None, resource_group_name=None):
         source_resource_id=__ret__.get('sourceResourceId'),
         source_uri=__ret__.get('sourceUri'),
         storage_account_id=__ret__.get('storageAccountId'),
-        time_created=__ret__.get('timeCreated'))
+        time_created=__ret__.get('timeCreated'),
+        id=__ret__.get('id'))

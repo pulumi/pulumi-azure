@@ -76,4 +76,8 @@ export interface GetVirtualNetworkGatewayResult {
      * The routing type of the Virtual Network Gateway.
      */
     readonly vpnType: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }

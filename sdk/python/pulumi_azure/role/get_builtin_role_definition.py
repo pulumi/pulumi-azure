@@ -9,7 +9,7 @@ class GetBuiltinRoleDefinitionResult(object):
     """
     A collection of values returned by getBuiltinRoleDefinition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, permissions=None, type=None):
+    def __init__(__self__, assignable_scopes=None, description=None, permissions=None, type=None, id=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError('Expected argument assignable_scopes to be a list')
         __self__.assignable_scopes = assignable_scopes
@@ -34,6 +34,12 @@ class GetBuiltinRoleDefinitionResult(object):
         """
         the Type of the Role.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_builtin_role_definition(name=None):
     """
@@ -48,4 +54,5 @@ def get_builtin_role_definition(name=None):
         assignable_scopes=__ret__.get('assignableScopes'),
         description=__ret__.get('description'),
         permissions=__ret__.get('permissions'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        id=__ret__.get('id'))

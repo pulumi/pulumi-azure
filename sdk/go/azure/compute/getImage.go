@@ -25,6 +25,7 @@ func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, erro
 		Location: outputs["location"],
 		OsDisks: outputs["osDisks"],
 		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -50,4 +51,6 @@ type GetImageResult struct {
 	OsDisks interface{}
 	// a mapping of tags to assigned to the resource.
 	Tags interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

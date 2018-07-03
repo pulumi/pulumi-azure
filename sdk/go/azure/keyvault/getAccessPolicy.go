@@ -21,6 +21,7 @@ func LookupAccessPolicy(ctx *pulumi.Context, args *GetAccessPolicyArgs) (*GetAcc
 		CertificatePermissions: outputs["certificatePermissions"],
 		KeyPermissions: outputs["keyPermissions"],
 		SecretPermissions: outputs["secretPermissions"],
+		Id: outputs["id"],
 	}, nil
 }
 
@@ -40,4 +41,6 @@ type GetAccessPolicyResult struct {
 	KeyPermissions interface{}
 	// the secret permissions for the access policy
 	SecretPermissions interface{}
+	// id is the provider-assigned unique ID for this managed resource.
+	Id interface{}
 }

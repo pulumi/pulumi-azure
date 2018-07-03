@@ -9,7 +9,7 @@ class GetKubernetesClusterResult(object):
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, service_principals=None, tags=None):
+    def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, service_principals=None, tags=None, id=None):
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError('Expected argument agent_pool_profiles to be a list')
         __self__.agent_pool_profiles = agent_pool_profiles
@@ -70,6 +70,12 @@ class GetKubernetesClusterResult(object):
         """
         A mapping of tags assigned to this resource.
         """
+        if id and not isinstance(id, basestring):
+            raise TypeError('Expected argument id to be a basestring')
+        __self__.id = id
+        """
+        id is the provider-assigned unique ID for this managed resource.
+        """
 
 def get_kubernetes_cluster(name=None, resource_group_name=None):
     """
@@ -95,4 +101,5 @@ def get_kubernetes_cluster(name=None, resource_group_name=None):
         linux_profiles=__ret__.get('linuxProfiles'),
         location=__ret__.get('location'),
         service_principals=__ret__.get('servicePrincipals'),
-        tags=__ret__.get('tags'))
+        tags=__ret__.get('tags'),
+        id=__ret__.get('id'))

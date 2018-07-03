@@ -51,4 +51,8 @@ export interface GetSnapshotResult {
      */
     readonly storageAccountId: string;
     readonly timeCreated: string;
+    /**
+     * id is the provider-assigned unique ID for this managed resource.
+     */
+    readonly id: string;
 }
