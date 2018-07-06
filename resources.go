@@ -425,7 +425,8 @@ func Provider() tfbridge.ProviderInfo {
 	const azureName = "name"
 	for resname, res := range prov.Resources {
 		if schema := p.ResourcesMap[resname]; schema != nil {
-			if _, has := schema.Schema[azureName]; has {
+			// Only apply auto-name to input properties (Optional || Required) named `name`
+			if tfs, has := schema.Schema[azureName]; has && (tfs.Optional || tfs.Required) {
 				if _, hasfield := res.Fields[azureName]; !hasfield {
 					if res.Fields == nil {
 						res.Fields = make(map[string]*tfbridge.SchemaInfo)
