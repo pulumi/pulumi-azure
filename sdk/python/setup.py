@@ -10,9 +10,14 @@ class InstallPluginCommand(install):
         install.run(self)
         check_call(['pulumi', 'plugin', 'install', 'resource', 'azure', '${PLUGIN_VERSION}'])
 
+def readme():
+    with open('README.rst') as f:
+        return f.read()
+
 setup(name='pulumi_azure',
       version='${VERSION}',
       description='A Pulumi package for creating and managing Microsoft Azure cloud resources.',
+      long_description=readme(),
       cmdclass={
           'install': InstallPluginCommand,
       },
