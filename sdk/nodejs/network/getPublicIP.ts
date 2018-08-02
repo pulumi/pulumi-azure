@@ -21,12 +21,12 @@ export interface GetPublicIPArgs {
     /**
      * Specifies the name of the public IP address.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly resourceGroupName: string;
+    readonly tags?: {[key: string]: any};
 }
 
 /**

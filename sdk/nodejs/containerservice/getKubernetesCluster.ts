@@ -24,11 +24,11 @@ export interface GetKubernetesClusterArgs {
     /**
      * The name of the managed Kubernetes Cluster.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * The name of the Resource Group in which the managed Kubernetes Cluster exists.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

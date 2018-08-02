@@ -210,7 +210,7 @@ export interface ScaleSetState {
     /**
      * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
      */
-    readonly extensions?: pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }[]>;
+    readonly extensions?: pulumi.Input<pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }>[]>;
     readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -227,7 +227,7 @@ export interface ScaleSetState {
     /**
      * A collection of network profile block as documented below.
      */
-    readonly networkProfiles?: pulumi.Input<{ acceleratedNetworking?: pulumi.Input<boolean>, ipConfigurations: pulumi.Input<{ applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, publicIpAddressConfiguration?: pulumi.Input<{ domainNameLabel: pulumi.Input<string>, idleTimeout: pulumi.Input<number>, name: pulumi.Input<string> }>, subnetId: pulumi.Input<string> }[]>, name: pulumi.Input<string>, networkSecurityGroupId?: pulumi.Input<string>, primary: pulumi.Input<boolean> }[]>;
+    readonly networkProfiles?: pulumi.Input<pulumi.Input<{ acceleratedNetworking?: pulumi.Input<boolean>, ipConfigurations: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, publicIpAddressConfiguration?: pulumi.Input<{ domainNameLabel: pulumi.Input<string>, idleTimeout: pulumi.Input<number>, name: pulumi.Input<string> }>, subnetId: pulumi.Input<string> }>[]>, name: pulumi.Input<string>, networkSecurityGroupId?: pulumi.Input<string>, primary: pulumi.Input<boolean> }>[]>;
     /**
      * A Virtual Machine OS Profile block as documented below.
      */
@@ -235,15 +235,15 @@ export interface ScaleSetState {
     /**
      * A Linux config block as documented below.
      */
-    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication?: pulumi.Input<boolean>, sshKeys?: pulumi.Input<{ keyData?: pulumi.Input<string>, path: pulumi.Input<string> }[]> }>;
+    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication?: pulumi.Input<boolean>, sshKeys?: pulumi.Input<pulumi.Input<{ keyData?: pulumi.Input<string>, path: pulumi.Input<string> }>[]> }>;
     /**
      * A collection of Secret blocks as documented below.
      */
-    readonly osProfileSecrets?: pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }[]> }[]>;
+    readonly osProfileSecrets?: pulumi.Input<pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A Windows config block as documented below.
      */
-    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, winrms?: pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }[]> }>;
+    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }>[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, winrms?: pulumi.Input<pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }>[]> }>;
     /**
      * Specifies whether the virtual machine scale set should be overprovisioned.
      */
@@ -272,7 +272,7 @@ export interface ScaleSetState {
     /**
      * A storage profile data disk block as documented below
      */
-    readonly storageProfileDataDisks?: pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskType?: pulumi.Input<string> }[]>;
+    readonly storageProfileDataDisks?: pulumi.Input<pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskType?: pulumi.Input<string> }>[]>;
     /**
      * A storage profile image reference block as documented below.
      */
@@ -306,7 +306,7 @@ export interface ScaleSetArgs {
     /**
      * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
      */
-    readonly extensions?: pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }[]>;
+    readonly extensions?: pulumi.Input<pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }>[]>;
     readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -323,7 +323,7 @@ export interface ScaleSetArgs {
     /**
      * A collection of network profile block as documented below.
      */
-    readonly networkProfiles: pulumi.Input<{ acceleratedNetworking?: pulumi.Input<boolean>, ipConfigurations: pulumi.Input<{ applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, publicIpAddressConfiguration?: pulumi.Input<{ domainNameLabel: pulumi.Input<string>, idleTimeout: pulumi.Input<number>, name: pulumi.Input<string> }>, subnetId: pulumi.Input<string> }[]>, name: pulumi.Input<string>, networkSecurityGroupId?: pulumi.Input<string>, primary: pulumi.Input<boolean> }[]>;
+    readonly networkProfiles: pulumi.Input<pulumi.Input<{ acceleratedNetworking?: pulumi.Input<boolean>, ipConfigurations: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, publicIpAddressConfiguration?: pulumi.Input<{ domainNameLabel: pulumi.Input<string>, idleTimeout: pulumi.Input<number>, name: pulumi.Input<string> }>, subnetId: pulumi.Input<string> }>[]>, name: pulumi.Input<string>, networkSecurityGroupId?: pulumi.Input<string>, primary: pulumi.Input<boolean> }>[]>;
     /**
      * A Virtual Machine OS Profile block as documented below.
      */
@@ -331,15 +331,15 @@ export interface ScaleSetArgs {
     /**
      * A Linux config block as documented below.
      */
-    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication?: pulumi.Input<boolean>, sshKeys?: pulumi.Input<{ keyData?: pulumi.Input<string>, path: pulumi.Input<string> }[]> }>;
+    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication?: pulumi.Input<boolean>, sshKeys?: pulumi.Input<pulumi.Input<{ keyData?: pulumi.Input<string>, path: pulumi.Input<string> }>[]> }>;
     /**
      * A collection of Secret blocks as documented below.
      */
-    readonly osProfileSecrets?: pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }[]> }[]>;
+    readonly osProfileSecrets?: pulumi.Input<pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A Windows config block as documented below.
      */
-    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, winrms?: pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }[]> }>;
+    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }>[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, winrms?: pulumi.Input<pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }>[]> }>;
     /**
      * Specifies whether the virtual machine scale set should be overprovisioned.
      */
@@ -368,7 +368,7 @@ export interface ScaleSetArgs {
     /**
      * A storage profile data disk block as documented below
      */
-    readonly storageProfileDataDisks?: pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskType?: pulumi.Input<string> }[]>;
+    readonly storageProfileDataDisks?: pulumi.Input<pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskType?: pulumi.Input<string> }>[]>;
     /**
      * A storage profile image reference block as documented below.
      */

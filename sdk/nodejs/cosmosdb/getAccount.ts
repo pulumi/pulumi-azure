@@ -20,11 +20,11 @@ export interface GetAccountArgs {
     /**
      * Specifies the name of the CosmosDB Account. 
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group in which the CosmosDB Account resides. 
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

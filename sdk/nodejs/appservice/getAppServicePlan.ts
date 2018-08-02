@@ -20,11 +20,11 @@ export interface GetAppServicePlanArgs {
     /**
      * The name of the App Service Plan.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * The Name of the Resource Group where the App Service Plan exists.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

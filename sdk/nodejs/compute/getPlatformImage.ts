@@ -22,19 +22,19 @@ export interface GetPlatformImageArgs {
     /**
      * Specifies the Location to pull information about this Platform Image from.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location: string;
     /**
      * Specifies the Offer associated with the Platform Image.
      */
-    readonly offer: pulumi.Input<string>;
+    readonly offer: string;
     /**
      * Specifies the Publisher associated with the Platform Image.
      */
-    readonly publisher: pulumi.Input<string>;
+    readonly publisher: string;
     /**
      * Specifies the SKU of the Platform Image.
      */
-    readonly sku: pulumi.Input<string>;
+    readonly sku: string;
 }
 
 /**

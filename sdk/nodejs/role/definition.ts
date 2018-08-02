@@ -106,7 +106,7 @@ export interface DefinitionState {
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions?: pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, notActions?: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly permissions?: pulumi.Input<pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, notActions?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
      */
@@ -136,7 +136,7 @@ export interface DefinitionArgs {
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions: pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, notActions?: pulumi.Input<pulumi.Input<string>[]> }[]>;
+    readonly permissions: pulumi.Input<pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, notActions?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
      */

@@ -21,15 +21,15 @@ export interface GetSubnetArgs {
     /**
      * Specifies the name of the Subnet.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group the Virtual Network is located in.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
     /**
      * Specifies the name of the Virtual Network this Subnet is located within.
      */
-    readonly virtualNetworkName: pulumi.Input<string>;
+    readonly virtualNetworkName: string;
 }
 
 /**

@@ -234,15 +234,15 @@ export interface VirtualMachineState {
     /**
      * A Linux config block as documented below.
      */
-    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication: pulumi.Input<boolean>, sshKeys?: pulumi.Input<{ keyData?: pulumi.Input<string>, path: pulumi.Input<string> }[]> }>;
+    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication: pulumi.Input<boolean>, sshKeys?: pulumi.Input<pulumi.Input<{ keyData?: pulumi.Input<string>, path: pulumi.Input<string> }>[]> }>;
     /**
      * A collection of Secret blocks as documented below.
      */
-    readonly osProfileSecrets?: pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }[]> }[]>;
+    readonly osProfileSecrets?: pulumi.Input<pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A Windows config block as documented below.
      */
-    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, winrms?: pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }[]> }>;
+    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }>[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, winrms?: pulumi.Input<pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }>[]> }>;
     /**
      * A plan block as documented below.
      */
@@ -259,7 +259,7 @@ export interface VirtualMachineState {
     /**
      * A list of Storage Data disk blocks as referenced below.
      */
-    readonly storageDataDisks?: pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, vhdUri?: pulumi.Input<string> }[]>;
+    readonly storageDataDisks?: pulumi.Input<pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, vhdUri?: pulumi.Input<string> }>[]>;
     /**
      * A Storage Image Reference block as documented below.
      */
@@ -279,7 +279,7 @@ export interface VirtualMachineState {
     /**
      * A collection containing the availability zone to allocate the Virtual Machine in.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>>;
+    readonly zones?: pulumi.Input<string>;
 }
 
 /**
@@ -329,15 +329,15 @@ export interface VirtualMachineArgs {
     /**
      * A Linux config block as documented below.
      */
-    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication: pulumi.Input<boolean>, sshKeys?: pulumi.Input<{ keyData?: pulumi.Input<string>, path: pulumi.Input<string> }[]> }>;
+    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication: pulumi.Input<boolean>, sshKeys?: pulumi.Input<pulumi.Input<{ keyData?: pulumi.Input<string>, path: pulumi.Input<string> }>[]> }>;
     /**
      * A collection of Secret blocks as documented below.
      */
-    readonly osProfileSecrets?: pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }[]> }[]>;
+    readonly osProfileSecrets?: pulumi.Input<pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A Windows config block as documented below.
      */
-    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, winrms?: pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }[]> }>;
+    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }>[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, winrms?: pulumi.Input<pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }>[]> }>;
     /**
      * A plan block as documented below.
      */
@@ -354,7 +354,7 @@ export interface VirtualMachineArgs {
     /**
      * A list of Storage Data disk blocks as referenced below.
      */
-    readonly storageDataDisks?: pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, vhdUri?: pulumi.Input<string> }[]>;
+    readonly storageDataDisks?: pulumi.Input<pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, vhdUri?: pulumi.Input<string> }>[]>;
     /**
      * A Storage Image Reference block as documented below.
      */
@@ -374,5 +374,5 @@ export interface VirtualMachineArgs {
     /**
      * A collection containing the availability zone to allocate the Virtual Machine in.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>>;
+    readonly zones?: pulumi.Input<string>;
 }

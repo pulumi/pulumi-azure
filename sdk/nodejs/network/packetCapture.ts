@@ -112,7 +112,7 @@ export interface PacketCaptureState {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly filters?: pulumi.Input<{ localIpAddress?: pulumi.Input<string>, localPort?: pulumi.Input<string>, protocol: pulumi.Input<string>, remoteIpAddress?: pulumi.Input<string>, remotePort?: pulumi.Input<string> }[]>;
+    readonly filters?: pulumi.Input<pulumi.Input<{ localIpAddress?: pulumi.Input<string>, localPort?: pulumi.Input<string>, protocol: pulumi.Input<string>, remoteIpAddress?: pulumi.Input<string>, remotePort?: pulumi.Input<string> }>[]>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
@@ -154,7 +154,7 @@ export interface PacketCaptureArgs {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly filters?: pulumi.Input<{ localIpAddress?: pulumi.Input<string>, localPort?: pulumi.Input<string>, protocol: pulumi.Input<string>, remoteIpAddress?: pulumi.Input<string>, remotePort?: pulumi.Input<string> }[]>;
+    readonly filters?: pulumi.Input<pulumi.Input<{ localIpAddress?: pulumi.Input<string>, localPort?: pulumi.Input<string>, protocol: pulumi.Input<string>, remoteIpAddress?: pulumi.Input<string>, remotePort?: pulumi.Input<string> }>[]>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */

@@ -20,11 +20,11 @@ export interface GetJobCollectionArgs {
     /**
      * Specifies the name of the Scheduler Job Collection. 
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group in which the Scheduler Job Collection resides. 
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

@@ -19,7 +19,7 @@ export interface GetResourceGroupArgs {
     /**
      * Specifies the name of the resource group.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

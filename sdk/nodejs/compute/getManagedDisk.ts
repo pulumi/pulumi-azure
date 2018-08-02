@@ -22,13 +22,13 @@ export interface GetManagedDiskArgs {
     /**
      * Specifies the name of the Managed Disk.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
-    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly resourceGroupName: string;
+    readonly tags?: {[key: string]: any};
+    readonly zones?: string[];
 }
 
 /**

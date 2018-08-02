@@ -100,7 +100,7 @@ export interface RouteTableState {
     /**
      * Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
      */
-    readonly routes?: pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, nextHopInIpAddress?: pulumi.Input<string>, nextHopType: pulumi.Input<string> }[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, nextHopInIpAddress?: pulumi.Input<string>, nextHopType: pulumi.Input<string> }>[]>;
     /**
      * The collection of Subnets associated with this route table.
      */
@@ -130,7 +130,7 @@ export interface RouteTableArgs {
     /**
      * Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
      */
-    readonly routes?: pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, nextHopInIpAddress?: pulumi.Input<string>, nextHopType: pulumi.Input<string> }[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, nextHopInIpAddress?: pulumi.Input<string>, nextHopType: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

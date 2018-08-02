@@ -20,11 +20,11 @@ export interface GetEventhubNamespaceArgs {
     /**
      * The name of the EventHub Namespace.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * The Name of the Resource Group where the EventHub Namespace exists.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

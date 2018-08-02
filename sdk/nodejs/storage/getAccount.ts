@@ -20,11 +20,11 @@ export interface GetAccountArgs {
     /**
      * Specifies the name of the Storage Account
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group the Storage Account is located in.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

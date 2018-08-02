@@ -20,11 +20,11 @@ export interface GetVirtualNetworkArgs {
     /**
      * Specifies the name of the Virtual Network.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group the Virtual Network is located in.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

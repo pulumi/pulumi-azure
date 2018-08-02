@@ -196,7 +196,7 @@ export interface ManagedDiskState {
     /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>>;
+    readonly zones?: pulumi.Input<string>;
 }
 
 /**
@@ -260,5 +260,5 @@ export interface ManagedDiskArgs {
     /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>>;
+    readonly zones?: pulumi.Input<string>;
 }

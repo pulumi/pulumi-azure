@@ -20,11 +20,11 @@ export interface GetNetworkInterfaceArgs {
     /**
      * Specifies the name of the Network Interface.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group the Network Interface is located in.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

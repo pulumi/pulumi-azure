@@ -196,7 +196,7 @@ export interface CacheState {
     /**
      * A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
      */
-    readonly patchSchedules?: pulumi.Input<{ dayOfWeek: pulumi.Input<string>, startHourUtc?: pulumi.Input<number> }[]>;
+    readonly patchSchedules?: pulumi.Input<pulumi.Input<{ dayOfWeek: pulumi.Input<string>, startHourUtc?: pulumi.Input<number> }>[]>;
     /**
      * The non-SSL Port of the Redis Instance
      */
@@ -269,7 +269,7 @@ export interface CacheArgs {
     /**
      * A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
      */
-    readonly patchSchedules?: pulumi.Input<{ dayOfWeek: pulumi.Input<string>, startHourUtc?: pulumi.Input<number> }[]>;
+    readonly patchSchedules?: pulumi.Input<pulumi.Input<{ dayOfWeek: pulumi.Input<string>, startHourUtc?: pulumi.Input<number> }>[]>;
     /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
      */

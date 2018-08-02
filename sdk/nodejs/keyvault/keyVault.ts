@@ -137,7 +137,7 @@ export interface KeyVaultState {
      * An access policy block as described below. At least
      * one policy is required up to a maximum of 16.
      */
-    readonly accessPolicies?: pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }[]>;
+    readonly accessPolicies?: pulumi.Input<pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }>[]>;
     /**
      * Boolean flag to specify whether Azure Virtual
      * Machines are permitted to retrieve certificates stored as secrets from the key
@@ -199,7 +199,7 @@ export interface KeyVaultArgs {
      * An access policy block as described below. At least
      * one policy is required up to a maximum of 16.
      */
-    readonly accessPolicies?: pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }[]>;
+    readonly accessPolicies?: pulumi.Input<pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }>[]>;
     /**
      * Boolean flag to specify whether Azure Virtual
      * Machines are permitted to retrieve certificates stored as secrets from the key

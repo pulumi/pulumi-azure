@@ -30,28 +30,28 @@ export interface GetAccountSASArgs {
     /**
      * The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a terraform created `azurerm_storage_account` resource.
      */
-    readonly connectionString: pulumi.Input<string>;
+    readonly connectionString: string;
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
      */
-    readonly expiry: pulumi.Input<string>;
+    readonly expiry: string;
     /**
      * Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
      */
-    readonly httpsOnly?: pulumi.Input<boolean>;
+    readonly httpsOnly?: boolean;
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions: pulumi.Input<{ add: pulumi.Input<boolean>, create: pulumi.Input<boolean>, delete: pulumi.Input<boolean>, list: pulumi.Input<boolean>, process: pulumi.Input<boolean>, read: pulumi.Input<boolean>, update: pulumi.Input<boolean>, write: pulumi.Input<boolean> }>;
-    readonly resourceTypes: pulumi.Input<{ container: pulumi.Input<boolean>, object: pulumi.Input<boolean>, service: pulumi.Input<boolean> }>;
+    readonly permissions: { add: boolean, create: boolean, delete: boolean, list: boolean, process: boolean, read: boolean, update: boolean, write: boolean };
+    readonly resourceTypes: { container: boolean, object: boolean, service: boolean };
     /**
      * A `services` block as defined below.
      */
-    readonly services: pulumi.Input<{ blob: pulumi.Input<boolean>, file: pulumi.Input<boolean>, queue: pulumi.Input<boolean>, table: pulumi.Input<boolean> }>;
+    readonly services: { blob: boolean, file: boolean, queue: boolean, table: boolean };
     /**
      * The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
      */
-    readonly start: pulumi.Input<string>;
+    readonly start: string;
 }
 
 /**

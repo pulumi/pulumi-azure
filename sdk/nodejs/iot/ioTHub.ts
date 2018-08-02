@@ -116,7 +116,7 @@ export interface IoTHubState {
     /**
      * A list of `shared_access_policy` blocks as defined below.
      */
-    readonly sharedAccessPolicies?: pulumi.Input<{ keyName?: pulumi.Input<string>, permissions?: pulumi.Input<string>, primaryKey?: pulumi.Input<string>, secondaryKey?: pulumi.Input<string> }[]>;
+    readonly sharedAccessPolicies?: pulumi.Input<pulumi.Input<{ keyName?: pulumi.Input<string>, permissions?: pulumi.Input<string>, primaryKey?: pulumi.Input<string>, secondaryKey?: pulumi.Input<string> }>[]>;
     /**
      * A `sku` block as defined below. 
      */

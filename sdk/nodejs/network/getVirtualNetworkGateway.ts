@@ -20,11 +20,11 @@ export interface GetVirtualNetworkGatewayArgs {
     /**
      * Specifies the name of the Virtual Network Gateway.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group the Virtual Network Gateway is located in.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**
