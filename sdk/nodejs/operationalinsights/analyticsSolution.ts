@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Log Analytics (formally Operational Insights) Solution.
+ * Manages a Log Analytics (formally Operational Insights) Solution.
  */
 export class AnalyticsSolution extends pulumi.CustomResource {
     /**

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Automation Credential.
+// Manages a Automation Credential.
 type Credential struct {
 	s *pulumi.ResourceState
 }

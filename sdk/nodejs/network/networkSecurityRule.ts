@@ -42,7 +42,7 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
     /**
      * A List of destination Application Security Group ID's
      */
-    public readonly destinationApplicationSecurityGroupIds: pulumi.Output<string[] | undefined>;
+    public readonly destinationApplicationSecurityGroupIds: pulumi.Output<string | undefined>;
     /**
      * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
      */
@@ -86,7 +86,7 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
     /**
      * A List of source Application Security Group ID's
      */
-    public readonly sourceApplicationSecurityGroupIds: pulumi.Output<string[] | undefined>;
+    public readonly sourceApplicationSecurityGroupIds: pulumi.Output<string | undefined>;
     /**
      * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
      */
@@ -192,7 +192,7 @@ export interface NetworkSecurityRuleState {
     /**
      * A List of destination Application Security Group ID's
      */
-    readonly destinationApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly destinationApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
      * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
      */
@@ -236,7 +236,7 @@ export interface NetworkSecurityRuleState {
     /**
      * A List of source Application Security Group ID's
      */
-    readonly sourceApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly sourceApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
      * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
      */
@@ -270,7 +270,7 @@ export interface NetworkSecurityRuleArgs {
     /**
      * A List of destination Application Security Group ID's
      */
-    readonly destinationApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly destinationApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
      * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
      */
@@ -314,7 +314,7 @@ export interface NetworkSecurityRuleArgs {
     /**
      * A List of source Application Security Group ID's
      */
-    readonly sourceApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly sourceApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
      * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
      */

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new ServiceBus Topic authorization Rule within a ServiceBus Topic.
+// Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 type TopicAuthorizationRule struct {
 	s *pulumi.ResourceState
 }
@@ -89,17 +89,17 @@ func (r *TopicAuthorizationRule) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// Does this Authorization Rule have permissions to Listen to the ServiceBus Topic? Defaults to `false`.
+// Grants listen access to this this Authorization Rule. Defaults to `false`.
 func (r *TopicAuthorizationRule) Listen() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["listen"])
 }
 
-// Does this Authorization Rule have permissions to Manage to the ServiceBus Topic? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 func (r *TopicAuthorizationRule) Manage() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["manage"])
 }
 
-// Specifies the name of the erviceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
+// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 func (r *TopicAuthorizationRule) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -134,7 +134,7 @@ func (r *TopicAuthorizationRule) SecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
-// Does this Authorization Rule have permissions to Send to the ServiceBus Topic? Defaults to `false`.
+// Grants send access to this this Authorization Rule. Defaults to `false`.
 func (r *TopicAuthorizationRule) Send() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["send"])
 }
@@ -146,11 +146,11 @@ func (r *TopicAuthorizationRule) TopicName() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering TopicAuthorizationRule resources.
 type TopicAuthorizationRuleState struct {
-	// Does this Authorization Rule have permissions to Listen to the ServiceBus Topic? Defaults to `false`.
+	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen interface{}
-	// Does this Authorization Rule have permissions to Manage to the ServiceBus Topic? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage interface{}
-	// Specifies the name of the erviceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
+	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	NamespaceName interface{}
@@ -164,7 +164,7 @@ type TopicAuthorizationRuleState struct {
 	SecondaryConnectionString interface{}
 	// The Secondary Key for the ServiceBus Topic authorization Rule.
 	SecondaryKey interface{}
-	// Does this Authorization Rule have permissions to Send to the ServiceBus Topic? Defaults to `false`.
+	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send interface{}
 	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
 	TopicName interface{}
@@ -172,17 +172,17 @@ type TopicAuthorizationRuleState struct {
 
 // The set of arguments for constructing a TopicAuthorizationRule resource.
 type TopicAuthorizationRuleArgs struct {
-	// Does this Authorization Rule have permissions to Listen to the ServiceBus Topic? Defaults to `false`.
+	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen interface{}
-	// Does this Authorization Rule have permissions to Manage to the ServiceBus Topic? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage interface{}
-	// Specifies the name of the erviceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
+	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	NamespaceName interface{}
 	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Does this Authorization Rule have permissions to Send to the ServiceBus Topic? Defaults to `false`.
+	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send interface{}
 	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
 	TopicName interface{}

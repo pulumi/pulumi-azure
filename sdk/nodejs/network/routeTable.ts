@@ -20,6 +20,10 @@ export class RouteTable extends pulumi.CustomResource {
     }
 
     /**
+     * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+     */
+    public readonly disableBgpRoutePropagation: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -56,6 +60,7 @@ export class RouteTable extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: RouteTableState = argsOrState as RouteTableState | undefined;
+            inputs["disableBgpRoutePropagation"] = state ? state.disableBgpRoutePropagation : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -70,6 +75,7 @@ export class RouteTable extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["disableBgpRoutePropagation"] = args ? args.disableBgpRoutePropagation : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -85,6 +91,10 @@ export class RouteTable extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RouteTable resources.
  */
 export interface RouteTableState {
+    /**
+     * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+     */
+    readonly disableBgpRoutePropagation?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -115,6 +125,10 @@ export interface RouteTableState {
  * The set of arguments for constructing a RouteTable resource.
  */
 export interface RouteTableArgs {
+    /**
+     * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+     */
+    readonly disableBgpRoutePropagation?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

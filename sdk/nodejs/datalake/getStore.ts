@@ -31,6 +31,22 @@ export interface GetStoreArgs {
  * A collection of values returned by getStore.
  */
 export interface GetStoreResult {
+    /**
+     * the Encryption State of this Data Lake Store Account, such as `Enabled` or `Disabled`.
+     */
+    readonly encryptionState: string;
+    /**
+     * the Encryption Type used for this Data Lake Store Account.
+     */
+    readonly encryptionType: string;
+    /**
+     * are Azure Service IP's allowed through the firewall?
+     */
+    readonly firewallAllowAzureIps: string;
+    /**
+     * the state of the firewall, such as `Enabled` or `Disabled`.
+     */
+    readonly firewallState: string;
     readonly location: string;
     /**
      * A mapping of tags to assign to the Data Lake Store.

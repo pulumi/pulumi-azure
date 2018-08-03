@@ -36,7 +36,7 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly permissions: pulumi.Output<{ actions?: string[], notActions?: string[] }[]>;
     /**
-     * A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
+     * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
     public readonly roleDefinitionId: pulumi.Output<string>;
     /**
@@ -69,9 +69,6 @@ export class Definition extends pulumi.CustomResource {
             }
             if (!args || args.permissions === undefined) {
                 throw new Error("Missing required property 'permissions'");
-            }
-            if (!args || args.roleDefinitionId === undefined) {
-                throw new Error("Missing required property 'roleDefinitionId'");
             }
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
@@ -108,7 +105,7 @@ export interface DefinitionState {
      */
     readonly permissions?: pulumi.Input<pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, notActions?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
-     * A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
+     * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
     /**
@@ -138,9 +135,9 @@ export interface DefinitionArgs {
      */
     readonly permissions: pulumi.Input<pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, notActions?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
-     * A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
+     * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    readonly roleDefinitionId: pulumi.Input<string>;
+    readonly roleDefinitionId?: pulumi.Input<string>;
     /**
      * The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
      */

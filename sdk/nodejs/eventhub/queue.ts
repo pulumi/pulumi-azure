@@ -25,6 +25,9 @@ export class Queue extends pulumi.CustomResource {
      * format.
      */
     public readonly autoDeleteOnIdle: pulumi.Output<string>;
+    /**
+     * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+     */
     public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
     /**
      * The TTL of messages sent to this queue. This is the default value
@@ -84,7 +87,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly requiresDuplicateDetection: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires sessions. 
+     * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
+     * a queue can guarantee first-in-first-out delivery of messages.
+     * Changing this forces a new resource to be created. Defaults to `false`.
      */
     public readonly requiresSession: pulumi.Output<boolean | undefined>;
     /**
@@ -161,6 +167,9 @@ export interface QueueState {
      * format.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+     */
     readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * The TTL of messages sent to this queue. This is the default value
@@ -220,7 +229,10 @@ export interface QueueState {
      */
     readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires sessions. 
+     * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
+     * a queue can guarantee first-in-first-out delivery of messages.
+     * Changing this forces a new resource to be created. Defaults to `false`.
      */
     readonly requiresSession?: pulumi.Input<boolean>;
     /**
@@ -241,6 +253,9 @@ export interface QueueArgs {
      * format.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+     */
     readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * The TTL of messages sent to this queue. This is the default value
@@ -300,7 +315,10 @@ export interface QueueArgs {
      */
     readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+     * Boolean flag which controls whether the Queue requires sessions. 
+     * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
+     * a queue can guarantee first-in-first-out delivery of messages.
+     * Changing this forces a new resource to be created. Defaults to `false`.
      */
     readonly requiresSession?: pulumi.Input<boolean>;
     /**

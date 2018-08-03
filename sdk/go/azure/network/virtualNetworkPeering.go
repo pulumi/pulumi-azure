@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new virtual network peering which allows resources to access other
+// Manages a virtual network peering which allows resources to access other
 // resources in the linked virtual network.
 type VirtualNetworkPeering struct {
 	s *pulumi.ResourceState
@@ -124,11 +124,11 @@ func (r *VirtualNetworkPeering) ResourceGroupName() *pulumi.StringOutput {
 }
 
 // Controls if remote gateways can be used on
-// the local virtual network. If the flag is set to true, and
-// allowGatewayTransit on the remote peering is also true, virtual network will
+// the local virtual network. If the flag is set to `true`, and
+// `allow_gateway_transit` on the remote peering is also `true`, virtual network will
 // use gateways of remote virtual network for transit. Only one peering can
-// have this flag set to true. This flag cannot be set if virtual network
-// already has a gateway. Defaults to false.
+// have this flag set to `true`. This flag cannot be set if virtual network
+// already has a gateway. Defaults to `false`.
 func (r *VirtualNetworkPeering) UseRemoteGateways() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["useRemoteGateways"])
 }
@@ -162,11 +162,11 @@ type VirtualNetworkPeeringState struct {
 	// created.
 	ResourceGroupName interface{}
 	// Controls if remote gateways can be used on
-	// the local virtual network. If the flag is set to true, and
-	// allowGatewayTransit on the remote peering is also true, virtual network will
+	// the local virtual network. If the flag is set to `true`, and
+	// `allow_gateway_transit` on the remote peering is also `true`, virtual network will
 	// use gateways of remote virtual network for transit. Only one peering can
-	// have this flag set to true. This flag cannot be set if virtual network
-	// already has a gateway. Defaults to false.
+	// have this flag set to `true`. This flag cannot be set if virtual network
+	// already has a gateway. Defaults to `false`.
 	UseRemoteGateways interface{}
 	// The name of the virtual network. Changing
 	// this forces a new resource to be created.
@@ -196,11 +196,11 @@ type VirtualNetworkPeeringArgs struct {
 	// created.
 	ResourceGroupName interface{}
 	// Controls if remote gateways can be used on
-	// the local virtual network. If the flag is set to true, and
-	// allowGatewayTransit on the remote peering is also true, virtual network will
+	// the local virtual network. If the flag is set to `true`, and
+	// `allow_gateway_transit` on the remote peering is also `true`, virtual network will
 	// use gateways of remote virtual network for transit. Only one peering can
-	// have this flag set to true. This flag cannot be set if virtual network
-	// already has a gateway. Defaults to false.
+	// have this flag set to `true`. This flag cannot be set if virtual network
+	// already has a gateway. Defaults to `false`.
 	UseRemoteGateways interface{}
 	// The name of the virtual network. Changing
 	// this forces a new resource to be created.

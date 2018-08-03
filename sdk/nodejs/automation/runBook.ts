@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Automation Runbook.
+ * Manages a Automation Runbook.
  */
 export class RunBook extends pulumi.CustomResource {
     /**

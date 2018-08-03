@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new connection in an existing Virtual Network Gateway.
+ * Manages a connection in an existing Virtual Network Gateway.
  */
 export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**

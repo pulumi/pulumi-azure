@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Event Hubs Consumer Group as a nested resource within an Event Hub.
+ * Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
  */
 export class EventHubConsumerGroup extends pulumi.CustomResource {
     /**

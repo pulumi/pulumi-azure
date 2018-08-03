@@ -47,33 +47,33 @@ type GetNetworkInterfaceArgs struct {
 
 // A collection of values returned by getNetworkInterface.
 type GetNetworkInterfaceResult struct {
-	// List of DNS servers applied to the specified network interface.
+	// List of DNS servers applied to the specified Network Interface.
 	AppliedDnsServers interface{}
-	// The list of DNS servers used by the specified network interface.
+	// The list of DNS servers used by the specified Network Interface.
 	DnsServers interface{}
-	// Indicates if accelerated networking is set on the specified network interface.
+	// Indicates if accelerated networking is set on the specified Network Interface.
 	EnableAcceleratedNetworking interface{}
-	// Indicate if IP forwarding is set on the specified network interface.
+	// Indicate if IP forwarding is set on the specified Network Interface.
 	EnableIpForwarding interface{}
-	// The internal dns name label of the specified network interface.
+	// The internal dns name label of the specified Network Interface.
 	InternalDnsNameLabel interface{}
-	// The internal FQDN associated to the specified network interface.
+	// The internal FQDN associated to the specified Network Interface.
 	InternalFqdn interface{}
-	// The list of IP configurations associated to the specified network interface.
+	// One or more `ip_configuration` blocks as defined below.
 	IpConfigurations interface{}
-	// The location of the specified network interface.
+	// The location of the specified Network Interface.
 	Location interface{}
-	// The MAC address used by the specified network interface.
+	// The MAC address used by the specified Network Interface.
 	MacAddress interface{}
-	// The ID of the network security group associated to the specified network interface.
+	// The ID of the network security group associated to the specified Network Interface.
 	NetworkSecurityGroupId interface{}
-	// The primary private ip address associated to the specified network interface.
+	// The Private IP Address assigned to this Network Interface.
 	PrivateIpAddress interface{}
-	// The list of private ip addresses associates to the specified network interface.
+	// The list of private ip addresses associates to the specified Network Interface.
 	PrivateIpAddresses interface{}
-	// List the tags assocatied to the specified network interface.
+	// List the tags associated to the specified Network Interface.
 	Tags interface{}
-	// The ID of the virtual machine that the specified network interface is attached to.
+	// The ID of the virtual machine that the specified Network Interface is attached to.
 	VirtualMachineId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

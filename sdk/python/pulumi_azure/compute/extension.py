@@ -7,10 +7,12 @@ import pulumi.runtime
 
 class Extension(pulumi.CustomResource):
     """
-    Manages a new Virtual Machine Extension to provide post deployment configuration
+    Manages a Virtual Machine Extension to provide post deployment configuration
     and run automated tasks.
     
-    ~> **Please Note:** The CustomScript extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
+    ~> **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
+    
+    -> **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
     """
     def __init__(__self__, __name__, __opts__=None, auto_upgrade_minor_version=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_name=None):
         """Create a Extension resource with the given unique name, props, and options."""

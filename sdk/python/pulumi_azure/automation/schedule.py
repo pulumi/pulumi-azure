@@ -7,9 +7,9 @@ import pulumi.runtime
 
 class Schedule(pulumi.CustomResource):
     """
-    Manages a new Automation Schedule.
+    Manages a Automation Schedule.
     """
-    def __init__(__self__, __name__, __opts__=None, account_name=None, description=None, expiry_time=None, frequency=None, name=None, resource_group_name=None, start_time=None, timezone=None):
+    def __init__(__self__, __name__, __opts__=None, account_name=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, name=None, resource_group_name=None, start_time=None, timezone=None):
         """Create a Schedule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -20,15 +20,18 @@ class Schedule(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if not account_name:
-            raise TypeError('Missing required property account_name')
-        elif not isinstance(account_name, basestring):
+        if account_name and not isinstance(account_name, basestring):
             raise TypeError('Expected property account_name to be a basestring')
         __self__.account_name = account_name
+        __props__['accountName'] = account_name
+
+        if automation_account_name and not isinstance(automation_account_name, basestring):
+            raise TypeError('Expected property automation_account_name to be a basestring')
+        __self__.automation_account_name = automation_account_name
         """
         The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
         """
-        __props__['accountName'] = account_name
+        __props__['automationAccountName'] = automation_account_name
 
         if description and not isinstance(description, basestring):
             raise TypeError('Expected property description to be a basestring')
@@ -56,6 +59,14 @@ class Schedule(pulumi.CustomResource):
         """
         __props__['frequency'] = frequency
 
+        if interval and not isinstance(interval, int):
+            raise TypeError('Expected property interval to be a int')
+        __self__.interval = interval
+        """
+        The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        """
+        __props__['interval'] = interval
+
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
@@ -74,13 +85,11 @@ class Schedule(pulumi.CustomResource):
         """
         __props__['resourceGroupName'] = resource_group_name
 
-        if not start_time:
-            raise TypeError('Missing required property start_time')
-        elif not isinstance(start_time, basestring):
+        if start_time and not isinstance(start_time, basestring):
             raise TypeError('Expected property start_time to be a basestring')
         __self__.start_time = start_time
         """
-        Start time of the schedule. Must be at least five minutes in the future.
+        Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         """
         __props__['startTime'] = start_time
 
@@ -88,7 +97,7 @@ class Schedule(pulumi.CustomResource):
             raise TypeError('Expected property timezone to be a basestring')
         __self__.timezone = timezone
         """
-        The timezone of the start time. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+        The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
         """
         __props__['timezone'] = timezone
 
@@ -101,12 +110,16 @@ class Schedule(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'accountName' in outs:
             self.account_name = outs['accountName']
+        if 'automationAccountName' in outs:
+            self.automation_account_name = outs['automationAccountName']
         if 'description' in outs:
             self.description = outs['description']
         if 'expiryTime' in outs:
             self.expiry_time = outs['expiryTime']
         if 'frequency' in outs:
             self.frequency = outs['frequency']
+        if 'interval' in outs:
+            self.interval = outs['interval']
         if 'name' in outs:
             self.name = outs['name']
         if 'resourceGroupName' in outs:

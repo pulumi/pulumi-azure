@@ -48,6 +48,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly httpsOnly: pulumi.Output<boolean | undefined>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -67,6 +71,10 @@ export class FunctionApp extends pulumi.CustomResource {
      * A `site_config` object as defined below.
      */
     public readonly siteConfig: pulumi.Output<{ alwaysOn?: boolean, use32BitWorkerProcess?: boolean, websocketsEnabled?: boolean }>;
+    /**
+     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     */
+    public /*out*/ readonly siteCredential: pulumi.Output<{ password: string, username: string }>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */
@@ -99,11 +107,13 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["defaultHostname"] = state ? state.defaultHostname : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
+            inputs["siteCredential"] = state ? state.siteCredential : undefined;
             inputs["storageConnectionString"] = state ? state.storageConnectionString : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["version"] = state ? state.version : undefined;
@@ -127,6 +137,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -136,6 +147,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["defaultHostname"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
+            inputs["siteCredential"] = undefined /*out*/;
         }
         super("azure:appservice/functionApp:FunctionApp", name, inputs, opts);
     }
@@ -174,6 +186,10 @@ export interface FunctionAppState {
      */
     readonly httpsOnly?: pulumi.Input<boolean>;
     /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -193,6 +209,10 @@ export interface FunctionAppState {
      * A `site_config` object as defined below.
      */
     readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    /**
+     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     */
+    readonly siteCredential?: pulumi.Input<{ password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */
@@ -235,6 +255,10 @@ export interface FunctionAppArgs {
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
     readonly httpsOnly?: pulumi.Input<boolean>;
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

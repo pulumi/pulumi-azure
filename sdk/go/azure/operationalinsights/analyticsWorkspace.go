@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Log Analytics (formally Operational Insights) Workspace.
+// Manages a Log Analytics (formally Operational Insights) Workspace.
 type AnalyticsWorkspace struct {
 	s *pulumi.ResourceState
 }
@@ -121,7 +121,7 @@ func (r *AnalyticsWorkspace) SecondarySharedKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondarySharedKey"])
 }
 
-// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone` and `Unlimited.`
+// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
 func (r *AnalyticsWorkspace) Sku() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sku"])
 }
@@ -152,7 +152,7 @@ type AnalyticsWorkspaceState struct {
 	RetentionInDays interface{}
 	// The Secondary shared key for the Log Analytics Workspace.
 	SecondarySharedKey interface{}
-	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone` and `Unlimited.`
+	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -170,7 +170,7 @@ type AnalyticsWorkspaceArgs struct {
 	ResourceGroupName interface{}
 	// The workspace data retention in days. Possible values range between 30 and 730.
 	RetentionInDays interface{}
-	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone` and `Unlimited.`
+	// Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

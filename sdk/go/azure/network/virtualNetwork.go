@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new virtual network including any configured subnets. Each subnet can
+// Manages a virtual network including any configured subnets. Each subnet can
 // optionally be configured with a security group to be associated with the subnet.
 // 
 // ~> **NOTE on Virtual Networks and Subnet's:** Terraform currently

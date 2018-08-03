@@ -32,7 +32,7 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * Defines the access tier for `BlobStorage` accounts.
+     * The access tier for `BlobStorage` accounts.
      */
     readonly accessTier: string;
     /**
@@ -40,15 +40,15 @@ export interface GetAccountResult {
      */
     readonly accountEncryptionSource: string;
     /**
-     * Defines the Kind of account, either `BlobStorage` or `Storage`.
+     * The Kind of account.
      */
     readonly accountKind: string;
     /**
-     * Defines the type of replication used for this storage account.
+     * The type of replication used for this storage account.
      */
     readonly accountReplicationType: string;
     /**
-     * Defines the Tier of this storage account.
+     * The Tier of this storage account.
      */
     readonly accountTier: string;
     /**

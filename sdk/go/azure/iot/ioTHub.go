@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new IotHub
+// Manages a IotHub
 type IoTHub struct {
 	s *pulumi.ResourceState
 }

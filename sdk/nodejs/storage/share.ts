@@ -24,7 +24,7 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default this is set to 0 which results in setting the quota to 5 TB.
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
      */
     public readonly quota: pulumi.Output<number | undefined>;
     /**
@@ -86,7 +86,7 @@ export interface ShareState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default this is set to 0 which results in setting the quota to 5 TB.
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
      */
     readonly quota?: pulumi.Input<number>;
     /**
@@ -114,7 +114,7 @@ export interface ShareArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default this is set to 0 which results in setting the quota to 5 TB.
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
      */
     readonly quota?: pulumi.Input<number>;
     /**

@@ -24,9 +24,13 @@ export class NsRecord extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * A list of values that make up the NS record. Each `record` block supports fields documented below.
+     * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
      */
-    public readonly records: pulumi.Output<{ nsdname: string }[]>;
+    public readonly record: pulumi.Output<{ nsdname: string }[]>;
+    /**
+     * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+     */
+    public readonly records: pulumi.Output<string[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -57,6 +61,7 @@ export class NsRecord extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: NsRecordState = argsOrState as NsRecordState | undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["record"] = state ? state.record : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -64,9 +69,6 @@ export class NsRecord extends pulumi.CustomResource {
             inputs["zoneName"] = state ? state.zoneName : undefined;
         } else {
             const args = argsOrState as NsRecordArgs | undefined;
-            if (!args || args.records === undefined) {
-                throw new Error("Missing required property 'records'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -77,6 +79,7 @@ export class NsRecord extends pulumi.CustomResource {
                 throw new Error("Missing required property 'zoneName'");
             }
             inputs["name"] = args ? args.name : undefined;
+            inputs["record"] = args ? args.record : undefined;
             inputs["records"] = args ? args.records : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -96,9 +99,13 @@ export interface NsRecordState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of values that make up the NS record. Each `record` block supports fields documented below.
+     * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
      */
-    readonly records?: pulumi.Input<pulumi.Input<{ nsdname: pulumi.Input<string> }>[]>;
+    readonly record?: pulumi.Input<pulumi.Input<{ nsdname: pulumi.Input<string> }>[]>;
+    /**
+     * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+     */
+    readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -126,9 +133,13 @@ export interface NsRecordArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of values that make up the NS record. Each `record` block supports fields documented below.
+     * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
      */
-    readonly records: pulumi.Input<pulumi.Input<{ nsdname: pulumi.Input<string> }>[]>;
+    readonly record?: pulumi.Input<pulumi.Input<{ nsdname: pulumi.Input<string> }>[]>;
+    /**
+     * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
+     */
+    readonly records?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */

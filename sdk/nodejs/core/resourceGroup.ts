@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new resource group on Azure.
+ * Manages a resource group on Azure.
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**

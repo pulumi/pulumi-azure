@@ -46,7 +46,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * One or more `ip_configuration` associated with this NIC as documented below.
      */
-    public readonly ipConfigurations: pulumi.Output<{ applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string }[]>;
+    public readonly ipConfigurations: pulumi.Output<{ applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress?: string, privateIpAddressAllocation: string, publicIpAddressId?: string, subnetId: string }[]>;
     /**
      * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */

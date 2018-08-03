@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Automation Runbook.
+// Manages a Automation Runbook.
 type RunBook struct {
 	s *pulumi.ResourceState
 }

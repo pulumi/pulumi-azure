@@ -9,7 +9,7 @@ class RouteTable(pulumi.CustomResource):
     """
     Manages a Route Table
     """
-    def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, routes=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, disable_bgp_route_propagation=None, location=None, name=None, resource_group_name=None, routes=None, tags=None):
         """Create a RouteTable resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -19,6 +19,14 @@ class RouteTable(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if disable_bgp_route_propagation and not isinstance(disable_bgp_route_propagation, bool):
+            raise TypeError('Expected property disable_bgp_route_propagation to be a bool')
+        __self__.disable_bgp_route_propagation = disable_bgp_route_propagation
+        """
+        Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+        """
+        __props__['disableBgpRoutePropagation'] = disable_bgp_route_propagation
 
         if not location:
             raise TypeError('Missing required property location')
@@ -76,6 +84,8 @@ class RouteTable(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'disableBgpRoutePropagation' in outs:
+            self.disable_bgp_route_propagation = outs['disableBgpRoutePropagation']
         if 'location' in outs:
             self.location = outs['location']
         if 'name' in outs:

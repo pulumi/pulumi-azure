@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class EventHubAuthorizationRule(pulumi.CustomResource):
     """
-    Manages a new Event Hubs authorization Rule within an Event Hub.
+    Manages a Event Hubs authorization Rule within an Event Hub.
     """
     def __init__(__self__, __name__, __opts__=None, eventhub_name=None, listen=None, location=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None):
         """Create a EventHubAuthorizationRule resource with the given unique name, props, and options."""

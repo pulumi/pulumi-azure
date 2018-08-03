@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new local network gateway connection over which specific connections can be configured.
+// Manages a local network gateway connection over which specific connections can be configured.
 type LocalNetworkGateway struct {
 	s *pulumi.ResourceState
 }
@@ -102,7 +102,7 @@ func (r *LocalNetworkGateway) GatewayAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayAddress"])
 }
 
-// The location/region where the local network gatway is
+// The location/region where the local network gateway is
 // created. Changing this forces a new resource to be created.
 func (r *LocalNetworkGateway) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
@@ -136,7 +136,7 @@ type LocalNetworkGatewayState struct {
 	// The IP address of the gateway to which to
 	// connect.
 	GatewayAddress interface{}
-	// The location/region where the local network gatway is
+	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the local network gateway. Changing this
@@ -160,7 +160,7 @@ type LocalNetworkGatewayArgs struct {
 	// The IP address of the gateway to which to
 	// connect.
 	GatewayAddress interface{}
-	// The location/region where the local network gatway is
+	// The location/region where the local network gateway is
 	// created. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the local network gateway. Changing this

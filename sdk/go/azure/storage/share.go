@@ -76,7 +76,7 @@ func (r *Share) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default this is set to 0 which results in setting the quota to 5 TB.
+// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
 func (r *Share) Quota() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["quota"])
 }
@@ -102,7 +102,7 @@ func (r *Share) Url() *pulumi.StringOutput {
 type ShareState struct {
 	// The name of the share. Must be unique within the storage account where the share is located.
 	Name interface{}
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default this is set to 0 which results in setting the quota to 5 TB.
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
 	Quota interface{}
 	// The name of the resource group in which to
 	// create the share. Changing this forces a new resource to be created.
@@ -118,7 +118,7 @@ type ShareState struct {
 type ShareArgs struct {
 	// The name of the share. Must be unique within the storage account where the share is located.
 	Name interface{}
-	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default this is set to 0 which results in setting the quota to 5 TB.
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
 	Quota interface{}
 	// The name of the resource group in which to
 	// create the share. Changing this forces a new resource to be created.

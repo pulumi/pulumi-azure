@@ -112,6 +112,7 @@ func (r *Queue) AutoDeleteOnIdle() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
 }
 
+// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 func (r *Queue) DeadLetteringOnMessageExpiration() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["deadLetteringOnMessageExpiration"])
 }
@@ -186,7 +187,10 @@ func (r *Queue) RequiresDuplicateDetection() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["requiresDuplicateDetection"])
 }
 
-// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+// Boolean flag which controls whether the Queue requires sessions. 
+// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
+// a queue can guarantee first-in-first-out delivery of messages.
+// Changing this forces a new resource to be created. Defaults to `false`.
 func (r *Queue) RequiresSession() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["requiresSession"])
 }
@@ -207,6 +211,7 @@ type QueueState struct {
 	// Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
 	// format.
 	AutoDeleteOnIdle interface{}
+	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration interface{}
 	// The TTL of messages sent to this queue. This is the default value
 	// used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
@@ -245,7 +250,10 @@ type QueueState struct {
 	// the Queue requires duplicate detection. Changing this forces
 	// a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection interface{}
-	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+	// Boolean flag which controls whether the Queue requires sessions. 
+	// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
+	// a queue can guarantee first-in-first-out delivery of messages.
+	// Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresSession interface{}
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.
@@ -259,6 +267,7 @@ type QueueArgs struct {
 	// Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
 	// format.
 	AutoDeleteOnIdle interface{}
+	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration interface{}
 	// The TTL of messages sent to this queue. This is the default value
 	// used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
@@ -297,7 +306,10 @@ type QueueArgs struct {
 	// the Queue requires duplicate detection. Changing this forces
 	// a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection interface{}
-	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+	// Boolean flag which controls whether the Queue requires sessions. 
+	// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
+	// a queue can guarantee first-in-first-out delivery of messages.
+	// Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresSession interface{}
 	// The name of the resource group in which to
 	// create the namespace. Changing this forces a new resource to be created.

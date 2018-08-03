@@ -24,7 +24,7 @@ class Namespace(pulumi.CustomResource):
             raise TypeError('Expected property capacity to be a int')
         __self__.capacity = capacity
         """
-        Specifies the capacity of a Premium namespace. Can be 1, 2 or 4.
+        Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
         """
         __props__['capacity'] = capacity
 

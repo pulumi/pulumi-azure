@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from a_record import *
 from aaaa_record import *
+from caa_record import *
 from c_name_record import *
 from mx_record import *
 from ns_record import *

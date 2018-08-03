@@ -43,6 +43,9 @@ export interface GetAccountSASArgs {
      * A `permissions` block as defined below.
      */
     readonly permissions: { add: boolean, create: boolean, delete: boolean, list: boolean, process: boolean, read: boolean, update: boolean, write: boolean };
+    /**
+     * A `resource_types` block as defined below. 
+     */
     readonly resourceTypes: { container: boolean, object: boolean, service: boolean };
     /**
      * A `services` block as defined below.

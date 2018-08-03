@@ -6,7 +6,7 @@ import pulumi
 import pulumi.runtime
 
 class ZipBlob(pulumi.CustomResource):
-    def __init__(__self__, __name__, __opts__=None, attempts=None, name=None, parallelism=None, resource_group_name=None, size=None, content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None):
+    def __init__(__self__, __name__, __opts__=None, attempts=None, content_type=None, name=None, parallelism=None, resource_group_name=None, size=None, content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None):
         """Create a ZipBlob resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -21,6 +21,11 @@ class ZipBlob(pulumi.CustomResource):
             raise TypeError('Expected property attempts to be a int')
         __self__.attempts = attempts
         __props__['attempts'] = attempts
+
+        if content_type and not isinstance(content_type, basestring):
+            raise TypeError('Expected property content_type to be a basestring')
+        __self__.content_type = content_type
+        __props__['contentType'] = content_type
 
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
@@ -84,6 +89,8 @@ class ZipBlob(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'attempts' in outs:
             self.attempts = outs['attempts']
+        if 'contentType' in outs:
+            self.content_type = outs['contentType']
         if 'name' in outs:
             self.name = outs['name']
         if 'parallelism' in outs:

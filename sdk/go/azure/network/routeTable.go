@@ -24,12 +24,14 @@ func NewRouteTable(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["disableBgpRoutePropagation"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["routes"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["disableBgpRoutePropagation"] = args.DisableBgpRoutePropagation
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -50,6 +52,7 @@ func GetRouteTable(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *RouteTableState, opts ...pulumi.ResourceOpt) (*RouteTable, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["disableBgpRoutePropagation"] = state.DisableBgpRoutePropagation
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -72,6 +75,11 @@ func (r *RouteTable) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *RouteTable) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+func (r *RouteTable) DisableBgpRoutePropagation() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["disableBgpRoutePropagation"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -106,6 +114,8 @@ func (r *RouteTable) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering RouteTable resources.
 type RouteTableState struct {
+	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+	DisableBgpRoutePropagation interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the route.
@@ -122,6 +132,8 @@ type RouteTableState struct {
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
+	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+	DisableBgpRoutePropagation interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the route.

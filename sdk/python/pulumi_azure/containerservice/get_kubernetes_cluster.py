@@ -9,7 +9,7 @@ class GetKubernetesClusterResult(object):
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, service_principals=None, tags=None, id=None):
+    def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, network_profiles=None, node_resource_group=None, service_principals=None, tags=None, id=None):
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError('Expected argument agent_pool_profiles to be a list')
         __self__.agent_pool_profiles = agent_pool_profiles
@@ -58,6 +58,18 @@ class GetKubernetesClusterResult(object):
         """
         The Azure Region in which the managed Kubernetes Cluster exists.
         """
+        if network_profiles and not isinstance(network_profiles, list):
+            raise TypeError('Expected argument network_profiles to be a list')
+        __self__.network_profiles = network_profiles
+        """
+        A `network_profile` block as documented below.
+        """
+        if node_resource_group and not isinstance(node_resource_group, basestring):
+            raise TypeError('Expected argument node_resource_group to be a basestring')
+        __self__.node_resource_group = node_resource_group
+        """
+        Auto-generated Resource Group containing AKS Cluster resources.
+        """
         if service_principals and not isinstance(service_principals, list):
             raise TypeError('Expected argument service_principals to be a list')
         __self__.service_principals = service_principals
@@ -100,6 +112,8 @@ def get_kubernetes_cluster(name=None, resource_group_name=None):
         kubernetes_version=__ret__.get('kubernetesVersion'),
         linux_profiles=__ret__.get('linuxProfiles'),
         location=__ret__.get('location'),
+        network_profiles=__ret__.get('networkProfiles'),
+        node_resource_group=__ret__.get('nodeResourceGroup'),
         service_principals=__ret__.get('servicePrincipals'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

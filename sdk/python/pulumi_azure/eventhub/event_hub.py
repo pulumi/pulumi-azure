@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class EventHub(pulumi.CustomResource):
     """
-    Manages a new Event Hubs as a nested resource within a Event Hubs namespace.
+    Manages a Event Hubs as a nested resource within a Event Hubs namespace.
     """
     def __init__(__self__, __name__, __opts__=None, capture_description=None, location=None, message_retention=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None):
         """Create a EventHub resource with the given unique name, props, and options."""

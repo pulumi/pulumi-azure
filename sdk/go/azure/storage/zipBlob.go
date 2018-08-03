@@ -27,6 +27,7 @@ func NewZipBlob(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["attempts"] = nil
+		inputs["contentType"] = nil
 		inputs["name"] = nil
 		inputs["parallelism"] = nil
 		inputs["resourceGroupName"] = nil
@@ -38,6 +39,7 @@ func NewZipBlob(ctx *pulumi.Context,
 		inputs["type"] = nil
 	} else {
 		inputs["attempts"] = args.Attempts
+		inputs["contentType"] = args.ContentType
 		inputs["name"] = args.Name
 		inputs["parallelism"] = args.Parallelism
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -63,6 +65,7 @@ func GetZipBlob(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["attempts"] = state.Attempts
+		inputs["contentType"] = state.ContentType
 		inputs["name"] = state.Name
 		inputs["parallelism"] = state.Parallelism
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -93,6 +96,10 @@ func (r *ZipBlob) ID() *pulumi.IDOutput {
 
 func (r *ZipBlob) Attempts() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["attempts"])
+}
+
+func (r *ZipBlob) ContentType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["contentType"])
 }
 
 func (r *ZipBlob) Name() *pulumi.StringOutput {
@@ -138,6 +145,7 @@ func (r *ZipBlob) Url() *pulumi.StringOutput {
 // Input properties used for looking up and filtering ZipBlob resources.
 type ZipBlobState struct {
 	Attempts interface{}
+	ContentType interface{}
 	Name interface{}
 	Parallelism interface{}
 	ResourceGroupName interface{}
@@ -153,6 +161,7 @@ type ZipBlobState struct {
 // The set of arguments for constructing a ZipBlob resource.
 type ZipBlobArgs struct {
 	Attempts interface{}
+	ContentType interface{}
 	Name interface{}
 	Parallelism interface{}
 	ResourceGroupName interface{}

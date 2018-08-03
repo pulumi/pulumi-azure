@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new CosmosDB (formally DocumentDB) Account.
+// Manages a CosmosDB (formally DocumentDB) Account.
 type Account struct {
 	s *pulumi.ResourceState
 }
@@ -30,6 +30,7 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["capabilities"] = nil
 		inputs["consistencyPolicy"] = nil
 		inputs["enableAutomaticFailover"] = nil
 		inputs["failoverPolicies"] = nil
@@ -42,6 +43,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["capabilities"] = args.Capabilities
 		inputs["consistencyPolicy"] = args.ConsistencyPolicy
 		inputs["enableAutomaticFailover"] = args.EnableAutomaticFailover
 		inputs["failoverPolicies"] = args.FailoverPolicies
@@ -75,6 +77,7 @@ func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["capabilities"] = state.Capabilities
 		inputs["connectionStrings"] = state.ConnectionStrings
 		inputs["consistencyPolicy"] = state.ConsistencyPolicy
 		inputs["enableAutomaticFailover"] = state.EnableAutomaticFailover
@@ -110,6 +113,11 @@ func (r *Account) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Account) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+func (r *Account) Capabilities() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["capabilities"])
 }
 
 // A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
@@ -208,6 +216,8 @@ func (r *Account) WriteEndpoints() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
+	// Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+	Capabilities interface{}
 	// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
 	ConnectionStrings interface{}
 	// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
@@ -249,6 +259,8 @@ type AccountState struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+	Capabilities interface{}
 	// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy interface{}
 	// Enable automatic fail over for this Cosmos DB account.

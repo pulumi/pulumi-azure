@@ -44,6 +44,7 @@ type GetAccountSASArgs struct {
 	HttpsOnly interface{}
 	// A `permissions` block as defined below.
 	Permissions interface{}
+	// A `resource_types` block as defined below. 
 	ResourceTypes interface{}
 	// A `services` block as defined below.
 	Services interface{}

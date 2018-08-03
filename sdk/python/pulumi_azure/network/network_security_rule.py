@@ -58,8 +58,8 @@ class NetworkSecurityRule(pulumi.CustomResource):
         """
         __props__['destinationAddressPrefixes'] = destination_address_prefixes
 
-        if destination_application_security_group_ids and not isinstance(destination_application_security_group_ids, list):
-            raise TypeError('Expected property destination_application_security_group_ids to be a list')
+        if destination_application_security_group_ids and not isinstance(destination_application_security_group_ids, basestring):
+            raise TypeError('Expected property destination_application_security_group_ids to be a basestring')
         __self__.destination_application_security_group_ids = destination_application_security_group_ids
         """
         A List of destination Application Security Group ID's
@@ -156,8 +156,8 @@ class NetworkSecurityRule(pulumi.CustomResource):
         """
         __props__['sourceAddressPrefixes'] = source_address_prefixes
 
-        if source_application_security_group_ids and not isinstance(source_application_security_group_ids, list):
-            raise TypeError('Expected property source_application_security_group_ids to be a list')
+        if source_application_security_group_ids and not isinstance(source_application_security_group_ids, basestring):
+            raise TypeError('Expected property source_application_security_group_ids to be a basestring')
         __self__.source_application_security_group_ids = source_application_security_group_ids
         """
         A List of source Application Security Group ID's

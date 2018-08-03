@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new connection in an existing Virtual Network Gateway.
+// Manages a connection in an existing Virtual Network Gateway.
 type VirtualNetworkGatewayConnection struct {
 	s *pulumi.ResourceState
 }

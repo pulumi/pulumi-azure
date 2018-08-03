@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Key Vault.
+// 
+// ~> **NOTE:** It's possible to define Key Vault Access Policies both within [the `azurerm_key_vault` resource](key_vault.html) via the `access_policy` block and by using [the `azurerm_key_vault_access_policy` resource](key_vault_access_policy.html). However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 type KeyVault struct {
 	s *pulumi.ResourceState
 }
@@ -95,8 +97,8 @@ func (r *KeyVault) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// An access policy block as described below. At least
-// one policy is required up to a maximum of 16.
+// An access policy block as described below. A maximum of 16
+// may be declared.
 func (r *KeyVault) AccessPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["accessPolicies"])
 }
@@ -164,8 +166,8 @@ func (r *KeyVault) VaultUri() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering KeyVault resources.
 type KeyVaultState struct {
-	// An access policy block as described below. At least
-	// one policy is required up to a maximum of 16.
+	// An access policy block as described below. A maximum of 16
+	// may be declared.
 	AccessPolicies interface{}
 	// Boolean flag to specify whether Azure Virtual
 	// Machines are permitted to retrieve certificates stored as secrets from the key
@@ -202,8 +204,8 @@ type KeyVaultState struct {
 
 // The set of arguments for constructing a KeyVault resource.
 type KeyVaultArgs struct {
-	// An access policy block as described below. At least
-	// one policy is required up to a maximum of 16.
+	// An access policy block as described below. A maximum of 16
+	// may be declared.
 	AccessPolicies interface{}
 	// Boolean flag to specify whether Azure Virtual
 	// Machines are permitted to retrieve certificates stored as secrets from the key

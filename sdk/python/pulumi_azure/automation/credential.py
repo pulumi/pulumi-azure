@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class Credential(pulumi.CustomResource):
     """
-    Manages a new Automation Credential.
+    Manages a Automation Credential.
     """
     def __init__(__self__, __name__, __opts__=None, account_name=None, description=None, name=None, password=None, resource_group_name=None, username=None):
         """Create a Credential resource with the given unique name, props, and options."""

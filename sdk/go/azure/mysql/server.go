@@ -132,7 +132,7 @@ func (r *Server) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The name of the resource group in which to create the MySQL Server.
+// The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
 func (r *Server) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -174,7 +174,7 @@ type ServerState struct {
 	Location interface{}
 	// Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
 	Name interface{}
-	// The name of the resource group in which to create the MySQL Server.
+	// The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
@@ -198,7 +198,7 @@ type ServerArgs struct {
 	Location interface{}
 	// Specifies the SKU Name for this MySQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/mysql/servers/create#sku).
 	Name interface{}
-	// The name of the resource group in which to create the MySQL Server.
+	// The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A `sku` block as defined below.
 	Sku interface{}

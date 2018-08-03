@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Automation Schedule.
+// Manages a Automation Schedule.
 type Schedule struct {
 	s *pulumi.ResourceState
 }
@@ -16,33 +16,31 @@ type Schedule struct {
 // NewSchedule registers a new resource with the given unique name, arguments, and options.
 func NewSchedule(ctx *pulumi.Context,
 	name string, args *ScheduleArgs, opts ...pulumi.ResourceOpt) (*Schedule, error) {
-	if args == nil || args.AccountName == nil {
-		return nil, errors.New("missing required argument 'AccountName'")
-	}
 	if args == nil || args.Frequency == nil {
 		return nil, errors.New("missing required argument 'Frequency'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.StartTime == nil {
-		return nil, errors.New("missing required argument 'StartTime'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["accountName"] = nil
+		inputs["automationAccountName"] = nil
 		inputs["description"] = nil
 		inputs["expiryTime"] = nil
 		inputs["frequency"] = nil
+		inputs["interval"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["startTime"] = nil
 		inputs["timezone"] = nil
 	} else {
 		inputs["accountName"] = args.AccountName
+		inputs["automationAccountName"] = args.AutomationAccountName
 		inputs["description"] = args.Description
 		inputs["expiryTime"] = args.ExpiryTime
 		inputs["frequency"] = args.Frequency
+		inputs["interval"] = args.Interval
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["startTime"] = args.StartTime
@@ -62,9 +60,11 @@ func GetSchedule(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["accountName"] = state.AccountName
+		inputs["automationAccountName"] = state.AutomationAccountName
 		inputs["description"] = state.Description
 		inputs["expiryTime"] = state.ExpiryTime
 		inputs["frequency"] = state.Frequency
+		inputs["interval"] = state.Interval
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["startTime"] = state.StartTime
@@ -87,9 +87,13 @@ func (r *Schedule) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
 func (r *Schedule) AccountName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountName"])
+}
+
+// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
+func (r *Schedule) AutomationAccountName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["automationAccountName"])
 }
 
 // A description for this Schedule.
@@ -107,6 +111,11 @@ func (r *Schedule) Frequency() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["frequency"])
 }
 
+// The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+func (r *Schedule) Interval() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["interval"])
+}
+
 // Specifies the name of the Schedule. Changing this forces a new resource to be created.
 func (r *Schedule) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -117,52 +126,58 @@ func (r *Schedule) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Start time of the schedule. Must be at least five minutes in the future.
+// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 func (r *Schedule) StartTime() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["startTime"])
 }
 
-// The timezone of the start time. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
 func (r *Schedule) Timezone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["timezone"])
 }
 
 // Input properties used for looking up and filtering Schedule resources.
 type ScheduleState struct {
-	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
 	AccountName interface{}
+	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
+	AutomationAccountName interface{}
 	// A description for this Schedule.
 	Description interface{}
 	// The end time of the schedule.
 	ExpiryTime interface{}
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency interface{}
+	// The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	Interval interface{}
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Start time of the schedule. Must be at least five minutes in the future.
+	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime interface{}
-	// The timezone of the start time. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
 	Timezone interface{}
 }
 
 // The set of arguments for constructing a Schedule resource.
 type ScheduleArgs struct {
-	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
 	AccountName interface{}
+	// The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
+	AutomationAccountName interface{}
 	// A description for this Schedule.
 	Description interface{}
 	// The end time of the schedule.
 	ExpiryTime interface{}
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency interface{}
+	// The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	Interval interface{}
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Start time of the schedule. Must be at least five minutes in the future.
+	// Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
 	StartTime interface{}
-	// The timezone of the start time. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
 	Timezone interface{}
 }

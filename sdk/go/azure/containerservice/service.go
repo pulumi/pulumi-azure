@@ -44,7 +44,7 @@ import (
 //     name       = "default"
 //     count      = 1
 //     dns_prefix = "acctestagent1"
-//     vm_size    = "Standard_A0"
+//     vm_size    = "Standard_F2"
 //   }
 // 
 //   diagnostics_profile {

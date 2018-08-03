@@ -68,6 +68,14 @@ export interface GetKubernetesClusterResult {
      */
     readonly location: string;
     /**
+     * A `network_profile` block as documented below.
+     */
+    readonly networkProfiles: { dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, podCidr: string, serviceCidr: string }[];
+    /**
+     * Auto-generated Resource Group containing AKS Cluster resources.
+     */
+    readonly nodeResourceGroup: string;
+    /**
      * A `service_principal` block as documented below.
      */
     readonly servicePrincipals: { clientId: string }[];

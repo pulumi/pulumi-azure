@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./getKubernetesCluster";
+export * from "./getRegistry";
 export * from "./group";
 export * from "./kubernetesCluster";
 export * from "./registry";

@@ -34,7 +34,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The pricing related information of current CDN profile. Accepted values are `Standard_Verizon`, `Standard_Akamai` or `Premium_Verizon`.
+     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
      */
     public readonly sku: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export interface ProfileState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The pricing related information of current CDN profile. Accepted values are `Standard_Verizon`, `Standard_Akamai` or `Premium_Verizon`.
+     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
      */
     readonly sku?: pulumi.Input<string>;
     /**
@@ -127,7 +127,7 @@ export interface ProfileArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The pricing related information of current CDN profile. Accepted values are `Standard_Verizon`, `Standard_Akamai` or `Premium_Verizon`.
+     * The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
      */
     readonly sku: pulumi.Input<string>;
     /**

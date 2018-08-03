@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class AnalyticsSolution(pulumi.CustomResource):
     """
-    Manages a new Log Analytics (formally Operational Insights) Solution.
+    Manages a Log Analytics (formally Operational Insights) Solution.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, plan=None, resource_group_name=None, solution_name=None, workspace_name=None, workspace_resource_id=None):
         """Create a AnalyticsSolution resource with the given unique name, props, and options."""

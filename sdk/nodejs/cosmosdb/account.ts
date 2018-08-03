@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new CosmosDB (formally DocumentDB) Account.
+ * Manages a CosmosDB (formally DocumentDB) Account.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -19,6 +19,10 @@ export class Account extends pulumi.CustomResource {
         return new Account(name, <any>state, { id });
     }
 
+    /**
+     * Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+     */
+    public readonly capabilities: pulumi.Output<{ name: string }[] | undefined>;
     /**
      * A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
      */
@@ -105,6 +109,7 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AccountState = argsOrState as AccountState | undefined;
+            inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
             inputs["enableAutomaticFailover"] = state ? state.enableAutomaticFailover : undefined;
@@ -138,6 +143,7 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
             inputs["failoverPolicies"] = args ? args.failoverPolicies : undefined;
@@ -166,6 +172,10 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
+    /**
+     * Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+     */
+    readonly capabilities?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>;
     /**
      * A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
      */
@@ -245,6 +255,10 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+     */
+    readonly capabilities?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>;
     /**
      * Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
      */

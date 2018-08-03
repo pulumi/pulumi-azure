@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class IoTHub(pulumi.CustomResource):
     """
-    Manages a new IotHub
+    Manages a IotHub
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
         """Create a IoTHub resource with the given unique name, props, and options."""

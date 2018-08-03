@@ -40,8 +40,10 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["enableBlobEncryption"] = nil
 		inputs["enableFileEncryption"] = nil
 		inputs["enableHttpsTrafficOnly"] = nil
+		inputs["identity"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
+		inputs["networkRules"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
 	} else {
@@ -55,8 +57,10 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["enableBlobEncryption"] = args.EnableBlobEncryption
 		inputs["enableFileEncryption"] = args.EnableFileEncryption
 		inputs["enableHttpsTrafficOnly"] = args.EnableHttpsTrafficOnly
+		inputs["identity"] = args.Identity
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
+		inputs["networkRules"] = args.NetworkRules
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
 	}
@@ -98,8 +102,10 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["enableBlobEncryption"] = state.EnableBlobEncryption
 		inputs["enableFileEncryption"] = state.EnableFileEncryption
 		inputs["enableHttpsTrafficOnly"] = state.EnableHttpsTrafficOnly
+		inputs["identity"] = state.Identity
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
+		inputs["networkRules"] = state.NetworkRules
 		inputs["primaryAccessKey"] = state.PrimaryAccessKey
 		inputs["primaryBlobConnectionString"] = state.PrimaryBlobConnectionString
 		inputs["primaryBlobEndpoint"] = state.PrimaryBlobEndpoint
@@ -135,7 +141,7 @@ func (r *Account) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cold`, defaults to `Hot`.
+// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 func (r *Account) AccessTier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accessTier"])
 }
@@ -145,7 +151,7 @@ func (r *Account) AccountEncryptionSource() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountEncryptionSource"])
 }
 
-// Defines the Kind of account. Valid options are `Storage`, 
+// Defines the Kind of account. Valid options are `Storage`,
 // `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
 // Defaults to `Storage`.
 func (r *Account) AccountKind() *pulumi.StringOutput {
@@ -171,16 +177,12 @@ func (r *Account) CustomDomain() *pulumi.Output {
 	return r.s.State["customDomain"]
 }
 
-// Boolean flag which controls if Encryption
-// Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-// for more information.
+// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 func (r *Account) EnableBlobEncryption() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableBlobEncryption"])
 }
 
-// Boolean flag which controls if Encryption
-// Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-// for more information.
+// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 func (r *Account) EnableFileEncryption() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableFileEncryption"])
 }
@@ -189,6 +191,11 @@ func (r *Account) EnableFileEncryption() *pulumi.BoolOutput {
 // for more information.
 func (r *Account) EnableHttpsTrafficOnly() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableHttpsTrafficOnly"])
+}
+
+// A Managed Service Identity block as defined below.
+func (r *Account) Identity() *pulumi.Output {
+	return r.s.State["identity"]
 }
 
 // Specifies the supported Azure location where the
@@ -200,6 +207,11 @@ func (r *Account) Location() *pulumi.StringOutput {
 // The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 func (r *Account) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
+}
+
+// A `network_rules` block as documented below.
+func (r *Account) NetworkRules() *pulumi.Output {
+	return r.s.State["networkRules"]
 }
 
 // The primary access key for the storage account
@@ -290,11 +302,11 @@ func (r *Account) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
-	// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cold`, defaults to `Hot`.
+	// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier interface{}
 	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
 	AccountEncryptionSource interface{}
-	// Defines the Kind of account. Valid options are `Storage`, 
+	// Defines the Kind of account. Valid options are `Storage`,
 	// `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
 	// Defaults to `Storage`.
 	AccountKind interface{}
@@ -305,22 +317,22 @@ type AccountState struct {
 	AccountType interface{}
 	// A `custom_domain` block as documented below.
 	CustomDomain interface{}
-	// Boolean flag which controls if Encryption
-	// Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-	// for more information.
+	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 	EnableBlobEncryption interface{}
-	// Boolean flag which controls if Encryption
-	// Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-	// for more information.
+	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 	EnableFileEncryption interface{}
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
 	EnableHttpsTrafficOnly interface{}
+	// A Managed Service Identity block as defined below.
+	Identity interface{}
 	// Specifies the supported Azure location where the
 	// resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 	Name interface{}
+	// A `network_rules` block as documented below.
+	NetworkRules interface{}
 	// The primary access key for the storage account
 	PrimaryAccessKey interface{}
 	// The connection string associated with the primary blob location
@@ -360,11 +372,11 @@ type AccountState struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cold`, defaults to `Hot`.
+	// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier interface{}
 	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
 	AccountEncryptionSource interface{}
-	// Defines the Kind of account. Valid options are `Storage`, 
+	// Defines the Kind of account. Valid options are `Storage`,
 	// `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
 	// Defaults to `Storage`.
 	AccountKind interface{}
@@ -375,22 +387,22 @@ type AccountArgs struct {
 	AccountType interface{}
 	// A `custom_domain` block as documented below.
 	CustomDomain interface{}
-	// Boolean flag which controls if Encryption
-	// Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-	// for more information.
+	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 	EnableBlobEncryption interface{}
-	// Boolean flag which controls if Encryption
-	// Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-	// for more information.
+	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 	EnableFileEncryption interface{}
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
 	EnableHttpsTrafficOnly interface{}
+	// A Managed Service Identity block as defined below.
+	Identity interface{}
 	// Specifies the supported Azure location where the
 	// resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 	Name interface{}
+	// A `network_rules` block as documented below.
+	NetworkRules interface{}
 	// The name of the resource group in which to
 	// create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

@@ -8,4 +8,15 @@
 
 [[constraint]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
-  version = "=1.6.0"
+  version = "=1.12.0"
+
+# The current version of terraform-provider-aws (v1.30.0) requires the following
+# specific versions of terraform and aws-sdk-go.  Since these differ from what's 
+# used in pulumi/pulumi-terraform and pulumi/pulumi we need to force override.
+[[override]]
+  name = "github.com/hashicorp/terraform"
+  revision = "ec998a21bc95366269fbd196e09d3a458bba8be7"
+
+[[override]]
+  name = "github.com/Azure/azure-sdk-for-go"
+  version = "=v18.0.0"

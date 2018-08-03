@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new resource group on Azure.
+// Manages a resource group on Azure.
 type ResourceGroup struct {
 	s *pulumi.ResourceState
 }

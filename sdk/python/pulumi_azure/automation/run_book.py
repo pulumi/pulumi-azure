@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class RunBook(pulumi.CustomResource):
     """
-    Manages a new Automation Runbook.
+    Manages a Automation Runbook.
     """
     def __init__(__self__, __name__, __opts__=None, account_name=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None):
         """Create a RunBook resource with the given unique name, props, and options."""

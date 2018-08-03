@@ -34,7 +34,7 @@ class MxRecord(pulumi.CustomResource):
             raise TypeError('Expected property records to be a list')
         __self__.records = records
         """
-        A list of values that make up the SRV record. Each `record` block supports fields documented below.
+        A list of values that make up the MX record. Each `record` block supports fields documented below.
         """
         __props__['records'] = records
 

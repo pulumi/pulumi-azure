@@ -19,6 +19,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		return nil, err
 	}
 	return &GetAccountResult{
+		Capabilities: outputs["capabilities"],
 		ConsistencyPolicies: outputs["consistencyPolicies"],
 		EnableAutomaticFailover: outputs["enableAutomaticFailover"],
 		Endpoint: outputs["endpoint"],
@@ -48,6 +49,8 @@ type GetAccountArgs struct {
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
+	// Capabilities enabled on this Cosmos DB account.
+	Capabilities interface{}
 	ConsistencyPolicies interface{}
 	// If automatic failover is enabled for this CosmosDB Account.
 	EnableAutomaticFailover interface{}

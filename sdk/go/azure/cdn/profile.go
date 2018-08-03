@@ -92,7 +92,7 @@ func (r *Profile) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The pricing related information of current CDN profile. Accepted values are `Standard_Verizon`, `Standard_Akamai` or `Premium_Verizon`.
+// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
 func (r *Profile) Sku() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sku"])
 }
@@ -112,7 +112,7 @@ type ProfileState struct {
 	// The name of the resource group in which to
 	// create the CDN Profile.
 	ResourceGroupName interface{}
-	// The pricing related information of current CDN profile. Accepted values are `Standard_Verizon`, `Standard_Akamai` or `Premium_Verizon`.
+	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -128,7 +128,7 @@ type ProfileArgs struct {
 	// The name of the resource group in which to
 	// create the CDN Profile.
 	ResourceGroupName interface{}
-	// The pricing related information of current CDN profile. Accepted values are `Standard_Verizon`, `Standard_Akamai` or `Premium_Verizon`.
+	// The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

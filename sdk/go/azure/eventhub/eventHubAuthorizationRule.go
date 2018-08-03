@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Event Hubs authorization Rule within an Event Hub.
+// Manages a Event Hubs authorization Rule within an Event Hub.
 type EventHubAuthorizationRule struct {
 	s *pulumi.ResourceState
 }

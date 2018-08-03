@@ -8,8 +8,11 @@ from event_hub import *
 from event_hub_authorization_rule import *
 from event_hub_consumer_group import *
 from event_hub_namespace import *
+from event_hub_namespace_authorization_rule import *
 from namespace import *
+from namespace_authorization_rule import *
 from queue import *
+from queue_authorization_rule import *
 from subscription import *
 from subscription_rule import *
 from topic import *

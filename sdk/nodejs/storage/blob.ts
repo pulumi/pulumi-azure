@@ -24,6 +24,10 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly attempts: pulumi.Output<number | undefined>;
     /**
+     * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+     */
+    public readonly contentType: pulumi.Output<string | undefined>;
+    /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
     public readonly name: pulumi.Output<string>;
@@ -81,6 +85,7 @@ export class Blob extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: BlobState = argsOrState as BlobState | undefined;
             inputs["attempts"] = state ? state.attempts : undefined;
+            inputs["contentType"] = state ? state.contentType : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parallelism"] = state ? state.parallelism : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -103,6 +108,7 @@ export class Blob extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageContainerName'");
             }
             inputs["attempts"] = args ? args.attempts : undefined;
+            inputs["contentType"] = args ? args.contentType : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parallelism"] = args ? args.parallelism : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -126,6 +132,10 @@ export interface BlobState {
      * The number of attempts to make per page or block when uploading. Defaults to `1`.
      */
     readonly attempts?: pulumi.Input<number>;
+    /**
+     * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+     */
+    readonly contentType?: pulumi.Input<string>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
@@ -180,6 +190,10 @@ export interface BlobArgs {
      * The number of attempts to make per page or block when uploading. Defaults to `1`.
      */
     readonly attempts?: pulumi.Input<number>;
+    /**
+     * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+     */
+    readonly contentType?: pulumi.Input<string>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */

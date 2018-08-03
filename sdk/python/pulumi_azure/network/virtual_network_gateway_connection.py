@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     """
-    Manages a new connection in an existing Virtual Network Gateway.
+    Manages a connection in an existing Virtual Network Gateway.
     """
     def __init__(__self__, __name__, __opts__=None, authorization_key=None, enable_bgp=None, express_route_circuit_id=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         """Create a VirtualNetworkGatewayConnection resource with the given unique name, props, and options."""

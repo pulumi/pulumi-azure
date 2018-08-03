@@ -32,59 +32,59 @@ export interface GetNetworkInterfaceArgs {
  */
 export interface GetNetworkInterfaceResult {
     /**
-     * List of DNS servers applied to the specified network interface.
+     * List of DNS servers applied to the specified Network Interface.
      */
     readonly appliedDnsServers: string[];
     /**
-     * The list of DNS servers used by the specified network interface.
+     * The list of DNS servers used by the specified Network Interface.
      */
     readonly dnsServers: string[];
     /**
-     * Indicates if accelerated networking is set on the specified network interface.
+     * Indicates if accelerated networking is set on the specified Network Interface.
      */
     readonly enableAcceleratedNetworking: boolean;
     /**
-     * Indicate if IP forwarding is set on the specified network interface.
+     * Indicate if IP forwarding is set on the specified Network Interface.
      */
     readonly enableIpForwarding: boolean;
     /**
-     * The internal dns name label of the specified network interface.
+     * The internal dns name label of the specified Network Interface.
      */
     readonly internalDnsNameLabel: string;
     /**
-     * The internal FQDN associated to the specified network interface.
+     * The internal FQDN associated to the specified Network Interface.
      */
     readonly internalFqdn: string;
     /**
-     * The list of IP configurations associated to the specified network interface.
+     * One or more `ip_configuration` blocks as defined below.
      */
     readonly ipConfigurations: { applicationGatewayBackendAddressPoolsIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string }[];
     /**
-     * The location of the specified network interface.
+     * The location of the specified Network Interface.
      */
     readonly location: string;
     /**
-     * The MAC address used by the specified network interface.
+     * The MAC address used by the specified Network Interface.
      */
     readonly macAddress: string;
     /**
-     * The ID of the network security group associated to the specified network interface.
+     * The ID of the network security group associated to the specified Network Interface.
      */
     readonly networkSecurityGroupId: string;
     /**
-     * The primary private ip address associated to the specified network interface.
+     * The Private IP Address assigned to this Network Interface.
      */
     readonly privateIpAddress: string;
     /**
-     * The list of private ip addresses associates to the specified network interface.
+     * The list of private ip addresses associates to the specified Network Interface.
      */
     readonly privateIpAddresses: string[];
     /**
-     * List the tags assocatied to the specified network interface.
+     * List the tags associated to the specified Network Interface.
      */
     readonly tags: {[key: string]: any};
     /**
-     * The ID of the virtual machine that the specified network interface is attached to.
+     * The ID of the virtual machine that the specified Network Interface is attached to.
      */
     readonly virtualMachineId: string;
     /**

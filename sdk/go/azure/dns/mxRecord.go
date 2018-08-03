@@ -86,7 +86,7 @@ func (r *MxRecord) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+// A list of values that make up the MX record. Each `record` block supports fields documented below.
 func (r *MxRecord) Records() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["records"])
 }
@@ -115,7 +115,7 @@ func (r *MxRecord) ZoneName() *pulumi.StringOutput {
 type MxRecordState struct {
 	// The name of the DNS MX Record.
 	Name interface{}
-	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records interface{}
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -131,7 +131,7 @@ type MxRecordState struct {
 type MxRecordArgs struct {
 	// The name of the DNS MX Record.
 	Name interface{}
-	// A list of values that make up the SRV record. Each `record` block supports fields documented below.
+	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records interface{}
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

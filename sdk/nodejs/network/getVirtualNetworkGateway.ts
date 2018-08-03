@@ -71,7 +71,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * A `vpn_client_configuration` block which is documented below.
      */
-    readonly vpnClientConfigurations: { addressSpaces: string[], revokedCertificates: { name: string, thumbprint: string }[], rootCertificates: { name: string, publicCertData: string }[] }[];
+    readonly vpnClientConfigurations: { addressSpaces: string[], radiusServerAddress: string, radiusServerSecret: string, revokedCertificates: { name: string, thumbprint: string }[], rootCertificates: { name: string, publicCertData: string }[], vpnClientProtocols: string[] }[];
     /**
      * The routing type of the Virtual Network Gateway.
      */

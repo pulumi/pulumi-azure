@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Automation Account.
+// Manages a Automation Account.
 type Account struct {
 	s *pulumi.ResourceState
 }

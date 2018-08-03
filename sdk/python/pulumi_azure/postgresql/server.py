@@ -112,7 +112,7 @@ class Server(pulumi.CustomResource):
             raise TypeError('Expected property version to be a basestring')
         __self__.version = version
         """
-        Specifies the version of PostgreSQL to use. Valid values are `9.5` and `9.6`. Changing this forces a new resource to be created.
+        Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, and `10.0`. Changing this forces a new resource to be created.
         """
         __props__['version'] = version
 

@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class VirtualNetworkGateway(pulumi.CustomResource):
     """
-    Manages a new Virtual Network Gateway to establish secure, cross-premises connectivity.
+    Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
     
     -> **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
     """

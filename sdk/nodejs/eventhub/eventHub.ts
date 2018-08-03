@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Event Hubs as a nested resource within a Event Hubs namespace.
+ * Manages a Event Hubs as a nested resource within a Event Hubs namespace.
  */
 export class EventHub extends pulumi.CustomResource {
     /**

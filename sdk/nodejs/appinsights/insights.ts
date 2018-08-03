@@ -24,7 +24,7 @@ export class Insights extends pulumi.CustomResource {
      */
     public /*out*/ readonly appId: pulumi.Output<string>;
     /**
-     * Specifies the type of Application Insights to create. Valid values are `Web` and `Other`.
+     * Specifies the type of Application Insights to create. Valid values are `Web`, `Java`, `Phone`, `Store`, `iOS` and `Other`.
      */
     public readonly applicationType: pulumi.Output<string>;
     /**
@@ -101,7 +101,7 @@ export interface InsightsState {
      */
     readonly appId?: pulumi.Input<string>;
     /**
-     * Specifies the type of Application Insights to create. Valid values are `Web` and `Other`.
+     * Specifies the type of Application Insights to create. Valid values are `Web`, `Java`, `Phone`, `Store`, `iOS` and `Other`.
      */
     readonly applicationType?: pulumi.Input<string>;
     /**
@@ -133,7 +133,7 @@ export interface InsightsState {
  */
 export interface InsightsArgs {
     /**
-     * Specifies the type of Application Insights to create. Valid values are `Web` and `Other`.
+     * Specifies the type of Application Insights to create. Valid values are `Web`, `Java`, `Phone`, `Store`, `iOS` and `Other`.
      */
     readonly applicationType: pulumi.Input<string>;
     /**

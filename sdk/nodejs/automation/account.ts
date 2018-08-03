@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Automation Account.
+ * Manages a Automation Account.
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -56,13 +56,11 @@ class Definition(pulumi.CustomResource):
         """
         __props__['permissions'] = permissions
 
-        if not role_definition_id:
-            raise TypeError('Missing required property role_definition_id')
-        elif not isinstance(role_definition_id, basestring):
+        if role_definition_id and not isinstance(role_definition_id, basestring):
             raise TypeError('Expected property role_definition_id to be a basestring')
         __self__.role_definition_id = role_definition_id
         """
-        A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
+        A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         """
         __props__['roleDefinitionId'] = role_definition_id
 

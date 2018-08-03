@@ -118,7 +118,7 @@ class ScaleSet(pulumi.CustomResource):
             raise TypeError('Expected property overprovision to be a bool')
         __self__.overprovision = overprovision
         """
-        Specifies whether the virtual machine scale set should be overprovisioned.
+        Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
         """
         __props__['overprovision'] = overprovision
 
@@ -152,7 +152,7 @@ class ScaleSet(pulumi.CustomResource):
             raise TypeError('Expected property single_placement_group to be a bool')
         __self__.single_placement_group = single_placement_group
         """
-        Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a
+        Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Defaults to `true`. Changing this forces a
         new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
         """
         __props__['singlePlacementGroup'] = single_placement_group

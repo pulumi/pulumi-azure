@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new ServiceBus Topic authorization Rule within a ServiceBus Topic.
+ * Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
  */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -20,15 +20,15 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
     }
 
     /**
-     * Does this Authorization Rule have permissions to Listen to the ServiceBus Topic? Defaults to `false`.
+     * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     public readonly listen: pulumi.Output<boolean | undefined>;
     /**
-     * Does this Authorization Rule have permissions to Manage to the ServiceBus Topic? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     public readonly manage: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the name of the erviceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -56,7 +56,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
-     * Does this Authorization Rule have permissions to Send to the ServiceBus Topic? Defaults to `false`.
+     * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
     public readonly send: pulumi.Output<boolean | undefined>;
     /**
@@ -119,15 +119,15 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
  */
 export interface TopicAuthorizationRuleState {
     /**
-     * Does this Authorization Rule have permissions to Listen to the ServiceBus Topic? Defaults to `false`.
+     * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
     /**
-     * Does this Authorization Rule have permissions to Manage to the ServiceBus Topic? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     readonly manage?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the erviceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -155,7 +155,7 @@ export interface TopicAuthorizationRuleState {
      */
     readonly secondaryKey?: pulumi.Input<string>;
     /**
-     * Does this Authorization Rule have permissions to Send to the ServiceBus Topic? Defaults to `false`.
+     * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
     readonly send?: pulumi.Input<boolean>;
     /**
@@ -169,15 +169,15 @@ export interface TopicAuthorizationRuleState {
  */
 export interface TopicAuthorizationRuleArgs {
     /**
-     * Does this Authorization Rule have permissions to Listen to the ServiceBus Topic? Defaults to `false`.
+     * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
     /**
-     * Does this Authorization Rule have permissions to Manage to the ServiceBus Topic? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     readonly manage?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the erviceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -189,7 +189,7 @@ export interface TopicAuthorizationRuleArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Does this Authorization Rule have permissions to Send to the ServiceBus Topic? Defaults to `false`.
+     * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
     readonly send?: pulumi.Input<boolean>;
     /**

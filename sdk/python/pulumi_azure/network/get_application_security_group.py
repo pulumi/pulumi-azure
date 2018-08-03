@@ -32,8 +32,6 @@ class GetApplicationSecurityGroupResult(object):
 def get_application_security_group(name=None, resource_group_name=None):
     """
     Get information about an Application Security Group.
-    
-    -> **Note:** Application Security Groups are currently in Public Preview on an opt-in basis. [More information, including how you can register for the Preview, and which regions Application Security Groups are available in are available here](https://docs.microsoft.com/en-us/azure/virtual-network/create-network-security-group-preview)
     """
     __args__ = dict()
 

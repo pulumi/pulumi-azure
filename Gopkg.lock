@@ -6,27 +6,33 @@
   packages = [
     "services/appinsights/mgmt/2015-05-01/insights",
     "services/automation/mgmt/2015-10-31/automation",
-    "services/cdn/mgmt/2017-04-02/cdn",
+    "services/cdn/mgmt/2017-10-12/cdn",
     "services/compute/mgmt/2017-12-01/compute",
-    "services/containerinstance/mgmt/2018-02-01-preview/containerinstance",
+    "services/containerinstance/mgmt/2018-04-01/containerinstance",
     "services/containerregistry/mgmt/2017-10-01/containerregistry",
-    "services/containerservice/mgmt/2017-09-30/containerservice",
+    "services/containerservice/mgmt/2018-03-31/containerservice",
     "services/cosmos-db/mgmt/2015-04-08/documentdb",
+    "services/datalake/analytics/mgmt/2016-11-01/account",
+    "services/datalake/store/2016-11-01/filesystem",
     "services/datalake/store/mgmt/2016-11-01/account",
-    "services/dns/mgmt/2016-04-01/dns",
-    "services/eventgrid/mgmt/2017-09-15-preview/eventgrid",
+    "services/eventgrid/mgmt/2018-01-01/eventgrid",
     "services/eventhub/mgmt/2017-04-01/eventhub",
     "services/graphrbac/1.6/graphrbac",
     "services/iothub/mgmt/2017-07-01/devices",
     "services/keyvault/2016-10-01/keyvault",
     "services/keyvault/mgmt/2016-10-01/keyvault",
-    "services/monitor/mgmt/2017-05-01-preview/insights",
+    "services/logic/mgmt/2016-06-01/logic",
     "services/mysql/mgmt/2017-12-01/mysql",
-    "services/network/mgmt/2017-09-01/network",
-    "services/operationalinsights/mgmt/2015-11-01-preview/operationalinsights",
-    "services/operationsmanagement/mgmt/2015-11-01-preview/operationsmanagement",
+    "services/network/mgmt/2018-04-01/network",
+    "services/notificationhubs/mgmt/2017-04-01/notificationhubs",
     "services/postgresql/mgmt/2017-12-01/postgresql",
     "services/preview/authorization/mgmt/2018-01-01-preview/authorization",
+    "services/preview/dns/mgmt/2018-03-01-preview/dns",
+    "services/preview/monitor/mgmt/2018-03-01/insights",
+    "services/preview/msi/mgmt/2015-08-31-preview/msi",
+    "services/preview/operationalinsights/mgmt/2015-11-01-preview/operationalinsights",
+    "services/preview/operationsmanagement/mgmt/2015-11-01-preview/operationsmanagement",
+    "services/preview/sql/mgmt/2015-05-01-preview/sql",
     "services/recoveryservices/mgmt/2016-06-01/recoveryservices",
     "services/redis/mgmt/2018-03-01/redis",
     "services/relay/mgmt/2017-04-01/relay",
@@ -37,15 +43,15 @@
     "services/scheduler/mgmt/2016-03-01/scheduler",
     "services/search/mgmt/2015-08-19/search",
     "services/servicebus/mgmt/2017-04-01/servicebus",
-    "services/sql/mgmt/2015-05-01-preview/sql",
+    "services/servicefabric/mgmt/2018-02-01/servicefabric",
     "services/storage/mgmt/2017-10-01/storage",
     "services/trafficmanager/mgmt/2017-05-01/trafficmanager",
-    "services/web/mgmt/2016-09-01/web",
+    "services/web/mgmt/2018-02-01/web",
     "storage",
     "version"
   ]
-  revision = "4650843026a7fdec254a8d9cf893693a254edd0b"
-  version = "v16.2.1"
+  revision = "fbe7db0e3f9793ba3e5704efbab84f51436c136e"
+  version = "v18.0.0"
 
 [[projects]]
   branch = "master"
@@ -65,10 +71,12 @@
     "autorest/azure/cli",
     "autorest/date",
     "autorest/to",
-    "autorest/validation"
+    "autorest/validation",
+    "logger",
+    "version"
   ]
-  revision = "9157a90cf06a2f000b8a67181e1dd501cdb5753e"
-  version = "v10.8.2"
+  revision = "22deab8fa353631a78351bd7808fcb5002024b67"
+  version = "v10.15.1"
 
 [[projects]]
   name = "github.com/Nvveen/Gotty"
@@ -359,8 +367,7 @@
     "tfdiags",
     "version"
   ]
-  revision = "342c529aa58d824f2f2ed1f6ec6118059876aad0"
-  version = "v0.11.5"
+  revision = "ec998a21bc95366269fbd196e09d3a458bba8be7"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -609,14 +616,18 @@
   packages = [
     "azurerm",
     "azurerm/helpers/authentication",
+    "azurerm/helpers/azure",
     "azurerm/helpers/kubernetes",
     "azurerm/helpers/response",
     "azurerm/helpers/schema",
+    "azurerm/helpers/set",
     "azurerm/helpers/subscription",
+    "azurerm/helpers/suppress",
+    "azurerm/helpers/validate",
     "azurerm/utils"
   ]
-  revision = "93090f95e1f8e18972a94a20aa48e3991a62a7a7"
-  version = "v1.6.0"
+  revision = "bdc8b4ad9e20c1ce7553d1ca03a3441b619c8fd8"
+  version = "v1.12.0"
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"

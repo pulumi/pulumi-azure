@@ -2,5 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./analyticsAccount";
+export * from "./analyticsFirewallRule";
 export * from "./getStore";
 export * from "./store";
+export * from "./storeFile";
+export * from "./storeFirewallRule";

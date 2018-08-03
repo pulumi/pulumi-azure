@@ -20,13 +20,16 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. 
+     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     public readonly collation: pulumi.Output<string>;
     /**
      * Specifies the type of database to create. Defaults to `Default`. See below for the accepted values/
      */
     public readonly createMode: pulumi.Output<string | undefined>;
+    /**
+     * The creation date of the SQL Database.
+     */
     public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The default secondary location of the SQL Database.
@@ -41,6 +44,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly elasticPoolName: pulumi.Output<string>;
     public /*out*/ readonly encryption: pulumi.Output<string>;
+    /**
+     * A Database Import block as documented below. `create_mode` must be set to `Default`.
+     */
+    public readonly import: pulumi.Output<{ administratorLogin: string, administratorLoginPassword: string, authenticationType: string, operationMode?: string, storageKey: string, storageKeyType: string, storageUri: string } | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -106,6 +113,7 @@ export class Database extends pulumi.CustomResource {
             inputs["edition"] = state ? state.edition : undefined;
             inputs["elasticPoolName"] = state ? state.elasticPoolName : undefined;
             inputs["encryption"] = state ? state.encryption : undefined;
+            inputs["import"] = state ? state.import : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -132,6 +140,7 @@ export class Database extends pulumi.CustomResource {
             inputs["createMode"] = args ? args.createMode : undefined;
             inputs["edition"] = args ? args.edition : undefined;
             inputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
+            inputs["import"] = args ? args.import : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -156,13 +165,16 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseState {
     /**
-     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. 
+     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     readonly collation?: pulumi.Input<string>;
     /**
      * Specifies the type of database to create. Defaults to `Default`. See below for the accepted values/
      */
     readonly createMode?: pulumi.Input<string>;
+    /**
+     * The creation date of the SQL Database.
+     */
     readonly creationDate?: pulumi.Input<string>;
     /**
      * The default secondary location of the SQL Database.
@@ -177,6 +189,10 @@ export interface DatabaseState {
      */
     readonly elasticPoolName?: pulumi.Input<string>;
     readonly encryption?: pulumi.Input<string>;
+    /**
+     * A Database Import block as documented below. `create_mode` must be set to `Default`.
+     */
+    readonly import?: pulumi.Input<{ administratorLogin: pulumi.Input<string>, administratorLoginPassword: pulumi.Input<string>, authenticationType: pulumi.Input<string>, operationMode?: pulumi.Input<string>, storageKey: pulumi.Input<string>, storageKeyType: pulumi.Input<string>, storageUri: pulumi.Input<string> }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -229,7 +245,7 @@ export interface DatabaseState {
  */
 export interface DatabaseArgs {
     /**
-     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. 
+     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     readonly collation?: pulumi.Input<string>;
     /**
@@ -244,6 +260,10 @@ export interface DatabaseArgs {
      * The name of the elastic database pool.
      */
     readonly elasticPoolName?: pulumi.Input<string>;
+    /**
+     * A Database Import block as documented below. `create_mode` must be set to `Default`.
+     */
+    readonly import?: pulumi.Input<{ administratorLogin: pulumi.Input<string>, administratorLoginPassword: pulumi.Input<string>, authenticationType: pulumi.Input<string>, operationMode?: pulumi.Input<string>, storageKey: pulumi.Input<string>, storageKeyType: pulumi.Input<string>, storageUri: pulumi.Input<string> }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -5,6 +5,7 @@
 export * from "./aRecord";
 export * from "./aaaaRecord";
 export * from "./cNameRecord";
+export * from "./caaRecord";
 export * from "./getZone";
 export * from "./mxRecord";
 export * from "./nsRecord";

@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class Account(pulumi.CustomResource):
     """
-    Manages a new Automation Account.
+    Manages a Automation Account.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
         """Create a Account resource with the given unique name, props, and options."""

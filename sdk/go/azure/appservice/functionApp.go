@@ -36,6 +36,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 		inputs["connectionStrings"] = nil
 		inputs["enabled"] = nil
 		inputs["httpsOnly"] = nil
+		inputs["identity"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
@@ -50,6 +51,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 		inputs["connectionStrings"] = args.ConnectionStrings
 		inputs["enabled"] = args.Enabled
 		inputs["httpsOnly"] = args.HttpsOnly
+		inputs["identity"] = args.Identity
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -60,6 +62,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 	}
 	inputs["defaultHostname"] = nil
 	inputs["outboundIpAddresses"] = nil
+	inputs["siteCredential"] = nil
 	s, err := ctx.RegisterResource("azure:appservice/functionApp:FunctionApp", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -80,11 +83,13 @@ func GetFunctionApp(ctx *pulumi.Context,
 		inputs["defaultHostname"] = state.DefaultHostname
 		inputs["enabled"] = state.Enabled
 		inputs["httpsOnly"] = state.HttpsOnly
+		inputs["identity"] = state.Identity
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["outboundIpAddresses"] = state.OutboundIpAddresses
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["siteConfig"] = state.SiteConfig
+		inputs["siteCredential"] = state.SiteCredential
 		inputs["storageConnectionString"] = state.StorageConnectionString
 		inputs["tags"] = state.Tags
 		inputs["version"] = state.Version
@@ -141,6 +146,11 @@ func (r *FunctionApp) HttpsOnly() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["httpsOnly"])
 }
 
+// An `identity` block as defined below.
+func (r *FunctionApp) Identity() *pulumi.Output {
+	return r.s.State["identity"]
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *FunctionApp) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
@@ -164,6 +174,11 @@ func (r *FunctionApp) ResourceGroupName() *pulumi.StringOutput {
 // A `site_config` object as defined below.
 func (r *FunctionApp) SiteConfig() *pulumi.Output {
 	return r.s.State["siteConfig"]
+}
+
+// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+func (r *FunctionApp) SiteCredential() *pulumi.Output {
+	return r.s.State["siteCredential"]
 }
 
 // The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
@@ -197,6 +212,8 @@ type FunctionAppState struct {
 	Enabled interface{}
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly interface{}
+	// An `identity` block as defined below.
+	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Connection String.
@@ -207,6 +224,8 @@ type FunctionAppState struct {
 	ResourceGroupName interface{}
 	// A `site_config` object as defined below.
 	SiteConfig interface{}
+	// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+	SiteCredential interface{}
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString interface{}
 	// A mapping of tags to assign to the resource.
@@ -229,6 +248,8 @@ type FunctionAppArgs struct {
 	Enabled interface{}
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly interface{}
+	// An `identity` block as defined below.
+	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Connection String.

@@ -7,4 +7,5 @@ from group import *
 from registry import *
 from service import *
 from kubernetes_cluster import *
+from get_registry import *
 from get_kubernetes_cluster import *

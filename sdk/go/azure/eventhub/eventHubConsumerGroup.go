@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Event Hubs Consumer Group as a nested resource within an Event Hub.
+// Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
 type EventHubConsumerGroup struct {
 	s *pulumi.ResourceState
 }
