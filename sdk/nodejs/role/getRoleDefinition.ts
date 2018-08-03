@@ -20,11 +20,11 @@ export interface GetRoleDefinitionArgs {
     /**
      * Specifies the ID of the Role Definition as a UUID/GUID.
      */
-    readonly roleDefinitionId: pulumi.Input<string>;
+    readonly roleDefinitionId: string;
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
      */
-    readonly scope: pulumi.Input<string>;
+    readonly scope: string;
 }
 
 /**

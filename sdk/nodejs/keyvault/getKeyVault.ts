@@ -20,11 +20,11 @@ export interface GetKeyVaultArgs {
     /**
      * Specifies the name of the Key Vault.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * The name of the Resource Group in which the Key Vault exists.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

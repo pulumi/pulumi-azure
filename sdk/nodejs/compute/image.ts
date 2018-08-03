@@ -97,7 +97,7 @@ export interface ImageState {
     /**
      * One or more `data_disk` elements as defined below.
      */
-    readonly dataDisks?: pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, lun?: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }[]>;
+    readonly dataDisks?: pulumi.Input<pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, lun?: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>[]>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
@@ -134,7 +134,7 @@ export interface ImageArgs {
     /**
      * One or more `data_disk` elements as defined below.
      */
-    readonly dataDisks?: pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, lun?: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }[]>;
+    readonly dataDisks?: pulumi.Input<pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, lun?: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>[]>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.

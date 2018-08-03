@@ -117,7 +117,7 @@ export interface ProfileState {
      * This block specifies the DNS configuration of the
      * Profile, it supports the fields documented below.
      */
-    readonly dnsConfigs?: pulumi.Input<{ relativeName: pulumi.Input<string>, ttl: pulumi.Input<number> }[]>;
+    readonly dnsConfigs?: pulumi.Input<pulumi.Input<{ relativeName: pulumi.Input<string>, ttl: pulumi.Input<number> }>[]>;
     /**
      * The FQDN of the created Profile.
      */
@@ -126,7 +126,7 @@ export interface ProfileState {
      * This block specifies the Endpoint monitoring
      * configuration for the Profile, it supports the fields documented below.
      */
-    readonly monitorConfigs?: pulumi.Input<{ path?: pulumi.Input<string>, port: pulumi.Input<number>, protocol: pulumi.Input<string> }[]>;
+    readonly monitorConfigs?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port: pulumi.Input<number>, protocol: pulumi.Input<string> }>[]>;
     /**
      * The name of the virtual network. Changing this forces a
      * new resource to be created.
@@ -165,12 +165,12 @@ export interface ProfileArgs {
      * This block specifies the DNS configuration of the
      * Profile, it supports the fields documented below.
      */
-    readonly dnsConfigs: pulumi.Input<{ relativeName: pulumi.Input<string>, ttl: pulumi.Input<number> }[]>;
+    readonly dnsConfigs: pulumi.Input<pulumi.Input<{ relativeName: pulumi.Input<string>, ttl: pulumi.Input<number> }>[]>;
     /**
      * This block specifies the Endpoint monitoring
      * configuration for the Profile, it supports the fields documented below.
      */
-    readonly monitorConfigs: pulumi.Input<{ path?: pulumi.Input<string>, port: pulumi.Input<number>, protocol: pulumi.Input<string> }[]>;
+    readonly monitorConfigs: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port: pulumi.Input<number>, protocol: pulumi.Input<string> }>[]>;
     /**
      * The name of the virtual network. Changing this forces a
      * new resource to be created.

@@ -20,11 +20,11 @@ export interface GetSnapshotArgs {
     /**
      * Specifies the name of the Snapshot.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the name of the resource group the Snapshot is located in.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

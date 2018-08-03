@@ -20,11 +20,11 @@ export interface GetNetworkSecurityGroupArgs {
     /**
      * Specifies the Name of the Network Security Group.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the Name of the Resource Group within which the Network Security Group exists
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

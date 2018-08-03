@@ -182,11 +182,11 @@ export interface AccountState {
      * The endpoint used to connect to the CosmosDB account.
      */
     readonly endpoint?: pulumi.Input<string>;
-    readonly failoverPolicies?: pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }[]>;
+    readonly failoverPolicies?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }>[]>;
     /**
      * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
      */
-    readonly geoLocations?: pulumi.Input<{ failoverPriority: pulumi.Input<number>, id?: pulumi.Input<string>, location: pulumi.Input<string>, prefix?: pulumi.Input<string> }[]>;
+    readonly geoLocations?: pulumi.Input<pulumi.Input<{ failoverPriority: pulumi.Input<number>, id?: pulumi.Input<string>, location: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
@@ -253,11 +253,11 @@ export interface AccountArgs {
      * Enable automatic fail over for this Cosmos DB account.
      */
     readonly enableAutomaticFailover?: pulumi.Input<boolean>;
-    readonly failoverPolicies?: pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }[]>;
+    readonly failoverPolicies?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }>[]>;
     /**
      * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
      */
-    readonly geoLocations?: pulumi.Input<{ failoverPriority: pulumi.Input<number>, id?: pulumi.Input<string>, location: pulumi.Input<string>, prefix?: pulumi.Input<string> }[]>;
+    readonly geoLocations?: pulumi.Input<pulumi.Input<{ failoverPriority: pulumi.Input<number>, id?: pulumi.Input<string>, location: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */

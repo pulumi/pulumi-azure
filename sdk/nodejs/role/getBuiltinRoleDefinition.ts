@@ -19,7 +19,7 @@ export interface GetBuiltinRoleDefinitionArgs {
     /**
      * Specifies the name of the built-in Role Definition. Possible values are: `Contributor`, `Owner`, `Reader` and `VirtualMachineContributor`.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

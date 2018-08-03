@@ -175,7 +175,7 @@ export interface PublicIpState {
     /**
      * A collection containing the availability zone to allocate the Public IP in.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>>;
+    readonly zones?: pulumi.Input<string>;
 }
 
 /**
@@ -223,5 +223,5 @@ export interface PublicIpArgs {
     /**
      * A collection containing the availability zone to allocate the Public IP in.
      */
-    readonly zones?: pulumi.Input<pulumi.Input<string>>;
+    readonly zones?: pulumi.Input<string>;
 }

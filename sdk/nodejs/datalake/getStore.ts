@@ -20,11 +20,11 @@ export interface GetStoreArgs {
     /**
      * The name of the Data Lake Store.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * The Name of the Resource Group where the Data Lake Store exists.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

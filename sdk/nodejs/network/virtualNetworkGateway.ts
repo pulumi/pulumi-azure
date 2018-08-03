@@ -182,7 +182,7 @@ export interface VirtualNetworkGatewayState {
      * An active-standby gateway requires exactly one `ip_configuration` block whereas
      * an active-active gateway requires exactly two `ip_configuration` blocks.
      */
-    readonly ipConfigurations?: pulumi.Input<{ name?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
      * The location/region where the Virtual Network Gateway is
      * located. Changing the location/region forces a new resource to be created.
@@ -220,7 +220,7 @@ export interface VirtualNetworkGatewayState {
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */
-    readonly vpnClientConfiguration?: pulumi.Input<{ addressSpaces: pulumi.Input<pulumi.Input<string>[]>, revokedCertificates?: pulumi.Input<{ name: pulumi.Input<string>, thumbprint: pulumi.Input<string> }[]>, rootCertificates: pulumi.Input<{ name: pulumi.Input<string>, publicCertData: pulumi.Input<string> }[]> }>;
+    readonly vpnClientConfiguration?: pulumi.Input<{ addressSpaces: pulumi.Input<pulumi.Input<string>[]>, revokedCertificates?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, thumbprint: pulumi.Input<string> }>[]>, rootCertificates: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, publicCertData: pulumi.Input<string> }>[]> }>;
     /**
      * The routing type of the Virtual Network Gateway. Valid
      * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
@@ -258,7 +258,7 @@ export interface VirtualNetworkGatewayArgs {
      * An active-standby gateway requires exactly one `ip_configuration` block whereas
      * an active-active gateway requires exactly two `ip_configuration` blocks.
      */
-    readonly ipConfigurations: pulumi.Input<{ name?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }[]>;
+    readonly ipConfigurations: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
      * The location/region where the Virtual Network Gateway is
      * located. Changing the location/region forces a new resource to be created.
@@ -296,7 +296,7 @@ export interface VirtualNetworkGatewayArgs {
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */
-    readonly vpnClientConfiguration?: pulumi.Input<{ addressSpaces: pulumi.Input<pulumi.Input<string>[]>, revokedCertificates?: pulumi.Input<{ name: pulumi.Input<string>, thumbprint: pulumi.Input<string> }[]>, rootCertificates: pulumi.Input<{ name: pulumi.Input<string>, publicCertData: pulumi.Input<string> }[]> }>;
+    readonly vpnClientConfiguration?: pulumi.Input<{ addressSpaces: pulumi.Input<pulumi.Input<string>[]>, revokedCertificates?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, thumbprint: pulumi.Input<string> }>[]>, rootCertificates: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, publicCertData: pulumi.Input<string> }>[]> }>;
     /**
      * The routing type of the Virtual Network Gateway. Valid
      * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.

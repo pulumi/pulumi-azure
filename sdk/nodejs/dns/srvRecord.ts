@@ -98,7 +98,7 @@ export interface SrvRecordState {
     /**
      * A list of values that make up the SRV record. Each `record` block supports fields documented below.
      */
-    readonly records?: pulumi.Input<{ port: pulumi.Input<number>, priority: pulumi.Input<number>, target: pulumi.Input<string>, weight: pulumi.Input<number> }[]>;
+    readonly records?: pulumi.Input<pulumi.Input<{ port: pulumi.Input<number>, priority: pulumi.Input<number>, target: pulumi.Input<string>, weight: pulumi.Input<number> }>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -128,7 +128,7 @@ export interface SrvRecordArgs {
     /**
      * A list of values that make up the SRV record. Each `record` block supports fields documented below.
      */
-    readonly records: pulumi.Input<{ port: pulumi.Input<number>, priority: pulumi.Input<number>, target: pulumi.Input<string>, weight: pulumi.Input<number> }[]>;
+    readonly records: pulumi.Input<pulumi.Input<{ port: pulumi.Input<number>, priority: pulumi.Input<number>, target: pulumi.Input<string>, weight: pulumi.Input<number> }>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */

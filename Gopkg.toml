@@ -9,7 +9,3 @@
 [[constraint]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
   version = "=1.6.0"
-
-[[override]]
-  name = "github.com/pulumi/terraform"
-  branch = "pulumi-master"

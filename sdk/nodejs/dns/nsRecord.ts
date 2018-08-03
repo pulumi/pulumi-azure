@@ -98,7 +98,7 @@ export interface NsRecordState {
     /**
      * A list of values that make up the NS record. Each `record` block supports fields documented below.
      */
-    readonly records?: pulumi.Input<{ nsdname: pulumi.Input<string> }[]>;
+    readonly records?: pulumi.Input<pulumi.Input<{ nsdname: pulumi.Input<string> }>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -128,7 +128,7 @@ export interface NsRecordArgs {
     /**
      * A list of values that make up the NS record. Each `record` block supports fields documented below.
      */
-    readonly records: pulumi.Input<{ nsdname: pulumi.Input<string> }[]>;
+    readonly records: pulumi.Input<pulumi.Input<{ nsdname: pulumi.Input<string> }>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */

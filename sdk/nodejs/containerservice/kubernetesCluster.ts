@@ -161,7 +161,7 @@ export interface KubernetesClusterState {
     /**
      * A Linux Profile block as documented below.
      */
-    readonly linuxProfile?: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKeys: pulumi.Input<{ keyData: pulumi.Input<string> }[]> }>;
+    readonly linuxProfile?: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKeys: pulumi.Input<pulumi.Input<{ keyData: pulumi.Input<string> }>[]> }>;
     /**
      * The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
      */
@@ -203,7 +203,7 @@ export interface KubernetesClusterArgs {
     /**
      * A Linux Profile block as documented below.
      */
-    readonly linuxProfile: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKeys: pulumi.Input<{ keyData: pulumi.Input<string> }[]> }>;
+    readonly linuxProfile: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKeys: pulumi.Input<pulumi.Input<{ keyData: pulumi.Input<string> }>[]> }>;
     /**
      * The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
      */

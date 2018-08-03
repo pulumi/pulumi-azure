@@ -19,7 +19,7 @@ export interface GetGeographicalLocationArgs {
     /**
      * Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
 }
 
 /**

@@ -85,7 +85,7 @@ export class Group extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Group resources.
  */
 export interface GroupState {
-    readonly containers?: pulumi.Input<{ command?: pulumi.Input<string>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, protocol?: pulumi.Input<string>, volumes?: pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }[]> }[]>;
+    readonly containers?: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, protocol?: pulumi.Input<string>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     readonly dnsNameLabel?: pulumi.Input<string>;
     readonly fqdn?: pulumi.Input<string>;
     readonly ipAddress?: pulumi.Input<string>;
@@ -102,7 +102,7 @@ export interface GroupState {
  * The set of arguments for constructing a Group resource.
  */
 export interface GroupArgs {
-    readonly containers: pulumi.Input<{ command?: pulumi.Input<string>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, protocol?: pulumi.Input<string>, volumes?: pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }[]> }[]>;
+    readonly containers: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, protocol?: pulumi.Input<string>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     readonly dnsNameLabel?: pulumi.Input<string>;
     readonly ipAddressType?: pulumi.Input<string>;
     readonly location: pulumi.Input<string>;

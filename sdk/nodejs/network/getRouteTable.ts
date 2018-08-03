@@ -20,11 +20,11 @@ export interface GetRouteTableArgs {
     /**
      * The name of the Route Table.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * The name of the Resource Group in which the Route Table exists.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**

@@ -21,12 +21,12 @@ export interface GetAppServiceArgs {
     /**
      * The name of the App Service.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * The Name of the Resource Group where the App Service exists.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly resourceGroupName: string;
+    readonly siteConfig?: { alwaysOn?: boolean, defaultDocuments?: string[], dotnetFrameworkVersion?: string, http2Enabled?: boolean, ipRestrictions?: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, localMysqlEnabled?: boolean, managedPipelineMode?: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion?: string, scmType?: string, use32BitWorkerProcess?: boolean, websocketsEnabled?: boolean };
 }
 
 /**

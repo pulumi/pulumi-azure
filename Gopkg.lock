@@ -232,7 +232,6 @@
   revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
 
 [[projects]]
-  branch = "master"
   name = "github.com/golang/protobuf"
   packages = [
     "proto",
@@ -244,7 +243,8 @@
     "ptypes/struct",
     "ptypes/timestamp"
   ]
-  revision = "130e6b02ab059e7b717a096f397c5b60111cae74"
+  revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
+  version = "v1.1.0"
 
 [[projects]]
   branch = "master"
@@ -534,7 +534,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "e8b5bb6f116ac0b0a56e1c96e9c099255cafd1b0"
+  revision = "c57aef785bb8d88f94f6301f8956c782e84dbcb5"
 
 [[projects]]
   branch = "master"
@@ -543,7 +543,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "de6e7e26e616b535dbc5aa939d684653cdbf7169"
+  revision = "c0f99e5d748ed3a7b17b319bb38675dd72288031"
 
 [[projects]]
   branch = "master"
@@ -845,6 +845,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a7abaa49340bc018fba0f926556b131475e382bee8ce997c793dea6c070ba96d"
+  inputs-digest = "364dba7b6de80acc03828b54cf83865a3d2b22d57d4eefb1fc630b62c75a540d"
   solver-name = "gps-cdcl"
   solver-version = 1

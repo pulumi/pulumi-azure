@@ -160,7 +160,7 @@ export interface FunctionAppState {
     /**
      * An `connection_string` block as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
@@ -226,7 +226,7 @@ export interface FunctionAppArgs {
     /**
      * An `connection_string` block as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }[]>;
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
      * Is the Function App enabled?
      */

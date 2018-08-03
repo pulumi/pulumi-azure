@@ -23,11 +23,11 @@ export interface GetSecretArgs {
     /**
      * Specifies the name of the Key Vault Secret.
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` Data Source / Resource.
      */
-    readonly vaultUri: pulumi.Input<string>;
+    readonly vaultUri: string;
 }
 
 /**

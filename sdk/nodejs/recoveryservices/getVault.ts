@@ -20,11 +20,11 @@ export interface GetVaultArgs {
     /**
      * Specifies the name of the Recovery Services Vault. 
      */
-    readonly name: pulumi.Input<string>;
+    readonly name: string;
     /**
      * The name of the resource group in which the Recovery Services Vault resides.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName: string;
 }
 
 /**
