@@ -7,9 +7,9 @@ import pulumi.runtime
 
 class Account(pulumi.CustomResource):
     """
-    Manages a new CosmosDB (formally DocumentDB) Account.
+    Manages a CosmosDB (formally DocumentDB) Account.
     """
-    def __init__(__self__, __name__, __opts__=None, consistency_policy=None, enable_automatic_failover=None, failover_policies=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, failover_policies=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None):
         """Create a Account resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -19,6 +19,14 @@ class Account(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if capabilities and not isinstance(capabilities, list):
+            raise TypeError('Expected property capabilities to be a list')
+        __self__.capabilities = capabilities
+        """
+        Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+        """
+        __props__['capabilities'] = capabilities
 
         if not consistency_policy:
             raise TypeError('Missing required property consistency_policy')
@@ -153,6 +161,8 @@ class Account(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'capabilities' in outs:
+            self.capabilities = outs['capabilities']
         if 'connectionStrings' in outs:
             self.connection_strings = outs['connectionStrings']
         if 'consistencyPolicy' in outs:

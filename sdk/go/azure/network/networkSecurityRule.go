@@ -148,8 +148,8 @@ func (r *NetworkSecurityRule) DestinationAddressPrefixes() *pulumi.ArrayOutput {
 }
 
 // A List of destination Application Security Group ID's
-func (r *NetworkSecurityRule) DestinationApplicationSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["destinationApplicationSecurityGroupIds"])
+func (r *NetworkSecurityRule) DestinationApplicationSecurityGroupIds() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["destinationApplicationSecurityGroupIds"])
 }
 
 // Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
@@ -203,8 +203,8 @@ func (r *NetworkSecurityRule) SourceAddressPrefixes() *pulumi.ArrayOutput {
 }
 
 // A List of source Application Security Group ID's
-func (r *NetworkSecurityRule) SourceApplicationSecurityGroupIds() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["sourceApplicationSecurityGroupIds"])
+func (r *NetworkSecurityRule) SourceApplicationSecurityGroupIds() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["sourceApplicationSecurityGroupIds"])
 }
 
 // Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.

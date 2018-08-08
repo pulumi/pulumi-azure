@@ -31,6 +31,10 @@ export interface GetAccountArgs {
  * A collection of values returned by getAccount.
  */
 export interface GetAccountResult {
+    /**
+     * Capabilities enabled on this Cosmos DB account.
+     */
+    readonly capabilities: { name: string }[];
     readonly consistencyPolicies: { consistencyLevel: string, maxIntervalInSeconds: number, maxStalenessPrefix: number }[];
     /**
      * If automatic failover is enabled for this CosmosDB Account.

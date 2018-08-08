@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class TopicAuthorizationRule(pulumi.CustomResource):
     """
-    Manages a new ServiceBus Topic authorization Rule within a ServiceBus Topic.
+    Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
     """
     def __init__(__self__, __name__, __opts__=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, topic_name=None):
         """Create a TopicAuthorizationRule resource with the given unique name, props, and options."""
@@ -24,7 +24,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property listen to be a bool')
         __self__.listen = listen
         """
-        Does this Authorization Rule have permissions to Listen to the ServiceBus Topic? Defaults to `false`.
+        Grants listen access to this this Authorization Rule. Defaults to `false`.
         """
         __props__['listen'] = listen
 
@@ -32,7 +32,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property manage to be a bool')
         __self__.manage = manage
         """
-        Does this Authorization Rule have permissions to Manage to the ServiceBus Topic? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
         __props__['manage'] = manage
 
@@ -40,7 +40,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the name of the erviceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
+        Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 
@@ -68,7 +68,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property send to be a bool')
         __self__.send = send
         """
-        Does this Authorization Rule have permissions to Send to the ServiceBus Topic? Defaults to `false`.
+        Grants send access to this this Authorization Rule. Defaults to `false`.
         """
         __props__['send'] = send
 

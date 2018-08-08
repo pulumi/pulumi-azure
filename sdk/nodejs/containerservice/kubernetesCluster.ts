@@ -8,7 +8,6 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
- * 
  */
 export class KubernetesCluster extends pulumi.CustomResource {
     /**
@@ -40,7 +39,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly kubeConfig: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
     /**
-     * Base64 encoded Kubernetes configuration
+     * Raw Kubernetes config to be used by
+     * [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and
+     * other compatible tools
      */
     public /*out*/ readonly kubeConfigRaw: pulumi.Output<string>;
     /**
@@ -59,6 +60,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * A Network Profile block as documented below.
+     */
+    public readonly networkProfile: pulumi.Output<{ dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, podCidr: string, serviceCidr: string }>;
+    /**
+     * Auto-generated Resource Group containing AKS Cluster resources.
+     */
+    public /*out*/ readonly nodeResourceGroup: pulumi.Output<string>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -93,6 +102,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["linuxProfile"] = state ? state.linuxProfile : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkProfile"] = state ? state.networkProfile : undefined;
+            inputs["nodeResourceGroup"] = state ? state.nodeResourceGroup : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -100,6 +111,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             const args = argsOrState as KubernetesClusterArgs | undefined;
             if (!args || args.agentPoolProfile === undefined) {
                 throw new Error("Missing required property 'agentPoolProfile'");
+            }
+            if (!args || args.dnsPrefix === undefined) {
+                throw new Error("Missing required property 'dnsPrefix'");
             }
             if (!args || args.linuxProfile === undefined) {
                 throw new Error("Missing required property 'linuxProfile'");
@@ -119,12 +133,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkProfile"] = args ? args.networkProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["fqdn"] = undefined /*out*/;
             inputs["kubeConfig"] = undefined /*out*/;
             inputs["kubeConfigRaw"] = undefined /*out*/;
+            inputs["nodeResourceGroup"] = undefined /*out*/;
         }
         super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, inputs, opts);
     }
@@ -151,7 +167,9 @@ export interface KubernetesClusterState {
      */
     readonly kubeConfig?: pulumi.Input<{ clientCertificate?: pulumi.Input<string>, clientKey?: pulumi.Input<string>, clusterCaCertificate?: pulumi.Input<string>, host?: pulumi.Input<string>, password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
     /**
-     * Base64 encoded Kubernetes configuration
+     * Raw Kubernetes config to be used by
+     * [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and
+     * other compatible tools
      */
     readonly kubeConfigRaw?: pulumi.Input<string>;
     /**
@@ -170,6 +188,14 @@ export interface KubernetesClusterState {
      * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A Network Profile block as documented below.
+     */
+    readonly networkProfile?: pulumi.Input<{ dnsServiceIp?: pulumi.Input<string>, dockerBridgeCidr?: pulumi.Input<string>, networkPlugin: pulumi.Input<string>, podCidr?: pulumi.Input<string>, serviceCidr?: pulumi.Input<string> }>;
+    /**
+     * Auto-generated Resource Group containing AKS Cluster resources.
+     */
+    readonly nodeResourceGroup?: pulumi.Input<string>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -195,7 +221,7 @@ export interface KubernetesClusterArgs {
     /**
      * DNS prefix specified when creating the managed cluster.
      */
-    readonly dnsPrefix?: pulumi.Input<string>;
+    readonly dnsPrefix: pulumi.Input<string>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */
@@ -212,6 +238,10 @@ export interface KubernetesClusterArgs {
      * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A Network Profile block as documented below.
+     */
+    readonly networkProfile?: pulumi.Input<{ dnsServiceIp?: pulumi.Input<string>, dockerBridgeCidr?: pulumi.Input<string>, networkPlugin: pulumi.Input<string>, podCidr?: pulumi.Input<string>, serviceCidr?: pulumi.Input<string> }>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */

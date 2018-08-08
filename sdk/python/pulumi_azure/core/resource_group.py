@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class ResourceGroup(pulumi.CustomResource):
     """
-    Manages a new resource group on Azure.
+    Manages a resource group on Azure.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, tags=None):
         """Create a ResourceGroup resource with the given unique name, props, and options."""

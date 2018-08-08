@@ -9,7 +9,7 @@ class Account(pulumi.CustomResource):
     """
     Create an Azure Storage Account.
     """
-    def __init__(__self__, __name__, __opts__=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, location=None, name=None, network_rules=None, resource_group_name=None, tags=None):
         """Create a Account resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -24,7 +24,7 @@ class Account(pulumi.CustomResource):
             raise TypeError('Expected property access_tier to be a basestring')
         __self__.access_tier = access_tier
         """
-        Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cold`, defaults to `Hot`.
+        Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
         """
         __props__['accessTier'] = access_tier
 
@@ -40,7 +40,7 @@ class Account(pulumi.CustomResource):
             raise TypeError('Expected property account_kind to be a basestring')
         __self__.account_kind = account_kind
         """
-        Defines the Kind of account. Valid options are `Storage`, 
+        Defines the Kind of account. Valid options are `Storage`,
         `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
         Defaults to `Storage`.
         """
@@ -83,9 +83,7 @@ class Account(pulumi.CustomResource):
             raise TypeError('Expected property enable_blob_encryption to be a bool')
         __self__.enable_blob_encryption = enable_blob_encryption
         """
-        Boolean flag which controls if Encryption
-        Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-        for more information.
+        Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
         """
         __props__['enableBlobEncryption'] = enable_blob_encryption
 
@@ -93,9 +91,7 @@ class Account(pulumi.CustomResource):
             raise TypeError('Expected property enable_file_encryption to be a bool')
         __self__.enable_file_encryption = enable_file_encryption
         """
-        Boolean flag which controls if Encryption
-        Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
-        for more information.
+        Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
         """
         __props__['enableFileEncryption'] = enable_file_encryption
 
@@ -107,6 +103,14 @@ class Account(pulumi.CustomResource):
         for more information.
         """
         __props__['enableHttpsTrafficOnly'] = enable_https_traffic_only
+
+        if identity and not isinstance(identity, dict):
+            raise TypeError('Expected property identity to be a dict')
+        __self__.identity = identity
+        """
+        A Managed Service Identity block as defined below.
+        """
+        __props__['identity'] = identity
 
         if not location:
             raise TypeError('Missing required property location')
@@ -126,6 +130,14 @@ class Account(pulumi.CustomResource):
         The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         """
         __props__['name'] = name
+
+        if network_rules and not isinstance(network_rules, dict):
+            raise TypeError('Expected property network_rules to be a dict')
+        __self__.network_rules = network_rules
+        """
+        A `network_rules` block as documented below.
+        """
+        __props__['networkRules'] = network_rules
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
@@ -234,10 +246,14 @@ class Account(pulumi.CustomResource):
             self.enable_file_encryption = outs['enableFileEncryption']
         if 'enableHttpsTrafficOnly' in outs:
             self.enable_https_traffic_only = outs['enableHttpsTrafficOnly']
+        if 'identity' in outs:
+            self.identity = outs['identity']
         if 'location' in outs:
             self.location = outs['location']
         if 'name' in outs:
             self.name = outs['name']
+        if 'networkRules' in outs:
+            self.network_rules = outs['networkRules']
         if 'primaryAccessKey' in outs:
             self.primary_access_key = outs['primaryAccessKey']
         if 'primaryBlobConnectionString' in outs:

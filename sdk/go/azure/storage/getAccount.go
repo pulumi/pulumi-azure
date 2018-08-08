@@ -59,15 +59,15 @@ type GetAccountArgs struct {
 
 // A collection of values returned by getAccount.
 type GetAccountResult struct {
-	// Defines the access tier for `BlobStorage` accounts.
+	// The access tier for `BlobStorage` accounts.
 	AccessTier interface{}
 	// The Encryption Source for this Storage Account.
 	AccountEncryptionSource interface{}
-	// Defines the Kind of account, either `BlobStorage` or `Storage`.
+	// The Kind of account.
 	AccountKind interface{}
-	// Defines the type of replication used for this storage account.
+	// The type of replication used for this storage account.
 	AccountReplicationType interface{}
-	// Defines the Tier of this storage account.
+	// The Tier of this storage account.
 	AccountTier interface{}
 	// A `custom_domain` block as documented below.
 	CustomDomain interface{}

@@ -35,7 +35,7 @@ export class Slot extends pulumi.CustomResource {
      */
     public readonly appSettings: pulumi.Output<{[key: string]: any}>;
     /**
-     * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? Changing this forces a new resource to be created.
+     * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
     public readonly clientAffinityEnabled: pulumi.Output<boolean>;
     /**
@@ -47,13 +47,17 @@ export class Slot extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSiteHostname: pulumi.Output<string>;
     /**
-     * Is the App Service Slot Enabled? Changing this forces a new resource to be created.
+     * Is the App Service Slot Enabled?
      */
     public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. Changing this forces a new resource to be created.
+     * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
      */
     public readonly httpsOnly: pulumi.Output<boolean | undefined>;
+    /**
+     * A Managed Service Identity block as defined below.
+     */
+    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string } | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -69,9 +73,9 @@ export class Slot extends pulumi.CustomResource {
     /**
      * A `site_config` object as defined below.
      */
-    public readonly siteConfig: pulumi.Output<{ alwaysOn?: boolean, defaultDocuments?: string[], dotnetFrameworkVersion?: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, localMysqlEnabled: boolean, managedPipelineMode: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess: boolean, websocketsEnabled: boolean }>;
+    public readonly siteConfig: pulumi.Output<{ alwaysOn?: boolean, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess: boolean, websocketsEnabled: boolean }>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
 
@@ -95,6 +99,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["defaultSiteHostname"] = state ? state.defaultSiteHostname : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -121,6 +126,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -149,7 +155,7 @@ export interface SlotState {
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? Changing this forces a new resource to be created.
+     * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
     readonly clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
@@ -161,13 +167,17 @@ export interface SlotState {
      */
     readonly defaultSiteHostname?: pulumi.Input<string>;
     /**
-     * Is the App Service Slot Enabled? Changing this forces a new resource to be created.
+     * Is the App Service Slot Enabled?
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. Changing this forces a new resource to be created.
+     * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
      */
     readonly httpsOnly?: pulumi.Input<boolean>;
+    /**
+     * A Managed Service Identity block as defined below.
+     */
+    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -183,9 +193,9 @@ export interface SlotState {
     /**
      * A `site_config` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -207,7 +217,7 @@ export interface SlotArgs {
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? Changing this forces a new resource to be created.
+     * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
     readonly clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
@@ -215,13 +225,17 @@ export interface SlotArgs {
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
-     * Is the App Service Slot Enabled? Changing this forces a new resource to be created.
+     * Is the App Service Slot Enabled?
      */
     readonly enabled?: pulumi.Input<boolean>;
     /**
-     * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. Changing this forces a new resource to be created.
+     * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
      */
     readonly httpsOnly?: pulumi.Input<boolean>;
+    /**
+     * A Managed Service Identity block as defined below.
+     */
+    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -237,9 +251,9 @@ export interface SlotArgs {
     /**
      * A `site_config` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

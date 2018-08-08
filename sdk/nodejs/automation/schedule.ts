@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Automation Schedule.
+ * Manages a Automation Schedule.
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -19,14 +19,15 @@ export class Schedule extends pulumi.CustomResource {
         return new Schedule(name, <any>state, { id });
     }
 
+    public readonly accountName: pulumi.Output<string>;
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    public readonly accountName: pulumi.Output<string>;
+    public readonly automationAccountName: pulumi.Output<string>;
     /**
      * A description for this Schedule.
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description: pulumi.Output<string | undefined>;
     /**
      * The end time of the schedule.
      */
@@ -36,6 +37,10 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly frequency: pulumi.Output<string>;
     /**
+     * The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     */
+    public readonly interval: pulumi.Output<number>;
+    /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
@@ -44,11 +49,11 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * Start time of the schedule. Must be at least five minutes in the future.
+     * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      */
     public readonly startTime: pulumi.Output<string>;
     /**
-     * The timezone of the start time. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
      */
     public readonly timezone: pulumi.Output<string | undefined>;
 
@@ -65,31 +70,29 @@ export class Schedule extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: ScheduleState = argsOrState as ScheduleState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["expiryTime"] = state ? state.expiryTime : undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
+            inputs["interval"] = state ? state.interval : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["startTime"] = state ? state.startTime : undefined;
             inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
-            if (!args || args.accountName === undefined) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if (!args || args.frequency === undefined) {
                 throw new Error("Missing required property 'frequency'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.startTime === undefined) {
-                throw new Error("Missing required property 'startTime'");
-            }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["expiryTime"] = args ? args.expiryTime : undefined;
             inputs["frequency"] = args ? args.frequency : undefined;
+            inputs["interval"] = args ? args.interval : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
@@ -103,10 +106,11 @@ export class Schedule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Schedule resources.
  */
 export interface ScheduleState {
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    readonly accountName?: pulumi.Input<string>;
+    readonly automationAccountName?: pulumi.Input<string>;
     /**
      * A description for this Schedule.
      */
@@ -120,6 +124,10 @@ export interface ScheduleState {
      */
     readonly frequency?: pulumi.Input<string>;
     /**
+     * The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     */
+    readonly interval?: pulumi.Input<number>;
+    /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -128,11 +136,11 @@ export interface ScheduleState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Start time of the schedule. Must be at least five minutes in the future.
+     * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      */
     readonly startTime?: pulumi.Input<string>;
     /**
-     * The timezone of the start time. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
      */
     readonly timezone?: pulumi.Input<string>;
 }
@@ -141,10 +149,11 @@ export interface ScheduleState {
  * The set of arguments for constructing a Schedule resource.
  */
 export interface ScheduleArgs {
+    readonly accountName?: pulumi.Input<string>;
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    readonly accountName: pulumi.Input<string>;
+    readonly automationAccountName?: pulumi.Input<string>;
     /**
      * A description for this Schedule.
      */
@@ -158,6 +167,10 @@ export interface ScheduleArgs {
      */
     readonly frequency: pulumi.Input<string>;
     /**
+     * The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     */
+    readonly interval?: pulumi.Input<number>;
+    /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -166,11 +179,11 @@ export interface ScheduleArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Start time of the schedule. Must be at least five minutes in the future.
+     * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      */
-    readonly startTime: pulumi.Input<string>;
+    readonly startTime?: pulumi.Input<string>;
     /**
-     * The timezone of the start time. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
      */
     readonly timezone?: pulumi.Input<string>;
 }

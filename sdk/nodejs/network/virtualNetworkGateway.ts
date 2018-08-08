@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Virtual Network Gateway to establish secure, cross-premises connectivity.
+ * Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
  * 
  * -> **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
  */
@@ -85,7 +85,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */
-    public readonly vpnClientConfiguration: pulumi.Output<{ addressSpaces: string[], revokedCertificates?: { name: string, thumbprint: string }[], rootCertificates: { name: string, publicCertData: string }[] } | undefined>;
+    public readonly vpnClientConfiguration: pulumi.Output<{ addressSpaces: string[], radiusServerAddress?: string, radiusServerSecret?: string, revokedCertificates?: { name: string, thumbprint: string }[], rootCertificates?: { name: string, publicCertData: string }[], vpnClientProtocols?: string[] } | undefined>;
     /**
      * The routing type of the Virtual Network Gateway. Valid
      * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
@@ -220,7 +220,7 @@ export interface VirtualNetworkGatewayState {
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */
-    readonly vpnClientConfiguration?: pulumi.Input<{ addressSpaces: pulumi.Input<pulumi.Input<string>[]>, revokedCertificates?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, thumbprint: pulumi.Input<string> }>[]>, rootCertificates: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, publicCertData: pulumi.Input<string> }>[]> }>;
+    readonly vpnClientConfiguration?: pulumi.Input<{ addressSpaces: pulumi.Input<pulumi.Input<string>[]>, radiusServerAddress?: pulumi.Input<string>, radiusServerSecret?: pulumi.Input<string>, revokedCertificates?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, thumbprint: pulumi.Input<string> }>[]>, rootCertificates?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, publicCertData: pulumi.Input<string> }>[]>, vpnClientProtocols?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * The routing type of the Virtual Network Gateway. Valid
      * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
@@ -296,7 +296,7 @@ export interface VirtualNetworkGatewayArgs {
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */
-    readonly vpnClientConfiguration?: pulumi.Input<{ addressSpaces: pulumi.Input<pulumi.Input<string>[]>, revokedCertificates?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, thumbprint: pulumi.Input<string> }>[]>, rootCertificates: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, publicCertData: pulumi.Input<string> }>[]> }>;
+    readonly vpnClientConfiguration?: pulumi.Input<{ addressSpaces: pulumi.Input<pulumi.Input<string>[]>, radiusServerAddress?: pulumi.Input<string>, radiusServerSecret?: pulumi.Input<string>, revokedCertificates?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, thumbprint: pulumi.Input<string> }>[]>, rootCertificates?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, publicCertData: pulumi.Input<string> }>[]>, vpnClientProtocols?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * The routing type of the Virtual Network Gateway. Valid
      * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.

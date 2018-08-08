@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new local network gateway connection over which specific connections can be configured.
+ * Manages a local network gateway connection over which specific connections can be configured.
  */
 export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
@@ -35,7 +35,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      */
     public readonly gatewayAddress: pulumi.Output<string>;
     /**
-     * The location/region where the local network gatway is
+     * The location/region where the local network gateway is
      * created. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -119,7 +119,7 @@ export interface LocalNetworkGatewayState {
      */
     readonly gatewayAddress?: pulumi.Input<string>;
     /**
-     * The location/region where the local network gatway is
+     * The location/region where the local network gateway is
      * created. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -159,7 +159,7 @@ export interface LocalNetworkGatewayArgs {
      */
     readonly gatewayAddress: pulumi.Input<string>;
     /**
-     * The location/region where the local network gatway is
+     * The location/region where the local network gateway is
      * created. Changing this forces a new resource to be created.
      */
     readonly location: pulumi.Input<string>;

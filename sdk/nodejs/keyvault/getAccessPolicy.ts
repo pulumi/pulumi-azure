@@ -17,7 +17,7 @@ export function getAccessPolicy(args: GetAccessPolicyArgs): Promise<GetAccessPol
  */
 export interface GetAccessPolicyArgs {
     /**
-     * Specifies the name of the Management Tempalte. Possible values are: `Key Management`,
+     * Specifies the name of the Management Template. Possible values are: `Key Management`,
      * `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,
      * `Secret & Certificate Management`,  `Key, Secret, & Certificate Management`
      */

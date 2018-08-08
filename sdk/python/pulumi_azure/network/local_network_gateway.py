@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class LocalNetworkGateway(pulumi.CustomResource):
     """
-    Manages a new local network gateway connection over which specific connections can be configured.
+    Manages a local network gateway connection over which specific connections can be configured.
     """
     def __init__(__self__, __name__, __opts__=None, address_spaces=None, bgp_settings=None, gateway_address=None, location=None, name=None, resource_group_name=None, tags=None):
         """Create a LocalNetworkGateway resource with the given unique name, props, and options."""
@@ -57,7 +57,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
             raise TypeError('Expected property location to be a basestring')
         __self__.location = location
         """
-        The location/region where the local network gatway is
+        The location/region where the local network gateway is
         created. Changing this forces a new resource to be created.
         """
         __props__['location'] = location

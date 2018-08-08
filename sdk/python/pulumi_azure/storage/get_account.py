@@ -14,7 +14,7 @@ class GetAccountResult(object):
             raise TypeError('Expected argument access_tier to be a basestring')
         __self__.access_tier = access_tier
         """
-        Defines the access tier for `BlobStorage` accounts.
+        The access tier for `BlobStorage` accounts.
         """
         if account_encryption_source and not isinstance(account_encryption_source, basestring):
             raise TypeError('Expected argument account_encryption_source to be a basestring')
@@ -26,19 +26,19 @@ class GetAccountResult(object):
             raise TypeError('Expected argument account_kind to be a basestring')
         __self__.account_kind = account_kind
         """
-        Defines the Kind of account, either `BlobStorage` or `Storage`.
+        The Kind of account.
         """
         if account_replication_type and not isinstance(account_replication_type, basestring):
             raise TypeError('Expected argument account_replication_type to be a basestring')
         __self__.account_replication_type = account_replication_type
         """
-        Defines the type of replication used for this storage account.
+        The type of replication used for this storage account.
         """
         if account_tier and not isinstance(account_tier, basestring):
             raise TypeError('Expected argument account_tier to be a basestring')
         __self__.account_tier = account_tier
         """
-        Defines the Tier of this storage account.
+        The Tier of this storage account.
         """
         if custom_domain and not isinstance(custom_domain, dict):
             raise TypeError('Expected argument custom_domain to be a dict')

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Log Analytics (formally Operational Insights) Solution.
+// Manages a Log Analytics (formally Operational Insights) Solution.
 type AnalyticsSolution struct {
 	s *pulumi.ResourceState
 }

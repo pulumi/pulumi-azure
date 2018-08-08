@@ -20,7 +20,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the capacity of a Premium namespace. Can be 1, 2 or 4.
+     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
      */
     public readonly capacity: pulumi.Output<number | undefined>;
     /**
@@ -117,7 +117,7 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceState {
     /**
-     * Specifies the capacity of a Premium namespace. Can be 1, 2 or 4.
+     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
      */
     readonly capacity?: pulumi.Input<number>;
     /**
@@ -167,7 +167,7 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     /**
-     * Specifies the capacity of a Premium namespace. Can be 1, 2 or 4.
+     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
      */
     readonly capacity?: pulumi.Input<number>;
     /**

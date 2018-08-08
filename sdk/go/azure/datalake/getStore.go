@@ -19,6 +19,10 @@ func LookupStore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, erro
 		return nil, err
 	}
 	return &GetStoreResult{
+		EncryptionState: outputs["encryptionState"],
+		EncryptionType: outputs["encryptionType"],
+		FirewallAllowAzureIps: outputs["firewallAllowAzureIps"],
+		FirewallState: outputs["firewallState"],
 		Location: outputs["location"],
 		Tags: outputs["tags"],
 		Tier: outputs["tier"],
@@ -36,6 +40,14 @@ type GetStoreArgs struct {
 
 // A collection of values returned by getStore.
 type GetStoreResult struct {
+	// the Encryption State of this Data Lake Store Account, such as `Enabled` or `Disabled`.
+	EncryptionState interface{}
+	// the Encryption Type used for this Data Lake Store Account.
+	EncryptionType interface{}
+	// are Azure Service IP's allowed through the firewall?
+	FirewallAllowAzureIps interface{}
+	// the state of the firewall, such as `Enabled` or `Disabled`.
+	FirewallState interface{}
 	Location interface{}
 	// A mapping of tags to assign to the Data Lake Store.
 	Tags interface{}

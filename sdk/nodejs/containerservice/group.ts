@@ -19,6 +19,7 @@ export class Group extends pulumi.CustomResource {
     public readonly containers: pulumi.Output<{ command?: string, cpu: number, environmentVariables?: {[key: string]: any}, image: string, memory: number, name: string, port?: number, protocol?: string, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
     public readonly dnsNameLabel: pulumi.Output<string | undefined>;
     public /*out*/ readonly fqdn: pulumi.Output<string>;
+    public readonly imageRegistryCredentials: pulumi.Output<{ password: string, server: string, username: string }[] | undefined>;
     public /*out*/ readonly ipAddress: pulumi.Output<string>;
     public readonly ipAddressType: pulumi.Output<string | undefined>;
     public readonly location: pulumi.Output<string>;
@@ -43,6 +44,7 @@ export class Group extends pulumi.CustomResource {
             inputs["containers"] = state ? state.containers : undefined;
             inputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["imageRegistryCredentials"] = state ? state.imageRegistryCredentials : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -67,6 +69,7 @@ export class Group extends pulumi.CustomResource {
             }
             inputs["containers"] = args ? args.containers : undefined;
             inputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
+            inputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -88,6 +91,7 @@ export interface GroupState {
     readonly containers?: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, protocol?: pulumi.Input<string>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     readonly dnsNameLabel?: pulumi.Input<string>;
     readonly fqdn?: pulumi.Input<string>;
+    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
     readonly ipAddress?: pulumi.Input<string>;
     readonly ipAddressType?: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;
@@ -104,6 +108,7 @@ export interface GroupState {
 export interface GroupArgs {
     readonly containers: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, protocol?: pulumi.Input<string>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     readonly dnsNameLabel?: pulumi.Input<string>;
+    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
     readonly ipAddressType?: pulumi.Input<string>;
     readonly location: pulumi.Input<string>;
     readonly name?: pulumi.Input<string>;

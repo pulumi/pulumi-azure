@@ -8,6 +8,7 @@ from image import *
 from managed_disk import *
 from snapshot import *
 from virtual_machine import *
+from data_disk_attachment import *
 from extension import *
 from scale_set import *
 from get_image import *

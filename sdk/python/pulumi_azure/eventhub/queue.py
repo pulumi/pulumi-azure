@@ -33,6 +33,9 @@ class Queue(pulumi.CustomResource):
         if dead_lettering_on_message_expiration and not isinstance(dead_lettering_on_message_expiration, bool):
             raise TypeError('Expected property dead_lettering_on_message_expiration to be a bool')
         __self__.dead_lettering_on_message_expiration = dead_lettering_on_message_expiration
+        """
+        Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+        """
         __props__['deadLetteringOnMessageExpiration'] = dead_lettering_on_message_expiration
 
         if default_message_ttl and not isinstance(default_message_ttl, basestring):
@@ -142,7 +145,10 @@ class Queue(pulumi.CustomResource):
             raise TypeError('Expected property requires_session to be a bool')
         __self__.requires_session = requires_session
         """
-        Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
+        Boolean flag which controls whether the Queue requires sessions. 
+        This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
+        a queue can guarantee first-in-first-out delivery of messages.
+        Changing this forces a new resource to be created. Defaults to `false`.
         """
         __props__['requiresSession'] = requires_session
 

@@ -32,9 +32,11 @@ const (
 	azurePkg = "azure"
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
+	azureAD                  = "ad"                  // Active Directory (AAD)
 	azureAppInsights         = "appinsights"         // AppInsights
 	azureAppService          = "appservice"          // App Service
 	azureAutomation          = "automation"          // Automatio
+	azureAutoscale           = "autoscale"           // Autoscale
 	azureCDN                 = "cdn"                 // CDN
 	azureCompute             = "compute"             // Virtual Machinesn
 	azureContainerService    = "containerservice"    // Azure Container Service
@@ -45,13 +47,16 @@ const (
 	azureMessaging           = "eventhub"            // Event Hub
 	azureFunctions           = "functions"           // Functions
 	azureKeyVault            = "keyvault"            // Key Vault
+	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
 	azureIot                 = "iot"                 // IoT resource
 	azureMgmtResource        = "managementresource"  // Management Resource
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
+	azureMSI                 = "msi"                 // Managed Service Identity (MSI)
 	azureMySQL               = "mysql"               // MySql
 	azureNetwork             = "network"             // Networking
 	azureNetworkWatcher      = "networkwatcher"      // Network Watcher
+	azureNotificationHub     = "notificationhub"     // Notification Hub
 	azureOperationalInsights = "operationalinsights" // Operational Insights
 	azurePostgresql          = "postgresql"          // Postgress SQL
 	azurePolicy              = "policy"              // Policy
@@ -59,6 +64,7 @@ const (
 	azureRedis               = "redis"               // RedisCache
 	azureRelay               = "relay"               // Relay
 	azureScheduler           = "scheduler"           // Scheduler
+	azureServiceFabric       = "servicefabric"       // Service Fabric
 	azureRole                = "role"                // Azure Role
 	azureSearch              = "search"              // Search
 	azureSQL                 = "sql"                 // SQL
@@ -108,6 +114,11 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache 2.0",
 		Repository:  "https://github.com/pulumi/pulumi-azure",
 		Resources: map[string]*tfbridge.ResourceInfo{
+			// Active Directory (AAD)
+			"azurerm_azuread_application":                {Tok: azureResource(azureAD, "Application")},
+			"azurerm_azuread_service_principal":          {Tok: azureResource(azureAD, "ServicePrincipal")},
+			"azurerm_azuread_service_principal_password": {Tok: azureResource(azureAD, "ServicePrincipalPassword")},
+
 			// AppInsights
 			"azurerm_application_insights": {Tok: azureResource(azureAppInsights, "Insights")},
 
@@ -124,6 +135,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_credential": {Tok: azureResource(azureAutomation, "Credential")},
 			"azurerm_automation_runbook":    {Tok: azureResource(azureAutomation, "RunBook")},
 			"azurerm_automation_schedule":   {Tok: azureResource(azureAutomation, "Schedule")},
+
+			// Autoscale
+			"azurerm_autoscale_setting": {Tok: azureResource(azureAutoscale, "Setting")},
 
 			// Authorization
 			"azurerm_role_assignment": {Tok: azureResource(azureRole, "assignment")},
@@ -144,40 +158,57 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cdn_profile":  {Tok: azureResource(azureCDN, "Profile")},
 
 			// Compute
-			"azurerm_availability_set":          {Tok: azureResource(azureCompute, "AvailabilitySet")},
-			"azurerm_virtual_machine_extension": {Tok: azureResource(azureCompute, "Extension")},
-			"azurerm_virtual_machine":           {Tok: azureResource(azureCompute, "VirtualMachine")},
-			"azurerm_virtual_machine_scale_set": {Tok: azureResource(azureCompute, "ScaleSet")},
-			"azurerm_managed_disk":              {Tok: azureResource(azureCompute, "ManagedDisk")},
-			"azurerm_snapshot":                  {Tok: azureResource(azureCompute, "Snapshot")},
-			"azurerm_image":                     {Tok: azureResource(azureCompute, "Image")},
+			"azurerm_availability_set":                     {Tok: azureResource(azureCompute, "AvailabilitySet")},
+			"azurerm_virtual_machine_extension":            {Tok: azureResource(azureCompute, "Extension")},
+			"azurerm_virtual_machine":                      {Tok: azureResource(azureCompute, "VirtualMachine")},
+			"azurerm_virtual_machine_data_disk_attachment": {Tok: azureResource(azureCompute, "DataDiskAttachment")},
+			"azurerm_virtual_machine_scale_set":            {Tok: azureResource(azureCompute, "ScaleSet")},
+
+			"azurerm_managed_disk": {Tok: azureResource(azureCompute, "ManagedDisk")},
+			"azurerm_snapshot":     {Tok: azureResource(azureCompute, "Snapshot")},
+			"azurerm_image":        {Tok: azureResource(azureCompute, "Image")},
 
 			// Data Lake
-			"azurerm_data_lake_store": {Tok: azureResource(azureDatalake, "Store")},
+			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
+			"azurerm_data_lake_analytics_firewall_rule": {Tok: azureResource(azureDatalake, "AnalyticsFirewallRule")},
+			"azurerm_data_lake_store":                   {Tok: azureResource(azureDatalake, "Store")},
+			"azurerm_data_lake_store_file":              {Tok: azureResource(azureDatalake, "StoreFile")},
+			"azurerm_data_lake_store_firewall_rule":     {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
 
 			// DNS
 			"azurerm_dns_a_record":     {Tok: azureResource(azureDNS, "ARecord")},
 			"azurerm_dns_aaaa_record":  {Tok: azureResource(azureDNS, "AaaaRecord")},
+			"azurerm_dns_caa_record":   {Tok: azureResource(azureDNS, "CaaRecord")},
 			"azurerm_dns_cname_record": {Tok: azureResource(azureDNS, "CNameRecord")},
 			"azurerm_dns_mx_record":    {Tok: azureResource(azureDNS, "MxRecord")},
-			"azurerm_dns_ns_record":    {Tok: azureResource(azureDNS, "NsRecord")},
-			"azurerm_dns_ptr_record":   {Tok: azureResource(azureDNS, "PtrRecord")},
-			"azurerm_dns_srv_record":   {Tok: azureResource(azureDNS, "SrvRecord")},
-			"azurerm_dns_txt_record":   {Tok: azureResource(azureDNS, "TxtRecord")},
-			"azurerm_dns_zone":         {Tok: azureResource(azureDNS, "Zone")},
+			"azurerm_dns_ns_record": {
+				Tok: azureResource(azureDNS, "NsRecord"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// This property is deprecated and renamed to `records`.  Don't pluralize this depreacted
+					// version so that it doesn't conflict with the replacement.
+					"record": {Name: "record"},
+				},
+			},
+			"azurerm_dns_ptr_record": {Tok: azureResource(azureDNS, "PtrRecord")},
+			"azurerm_dns_srv_record": {Tok: azureResource(azureDNS, "SrvRecord")},
+			"azurerm_dns_txt_record": {Tok: azureResource(azureDNS, "TxtRecord")},
+			"azurerm_dns_zone":       {Tok: azureResource(azureDNS, "Zone")},
 
 			// Messaging
-			"azurerm_eventgrid_topic":                     {Tok: azureResource(azureMessaging, "EventGridTopic")},
-			"azurerm_eventhub":                            {Tok: azureResource(azureMessaging, "EventHub")},
-			"azurerm_eventhub_authorization_rule":         {Tok: azureResource(azureMessaging, "EventHubAuthorizationRule")},
-			"azurerm_eventhub_consumer_group":             {Tok: azureResource(azureMessaging, "EventHubConsumerGroup")},
-			"azurerm_eventhub_namespace":                  {Tok: azureResource(azureMessaging, "EventHubNamespace")},
-			"azurerm_servicebus_namespace":                {Tok: azureResource(azureMessaging, "Namespace")},
-			"azurerm_servicebus_queue":                    {Tok: azureResource(azureMessaging, "Queue")},
-			"azurerm_servicebus_subscription":             {Tok: azureResource(azureMessaging, "Subscription")},
-			"azurerm_servicebus_subscription_rule":        {Tok: azureResource(azureMessaging, "SubscriptionRule")},
-			"azurerm_servicebus_topic":                    {Tok: azureResource(azureMessaging, "Topic")},
-			"azurerm_servicebus_topic_authorization_rule": {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
+			"azurerm_eventgrid_topic":                         {Tok: azureResource(azureMessaging, "EventGridTopic")},
+			"azurerm_eventhub":                                {Tok: azureResource(azureMessaging, "EventHub")},
+			"azurerm_eventhub_authorization_rule":             {Tok: azureResource(azureMessaging, "EventHubAuthorizationRule")},
+			"azurerm_eventhub_consumer_group":                 {Tok: azureResource(azureMessaging, "EventHubConsumerGroup")},
+			"azurerm_eventhub_namespace":                      {Tok: azureResource(azureMessaging, "EventHubNamespace")},
+			"azurerm_eventhub_namespace_authorization_rule":   {Tok: azureResource(azureMessaging, "EventHubNamespaceAuthorizationRule")},
+			"azurerm_servicebus_namespace":                    {Tok: azureResource(azureMessaging, "Namespace")},
+			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "NamespaceAuthorizationRule")},
+			"azurerm_servicebus_queue":                        {Tok: azureResource(azureMessaging, "Queue")},
+			"azurerm_servicebus_queue_authorization_rule":     {Tok: azureResource(azureMessaging, "QueueAuthorizationRule")},
+			"azurerm_servicebus_subscription":                 {Tok: azureResource(azureMessaging, "Subscription")},
+			"azurerm_servicebus_subscription_rule":            {Tok: azureResource(azureMessaging, "SubscriptionRule")},
+			"azurerm_servicebus_topic":                        {Tok: azureResource(azureMessaging, "Topic")},
+			"azurerm_servicebus_topic_authorization_rule":     {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
 
 			// IoT Resources
 			"azurerm_iothub": {Tok: azureResource(azureIot, "IoTHub"),
@@ -194,9 +225,10 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_key_vault_certificate": {Tok: azureResource(azureKeyVault, "Certifiate")},
-			"azurerm_key_vault_key":         {Tok: azureResource(azureKeyVault, "Key")},
-			"azurerm_key_vault_secret":      {Tok: azureResource(azureKeyVault, "Secret")},
+			"azurerm_key_vault_access_policy": {Tok: azureResource(azureKeyVault, "AccessPolicy")},
+			"azurerm_key_vault_certificate":   {Tok: azureResource(azureKeyVault, "Certifiate")},
+			"azurerm_key_vault_key":           {Tok: azureResource(azureKeyVault, "Key")},
+			"azurerm_key_vault_secret":        {Tok: azureResource(azureKeyVault, "Secret")},
 
 			// LoadBalancer
 			"azurerm_lb": {
@@ -230,6 +262,19 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 
+			// Logic Apps
+			"azurerm_logic_app_action_custom":        {Tok: azureResource(azureLogicApps, "ActionCustom")},
+			"azurerm_logic_app_action_http":          {Tok: azureResource(azureLogicApps, "ActionHttp")},
+			"azurerm_logic_app_trigger_custom":       {Tok: azureResource(azureLogicApps, "TriggerCustom")},
+			"azurerm_logic_app_trigger_http_request": {Tok: azureResource(azureLogicApps, "TriggerHttpRequest")},
+			"azurerm_logic_app_trigger_recurrence":   {Tok: azureResource(azureLogicApps, "TriggerRecurrence")},
+			"azurerm_logic_app_workflow":             {Tok: azureResource(azureLogicApps, "Workflow")},
+
+			// Notification Hub
+			"azurerm_notification_hub":                    {Tok: azureResource(azureNotificationHub, "Hub")},
+			"azurerm_notification_hub_authorization_rule": {Tok: azureResource(azureNotificationHub, "AuthorizationRule")},
+			"azurerm_notification_hub_namespace":          {Tok: azureResource(azureNotificationHub, "Namespace")},
+
 			// Operational Insights
 			"azurerm_log_analytics_workspace": {Tok: azureResource(azureOperationalInsights, "AnalyticsWorkspace")},
 			"azurerm_log_analytics_solution": {Tok: azureResource(azureOperationalInsights, "AnalyticsSolution"),
@@ -239,6 +284,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// CosmosDB
 			"azurerm_cosmosdb_account": {Tok: azureResource(azureCosmosDB, "Account")},
+
+			// Managed Service Identity (MSI)
+			"azurerm_user_assigned_identity": {Tok: azureResource(azureMSI, "UserAssignedIdentity")},
 
 			// Management Resource
 			"azurerm_management_lock": {Tok: azureResource(azureMgmtResource, "ManangementLock")},
@@ -318,7 +366,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_relay_namespace": {Tok: azureResource(azureRelay, "Namespace")},
 
 			// Scheduler
+			"azurerm_scheduler_job":            {Tok: azureResource(azureScheduler, "Job")},
 			"azurerm_scheduler_job_collection": {Tok: azureResource(azureScheduler, "JobCollection")},
+
+			// Service Fabric
+			"azurerm_service_fabric_cluster": {Tok: azureResource(azureServiceFabric, "Cluster")},
 
 			// Search
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},
@@ -332,6 +384,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_table":     {Tok: azureResource(azureStorage, "Table")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"azurerm_azuread_application":       {Tok: azureDataSource(azureAD, "getApplication")},
+			"azurerm_azuread_service_principal": {Tok: azureDataSource(azureAD, "getServicePrincipal")},
 			"azurerm_app_service": {
 				Tok: azureDataSource(azureAppService, "getAppService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -348,10 +402,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subscriptions":      {Tok: azureDataSource(azureCore, "getSubscriptions")},
 			"azurerm_cdn_profile":        {Tok: azureDataSource(azureCDN, "getProfile")},
 			"azurerm_client_config":      {Tok: azureDataSource(azureCore, "getClientConfig")},
+			"azurerm_container_registry": {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":   {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":    {Tok: azureDataSource(azureDatalake, "getStore")},
 			"azurerm_eventhub_namespace": {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
 			"azurerm_image":              {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_logic_app_workflow": {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
 			"azurerm_dns_zone":           {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
@@ -360,9 +416,17 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_key_vault_access_policy":               {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
-			"azurerm_key_vault_secret":                      {Tok: azureDataSource(azureKeyVault, "getSecret")},
-			"azurerm_kubernetes_cluster":                    {Tok: azureDataSource(azureContainerService, "getKubernetesCluster")},
+			"azurerm_key_vault_access_policy": {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
+			"azurerm_key_vault_secret":        {Tok: azureDataSource(azureKeyVault, "getSecret")},
+			"azurerm_kubernetes_cluster":      {Tok: azureDataSource(azureContainerService, "getKubernetesCluster")},
+			"azurerm_notification_hub":        {Tok: azureDataSource(azureNotificationHub, "getHub")},
+			"azurerm_notification_hub_namespace": {
+				Tok: azureDataSource(azureNotificationHub, "getNamespace"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Ensure "sku" is a singleton
+					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+				},
+			},
 			"azurerm_virtual_network":                       {Tok: azureDataSource(azureNetwork, "getVirtualNetwork")},
 			"azurerm_virtual_network_gateway":               {Tok: azureDataSource(azureNetwork, "getVirtualNetworkGateway")},
 			"azurerm_network_security_group":                {Tok: azureDataSource(azureNetwork, "getNetworkSecurityGroup")},

@@ -9,7 +9,7 @@ class Zone(pulumi.CustomResource):
     """
     Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
     """
-    def __init__(__self__, __name__, __opts__=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, name=None, registration_virtual_network_ids=None, resolution_virtual_network_ids=None, resource_group_name=None, tags=None, zone_type=None):
         """Create a Zone resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -28,6 +28,22 @@ class Zone(pulumi.CustomResource):
         """
         __props__['name'] = name
 
+        if registration_virtual_network_ids and not isinstance(registration_virtual_network_ids, list):
+            raise TypeError('Expected property registration_virtual_network_ids to be a list')
+        __self__.registration_virtual_network_ids = registration_virtual_network_ids
+        """
+        A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+        """
+        __props__['registrationVirtualNetworkIds'] = registration_virtual_network_ids
+
+        if resolution_virtual_network_ids and not isinstance(resolution_virtual_network_ids, list):
+            raise TypeError('Expected property resolution_virtual_network_ids to be a list')
+        __self__.resolution_virtual_network_ids = resolution_virtual_network_ids
+        """
+        A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+        """
+        __props__['resolutionVirtualNetworkIds'] = resolution_virtual_network_ids
+
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
         elif not isinstance(resource_group_name, basestring):
@@ -45,6 +61,14 @@ class Zone(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         __props__['tags'] = tags
+
+        if zone_type and not isinstance(zone_type, basestring):
+            raise TypeError('Expected property zone_type to be a basestring')
+        __self__.zone_type = zone_type
+        """
+        Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
+        """
+        __props__['zoneType'] = zone_type
 
         __self__.max_number_of_record_sets = pulumi.runtime.UNKNOWN
         """
@@ -74,7 +98,13 @@ class Zone(pulumi.CustomResource):
             self.name_servers = outs['nameServers']
         if 'numberOfRecordSets' in outs:
             self.number_of_record_sets = outs['numberOfRecordSets']
+        if 'registrationVirtualNetworkIds' in outs:
+            self.registration_virtual_network_ids = outs['registrationVirtualNetworkIds']
+        if 'resolutionVirtualNetworkIds' in outs:
+            self.resolution_virtual_network_ids = outs['resolutionVirtualNetworkIds']
         if 'resourceGroupName' in outs:
             self.resource_group_name = outs['resourceGroupName']
         if 'tags' in outs:
             self.tags = outs['tags']
+        if 'zoneType' in outs:
+            self.zone_type = outs['zoneType']

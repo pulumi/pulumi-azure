@@ -9,7 +9,7 @@ class FunctionApp(pulumi.CustomResource):
     """
     Manages a Function App.
     """
-    def __init__(__self__, __name__, __opts__=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, location=None, name=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None):
+    def __init__(__self__, __name__, __opts__=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None):
         """Create a FunctionApp resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -69,6 +69,14 @@ class FunctionApp(pulumi.CustomResource):
         Can the Function App only be accessed via HTTPS? Defaults to `false`.
         """
         __props__['httpsOnly'] = https_only
+
+        if identity and not isinstance(identity, dict):
+            raise TypeError('Expected property identity to be a dict')
+        __self__.identity = identity
+        """
+        An `identity` block as defined below.
+        """
+        __props__['identity'] = identity
 
         if not location:
             raise TypeError('Missing required property location')
@@ -140,6 +148,10 @@ class FunctionApp(pulumi.CustomResource):
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
         """
+        __self__.site_credential = pulumi.runtime.UNKNOWN
+        """
+        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        """
 
         super(FunctionApp, __self__).__init__(
             'azure:appservice/functionApp:FunctionApp',
@@ -162,6 +174,8 @@ class FunctionApp(pulumi.CustomResource):
             self.enabled = outs['enabled']
         if 'httpsOnly' in outs:
             self.https_only = outs['httpsOnly']
+        if 'identity' in outs:
+            self.identity = outs['identity']
         if 'location' in outs:
             self.location = outs['location']
         if 'name' in outs:
@@ -172,6 +186,8 @@ class FunctionApp(pulumi.CustomResource):
             self.resource_group_name = outs['resourceGroupName']
         if 'siteConfig' in outs:
             self.site_config = outs['siteConfig']
+        if 'siteCredential' in outs:
+            self.site_credential = outs['siteCredential']
         if 'storageConnectionString' in outs:
             self.storage_connection_string = outs['storageConnectionString']
         if 'tags' in outs:

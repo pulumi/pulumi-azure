@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class JobCollection(pulumi.CustomResource):
     """
-    Create an Scheduler Job Collection.
+    Manages a Scheduler Job Collection.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, quota=None, resource_group_name=None, sku=None, state=None, tags=None):
         """Create a JobCollection resource with the given unique name, props, and options."""

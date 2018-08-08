@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an Scheduler Job Collection.
+// Manages a Scheduler Job Collection.
 type JobCollection struct {
 	s *pulumi.ResourceState
 }

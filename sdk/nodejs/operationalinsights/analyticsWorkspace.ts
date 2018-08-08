@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Log Analytics (formally Operational Insights) Workspace.
+ * Manages a Log Analytics (formally Operational Insights) Workspace.
  */
 export class AnalyticsWorkspace extends pulumi.CustomResource {
     /**
@@ -48,7 +48,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondarySharedKey: pulumi.Output<string>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone` and `Unlimited.`
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
      */
     public readonly sku: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export interface AnalyticsWorkspaceState {
      */
     readonly secondarySharedKey?: pulumi.Input<string>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone` and `Unlimited.`
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
      */
     readonly sku?: pulumi.Input<string>;
     /**
@@ -175,7 +175,7 @@ export interface AnalyticsWorkspaceArgs {
      */
     readonly retentionInDays?: pulumi.Input<number>;
     /**
-     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone` and `Unlimited.`
+     * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
      */
     readonly sku: pulumi.Input<string>;
     /**

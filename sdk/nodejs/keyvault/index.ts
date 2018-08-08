@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./accessPolicy";
 export * from "./certifiate";
 export * from "./getAccessPolicy";
 export * from "./getKeyVault";

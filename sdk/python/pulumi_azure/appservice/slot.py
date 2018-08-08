@@ -12,7 +12,7 @@ class Slot(pulumi.CustomResource):
     -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
     
     """
-    def __init__(__self__, __name__, __opts__=None, app_service_name=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, app_service_name=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None):
         """Create a Slot resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -55,7 +55,7 @@ class Slot(pulumi.CustomResource):
             raise TypeError('Expected property client_affinity_enabled to be a bool')
         __self__.client_affinity_enabled = client_affinity_enabled
         """
-        Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? Changing this forces a new resource to be created.
+        Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         """
         __props__['clientAffinityEnabled'] = client_affinity_enabled
 
@@ -71,7 +71,7 @@ class Slot(pulumi.CustomResource):
             raise TypeError('Expected property enabled to be a bool')
         __self__.enabled = enabled
         """
-        Is the App Service Slot Enabled? Changing this forces a new resource to be created.
+        Is the App Service Slot Enabled?
         """
         __props__['enabled'] = enabled
 
@@ -79,9 +79,17 @@ class Slot(pulumi.CustomResource):
             raise TypeError('Expected property https_only to be a bool')
         __self__.https_only = https_only
         """
-        Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. Changing this forces a new resource to be created.
+        Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
         """
         __props__['httpsOnly'] = https_only
+
+        if identity and not isinstance(identity, dict):
+            raise TypeError('Expected property identity to be a dict')
+        __self__.identity = identity
+        """
+        A Managed Service Identity block as defined below.
+        """
+        __props__['identity'] = identity
 
         if not location:
             raise TypeError('Missing required property location')
@@ -123,7 +131,7 @@ class Slot(pulumi.CustomResource):
             raise TypeError('Expected property tags to be a dict')
         __self__.tags = tags
         """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+        A mapping of tags to assign to the resource.
         """
         __props__['tags'] = tags
 
@@ -155,6 +163,8 @@ class Slot(pulumi.CustomResource):
             self.enabled = outs['enabled']
         if 'httpsOnly' in outs:
             self.https_only = outs['httpsOnly']
+        if 'identity' in outs:
+            self.identity = outs['identity']
         if 'location' in outs:
             self.location = outs['location']
         if 'name' in outs:

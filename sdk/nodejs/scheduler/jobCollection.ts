@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Create an Scheduler Job Collection.
+ * Manages a Scheduler Job Collection.
  */
 export class JobCollection extends pulumi.CustomResource {
     /**

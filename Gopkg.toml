@@ -8,4 +8,10 @@
 
 [[constraint]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
-  version = "=1.6.0"
+  version = "=1.12.0"
+
+# The current version of terraform-provider-azure (v1.12.0) requires the following
+# specific version of azure-sdk-for-go.
+[[override]]
+  name = "github.com/Azure/azure-sdk-for-go"
+  version = "=v18.0.0"

@@ -31,6 +31,7 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil {
 		inputs["containers"] = nil
 		inputs["dnsNameLabel"] = nil
+		inputs["imageRegistryCredentials"] = nil
 		inputs["ipAddressType"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
@@ -41,6 +42,7 @@ func NewGroup(ctx *pulumi.Context,
 	} else {
 		inputs["containers"] = args.Containers
 		inputs["dnsNameLabel"] = args.DnsNameLabel
+		inputs["imageRegistryCredentials"] = args.ImageRegistryCredentials
 		inputs["ipAddressType"] = args.IpAddressType
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
@@ -67,6 +69,7 @@ func GetGroup(ctx *pulumi.Context,
 		inputs["containers"] = state.Containers
 		inputs["dnsNameLabel"] = state.DnsNameLabel
 		inputs["fqdn"] = state.Fqdn
+		inputs["imageRegistryCredentials"] = state.ImageRegistryCredentials
 		inputs["ipAddress"] = state.IpAddress
 		inputs["ipAddressType"] = state.IpAddressType
 		inputs["location"] = state.Location
@@ -103,6 +106,10 @@ func (r *Group) DnsNameLabel() *pulumi.StringOutput {
 
 func (r *Group) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+}
+
+func (r *Group) ImageRegistryCredentials() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["imageRegistryCredentials"])
 }
 
 func (r *Group) IpAddress() *pulumi.StringOutput {
@@ -142,6 +149,7 @@ type GroupState struct {
 	Containers interface{}
 	DnsNameLabel interface{}
 	Fqdn interface{}
+	ImageRegistryCredentials interface{}
 	IpAddress interface{}
 	IpAddressType interface{}
 	Location interface{}
@@ -156,6 +164,7 @@ type GroupState struct {
 type GroupArgs struct {
 	Containers interface{}
 	DnsNameLabel interface{}
+	ImageRegistryCredentials interface{}
 	IpAddressType interface{}
 	Location interface{}
 	Name interface{}

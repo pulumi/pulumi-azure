@@ -20,6 +20,22 @@ export class Store extends pulumi.CustomResource {
     }
 
     /**
+     * Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
+     */
+    public readonly encryptionState: pulumi.Output<string | undefined>;
+    /**
+     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+     */
+    public readonly encryptionType: pulumi.Output<string>;
+    /**
+     * are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+     */
+    public readonly firewallAllowAzureIps: pulumi.Output<string | undefined>;
+    /**
+     * the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+     */
+    public readonly firewallState: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -36,7 +52,7 @@ export class Store extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
     /**
-     * The monnthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
+     * The monthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
      */
     public readonly tier: pulumi.Output<string | undefined>;
 
@@ -52,6 +68,10 @@ export class Store extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: StoreState = argsOrState as StoreState | undefined;
+            inputs["encryptionState"] = state ? state.encryptionState : undefined;
+            inputs["encryptionType"] = state ? state.encryptionType : undefined;
+            inputs["firewallAllowAzureIps"] = state ? state.firewallAllowAzureIps : undefined;
+            inputs["firewallState"] = state ? state.firewallState : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -65,6 +85,10 @@ export class Store extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["encryptionState"] = args ? args.encryptionState : undefined;
+            inputs["encryptionType"] = args ? args.encryptionType : undefined;
+            inputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
+            inputs["firewallState"] = args ? args.firewallState : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -79,6 +103,22 @@ export class Store extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Store resources.
  */
 export interface StoreState {
+    /**
+     * Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
+     */
+    readonly encryptionState?: pulumi.Input<string>;
+    /**
+     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+     */
+    readonly encryptionType?: pulumi.Input<string>;
+    /**
+     * are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+     */
+    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    /**
+     * the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+     */
+    readonly firewallState?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -96,7 +136,7 @@ export interface StoreState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The monnthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
+     * The monthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
      */
     readonly tier?: pulumi.Input<string>;
 }
@@ -105,6 +145,22 @@ export interface StoreState {
  * The set of arguments for constructing a Store resource.
  */
 export interface StoreArgs {
+    /**
+     * Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
+     */
+    readonly encryptionState?: pulumi.Input<string>;
+    /**
+     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+     */
+    readonly encryptionType?: pulumi.Input<string>;
+    /**
+     * are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+     */
+    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    /**
+     * the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
+     */
+    readonly firewallState?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -122,7 +178,7 @@ export interface StoreArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The monnthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
+     * The monthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
      */
     readonly tier?: pulumi.Input<string>;
 }

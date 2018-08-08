@@ -8,8 +8,6 @@ import pulumi.runtime
 class ApplicationSecurityGroup(pulumi.CustomResource):
     """
     Create an Application Security Group.
-    
-    -> **Note:** Application Security Groups are currently in Public Preview on an opt-in basis. [More information, including how you can register for the Preview, and which regions Application Security Groups are available in are available here](https://docs.microsoft.com/en-us/azure/virtual-network/create-network-security-group-preview)
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, tags=None):
         """Create a ApplicationSecurityGroup resource with the given unique name, props, and options."""

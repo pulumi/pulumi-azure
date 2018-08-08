@@ -27,7 +27,7 @@ func LookupAccessPolicy(ctx *pulumi.Context, args *GetAccessPolicyArgs) (*GetAcc
 
 // A collection of arguments for invoking getAccessPolicy.
 type GetAccessPolicyArgs struct {
-	// Specifies the name of the Management Tempalte. Possible values are: `Key Management`,
+	// Specifies the name of the Management Template. Possible values are: `Key Management`,
 	// `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,
 	// `Secret & Certificate Management`,  `Key, Secret, & Certificate Management`
 	Name interface{}

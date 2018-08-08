@@ -7,7 +7,9 @@ import pulumi.runtime
 
 class VirtualMachine(pulumi.CustomResource):
     """
-    Create a virtual machine.
+    Manages a Virtual Machine.
+    
+    ~> **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
     """
     def __init__(__self__, __name__, __opts__=None, availability_set_id=None, boot_diagnostics=None, delete_data_disks_on_termination=None, delete_os_disk_on_termination=None, identity=None, license_type=None, location=None, name=None, network_interface_ids=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, plan=None, primary_network_interface_id=None, resource_group_name=None, storage_data_disks=None, storage_image_reference=None, storage_os_disk=None, tags=None, vm_size=None, zones=None):
         """Create a VirtualMachine resource with the given unique name, props, and options."""
@@ -24,7 +26,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property availability_set_id to be a basestring')
         __self__.availability_set_id = availability_set_id
         """
-        The Id of the Availability Set in which to create the virtual machine
+        The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         """
         __props__['availabilitySetId'] = availability_set_id
 
@@ -32,7 +34,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property boot_diagnostics to be a dict')
         __self__.boot_diagnostics = boot_diagnostics
         """
-        A boot diagnostics profile block as referenced below.
+        A `boot_diagnostics` block.
         """
         __props__['bootDiagnostics'] = boot_diagnostics
 
@@ -40,7 +42,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property delete_data_disks_on_termination to be a bool')
         __self__.delete_data_disks_on_termination = delete_data_disks_on_termination
         """
-        Flag to enable deletion of storage data disk VHD blobs or managed disks when the VM is deleted, defaults to `false`
+        Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
         """
         __props__['deleteDataDisksOnTermination'] = delete_data_disks_on_termination
 
@@ -48,7 +50,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property delete_os_disk_on_termination to be a bool')
         __self__.delete_os_disk_on_termination = delete_os_disk_on_termination
         """
-        Flag to enable deletion of the OS disk VHD blob or managed disk when the VM is deleted, defaults to `false`
+        Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
         """
         __props__['deleteOsDiskOnTermination'] = delete_os_disk_on_termination
 
@@ -56,7 +58,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property identity to be a dict')
         __self__.identity = identity
         """
-        An identity block as documented below.
+        A `identity` block.
         """
         __props__['identity'] = identity
 
@@ -64,7 +66,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property license_type to be a basestring')
         __self__.license_type = license_type
         """
-        Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+        Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         """
         __props__['licenseType'] = license_type
 
@@ -74,7 +76,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property location to be a basestring')
         __self__.location = location
         """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
         """
         __props__['location'] = location
 
@@ -82,7 +84,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the name of the data disk.
+        Specifies the name of the OS Disk.
         """
         __props__['name'] = name
 
@@ -92,7 +94,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property network_interface_ids to be a list')
         __self__.network_interface_ids = network_interface_ids
         """
-        Specifies the list of resource IDs for the network interfaces associated with the virtual machine.
+        A list of Network Interface ID's which should be associated with the Virtual Machine.
         """
         __props__['networkInterfaceIds'] = network_interface_ids
 
@@ -100,7 +102,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property os_profile to be a dict')
         __self__.os_profile = os_profile
         """
-        An OS Profile block as documented below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
         """
         __props__['osProfile'] = os_profile
 
@@ -108,7 +110,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property os_profile_linux_config to be a dict')
         __self__.os_profile_linux_config = os_profile_linux_config
         """
-        A Linux config block as documented below.
+        A `os_profile_linux_config` block.
         """
         __props__['osProfileLinuxConfig'] = os_profile_linux_config
 
@@ -116,7 +118,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property os_profile_secrets to be a list')
         __self__.os_profile_secrets = os_profile_secrets
         """
-        A collection of Secret blocks as documented below.
+        One or more `os_profile_secrets` blocks.
         """
         __props__['osProfileSecrets'] = os_profile_secrets
 
@@ -124,7 +126,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property os_profile_windows_config to be a dict')
         __self__.os_profile_windows_config = os_profile_windows_config
         """
-        A Windows config block as documented below.
+        A `os_profile_windows_config` block.
         """
         __props__['osProfileWindowsConfig'] = os_profile_windows_config
 
@@ -132,7 +134,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property plan to be a dict')
         __self__.plan = plan
         """
-        A plan block as documented below.
+        A `plan` block.
         """
         __props__['plan'] = plan
 
@@ -140,7 +142,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property primary_network_interface_id to be a basestring')
         __self__.primary_network_interface_id = primary_network_interface_id
         """
-        Specifies the resource ID for the primary network interface associated with the virtual machine.
+        The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
         """
         __props__['primaryNetworkInterfaceId'] = primary_network_interface_id
 
@@ -150,8 +152,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property resource_group_name to be a basestring')
         __self__.resource_group_name = resource_group_name
         """
-        The name of the resource group in which to
-        create the virtual machine.
+        Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         """
         __props__['resourceGroupName'] = resource_group_name
 
@@ -159,7 +160,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property storage_data_disks to be a list')
         __self__.storage_data_disks = storage_data_disks
         """
-        A list of Storage Data disk blocks as referenced below.
+        One or more `storage_data_disk` blocks.
         """
         __props__['storageDataDisks'] = storage_data_disks
 
@@ -167,7 +168,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property storage_image_reference to be a dict')
         __self__.storage_image_reference = storage_image_reference
         """
-        A Storage Image Reference block as documented below.
+        A `storage_image_reference` block.
         """
         __props__['storageImageReference'] = storage_image_reference
 
@@ -177,7 +178,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property storage_os_disk to be a dict')
         __self__.storage_os_disk = storage_os_disk
         """
-        A Storage OS Disk block as referenced below.
+        A `storage_os_disk` block.
         """
         __props__['storageOsDisk'] = storage_os_disk
 
@@ -185,7 +186,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property tags to be a dict')
         __self__.tags = tags
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags to assign to the Virtual Machine.
         """
         __props__['tags'] = tags
 
@@ -195,7 +196,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property vm_size to be a basestring')
         __self__.vm_size = vm_size
         """
-        Specifies the [size of the virtual machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+        Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
         """
         __props__['vmSize'] = vm_size
 
@@ -203,7 +204,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property zones to be a basestring')
         __self__.zones = zones
         """
-        A collection containing the availability zone to allocate the Virtual Machine in.
+        A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
         """
         __props__['zones'] = zones
 

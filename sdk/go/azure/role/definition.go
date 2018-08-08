@@ -22,9 +22,6 @@ func NewDefinition(ctx *pulumi.Context,
 	if args == nil || args.Permissions == nil {
 		return nil, errors.New("missing required argument 'Permissions'")
 	}
-	if args == nil || args.RoleDefinitionId == nil {
-		return nil, errors.New("missing required argument 'RoleDefinitionId'")
-	}
 	if args == nil || args.Scope == nil {
 		return nil, errors.New("missing required argument 'Scope'")
 	}
@@ -101,7 +98,7 @@ func (r *Definition) Permissions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["permissions"])
 }
 
-// A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
+// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
 func (r *Definition) RoleDefinitionId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["roleDefinitionId"])
 }
@@ -121,7 +118,7 @@ type DefinitionState struct {
 	Name interface{}
 	// A `permissions` block as defined below.
 	Permissions interface{}
-	// A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
+	// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
 	RoleDefinitionId interface{}
 	// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
 	Scope interface{}
@@ -137,7 +134,7 @@ type DefinitionArgs struct {
 	Name interface{}
 	// A `permissions` block as defined below.
 	Permissions interface{}
-	// A unique UUID/GUID which identifies this role. Changing this forces a new resource to be created.
+	// A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
 	RoleDefinitionId interface{}
 	// The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
 	Scope interface{}

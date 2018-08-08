@@ -16,9 +16,6 @@ type NsRecord struct {
 // NewNsRecord registers a new resource with the given unique name, arguments, and options.
 func NewNsRecord(ctx *pulumi.Context,
 	name string, args *NsRecordArgs, opts ...pulumi.ResourceOpt) (*NsRecord, error) {
-	if args == nil || args.Records == nil {
-		return nil, errors.New("missing required argument 'Records'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -31,6 +28,7 @@ func NewNsRecord(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["name"] = nil
+		inputs["record"] = nil
 		inputs["records"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
@@ -38,6 +36,7 @@ func NewNsRecord(ctx *pulumi.Context,
 		inputs["zoneName"] = nil
 	} else {
 		inputs["name"] = args.Name
+		inputs["record"] = args.Record
 		inputs["records"] = args.Records
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
@@ -58,6 +57,7 @@ func GetNsRecord(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["name"] = state.Name
+		inputs["record"] = state.Record
 		inputs["records"] = state.Records
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["tags"] = state.Tags
@@ -86,7 +86,12 @@ func (r *NsRecord) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A list of values that make up the NS record. Each `record` block supports fields documented below.
+// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+func (r *NsRecord) Record() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["record"])
+}
+
+// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
 func (r *NsRecord) Records() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["records"])
 }
@@ -115,7 +120,9 @@ func (r *NsRecord) ZoneName() *pulumi.StringOutput {
 type NsRecordState struct {
 	// The name of the DNS NS Record.
 	Name interface{}
-	// A list of values that make up the NS record. Each `record` block supports fields documented below.
+	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+	Record interface{}
+	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
 	Records interface{}
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -131,7 +138,9 @@ type NsRecordState struct {
 type NsRecordArgs struct {
 	// The name of the DNS NS Record.
 	Name interface{}
-	// A list of values that make up the NS record. Each `record` block supports fields documented below.
+	// A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+	Record interface{}
+	// A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
 	Records interface{}
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

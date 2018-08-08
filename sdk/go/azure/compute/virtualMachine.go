@@ -8,7 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a virtual machine.
+// Manages a Virtual Machine.
+// 
+// ~> **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 type VirtualMachine struct {
 	s *pulumi.ResourceState
 }
@@ -132,211 +134,208 @@ func (r *VirtualMachine) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The Id of the Availability Set in which to create the virtual machine
+// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 func (r *VirtualMachine) AvailabilitySetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilitySetId"])
 }
 
-// A boot diagnostics profile block as referenced below.
+// A `boot_diagnostics` block.
 func (r *VirtualMachine) BootDiagnostics() *pulumi.Output {
 	return r.s.State["bootDiagnostics"]
 }
 
-// Flag to enable deletion of storage data disk VHD blobs or managed disks when the VM is deleted, defaults to `false`
+// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 func (r *VirtualMachine) DeleteDataDisksOnTermination() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["deleteDataDisksOnTermination"])
 }
 
-// Flag to enable deletion of the OS disk VHD blob or managed disk when the VM is deleted, defaults to `false`
+// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 func (r *VirtualMachine) DeleteOsDiskOnTermination() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["deleteOsDiskOnTermination"])
 }
 
-// An identity block as documented below.
+// A `identity` block.
 func (r *VirtualMachine) Identity() *pulumi.Output {
 	return r.s.State["identity"]
 }
 
-// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 func (r *VirtualMachine) LicenseType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["licenseType"])
 }
 
-// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
 func (r *VirtualMachine) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Specifies the name of the data disk.
+// Specifies the name of the OS Disk.
 func (r *VirtualMachine) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Specifies the list of resource IDs for the network interfaces associated with the virtual machine.
+// A list of Network Interface ID's which should be associated with the Virtual Machine.
 func (r *VirtualMachine) NetworkInterfaceIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
 }
 
-// An OS Profile block as documented below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
 func (r *VirtualMachine) OsProfile() *pulumi.Output {
 	return r.s.State["osProfile"]
 }
 
-// A Linux config block as documented below.
+// A `os_profile_linux_config` block.
 func (r *VirtualMachine) OsProfileLinuxConfig() *pulumi.Output {
 	return r.s.State["osProfileLinuxConfig"]
 }
 
-// A collection of Secret blocks as documented below.
+// One or more `os_profile_secrets` blocks.
 func (r *VirtualMachine) OsProfileSecrets() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["osProfileSecrets"])
 }
 
-// A Windows config block as documented below.
+// A `os_profile_windows_config` block.
 func (r *VirtualMachine) OsProfileWindowsConfig() *pulumi.Output {
 	return r.s.State["osProfileWindowsConfig"]
 }
 
-// A plan block as documented below.
+// A `plan` block.
 func (r *VirtualMachine) Plan() *pulumi.Output {
 	return r.s.State["plan"]
 }
 
-// Specifies the resource ID for the primary network interface associated with the virtual machine.
+// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 func (r *VirtualMachine) PrimaryNetworkInterfaceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryNetworkInterfaceId"])
 }
 
-// The name of the resource group in which to
-// create the virtual machine.
+// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 func (r *VirtualMachine) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A list of Storage Data disk blocks as referenced below.
+// One or more `storage_data_disk` blocks.
 func (r *VirtualMachine) StorageDataDisks() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["storageDataDisks"])
 }
 
-// A Storage Image Reference block as documented below.
+// A `storage_image_reference` block.
 func (r *VirtualMachine) StorageImageReference() *pulumi.Output {
 	return r.s.State["storageImageReference"]
 }
 
-// A Storage OS Disk block as referenced below.
+// A `storage_os_disk` block.
 func (r *VirtualMachine) StorageOsDisk() *pulumi.Output {
 	return r.s.State["storageOsDisk"]
 }
 
-// A mapping of tags to assign to the resource.
+// A mapping of tags to assign to the Virtual Machine.
 func (r *VirtualMachine) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Specifies the [size of the virtual machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
 func (r *VirtualMachine) VmSize() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vmSize"])
 }
 
-// A collection containing the availability zone to allocate the Virtual Machine in.
+// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
 func (r *VirtualMachine) Zones() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["zones"])
 }
 
 // Input properties used for looking up and filtering VirtualMachine resources.
 type VirtualMachineState struct {
-	// The Id of the Availability Set in which to create the virtual machine
+	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId interface{}
-	// A boot diagnostics profile block as referenced below.
+	// A `boot_diagnostics` block.
 	BootDiagnostics interface{}
-	// Flag to enable deletion of storage data disk VHD blobs or managed disks when the VM is deleted, defaults to `false`
+	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination interface{}
-	// Flag to enable deletion of the OS disk VHD blob or managed disk when the VM is deleted, defaults to `false`
+	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteOsDiskOnTermination interface{}
-	// An identity block as documented below.
+	// A `identity` block.
 	Identity interface{}
-	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 	LicenseType interface{}
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the data disk.
+	// Specifies the name of the OS Disk.
 	Name interface{}
-	// Specifies the list of resource IDs for the network interfaces associated with the virtual machine.
+	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds interface{}
-	// An OS Profile block as documented below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+	// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
 	OsProfile interface{}
-	// A Linux config block as documented below.
+	// A `os_profile_linux_config` block.
 	OsProfileLinuxConfig interface{}
-	// A collection of Secret blocks as documented below.
+	// One or more `os_profile_secrets` blocks.
 	OsProfileSecrets interface{}
-	// A Windows config block as documented below.
+	// A `os_profile_windows_config` block.
 	OsProfileWindowsConfig interface{}
-	// A plan block as documented below.
+	// A `plan` block.
 	Plan interface{}
-	// Specifies the resource ID for the primary network interface associated with the virtual machine.
+	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId interface{}
-	// The name of the resource group in which to
-	// create the virtual machine.
+	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A list of Storage Data disk blocks as referenced below.
+	// One or more `storage_data_disk` blocks.
 	StorageDataDisks interface{}
-	// A Storage Image Reference block as documented below.
+	// A `storage_image_reference` block.
 	StorageImageReference interface{}
-	// A Storage OS Disk block as referenced below.
+	// A `storage_os_disk` block.
 	StorageOsDisk interface{}
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the Virtual Machine.
 	Tags interface{}
-	// Specifies the [size of the virtual machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
 	VmSize interface{}
-	// A collection containing the availability zone to allocate the Virtual Machine in.
+	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
 	Zones interface{}
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
-	// The Id of the Availability Set in which to create the virtual machine
+	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId interface{}
-	// A boot diagnostics profile block as referenced below.
+	// A `boot_diagnostics` block.
 	BootDiagnostics interface{}
-	// Flag to enable deletion of storage data disk VHD blobs or managed disks when the VM is deleted, defaults to `false`
+	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination interface{}
-	// Flag to enable deletion of the OS disk VHD blob or managed disk when the VM is deleted, defaults to `false`
+	// Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteOsDiskOnTermination interface{}
-	// An identity block as documented below.
+	// A `identity` block.
 	Identity interface{}
-	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
+	// Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
 	LicenseType interface{}
-	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the data disk.
+	// Specifies the name of the OS Disk.
 	Name interface{}
-	// Specifies the list of resource IDs for the network interfaces associated with the virtual machine.
+	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds interface{}
-	// An OS Profile block as documented below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+	// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
 	OsProfile interface{}
-	// A Linux config block as documented below.
+	// A `os_profile_linux_config` block.
 	OsProfileLinuxConfig interface{}
-	// A collection of Secret blocks as documented below.
+	// One or more `os_profile_secrets` blocks.
 	OsProfileSecrets interface{}
-	// A Windows config block as documented below.
+	// A `os_profile_windows_config` block.
 	OsProfileWindowsConfig interface{}
-	// A plan block as documented below.
+	// A `plan` block.
 	Plan interface{}
-	// Specifies the resource ID for the primary network interface associated with the virtual machine.
+	// The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
 	PrimaryNetworkInterfaceId interface{}
-	// The name of the resource group in which to
-	// create the virtual machine.
+	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A list of Storage Data disk blocks as referenced below.
+	// One or more `storage_data_disk` blocks.
 	StorageDataDisks interface{}
-	// A Storage Image Reference block as documented below.
+	// A `storage_image_reference` block.
 	StorageImageReference interface{}
-	// A Storage OS Disk block as referenced below.
+	// A `storage_os_disk` block.
 	StorageOsDisk interface{}
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the Virtual Machine.
 	Tags interface{}
-	// Specifies the [size of the virtual machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
+	// Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
 	VmSize interface{}
-	// A collection containing the availability zone to allocate the Virtual Machine in.
+	// A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
 	Zones interface{}
 }

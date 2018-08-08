@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class VirtualNetworkPeering(pulumi.CustomResource):
     """
-    Manages a new virtual network peering which allows resources to access other
+    Manages a virtual network peering which allows resources to access other
     resources in the linked virtual network.
     """
     def __init__(__self__, __name__, __opts__=None, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, name=None, remote_virtual_network_id=None, resource_group_name=None, use_remote_gateways=None, virtual_network_name=None):
@@ -86,11 +86,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __self__.use_remote_gateways = use_remote_gateways
         """
         Controls if remote gateways can be used on
-        the local virtual network. If the flag is set to true, and
-        allowGatewayTransit on the remote peering is also true, virtual network will
+        the local virtual network. If the flag is set to `true`, and
+        `allow_gateway_transit` on the remote peering is also `true`, virtual network will
         use gateways of remote virtual network for transit. Only one peering can
-        have this flag set to true. This flag cannot be set if virtual network
-        already has a gateway. Defaults to false.
+        have this flag set to `true`. This flag cannot be set if virtual network
+        already has a gateway. Defaults to `false`.
         """
         __props__['useRemoteGateways'] = use_remote_gateways
 

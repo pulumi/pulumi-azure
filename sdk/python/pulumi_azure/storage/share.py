@@ -32,7 +32,7 @@ class Share(pulumi.CustomResource):
             raise TypeError('Expected property quota to be a int')
         __self__.quota = quota
         """
-        The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default this is set to 0 which results in setting the quota to 5 TB.
+        The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
         """
         __props__['quota'] = quota
 

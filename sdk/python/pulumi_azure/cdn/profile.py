@@ -56,7 +56,7 @@ class Profile(pulumi.CustomResource):
             raise TypeError('Expected property sku to be a basestring')
         __self__.sku = sku
         """
-        The pricing related information of current CDN profile. Accepted values are `Standard_Verizon`, `Standard_Akamai` or `Premium_Verizon`.
+        The pricing related information of current CDN profile. Accepted values are `Standard_Akamai`, `Standard_ChinaCdn`, `Standard_Microsoft`, `Standard_Verizon` or `Premium_Verizon`.
         """
         __props__['sku'] = sku
 

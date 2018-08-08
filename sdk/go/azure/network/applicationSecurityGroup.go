@@ -9,8 +9,6 @@ import (
 )
 
 // Create an Application Security Group.
-// 
-// -> **Note:** Application Security Groups are currently in Public Preview on an opt-in basis. [More information, including how you can register for the Preview, and which regions Application Security Groups are available in are available here](https://docs.microsoft.com/en-us/azure/virtual-network/create-network-security-group-preview)
 type ApplicationSecurityGroup struct {
 	s *pulumi.ResourceState
 }

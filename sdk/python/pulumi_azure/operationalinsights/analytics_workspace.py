@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class AnalyticsWorkspace(pulumi.CustomResource):
     """
-    Manages a new Log Analytics (formally Operational Insights) Workspace.
+    Manages a Log Analytics (formally Operational Insights) Workspace.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, retention_in_days=None, sku=None, tags=None):
         """Create a AnalyticsWorkspace resource with the given unique name, props, and options."""
@@ -62,7 +62,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             raise TypeError('Expected property sku to be a basestring')
         __self__.sku = sku
         """
-        Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone` and `Unlimited.`
+        Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
         """
         __props__['sku'] = sku
 

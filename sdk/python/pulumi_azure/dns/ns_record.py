@@ -9,7 +9,7 @@ class NsRecord(pulumi.CustomResource):
     """
     Enables you to manage DNS NS Records within Azure DNS.
     """
-    def __init__(__self__, __name__, __opts__=None, name=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
+    def __init__(__self__, __name__, __opts__=None, name=None, record=None, records=None, resource_group_name=None, tags=None, ttl=None, zone_name=None):
         """Create a NsRecord resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -28,13 +28,19 @@ class NsRecord(pulumi.CustomResource):
         """
         __props__['name'] = name
 
-        if not records:
-            raise TypeError('Missing required property records')
-        elif not isinstance(records, list):
+        if record and not isinstance(record, list):
+            raise TypeError('Expected property record to be a list')
+        __self__.record = record
+        """
+        A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
+        """
+        __props__['record'] = record
+
+        if records and not isinstance(records, list):
             raise TypeError('Expected property records to be a list')
         __self__.records = records
         """
-        A list of values that make up the NS record. Each `record` block supports fields documented below.
+        A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
         """
         __props__['records'] = records
 
@@ -85,6 +91,8 @@ class NsRecord(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'name' in outs:
             self.name = outs['name']
+        if 'record' in outs:
+            self.record = outs['record']
         if 'records' in outs:
             self.records = outs['records']
         if 'resourceGroupName' in outs:

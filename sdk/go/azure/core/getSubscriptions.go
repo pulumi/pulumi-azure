@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access a list of all Azure subscription currently available.
+// Use this data source to access a list of all Azure subscriptions currently available.
 func LookupSubscriptions(ctx *pulumi.Context) (*GetSubscriptionsResult, error) {
 	outputs, err := ctx.Invoke("azure:core/getSubscriptions:getSubscriptions", nil)
 	if err != nil {

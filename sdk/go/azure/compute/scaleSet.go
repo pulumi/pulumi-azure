@@ -198,7 +198,7 @@ func (r *ScaleSet) OsProfileWindowsConfig() *pulumi.Output {
 	return r.s.State["osProfileWindowsConfig"]
 }
 
-// Specifies whether the virtual machine scale set should be overprovisioned.
+// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 func (r *ScaleSet) Overprovision() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["overprovision"])
 }
@@ -218,7 +218,7 @@ func (r *ScaleSet) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a
+// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Defaults to `true`. Changing this forces a
 // new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 func (r *ScaleSet) SinglePlacementGroup() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["singlePlacementGroup"])
@@ -282,7 +282,7 @@ type ScaleSetState struct {
 	OsProfileSecrets interface{}
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig interface{}
-	// Specifies whether the virtual machine scale set should be overprovisioned.
+	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision interface{}
 	// A plan block as documented below.
 	Plan interface{}
@@ -290,7 +290,7 @@ type ScaleSetState struct {
 	Priority interface{}
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Defaults to `true`. Changing this forces a
 	// new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup interface{}
 	// Specifies the SKU of the image used to create the virtual machines.
@@ -332,7 +332,7 @@ type ScaleSetArgs struct {
 	OsProfileSecrets interface{}
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig interface{}
-	// Specifies whether the virtual machine scale set should be overprovisioned.
+	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
 	Overprovision interface{}
 	// A plan block as documented below.
 	Plan interface{}
@@ -340,7 +340,7 @@ type ScaleSetArgs struct {
 	Priority interface{}
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Defaults to `true`. Changing this forces a
 	// new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup interface{}
 	// Specifies the SKU of the image used to create the virtual machines.

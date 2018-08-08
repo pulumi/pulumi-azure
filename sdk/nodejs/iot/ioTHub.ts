@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new IotHub
+ * Manages a IotHub
  */
 export class IoTHub extends pulumi.CustomResource {
     /**

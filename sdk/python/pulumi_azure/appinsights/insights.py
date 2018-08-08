@@ -26,7 +26,7 @@ class Insights(pulumi.CustomResource):
             raise TypeError('Expected property application_type to be a basestring')
         __self__.application_type = application_type
         """
-        Specifies the type of Application Insights to create. Valid values are `Web` and `Other`.
+        Specifies the type of Application Insights to create. Valid values are `Web`, `Java`, `Phone`, `Store`, `iOS` and `Other`.
         """
         __props__['applicationType'] = application_type
 

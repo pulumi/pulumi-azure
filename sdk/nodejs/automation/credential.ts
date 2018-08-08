@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Manages a new Automation Credential.
+ * Manages a Automation Credential.
  */
 export class Credential extends pulumi.CustomResource {
     /**

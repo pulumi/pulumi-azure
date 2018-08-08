@@ -22,8 +22,11 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 		MaxNumberOfRecordSets: outputs["maxNumberOfRecordSets"],
 		NameServers: outputs["nameServers"],
 		NumberOfRecordSets: outputs["numberOfRecordSets"],
+		RegistrationVirtualNetworkIds: outputs["registrationVirtualNetworkIds"],
+		ResolutionVirtualNetworkIds: outputs["resolutionVirtualNetworkIds"],
 		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
+		ZoneType: outputs["zoneType"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -46,9 +49,15 @@ type GetZoneResult struct {
 	NameServers interface{}
 	// The number of records already in the zone.
 	NumberOfRecordSets interface{}
+	// A list of Virtual Network ID's that register hostnames in this DNS zone.
+	RegistrationVirtualNetworkIds interface{}
+	// A list of Virtual Network ID's that resolve records in this DNS zone.
+	ResolutionVirtualNetworkIds interface{}
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags interface{}
+	// The type of this DNS zone, such as `Public` or `Private`.
+	ZoneType interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

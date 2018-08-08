@@ -6,7 +6,7 @@ import pulumi
 import pulumi.runtime
 
 class Group(pulumi.CustomResource):
-    def __init__(__self__, __name__, __opts__=None, containers=None, dns_name_label=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, containers=None, dns_name_label=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None):
         """Create a Group resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -28,6 +28,11 @@ class Group(pulumi.CustomResource):
             raise TypeError('Expected property dns_name_label to be a basestring')
         __self__.dns_name_label = dns_name_label
         __props__['dnsNameLabel'] = dns_name_label
+
+        if image_registry_credentials and not isinstance(image_registry_credentials, list):
+            raise TypeError('Expected property image_registry_credentials to be a list')
+        __self__.image_registry_credentials = image_registry_credentials
+        __props__['imageRegistryCredentials'] = image_registry_credentials
 
         if ip_address_type and not isinstance(ip_address_type, basestring):
             raise TypeError('Expected property ip_address_type to be a basestring')
@@ -86,6 +91,8 @@ class Group(pulumi.CustomResource):
             self.dns_name_label = outs['dnsNameLabel']
         if 'fqdn' in outs:
             self.fqdn = outs['fqdn']
+        if 'imageRegistryCredentials' in outs:
+            self.image_registry_credentials = outs['imageRegistryCredentials']
         if 'ipAddress' in outs:
             self.ip_address = outs['ipAddress']
         if 'ipAddressType' in outs:

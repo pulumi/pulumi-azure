@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 
 /**
  * Manages a Key Vault.
+ * 
+ * ~> **NOTE:** It's possible to define Key Vault Access Policies both within [the `azurerm_key_vault` resource](key_vault.html) via the `access_policy` block and by using [the `azurerm_key_vault_access_policy` resource](key_vault_access_policy.html). However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
  */
 export class KeyVault extends pulumi.CustomResource {
     /**
@@ -20,10 +22,10 @@ export class KeyVault extends pulumi.CustomResource {
     }
 
     /**
-     * An access policy block as described below. At least
-     * one policy is required up to a maximum of 16.
+     * An access policy block as described below. A maximum of 16
+     * may be declared.
      */
-    public readonly accessPolicies: pulumi.Output<{ applicationId?: string, certificatePermissions?: string[], keyPermissions: string[], objectId: string, secretPermissions: string[], tenantId: string }[] | undefined>;
+    public readonly accessPolicies: pulumi.Output<{ applicationId?: string, certificatePermissions?: string[], keyPermissions: string[], objectId: string, secretPermissions: string[], tenantId: string }[]>;
     /**
      * Boolean flag to specify whether Azure Virtual
      * Machines are permitted to retrieve certificates stored as secrets from the key
@@ -134,8 +136,8 @@ export class KeyVault extends pulumi.CustomResource {
  */
 export interface KeyVaultState {
     /**
-     * An access policy block as described below. At least
-     * one policy is required up to a maximum of 16.
+     * An access policy block as described below. A maximum of 16
+     * may be declared.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }>[]>;
     /**
@@ -196,8 +198,8 @@ export interface KeyVaultState {
  */
 export interface KeyVaultArgs {
     /**
-     * An access policy block as described below. At least
-     * one policy is required up to a maximum of 16.
+     * An access policy block as described below. A maximum of 16
+     * may be declared.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }>[]>;
     /**

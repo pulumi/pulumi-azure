@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a new Event Hubs as a nested resource within a Event Hubs namespace.
+// Manages a Event Hubs as a nested resource within a Event Hubs namespace.
 type EventHub struct {
 	s *pulumi.ResourceState
 }

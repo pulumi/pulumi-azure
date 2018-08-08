@@ -11,9 +11,8 @@ class KubernetesCluster(pulumi.CustomResource):
     
     ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](/docs/state/sensitive-data.html).
-    
     """
-    def __init__(__self__, __name__, __opts__=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, resource_group_name=None, service_principal=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, service_principal=None, tags=None):
         """Create a KubernetesCluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -34,7 +33,9 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         __props__['agentPoolProfile'] = agent_pool_profile
 
-        if dns_prefix and not isinstance(dns_prefix, basestring):
+        if not dns_prefix:
+            raise TypeError('Missing required property dns_prefix')
+        elif not isinstance(dns_prefix, basestring):
             raise TypeError('Expected property dns_prefix to be a basestring')
         __self__.dns_prefix = dns_prefix
         """
@@ -78,6 +79,14 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         __props__['name'] = name
 
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError('Expected property network_profile to be a dict')
+        __self__.network_profile = network_profile
+        """
+        A Network Profile block as documented below.
+        """
+        __props__['networkProfile'] = network_profile
+
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
         elif not isinstance(resource_group_name, basestring):
@@ -116,7 +125,13 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         __self__.kube_config_raw = pulumi.runtime.UNKNOWN
         """
-        Base64 encoded Kubernetes configuration
+        Raw Kubernetes config to be used by
+        [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and
+        other compatible tools
+        """
+        __self__.node_resource_group = pulumi.runtime.UNKNOWN
+        """
+        Auto-generated Resource Group containing AKS Cluster resources.
         """
 
         super(KubernetesCluster, __self__).__init__(
@@ -144,6 +159,10 @@ class KubernetesCluster(pulumi.CustomResource):
             self.location = outs['location']
         if 'name' in outs:
             self.name = outs['name']
+        if 'networkProfile' in outs:
+            self.network_profile = outs['networkProfile']
+        if 'nodeResourceGroup' in outs:
+            self.node_resource_group = outs['nodeResourceGroup']
         if 'resourceGroupName' in outs:
             self.resource_group_name = outs['resourceGroupName']
         if 'servicePrincipal' in outs:

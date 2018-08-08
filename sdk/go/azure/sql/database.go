@@ -31,6 +31,7 @@ func NewDatabase(ctx *pulumi.Context,
 		inputs["createMode"] = nil
 		inputs["edition"] = nil
 		inputs["elasticPoolName"] = nil
+		inputs["import"] = nil
 		inputs["location"] = nil
 		inputs["maxSizeBytes"] = nil
 		inputs["name"] = nil
@@ -47,6 +48,7 @@ func NewDatabase(ctx *pulumi.Context,
 		inputs["createMode"] = args.CreateMode
 		inputs["edition"] = args.Edition
 		inputs["elasticPoolName"] = args.ElasticPoolName
+		inputs["import"] = args.Import
 		inputs["location"] = args.Location
 		inputs["maxSizeBytes"] = args.MaxSizeBytes
 		inputs["name"] = args.Name
@@ -82,6 +84,7 @@ func GetDatabase(ctx *pulumi.Context,
 		inputs["edition"] = state.Edition
 		inputs["elasticPoolName"] = state.ElasticPoolName
 		inputs["encryption"] = state.Encryption
+		inputs["import"] = state.Import
 		inputs["location"] = state.Location
 		inputs["maxSizeBytes"] = state.MaxSizeBytes
 		inputs["name"] = state.Name
@@ -111,7 +114,7 @@ func (r *Database) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. 
+// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 func (r *Database) Collation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["collation"])
 }
@@ -121,6 +124,7 @@ func (r *Database) CreateMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["createMode"])
 }
 
+// The creation date of the SQL Database.
 func (r *Database) CreationDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["creationDate"])
 }
@@ -142,6 +146,11 @@ func (r *Database) ElasticPoolName() *pulumi.StringOutput {
 
 func (r *Database) Encryption() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryption"])
+}
+
+// A Database Import block as documented below. `create_mode` must be set to `Default`.
+func (r *Database) Import() *pulumi.Output {
+	return r.s.State["import"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -202,10 +211,11 @@ func (r *Database) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Database resources.
 type DatabaseState struct {
-	// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. 
+	// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation interface{}
 	// Specifies the type of database to create. Defaults to `Default`. See below for the accepted values/
 	CreateMode interface{}
+	// The creation date of the SQL Database.
 	CreationDate interface{}
 	// The default secondary location of the SQL Database.
 	DefaultSecondaryLocation interface{}
@@ -214,6 +224,8 @@ type DatabaseState struct {
 	// The name of the elastic database pool.
 	ElasticPoolName interface{}
 	Encryption interface{}
+	// A Database Import block as documented below. `create_mode` must be set to `Default`.
+	Import interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -241,7 +253,7 @@ type DatabaseState struct {
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. 
+	// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation interface{}
 	// Specifies the type of database to create. Defaults to `Default`. See below for the accepted values/
 	CreateMode interface{}
@@ -249,6 +261,8 @@ type DatabaseArgs struct {
 	Edition interface{}
 	// The name of the elastic database pool.
 	ElasticPoolName interface{}
+	// A Database Import block as documented below. `create_mode` must be set to `Default`.
+	Import interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).

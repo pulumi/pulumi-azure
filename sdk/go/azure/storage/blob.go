@@ -28,6 +28,7 @@ func NewBlob(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["attempts"] = nil
+		inputs["contentType"] = nil
 		inputs["name"] = nil
 		inputs["parallelism"] = nil
 		inputs["resourceGroupName"] = nil
@@ -39,6 +40,7 @@ func NewBlob(ctx *pulumi.Context,
 		inputs["type"] = nil
 	} else {
 		inputs["attempts"] = args.Attempts
+		inputs["contentType"] = args.ContentType
 		inputs["name"] = args.Name
 		inputs["parallelism"] = args.Parallelism
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -64,6 +66,7 @@ func GetBlob(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["attempts"] = state.Attempts
+		inputs["contentType"] = state.ContentType
 		inputs["name"] = state.Name
 		inputs["parallelism"] = state.Parallelism
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -95,6 +98,11 @@ func (r *Blob) ID() *pulumi.IDOutput {
 // The number of attempts to make per page or block when uploading. Defaults to `1`.
 func (r *Blob) Attempts() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["attempts"])
+}
+
+// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+func (r *Blob) ContentType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["contentType"])
 }
 
 // The name of the storage blob. Must be unique within the storage container the blob is located.
@@ -155,6 +163,8 @@ func (r *Blob) Url() *pulumi.StringOutput {
 type BlobState struct {
 	// The number of attempts to make per page or block when uploading. Defaults to `1`.
 	Attempts interface{}
+	// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+	ContentType interface{}
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
 	Name interface{}
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
@@ -185,6 +195,8 @@ type BlobState struct {
 type BlobArgs struct {
 	// The number of attempts to make per page or block when uploading. Defaults to `1`.
 	Attempts interface{}
+	// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+	ContentType interface{}
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
 	Name interface{}
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.

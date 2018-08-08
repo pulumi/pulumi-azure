@@ -64,7 +64,7 @@ class Server(pulumi.CustomResource):
             raise TypeError('Expected property resource_group_name to be a basestring')
         __self__.resource_group_name = resource_group_name
         """
-        The name of the resource group in which to create the MySQL Server.
+        The name of the resource group in which to create the MySQL Server. Changing this forces a new resource to be created.
         """
         __props__['resourceGroupName'] = resource_group_name
 

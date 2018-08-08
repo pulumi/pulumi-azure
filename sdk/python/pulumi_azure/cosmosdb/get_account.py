@@ -9,7 +9,13 @@ class GetAccountResult(object):
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, consistency_policies=None, enable_automatic_failover=None, endpoint=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, write_endpoints=None, id=None):
+    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, endpoint=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, write_endpoints=None, id=None):
+        if capabilities and not isinstance(capabilities, list):
+            raise TypeError('Expected argument capabilities to be a list')
+        __self__.capabilities = capabilities
+        """
+        Capabilities enabled on this Cosmos DB account.
+        """
         if consistency_policies and not isinstance(consistency_policies, list):
             raise TypeError('Expected argument consistency_policies to be a list')
         __self__.consistency_policies = consistency_policies
@@ -112,6 +118,7 @@ def get_account(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__)
 
     return GetAccountResult(
+        capabilities=__ret__.get('capabilities'),
         consistency_policies=__ret__.get('consistencyPolicies'),
         enable_automatic_failover=__ret__.get('enableAutomaticFailover'),
         endpoint=__ret__.get('endpoint'),

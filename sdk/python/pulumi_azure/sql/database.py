@@ -9,7 +9,7 @@ class Database(pulumi.CustomResource):
     """
     Allows you to manage an Azure SQL Database
     """
-    def __init__(__self__, __name__, __opts__=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, location=None, max_size_bytes=None, name=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None):
         """Create a Database resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -24,7 +24,7 @@ class Database(pulumi.CustomResource):
             raise TypeError('Expected property collation to be a basestring')
         __self__.collation = collation
         """
-        The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. 
+        The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
         """
         __props__['collation'] = collation
 
@@ -51,6 +51,14 @@ class Database(pulumi.CustomResource):
         The name of the elastic database pool.
         """
         __props__['elasticPoolName'] = elastic_pool_name
+
+        if import_ and not isinstance(import_, dict):
+            raise TypeError('Expected property import_ to be a dict')
+        __self__.import_ = import_
+        """
+        A Database Import block as documented below. `create_mode` must be set to `Default`.
+        """
+        __props__['import'] = import_
 
         if not location:
             raise TypeError('Missing required property location')
@@ -148,6 +156,9 @@ class Database(pulumi.CustomResource):
         __props__['tags'] = tags
 
         __self__.creation_date = pulumi.runtime.UNKNOWN
+        """
+        The creation date of the SQL Database.
+        """
         __self__.default_secondary_location = pulumi.runtime.UNKNOWN
         """
         The default secondary location of the SQL Database.
@@ -175,6 +186,8 @@ class Database(pulumi.CustomResource):
             self.elastic_pool_name = outs['elasticPoolName']
         if 'encryption' in outs:
             self.encryption = outs['encryption']
+        if 'import' in outs:
+            self.import_ = outs['import']
         if 'location' in outs:
             self.location = outs['location']
         if 'maxSizeBytes' in outs:
