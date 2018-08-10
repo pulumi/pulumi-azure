@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Gets information about the specified Notification Hub Namespace.
  */
-export function getNamespace(args: GetNamespaceArgs): Promise<GetNamespaceResult> {
+export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     return pulumi.runtime.invoke("azure:notificationhub/getNamespace:getNamespace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

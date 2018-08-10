@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access information about the permissions from the Management Key Vault Templates.
  */
-export function getAccessPolicy(args: GetAccessPolicyArgs): Promise<GetAccessPolicyResult> {
+export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
     return pulumi.runtime.invoke("azure:keyvault/getAccessPolicy:getAccessPolicy", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**
