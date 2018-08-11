@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access a filtered list of Public IP Addresses
  */
-export function getPublicIPs(args: GetPublicIPsArgs): Promise<GetPublicIPsResult> {
+export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> {
     return pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {
         "allocationType": args.allocationType,
         "attached": args.attached,
         "namePrefix": args.namePrefix,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

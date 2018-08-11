@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of a Network Security Group.
  */
-export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs): Promise<GetNetworkSecurityGroupResult> {
+export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
     return pulumi.runtime.invoke("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

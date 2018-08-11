@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an existing Azure Managed Disk.
  */
-export function getManagedDisk(args: GetManagedDiskArgs): Promise<GetManagedDiskResult> {
+export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> {
     return pulumi.runtime.invoke("azure:compute/getManagedDisk:getManagedDisk", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
         "zones": args.zones,
-    });
+    }, opts);
 }
 
 /**

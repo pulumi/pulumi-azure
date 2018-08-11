@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of a Recovery Services Vault.
  */
-export function getVault(args: GetVaultArgs): Promise<GetVaultResult> {
+export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
     return pulumi.runtime.invoke("azure:recoveryservices/getVault:getVault", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

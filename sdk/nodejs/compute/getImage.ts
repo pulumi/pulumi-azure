@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access information about an Image.
  */
-export function getImage(args: GetImageArgs): Promise<GetImageResult> {
+export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     return pulumi.runtime.invoke("azure:compute/getImage:getImage", {
         "name": args.name,
         "nameRegex": args.nameRegex,
         "resourceGroupName": args.resourceGroupName,
         "sortDescending": args.sortDescending,
-    });
+    }, opts);
 }
 
 /**

@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access information about a CDN Profile.
  */
-export function getProfile(args: GetProfileArgs): Promise<GetProfileResult> {
+export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     return pulumi.runtime.invoke("azure:cdn/getProfile:getProfile", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

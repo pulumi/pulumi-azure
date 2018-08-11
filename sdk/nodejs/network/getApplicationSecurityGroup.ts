@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Get information about an Application Security Group.
  */
-export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs): Promise<GetApplicationSecurityGroupResult> {
+export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {
     return pulumi.runtime.invoke("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

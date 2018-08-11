@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Gets information about a Route Table
  */
-export function getRouteTable(args: GetRouteTableArgs): Promise<GetRouteTableResult> {
+export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     return pulumi.runtime.invoke("azure:network/getRouteTable:getRouteTable", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

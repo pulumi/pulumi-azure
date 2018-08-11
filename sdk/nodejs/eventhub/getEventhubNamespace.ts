@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to obtain information about an EventHub Namespace.
  */
-export function getEventhubNamespace(args: GetEventhubNamespaceArgs): Promise<GetEventhubNamespaceResult> {
+export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
     return pulumi.runtime.invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

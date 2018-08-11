@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
  */
-export function getGeographicalLocation(args: GetGeographicalLocationArgs): Promise<GetGeographicalLocationResult> {
+export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetGeographicalLocationResult> {
     return pulumi.runtime.invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

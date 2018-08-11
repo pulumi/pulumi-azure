@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an Azure Subnet located within a Virtual Network.
  */
-export function getSubnet(args: GetSubnetArgs): Promise<GetSubnetResult> {
+export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
     return pulumi.runtime.invoke("azure:network/getSubnet:getSubnet", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "virtualNetworkName": args.virtualNetworkName,
-    });
+    }, opts);
 }
 
 /**

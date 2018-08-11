@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to obtain information about a Data Lake Store.
  */
-export function getStore(args: GetStoreArgs): Promise<GetStoreResult> {
+export function getStore(args: GetStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetStoreResult> {
     return pulumi.runtime.invoke("azure:datalake/getStore:getStore", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

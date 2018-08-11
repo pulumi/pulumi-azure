@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to obtain information about an App Service.
  */
-export function getAppService(args: GetAppServiceArgs): Promise<GetAppServiceResult> {
+export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {
     return pulumi.runtime.invoke("azure:appservice/getAppService:getAppService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "siteConfig": args.siteConfig,
-    });
+    }, opts);
 }
 
 /**

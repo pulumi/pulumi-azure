@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access information about a Container Registry
  */
-export function getRegistry(args: GetRegistryArgs): Promise<GetRegistryResult> {
+export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     return pulumi.runtime.invoke("azure:containerservice/getRegistry:getRegistry", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

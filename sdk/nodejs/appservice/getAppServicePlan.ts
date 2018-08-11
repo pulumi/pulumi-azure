@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to obtain information about an App Service Plan (formerly known as a `Server Farm`).
  */
-export function getAppServicePlan(args: GetAppServicePlanArgs): Promise<GetAppServicePlanResult> {
+export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
     return pulumi.runtime.invoke("azure:appservice/getAppServicePlan:getAppServicePlan", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**
