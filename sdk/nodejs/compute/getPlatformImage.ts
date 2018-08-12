@@ -6,13 +6,13 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an Azure Platform Image.
  */
-export function getPlatformImage(args: GetPlatformImageArgs): Promise<GetPlatformImageResult> {
+export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
     return pulumi.runtime.invoke("azure:compute/getPlatformImage:getPlatformImage", {
         "location": args.location,
         "offer": args.offer,
         "publisher": args.publisher,
         "sku": args.sku,
-    });
+    }, opts);
 }
 
 /**

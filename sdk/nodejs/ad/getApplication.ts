@@ -8,12 +8,12 @@ import * as pulumi from "@pulumi/pulumi";
  * 
  * -> **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
  */
-export function getApplication(args?: GetApplicationArgs): Promise<GetApplicationResult> {
+export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     args = args || {};
     return pulumi.runtime.invoke("azure:ad/getApplication:getApplication", {
         "name": args.name,
         "objectId": args.objectId,
-    });
+    }, opts);
 }
 
 /**

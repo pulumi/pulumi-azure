@@ -1,13 +1,13 @@
 {
     "name": "aci-linux-multi",
-    "version": "0.1",
+    "version": "0.0.1",
     "main": "bin/index.js",
     "typings": "bin/index.d.ts",
     "scripts": {
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.14.0-rc1"
+        "@pulumi/pulumi": "^0.14.4-dev"
     },
     "devDependencies": {
         "@types/node": "^8.0.26",

@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of a custom Role Definition. To access information about a built-in Role Definition, [please see the `azurerm_builtin_role_definition` data source](builtin_role_definition.html) instead.
  */
-export function getRoleDefinition(args: GetRoleDefinitionArgs): Promise<GetRoleDefinitionResult> {
+export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     return pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
         "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,
-    });
+    }, opts);
 }
 
 /**

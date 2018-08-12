@@ -187,6 +187,7 @@
         "postgresql/firewallRule.ts",
         "postgresql/index.ts",
         "postgresql/server.ts",
+        "provider.ts",
         "recoveryservices/getVault.ts",
         "recoveryservices/index.ts",
         "recoveryservices/vault.ts",

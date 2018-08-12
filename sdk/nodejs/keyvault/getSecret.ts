@@ -9,11 +9,11 @@ import * as pulumi from "@pulumi/pulumi";
  * ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
  */
-export function getSecret(args: GetSecretArgs): Promise<GetSecretResult> {
+export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     return pulumi.runtime.invoke("azure:keyvault/getSecret:getSecret", {
         "name": args.name,
         "vaultUri": args.vaultUri,
-    });
+    }, opts);
 }
 
 /**

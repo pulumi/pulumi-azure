@@ -1,13 +1,13 @@
 {
     "name": "minimal",
-    "version": "0.1",
+    "version": "0.0.1",
     "main": "bin/index.js",
     "typings": "bin/index.d.ts",
     "scripts": {
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.14.0-rc1"
+        "@pulumi/pulumi": "^0.14.4-dev"
     },
     "devDependencies": {
         "typescript": "^2.5.3"

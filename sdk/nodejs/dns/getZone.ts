@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to obtain information about a DNS Zone.
  */
-export function getZone(args: GetZoneArgs): Promise<GetZoneResult> {
+export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     return pulumi.runtime.invoke("azure:dns/getZone:getZone", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

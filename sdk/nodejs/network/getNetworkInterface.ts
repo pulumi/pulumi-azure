@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an Azure Network Interface.
  */
-export function getNetworkInterface(args: GetNetworkInterfaceArgs): Promise<GetNetworkInterfaceResult> {
+export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     return pulumi.runtime.invoke("azure:network/getNetworkInterface:getNetworkInterface", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**
