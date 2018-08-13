@@ -51,8 +51,8 @@ export class PtrRecord extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PtrRecordArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: PtrRecordArgs | PtrRecordState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: PtrRecordArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PtrRecordArgs | PtrRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PtrRecordState = argsOrState as PtrRecordState | undefined;

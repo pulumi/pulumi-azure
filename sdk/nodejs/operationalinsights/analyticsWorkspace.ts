@@ -67,8 +67,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AnalyticsWorkspaceArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: AnalyticsWorkspaceArgs | AnalyticsWorkspaceState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: AnalyticsWorkspaceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AnalyticsWorkspaceArgs | AnalyticsWorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AnalyticsWorkspaceState = argsOrState as AnalyticsWorkspaceState | undefined;

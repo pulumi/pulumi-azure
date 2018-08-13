@@ -77,8 +77,8 @@ export class EventHubNamespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventHubNamespaceArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: EventHubNamespaceArgs | EventHubNamespaceState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: EventHubNamespaceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: EventHubNamespaceArgs | EventHubNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EventHubNamespaceState = argsOrState as EventHubNamespaceState | undefined;
