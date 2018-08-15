@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Gets information about the specified Notification Hub within a Notification Hub Namespace.
  */
-export function getHub(args: GetHubArgs): Promise<GetHubResult> {
+export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
     return pulumi.runtime.invoke("azure:notificationhub/getHub:getHub", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

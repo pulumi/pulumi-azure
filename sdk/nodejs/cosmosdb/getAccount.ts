@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an Azure CosmosDB (formally DocumentDB) Account.
  */
-export function getAccount(args: GetAccountArgs): Promise<GetAccountResult> {
+export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     return pulumi.runtime.invoke("azure:cosmosdb/getAccount:getAccount", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

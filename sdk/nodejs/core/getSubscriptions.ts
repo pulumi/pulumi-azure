@@ -6,9 +6,9 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access a list of all Azure subscriptions currently available.
  */
-export function getSubscriptions(): Promise<GetSubscriptionsResult> {
+export function getSubscriptions(opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
     return pulumi.runtime.invoke("azure:core/getSubscriptions:getSubscriptions", {
-    });
+    }, opts);
 }
 
 /**

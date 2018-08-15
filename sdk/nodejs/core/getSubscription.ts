@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an Azure subscription.
  */
-export function getSubscription(args?: GetSubscriptionArgs): Promise<GetSubscriptionResult> {
+export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     args = args || {};
     return pulumi.runtime.invoke("azure:core/getSubscription:getSubscription", {
         "subscriptionId": args.subscriptionId,
-    });
+    }, opts);
 }
 
 /**

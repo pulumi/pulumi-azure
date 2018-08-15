@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an Azure Virtual Network.
  */
-export function getVirtualNetwork(args: GetVirtualNetworkArgs): Promise<GetVirtualNetworkResult> {
+export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
     return pulumi.runtime.invoke("azure:network/getVirtualNetwork:getVirtualNetwork", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

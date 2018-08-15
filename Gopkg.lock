@@ -412,7 +412,7 @@
 [[projects]]
   name = "github.com/mitchellh/copystructure"
   packages = ["."]
-  revision = "5af94aef99f597e6a9e1f6ac6be6ce0f3c96b49d"
+  revision = "d23ffcb85de31694d6ccaa23ccb4a03e55c1303f"
 
 [[projects]]
   branch = "master"
@@ -451,7 +451,7 @@
 [[projects]]
   name = "github.com/mitchellh/reflectwalk"
   packages = ["."]
-  revision = "92573fe8d000a145bfebc03a16bc22b34945867f"
+  revision = "63d60e9d0dbc60cf9164e6510889b0db6683d98c"
 
 [[projects]]
   name = "github.com/opentracing/opentracing-go"
@@ -503,6 +503,7 @@
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
+    "pkg/apitype/migrate",
     "pkg/backend",
     "pkg/backend/local",
     "pkg/diag",
@@ -513,6 +514,7 @@
     "pkg/resource",
     "pkg/resource/config",
     "pkg/resource/deploy",
+    "pkg/resource/deploy/providers",
     "pkg/resource/graph",
     "pkg/resource/plugin",
     "pkg/resource/provider",
@@ -541,7 +543,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "c57aef785bb8d88f94f6301f8956c782e84dbcb5"
+  revision = "afa27cf52cc1135d0937b6efa621caef9ea8a13a"
 
 [[projects]]
   branch = "master"
@@ -550,7 +552,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "c0f99e5d748ed3a7b17b319bb38675dd72288031"
+  revision = "d7b54027a5c745e6130c003f2ef61b0fe264b619"
 
 [[projects]]
   branch = "master"

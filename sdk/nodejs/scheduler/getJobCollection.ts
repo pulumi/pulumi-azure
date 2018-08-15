@@ -6,11 +6,11 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an Azure scheduler job collection.
  */
-export function getJobCollection(args: GetJobCollectionArgs): Promise<GetJobCollectionResult> {
+export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
     return pulumi.runtime.invoke("azure:scheduler/getJobCollection:getJobCollection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

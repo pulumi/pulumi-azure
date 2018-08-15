@@ -10,11 +10,11 @@ import * as pulumi from "@pulumi/pulumi";
  * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
  * 
  */
-export function getKubernetesCluster(args: GetKubernetesClusterArgs): Promise<GetKubernetesClusterResult> {
+export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
     return pulumi.runtime.invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
-    });
+    }, opts);
 }
 
 /**

@@ -6,12 +6,12 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an existing Azure Public IP Address.
  */
-export function getPublicIP(args: GetPublicIPArgs): Promise<GetPublicIPResult> {
+export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
     return pulumi.runtime.invoke("azure:network/getPublicIP:getPublicIP", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
-    });
+    }, opts);
 }
 
 /**

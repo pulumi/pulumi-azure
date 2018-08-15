@@ -6,10 +6,10 @@ import * as pulumi from "@pulumi/pulumi";
 /**
  * Use this data source to access the properties of an Azure resource group.
  */
-export function getResourceGroup(args: GetResourceGroupArgs): Promise<GetResourceGroupResult> {
+export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
     return pulumi.runtime.invoke("azure:core/getResourceGroup:getResourceGroup", {
         "name": args.name,
-    });
+    }, opts);
 }
 
 /**

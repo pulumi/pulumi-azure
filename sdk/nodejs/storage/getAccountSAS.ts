@@ -11,7 +11,7 @@ import * as pulumi from "@pulumi/pulumi";
  * Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
  * and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
  */
-export function getAccountSAS(args: GetAccountSASArgs): Promise<GetAccountSASResult> {
+export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
     return pulumi.runtime.invoke("azure:storage/getAccountSAS:getAccountSAS", {
         "connectionString": args.connectionString,
         "expiry": args.expiry,
@@ -20,7 +20,7 @@ export function getAccountSAS(args: GetAccountSASArgs): Promise<GetAccountSASRes
         "resourceTypes": args.resourceTypes,
         "services": args.services,
         "start": args.start,
-    });
+    }, opts);
 }
 
 /**
