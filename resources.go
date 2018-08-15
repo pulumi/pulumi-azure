@@ -144,7 +144,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_role_definition": {Tok: azureResource(azureRole, "Definition")},
 
 			// Azure Container Service
-			"azurerm_container_registry": {Tok: azureResource(azureContainerService, "Registry")},
+			"azurerm_container_registry": {
+				Tok: azureResource(azureContainerService, "Registry"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#containers
+					// Max length of a container name is 50
+					"name": AutoNameWithMaxLength("name", 50),
+				},
+			},
 			"azurerm_container_service":  {Tok: azureResource(azureContainerService, "Service")},
 			"azurerm_container_group":    {Tok: azureResource(azureContainerService, "Group")},
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
@@ -498,12 +505,7 @@ func Provider() tfbridge.ProviderInfo {
 					// Use conservative options that apply broadly for Azure.  See
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions for
 					// details.
-					res.Fields[azureName] = AutoName(azureName, AutoNameOptions{
-						ForceLowercase: true,
-						Separator:      "",
-						Maxlen:         24,
-						Randlen:        8,
-					})
+					res.Fields[azureName] = AutoNameWithMaxLength(azureName, 24)
 				}
 			}
 		}
@@ -528,8 +530,8 @@ type AutoNameOptions struct {
 	ForceLowercase bool
 }
 
-// AutoName creates custom schema for a Terraform name property which is automatically populated from the resource's URN
-// name, and tranformed based on the provided options.
+// AutoName creates custom schema for a Terraform name property which is automatically populated
+// from the resource's URN name, and tranformed based on the provided options.
 func AutoName(name string, options AutoNameOptions) *tfbridge.SchemaInfo {
 	return &tfbridge.SchemaInfo{
 		Name: name,
@@ -537,6 +539,15 @@ func AutoName(name string, options AutoNameOptions) *tfbridge.SchemaInfo {
 			From: FromName(options),
 		},
 	}
+}
+
+func AutoNameWithMaxLength(name string, maxlength int) *tfbridge.SchemaInfo {
+	return AutoName(name, AutoNameOptions{
+		ForceLowercase: true,
+		Separator:      "",
+		Maxlen:         maxlength,
+		Randlen:        8,
+	})
 }
 
 // FromName automatically propagates a resource's URN onto the resulting default info.
