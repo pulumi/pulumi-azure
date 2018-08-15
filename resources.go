@@ -103,6 +103,8 @@ func boolRef(b bool) *bool {
 
 // Provider returns additional overlaid schema and metadata associated with the azure package.
 func Provider() tfbridge.ProviderInfo {
+	const azureName = "name"
+
 	p := azurerm.Provider().(*schema.Provider)
 
 	prov := tfbridge.ProviderInfo{
@@ -149,7 +151,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#containers
 					// Max length of a container name is 50
-					"name": AutoNameWithMaxLength("name", 50),
+					azureName: AutoNameWithMaxLength(azureName, 50),
 				},
 			},
 			"azurerm_container_service":  {Tok: azureResource(azureContainerService, "Service")},
@@ -493,7 +495,6 @@ func Provider() tfbridge.ProviderInfo {
 
 	// For all resources with name properties, we will add an auto-name property.  Make sure to skip those that
 	// already have a name mapping entry, since those may have custom overrides set above (e.g., for length).
-	const azureName = "name"
 	for resname, res := range prov.Resources {
 		if schema := p.ResourcesMap[resname]; schema != nil {
 			// Only apply auto-name to input properties (Optional || Required) named `name`
