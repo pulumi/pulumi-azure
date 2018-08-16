@@ -55,8 +55,8 @@ export class JobCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: JobCollectionArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: JobCollectionArgs | JobCollectionState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: JobCollectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: JobCollectionArgs | JobCollectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: JobCollectionState = argsOrState as JobCollectionState | undefined;

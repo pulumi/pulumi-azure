@@ -43,8 +43,8 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NetworkWatcherArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: NetworkWatcherArgs | NetworkWatcherState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: NetworkWatcherArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: NetworkWatcherArgs | NetworkWatcherState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NetworkWatcherState = argsOrState as NetworkWatcherState | undefined;

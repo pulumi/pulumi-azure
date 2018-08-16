@@ -47,8 +47,8 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: FirewallRuleState = argsOrState as FirewallRuleState | undefined;

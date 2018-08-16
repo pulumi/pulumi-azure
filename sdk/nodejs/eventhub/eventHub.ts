@@ -56,8 +56,8 @@ export class EventHub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventHubArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: EventHubArgs | EventHubState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: EventHubArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: EventHubArgs | EventHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: EventHubState = argsOrState as EventHubState | undefined;
