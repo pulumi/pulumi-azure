@@ -63,8 +63,8 @@ export class SubscriptionRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SubscriptionRuleArgs, opts?: pulumi.ResourceOptions)
-    constructor(name: string, argsOrState?: SubscriptionRuleArgs | SubscriptionRuleState, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: SubscriptionRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: SubscriptionRuleArgs | SubscriptionRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: SubscriptionRuleState = argsOrState as SubscriptionRuleState | undefined;
