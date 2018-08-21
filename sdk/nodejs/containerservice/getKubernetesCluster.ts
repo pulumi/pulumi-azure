@@ -36,9 +36,13 @@ export interface GetKubernetesClusterArgs {
  */
 export interface GetKubernetesClusterResult {
     /**
+     * A `addon_profile` block as documented below.
+     */
+    readonly addonProfiles: { httpApplicationRoutings: { enabled: boolean, httpApplicationRoutingZoneName: string }[], omsAgents: { enabled: boolean, logAnalyticsWorkspaceId: string }[] }[];
+    /**
      * One or more `agent_profile_pool` blocks as documented below.
      */
-    readonly agentPoolProfiles: { count: number, dnsPrefix: string, name: string, osDiskSizeGb: number, osType: string, vmSize: string, vnetSubnetId: string }[];
+    readonly agentPoolProfiles: { count: number, dnsPrefix: string, maxPods: number, name: string, osDiskSizeGb: number, osType: string, vmSize: string, vnetSubnetId: string }[];
     /**
      * The DNS Prefix of the managed Kubernetes cluster.
      */

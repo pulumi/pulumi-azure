@@ -4,7 +4,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 /**
- * Create a LoadBalancer Resource.
+ * Create a Load Balancer Resource.
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**

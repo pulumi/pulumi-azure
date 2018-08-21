@@ -39,6 +39,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["addonProfile"] = nil
 		inputs["agentPoolProfile"] = nil
 		inputs["dnsPrefix"] = nil
 		inputs["kubernetesVersion"] = nil
@@ -50,6 +51,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["servicePrincipal"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["addonProfile"] = args.AddonProfile
 		inputs["agentPoolProfile"] = args.AgentPoolProfile
 		inputs["dnsPrefix"] = args.DnsPrefix
 		inputs["kubernetesVersion"] = args.KubernetesVersion
@@ -78,6 +80,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *KubernetesClusterState, opts ...pulumi.ResourceOpt) (*KubernetesCluster, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["addonProfile"] = state.AddonProfile
 		inputs["agentPoolProfile"] = state.AgentPoolProfile
 		inputs["dnsPrefix"] = state.DnsPrefix
 		inputs["fqdn"] = state.Fqdn
@@ -110,6 +113,11 @@ func (r *KubernetesCluster) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
+// A `addon_profile` block.
+func (r *KubernetesCluster) AddonProfile() *pulumi.Output {
+	return r.s.State["addonProfile"]
+}
+
 // One or more Agent Pool Profile's block as documented below.
 func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
 	return r.s.State["agentPoolProfile"]
@@ -125,7 +133,7 @@ func (r *KubernetesCluster) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
-// Kubernetes configuration, sub-attributes defined below:
+// A `kube_config` block as defined below.
 func (r *KubernetesCluster) KubeConfig() *pulumi.Output {
 	return r.s.State["kubeConfig"]
 }
@@ -184,13 +192,15 @@ func (r *KubernetesCluster) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering KubernetesCluster resources.
 type KubernetesClusterState struct {
+	// A `addon_profile` block.
+	AddonProfile interface{}
 	// One or more Agent Pool Profile's block as documented below.
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
-	// Kubernetes configuration, sub-attributes defined below:
+	// A `kube_config` block as defined below.
 	KubeConfig interface{}
 	// Raw Kubernetes config to be used by
 	// [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and
@@ -218,6 +228,8 @@ type KubernetesClusterState struct {
 
 // The set of arguments for constructing a KubernetesCluster resource.
 type KubernetesClusterArgs struct {
+	// A `addon_profile` block.
+	AddonProfile interface{}
 	// One or more Agent Pool Profile's block as documented below.
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster.

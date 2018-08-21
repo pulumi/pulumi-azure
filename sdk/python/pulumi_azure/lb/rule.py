@@ -7,9 +7,9 @@ import pulumi.runtime
 
 class Rule(pulumi.CustomResource):
     """
-    Create a LoadBalancer Rule.
+    Manages a Load Balancer Rule.
     
-    ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+    ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     """
     def __init__(__self__, __name__, __opts__=None, backend_address_pool_id=None, backend_port=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
         """Create a Rule resource with the given unique name, props, and options."""
@@ -90,7 +90,7 @@ class Rule(pulumi.CustomResource):
             raise TypeError('Expected property loadbalancer_id to be a basestring')
         __self__.loadbalancer_id = loadbalancer_id
         """
-        The ID of the LoadBalancer in which to create the Rule.
+        The ID of the Load Balancer in which to create the Rule.
         """
         __props__['loadbalancerId'] = loadbalancer_id
 
@@ -121,7 +121,7 @@ class Rule(pulumi.CustomResource):
             raise TypeError('Expected property protocol to be a basestring')
         __self__.protocol = protocol
         """
-        The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+        The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         """
         __props__['protocol'] = protocol
 

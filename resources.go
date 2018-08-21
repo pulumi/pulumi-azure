@@ -301,7 +301,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_management_lock": {Tok: azureResource(azureMgmtResource, "ManangementLock")},
 
 			// Monitoring resources
-			"azurerm_metric_alertrule": {Tok: azureResource(azureMonitoring, "AlertRule")},
+			"azurerm_metric_alertrule":     {Tok: azureResource(azureMonitoring, "AlertRule")},
+			"azurerm_monitor_action_group": {Tok: azureResource(azureMonitoring, "ActionGroup")},
 
 			// MySQL
 			"azurerm_mysql_configuration": {Tok: azureResource(azureMySQL, "Configuration")},
@@ -408,16 +409,17 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_subscriptions":      {Tok: azureDataSource(azureCore, "getSubscriptions")},
-			"azurerm_cdn_profile":        {Tok: azureDataSource(azureCDN, "getProfile")},
-			"azurerm_client_config":      {Tok: azureDataSource(azureCore, "getClientConfig")},
-			"azurerm_container_registry": {Tok: azureDataSource(azureContainerService, "getRegistry")},
-			"azurerm_cosmosdb_account":   {Tok: azureDataSource(azureCosmosDB, "getAccount")},
-			"azurerm_data_lake_store":    {Tok: azureDataSource(azureDatalake, "getStore")},
-			"azurerm_eventhub_namespace": {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
-			"azurerm_image":              {Tok: azureDataSource(azureCompute, "getImage")},
-			"azurerm_logic_app_workflow": {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
-			"azurerm_dns_zone":           {Tok: azureDataSource(azureDNS, "getZone")},
+			"azurerm_subscriptions":           {Tok: azureDataSource(azureCore, "getSubscriptions")},
+			"azurerm_cdn_profile":             {Tok: azureDataSource(azureCDN, "getProfile")},
+			"azurerm_client_config":           {Tok: azureDataSource(azureCore, "getClientConfig")},
+			"azurerm_container_registry":      {Tok: azureDataSource(azureContainerService, "getRegistry")},
+			"azurerm_cosmosdb_account":        {Tok: azureDataSource(azureCosmosDB, "getAccount")},
+			"azurerm_data_lake_store":         {Tok: azureDataSource(azureDatalake, "getStore")},
+			"azurerm_eventhub_namespace":      {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
+			"azurerm_image":                   {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_log_analytics_workspace": {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
+			"azurerm_logic_app_workflow":      {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
+			"azurerm_dns_zone":                {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -425,6 +427,7 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
+
 			"azurerm_key_vault_access_policy": {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
 			"azurerm_key_vault_secret":        {Tok: azureDataSource(azureKeyVault, "getSecret")},
 			"azurerm_kubernetes_cluster":      {Tok: azureDataSource(azureContainerService, "getKubernetesCluster")},

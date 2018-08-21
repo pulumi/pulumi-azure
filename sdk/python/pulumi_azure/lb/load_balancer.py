@@ -7,7 +7,7 @@ import pulumi.runtime
 
 class LoadBalancer(pulumi.CustomResource):
     """
-    Create a LoadBalancer Resource.
+    Create a Load Balancer Resource.
     """
     def __init__(__self__, __name__, __opts__=None, frontend_ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
         """Create a LoadBalancer resource with the given unique name, props, and options."""

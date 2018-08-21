@@ -8,9 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a LoadBalancer NAT pool.
+// Manages a Load Balancer NAT pool.
 // 
-// ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+// ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type NatPool struct {
 	s *pulumi.ResourceState
 }
@@ -127,7 +127,7 @@ func (r *NatPool) FrontendPortStart() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["frontendPortStart"])
 }
 
-// The ID of the LoadBalancer in which to create the NAT pool.
+// The ID of the Load Balancer in which to create the NAT pool.
 func (r *NatPool) LoadbalancerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
@@ -162,7 +162,7 @@ type NatPoolState struct {
 	FrontendPortEnd interface{}
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortStart interface{}
-	// The ID of the LoadBalancer in which to create the NAT pool.
+	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId interface{}
 	Location interface{}
 	// Specifies the name of the NAT pool.
@@ -183,7 +183,7 @@ type NatPoolArgs struct {
 	FrontendPortEnd interface{}
 	// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPortStart interface{}
-	// The ID of the LoadBalancer in which to create the NAT pool.
+	// The ID of the Load Balancer in which to create the NAT pool.
 	LoadbalancerId interface{}
 	Location interface{}
 	// Specifies the name of the NAT pool.
