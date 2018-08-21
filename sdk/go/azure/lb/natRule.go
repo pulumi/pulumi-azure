@@ -8,9 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a LoadBalancer NAT Rule.
+// Manages a Load Balancer NAT Rule.
 // 
-// ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+// ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type NatRule struct {
 	s *pulumi.ResourceState
 }
@@ -130,7 +130,7 @@ func (r *NatRule) FrontendPort() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["frontendPort"])
 }
 
-// The ID of the LoadBalancer in which to create the NAT Rule.
+// The ID of the Load Balancer in which to create the NAT Rule.
 func (r *NatRule) LoadbalancerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
@@ -144,7 +144,7 @@ func (r *NatRule) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 func (r *NatRule) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -166,12 +166,12 @@ type NatRuleState struct {
 	FrontendIpConfigurationName interface{}
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPort interface{}
-	// The ID of the LoadBalancer in which to create the NAT Rule.
+	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId interface{}
 	Location interface{}
 	// Specifies the name of the NAT Rule.
 	Name interface{}
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol interface{}
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName interface{}
@@ -187,12 +187,12 @@ type NatRuleArgs struct {
 	FrontendIpConfigurationName interface{}
 	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
 	FrontendPort interface{}
-	// The ID of the LoadBalancer in which to create the NAT Rule.
+	// The ID of the Load Balancer in which to create the NAT Rule.
 	LoadbalancerId interface{}
 	Location interface{}
 	// Specifies the name of the NAT Rule.
 	Name interface{}
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
 	Protocol interface{}
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName interface{}

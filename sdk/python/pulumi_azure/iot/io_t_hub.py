@@ -34,7 +34,7 @@ class IoTHub(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+        The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
         """
         __props__['name'] = name
 
@@ -72,7 +72,7 @@ class IoTHub(pulumi.CustomResource):
         """
         __self__.shared_access_policies = pulumi.runtime.UNKNOWN
         """
-        A list of `shared_access_policy` blocks as defined below.
+        One or more `shared_access_policy` blocks as defined below.
         """
         __self__.type = pulumi.runtime.UNKNOWN
 

@@ -8,9 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a LoadBalancer Rule.
+// Manages a Load Balancer Rule.
 // 
-// ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+// ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type Rule struct {
 	s *pulumi.ResourceState
 }
@@ -151,7 +151,7 @@ func (r *Rule) LoadDistribution() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadDistribution"])
 }
 
-// The ID of the LoadBalancer in which to create the Rule.
+// The ID of the Load Balancer in which to create the Rule.
 func (r *Rule) LoadbalancerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
@@ -170,7 +170,7 @@ func (r *Rule) ProbeId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["probeId"])
 }
 
-// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 func (r *Rule) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -197,14 +197,14 @@ type RuleState struct {
 	IdleTimeoutInMinutes interface{}
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution interface{}
-	// The ID of the LoadBalancer in which to create the Rule.
+	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId interface{}
 	Location interface{}
 	// Specifies the name of the LB Rule.
 	Name interface{}
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId interface{}
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 	Protocol interface{}
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName interface{}
@@ -226,14 +226,14 @@ type RuleArgs struct {
 	IdleTimeoutInMinutes interface{}
 	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
 	LoadDistribution interface{}
-	// The ID of the LoadBalancer in which to create the Rule.
+	// The ID of the Load Balancer in which to create the Rule.
 	LoadbalancerId interface{}
 	Location interface{}
 	// Specifies the name of the LB Rule.
 	Name interface{}
 	// A reference to a Probe used by this Load Balancing Rule.
 	ProbeId interface{}
-	// The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 	Protocol interface{}
 	// The name of the resource group in which to create the resource.
 	ResourceGroupName interface{}

@@ -30,10 +30,13 @@ func NewSchedule(ctx *pulumi.Context,
 		inputs["expiryTime"] = nil
 		inputs["frequency"] = nil
 		inputs["interval"] = nil
+		inputs["monthDays"] = nil
+		inputs["monthlyOccurrences"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["startTime"] = nil
 		inputs["timezone"] = nil
+		inputs["weekDays"] = nil
 	} else {
 		inputs["accountName"] = args.AccountName
 		inputs["automationAccountName"] = args.AutomationAccountName
@@ -41,10 +44,13 @@ func NewSchedule(ctx *pulumi.Context,
 		inputs["expiryTime"] = args.ExpiryTime
 		inputs["frequency"] = args.Frequency
 		inputs["interval"] = args.Interval
+		inputs["monthDays"] = args.MonthDays
+		inputs["monthlyOccurrences"] = args.MonthlyOccurrences
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["startTime"] = args.StartTime
 		inputs["timezone"] = args.Timezone
+		inputs["weekDays"] = args.WeekDays
 	}
 	s, err := ctx.RegisterResource("azure:automation/schedule:Schedule", name, true, inputs, opts...)
 	if err != nil {
@@ -65,10 +71,13 @@ func GetSchedule(ctx *pulumi.Context,
 		inputs["expiryTime"] = state.ExpiryTime
 		inputs["frequency"] = state.Frequency
 		inputs["interval"] = state.Interval
+		inputs["monthDays"] = state.MonthDays
+		inputs["monthlyOccurrences"] = state.MonthlyOccurrences
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["startTime"] = state.StartTime
 		inputs["timezone"] = state.Timezone
+		inputs["weekDays"] = state.WeekDays
 	}
 	s, err := ctx.ReadResource("azure:automation/schedule:Schedule", name, id, inputs, opts...)
 	if err != nil {
@@ -111,9 +120,19 @@ func (r *Schedule) Frequency() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["frequency"])
 }
 
-// The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
 func (r *Schedule) Interval() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["interval"])
+}
+
+// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+func (r *Schedule) MonthDays() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["monthDays"])
+}
+
+// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+func (r *Schedule) MonthlyOccurrences() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["monthlyOccurrences"])
 }
 
 // Specifies the name of the Schedule. Changing this forces a new resource to be created.
@@ -136,6 +155,11 @@ func (r *Schedule) Timezone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["timezone"])
 }
 
+// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+func (r *Schedule) WeekDays() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["weekDays"])
+}
+
 // Input properties used for looking up and filtering Schedule resources.
 type ScheduleState struct {
 	AccountName interface{}
@@ -147,8 +171,12 @@ type ScheduleState struct {
 	ExpiryTime interface{}
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency interface{}
-	// The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
 	Interval interface{}
+	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+	MonthDays interface{}
+	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+	MonthlyOccurrences interface{}
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
@@ -157,6 +185,8 @@ type ScheduleState struct {
 	StartTime interface{}
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
 	Timezone interface{}
+	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+	WeekDays interface{}
 }
 
 // The set of arguments for constructing a Schedule resource.
@@ -170,8 +200,12 @@ type ScheduleArgs struct {
 	ExpiryTime interface{}
 	// The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
 	Frequency interface{}
-	// The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+	// The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
 	Interval interface{}
+	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+	MonthDays interface{}
+	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+	MonthlyOccurrences interface{}
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
@@ -180,4 +214,6 @@ type ScheduleArgs struct {
 	StartTime interface{}
 	// The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
 	Timezone interface{}
+	// List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+	WeekDays interface{}
 }

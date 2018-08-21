@@ -23,6 +23,7 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 		return nil, err
 	}
 	return &GetKubernetesClusterResult{
+		AddonProfiles: outputs["addonProfiles"],
 		AgentPoolProfiles: outputs["agentPoolProfiles"],
 		DnsPrefix: outputs["dnsPrefix"],
 		Fqdn: outputs["fqdn"],
@@ -49,6 +50,8 @@ type GetKubernetesClusterArgs struct {
 
 // A collection of values returned by getKubernetesCluster.
 type GetKubernetesClusterResult struct {
+	// A `addon_profile` block as documented below.
+	AddonProfiles interface{}
 	// One or more `agent_profile_pool` blocks as documented below.
 	AgentPoolProfiles interface{}
 	// The DNS Prefix of the managed Kubernetes cluster.

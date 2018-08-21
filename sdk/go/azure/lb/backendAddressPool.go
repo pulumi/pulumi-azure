@@ -8,9 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a LoadBalancer Backend Address Pool.
+// Create a Load Balancer Backend Address Pool.
 // 
-// ~> **NOTE:** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+// ~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type BackendAddressPool struct {
 	s *pulumi.ResourceState
 }
@@ -83,7 +83,7 @@ func (r *BackendAddressPool) LoadBalancingRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["loadBalancingRules"])
 }
 
-// The ID of the LoadBalancer in which to create the Backend Address Pool.
+// The ID of the Load Balancer in which to create the Backend Address Pool.
 func (r *BackendAddressPool) LoadbalancerId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadbalancerId"])
 }
@@ -106,7 +106,7 @@ func (r *BackendAddressPool) ResourceGroupName() *pulumi.StringOutput {
 type BackendAddressPoolState struct {
 	BackendIpConfigurations interface{}
 	LoadBalancingRules interface{}
-	// The ID of the LoadBalancer in which to create the Backend Address Pool.
+	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId interface{}
 	Location interface{}
 	// Specifies the name of the Backend Address Pool.
@@ -117,7 +117,7 @@ type BackendAddressPoolState struct {
 
 // The set of arguments for constructing a BackendAddressPool resource.
 type BackendAddressPoolArgs struct {
-	// The ID of the LoadBalancer in which to create the Backend Address Pool.
+	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId interface{}
 	Location interface{}
 	// Specifies the name of the Backend Address Pool.

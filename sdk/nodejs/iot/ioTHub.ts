@@ -28,7 +28,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+     * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -36,7 +36,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * A list of `shared_access_policy` blocks as defined below.
+     * One or more `shared_access_policy` blocks as defined below.
      */
     public /*out*/ readonly sharedAccessPolicies: pulumi.Output<{ keyName: string, permissions: string, primaryKey: string, secondaryKey: string }[]>;
     /**
@@ -106,7 +106,7 @@ export interface IoTHubState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+     * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -114,7 +114,7 @@ export interface IoTHubState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A list of `shared_access_policy` blocks as defined below.
+     * One or more `shared_access_policy` blocks as defined below.
      */
     readonly sharedAccessPolicies?: pulumi.Input<pulumi.Input<{ keyName?: pulumi.Input<string>, permissions?: pulumi.Input<string>, primaryKey?: pulumi.Input<string>, secondaryKey?: pulumi.Input<string> }>[]>;
     /**
@@ -137,7 +137,7 @@ export interface IoTHubArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+     * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      */
     readonly name?: pulumi.Input<string>;
     /**

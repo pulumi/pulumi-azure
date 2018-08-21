@@ -8,9 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a LoadBalancer Probe Resource.
+// Manages a LoadBalancer Probe Resource.
 // 
-// ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+// ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type Probe struct {
 	s *pulumi.ResourceState
 }
@@ -124,7 +124,7 @@ func (r *Probe) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
 
-// Specifies the protocol of the end point. Possible values are `Http` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 func (r *Probe) Protocol() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protocol"])
 }
@@ -153,7 +153,7 @@ type ProbeState struct {
 	NumberOfProbes interface{}
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port interface{}
-	// Specifies the protocol of the end point. Possible values are `Http` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol interface{}
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
 	RequestPath interface{}
@@ -174,7 +174,7 @@ type ProbeArgs struct {
 	NumberOfProbes interface{}
 	// Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
 	Port interface{}
-	// Specifies the protocol of the end point. Possible values are `Http` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+	// Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
 	Protocol interface{}
 	// The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
 	RequestPath interface{}

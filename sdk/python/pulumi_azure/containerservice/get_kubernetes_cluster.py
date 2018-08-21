@@ -9,7 +9,13 @@ class GetKubernetesClusterResult(object):
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, network_profiles=None, node_resource_group=None, service_principals=None, tags=None, id=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, network_profiles=None, node_resource_group=None, service_principals=None, tags=None, id=None):
+        if addon_profiles and not isinstance(addon_profiles, list):
+            raise TypeError('Expected argument addon_profiles to be a list')
+        __self__.addon_profiles = addon_profiles
+        """
+        A `addon_profile` block as documented below.
+        """
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError('Expected argument agent_pool_profiles to be a list')
         __self__.agent_pool_profiles = agent_pool_profiles
@@ -104,6 +110,7 @@ def get_kubernetes_cluster(name=None, resource_group_name=None):
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesCluster:getKubernetesCluster', __args__)
 
     return GetKubernetesClusterResult(
+        addon_profiles=__ret__.get('addonProfiles'),
         agent_pool_profiles=__ret__.get('agentPoolProfiles'),
         dns_prefix=__ret__.get('dnsPrefix'),
         fqdn=__ret__.get('fqdn'),

@@ -12,7 +12,7 @@ class KubernetesCluster(pulumi.CustomResource):
     ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, service_principal=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, service_principal=None, tags=None):
         """Create a KubernetesCluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -22,6 +22,14 @@ class KubernetesCluster(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if addon_profile and not isinstance(addon_profile, dict):
+            raise TypeError('Expected property addon_profile to be a dict')
+        __self__.addon_profile = addon_profile
+        """
+        A `addon_profile` block.
+        """
+        __props__['addonProfile'] = addon_profile
 
         if not agent_pool_profile:
             raise TypeError('Missing required property agent_pool_profile')
@@ -121,7 +129,7 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         __self__.kube_config = pulumi.runtime.UNKNOWN
         """
-        Kubernetes configuration, sub-attributes defined below:
+        A `kube_config` block as defined below.
         """
         __self__.kube_config_raw = pulumi.runtime.UNKNOWN
         """
@@ -141,6 +149,8 @@ class KubernetesCluster(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'addonProfile' in outs:
+            self.addon_profile = outs['addonProfile']
         if 'agentPoolProfile' in outs:
             self.agent_pool_profile = outs['agentPoolProfile']
         if 'dnsPrefix' in outs:

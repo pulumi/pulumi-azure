@@ -7,9 +7,9 @@ import pulumi.runtime
 
 class Probe(pulumi.CustomResource):
     """
-    Create a LoadBalancer Probe Resource.
+    Manages a LoadBalancer Probe Resource.
     
-    ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+    ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     """
     def __init__(__self__, __name__, __opts__=None, interval_in_seconds=None, loadbalancer_id=None, location=None, name=None, number_of_probes=None, port=None, protocol=None, request_path=None, resource_group_name=None):
         """Create a Probe resource with the given unique name, props, and options."""
@@ -75,7 +75,7 @@ class Probe(pulumi.CustomResource):
             raise TypeError('Expected property protocol to be a basestring')
         __self__.protocol = protocol
         """
-        Specifies the protocol of the end point. Possible values are `Http` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+        Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
         """
         __props__['protocol'] = protocol
 
