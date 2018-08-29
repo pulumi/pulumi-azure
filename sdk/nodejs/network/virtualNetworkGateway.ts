@@ -54,7 +54,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * A user-defined name of the revoked certificate.
+     * The name of the Virtual Network Gateway. Changing the name
+     * forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -189,7 +190,8 @@ export interface VirtualNetworkGatewayState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * A user-defined name of the revoked certificate.
+     * The name of the Virtual Network Gateway. Changing the name
+     * forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -265,7 +267,8 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * A user-defined name of the revoked certificate.
+     * The name of the Virtual Network Gateway. Changing the name
+     * forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

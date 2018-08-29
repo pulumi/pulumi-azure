@@ -11,7 +11,7 @@ class VirtualNetwork(pulumi.CustomResource):
     optionally be configured with a security group to be associated with the subnet.
     
     ~> **NOTE on Virtual Networks and Subnet's:** Terraform currently
-    provides both a standalone [Subnet resource](subnet.html), and allows for Subnets to be defined in-line within the [Virtual Network resource](virtual_network.html).
+    provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
     At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
     """
     def __init__(__self__, __name__, __opts__=None, address_spaces=None, dns_servers=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None):
@@ -60,7 +60,8 @@ class VirtualNetwork(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the subnet.
+        The name of the virtual network. Changing this forces a
+        new resource to be created.
         """
         __props__['name'] = name
 

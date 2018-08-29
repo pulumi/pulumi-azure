@@ -42,7 +42,7 @@ class Namespace(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 

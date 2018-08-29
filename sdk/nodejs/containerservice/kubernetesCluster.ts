@@ -7,7 +7,7 @@ import * as pulumi from "@pulumi/pulumi";
  * Manages a managed Kubernetes Cluster (AKS)
  * 
  * ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class KubernetesCluster extends pulumi.CustomResource {
     /**
@@ -61,7 +61,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+     * The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -195,7 +195,7 @@ export interface KubernetesClusterState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+     * The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -249,7 +249,7 @@ export interface KubernetesClusterArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+     * The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

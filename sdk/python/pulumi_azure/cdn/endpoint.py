@@ -74,7 +74,7 @@ class Endpoint(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+        Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 
@@ -157,9 +157,6 @@ class Endpoint(pulumi.CustomResource):
         __props__['tags'] = tags
 
         __self__.host_name = pulumi.runtime.UNKNOWN
-        """
-        A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
-        """
 
         super(Endpoint, __self__).__init__(
             'azure:cdn/endpoint:Endpoint',

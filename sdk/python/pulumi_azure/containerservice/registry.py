@@ -10,7 +10,7 @@ class Registry(pulumi.CustomResource):
     Manages an Azure Container Registry.
     
     ~> **Note:** All arguments including the access key will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, admin_enabled=None, location=None, name=None, resource_group_name=None, sku=None, storage_account=None, storage_account_id=None, tags=None):
         """Create a Registry resource with the given unique name, props, and options."""

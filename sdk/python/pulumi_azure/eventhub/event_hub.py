@@ -47,7 +47,7 @@ class EventHub(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+        Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 

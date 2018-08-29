@@ -25,7 +25,7 @@ class Queue(pulumi.CustomResource):
         __self__.auto_delete_on_idle = auto_delete_on_idle
         """
         The idle interval after which the
-        Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
+        Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
         format.
         """
         __props__['autoDeleteOnIdle'] = auto_delete_on_idle
@@ -43,7 +43,7 @@ class Queue(pulumi.CustomResource):
         __self__.default_message_ttl = default_message_ttl
         """
         The TTL of messages sent to this queue. This is the default value
-        used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
+        used when TTL is not set on message itself. Provided in the TimeSpan
         format.
         """
         __props__['defaultMessageTtl'] = default_message_ttl
@@ -53,7 +53,7 @@ class Queue(pulumi.CustomResource):
         __self__.duplicate_detection_history_time_window = duplicate_detection_history_time_window
         """
         The duration during which
-        duplicates can be detected. Default value is 10 minutes. Provided in the [TimeSpan](#timespan-format) format.
+        duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
         """
         __props__['duplicateDetectionHistoryTimeWindow'] = duplicate_detection_history_time_window
 

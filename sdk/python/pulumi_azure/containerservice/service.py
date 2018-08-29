@@ -10,7 +10,7 @@ class Service(pulumi.CustomResource):
     Manages an Azure Container Service Instance
     
     ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     
     ## Example Usage (DCOS)
     

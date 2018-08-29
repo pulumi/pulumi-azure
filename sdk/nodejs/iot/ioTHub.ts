@@ -28,7 +28,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+     * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -106,7 +106,7 @@ export interface IoTHubState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+     * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -137,7 +137,7 @@ export interface IoTHubArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+     * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

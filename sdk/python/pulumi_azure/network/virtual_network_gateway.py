@@ -86,7 +86,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        A user-defined name of the revoked certificate.
+        The name of the Virtual Network Gateway. Changing the name
+        forces a new resource to be created.
         """
         __props__['name'] = name
 
