@@ -169,7 +169,7 @@ func (r *VirtualMachine) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Specifies the name of the OS Disk.
+// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 func (r *VirtualMachine) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -260,7 +260,7 @@ type VirtualMachineState struct {
 	LicenseType interface{}
 	// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the OS Disk.
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	Name interface{}
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds interface{}
@@ -308,7 +308,7 @@ type VirtualMachineArgs struct {
 	LicenseType interface{}
 	// Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the OS Disk.
+	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
 	Name interface{}
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds interface{}

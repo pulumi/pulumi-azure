@@ -123,7 +123,6 @@ func (r *Endpoint) GeoFilters() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["geoFilters"])
 }
 
-// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
 func (r *Endpoint) HostName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hostName"])
 }
@@ -148,7 +147,7 @@ func (r *Endpoint) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 func (r *Endpoint) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -204,7 +203,6 @@ type EndpointState struct {
 	ContentTypesToCompresses interface{}
 	// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
 	GeoFilters interface{}
-	// A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
 	HostName interface{}
 	// Indicates whether compression is to be enabled. Defaults to false.
 	IsCompressionEnabled interface{}
@@ -214,7 +212,7 @@ type EndpointState struct {
 	IsHttpsAllowed interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name interface{}
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType interface{}
@@ -250,7 +248,7 @@ type EndpointArgs struct {
 	IsHttpsAllowed interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+	// Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 	Name interface{}
 	// What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
 	OptimizationType interface{}

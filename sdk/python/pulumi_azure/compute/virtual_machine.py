@@ -84,7 +84,7 @@ class VirtualMachine(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the name of the OS Disk.
+        Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 

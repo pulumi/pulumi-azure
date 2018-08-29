@@ -26,7 +26,7 @@ class Subscription(pulumi.CustomResource):
         """
         The idle interval after which the
         Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-        [TimeSpan](#timespan-format) format.
+        TimeSpan format.
         """
         __props__['autoDeleteOnIdle'] = auto_delete_on_idle
 
@@ -50,7 +50,7 @@ class Subscription(pulumi.CustomResource):
         __self__.default_message_ttl = default_message_ttl
         """
         The TTL of messages sent to this Subscription
-        if no TTL value is set on the message itself. Provided in the [TimeSpan](#timespan-format)
+        if no TTL value is set on the message itself. Provided in the TimeSpan
         format.
         """
         __props__['defaultMessageTtl'] = default_message_ttl

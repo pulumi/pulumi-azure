@@ -34,7 +34,7 @@ class IoTHub(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+        Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 

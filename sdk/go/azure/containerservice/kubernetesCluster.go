@@ -11,7 +11,7 @@ import (
 // Manages a managed Kubernetes Cluster (AKS)
 // 
 // ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type KubernetesCluster struct {
 	s *pulumi.ResourceState
 }
@@ -160,7 +160,7 @@ func (r *KubernetesCluster) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -212,7 +212,7 @@ type KubernetesClusterState struct {
 	LinuxProfile interface{}
 	// The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
 	Location interface{}
-	// Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+	// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
 	Name interface{}
 	// A Network Profile block as documented below.
 	NetworkProfile interface{}
@@ -240,7 +240,7 @@ type KubernetesClusterArgs struct {
 	LinuxProfile interface{}
 	// The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
 	Location interface{}
-	// Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+	// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
 	Name interface{}
 	// A Network Profile block as documented below.
 	NetworkProfile interface{}

@@ -93,7 +93,7 @@ func (r *Namespace) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 func (r *Namespace) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -124,7 +124,7 @@ type NamespaceState struct {
 	Enabled interface{}
 	// The Azure Region in which this Notification Hub Namespace should be created.
 	Location interface{}
-	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name interface{}
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
 	NamespaceType interface{}
@@ -142,7 +142,7 @@ type NamespaceArgs struct {
 	Enabled interface{}
 	// The Azure Region in which this Notification Hub Namespace should be created.
 	Location interface{}
-	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	// The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 	Name interface{}
 	// The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
 	NamespaceType interface{}

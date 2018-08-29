@@ -56,7 +56,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly macAddress: pulumi.Output<string>;
     /**
-     * User-defined name of the IP.
+     * The name of the network interface. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -64,7 +64,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly networkSecurityGroupId: pulumi.Output<string | undefined>;
     /**
-     * Static IP Address.
+     * The private ip address of the network interface.
      */
     public /*out*/ readonly privateIpAddress: pulumi.Output<string>;
     public /*out*/ readonly privateIpAddresses: pulumi.Output<string[]>;
@@ -182,7 +182,7 @@ export interface NetworkInterfaceState {
      */
     readonly macAddress?: pulumi.Input<string>;
     /**
-     * User-defined name of the IP.
+     * The name of the network interface. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -190,7 +190,7 @@ export interface NetworkInterfaceState {
      */
     readonly networkSecurityGroupId?: pulumi.Input<string>;
     /**
-     * Static IP Address.
+     * The private ip address of the network interface.
      */
     readonly privateIpAddress?: pulumi.Input<string>;
     readonly privateIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
@@ -249,7 +249,7 @@ export interface NetworkInterfaceArgs {
      */
     readonly macAddress?: pulumi.Input<string>;
     /**
-     * User-defined name of the IP.
+     * The name of the network interface. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

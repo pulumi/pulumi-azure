@@ -28,7 +28,7 @@ export class Setting extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * Specifies the name of the profile.
+     * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export interface SettingState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the profile.
+     * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -150,7 +150,7 @@ export interface SettingArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Specifies the name of the profile.
+     * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

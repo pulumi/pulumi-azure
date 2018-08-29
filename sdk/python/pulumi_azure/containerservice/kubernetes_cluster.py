@@ -10,7 +10,7 @@ class KubernetesCluster(pulumi.CustomResource):
     Manages a managed Kubernetes Cluster (AKS)
     
     ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, service_principal=None, tags=None):
         """Create a KubernetesCluster resource with the given unique name, props, and options."""
@@ -83,7 +83,7 @@ class KubernetesCluster(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+        The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 

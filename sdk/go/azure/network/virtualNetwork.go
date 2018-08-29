@@ -12,7 +12,7 @@ import (
 // optionally be configured with a security group to be associated with the subnet.
 // 
 // ~> **NOTE on Virtual Networks and Subnet's:** Terraform currently
-// provides both a standalone [Subnet resource](subnet.html), and allows for Subnets to be defined in-line within the [Virtual Network resource](virtual_network.html).
+// provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
 // At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
 type VirtualNetwork struct {
 	s *pulumi.ResourceState
@@ -104,7 +104,8 @@ func (r *VirtualNetwork) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the subnet.
+// The name of the virtual network. Changing this forces a
+// new resource to be created.
 func (r *VirtualNetwork) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -137,7 +138,8 @@ type VirtualNetworkState struct {
 	// The location/region where the virtual network is
 	// created. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the subnet.
+	// The name of the virtual network. Changing this forces a
+	// new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to
 	// create the virtual network.
@@ -160,7 +162,8 @@ type VirtualNetworkArgs struct {
 	// The location/region where the virtual network is
 	// created. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the subnet.
+	// The name of the virtual network. Changing this forces a
+	// new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to
 	// create the virtual network.

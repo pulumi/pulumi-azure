@@ -28,7 +28,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the route.
+     * The name of the route table. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -100,7 +100,7 @@ export interface RouteTableState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the route table. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -134,7 +134,7 @@ export interface RouteTableArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the route table. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

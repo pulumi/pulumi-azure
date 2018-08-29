@@ -10,7 +10,7 @@ import (
 // Gets information about a managed Kubernetes Cluster (AKS)
 // 
 // ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 // 
 func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs) (*GetKubernetesClusterResult, error) {
 	inputs := make(map[string]interface{})

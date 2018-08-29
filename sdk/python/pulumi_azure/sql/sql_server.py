@@ -10,7 +10,7 @@ class SqlServer(pulumi.CustomResource):
     Manages a SQL Azure Database Server.
     
     ~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, administrator_login=None, administrator_login_password=None, location=None, name=None, resource_group_name=None, tags=None, version=None):
         """Create a SqlServer resource with the given unique name, props, and options."""

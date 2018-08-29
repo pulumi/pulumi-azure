@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of a custom Role Definition. To access information about a built-in Role Definition, [please see the `azurerm_builtin_role_definition` data source](builtin_role_definition.html) instead.
+// Use this data source to access the properties of a custom Role Definition. To access information about a built-in Role Definition, please see the `azurerm_builtin_role_definition` data source instead.
 func LookupRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*GetRoleDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

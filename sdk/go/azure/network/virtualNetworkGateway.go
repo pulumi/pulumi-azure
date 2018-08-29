@@ -147,7 +147,8 @@ func (r *VirtualNetworkGateway) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// A user-defined name of the revoked certificate.
+// The name of the Virtual Network Gateway. Changing the name
+// forces a new resource to be created.
 func (r *VirtualNetworkGateway) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -216,7 +217,8 @@ type VirtualNetworkGatewayState struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location interface{}
-	// A user-defined name of the revoked certificate.
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces
@@ -266,7 +268,8 @@ type VirtualNetworkGatewayArgs struct {
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
 	Location interface{}
-	// A user-defined name of the revoked certificate.
+	// The name of the Virtual Network Gateway. Changing the name
+	// forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to
 	// create the Virtual Network Gateway. Changing the resource group name forces

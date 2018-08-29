@@ -95,7 +95,7 @@ func (r *Namespace) MetricId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["metricId"])
 }
 
-// The name of the SKU to use. At this time the only supported value is `Standard`.
+// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 func (r *Namespace) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -141,7 +141,7 @@ type NamespaceState struct {
 	Location interface{}
 	// The Identifier for Azure Insights metrics.
 	MetricId interface{}
-	// The name of the SKU to use. At this time the only supported value is `Standard`.
+	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 	Name interface{}
 	// The primary connection string for the authorization rule `RootManageSharedAccessKey`.
 	PrimaryConnectionString interface{}
@@ -163,7 +163,7 @@ type NamespaceState struct {
 type NamespaceArgs struct {
 	// Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the SKU to use. At this time the only supported value is `Standard`.
+	// Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to create the Azure Relay Namespace.
 	ResourceGroupName interface{}

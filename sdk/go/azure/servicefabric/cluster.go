@@ -156,7 +156,7 @@ func (r *Cluster) ManagementEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["managementEndpoint"])
 }
 
-// The name of the Node Type. Changing this forces a new resource to be created.
+// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
 func (r *Cluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -209,7 +209,7 @@ type ClusterState struct {
 	Location interface{}
 	// Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
 	ManagementEndpoint interface{}
-	// The name of the Node Type. Changing this forces a new resource to be created.
+	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
 	Name interface{}
 	// One or more `node_type` blocks as defined below.
 	NodeTypes interface{}
@@ -241,7 +241,7 @@ type ClusterArgs struct {
 	Location interface{}
 	// Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
 	ManagementEndpoint interface{}
-	// The name of the Node Type. Changing this forces a new resource to be created.
+	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
 	Name interface{}
 	// One or more `node_type` blocks as defined below.
 	NodeTypes interface{}

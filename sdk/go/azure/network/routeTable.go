@@ -87,7 +87,7 @@ func (r *RouteTable) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the route.
+// The name of the route table. Changing this forces a new resource to be created.
 func (r *RouteTable) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -118,7 +118,7 @@ type RouteTableState struct {
 	DisableBgpRoutePropagation interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the route.
+	// The name of the route table. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -136,7 +136,7 @@ type RouteTableArgs struct {
 	DisableBgpRoutePropagation interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the route.
+	// The name of the route table. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
