@@ -629,7 +629,7 @@
     "azurerm/helpers/validate",
     "azurerm/utils"
   ]
-  revision = "ada5afa241bb667ffbd999ce8846464b789c19ab"
+  revision = "369b87d4925a1d6caa07fe646b39bc8efaeede24"
   source = "github.com/pulumi/terraform-provider-azurerm"
 
 [[projects]]
