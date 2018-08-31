@@ -614,6 +614,7 @@
   version = "v1.1.4"
 
 [[projects]]
+  branch = "timeout"
   name = "github.com/terraform-providers/terraform-provider-azurerm"
   packages = [
     "azurerm",
@@ -628,8 +629,8 @@
     "azurerm/helpers/validate",
     "azurerm/utils"
   ]
-  revision = "e3dd02da41f1cf1cab57ac9052a8c2641c5faef6"
-  version = "v1.13.0"
+  revision = "369b87d4925a1d6caa07fe646b39bc8efaeede24"
+  source = "github.com/pulumi/terraform-provider-azurerm"
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
@@ -858,6 +859,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "143da3ddc7a4c7d88b797800149efb1b11e9a1c028c8cafe79d2328e717208d7"
+  inputs-digest = "dcea301bb68d1ac9209e288288633f8917ef2894458ac63f0a804dbbaf891203"
   solver-name = "gps-cdcl"
   solver-version = 1
