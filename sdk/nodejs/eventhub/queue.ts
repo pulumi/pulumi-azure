@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Create and manage a ServiceBus Queue.
@@ -21,7 +22,7 @@ export class Queue extends pulumi.CustomResource {
 
     /**
      * The idle interval after which the
-     * Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
+     * Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
      * format.
      */
     public readonly autoDeleteOnIdle: pulumi.Output<string>;
@@ -31,13 +32,13 @@ export class Queue extends pulumi.CustomResource {
     public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
     /**
      * The TTL of messages sent to this queue. This is the default value
-     * used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
+     * used when TTL is not set on message itself. Provided in the TimeSpan
      * format.
      */
     public readonly defaultMessageTtl: pulumi.Output<string>;
     /**
      * The duration during which
-     * duplicates can be detected. Default value is 10 minutes. Provided in the [TimeSpan](#timespan-format) format.
+     * duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
      */
     public readonly duplicateDetectionHistoryTimeWindow: pulumi.Output<string>;
     public readonly enableBatchedOperations: pulumi.Output<boolean | undefined>;
@@ -163,7 +164,7 @@ export class Queue extends pulumi.CustomResource {
 export interface QueueState {
     /**
      * The idle interval after which the
-     * Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
+     * Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
      * format.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
@@ -173,13 +174,13 @@ export interface QueueState {
     readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * The TTL of messages sent to this queue. This is the default value
-     * used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
+     * used when TTL is not set on message itself. Provided in the TimeSpan
      * format.
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
     /**
      * The duration during which
-     * duplicates can be detected. Default value is 10 minutes. Provided in the [TimeSpan](#timespan-format) format.
+     * duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     readonly enableBatchedOperations?: pulumi.Input<boolean>;
@@ -249,7 +250,7 @@ export interface QueueState {
 export interface QueueArgs {
     /**
      * The idle interval after which the
-     * Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
+     * Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
      * format.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
@@ -259,13 +260,13 @@ export interface QueueArgs {
     readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * The TTL of messages sent to this queue. This is the default value
-     * used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
+     * used when TTL is not set on message itself. Provided in the TimeSpan
      * format.
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
     /**
      * The duration during which
-     * duplicates can be detected. Default value is 10 minutes. Provided in the [TimeSpan](#timespan-format) format.
+     * duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     readonly enableBatchedOperations?: pulumi.Input<boolean>;

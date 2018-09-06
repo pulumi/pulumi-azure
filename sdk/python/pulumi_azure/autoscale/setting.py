@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Setting(pulumi.CustomResource):
     """
@@ -42,7 +43,7 @@ class Setting(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the name of the profile.
+        The name of the AutoScale Setting. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 

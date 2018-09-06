@@ -4,12 +4,13 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Schedule(pulumi.CustomResource):
     """
     Manages a Automation Schedule.
     """
-    def __init__(__self__, __name__, __opts__=None, account_name=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, name=None, resource_group_name=None, start_time=None, timezone=None):
+    def __init__(__self__, __name__, __opts__=None, account_name=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, month_days=None, monthly_occurrences=None, name=None, resource_group_name=None, start_time=None, timezone=None, week_days=None):
         """Create a Schedule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -63,9 +64,25 @@ class Schedule(pulumi.CustomResource):
             raise TypeError('Expected property interval to be a int')
         __self__.interval = interval
         """
-        The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
         """
         __props__['interval'] = interval
+
+        if month_days and not isinstance(month_days, list):
+            raise TypeError('Expected property month_days to be a list')
+        __self__.month_days = month_days
+        """
+        List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+        """
+        __props__['monthDays'] = month_days
+
+        if monthly_occurrences and not isinstance(monthly_occurrences, list):
+            raise TypeError('Expected property monthly_occurrences to be a list')
+        __self__.monthly_occurrences = monthly_occurrences
+        """
+        List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        """
+        __props__['monthlyOccurrences'] = monthly_occurrences
 
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
@@ -101,6 +118,14 @@ class Schedule(pulumi.CustomResource):
         """
         __props__['timezone'] = timezone
 
+        if week_days and not isinstance(week_days, list):
+            raise TypeError('Expected property week_days to be a list')
+        __self__.week_days = week_days
+        """
+        List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        """
+        __props__['weekDays'] = week_days
+
         super(Schedule, __self__).__init__(
             'azure:automation/schedule:Schedule',
             __name__,
@@ -120,6 +145,10 @@ class Schedule(pulumi.CustomResource):
             self.frequency = outs['frequency']
         if 'interval' in outs:
             self.interval = outs['interval']
+        if 'monthDays' in outs:
+            self.month_days = outs['monthDays']
+        if 'monthlyOccurrences' in outs:
+            self.monthly_occurrences = outs['monthlyOccurrences']
         if 'name' in outs:
             self.name = outs['name']
         if 'resourceGroupName' in outs:
@@ -128,3 +157,5 @@ class Schedule(pulumi.CustomResource):
             self.start_time = outs['startTime']
         if 'timezone' in outs:
             self.timezone = outs['timezone']
+        if 'weekDays' in outs:
+            self.week_days = outs['weekDays']

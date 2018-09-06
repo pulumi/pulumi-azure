@@ -10,7 +10,7 @@ import (
 // Gets information about a managed Kubernetes Cluster (AKS)
 // 
 // ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 // 
 func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs) (*GetKubernetesClusterResult, error) {
 	inputs := make(map[string]interface{})
@@ -23,6 +23,7 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 		return nil, err
 	}
 	return &GetKubernetesClusterResult{
+		AddonProfiles: outputs["addonProfiles"],
 		AgentPoolProfiles: outputs["agentPoolProfiles"],
 		DnsPrefix: outputs["dnsPrefix"],
 		Fqdn: outputs["fqdn"],
@@ -49,6 +50,8 @@ type GetKubernetesClusterArgs struct {
 
 // A collection of values returned by getKubernetesCluster.
 type GetKubernetesClusterResult struct {
+	// A `addon_profile` block as documented below.
+	AddonProfiles interface{}
 	// One or more `agent_profile_pool` blocks as documented below.
 	AgentPoolProfiles interface{}
 	// The DNS Prefix of the managed Kubernetes cluster.

@@ -2,12 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
  * 
  * ~> **NOTE on Network Security Groups and Network Security Rules:** Terraform currently
- * provides both a standalone [Network Security Rule resource](network_security_rule.html), and allows for Network Security Rules to be defined in-line within the [Network Security Group resource](network_security_group.html).
+ * provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
  * At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
  */
 export class NetworkSecurityGroup extends pulumi.CustomResource {
@@ -28,7 +29,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the security rule.
+     * Specifies the name of the network security group. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -88,7 +89,7 @@ export interface NetworkSecurityGroupState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the security rule.
+     * Specifies the name of the network security group. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -114,7 +115,7 @@ export interface NetworkSecurityGroupArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the security rule.
+     * Specifies the name of the network security group. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

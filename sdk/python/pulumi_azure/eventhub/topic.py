@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Topic(pulumi.CustomResource):
     """
@@ -27,7 +28,7 @@ class Topic(pulumi.CustomResource):
         __self__.auto_delete_on_idle = auto_delete_on_idle
         """
         The idle interval after which the
-        Topic is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
+        Topic is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
         format.
         """
         __props__['autoDeleteOnIdle'] = auto_delete_on_idle
@@ -37,7 +38,7 @@ class Topic(pulumi.CustomResource):
         __self__.default_message_ttl = default_message_ttl
         """
         The TTL of messages sent to this topic if no
-        TTL value is set on the message itself. Provided in the [TimeSpan](#timespan-format)
+        TTL value is set on the message itself. Provided in the TimeSpan
         format.
         """
         __props__['defaultMessageTtl'] = default_message_ttl
@@ -47,7 +48,7 @@ class Topic(pulumi.CustomResource):
         __self__.duplicate_detection_history_time_window = duplicate_detection_history_time_window
         """
         The duration during which
-        duplicates can be detected. Provided in the [TimeSpan](#timespan-format) format. Defaults to 10 minutes (`00:10:00`)
+        duplicates can be detected. Provided in the TimeSpan format. Defaults to 10 minutes (`00:10:00`)
         """
         __props__['duplicateDetectionHistoryTimeWindow'] = duplicate_detection_history_time_window
 

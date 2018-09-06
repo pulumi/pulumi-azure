@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from alert_rule import *
+from action_group import *

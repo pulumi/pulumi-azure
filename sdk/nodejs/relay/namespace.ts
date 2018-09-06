@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Relay Namespace.
@@ -28,7 +29,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly metricId: pulumi.Output<string>;
     /**
-     * The name of the SKU to use. At this time the only supported value is `Standard`.
+     * Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -121,7 +122,7 @@ export interface NamespaceState {
      */
     readonly metricId?: pulumi.Input<string>;
     /**
-     * The name of the SKU to use. At this time the only supported value is `Standard`.
+     * Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -163,7 +164,7 @@ export interface NamespaceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the SKU to use. At this time the only supported value is `Standard`.
+     * Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

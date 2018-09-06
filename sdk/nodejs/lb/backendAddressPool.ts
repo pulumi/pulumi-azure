@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
- * Create a LoadBalancer Backend Address Pool.
+ * Create a Load Balancer Backend Address Pool.
  * 
- * ~> **NOTE:** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+ * ~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  */
 export class BackendAddressPool extends pulumi.CustomResource {
     /**
@@ -24,7 +25,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
     public /*out*/ readonly backendIpConfigurations: pulumi.Output<string[]>;
     public /*out*/ readonly loadBalancingRules: pulumi.Output<string[]>;
     /**
-     * The ID of the LoadBalancer in which to create the Backend Address Pool.
+     * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     public readonly loadbalancerId: pulumi.Output<string>;
     public readonly location: pulumi.Output<string | undefined>;
@@ -81,7 +82,7 @@ export interface BackendAddressPoolState {
     readonly backendIpConfigurations?: pulumi.Input<pulumi.Input<string>[]>;
     readonly loadBalancingRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID of the LoadBalancer in which to create the Backend Address Pool.
+     * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;
@@ -100,7 +101,7 @@ export interface BackendAddressPoolState {
  */
 export interface BackendAddressPoolArgs {
     /**
-     * The ID of the LoadBalancer in which to create the Backend Address Pool.
+     * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     readonly loadbalancerId: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;

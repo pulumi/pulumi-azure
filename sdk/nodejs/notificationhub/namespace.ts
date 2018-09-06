@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages a Notification Hub Namespace.
@@ -28,7 +29,7 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -106,7 +107,7 @@ export interface NamespaceState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -140,7 +141,7 @@ export interface NamespaceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

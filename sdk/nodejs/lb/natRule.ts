@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
- * Create a LoadBalancer NAT Rule.
+ * Manages a Load Balancer NAT Rule.
  * 
- * ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+ * ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  */
 export class NatRule extends pulumi.CustomResource {
     /**
@@ -40,7 +41,7 @@ export class NatRule extends pulumi.CustomResource {
      */
     public readonly frontendPort: pulumi.Output<number>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule.
+     * The ID of the Load Balancer in which to create the NAT Rule.
      */
     public readonly loadbalancerId: pulumi.Output<string>;
     public readonly location: pulumi.Output<string | undefined>;
@@ -49,7 +50,7 @@ export class NatRule extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     public readonly protocol: pulumi.Output<string>;
     /**
@@ -139,7 +140,7 @@ export interface NatRuleState {
      */
     readonly frontendPort?: pulumi.Input<number>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule.
+     * The ID of the Load Balancer in which to create the NAT Rule.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;
@@ -148,7 +149,7 @@ export interface NatRuleState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -178,7 +179,7 @@ export interface NatRuleArgs {
      */
     readonly frontendPort: pulumi.Input<number>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT Rule.
+     * The ID of the Load Balancer in which to create the NAT Rule.
      */
     readonly loadbalancerId: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;
@@ -187,7 +188,7 @@ export interface NatRuleArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
     readonly protocol: pulumi.Input<string>;
     /**

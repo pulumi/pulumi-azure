@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class GetSecretResult(object):
     """
@@ -46,7 +47,7 @@ def get_secret(name=None, vault_uri=None):
     Returns information about the specified Key Vault Secret.
     
     ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     __args__ = dict()
 

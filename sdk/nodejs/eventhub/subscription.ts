@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Create a ServiceBus Subscription.
@@ -22,7 +23,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The idle interval after which the
      * Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-     * [TimeSpan](#timespan-format) format.
+     * TimeSpan format.
      */
     public readonly autoDeleteOnIdle: pulumi.Output<string>;
     public readonly deadLetteringOnFilterEvaluationExceptions: pulumi.Output<boolean | undefined>;
@@ -34,7 +35,7 @@ export class Subscription extends pulumi.CustomResource {
     public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
     /**
      * The TTL of messages sent to this Subscription
-     * if no TTL value is set on the message itself. Provided in the [TimeSpan](#timespan-format)
+     * if no TTL value is set on the message itself. Provided in the TimeSpan
      * format.
      */
     public readonly defaultMessageTtl: pulumi.Output<string>;
@@ -155,7 +156,7 @@ export interface SubscriptionState {
     /**
      * The idle interval after which the
      * Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-     * [TimeSpan](#timespan-format) format.
+     * TimeSpan format.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
     readonly deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
@@ -167,7 +168,7 @@ export interface SubscriptionState {
     readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * The TTL of messages sent to this Subscription
-     * if no TTL value is set on the message itself. Provided in the [TimeSpan](#timespan-format)
+     * if no TTL value is set on the message itself. Provided in the TimeSpan
      * format.
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
@@ -230,7 +231,7 @@ export interface SubscriptionArgs {
     /**
      * The idle interval after which the
      * Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-     * [TimeSpan](#timespan-format) format.
+     * TimeSpan format.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
     readonly deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
@@ -242,7 +243,7 @@ export interface SubscriptionArgs {
     readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * The TTL of messages sent to this Subscription
-     * if no TTL value is set on the message itself. Provided in the [TimeSpan](#timespan-format)
+     * if no TTL value is set on the message itself. Provided in the TimeSpan
      * format.
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;

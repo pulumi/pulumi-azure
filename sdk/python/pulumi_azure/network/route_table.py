@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class RouteTable(pulumi.CustomResource):
     """
@@ -42,7 +43,7 @@ class RouteTable(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the route.
+        The name of the route table. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 

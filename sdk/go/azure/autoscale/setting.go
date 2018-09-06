@@ -97,7 +97,7 @@ func (r *Setting) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Specifies the name of the profile.
+// The name of the AutoScale Setting. Changing this forces a new resource to be created.
 func (r *Setting) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -133,7 +133,7 @@ type SettingState struct {
 	Enabled interface{}
 	// Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the profile.
+	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies a `notification` block as defined below.
 	Notification interface{}
@@ -153,7 +153,7 @@ type SettingArgs struct {
 	Enabled interface{}
 	// Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the profile.
+	// The name of the AutoScale Setting. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies a `notification` block as defined below.
 	Notification interface{}

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages a IotHub
@@ -28,7 +29,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+     * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -36,7 +37,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * A list of `shared_access_policy` blocks as defined below.
+     * One or more `shared_access_policy` blocks as defined below.
      */
     public /*out*/ readonly sharedAccessPolicies: pulumi.Output<{ keyName: string, permissions: string, primaryKey: string, secondaryKey: string }[]>;
     /**
@@ -106,7 +107,7 @@ export interface IoTHubState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+     * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -114,7 +115,7 @@ export interface IoTHubState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A list of `shared_access_policy` blocks as defined below.
+     * One or more `shared_access_policy` blocks as defined below.
      */
     readonly sharedAccessPolicies?: pulumi.Input<pulumi.Input<{ keyName?: pulumi.Input<string>, permissions?: pulumi.Input<string>, primaryKey?: pulumi.Input<string>, secondaryKey?: pulumi.Input<string> }>[]>;
     /**
@@ -137,7 +138,7 @@ export interface IoTHubArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+     * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

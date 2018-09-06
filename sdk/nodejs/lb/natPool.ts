@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
- * Create a LoadBalancer NAT pool.
+ * Manages a Load Balancer NAT pool.
  * 
- * ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+ * ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  */
 export class NatPool extends pulumi.CustomResource {
     /**
@@ -39,7 +40,7 @@ export class NatPool extends pulumi.CustomResource {
      */
     public readonly frontendPortStart: pulumi.Output<number>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT pool.
+     * The ID of the Load Balancer in which to create the NAT pool.
      */
     public readonly loadbalancerId: pulumi.Output<string>;
     public readonly location: pulumi.Output<string | undefined>;
@@ -138,7 +139,7 @@ export interface NatPoolState {
      */
     readonly frontendPortStart?: pulumi.Input<number>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT pool.
+     * The ID of the Load Balancer in which to create the NAT pool.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;
@@ -177,7 +178,7 @@ export interface NatPoolArgs {
      */
     readonly frontendPortStart: pulumi.Input<number>;
     /**
-     * The ID of the LoadBalancer in which to create the NAT pool.
+     * The ID of the Load Balancer in which to create the NAT pool.
      */
     readonly loadbalancerId: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;

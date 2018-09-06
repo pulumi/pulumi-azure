@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages an AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
@@ -28,7 +29,7 @@ export class Setting extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * Specifies the name of the profile.
+     * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -112,7 +113,7 @@ export interface SettingState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the profile.
+     * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -150,7 +151,7 @@ export interface SettingArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Specifies the name of the profile.
+     * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

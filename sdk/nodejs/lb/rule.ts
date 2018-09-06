@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
- * Create a LoadBalancer Rule.
+ * Manages a Load Balancer Rule.
  * 
- * ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+ * ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -51,7 +52,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly loadDistribution: pulumi.Output<string>;
     /**
-     * The ID of the LoadBalancer in which to create the Rule.
+     * The ID of the Load Balancer in which to create the Rule.
      */
     public readonly loadbalancerId: pulumi.Output<string>;
     public readonly location: pulumi.Output<string | undefined>;
@@ -64,7 +65,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly probeId: pulumi.Output<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
     public readonly protocol: pulumi.Output<string>;
     /**
@@ -171,7 +172,7 @@ export interface RuleState {
      */
     readonly loadDistribution?: pulumi.Input<string>;
     /**
-     * The ID of the LoadBalancer in which to create the Rule.
+     * The ID of the Load Balancer in which to create the Rule.
      */
     readonly loadbalancerId?: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;
@@ -184,7 +185,7 @@ export interface RuleState {
      */
     readonly probeId?: pulumi.Input<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -226,7 +227,7 @@ export interface RuleArgs {
      */
     readonly loadDistribution?: pulumi.Input<string>;
     /**
-     * The ID of the LoadBalancer in which to create the Rule.
+     * The ID of the Load Balancer in which to create the Rule.
      */
     readonly loadbalancerId: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;
@@ -239,7 +240,7 @@ export interface RuleArgs {
      */
     readonly probeId?: pulumi.Input<string>;
     /**
-     * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
+     * The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
      */
     readonly protocol: pulumi.Input<string>;
     /**

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages a Virtual Machine.
@@ -50,7 +51,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * Specifies the name of the OS Disk.
+     * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -221,7 +222,7 @@ export interface VirtualMachineState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the OS Disk.
+     * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -315,7 +316,7 @@ export interface VirtualMachineArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Specifies the name of the OS Disk.
+     * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

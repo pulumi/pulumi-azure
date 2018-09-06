@@ -91,7 +91,7 @@ func (r *IoTHub) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 func (r *IoTHub) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -101,7 +101,7 @@ func (r *IoTHub) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A list of `shared_access_policy` blocks as defined below.
+// One or more `shared_access_policy` blocks as defined below.
 func (r *IoTHub) SharedAccessPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sharedAccessPolicies"])
 }
@@ -126,11 +126,11 @@ type IoTHubState struct {
 	Hostname interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A list of `shared_access_policy` blocks as defined below.
+	// One or more `shared_access_policy` blocks as defined below.
 	SharedAccessPolicies interface{}
 	// A `sku` block as defined below. 
 	Sku interface{}
@@ -143,7 +143,7 @@ type IoTHubState struct {
 type IoTHubArgs struct {
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the sku. Possible values are `F1`, `S1`, `S2`, and `S3`.
+	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

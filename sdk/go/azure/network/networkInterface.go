@@ -151,7 +151,7 @@ func (r *NetworkInterface) MacAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["macAddress"])
 }
 
-// User-defined name of the IP.
+// The name of the network interface. Changing this forces a new resource to be created.
 func (r *NetworkInterface) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -161,7 +161,7 @@ func (r *NetworkInterface) NetworkSecurityGroupId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
 }
 
-// Static IP Address.
+// The private ip address of the network interface.
 func (r *NetworkInterface) PrivateIpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["privateIpAddress"])
 }
@@ -205,11 +205,11 @@ type NetworkInterfaceState struct {
 	Location interface{}
 	// The media access control (MAC) address of the network interface.
 	MacAddress interface{}
-	// User-defined name of the IP.
+	// The name of the network interface. Changing this forces a new resource to be created.
 	Name interface{}
 	// The ID of the Network Security Group to associate with the network interface.
 	NetworkSecurityGroupId interface{}
-	// Static IP Address.
+	// The private ip address of the network interface.
 	PrivateIpAddress interface{}
 	PrivateIpAddresses interface{}
 	// The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
@@ -240,7 +240,7 @@ type NetworkInterfaceArgs struct {
 	Location interface{}
 	// The media access control (MAC) address of the network interface.
 	MacAddress interface{}
-	// User-defined name of the IP.
+	// The name of the network interface. Changing this forces a new resource to be created.
 	Name interface{}
 	// The ID of the Network Security Group to associate with the network interface.
 	NetworkSecurityGroupId interface{}

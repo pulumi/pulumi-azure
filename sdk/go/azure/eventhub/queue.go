@@ -106,7 +106,7 @@ func (r *Queue) ID() *pulumi.IDOutput {
 }
 
 // The idle interval after which the
-// Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
+// Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
 // format.
 func (r *Queue) AutoDeleteOnIdle() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
@@ -118,14 +118,14 @@ func (r *Queue) DeadLetteringOnMessageExpiration() *pulumi.BoolOutput {
 }
 
 // The TTL of messages sent to this queue. This is the default value
-// used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
+// used when TTL is not set on message itself. Provided in the TimeSpan
 // format.
 func (r *Queue) DefaultMessageTtl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
 }
 
 // The duration during which
-// duplicates can be detected. Default value is 10 minutes. Provided in the [TimeSpan](#timespan-format) format.
+// duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
 func (r *Queue) DuplicateDetectionHistoryTimeWindow() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["duplicateDetectionHistoryTimeWindow"])
 }
@@ -208,17 +208,17 @@ func (r *Queue) SupportOrdering() *pulumi.BoolOutput {
 // Input properties used for looking up and filtering Queue resources.
 type QueueState struct {
 	// The idle interval after which the
-	// Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
+	// Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
 	// format.
 	AutoDeleteOnIdle interface{}
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration interface{}
 	// The TTL of messages sent to this queue. This is the default value
-	// used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
+	// used when TTL is not set on message itself. Provided in the TimeSpan
 	// format.
 	DefaultMessageTtl interface{}
 	// The duration during which
-	// duplicates can be detected. Default value is 10 minutes. Provided in the [TimeSpan](#timespan-format) format.
+	// duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
 	DuplicateDetectionHistoryTimeWindow interface{}
 	EnableBatchedOperations interface{}
 	// Boolean flag which controls whether Express Entities
@@ -264,17 +264,17 @@ type QueueState struct {
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
 	// The idle interval after which the
-	// Queue is automatically deleted, minimum of 5 minutes. Provided in the [TimeSpan](#timespan-format)
+	// Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
 	// format.
 	AutoDeleteOnIdle interface{}
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration interface{}
 	// The TTL of messages sent to this queue. This is the default value
-	// used when TTL is not set on message itself. Provided in the [TimeSpan](#timespan-format)
+	// used when TTL is not set on message itself. Provided in the TimeSpan
 	// format.
 	DefaultMessageTtl interface{}
 	// The duration during which
-	// duplicates can be detected. Default value is 10 minutes. Provided in the [TimeSpan](#timespan-format) format.
+	// duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
 	DuplicateDetectionHistoryTimeWindow interface{}
 	EnableBatchedOperations interface{}
 	// Boolean flag which controls whether Express Entities

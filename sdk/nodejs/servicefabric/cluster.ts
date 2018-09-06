@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manage a Service Fabric Cluster.
@@ -52,7 +53,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly managementEndpoint: pulumi.Output<string>;
     /**
-     * The name of the Node Type. Changing this forces a new resource to be created.
+     * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -187,7 +188,7 @@ export interface ClusterState {
      */
     readonly managementEndpoint?: pulumi.Input<string>;
     /**
-     * The name of the Node Type. Changing this forces a new resource to be created.
+     * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -249,7 +250,7 @@ export interface ClusterArgs {
      */
     readonly managementEndpoint: pulumi.Input<string>;
     /**
-     * The name of the Node Type. Changing this forces a new resource to be created.
+     * The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

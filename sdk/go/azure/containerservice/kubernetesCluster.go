@@ -11,7 +11,7 @@ import (
 // Manages a managed Kubernetes Cluster (AKS)
 // 
 // ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type KubernetesCluster struct {
 	s *pulumi.ResourceState
 }
@@ -39,6 +39,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["addonProfile"] = nil
 		inputs["agentPoolProfile"] = nil
 		inputs["dnsPrefix"] = nil
 		inputs["kubernetesVersion"] = nil
@@ -50,6 +51,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["servicePrincipal"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["addonProfile"] = args.AddonProfile
 		inputs["agentPoolProfile"] = args.AgentPoolProfile
 		inputs["dnsPrefix"] = args.DnsPrefix
 		inputs["kubernetesVersion"] = args.KubernetesVersion
@@ -78,6 +80,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *KubernetesClusterState, opts ...pulumi.ResourceOpt) (*KubernetesCluster, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["addonProfile"] = state.AddonProfile
 		inputs["agentPoolProfile"] = state.AgentPoolProfile
 		inputs["dnsPrefix"] = state.DnsPrefix
 		inputs["fqdn"] = state.Fqdn
@@ -110,6 +113,11 @@ func (r *KubernetesCluster) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
+// A `addon_profile` block.
+func (r *KubernetesCluster) AddonProfile() *pulumi.Output {
+	return r.s.State["addonProfile"]
+}
+
 // One or more Agent Pool Profile's block as documented below.
 func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
 	return r.s.State["agentPoolProfile"]
@@ -125,7 +133,7 @@ func (r *KubernetesCluster) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
-// Kubernetes configuration, sub-attributes defined below:
+// A `kube_config` block as defined below.
 func (r *KubernetesCluster) KubeConfig() *pulumi.Output {
 	return r.s.State["kubeConfig"]
 }
@@ -152,7 +160,7 @@ func (r *KubernetesCluster) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -184,13 +192,15 @@ func (r *KubernetesCluster) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering KubernetesCluster resources.
 type KubernetesClusterState struct {
+	// A `addon_profile` block.
+	AddonProfile interface{}
 	// One or more Agent Pool Profile's block as documented below.
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
-	// Kubernetes configuration, sub-attributes defined below:
+	// A `kube_config` block as defined below.
 	KubeConfig interface{}
 	// Raw Kubernetes config to be used by
 	// [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and
@@ -202,7 +212,7 @@ type KubernetesClusterState struct {
 	LinuxProfile interface{}
 	// The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
 	Location interface{}
-	// Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+	// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
 	Name interface{}
 	// A Network Profile block as documented below.
 	NetworkProfile interface{}
@@ -218,6 +228,8 @@ type KubernetesClusterState struct {
 
 // The set of arguments for constructing a KubernetesCluster resource.
 type KubernetesClusterArgs struct {
+	// A `addon_profile` block.
+	AddonProfile interface{}
 	// One or more Agent Pool Profile's block as documented below.
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster.
@@ -228,7 +240,7 @@ type KubernetesClusterArgs struct {
 	LinuxProfile interface{}
 	// The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
 	Location interface{}
-	// Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+	// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
 	Name interface{}
 	// A Network Profile block as documented below.
 	NetworkProfile interface{}

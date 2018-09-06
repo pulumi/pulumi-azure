@@ -100,7 +100,7 @@ func (r *EventHub) MessageRetention() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["messageRetention"])
 }
 
-// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 func (r *EventHub) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -132,7 +132,7 @@ type EventHubState struct {
 	Location interface{}
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
 	MessageRetention interface{}
-	// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName interface{}
@@ -151,7 +151,7 @@ type EventHubArgs struct {
 	Location interface{}
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
 	MessageRetention interface{}
-	// The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName interface{}

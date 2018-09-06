@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Cluster(pulumi.CustomResource):
     """
@@ -84,7 +85,7 @@ class Cluster(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        The name of the Node Type. Changing this forces a new resource to be created.
+        The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 

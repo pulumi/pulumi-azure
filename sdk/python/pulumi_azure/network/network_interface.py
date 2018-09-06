@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class NetworkInterface(pulumi.CustomResource):
     """
@@ -100,7 +101,7 @@ class NetworkInterface(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        User-defined name of the IP.
+        The name of the network interface. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 
@@ -140,7 +141,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         __self__.private_ip_address = pulumi.runtime.UNKNOWN
         """
-        Static IP Address.
+        The private ip address of the network interface.
         """
         __self__.private_ip_addresses = pulumi.runtime.UNKNOWN
 

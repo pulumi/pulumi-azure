@@ -4,12 +4,13 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class BackendAddressPool(pulumi.CustomResource):
     """
-    Create a LoadBalancer Backend Address Pool.
+    Create a Load Balancer Backend Address Pool.
     
-    ~> **NOTE:** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+    ~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     """
     def __init__(__self__, __name__, __opts__=None, loadbalancer_id=None, location=None, name=None, resource_group_name=None):
         """Create a BackendAddressPool resource with the given unique name, props, and options."""
@@ -28,7 +29,7 @@ class BackendAddressPool(pulumi.CustomResource):
             raise TypeError('Expected property loadbalancer_id to be a basestring')
         __self__.loadbalancer_id = loadbalancer_id
         """
-        The ID of the LoadBalancer in which to create the Backend Address Pool.
+        The ID of the Load Balancer in which to create the Backend Address Pool.
         """
         __props__['loadbalancerId'] = loadbalancer_id
 

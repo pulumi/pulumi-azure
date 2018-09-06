@@ -18,7 +18,7 @@
     "services/eventgrid/mgmt/2018-01-01/eventgrid",
     "services/eventhub/mgmt/2017-04-01/eventhub",
     "services/graphrbac/1.6/graphrbac",
-    "services/iothub/mgmt/2017-07-01/devices",
+    "services/iothub/mgmt/2018-04-01/devices",
     "services/keyvault/2016-10-01/keyvault",
     "services/keyvault/mgmt/2016-10-01/keyvault",
     "services/logic/mgmt/2016-06-01/logic",
@@ -542,8 +542,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "23cbfa503d856f57a3e00599d53c04fe69c93cf0"
-  version = "v0.15.0"
+  revision = "89d5dd004e6b9158f133d74b66333679455215d2"
 
 [[projects]]
   name = "github.com/pulumi/pulumi-terraform"
@@ -551,8 +550,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "bd7ae49ed76ec49f8fbbb7b8b55b407ad38c3c30"
-  version = "v0.15.0"
+  revision = "95c5ae2284ada1866845359ac2fec69329c67ab8"
 
 [[projects]]
   branch = "master"
@@ -628,8 +626,8 @@
     "azurerm/helpers/validate",
     "azurerm/utils"
   ]
-  revision = "bdc8b4ad9e20c1ce7553d1ca03a3441b619c8fd8"
-  version = "v1.12.0"
+  revision = "e3dd02da41f1cf1cab57ac9052a8c2641c5faef6"
+  version = "v1.13.0"
 
 [[projects]]
   name = "github.com/uber/jaeger-client-go"
@@ -858,6 +856,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "14beb9523234a3fced7063dbf9b78c48546410022953d2f2fd0a9e27552ace1a"
+  inputs-digest = "143da3ddc7a4c7d88b797800149efb1b11e9a1c028c8cafe79d2328e717208d7"
   solver-name = "gps-cdcl"
   solver-version = 1

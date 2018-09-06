@@ -2,11 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
- * Create a LoadBalancer Probe Resource.
+ * Manages a LoadBalancer Probe Resource.
  * 
- * ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+ * ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
  */
 export class Probe extends pulumi.CustomResource {
     /**
@@ -44,7 +45,7 @@ export class Probe extends pulumi.CustomResource {
      */
     public readonly port: pulumi.Output<number>;
     /**
-     * Specifies the protocol of the end point. Possible values are `Http` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+     * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
      */
     public readonly protocol: pulumi.Output<string>;
     /**
@@ -131,7 +132,7 @@ export interface ProbeState {
      */
     readonly port?: pulumi.Input<number>;
     /**
-     * Specifies the protocol of the end point. Possible values are `Http` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+     * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
      */
     readonly protocol?: pulumi.Input<string>;
     /**
@@ -170,7 +171,7 @@ export interface ProbeArgs {
      */
     readonly port: pulumi.Input<number>;
     /**
-     * Specifies the protocol of the end point. Possible values are `Http` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
+     * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
      */
     readonly protocol?: pulumi.Input<string>;
     /**

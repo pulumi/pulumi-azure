@@ -115,6 +115,62 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		License:     "Apache 2.0",
 		Repository:  "https://github.com/pulumi/pulumi-azure",
+		Config: map[string]*tfbridge.SchemaInfo{
+			"subscription_id": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_SUBSCRIPTION_ID"},
+				},
+			},
+			"client_id": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_CLIENT_ID"},
+				},
+			},
+			"client_secret": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_CLIENT_SECRET"},
+				},
+			},
+			"tenant_id": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_TENANT_ID"},
+				},
+			},
+			"environment": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "public",
+					EnvVars: []string{"ARM_ENVIRONMENT"},
+				},
+			},
+			"skip_credentials_validation": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   false,
+					EnvVars: []string{"ARM_SKIP_CREDENTIALS_VALIDATION"},
+				},
+			},
+			"skip_provider_registration": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   false,
+					EnvVars: []string{"ARM_SKIP_PROVIDER_REGISTRATION"},
+				},
+			},
+			"use_msi": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   false,
+					EnvVars: []string{"ARM_USE_MSI"},
+				},
+			},
+			"msi_endpoint": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_MSI_ENDPOINT"},
+				},
+			},
+		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// Active Directory (AAD)
 			"azurerm_azuread_application":                {Tok: azureResource(azureAD, "Application")},
@@ -154,8 +210,14 @@ func Provider() tfbridge.ProviderInfo {
 					azureName: AutoNameWithMaxLength(azureName, 50),
 				},
 			},
-			"azurerm_container_service":  {Tok: azureResource(azureContainerService, "Service")},
-			"azurerm_container_group":    {Tok: azureResource(azureContainerService, "Group")},
+			"azurerm_container_service": {Tok: azureResource(azureContainerService, "Service")},
+			"azurerm_container_group": {
+				Tok: azureResource(azureContainerService, "Group"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#containers
+					// Max length of a container group/instance is 63
+					azureName: AutoNameWithMaxLength(azureName, 63),
+				}},
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
 
 			// Core
@@ -301,7 +363,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_management_lock": {Tok: azureResource(azureMgmtResource, "ManangementLock")},
 
 			// Monitoring resources
-			"azurerm_metric_alertrule": {Tok: azureResource(azureMonitoring, "AlertRule")},
+			"azurerm_metric_alertrule":     {Tok: azureResource(azureMonitoring, "AlertRule")},
+			"azurerm_monitor_action_group": {Tok: azureResource(azureMonitoring, "ActionGroup")},
 
 			// MySQL
 			"azurerm_mysql_configuration": {Tok: azureResource(azureMySQL, "Configuration")},
@@ -408,16 +471,17 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_subscriptions":      {Tok: azureDataSource(azureCore, "getSubscriptions")},
-			"azurerm_cdn_profile":        {Tok: azureDataSource(azureCDN, "getProfile")},
-			"azurerm_client_config":      {Tok: azureDataSource(azureCore, "getClientConfig")},
-			"azurerm_container_registry": {Tok: azureDataSource(azureContainerService, "getRegistry")},
-			"azurerm_cosmosdb_account":   {Tok: azureDataSource(azureCosmosDB, "getAccount")},
-			"azurerm_data_lake_store":    {Tok: azureDataSource(azureDatalake, "getStore")},
-			"azurerm_eventhub_namespace": {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
-			"azurerm_image":              {Tok: azureDataSource(azureCompute, "getImage")},
-			"azurerm_logic_app_workflow": {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
-			"azurerm_dns_zone":           {Tok: azureDataSource(azureDNS, "getZone")},
+			"azurerm_subscriptions":           {Tok: azureDataSource(azureCore, "getSubscriptions")},
+			"azurerm_cdn_profile":             {Tok: azureDataSource(azureCDN, "getProfile")},
+			"azurerm_client_config":           {Tok: azureDataSource(azureCore, "getClientConfig")},
+			"azurerm_container_registry":      {Tok: azureDataSource(azureContainerService, "getRegistry")},
+			"azurerm_cosmosdb_account":        {Tok: azureDataSource(azureCosmosDB, "getAccount")},
+			"azurerm_data_lake_store":         {Tok: azureDataSource(azureDatalake, "getStore")},
+			"azurerm_eventhub_namespace":      {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
+			"azurerm_image":                   {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_log_analytics_workspace": {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
+			"azurerm_logic_app_workflow":      {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
+			"azurerm_dns_zone":                {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -425,6 +489,7 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
+
 			"azurerm_key_vault_access_policy": {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
 			"azurerm_key_vault_secret":        {Tok: azureDataSource(azureKeyVault, "getSecret")},
 			"azurerm_kubernetes_cluster":      {Tok: azureDataSource(azureContainerService, "getKubernetesCluster")},
@@ -463,7 +528,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^0.15.0",
+				"@pulumi/pulumi": "^0.15.1-rc",
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				Files:   []string{},
@@ -472,7 +537,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.15.0,<0.16.0",
+				"pulumi": ">=0.15.1rc,<0.16.0",
 			},
 		},
 	}

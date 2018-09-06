@@ -132,6 +132,7 @@
         "logicapps/workflow.ts",
         "managementresource/index.ts",
         "managementresource/manangementLock.ts",
+        "monitoring/actionGroup.ts",
         "monitoring/alertRule.ts",
         "monitoring/index.ts",
         "msi/index.ts",
@@ -178,6 +179,7 @@
         "notificationhub/namespace.ts",
         "operationalinsights/analyticsSolution.ts",
         "operationalinsights/analyticsWorkspace.ts",
+        "operationalinsights/getAnalyticsWorkspace.ts",
         "operationalinsights/index.ts",
         "policy/assignment.ts",
         "policy/definition.ts",
@@ -229,7 +231,8 @@
         "trafficmanager/endpoint.ts",
         "trafficmanager/getGeographicalLocation.ts",
         "trafficmanager/index.ts",
-        "trafficmanager/profile.ts"
+        "trafficmanager/profile.ts",
+        "utilities.ts"
     ]
 }
 

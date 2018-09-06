@@ -107,7 +107,7 @@ func (r *Subscription) ID() *pulumi.IDOutput {
 
 // The idle interval after which the
 // Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-// [TimeSpan](#timespan-format) format.
+// TimeSpan format.
 func (r *Subscription) AutoDeleteOnIdle() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
 }
@@ -124,7 +124,7 @@ func (r *Subscription) DeadLetteringOnMessageExpiration() *pulumi.BoolOutput {
 }
 
 // The TTL of messages sent to this Subscription
-// if no TTL value is set on the message itself. Provided in the [TimeSpan](#timespan-format)
+// if no TTL value is set on the message itself. Provided in the TimeSpan
 // format.
 func (r *Subscription) DefaultMessageTtl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
@@ -194,7 +194,7 @@ func (r *Subscription) TopicName() *pulumi.StringOutput {
 type SubscriptionState struct {
 	// The idle interval after which the
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-	// [TimeSpan](#timespan-format) format.
+	// TimeSpan format.
 	AutoDeleteOnIdle interface{}
 	DeadLetteringOnFilterEvaluationExceptions interface{}
 	// Boolean flag which controls
@@ -202,7 +202,7 @@ type SubscriptionState struct {
 	// to false.
 	DeadLetteringOnMessageExpiration interface{}
 	// The TTL of messages sent to this Subscription
-	// if no TTL value is set on the message itself. Provided in the [TimeSpan](#timespan-format)
+	// if no TTL value is set on the message itself. Provided in the TimeSpan
 	// format.
 	DefaultMessageTtl interface{}
 	// Boolean flag which controls whether the
@@ -241,7 +241,7 @@ type SubscriptionState struct {
 type SubscriptionArgs struct {
 	// The idle interval after which the
 	// Subscription is automatically deleted, minimum of 5 minutes. Provided in the
-	// [TimeSpan](#timespan-format) format.
+	// TimeSpan format.
 	AutoDeleteOnIdle interface{}
 	DeadLetteringOnFilterEvaluationExceptions interface{}
 	// Boolean flag which controls
@@ -249,7 +249,7 @@ type SubscriptionArgs struct {
 	// to false.
 	DeadLetteringOnMessageExpiration interface{}
 	// The TTL of messages sent to this Subscription
-	// if no TTL value is set on the message itself. Provided in the [TimeSpan](#timespan-format)
+	// if no TTL value is set on the message itself. Provided in the TimeSpan
 	// format.
 	DefaultMessageTtl interface{}
 	// Boolean flag which controls whether the

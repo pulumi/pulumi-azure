@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs as a nested resource within a Event Hubs namespace.
@@ -29,7 +30,7 @@ export class EventHub extends pulumi.CustomResource {
      */
     public readonly messageRetention: pulumi.Output<number>;
     /**
-     * The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -110,7 +111,7 @@ export interface EventHubState {
      */
     readonly messageRetention?: pulumi.Input<number>;
     /**
-     * The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -145,7 +146,7 @@ export interface EventHubArgs {
      */
     readonly messageRetention: pulumi.Input<number>;
     /**
-     * The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
+     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

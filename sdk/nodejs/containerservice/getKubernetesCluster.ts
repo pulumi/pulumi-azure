@@ -2,12 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Gets information about a managed Kubernetes Cluster (AKS)
  * 
  * ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
@@ -36,9 +37,13 @@ export interface GetKubernetesClusterArgs {
  */
 export interface GetKubernetesClusterResult {
     /**
+     * A `addon_profile` block as documented below.
+     */
+    readonly addonProfiles: { httpApplicationRoutings: { enabled: boolean, httpApplicationRoutingZoneName: string }[], omsAgents: { enabled: boolean, logAnalyticsWorkspaceId: string }[] }[];
+    /**
      * One or more `agent_profile_pool` blocks as documented below.
      */
-    readonly agentPoolProfiles: { count: number, dnsPrefix: string, name: string, osDiskSizeGb: number, osType: string, vmSize: string, vnetSubnetId: string }[];
+    readonly agentPoolProfiles: { count: number, dnsPrefix: string, maxPods: number, name: string, osDiskSizeGb: number, osType: string, vmSize: string, vnetSubnetId: string }[];
     /**
      * The DNS Prefix of the managed Kubernetes cluster.
      */

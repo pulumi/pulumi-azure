@@ -4,13 +4,14 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Subnet(pulumi.CustomResource):
     """
     Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
     
     ~> **NOTE on Virtual Networks and Subnet's:** Terraform currently
-    provides both a standalone [Subnet resource](subnet.html), and allows for Subnets to be defined in-line within the [Virtual Network resource](virtual_network.html).
+    provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
     At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
     """
     def __init__(__self__, __name__, __opts__=None, address_prefix=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):

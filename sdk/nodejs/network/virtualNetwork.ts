@@ -2,13 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages a virtual network including any configured subnets. Each subnet can
  * optionally be configured with a security group to be associated with the subnet.
  * 
  * ~> **NOTE on Virtual Networks and Subnet's:** Terraform currently
- * provides both a standalone [Subnet resource](subnet.html), and allows for Subnets to be defined in-line within the [Virtual Network resource](virtual_network.html).
+ * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
@@ -40,7 +41,8 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the subnet.
+     * The name of the virtual network. Changing this forces a
+     * new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -120,7 +122,8 @@ export interface VirtualNetworkState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the subnet.
+     * The name of the virtual network. Changing this forces a
+     * new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -159,7 +162,8 @@ export interface VirtualNetworkArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the subnet.
+     * The name of the virtual network. Changing this forces a
+     * new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

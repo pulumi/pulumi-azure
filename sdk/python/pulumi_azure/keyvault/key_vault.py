@@ -4,12 +4,13 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class KeyVault(pulumi.CustomResource):
     """
     Manages a Key Vault.
     
-    ~> **NOTE:** It's possible to define Key Vault Access Policies both within [the `azurerm_key_vault` resource](key_vault.html) via the `access_policy` block and by using [the `azurerm_key_vault_access_policy` resource](key_vault_access_policy.html). However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+    ~> **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
     """
     def __init__(__self__, __name__, __opts__=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, tenant_id=None):
         """Create a KeyVault resource with the given unique name, props, and options."""

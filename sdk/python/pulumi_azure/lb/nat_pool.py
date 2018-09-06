@@ -4,12 +4,13 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class NatPool(pulumi.CustomResource):
     """
-    Create a LoadBalancer NAT pool.
+    Manages a Load Balancer NAT pool.
     
-    ~> **NOTE** When using this resource, the LoadBalancer needs to have a FrontEnd IP Configuration Attached
+    ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     """
     def __init__(__self__, __name__, __opts__=None, backend_port=None, frontend_ip_configuration_name=None, frontend_port_end=None, frontend_port_start=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None):
         """Create a NatPool resource with the given unique name, props, and options."""
@@ -68,7 +69,7 @@ class NatPool(pulumi.CustomResource):
             raise TypeError('Expected property loadbalancer_id to be a basestring')
         __self__.loadbalancer_id = loadbalancer_id
         """
-        The ID of the LoadBalancer in which to create the NAT pool.
+        The ID of the Load Balancer in which to create the NAT pool.
         """
         __props__['loadbalancerId'] = loadbalancer_id
 

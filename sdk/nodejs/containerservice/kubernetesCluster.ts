@@ -2,12 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages a managed Kubernetes Cluster (AKS)
  * 
  * ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
- * [Read more about sensitive data in state](/docs/state/sensitive-data.html).
+ * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export class KubernetesCluster extends pulumi.CustomResource {
     /**
@@ -23,9 +24,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
     }
 
     /**
+     * A `addon_profile` block.
+     */
+    public readonly addonProfile: pulumi.Output<{ httpApplicationRouting?: { enabled: boolean, httpApplicationRoutingZoneName: string }, omsAgent?: { enabled: boolean, logAnalyticsWorkspaceId: string } }>;
+    /**
      * One or more Agent Pool Profile's block as documented below.
      */
-    public readonly agentPoolProfile: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, name: string, osDiskSizeGb?: number, osType?: string, vmSize: string, vnetSubnetId?: string }>;
+    public readonly agentPoolProfile: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb?: number, osType?: string, vmSize: string, vnetSubnetId?: string }>;
     /**
      * DNS prefix specified when creating the managed cluster.
      */
@@ -35,7 +40,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
-     * Kubernetes configuration, sub-attributes defined below:
+     * A `kube_config` block as defined below.
      */
     public /*out*/ readonly kubeConfig: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
     /**
@@ -57,7 +62,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+     * The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -93,6 +98,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: KubernetesClusterState = argsOrState as KubernetesClusterState | undefined;
+            inputs["addonProfile"] = state ? state.addonProfile : undefined;
             inputs["agentPoolProfile"] = state ? state.agentPoolProfile : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
@@ -127,6 +133,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             if (!args || args.servicePrincipal === undefined) {
                 throw new Error("Missing required property 'servicePrincipal'");
             }
+            inputs["addonProfile"] = args ? args.addonProfile : undefined;
             inputs["agentPoolProfile"] = args ? args.agentPoolProfile : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -151,9 +158,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
  */
 export interface KubernetesClusterState {
     /**
+     * A `addon_profile` block.
+     */
+    readonly addonProfile?: pulumi.Input<{ httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
+    /**
      * One or more Agent Pool Profile's block as documented below.
      */
-    readonly agentPoolProfile?: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
+    readonly agentPoolProfile?: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
     /**
      * DNS prefix specified when creating the managed cluster.
      */
@@ -163,7 +174,7 @@ export interface KubernetesClusterState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * Kubernetes configuration, sub-attributes defined below:
+     * A `kube_config` block as defined below.
      */
     readonly kubeConfig?: pulumi.Input<{ clientCertificate?: pulumi.Input<string>, clientKey?: pulumi.Input<string>, clusterCaCertificate?: pulumi.Input<string>, host?: pulumi.Input<string>, password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
     /**
@@ -185,7 +196,7 @@ export interface KubernetesClusterState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+     * The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -215,9 +226,13 @@ export interface KubernetesClusterState {
  */
 export interface KubernetesClusterArgs {
     /**
+     * A `addon_profile` block.
+     */
+    readonly addonProfile?: pulumi.Input<{ httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
+    /**
      * One or more Agent Pool Profile's block as documented below.
      */
-    readonly agentPoolProfile: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
+    readonly agentPoolProfile: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
     /**
      * DNS prefix specified when creating the managed cluster.
      */
@@ -235,7 +250,7 @@ export interface KubernetesClusterArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Unique name of the Agent Pool Profile in the context of the Subscription and Resource Group. Changing this forces a new resource to be created.
+     * The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

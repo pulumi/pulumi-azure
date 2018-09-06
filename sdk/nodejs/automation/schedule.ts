@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Schedule.
@@ -37,9 +38,17 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly frequency: pulumi.Output<string>;
     /**
-     * The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
      */
     public readonly interval: pulumi.Output<number>;
+    /**
+     * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+     */
+    public readonly monthDays: pulumi.Output<number[] | undefined>;
+    /**
+     * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+     */
+    public readonly monthlyOccurrences: pulumi.Output<{ day: string, occurrence: number }[] | undefined>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
@@ -56,6 +65,10 @@ export class Schedule extends pulumi.CustomResource {
      * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
      */
     public readonly timezone: pulumi.Output<string | undefined>;
+    /**
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     */
+    public readonly weekDays: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -75,10 +88,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["expiryTime"] = state ? state.expiryTime : undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
             inputs["interval"] = state ? state.interval : undefined;
+            inputs["monthDays"] = state ? state.monthDays : undefined;
+            inputs["monthlyOccurrences"] = state ? state.monthlyOccurrences : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["startTime"] = state ? state.startTime : undefined;
             inputs["timezone"] = state ? state.timezone : undefined;
+            inputs["weekDays"] = state ? state.weekDays : undefined;
         } else {
             const args = argsOrState as ScheduleArgs | undefined;
             if (!args || args.frequency === undefined) {
@@ -93,10 +109,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["expiryTime"] = args ? args.expiryTime : undefined;
             inputs["frequency"] = args ? args.frequency : undefined;
             inputs["interval"] = args ? args.interval : undefined;
+            inputs["monthDays"] = args ? args.monthDays : undefined;
+            inputs["monthlyOccurrences"] = args ? args.monthlyOccurrences : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
+            inputs["weekDays"] = args ? args.weekDays : undefined;
         }
         super("azure:automation/schedule:Schedule", name, inputs, opts);
     }
@@ -124,9 +143,17 @@ export interface ScheduleState {
      */
     readonly frequency?: pulumi.Input<string>;
     /**
-     * The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
      */
     readonly interval?: pulumi.Input<number>;
+    /**
+     * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+     */
+    readonly monthDays?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+     */
+    readonly monthlyOccurrences?: pulumi.Input<pulumi.Input<{ day: pulumi.Input<string>, occurrence: pulumi.Input<number> }>[]>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
@@ -143,6 +170,10 @@ export interface ScheduleState {
      * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
      */
     readonly timezone?: pulumi.Input<string>;
+    /**
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     */
+    readonly weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -167,9 +198,17 @@ export interface ScheduleArgs {
      */
     readonly frequency: pulumi.Input<string>;
     /**
-     * The number of `frequency`s between runs. Only valid for `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+     * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
      */
     readonly interval?: pulumi.Input<number>;
+    /**
+     * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+     */
+    readonly monthDays?: pulumi.Input<pulumi.Input<number>[]>;
+    /**
+     * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+     */
+    readonly monthlyOccurrences?: pulumi.Input<pulumi.Input<{ day: pulumi.Input<string>, occurrence: pulumi.Input<number> }>[]>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
@@ -186,4 +225,8 @@ export interface ScheduleArgs {
      * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
      */
     readonly timezone?: pulumi.Input<string>;
+    /**
+     * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+     */
+    readonly weekDays?: pulumi.Input<pulumi.Input<string>[]>;
 }
