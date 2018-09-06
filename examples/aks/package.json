@@ -12,7 +12,7 @@
     },
     "peerDependencies": {
         "@pulumi/azure": "latest",
-        "@pulumi/pulumi": "^0.15.0"
+        "@pulumi/pulumi": "^0.15.1-rc"
     },
     "license": "Apache 2.0"
 }
