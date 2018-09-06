@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class ApplicationGateway(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, authentication_certificates=None, backend_address_pools=None, backend_http_settings=None, disabled_ssl_protocols=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, request_routing_rules=None, resource_group_name=None, sku=None, ssl_certificates=None, tags=None, url_path_maps=None, waf_configuration=None):

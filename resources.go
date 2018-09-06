@@ -115,6 +115,62 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		License:     "Apache 2.0",
 		Repository:  "https://github.com/pulumi/pulumi-azure",
+		Config: map[string]*tfbridge.SchemaInfo{
+			"subscription_id": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_SUBSCRIPTION_ID"},
+				},
+			},
+			"client_id": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_CLIENT_ID"},
+				},
+			},
+			"client_secret": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_CLIENT_SECRET"},
+				},
+			},
+			"tenant_id": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_TENANT_ID"},
+				},
+			},
+			"environment": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "public",
+					EnvVars: []string{"ARM_ENVIRONMENT"},
+				},
+			},
+			"skip_credentials_validation": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   false,
+					EnvVars: []string{"ARM_SKIP_CREDENTIALS_VALIDATION"},
+				},
+			},
+			"skip_provider_registration": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   false,
+					EnvVars: []string{"ARM_SKIP_PROVIDER_REGISTRATION"},
+				},
+			},
+			"use_msi": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   false,
+					EnvVars: []string{"ARM_USE_MSI"},
+				},
+			},
+			"msi_endpoint": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_MSI_ENDPOINT"},
+				},
+			},
+		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// Active Directory (AAD)
 			"azurerm_azuread_application":                {Tok: azureResource(azureAD, "Application")},
@@ -154,14 +210,14 @@ func Provider() tfbridge.ProviderInfo {
 					azureName: AutoNameWithMaxLength(azureName, 50),
 				},
 			},
-			"azurerm_container_service":  {Tok: azureResource(azureContainerService, "Service")},
-			"azurerm_container_group":    {
+			"azurerm_container_service": {Tok: azureResource(azureContainerService, "Service")},
+			"azurerm_container_group": {
 				Tok: azureResource(azureContainerService, "Group"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#containers
 					// Max length of a container group/instance is 63
 					azureName: AutoNameWithMaxLength(azureName, 63),
-				},},
+				}},
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
 
 			// Core
