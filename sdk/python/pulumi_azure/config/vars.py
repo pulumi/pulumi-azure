@@ -4,24 +4,25 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 __config__ = pulumi.Config('azure')
 
-client_id = __config__.get('clientId')
+client_id = __config__.get('clientId') or (utilities.get_env('ARM_CLIENT_ID') or '')
 
-client_secret = __config__.get('clientSecret')
+client_secret = __config__.get('clientSecret') or (utilities.get_env('ARM_CLIENT_SECRET') or '')
 
-environment = __config__.require('environment')
+environment = utilities.require_with_default(lambda: __config__.require('environment'), (utilities.get_env('ARM_ENVIRONMENT') or 'public'))
 
-msi_endpoint = __config__.get('msiEndpoint')
+msi_endpoint = __config__.get('msiEndpoint') or (utilities.get_env('ARM_MSI_ENDPOINT') or '')
 
-skip_credentials_validation = __config__.get('skipCredentialsValidation')
+skip_credentials_validation = __config__.get('skipCredentialsValidation') or (utilities.get_env_bool('ARM_SKIP_CREDENTIALS_VALIDATION') or False)
 
-skip_provider_registration = __config__.get('skipProviderRegistration')
+skip_provider_registration = __config__.get('skipProviderRegistration') or (utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
 
-subscription_id = __config__.get('subscriptionId')
+subscription_id = __config__.get('subscriptionId') or (utilities.get_env('ARM_SUBSCRIPTION_ID') or '')
 
-tenant_id = __config__.get('tenantId')
+tenant_id = __config__.get('tenantId') or (utilities.get_env('ARM_TENANT_ID') or '')
 
-use_msi = __config__.get('useMsi')
+use_msi = __config__.get('useMsi') or (utilities.get_env_bool('ARM_USE_MSI') or False)
 

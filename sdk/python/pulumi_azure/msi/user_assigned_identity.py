@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class UserAssignedIdentity(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, tags=None):

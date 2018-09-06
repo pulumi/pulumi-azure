@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "./utilities";
 
 /**
  * The provider type for the azurerm package
@@ -15,21 +16,18 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
-            if (!args || args.environment === undefined) {
-                throw new Error("Missing required property 'environment'");
-            }
-            inputs["clientId"] = args ? args.clientId : undefined;
-            inputs["clientSecret"] = args ? args.clientSecret : undefined;
-            inputs["environment"] = args ? args.environment : undefined;
-            inputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
-            inputs["skipCredentialsValidation"] = args ? args.skipCredentialsValidation : undefined;
-            inputs["skipProviderRegistration"] = args ? args.skipProviderRegistration : undefined;
-            inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            inputs["tenantId"] = args ? args.tenantId : undefined;
-            inputs["useMsi"] = args ? args.useMsi : undefined;
+            inputs["clientId"] = (args ? args.clientId : undefined) || (utilities.getEnv("ARM_CLIENT_ID") || "");
+            inputs["clientSecret"] = (args ? args.clientSecret : undefined) || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
+            inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
+            inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) || (utilities.getEnv("ARM_MSI_ENDPOINT") || "");
+            inputs["skipCredentialsValidation"] = (args ? args.skipCredentialsValidation : undefined) || (utilities.getEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") || false);
+            inputs["skipProviderRegistration"] = (args ? args.skipProviderRegistration : undefined) || (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false);
+            inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
+            inputs["tenantId"] = (args ? args.tenantId : undefined) || (utilities.getEnv("ARM_TENANT_ID") || "");
+            inputs["useMsi"] = (args ? args.useMsi : undefined) || (utilities.getEnvBoolean("ARM_USE_MSI") || false);
         }
         super("azurerm", name, inputs, opts);
     }
@@ -41,7 +39,7 @@ export class Provider extends pulumi.ProviderResource {
 export interface ProviderArgs {
     readonly clientId?: pulumi.Input<string>;
     readonly clientSecret?: pulumi.Input<string>;
-    readonly environment: pulumi.Input<string>;
+    readonly environment?: pulumi.Input<string>;
     readonly msiEndpoint?: pulumi.Input<string>;
     readonly skipCredentialsValidation?: pulumi.Input<boolean>;
     readonly skipProviderRegistration?: pulumi.Input<boolean>;

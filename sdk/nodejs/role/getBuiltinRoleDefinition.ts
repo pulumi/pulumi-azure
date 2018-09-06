@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as utilities from "../utilities";
 
 /**
  * Use this data source to access the properties of a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.

@@ -4,6 +4,7 @@
 
 import pulumi
 import pulumi.runtime
+from .. import utilities
 
 class Group(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, containers=None, dns_name_label=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None):
