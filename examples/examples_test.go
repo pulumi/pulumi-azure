@@ -45,7 +45,11 @@ func TestExamples(t *testing.T) {
 	}
 
 	for _, ex := range examples {
-		example := ex
+		example := ex.With(integration.ProgramTestOptions{
+			// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
+			// change during a `pulumi refresh` for reasons outside our control.
+			ExpectRefreshChanges: true,
+		})
 		t.Run(example.Dir, func(t *testing.T) {
 			integration.ProgramTest(t, &example)
 		})
