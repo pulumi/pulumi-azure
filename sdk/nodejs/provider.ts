@@ -23,11 +23,11 @@ export class Provider extends pulumi.ProviderResource {
             inputs["clientSecret"] = (args ? args.clientSecret : undefined) || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
             inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
             inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) || (utilities.getEnv("ARM_MSI_ENDPOINT") || "");
-            inputs["skipCredentialsValidation"] = (args ? args.skipCredentialsValidation : undefined) || (utilities.getEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") || false);
-            inputs["skipProviderRegistration"] = (args ? args.skipProviderRegistration : undefined) || (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false);
+            inputs["skipCredentialsValidation"] = pulumi.output(utilities.unwrap((args ? args.skipCredentialsValidation : undefined) || (utilities.getEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") || false))).apply(JSON.stringify);
+            inputs["skipProviderRegistration"] = pulumi.output(utilities.unwrap((args ? args.skipProviderRegistration : undefined) || (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false))).apply(JSON.stringify);
             inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
             inputs["tenantId"] = (args ? args.tenantId : undefined) || (utilities.getEnv("ARM_TENANT_ID") || "");
-            inputs["useMsi"] = (args ? args.useMsi : undefined) || (utilities.getEnvBoolean("ARM_USE_MSI") || false);
+            inputs["useMsi"] = pulumi.output(utilities.unwrap((args ? args.useMsi : undefined) || (utilities.getEnvBoolean("ARM_USE_MSI") || false))).apply(JSON.stringify);
         }
         super("azurerm", name, inputs, opts);
     }
