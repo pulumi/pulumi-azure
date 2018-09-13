@@ -634,7 +634,12 @@ func FromName(options AutoNameOptions) func(res *tfbridge.PulumiResource) (inter
 			vs = strings.ToLower(vs)
 		}
 		if options.Randlen > 0 {
-			return resource.NewUniqueHex(vs+options.Separator, options.Randlen, options.Maxlen)
+			res, err := resource.NewUniqueHex(vs+options.Separator, options.Randlen, options.Maxlen)
+			if err != nil {
+				return res, errors.Wrapf(err, "Could not make instance of '%v'.", res.URN.Type())
+			}
+
+			return res, err
 		}
 		if len(vs) > options.Maxlen {
 			return "", errors.Errorf("name '%s' is longer than maximum length %d", vs, options.Maxlen)
