@@ -221,14 +221,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
 
 			// Core
-			"azurerm_resource_group":      {
+			"azurerm_resource_group": {
 				Tok: azureResource(azureCore, "ResourceGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
 					// Max length of a resource group name is 90
 					azureName: AutoNameWithMaxLength(azureName, 90),
 				}},
-			},
 			"azurerm_template_deployment": {Tok: azureResource(azureCore, "TemplateDeployment")},
 
 			// CDN
@@ -634,12 +633,12 @@ func FromName(options AutoNameOptions) func(res *tfbridge.PulumiResource) (inter
 			vs = strings.ToLower(vs)
 		}
 		if options.Randlen > 0 {
-			res, err := resource.NewUniqueHex(vs+options.Separator, options.Randlen, options.Maxlen)
+			uniqueHex, err := resource.NewUniqueHex(vs+options.Separator, options.Randlen, options.Maxlen)
 			if err != nil {
-				return res, errors.Wrapf(err, "Could not make instance of '%v'.", res.URN.Type())
+				return uniqueHex, errors.Wrapf(err, "Could not make instance of '%v'.", res.URN.Type())
 			}
 
-			return res, err
+			return uniqueHex, nil
 		}
 		if len(vs) > options.Maxlen {
 			return "", errors.Errorf("name '%s' is longer than maximum length %d", vs, options.Maxlen)
