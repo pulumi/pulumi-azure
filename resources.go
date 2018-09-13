@@ -221,7 +221,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
 
 			// Core
-			"azurerm_resource_group":      {Tok: azureResource(azureCore, "ResourceGroup")},
+			"azurerm_resource_group":      {
+				Tok: azureResource(azureCore, "ResourceGroup"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
+					// Max length of a resource group name is 90
+					azureName: AutoNameWithMaxLength(azureName, 90),
+				}},
+			},
 			"azurerm_template_deployment": {Tok: azureResource(azureCore, "TemplateDeployment")},
 
 			// CDN
