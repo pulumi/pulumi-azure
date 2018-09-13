@@ -24,7 +24,6 @@ const containerGroup = new azure.containerservice.Group("containergroup", {
     resourceGroupName: resourceGroup.name,
     ipAddressType: "public",
     osType: "linux",
-    dnsNameLabel: "pulumicontainergroup",
     containers: [
         {
             name: "webserver",
