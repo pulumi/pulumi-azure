@@ -483,7 +483,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_container": {Tok: azureResource(azureStorage, "Container")},
 			"azurerm_storage_share":     {Tok: azureResource(azureStorage, "Share")},
 			"azurerm_storage_queue":     {Tok: azureResource(azureStorage, "Queue")},
-			"azurerm_storage_table":     {Tok: azureResource(azureStorage, "Table")},
+			"azurerm_storage_table": {
+				Tok: azureResource(azureStorage, "Table"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://docs.microsoft.com/en-us/rest/api/storageservices/Understanding-the-Table-Service-Data-Model#table-names
+					// Max length of a table name is 63.
+					azureName: AutoNameWithMaxLength(azureName, 63),
+				}},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_azuread_application":       {Tok: azureDataSource(azureAD, "getApplication")},
