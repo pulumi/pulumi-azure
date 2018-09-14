@@ -478,11 +478,17 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},
 
 			// Storage
-			"azurerm_storage_account":   {Tok: azureResource(azureStorage, "Account")},
-			"azurerm_storage_blob":      {Tok: azureResource(azureStorage, "Blob")},
-			"azurerm_storage_container": {Tok: azureResource(azureStorage, "Container")},
-			"azurerm_storage_share":     {Tok: azureResource(azureStorage, "Share")},
-			"azurerm_storage_queue":     {Tok: azureResource(azureStorage, "Queue")},
+			"azurerm_storage_account": {Tok: azureResource(azureStorage, "Account")},
+			"azurerm_storage_blob":    {Tok: azureResource(azureStorage, "Blob")},
+			"azurerm_storage_container": {
+				Tok: azureResource(azureStorage, "Container"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
+					// Max length of a container name is 63.
+					azureName: AutoNameWithMaxLength(azureName, 63),
+				}},
+			"azurerm_storage_share": {Tok: azureResource(azureStorage, "Share")},
+			"azurerm_storage_queue": {Tok: azureResource(azureStorage, "Queue")},
 			"azurerm_storage_table": {
 				Tok: azureResource(azureStorage, "Table"),
 				Fields: map[string]*tfbridge.SchemaInfo{
