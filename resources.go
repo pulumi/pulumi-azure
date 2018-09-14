@@ -192,8 +192,13 @@ func Provider() tfbridge.ProviderInfo {
 				}},
 			"azurerm_app_service_slot":        {Tok: azureResource(azureAppService, "Slot")},
 			"azurerm_app_service_active_slot": {Tok: azureResource(azureAppService, "ActiveSlot")},
-			"azurerm_function_app":            {Tok: azureResource(azureAppService, "FunctionApp")},
-
+			"azurerm_function_app":            {
+				Tok: azureResource(azureAppService, "FunctionApp")
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Max length of a functionapp name is 60.
+					// This was discovered directly through the portal.
+					azureName: AutoNameWithMaxLength(azureName, 60),
+				}},
 			// Automation
 			"azurerm_automation_account":    {Tok: azureResource(azureAutomation, "Account")},
 			"azurerm_automation_credential": {Tok: azureResource(azureAutomation, "Credential")},
