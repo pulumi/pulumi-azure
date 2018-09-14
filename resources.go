@@ -297,7 +297,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
 					// Max length of a servicehub queue is 260.
-					azureName: AutoNameWithMaxLength(azureName, 50),
+					azureName: AutoNameWithMaxLength(azureName, 260),
 				}},
 			"azurerm_servicebus_queue_authorization_rule": {Tok: azureResource(azureMessaging, "QueueAuthorizationRule")},
 			"azurerm_servicebus_subscription":             {Tok: azureResource(azureMessaging, "Subscription")},
@@ -307,7 +307,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
 					// Max length of a servicehub topic is 260.
-					azureName: AutoNameWithMaxLength(azureName, 50),
+					azureName: AutoNameWithMaxLength(azureName, 260),
 				}},
 			"azurerm_servicebus_topic_authorization_rule": {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
 
