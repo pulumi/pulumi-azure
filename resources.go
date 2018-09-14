@@ -292,12 +292,24 @@ func Provider() tfbridge.ProviderInfo {
 					azureName: AutoNameWithMaxLength(azureName, 50),
 				}},
 			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "NamespaceAuthorizationRule")},
-			"azurerm_servicebus_queue":                        {Tok: azureResource(azureMessaging, "Queue")},
-			"azurerm_servicebus_queue_authorization_rule":     {Tok: azureResource(azureMessaging, "QueueAuthorizationRule")},
-			"azurerm_servicebus_subscription":                 {Tok: azureResource(azureMessaging, "Subscription")},
-			"azurerm_servicebus_subscription_rule":            {Tok: azureResource(azureMessaging, "SubscriptionRule")},
-			"azurerm_servicebus_topic":                        {Tok: azureResource(azureMessaging, "Topic")},
-			"azurerm_servicebus_topic_authorization_rule":     {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
+			"azurerm_servicebus_queue": {
+				Tok: azureResource(azureMessaging, "Queue"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
+					// Max length of a servicehub queue is 260.
+					azureName: AutoNameWithMaxLength(azureName, 260),
+				}},
+			"azurerm_servicebus_queue_authorization_rule": {Tok: azureResource(azureMessaging, "QueueAuthorizationRule")},
+			"azurerm_servicebus_subscription":             {Tok: azureResource(azureMessaging, "Subscription")},
+			"azurerm_servicebus_subscription_rule":        {Tok: azureResource(azureMessaging, "SubscriptionRule")},
+			"azurerm_servicebus_topic": {
+				Tok: azureResource(azureMessaging, "Topic"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
+					// Max length of a servicehub topic is 260.
+					azureName: AutoNameWithMaxLength(azureName, 260),
+				}},
+			"azurerm_servicebus_topic_authorization_rule": {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
 
 			// IoT Resources
 			"azurerm_iothub": {Tok: azureResource(azureIot, "IoTHub"),
