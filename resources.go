@@ -278,7 +278,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub_consumer_group":                 {Tok: azureResource(azureMessaging, "EventHubConsumerGroup")},
 			"azurerm_eventhub_namespace":                      {Tok: azureResource(azureMessaging, "EventHubNamespace")},
 			"azurerm_eventhub_namespace_authorization_rule":   {Tok: azureResource(azureMessaging, "EventHubNamespaceAuthorizationRule")},
-			"azurerm_servicebus_namespace":                    {Tok: azureResource(azureMessaging, "Namespace")},
+			"azurerm_servicebus_namespace":                    {
+				Tok: azureResource(azureMessaging, "Namespace"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
+					// Max length of a servicehub namespace is 50.
+					azureName: AutoNameWithMaxLength(azureName, 50),
+				}},
+			},
 			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "NamespaceAuthorizationRule")},
 			"azurerm_servicebus_queue":                        {Tok: azureResource(azureMessaging, "Queue")},
 			"azurerm_servicebus_queue_authorization_rule":     {Tok: azureResource(azureMessaging, "QueueAuthorizationRule")},
