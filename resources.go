@@ -192,8 +192,8 @@ func Provider() tfbridge.ProviderInfo {
 				}},
 			"azurerm_app_service_slot":        {Tok: azureResource(azureAppService, "Slot")},
 			"azurerm_app_service_active_slot": {Tok: azureResource(azureAppService, "ActiveSlot")},
-			"azurerm_function_app":            {
-				Tok: azureResource(azureAppService, "FunctionApp")
+			"azurerm_function_app": {
+				Tok: azureResource(azureAppService, "FunctionApp"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a functionapp name is 60.
 					// This was discovered directly through the portal.
@@ -484,7 +484,13 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Storage
 			"azurerm_storage_account": {Tok: azureResource(azureStorage, "Account")},
-			"azurerm_storage_blob":    {Tok: azureResource(azureStorage, "Blob")},
+			"azurerm_storage_blob": {
+				Tok: azureResource(azureStorage, "Blob"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
+					// Max length of a container name is 1024.
+					azureName: AutoNameWithMaxLength(azureName, 1024),
+				}},
 			"azurerm_storage_container": {
 				Tok: azureResource(azureStorage, "Container"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -602,6 +608,9 @@ func Provider() tfbridge.ProviderInfo {
 					Format: resource.ZIPArchive,
 				},
 			},
+			// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage
+			// Max length of a container name is 1024.
+			azureName: AutoNameWithMaxLength(azureName, 1024),
 		},
 	}
 
