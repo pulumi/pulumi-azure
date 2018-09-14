@@ -36,6 +36,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly dnsPrefix: pulumi.Output<string>;
     /**
+     * True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
+     */
+    public readonly enableRbac: pulumi.Output<boolean | undefined>;
+    /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
     public /*out*/ readonly fqdn: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
             inputs["agentPoolProfile"] = state ? state.agentPoolProfile : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
+            inputs["enableRbac"] = state ? state.enableRbac : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["kubeConfig"] = state ? state.kubeConfig : undefined;
             inputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
@@ -136,6 +141,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
             inputs["agentPoolProfile"] = args ? args.agentPoolProfile : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
+            inputs["enableRbac"] = args ? args.enableRbac : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
             inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -169,6 +175,10 @@ export interface KubernetesClusterState {
      * DNS prefix specified when creating the managed cluster.
      */
     readonly dnsPrefix?: pulumi.Input<string>;
+    /**
+     * True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
+     */
+    readonly enableRbac?: pulumi.Input<boolean>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
@@ -237,6 +247,10 @@ export interface KubernetesClusterArgs {
      * DNS prefix specified when creating the managed cluster.
      */
     readonly dnsPrefix: pulumi.Input<string>;
+    /**
+     * True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
+     */
+    readonly enableRbac?: pulumi.Input<boolean>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */

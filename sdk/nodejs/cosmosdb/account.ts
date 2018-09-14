@@ -49,6 +49,7 @@ export class Account extends pulumi.CustomResource {
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
     public readonly ipRangeFilter: pulumi.Output<string | undefined>;
+    public readonly isVirtualNetworkFilterEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
@@ -93,6 +94,7 @@ export class Account extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly virtualNetworkRules: pulumi.Output<{ id: string }[] | undefined>;
     /**
      * A list of write endpoints available for this CosmosDB account.
      */
@@ -118,6 +120,7 @@ export class Account extends pulumi.CustomResource {
             inputs["failoverPolicies"] = state ? state.failoverPolicies : undefined;
             inputs["geoLocations"] = state ? state.geoLocations : undefined;
             inputs["ipRangeFilter"] = state ? state.ipRangeFilter : undefined;
+            inputs["isVirtualNetworkFilterEnabled"] = state ? state.isVirtualNetworkFilterEnabled : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -129,6 +132,7 @@ export class Account extends pulumi.CustomResource {
             inputs["secondaryMasterKey"] = state ? state.secondaryMasterKey : undefined;
             inputs["secondaryReadonlyMasterKey"] = state ? state.secondaryReadonlyMasterKey : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["virtualNetworkRules"] = state ? state.virtualNetworkRules : undefined;
             inputs["writeEndpoints"] = state ? state.writeEndpoints : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
@@ -150,12 +154,14 @@ export class Account extends pulumi.CustomResource {
             inputs["failoverPolicies"] = args ? args.failoverPolicies : undefined;
             inputs["geoLocations"] = args ? args.geoLocations : undefined;
             inputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
+            inputs["isVirtualNetworkFilterEnabled"] = args ? args.isVirtualNetworkFilterEnabled : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["offerType"] = args ? args.offerType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
             inputs["connectionStrings"] = undefined /*out*/;
             inputs["endpoint"] = undefined /*out*/;
             inputs["primaryMasterKey"] = undefined /*out*/;
@@ -202,6 +208,7 @@ export interface AccountState {
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
     readonly ipRangeFilter?: pulumi.Input<string>;
+    readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
@@ -246,6 +253,7 @@ export interface AccountState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string> }>[]>;
     /**
      * A list of write endpoints available for this CosmosDB account.
      */
@@ -277,6 +285,7 @@ export interface AccountArgs {
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
     readonly ipRangeFilter?: pulumi.Input<string>;
+    readonly isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
@@ -301,4 +310,5 @@ export interface AccountArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string> }>[]>;
 }

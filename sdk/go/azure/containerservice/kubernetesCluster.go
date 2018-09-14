@@ -42,6 +42,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["addonProfile"] = nil
 		inputs["agentPoolProfile"] = nil
 		inputs["dnsPrefix"] = nil
+		inputs["enableRbac"] = nil
 		inputs["kubernetesVersion"] = nil
 		inputs["linuxProfile"] = nil
 		inputs["location"] = nil
@@ -54,6 +55,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["addonProfile"] = args.AddonProfile
 		inputs["agentPoolProfile"] = args.AgentPoolProfile
 		inputs["dnsPrefix"] = args.DnsPrefix
+		inputs["enableRbac"] = args.EnableRbac
 		inputs["kubernetesVersion"] = args.KubernetesVersion
 		inputs["linuxProfile"] = args.LinuxProfile
 		inputs["location"] = args.Location
@@ -83,6 +85,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 		inputs["addonProfile"] = state.AddonProfile
 		inputs["agentPoolProfile"] = state.AgentPoolProfile
 		inputs["dnsPrefix"] = state.DnsPrefix
+		inputs["enableRbac"] = state.EnableRbac
 		inputs["fqdn"] = state.Fqdn
 		inputs["kubeConfig"] = state.KubeConfig
 		inputs["kubeConfigRaw"] = state.KubeConfigRaw
@@ -126,6 +129,11 @@ func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
 // DNS prefix specified when creating the managed cluster.
 func (r *KubernetesCluster) DnsPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsPrefix"])
+}
+
+// True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
+func (r *KubernetesCluster) EnableRbac() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enableRbac"])
 }
 
 // The FQDN of the Azure Kubernetes Managed Cluster.
@@ -198,6 +206,8 @@ type KubernetesClusterState struct {
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix interface{}
+	// True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
+	EnableRbac interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
 	// A `kube_config` block as defined below.
@@ -234,6 +244,8 @@ type KubernetesClusterArgs struct {
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix interface{}
+	// True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
+	EnableRbac interface{}
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion interface{}
 	// A Linux Profile block as documented below.
