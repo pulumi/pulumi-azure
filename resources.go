@@ -183,10 +183,16 @@ func Provider() tfbridge.ProviderInfo {
 			// App Service
 			"azurerm_app_service":                         {Tok: azureResource(azureAppService, "AppService")},
 			"azurerm_app_service_custom_hostname_binding": {Tok: azureResource(azureAppService, "CustomHostnameBinding")},
-			"azurerm_app_service_plan":                    {Tok: azureResource(azureAppService, "Plan")},
-			"azurerm_app_service_slot":                    {Tok: azureResource(azureAppService, "Slot")},
-			"azurerm_app_service_active_slot":             {Tok: azureResource(azureAppService, "ActiveSlot")},
-			"azurerm_function_app":                        {Tok: azureResource(azureAppService, "FunctionApp")},
+			"azurerm_app_service_plan": {
+				Tok: azureResource(azureAppService, "Plan"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Max length of an app service plan name is 40.
+					// This was discovered directly through the portal.
+					azureName: AutoNameWithMaxLength(azureName, 40),
+				}},
+			"azurerm_app_service_slot":        {Tok: azureResource(azureAppService, "Slot")},
+			"azurerm_app_service_active_slot": {Tok: azureResource(azureAppService, "ActiveSlot")},
+			"azurerm_function_app":            {Tok: azureResource(azureAppService, "FunctionApp")},
 
 			// Automation
 			"azurerm_automation_account":    {Tok: azureResource(azureAutomation, "Account")},
