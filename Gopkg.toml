@@ -4,14 +4,26 @@
 
 [[constraint]]
   name = "github.com/pulumi/pulumi-terraform"
-  version = "v0.15.1"
+  branch = "master"
 
 [[constraint]]
   name = "github.com/terraform-providers/terraform-provider-azurerm"
-  version = "=1.13.0"
+  source = "github.com/pulumi/terraform-provider-azurerm"
+  branch = "pulumi-master"
 
-# The current version of terraform-provider-azure (v1.12.0) requires the following
-# specific version of azure-sdk-for-go.
+# The current version of terraform-provider-azurerm requires the following specific dependencies:
+[[override]]
+  name = "github.com/hashicorp/terraform"
+  revision = "dc8036636ae76c7a7d1a7bd4e0ee09686a216a3b"
+
+[[override]]
+  name = "golang.org/x/net"
+  revision = "1c05540f6879653db88113bc4a2b70aec4bd491f"
+
 [[override]]
   name = "github.com/Azure/azure-sdk-for-go"
   version = "=v18.0.0"
+
+[[override]]
+  name = "github.com/satori/go.uuid"
+  version = "=v1.2.0"

@@ -13,7 +13,7 @@ class KubernetesCluster(pulumi.CustomResource):
     ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, service_principal=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, enable_rbac=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, service_principal=None, tags=None):
         """Create a KubernetesCluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -51,6 +51,14 @@ class KubernetesCluster(pulumi.CustomResource):
         DNS prefix specified when creating the managed cluster.
         """
         __props__['dnsPrefix'] = dns_prefix
+
+        if enable_rbac and not isinstance(enable_rbac, bool):
+            raise TypeError('Expected property enable_rbac to be a bool')
+        __self__.enable_rbac = enable_rbac
+        """
+        True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
+        """
+        __props__['enableRbac'] = enable_rbac
 
         if kubernetes_version and not isinstance(kubernetes_version, basestring):
             raise TypeError('Expected property kubernetes_version to be a basestring')
@@ -156,6 +164,8 @@ class KubernetesCluster(pulumi.CustomResource):
             self.agent_pool_profile = outs['agentPoolProfile']
         if 'dnsPrefix' in outs:
             self.dns_prefix = outs['dnsPrefix']
+        if 'enableRbac' in outs:
+            self.enable_rbac = outs['enableRbac']
         if 'fqdn' in outs:
             self.fqdn = outs['fqdn']
         if 'kubeConfig' in outs:

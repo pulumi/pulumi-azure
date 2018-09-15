@@ -10,7 +10,7 @@ class Account(pulumi.CustomResource):
     """
     Manages a CosmosDB (formally DocumentDB) Account.
     """
-    def __init__(__self__, __name__, __opts__=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, failover_policies=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, failover_policies=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None, virtual_network_rules=None):
         """Create a Account resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -68,6 +68,11 @@ class Account(pulumi.CustomResource):
         """
         __props__['ipRangeFilter'] = ip_range_filter
 
+        if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
+            raise TypeError('Expected property is_virtual_network_filter_enabled to be a bool')
+        __self__.is_virtual_network_filter_enabled = is_virtual_network_filter_enabled
+        __props__['isVirtualNetworkFilterEnabled'] = is_virtual_network_filter_enabled
+
         if kind and not isinstance(kind, basestring):
             raise TypeError('Expected property kind to be a basestring')
         __self__.kind = kind
@@ -121,6 +126,11 @@ class Account(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         __props__['tags'] = tags
+
+        if virtual_network_rules and not isinstance(virtual_network_rules, list):
+            raise TypeError('Expected property virtual_network_rules to be a list')
+        __self__.virtual_network_rules = virtual_network_rules
+        __props__['virtualNetworkRules'] = virtual_network_rules
 
         __self__.connection_strings = pulumi.runtime.UNKNOWN
         """
@@ -178,6 +188,8 @@ class Account(pulumi.CustomResource):
             self.geo_locations = outs['geoLocations']
         if 'ipRangeFilter' in outs:
             self.ip_range_filter = outs['ipRangeFilter']
+        if 'isVirtualNetworkFilterEnabled' in outs:
+            self.is_virtual_network_filter_enabled = outs['isVirtualNetworkFilterEnabled']
         if 'kind' in outs:
             self.kind = outs['kind']
         if 'location' in outs:
@@ -200,5 +212,7 @@ class Account(pulumi.CustomResource):
             self.secondary_readonly_master_key = outs['secondaryReadonlyMasterKey']
         if 'tags' in outs:
             self.tags = outs['tags']
+        if 'virtualNetworkRules' in outs:
+            self.virtual_network_rules = outs['virtualNetworkRules']
         if 'writeEndpoints' in outs:
             self.write_endpoints = outs['writeEndpoints']

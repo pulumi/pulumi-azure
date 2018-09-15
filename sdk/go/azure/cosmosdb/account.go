@@ -36,12 +36,14 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["failoverPolicies"] = nil
 		inputs["geoLocations"] = nil
 		inputs["ipRangeFilter"] = nil
+		inputs["isVirtualNetworkFilterEnabled"] = nil
 		inputs["kind"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["offerType"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
+		inputs["virtualNetworkRules"] = nil
 	} else {
 		inputs["capabilities"] = args.Capabilities
 		inputs["consistencyPolicy"] = args.ConsistencyPolicy
@@ -49,12 +51,14 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["failoverPolicies"] = args.FailoverPolicies
 		inputs["geoLocations"] = args.GeoLocations
 		inputs["ipRangeFilter"] = args.IpRangeFilter
+		inputs["isVirtualNetworkFilterEnabled"] = args.IsVirtualNetworkFilterEnabled
 		inputs["kind"] = args.Kind
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["offerType"] = args.OfferType
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
+		inputs["virtualNetworkRules"] = args.VirtualNetworkRules
 	}
 	inputs["connectionStrings"] = nil
 	inputs["endpoint"] = nil
@@ -85,6 +89,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["failoverPolicies"] = state.FailoverPolicies
 		inputs["geoLocations"] = state.GeoLocations
 		inputs["ipRangeFilter"] = state.IpRangeFilter
+		inputs["isVirtualNetworkFilterEnabled"] = state.IsVirtualNetworkFilterEnabled
 		inputs["kind"] = state.Kind
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
@@ -96,6 +101,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["secondaryMasterKey"] = state.SecondaryMasterKey
 		inputs["secondaryReadonlyMasterKey"] = state.SecondaryReadonlyMasterKey
 		inputs["tags"] = state.Tags
+		inputs["virtualNetworkRules"] = state.VirtualNetworkRules
 		inputs["writeEndpoints"] = state.WriteEndpoints
 	}
 	s, err := ctx.ReadResource("azure:cosmosdb/account:Account", name, id, inputs, opts...)
@@ -154,6 +160,10 @@ func (r *Account) IpRangeFilter() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipRangeFilter"])
 }
 
+func (r *Account) IsVirtualNetworkFilterEnabled() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["isVirtualNetworkFilterEnabled"])
+}
+
 // Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 func (r *Account) Kind() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kind"])
@@ -209,6 +219,10 @@ func (r *Account) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+func (r *Account) VirtualNetworkRules() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["virtualNetworkRules"])
+}
+
 // A list of write endpoints available for this CosmosDB account.
 func (r *Account) WriteEndpoints() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["writeEndpoints"])
@@ -231,6 +245,7 @@ type AccountState struct {
 	GeoLocations interface{}
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter interface{}
+	IsVirtualNetworkFilterEnabled interface{}
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind interface{}
 	// The name of the Azure region to host replicated data.
@@ -253,6 +268,7 @@ type AccountState struct {
 	SecondaryReadonlyMasterKey interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	VirtualNetworkRules interface{}
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints interface{}
 }
@@ -270,6 +286,7 @@ type AccountArgs struct {
 	GeoLocations interface{}
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter interface{}
+	IsVirtualNetworkFilterEnabled interface{}
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind interface{}
 	// The name of the Azure region to host replicated data.
@@ -282,4 +299,5 @@ type AccountArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	VirtualNetworkRules interface{}
 }

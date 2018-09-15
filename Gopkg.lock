@@ -71,12 +71,10 @@
     "autorest/azure/cli",
     "autorest/date",
     "autorest/to",
-    "autorest/validation",
-    "logger",
-    "version"
+    "autorest/validation"
   ]
-  revision = "22deab8fa353631a78351bd7808fcb5002024b67"
-  version = "v10.15.1"
+  revision = "1f7cd6cfe0adea687ad44a512dfe76140f804318"
+  version = "v10.12.0"
 
 [[projects]]
   name = "github.com/Nvveen/Gotty"
@@ -354,7 +352,6 @@
     "helper/schema",
     "helper/structure",
     "helper/validation",
-    "httpclient",
     "moduledeps",
     "plugin/discovery",
     "registry",
@@ -367,7 +364,7 @@
     "tfdiags",
     "version"
   ]
-  revision = "ec998a21bc95366269fbd196e09d3a458bba8be7"
+  revision = "dc8036636ae76c7a7d1a7bd4e0ee09686a216a3b"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -566,13 +563,13 @@
   version = "v0.15.1"
 
 [[projects]]
+  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "8808584154671f6480f5adff72da24f2a773cbfc"
-  version = "v0.15.1"
+  revision = "d6aeea0d72011a04adf6384192cc5381d4cb6526"
 
 [[projects]]
   branch = "master"
@@ -589,8 +586,7 @@
 [[projects]]
   name = "github.com/satori/uuid"
   packages = ["."]
-  revision = "879c5887cd475cd7864858769793b2ceb0d44feb"
-  version = "v1.1.0"
+  revision = "b061729afc07e77a8aa4fad0a2fd840958f1942a"
 
 [[projects]]
   branch = "master"
@@ -634,6 +630,7 @@
   version = "v1.1.4"
 
 [[projects]]
+  branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-azurerm"
   packages = [
     "azurerm",
@@ -648,8 +645,8 @@
     "azurerm/helpers/validate",
     "azurerm/utils"
   ]
-  revision = "e3dd02da41f1cf1cab57ac9052a8c2641c5faef6"
-  version = "v1.13.0"
+  revision = "1ba290492c0f1a20e39e03082f512eaa9724a461"
+  source = "github.com/pulumi/terraform-provider-azurerm"
 
 [[projects]]
   branch = "master"
@@ -746,7 +743,7 @@
     "lex/httplex",
     "trace"
   ]
-  revision = "a04bdaca5b32abe1c069418fb7088ae607de5bd0"
+  revision = "1c05540f6879653db88113bc4a2b70aec4bd491f"
 
 [[projects]]
   branch = "master"
@@ -886,14 +883,13 @@
   version = "v0.1.2"
 
 [[projects]]
-  branch = "v2"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "287cf08546ab5e7e37d55a84f7ed3fd1db036de5"
+  revision = "7f97868eec74b32b0982dd158a51a446d1da7eb5"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "a6727ebdf7fa9fbd8b48d9e474bf858206c0c428a64a6afa6093075ae47601e2"
+  inputs-digest = "64ea23977fb77c23dcb2160481b793b89c2af423ad13ab16438e873d1388fc82"
   solver-name = "gps-cdcl"
   solver-version = 1
