@@ -352,6 +352,7 @@
     "helper/schema",
     "helper/structure",
     "helper/validation",
+    "httpclient",
     "moduledeps",
     "plugin/discovery",
     "registry",
@@ -364,7 +365,7 @@
     "tfdiags",
     "version"
   ]
-  revision = "dc8036636ae76c7a7d1a7bd4e0ee09686a216a3b"
+  revision = "bb37637a139151be0ff9bf00c85c448538e5b3d2"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -890,6 +891,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "64ea23977fb77c23dcb2160481b793b89c2af423ad13ab16438e873d1388fc82"
+  inputs-digest = "d5d86282650e80c6172db87eaf45e9b8a5fa29755e3a10581d8a38672bbd52b6"
   solver-name = "gps-cdcl"
   solver-version = 1
