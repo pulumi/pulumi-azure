@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create an Application Security Group.
+ * Manage an Application Security Group.
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**

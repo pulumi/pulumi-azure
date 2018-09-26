@@ -8,7 +8,7 @@ from .. import utilities
 
 class Blob(pulumi.CustomResource):
     """
-    Create an Azure Storage Blob.
+    Manage an Azure Storage Blob.
     """
     def __init__(__self__, __name__, __opts__=None, attempts=None, content_type=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None):
         """Create a Blob resource with the given unique name, props, and options."""

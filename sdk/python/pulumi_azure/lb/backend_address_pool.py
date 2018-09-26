@@ -8,7 +8,7 @@ from .. import utilities
 
 class BackendAddressPool(pulumi.CustomResource):
     """
-    Create a Load Balancer Backend Address Pool.
+    Manage a Load Balancer Backend Address Pool.
     
     ~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     """

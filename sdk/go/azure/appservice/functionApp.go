@@ -191,7 +191,7 @@ func (r *FunctionApp) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The runtime version associated with the Function App. Possible values are `~1` and `beta`. Defaults to `~1`.
+// The runtime version associated with the Function App. Defaults to `~1`.
 func (r *FunctionApp) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
 }
@@ -230,7 +230,7 @@ type FunctionAppState struct {
 	StorageConnectionString interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The runtime version associated with the Function App. Possible values are `~1` and `beta`. Defaults to `~1`.
+	// The runtime version associated with the Function App. Defaults to `~1`.
 	Version interface{}
 }
 
@@ -262,6 +262,6 @@ type FunctionAppArgs struct {
 	StorageConnectionString interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The runtime version associated with the Function App. Possible values are `~1` and `beta`. Defaults to `~1`.
+	// The runtime version associated with the Function App. Defaults to `~1`.
 	Version interface{}
 }

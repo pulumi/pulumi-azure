@@ -8,7 +8,7 @@ from .. import utilities
 
 class Table(pulumi.CustomResource):
     """
-    Create an Azure Storage Table.
+    Manage an Azure Storage Table.
     """
     def __init__(__self__, __name__, __opts__=None, name=None, resource_group_name=None, storage_account_name=None):
         """Create a Table resource with the given unique name, props, and options."""

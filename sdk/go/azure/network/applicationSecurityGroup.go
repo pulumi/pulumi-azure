@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an Application Security Group.
+// Manage an Application Security Group.
 type ApplicationSecurityGroup struct {
 	s *pulumi.ResourceState
 }

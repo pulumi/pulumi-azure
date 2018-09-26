@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create an App Service Plan component.
+ * Manage an App Service Plan component.
  */
 export class Plan extends pulumi.CustomResource {
     /**

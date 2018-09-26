@@ -8,7 +8,7 @@ from .. import utilities
 
 class SubscriptionRule(pulumi.CustomResource):
     """
-    Create a ServiceBus Subscription Rule.
+    Manage a ServiceBus Subscription Rule.
     """
     def __init__(__self__, __name__, __opts__=None, action=None, correlation_filter=None, filter_type=None, name=None, namespace_name=None, resource_group_name=None, sql_filter=None, subscription_name=None, topic_name=None):
         """Create a SubscriptionRule resource with the given unique name, props, and options."""

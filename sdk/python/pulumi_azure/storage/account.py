@@ -8,7 +8,7 @@ from .. import utilities
 
 class Account(pulumi.CustomResource):
     """
-    Create an Azure Storage Account.
+    Manage an Azure Storage Account.
     """
     def __init__(__self__, __name__, __opts__=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, location=None, name=None, network_rules=None, resource_group_name=None, tags=None):
         """Create a Account resource with the given unique name, props, and options."""

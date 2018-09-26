@@ -137,7 +137,7 @@ class FunctionApp(pulumi.CustomResource):
             raise TypeError('Expected property version to be a basestring')
         __self__.version = version
         """
-        The runtime version associated with the Function App. Possible values are `~1` and `beta`. Defaults to `~1`.
+        The runtime version associated with the Function App. Defaults to `~1`.
         """
         __props__['version'] = version
 

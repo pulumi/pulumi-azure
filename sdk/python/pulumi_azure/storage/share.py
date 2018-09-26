@@ -8,7 +8,7 @@ from .. import utilities
 
 class Share(pulumi.CustomResource):
     """
-    Create an Azure Storage File Share.
+    Manage an Azure Storage File Share.
     """
     def __init__(__self__, __name__, __opts__=None, name=None, quota=None, resource_group_name=None, storage_account_name=None):
         """Create a Share resource with the given unique name, props, and options."""

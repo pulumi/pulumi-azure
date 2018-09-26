@@ -8,7 +8,7 @@ from .. import utilities
 
 class ApplicationSecurityGroup(pulumi.CustomResource):
     """
-    Create an Application Security Group.
+    Manage an Application Security Group.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, tags=None):
         """Create a ApplicationSecurityGroup resource with the given unique name, props, and options."""

@@ -85,7 +85,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
     /**
-     * The runtime version associated with the Function App. Possible values are `~1` and `beta`. Defaults to `~1`.
+     * The runtime version associated with the Function App. Defaults to `~1`.
      */
     public readonly version: pulumi.Output<string | undefined>;
 
@@ -223,7 +223,7 @@ export interface FunctionAppState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The runtime version associated with the Function App. Possible values are `~1` and `beta`. Defaults to `~1`.
+     * The runtime version associated with the Function App. Defaults to `~1`.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -285,7 +285,7 @@ export interface FunctionAppArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The runtime version associated with the Function App. Possible values are `~1` and `beta`. Defaults to `~1`.
+     * The runtime version associated with the Function App. Defaults to `~1`.
      */
     readonly version?: pulumi.Input<string>;
 }

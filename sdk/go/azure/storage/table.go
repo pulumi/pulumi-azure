@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an Azure Storage Table.
+// Manage an Azure Storage Table.
 type Table struct {
 	s *pulumi.ResourceState
 }

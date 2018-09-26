@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a custom virtual machine image that can be used to create virtual machines.
+// Manage a custom virtual machine image that can be used to create virtual machines.
 type Image struct {
 	s *pulumi.ResourceState
 }

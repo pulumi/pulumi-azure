@@ -29,6 +29,10 @@ export class Store extends pulumi.CustomResource {
      */
     public readonly encryptionType: pulumi.Output<string>;
     /**
+     * The Endpoint for the Data Lake Store.
+     */
+    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    /**
      * are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
     public readonly firewallAllowAzureIps: pulumi.Output<string | undefined>;
@@ -71,6 +75,7 @@ export class Store extends pulumi.CustomResource {
             const state: StoreState = argsOrState as StoreState | undefined;
             inputs["encryptionState"] = state ? state.encryptionState : undefined;
             inputs["encryptionType"] = state ? state.encryptionType : undefined;
+            inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["firewallAllowAzureIps"] = state ? state.firewallAllowAzureIps : undefined;
             inputs["firewallState"] = state ? state.firewallState : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -95,6 +100,7 @@ export class Store extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tier"] = args ? args.tier : undefined;
+            inputs["endpoint"] = undefined /*out*/;
         }
         super("azure:datalake/store:Store", name, inputs, opts);
     }
@@ -112,6 +118,10 @@ export interface StoreState {
      * The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
      */
     readonly encryptionType?: pulumi.Input<string>;
+    /**
+     * The Endpoint for the Data Lake Store.
+     */
+    readonly endpoint?: pulumi.Input<string>;
     /**
      * are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */

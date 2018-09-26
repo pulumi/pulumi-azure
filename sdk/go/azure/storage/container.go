@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an Azure Storage Container.
+// Manage an Azure Storage Container.
 type Container struct {
 	s *pulumi.ResourceState
 }

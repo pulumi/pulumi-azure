@@ -27,18 +27,26 @@ func NewIoTHub(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["endpoints"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["routes"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["endpoints"] = args.Endpoints
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["routes"] = args.Routes
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
 	}
+	inputs["eventHubEventsEndpoint"] = nil
+	inputs["eventHubEventsPath"] = nil
+	inputs["eventHubOperationsEndpoint"] = nil
+	inputs["eventHubOperationsPath"] = nil
 	inputs["hostname"] = nil
 	inputs["sharedAccessPolicies"] = nil
 	inputs["type"] = nil
@@ -55,10 +63,16 @@ func GetIoTHub(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *IoTHubState, opts ...pulumi.ResourceOpt) (*IoTHub, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["endpoints"] = state.Endpoints
+		inputs["eventHubEventsEndpoint"] = state.EventHubEventsEndpoint
+		inputs["eventHubEventsPath"] = state.EventHubEventsPath
+		inputs["eventHubOperationsEndpoint"] = state.EventHubOperationsEndpoint
+		inputs["eventHubOperationsPath"] = state.EventHubOperationsPath
 		inputs["hostname"] = state.Hostname
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["routes"] = state.Routes
 		inputs["sharedAccessPolicies"] = state.SharedAccessPolicies
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
@@ -81,6 +95,31 @@ func (r *IoTHub) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
+// An `endpoint` block as defined below.
+func (r *IoTHub) Endpoints() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["endpoints"])
+}
+
+// The EventHub compatible endpoint for events data
+func (r *IoTHub) EventHubEventsEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["eventHubEventsEndpoint"])
+}
+
+// The EventHub compatible path for events data
+func (r *IoTHub) EventHubEventsPath() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["eventHubEventsPath"])
+}
+
+// The EventHub compatible endpoint for operational data
+func (r *IoTHub) EventHubOperationsEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["eventHubOperationsEndpoint"])
+}
+
+// The EventHub compatible path for operational data
+func (r *IoTHub) EventHubOperationsPath() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["eventHubOperationsPath"])
+}
+
 // The hostname of the IotHub Resource.
 func (r *IoTHub) Hostname() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hostname"])
@@ -101,12 +140,17 @@ func (r *IoTHub) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// A `route` block as defined below.
+func (r *IoTHub) Routes() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["routes"])
+}
+
 // One or more `shared_access_policy` blocks as defined below.
 func (r *IoTHub) SharedAccessPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sharedAccessPolicies"])
 }
 
-// A `sku` block as defined below. 
+// A `sku` block as defined below.
 func (r *IoTHub) Sku() *pulumi.Output {
 	return r.s.State["sku"]
 }
@@ -122,6 +166,16 @@ func (r *IoTHub) Type() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering IoTHub resources.
 type IoTHubState struct {
+	// An `endpoint` block as defined below.
+	Endpoints interface{}
+	// The EventHub compatible endpoint for events data
+	EventHubEventsEndpoint interface{}
+	// The EventHub compatible path for events data
+	EventHubEventsPath interface{}
+	// The EventHub compatible endpoint for operational data
+	EventHubOperationsEndpoint interface{}
+	// The EventHub compatible path for operational data
+	EventHubOperationsPath interface{}
 	// The hostname of the IotHub Resource.
 	Hostname interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
@@ -130,9 +184,11 @@ type IoTHubState struct {
 	Name interface{}
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `route` block as defined below.
+	Routes interface{}
 	// One or more `shared_access_policy` blocks as defined below.
 	SharedAccessPolicies interface{}
-	// A `sku` block as defined below. 
+	// A `sku` block as defined below.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -141,13 +197,17 @@ type IoTHubState struct {
 
 // The set of arguments for constructing a IoTHub resource.
 type IoTHubArgs struct {
+	// An `endpoint` block as defined below.
+	Endpoints interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as defined below. 
+	// A `route` block as defined below.
+	Routes interface{}
+	// A `sku` block as defined below.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

@@ -8,7 +8,7 @@ from .. import utilities
 
 class Namespace(pulumi.CustomResource):
     """
-    Create a ServiceBus Namespace.
+    Manage a ServiceBus Namespace.
     """
     def __init__(__self__, __name__, __opts__=None, capacity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
         """Create a Namespace resource with the given unique name, props, and options."""

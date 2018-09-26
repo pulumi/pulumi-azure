@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create a managed disk.
+ * Manage a managed disk.
  */
 export class ManagedDisk extends pulumi.CustomResource {
     /**

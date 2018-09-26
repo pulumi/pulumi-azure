@@ -38,6 +38,7 @@ func NewCertifiate(ctx *pulumi.Context,
 	}
 	inputs["certificateData"] = nil
 	inputs["secretId"] = nil
+	inputs["thumbprint"] = nil
 	inputs["version"] = nil
 	s, err := ctx.RegisterResource("azure:keyvault/certifiate:Certifiate", name, true, inputs, opts...)
 	if err != nil {
@@ -58,6 +59,7 @@ func GetCertifiate(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["secretId"] = state.SecretId
 		inputs["tags"] = state.Tags
+		inputs["thumbprint"] = state.Thumbprint
 		inputs["vaultUri"] = state.VaultUri
 		inputs["version"] = state.Version
 	}
@@ -83,7 +85,7 @@ func (r *Certifiate) Certificate() *pulumi.Output {
 	return r.s.State["certificate"]
 }
 
-// The raw Key Vault Certificate
+// The raw Key Vault Certificate.
 func (r *Certifiate) CertificateData() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateData"])
 }
@@ -108,6 +110,11 @@ func (r *Certifiate) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+func (r *Certifiate) Thumbprint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
+}
+
 // Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 func (r *Certifiate) VaultUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
@@ -122,7 +129,7 @@ func (r *Certifiate) Version() *pulumi.StringOutput {
 type CertifiateState struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate interface{}
-	// The raw Key Vault Certificate
+	// The raw Key Vault Certificate.
 	CertificateData interface{}
 	// A `certificate_policy` block as defined below.
 	CertificatePolicy interface{}
@@ -132,6 +139,8 @@ type CertifiateState struct {
 	SecretId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+	Thumbprint interface{}
 	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 	VaultUri interface{}
 	// The current version of the Key Vault Certificate.

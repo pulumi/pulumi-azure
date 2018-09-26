@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a managed disk.
+// Manage a managed disk.
 type ManagedDisk struct {
 	s *pulumi.ResourceState
 }

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create an Recovery Services Vault.
+ * Manage an Recovery Services Vault.
  */
 export class Vault extends pulumi.CustomResource {
     /**

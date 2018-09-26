@@ -8,7 +8,7 @@ from .. import utilities
 
 class Insights(pulumi.CustomResource):
     """
-    Create an Application Insights component.
+    Manage an Application Insights component.
     """
     def __init__(__self__, __name__, __opts__=None, application_type=None, location=None, name=None, resource_group_name=None, tags=None):
         """Create a Insights resource with the given unique name, props, and options."""
@@ -27,7 +27,7 @@ class Insights(pulumi.CustomResource):
             raise TypeError('Expected property application_type to be a basestring')
         __self__.application_type = application_type
         """
-        Specifies the type of Application Insights to create. Valid values are `Web`, `Java`, `Phone`, `Store`, `iOS` and `Other`.
+        Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store` and `Web`.
         """
         __props__['applicationType'] = application_type
 

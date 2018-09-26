@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create an Azure Storage Queue.
+ * Manage an Azure Storage Queue.
  */
 export class Queue extends pulumi.CustomResource {
     /**

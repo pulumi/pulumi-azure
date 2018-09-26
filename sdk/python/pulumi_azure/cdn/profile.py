@@ -8,7 +8,7 @@ from .. import utilities
 
 class Profile(pulumi.CustomResource):
     """
-    Create a CDN Profile to create a collection of CDN Endpoints.
+    Manage a CDN Profile to create a collection of CDN Endpoints.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
         """Create a Profile resource with the given unique name, props, and options."""

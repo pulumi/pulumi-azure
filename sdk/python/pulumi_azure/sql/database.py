@@ -10,7 +10,7 @@ class Database(pulumi.CustomResource):
     """
     Allows you to manage an Azure SQL Database
     """
-    def __init__(__self__, __name__, __opts__=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None):
         """Create a Database resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -156,6 +156,14 @@ class Database(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
+        if threat_detection_policy and not isinstance(threat_detection_policy, dict):
+            raise TypeError('Expected property threat_detection_policy to be a dict')
+        __self__.threat_detection_policy = threat_detection_policy
+        """
+        Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+        """
+        __props__['threatDetectionPolicy'] = threat_detection_policy
+
         __self__.creation_date = pulumi.runtime.UNKNOWN
         """
         The creation date of the SQL Database.
@@ -211,3 +219,5 @@ class Database(pulumi.CustomResource):
             self.source_database_id = outs['sourceDatabaseId']
         if 'tags' in outs:
             self.tags = outs['tags']
+        if 'threatDetectionPolicy' in outs:
+            self.threat_detection_policy = outs['threatDetectionPolicy']

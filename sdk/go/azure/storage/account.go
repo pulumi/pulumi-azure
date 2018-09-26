@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an Azure Storage Account.
+// Manage an Azure Storage Account.
 type Account struct {
 	s *pulumi.ResourceState
 }

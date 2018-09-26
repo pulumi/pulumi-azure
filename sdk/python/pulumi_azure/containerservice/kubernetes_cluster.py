@@ -68,9 +68,7 @@ class KubernetesCluster(pulumi.CustomResource):
         """
         __props__['kubernetesVersion'] = kubernetes_version
 
-        if not linux_profile:
-            raise TypeError('Missing required property linux_profile')
-        elif not isinstance(linux_profile, dict):
+        if linux_profile and not isinstance(linux_profile, dict):
             raise TypeError('Expected property linux_profile to be a dict')
         __self__.linux_profile = linux_profile
         """
@@ -101,6 +99,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __self__.network_profile = network_profile
         """
         A Network Profile block as documented below.
+        -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
         """
         __props__['networkProfile'] = network_profile
 

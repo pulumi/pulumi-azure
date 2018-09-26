@@ -79,6 +79,7 @@ func (r *ManangementLock) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
 func (r *ManangementLock) Notes() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["notes"])
 }
@@ -94,6 +95,7 @@ type ManangementLockState struct {
 	LockLevel interface{}
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
 	Name interface{}
+	// Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
 	Notes interface{}
 	// Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
 	Scope interface{}
@@ -105,6 +107,7 @@ type ManangementLockArgs struct {
 	LockLevel interface{}
 	// Specifies the name of the Management Lock. Changing this forces a new resource to be created.
 	Name interface{}
+	// Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
 	Notes interface{}
 	// Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
 	Scope interface{}

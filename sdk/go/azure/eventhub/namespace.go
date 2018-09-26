@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a ServiceBus Namespace.
+// Manage a ServiceBus Namespace.
 type Namespace struct {
 	s *pulumi.ResourceState
 }

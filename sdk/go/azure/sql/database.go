@@ -43,6 +43,7 @@ func NewDatabase(ctx *pulumi.Context,
 		inputs["sourceDatabaseDeletionDate"] = nil
 		inputs["sourceDatabaseId"] = nil
 		inputs["tags"] = nil
+		inputs["threatDetectionPolicy"] = nil
 	} else {
 		inputs["collation"] = args.Collation
 		inputs["createMode"] = args.CreateMode
@@ -60,6 +61,7 @@ func NewDatabase(ctx *pulumi.Context,
 		inputs["sourceDatabaseDeletionDate"] = args.SourceDatabaseDeletionDate
 		inputs["sourceDatabaseId"] = args.SourceDatabaseId
 		inputs["tags"] = args.Tags
+		inputs["threatDetectionPolicy"] = args.ThreatDetectionPolicy
 	}
 	inputs["creationDate"] = nil
 	inputs["defaultSecondaryLocation"] = nil
@@ -96,6 +98,7 @@ func GetDatabase(ctx *pulumi.Context,
 		inputs["sourceDatabaseDeletionDate"] = state.SourceDatabaseDeletionDate
 		inputs["sourceDatabaseId"] = state.SourceDatabaseId
 		inputs["tags"] = state.Tags
+		inputs["threatDetectionPolicy"] = state.ThreatDetectionPolicy
 	}
 	s, err := ctx.ReadResource("azure:sql/database:Database", name, id, inputs, opts...)
 	if err != nil {
@@ -209,6 +212,11 @@ func (r *Database) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+func (r *Database) ThreatDetectionPolicy() *pulumi.Output {
+	return r.s.State["threatDetectionPolicy"]
+}
+
 // Input properties used for looking up and filtering Database resources.
 type DatabaseState struct {
 	// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
@@ -249,6 +257,8 @@ type DatabaseState struct {
 	SourceDatabaseId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+	ThreatDetectionPolicy interface{}
 }
 
 // The set of arguments for constructing a Database resource.
@@ -286,4 +296,6 @@ type DatabaseArgs struct {
 	SourceDatabaseId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+	ThreatDetectionPolicy interface{}
 }

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a Public IP Address.
+// Manage a Public IP Address.
 type PublicIp struct {
 	s *pulumi.ResourceState
 }

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create and manage a ServiceBus Queue.
+// Manage and manage a ServiceBus Queue.
 type Queue struct {
 	s *pulumi.ResourceState
 }
@@ -105,9 +105,8 @@ func (r *Queue) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The idle interval after which the
-// Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-// format.
+// The ISO 8601 timespan duration of the idle interval after which the
+// Queue is automatically deleted, minimum of 5 minutes.
 func (r *Queue) AutoDeleteOnIdle() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
 }
@@ -117,15 +116,14 @@ func (r *Queue) DeadLetteringOnMessageExpiration() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["deadLetteringOnMessageExpiration"])
 }
 
-// The TTL of messages sent to this queue. This is the default value
-// used when TTL is not set on message itself. Provided in the TimeSpan
-// format.
+// The ISO 8601 timespan duration of the TTL of messages sent to this
+// queue. This is the default value used when TTL is not set on message itself.
 func (r *Queue) DefaultMessageTtl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
 }
 
-// The duration during which
-// duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
+// The ISO 8601 timespan duration during which
+// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
 func (r *Queue) DuplicateDetectionHistoryTimeWindow() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["duplicateDetectionHistoryTimeWindow"])
 }
@@ -207,18 +205,16 @@ func (r *Queue) SupportOrdering() *pulumi.BoolOutput {
 
 // Input properties used for looking up and filtering Queue resources.
 type QueueState struct {
-	// The idle interval after which the
-	// Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-	// format.
+	// The ISO 8601 timespan duration of the idle interval after which the
+	// Queue is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle interface{}
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration interface{}
-	// The TTL of messages sent to this queue. This is the default value
-	// used when TTL is not set on message itself. Provided in the TimeSpan
-	// format.
+	// The ISO 8601 timespan duration of the TTL of messages sent to this
+	// queue. This is the default value used when TTL is not set on message itself.
 	DefaultMessageTtl interface{}
-	// The duration during which
-	// duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
+	// The ISO 8601 timespan duration during which
+	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow interface{}
 	EnableBatchedOperations interface{}
 	// Boolean flag which controls whether Express Entities
@@ -263,18 +259,16 @@ type QueueState struct {
 
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
-	// The idle interval after which the
-	// Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-	// format.
+	// The ISO 8601 timespan duration of the idle interval after which the
+	// Queue is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle interface{}
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration interface{}
-	// The TTL of messages sent to this queue. This is the default value
-	// used when TTL is not set on message itself. Provided in the TimeSpan
-	// format.
+	// The ISO 8601 timespan duration of the TTL of messages sent to this
+	// queue. This is the default value used when TTL is not set on message itself.
 	DefaultMessageTtl interface{}
-	// The duration during which
-	// duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
+	// The ISO 8601 timespan duration during which
+	// duplicates can be detected. Default value is 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow interface{}
 	EnableBatchedOperations interface{}
 	// Boolean flag which controls whether Express Entities

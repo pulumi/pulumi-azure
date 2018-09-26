@@ -25,6 +25,10 @@ export class RunBook extends pulumi.CustomResource {
      */
     public readonly accountName: pulumi.Output<string>;
     /**
+     * The desired content of the runbook.
+     */
+    public readonly content: pulumi.Output<string>;
+    /**
      * A description for this credential.
      */
     public readonly description: pulumi.Output<string | undefined>;
@@ -71,6 +75,7 @@ export class RunBook extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: RunBookState = argsOrState as RunBookState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
+            inputs["content"] = state ? state.content : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["logProgress"] = state ? state.logProgress : undefined;
@@ -104,6 +109,7 @@ export class RunBook extends pulumi.CustomResource {
                 throw new Error("Missing required property 'runbookType'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["content"] = args ? args.content : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["logProgress"] = args ? args.logProgress : undefined;
@@ -126,6 +132,10 @@ export interface RunBookState {
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      */
     readonly accountName?: pulumi.Input<string>;
+    /**
+     * The desired content of the runbook.
+     */
+    readonly content?: pulumi.Input<string>;
     /**
      * A description for this credential.
      */
@@ -169,6 +179,10 @@ export interface RunBookArgs {
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      */
     readonly accountName: pulumi.Input<string>;
+    /**
+     * The desired content of the runbook.
+     */
+    readonly content?: pulumi.Input<string>;
     /**
      * A description for this credential.
      */

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create a ServiceBus Namespace.
+ * Manage a ServiceBus Namespace.
  */
 export class Namespace extends pulumi.CustomResource {
     /**

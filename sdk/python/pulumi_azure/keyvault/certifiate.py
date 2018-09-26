@@ -67,11 +67,15 @@ class Certifiate(pulumi.CustomResource):
 
         __self__.certificate_data = pulumi.runtime.UNKNOWN
         """
-        The raw Key Vault Certificate
+        The raw Key Vault Certificate.
         """
         __self__.secret_id = pulumi.runtime.UNKNOWN
         """
         The ID of the associated Key Vault Secret.
+        """
+        __self__.thumbprint = pulumi.runtime.UNKNOWN
+        """
+        The X509 Thumbprint of the Key Vault Certificate returned as hex string.
         """
         __self__.version = pulumi.runtime.UNKNOWN
         """
@@ -97,6 +101,8 @@ class Certifiate(pulumi.CustomResource):
             self.secret_id = outs['secretId']
         if 'tags' in outs:
             self.tags = outs['tags']
+        if 'thumbprint' in outs:
+            self.thumbprint = outs['thumbprint']
         if 'vaultUri' in outs:
             self.vault_uri = outs['vaultUri']
         if 'version' in outs:

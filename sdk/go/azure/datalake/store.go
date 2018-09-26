@@ -44,6 +44,7 @@ func NewStore(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["tier"] = args.Tier
 	}
+	inputs["endpoint"] = nil
 	s, err := ctx.RegisterResource("azure:datalake/store:Store", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,6 +60,7 @@ func GetStore(ctx *pulumi.Context,
 	if state != nil {
 		inputs["encryptionState"] = state.EncryptionState
 		inputs["encryptionType"] = state.EncryptionType
+		inputs["endpoint"] = state.Endpoint
 		inputs["firewallAllowAzureIps"] = state.FirewallAllowAzureIps
 		inputs["firewallState"] = state.FirewallState
 		inputs["location"] = state.Location
@@ -92,6 +94,11 @@ func (r *Store) EncryptionState() *pulumi.StringOutput {
 // The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
 func (r *Store) EncryptionType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptionType"])
+}
+
+// The Endpoint for the Data Lake Store.
+func (r *Store) Endpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
 // are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
@@ -135,6 +142,8 @@ type StoreState struct {
 	EncryptionState interface{}
 	// The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
 	EncryptionType interface{}
+	// The Endpoint for the Data Lake Store.
+	Endpoint interface{}
 	// are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
 	FirewallAllowAzureIps interface{}
 	// the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`

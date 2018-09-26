@@ -8,7 +8,7 @@ from .. import utilities
 
 class Server(pulumi.CustomResource):
     """
-    Create a PostgreSQL Server.
+    Manage a PostgreSQL Server.
     """
     def __init__(__self__, __name__, __opts__=None, administrator_login=None, administrator_login_password=None, location=None, name=None, resource_group_name=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, version=None):
         """Create a Server resource with the given unique name, props, and options."""
