@@ -8,7 +8,7 @@ from .. import utilities
 
 class Queue(pulumi.CustomResource):
     """
-    Create an Azure Storage Queue.
+    Manage an Azure Storage Queue.
     """
     def __init__(__self__, __name__, __opts__=None, name=None, resource_group_name=None, storage_account_name=None):
         """Create a Queue resource with the given unique name, props, and options."""

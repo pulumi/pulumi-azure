@@ -21,6 +21,26 @@ export class IoTHub extends pulumi.CustomResource {
     }
 
     /**
+     * An `endpoint` block as defined below.
+     */
+    public readonly endpoints: pulumi.Output<{ batchFrequencyInSeconds?: number, connectionString: string, containerName?: string, encoding?: string, fileNameFormat?: string, maxChunkSizeInBytes?: number, name: string, type: string }[] | undefined>;
+    /**
+     * The EventHub compatible endpoint for events data
+     */
+    public /*out*/ readonly eventHubEventsEndpoint: pulumi.Output<string>;
+    /**
+     * The EventHub compatible path for events data
+     */
+    public /*out*/ readonly eventHubEventsPath: pulumi.Output<string>;
+    /**
+     * The EventHub compatible endpoint for operational data
+     */
+    public /*out*/ readonly eventHubOperationsEndpoint: pulumi.Output<string>;
+    /**
+     * The EventHub compatible path for operational data
+     */
+    public /*out*/ readonly eventHubOperationsPath: pulumi.Output<string>;
+    /**
      * The hostname of the IotHub Resource.
      */
     public /*out*/ readonly hostname: pulumi.Output<string>;
@@ -37,11 +57,15 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
+     * A `route` block as defined below.
+     */
+    public readonly routes: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], name: string, source: string }[] | undefined>;
+    /**
      * One or more `shared_access_policy` blocks as defined below.
      */
     public /*out*/ readonly sharedAccessPolicies: pulumi.Output<{ keyName: string, permissions: string, primaryKey: string, secondaryKey: string }[]>;
     /**
-     * A `sku` block as defined below. 
+     * A `sku` block as defined below.
      */
     public readonly sku: pulumi.Output<{ capacity: number, name: string, tier: string }>;
     /**
@@ -62,10 +86,16 @@ export class IoTHub extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: IoTHubState = argsOrState as IoTHubState | undefined;
+            inputs["endpoints"] = state ? state.endpoints : undefined;
+            inputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
+            inputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;
+            inputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
+            inputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["routes"] = state ? state.routes : undefined;
             inputs["sharedAccessPolicies"] = state ? state.sharedAccessPolicies : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -81,11 +111,17 @@ export class IoTHub extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routes"] = args ? args.routes : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["eventHubEventsEndpoint"] = undefined /*out*/;
+            inputs["eventHubEventsPath"] = undefined /*out*/;
+            inputs["eventHubOperationsEndpoint"] = undefined /*out*/;
+            inputs["eventHubOperationsPath"] = undefined /*out*/;
             inputs["hostname"] = undefined /*out*/;
             inputs["sharedAccessPolicies"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
@@ -98,6 +134,26 @@ export class IoTHub extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IoTHub resources.
  */
 export interface IoTHubState {
+    /**
+     * An `endpoint` block as defined below.
+     */
+    readonly endpoints?: pulumi.Input<pulumi.Input<{ batchFrequencyInSeconds?: pulumi.Input<number>, connectionString: pulumi.Input<string>, containerName?: pulumi.Input<string>, encoding?: pulumi.Input<string>, fileNameFormat?: pulumi.Input<string>, maxChunkSizeInBytes?: pulumi.Input<number>, name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * The EventHub compatible endpoint for events data
+     */
+    readonly eventHubEventsEndpoint?: pulumi.Input<string>;
+    /**
+     * The EventHub compatible path for events data
+     */
+    readonly eventHubEventsPath?: pulumi.Input<string>;
+    /**
+     * The EventHub compatible endpoint for operational data
+     */
+    readonly eventHubOperationsEndpoint?: pulumi.Input<string>;
+    /**
+     * The EventHub compatible path for operational data
+     */
+    readonly eventHubOperationsPath?: pulumi.Input<string>;
     /**
      * The hostname of the IotHub Resource.
      */
@@ -115,11 +171,15 @@ export interface IoTHubState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * A `route` block as defined below.
+     */
+    readonly routes?: pulumi.Input<pulumi.Input<{ condition?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, endpointNames: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, source: pulumi.Input<string> }>[]>;
+    /**
      * One or more `shared_access_policy` blocks as defined below.
      */
     readonly sharedAccessPolicies?: pulumi.Input<pulumi.Input<{ keyName?: pulumi.Input<string>, permissions?: pulumi.Input<string>, primaryKey?: pulumi.Input<string>, secondaryKey?: pulumi.Input<string> }>[]>;
     /**
-     * A `sku` block as defined below. 
+     * A `sku` block as defined below.
      */
     readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
     /**
@@ -134,6 +194,10 @@ export interface IoTHubState {
  */
 export interface IoTHubArgs {
     /**
+     * An `endpoint` block as defined below.
+     */
+    readonly endpoints?: pulumi.Input<pulumi.Input<{ batchFrequencyInSeconds?: pulumi.Input<number>, connectionString: pulumi.Input<string>, containerName?: pulumi.Input<string>, encoding?: pulumi.Input<string>, fileNameFormat?: pulumi.Input<string>, maxChunkSizeInBytes?: pulumi.Input<number>, name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
     readonly location: pulumi.Input<string>;
@@ -146,7 +210,11 @@ export interface IoTHubArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `sku` block as defined below. 
+     * A `route` block as defined below.
+     */
+    readonly routes?: pulumi.Input<pulumi.Input<{ condition?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, endpointNames: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, source: pulumi.Input<string> }>[]>;
+    /**
+     * A `sku` block as defined below.
      */
     readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
     /**

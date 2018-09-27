@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create a ServiceBus Topic.
+ * Manage a ServiceBus Topic.
  * 
  * **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
  */
@@ -23,20 +23,18 @@ export class Topic extends pulumi.CustomResource {
     }
 
     /**
-     * The idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-     * format.
+     * The ISO 8601 timespan duration of the idle interval after which the
+     * Topic is automatically deleted, minimum of 5 minutes.
      */
     public readonly autoDeleteOnIdle: pulumi.Output<string>;
     /**
-     * The TTL of messages sent to this topic if no
-     * TTL value is set on the message itself. Provided in the TimeSpan
-     * format.
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+     * TTL value is set on the message itself.
      */
     public readonly defaultMessageTtl: pulumi.Output<string>;
     /**
-     * The duration during which
-     * duplicates can be detected. Provided in the TimeSpan format. Defaults to 10 minutes (`00:10:00`)
+     * The ISO 8601 timespan duration during which
+     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      */
     public readonly duplicateDetectionHistoryTimeWindow: pulumi.Output<string>;
     /**
@@ -159,20 +157,18 @@ export class Topic extends pulumi.CustomResource {
  */
 export interface TopicState {
     /**
-     * The idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-     * format.
+     * The ISO 8601 timespan duration of the idle interval after which the
+     * Topic is automatically deleted, minimum of 5 minutes.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
     /**
-     * The TTL of messages sent to this topic if no
-     * TTL value is set on the message itself. Provided in the TimeSpan
-     * format.
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+     * TTL value is set on the message itself.
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * The duration during which
-     * duplicates can be detected. Provided in the TimeSpan format. Defaults to 10 minutes (`00:10:00`)
+     * The ISO 8601 timespan duration during which
+     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
@@ -241,20 +237,18 @@ export interface TopicState {
  */
 export interface TopicArgs {
     /**
-     * The idle interval after which the
-     * Topic is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-     * format.
+     * The ISO 8601 timespan duration of the idle interval after which the
+     * Topic is automatically deleted, minimum of 5 minutes.
      */
     readonly autoDeleteOnIdle?: pulumi.Input<string>;
     /**
-     * The TTL of messages sent to this topic if no
-     * TTL value is set on the message itself. Provided in the TimeSpan
-     * format.
+     * The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+     * TTL value is set on the message itself.
      */
     readonly defaultMessageTtl?: pulumi.Input<string>;
     /**
-     * The duration during which
-     * duplicates can be detected. Provided in the TimeSpan format. Defaults to 10 minutes (`00:10:00`)
+     * The ISO 8601 timespan duration during which
+     * duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
      */
     readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**

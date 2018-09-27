@@ -10,7 +10,7 @@ class IoTHub(pulumi.CustomResource):
     """
     Manages a IotHub
     """
-    def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, endpoints=None, location=None, name=None, resource_group_name=None, routes=None, sku=None, tags=None):
         """Create a IoTHub resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -20,6 +20,14 @@ class IoTHub(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if endpoints and not isinstance(endpoints, list):
+            raise TypeError('Expected property endpoints to be a list')
+        __self__.endpoints = endpoints
+        """
+        An `endpoint` block as defined below.
+        """
+        __props__['endpoints'] = endpoints
 
         if not location:
             raise TypeError('Missing required property location')
@@ -49,13 +57,21 @@ class IoTHub(pulumi.CustomResource):
         """
         __props__['resourceGroupName'] = resource_group_name
 
+        if routes and not isinstance(routes, list):
+            raise TypeError('Expected property routes to be a list')
+        __self__.routes = routes
+        """
+        A `route` block as defined below.
+        """
+        __props__['routes'] = routes
+
         if not sku:
             raise TypeError('Missing required property sku')
         elif not isinstance(sku, dict):
             raise TypeError('Expected property sku to be a dict')
         __self__.sku = sku
         """
-        A `sku` block as defined below. 
+        A `sku` block as defined below.
         """
         __props__['sku'] = sku
 
@@ -67,6 +83,22 @@ class IoTHub(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
+        __self__.event_hub_events_endpoint = pulumi.runtime.UNKNOWN
+        """
+        The EventHub compatible endpoint for events data
+        """
+        __self__.event_hub_events_path = pulumi.runtime.UNKNOWN
+        """
+        The EventHub compatible path for events data
+        """
+        __self__.event_hub_operations_endpoint = pulumi.runtime.UNKNOWN
+        """
+        The EventHub compatible endpoint for operational data
+        """
+        __self__.event_hub_operations_path = pulumi.runtime.UNKNOWN
+        """
+        The EventHub compatible path for operational data
+        """
         __self__.hostname = pulumi.runtime.UNKNOWN
         """
         The hostname of the IotHub Resource.
@@ -84,6 +116,16 @@ class IoTHub(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'endpoints' in outs:
+            self.endpoints = outs['endpoints']
+        if 'eventHubEventsEndpoint' in outs:
+            self.event_hub_events_endpoint = outs['eventHubEventsEndpoint']
+        if 'eventHubEventsPath' in outs:
+            self.event_hub_events_path = outs['eventHubEventsPath']
+        if 'eventHubOperationsEndpoint' in outs:
+            self.event_hub_operations_endpoint = outs['eventHubOperationsEndpoint']
+        if 'eventHubOperationsPath' in outs:
+            self.event_hub_operations_path = outs['eventHubOperationsPath']
         if 'hostname' in outs:
             self.hostname = outs['hostname']
         if 'location' in outs:
@@ -92,6 +134,8 @@ class IoTHub(pulumi.CustomResource):
             self.name = outs['name']
         if 'resourceGroupName' in outs:
             self.resource_group_name = outs['resourceGroupName']
+        if 'routes' in outs:
+            self.routes = outs['routes']
         if 'sharedAccessPolicies' in outs:
             self.shared_access_policies = outs['sharedAccessPolicies']
         if 'sku' in outs:

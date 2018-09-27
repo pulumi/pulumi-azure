@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create a custom virtual machine image that can be used to create virtual machines.
+ * Manage a custom virtual machine image that can be used to create virtual machines.
  */
 export class Image extends pulumi.CustomResource {
     /**

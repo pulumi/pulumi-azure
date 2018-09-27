@@ -60,7 +60,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A Linux Profile block as documented below.
      */
-    public readonly linuxProfile: pulumi.Output<{ adminUsername: string, sshKeys: { keyData: string }[] }>;
+    public readonly linuxProfile: pulumi.Output<{ adminUsername: string, sshKeys: { keyData: string }[] } | undefined>;
     /**
      * The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
      */
@@ -71,6 +71,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly name: pulumi.Output<string>;
     /**
      * A Network Profile block as documented below.
+     * -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
      */
     public readonly networkProfile: pulumi.Output<{ dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, podCidr: string, serviceCidr: string }>;
     /**
@@ -125,9 +126,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             }
             if (!args || args.dnsPrefix === undefined) {
                 throw new Error("Missing required property 'dnsPrefix'");
-            }
-            if (!args || args.linuxProfile === undefined) {
-                throw new Error("Missing required property 'linuxProfile'");
             }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
@@ -211,6 +209,7 @@ export interface KubernetesClusterState {
     readonly name?: pulumi.Input<string>;
     /**
      * A Network Profile block as documented below.
+     * -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
      */
     readonly networkProfile?: pulumi.Input<{ dnsServiceIp?: pulumi.Input<string>, dockerBridgeCidr?: pulumi.Input<string>, networkPlugin: pulumi.Input<string>, podCidr?: pulumi.Input<string>, serviceCidr?: pulumi.Input<string> }>;
     /**
@@ -258,7 +257,7 @@ export interface KubernetesClusterArgs {
     /**
      * A Linux Profile block as documented below.
      */
-    readonly linuxProfile: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKeys: pulumi.Input<pulumi.Input<{ keyData: pulumi.Input<string> }>[]> }>;
+    readonly linuxProfile?: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKeys: pulumi.Input<pulumi.Input<{ keyData: pulumi.Input<string> }>[]> }>;
     /**
      * The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
      */
@@ -269,6 +268,7 @@ export interface KubernetesClusterArgs {
     readonly name?: pulumi.Input<string>;
     /**
      * A Network Profile block as documented below.
+     * -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
      */
     readonly networkProfile?: pulumi.Input<{ dnsServiceIp?: pulumi.Input<string>, dockerBridgeCidr?: pulumi.Input<string>, networkPlugin: pulumi.Input<string>, podCidr?: pulumi.Input<string>, serviceCidr?: pulumi.Input<string> }>;
     /**

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create an EventHub Namespace.
+ * Manage an EventHub Namespace.
  */
 export class EventHubNamespace extends pulumi.CustomResource {
     /**

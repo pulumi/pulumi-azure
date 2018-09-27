@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a ServiceBus Subscription.
+// Manage a ServiceBus Subscription.
 type Subscription struct {
 	s *pulumi.ResourceState
 }

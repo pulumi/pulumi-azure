@@ -10,7 +10,7 @@ class RunBook(pulumi.CustomResource):
     """
     Manages a Automation Runbook.
     """
-    def __init__(__self__, __name__, __opts__=None, account_name=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, account_name=None, content=None, description=None, location=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None):
         """Create a RunBook resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -30,6 +30,14 @@ class RunBook(pulumi.CustomResource):
         The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
         """
         __props__['accountName'] = account_name
+
+        if content and not isinstance(content, basestring):
+            raise TypeError('Expected property content to be a basestring')
+        __self__.content = content
+        """
+        The desired content of the runbook.
+        """
+        __props__['content'] = content
 
         if description and not isinstance(description, basestring):
             raise TypeError('Expected property description to be a basestring')
@@ -121,6 +129,8 @@ class RunBook(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'accountName' in outs:
             self.account_name = outs['accountName']
+        if 'content' in outs:
+            self.content = outs['content']
         if 'description' in outs:
             self.description = outs['description']
         if 'location' in outs:

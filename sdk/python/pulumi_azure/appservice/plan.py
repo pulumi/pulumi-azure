@@ -8,7 +8,7 @@ from .. import utilities
 
 class Plan(pulumi.CustomResource):
     """
-    Create an App Service Plan component.
+    Manage an App Service Plan component.
     """
     def __init__(__self__, __name__, __opts__=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None):
         """Create a Plan resource with the given unique name, props, and options."""

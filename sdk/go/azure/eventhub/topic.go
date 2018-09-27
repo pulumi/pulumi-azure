@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a ServiceBus Topic.
+// Manage a ServiceBus Topic.
 // 
 // **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
 type Topic struct {
@@ -104,22 +104,20 @@ func (r *Topic) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The idle interval after which the
-// Topic is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-// format.
+// The ISO 8601 timespan duration of the idle interval after which the
+// Topic is automatically deleted, minimum of 5 minutes.
 func (r *Topic) AutoDeleteOnIdle() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["autoDeleteOnIdle"])
 }
 
-// The TTL of messages sent to this topic if no
-// TTL value is set on the message itself. Provided in the TimeSpan
-// format.
+// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+// TTL value is set on the message itself.
 func (r *Topic) DefaultMessageTtl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultMessageTtl"])
 }
 
-// The duration during which
-// duplicates can be detected. Provided in the TimeSpan format. Defaults to 10 minutes (`00:10:00`)
+// The ISO 8601 timespan duration during which
+// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 func (r *Topic) DuplicateDetectionHistoryTimeWindow() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["duplicateDetectionHistoryTimeWindow"])
 }
@@ -199,16 +197,14 @@ func (r *Topic) SupportOrdering() *pulumi.BoolOutput {
 
 // Input properties used for looking up and filtering Topic resources.
 type TopicState struct {
-	// The idle interval after which the
-	// Topic is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-	// format.
+	// The ISO 8601 timespan duration of the idle interval after which the
+	// Topic is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle interface{}
-	// The TTL of messages sent to this topic if no
-	// TTL value is set on the message itself. Provided in the TimeSpan
-	// format.
+	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+	// TTL value is set on the message itself.
 	DefaultMessageTtl interface{}
-	// The duration during which
-	// duplicates can be detected. Provided in the TimeSpan format. Defaults to 10 minutes (`00:10:00`)
+	// The ISO 8601 timespan duration during which
+	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow interface{}
 	// Boolean flag which controls if server-side
 	// batched operations are enabled. Defaults to false.
@@ -251,16 +247,14 @@ type TopicState struct {
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
-	// The idle interval after which the
-	// Topic is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-	// format.
+	// The ISO 8601 timespan duration of the idle interval after which the
+	// Topic is automatically deleted, minimum of 5 minutes.
 	AutoDeleteOnIdle interface{}
-	// The TTL of messages sent to this topic if no
-	// TTL value is set on the message itself. Provided in the TimeSpan
-	// format.
+	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no
+	// TTL value is set on the message itself.
 	DefaultMessageTtl interface{}
-	// The duration during which
-	// duplicates can be detected. Provided in the TimeSpan format. Defaults to 10 minutes (`00:10:00`)
+	// The ISO 8601 timespan duration during which
+	// duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow interface{}
 	// Boolean flag which controls if server-side
 	// batched operations are enabled. Defaults to false.

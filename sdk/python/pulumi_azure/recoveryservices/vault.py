@@ -8,7 +8,7 @@ from .. import utilities
 
 class Vault(pulumi.CustomResource):
     """
-    Create an Recovery Services Vault.
+    Manage an Recovery Services Vault.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
         """Create a Vault resource with the given unique name, props, and options."""

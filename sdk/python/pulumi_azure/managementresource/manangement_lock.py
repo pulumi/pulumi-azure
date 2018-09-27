@@ -42,6 +42,9 @@ class ManangementLock(pulumi.CustomResource):
         if notes and not isinstance(notes, basestring):
             raise TypeError('Expected property notes to be a basestring')
         __self__.notes = notes
+        """
+        Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
+        """
         __props__['notes'] = notes
 
         if not scope:

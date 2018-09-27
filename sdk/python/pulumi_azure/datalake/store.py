@@ -97,6 +97,11 @@ class Store(pulumi.CustomResource):
         """
         __props__['tier'] = tier
 
+        __self__.endpoint = pulumi.runtime.UNKNOWN
+        """
+        The Endpoint for the Data Lake Store.
+        """
+
         super(Store, __self__).__init__(
             'azure:datalake/store:Store',
             __name__,
@@ -108,6 +113,8 @@ class Store(pulumi.CustomResource):
             self.encryption_state = outs['encryptionState']
         if 'encryptionType' in outs:
             self.encryption_type = outs['encryptionType']
+        if 'endpoint' in outs:
+            self.endpoint = outs['endpoint']
         if 'firewallAllowAzureIps' in outs:
             self.firewall_allow_azure_ips = outs['firewallAllowAzureIps']
         if 'firewallState' in outs:

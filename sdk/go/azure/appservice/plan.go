@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an App Service Plan component.
+// Manage an App Service Plan component.
 type Plan struct {
 	s *pulumi.ResourceState
 }

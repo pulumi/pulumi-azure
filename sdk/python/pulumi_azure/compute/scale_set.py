@@ -8,7 +8,7 @@ from .. import utilities
 
 class ScaleSet(pulumi.CustomResource):
     """
-    Create a virtual machine scale set.
+    Manage a virtual machine scale set.
     
     ~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).

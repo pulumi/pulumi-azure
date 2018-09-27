@@ -66,7 +66,7 @@ class FirewallRule(pulumi.CustomResource):
             raise TypeError('Expected property start_ip_address to be a basestring')
         __self__.start_ip_address = start_ip_address
         """
-        Specifies the Charset for the PostgreSQL Database. Changing this forces a new resource to be created.
+        Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
         """
         __props__['startIpAddress'] = start_ip_address
 

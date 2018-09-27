@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create a Public IP Address.
+ * Manage a Public IP Address.
  */
 export class PublicIp extends pulumi.CustomResource {
     /**

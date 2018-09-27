@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create an Azure Storage Blob.
+ * Manage an Azure Storage Blob.
  */
 export class Blob extends pulumi.CustomResource {
     /**

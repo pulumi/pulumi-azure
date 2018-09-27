@@ -8,7 +8,7 @@ from .. import utilities
 
 class PublicIp(pulumi.CustomResource):
     """
-    Create a Public IP Address.
+    Manage a Public IP Address.
     """
     def __init__(__self__, __name__, __opts__=None, domain_name_label=None, idle_timeout_in_minutes=None, location=None, name=None, public_ip_address_allocation=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
         """Create a PublicIp resource with the given unique name, props, and options."""

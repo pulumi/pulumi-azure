@@ -99,7 +99,7 @@ func (r *FirewallRule) ServerName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serverName"])
 }
 
-// Specifies the Charset for the PostgreSQL Database. Changing this forces a new resource to be created.
+// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 func (r *FirewallRule) StartIpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["startIpAddress"])
 }
@@ -115,7 +115,7 @@ type FirewallRuleState struct {
 	ResourceGroupName interface{}
 	// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
 	ServerName interface{}
-	// Specifies the Charset for the PostgreSQL Database. Changing this forces a new resource to be created.
+	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	StartIpAddress interface{}
 }
 
@@ -130,6 +130,6 @@ type FirewallRuleArgs struct {
 	ResourceGroupName interface{}
 	// Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
 	ServerName interface{}
-	// Specifies the Charset for the PostgreSQL Database. Changing this forces a new resource to be created.
+	// Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
 	StartIpAddress interface{}
 }

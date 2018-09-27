@@ -8,7 +8,7 @@ from .. import utilities
 
 class ManagedDisk(pulumi.CustomResource):
     """
-    Create a managed disk.
+    Manage a managed disk.
     """
     def __init__(__self__, __name__, __opts__=None, create_option=None, disk_size_gb=None, encryption_settings=None, image_reference_id=None, location=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None):
         """Create a ManagedDisk resource with the given unique name, props, and options."""

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a CDN Profile to create a collection of CDN Endpoints.
+// Manage a CDN Profile to create a collection of CDN Endpoints.
 type Profile struct {
 	s *pulumi.ResourceState
 }

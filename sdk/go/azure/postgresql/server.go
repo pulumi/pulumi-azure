@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a PostgreSQL Server.
+// Manage a PostgreSQL Server.
 type Server struct {
 	s *pulumi.ResourceState
 }

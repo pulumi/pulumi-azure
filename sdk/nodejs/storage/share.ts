@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create an Azure Storage File Share.
+ * Manage an Azure Storage File Share.
  */
 export class Share extends pulumi.CustomResource {
     /**

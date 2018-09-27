@@ -8,7 +8,7 @@ from .. import utilities
 
 class EventHubNamespace(pulumi.CustomResource):
     """
-    Create an EventHub Namespace.
+    Manage an EventHub Namespace.
     """
     def __init__(__self__, __name__, __opts__=None, auto_inflate_enabled=None, capacity=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None):
         """Create a EventHubNamespace resource with the given unique name, props, and options."""

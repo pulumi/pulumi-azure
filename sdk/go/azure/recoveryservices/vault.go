@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an Recovery Services Vault.
+// Manage an Recovery Services Vault.
 type Vault struct {
 	s *pulumi.ResourceState
 }

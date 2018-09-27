@@ -40,6 +40,7 @@ func NewRunBook(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["accountName"] = nil
+		inputs["content"] = nil
 		inputs["description"] = nil
 		inputs["location"] = nil
 		inputs["logProgress"] = nil
@@ -51,6 +52,7 @@ func NewRunBook(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["accountName"] = args.AccountName
+		inputs["content"] = args.Content
 		inputs["description"] = args.Description
 		inputs["location"] = args.Location
 		inputs["logProgress"] = args.LogProgress
@@ -75,6 +77,7 @@ func GetRunBook(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["accountName"] = state.AccountName
+		inputs["content"] = state.Content
 		inputs["description"] = state.Description
 		inputs["location"] = state.Location
 		inputs["logProgress"] = state.LogProgress
@@ -105,6 +108,11 @@ func (r *RunBook) ID() *pulumi.IDOutput {
 // The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 func (r *RunBook) AccountName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountName"])
+}
+
+// The desired content of the runbook.
+func (r *RunBook) Content() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["content"])
 }
 
 // A description for this credential.
@@ -155,6 +163,8 @@ func (r *RunBook) Tags() *pulumi.MapOutput {
 type RunBookState struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 	AccountName interface{}
+	// The desired content of the runbook.
+	Content interface{}
 	// A description for this credential.
 	Description interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -178,6 +188,8 @@ type RunBookState struct {
 type RunBookArgs struct {
 	// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
 	AccountName interface{}
+	// The desired content of the runbook.
+	Content interface{}
 	// A description for this credential.
 	Description interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

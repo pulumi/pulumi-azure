@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an Azure Storage File Share.
+// Manage an Azure Storage File Share.
 type Share struct {
 	s *pulumi.ResourceState
 }

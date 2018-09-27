@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an Azure Storage Queue.
+// Manage an Azure Storage Queue.
 type Queue struct {
 	s *pulumi.ResourceState
 }

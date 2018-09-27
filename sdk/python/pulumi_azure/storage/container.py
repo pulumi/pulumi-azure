@@ -8,7 +8,7 @@ from .. import utilities
 
 class Container(pulumi.CustomResource):
     """
-    Create an Azure Storage Container.
+    Manage an Azure Storage Container.
     """
     def __init__(__self__, __name__, __opts__=None, container_access_type=None, name=None, resource_group_name=None, storage_account_name=None):
         """Create a Container resource with the given unique name, props, and options."""

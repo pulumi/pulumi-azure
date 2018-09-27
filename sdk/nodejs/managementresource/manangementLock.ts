@@ -28,6 +28,9 @@ export class ManangementLock extends pulumi.CustomResource {
      * Specifies the name of the Management Lock. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
+     */
     public readonly notes: pulumi.Output<string | undefined>;
     /**
      * Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
@@ -79,6 +82,9 @@ export interface ManangementLockState {
      * Specifies the name of the Management Lock. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
+     */
     readonly notes?: pulumi.Input<string>;
     /**
      * Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
@@ -98,6 +104,9 @@ export interface ManangementLockArgs {
      * Specifies the name of the Management Lock. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
+     */
     readonly notes?: pulumi.Input<string>;
     /**
      * Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.

@@ -25,9 +25,6 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	if args == nil || args.DnsPrefix == nil {
 		return nil, errors.New("missing required argument 'DnsPrefix'")
 	}
-	if args == nil || args.LinuxProfile == nil {
-		return nil, errors.New("missing required argument 'LinuxProfile'")
-	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -174,6 +171,7 @@ func (r *KubernetesCluster) Name() *pulumi.StringOutput {
 }
 
 // A Network Profile block as documented below.
+// -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
 func (r *KubernetesCluster) NetworkProfile() *pulumi.Output {
 	return r.s.State["networkProfile"]
 }
@@ -225,6 +223,7 @@ type KubernetesClusterState struct {
 	// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
 	Name interface{}
 	// A Network Profile block as documented below.
+	// -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile interface{}
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup interface{}
@@ -255,6 +254,7 @@ type KubernetesClusterArgs struct {
 	// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
 	Name interface{}
 	// A Network Profile block as documented below.
+	// -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
 	NetworkProfile interface{}
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

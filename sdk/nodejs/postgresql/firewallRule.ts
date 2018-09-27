@@ -38,7 +38,7 @@ export class FirewallRule extends pulumi.CustomResource {
      */
     public readonly serverName: pulumi.Output<string>;
     /**
-     * Specifies the Charset for the PostgreSQL Database. Changing this forces a new resource to be created.
+     * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      */
     public readonly startIpAddress: pulumi.Output<string>;
 
@@ -105,7 +105,7 @@ export interface FirewallRuleState {
      */
     readonly serverName?: pulumi.Input<string>;
     /**
-     * Specifies the Charset for the PostgreSQL Database. Changing this forces a new resource to be created.
+     * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      */
     readonly startIpAddress?: pulumi.Input<string>;
 }
@@ -132,7 +132,7 @@ export interface FirewallRuleArgs {
      */
     readonly serverName: pulumi.Input<string>;
     /**
-     * Specifies the Charset for the PostgreSQL Database. Changing this forces a new resource to be created.
+     * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      */
     readonly startIpAddress: pulumi.Input<string>;
 }

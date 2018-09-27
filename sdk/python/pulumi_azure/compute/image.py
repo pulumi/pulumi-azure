@@ -8,7 +8,7 @@ from .. import utilities
 
 class Image(pulumi.CustomResource):
     """
-    Create a custom virtual machine image that can be used to create virtual machines.
+    Manage a custom virtual machine image that can be used to create virtual machines.
     """
     def __init__(__self__, __name__, __opts__=None, data_disks=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None):
         """Create a Image resource with the given unique name, props, and options."""

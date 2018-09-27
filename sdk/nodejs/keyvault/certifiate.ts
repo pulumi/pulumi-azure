@@ -25,7 +25,7 @@ export class Certifiate extends pulumi.CustomResource {
      */
     public readonly certificate: pulumi.Output<{ contents: string, password?: string } | undefined>;
     /**
-     * The raw Key Vault Certificate
+     * The raw Key Vault Certificate.
      */
     public /*out*/ readonly certificateData: pulumi.Output<string>;
     /**
@@ -44,6 +44,10 @@ export class Certifiate extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
+    /**
+     * The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+     */
+    public /*out*/ readonly thumbprint: pulumi.Output<string>;
     /**
      * Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
      */
@@ -71,6 +75,7 @@ export class Certifiate extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["secretId"] = state ? state.secretId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["thumbprint"] = state ? state.thumbprint : undefined;
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
@@ -88,6 +93,7 @@ export class Certifiate extends pulumi.CustomResource {
             inputs["vaultUri"] = args ? args.vaultUri : undefined;
             inputs["certificateData"] = undefined /*out*/;
             inputs["secretId"] = undefined /*out*/;
+            inputs["thumbprint"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
         super("azure:keyvault/certifiate:Certifiate", name, inputs, opts);
@@ -103,7 +109,7 @@ export interface CertifiateState {
      */
     readonly certificate?: pulumi.Input<{ contents: pulumi.Input<string>, password?: pulumi.Input<string> }>;
     /**
-     * The raw Key Vault Certificate
+     * The raw Key Vault Certificate.
      */
     readonly certificateData?: pulumi.Input<string>;
     /**
@@ -122,6 +128,10 @@ export interface CertifiateState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The X509 Thumbprint of the Key Vault Certificate returned as hex string.
+     */
+    readonly thumbprint?: pulumi.Input<string>;
     /**
      * Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
      */

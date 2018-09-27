@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create a CDN Profile to create a collection of CDN Endpoints.
+ * Manage a CDN Profile to create a collection of CDN Endpoints.
  */
 export class Profile extends pulumi.CustomResource {
     /**

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create a Load Balancer Resource.
+// Manage a Load Balancer Resource.
 type LoadBalancer struct {
 	s *pulumi.ResourceState
 }

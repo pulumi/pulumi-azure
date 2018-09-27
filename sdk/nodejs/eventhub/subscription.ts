@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Create a ServiceBus Subscription.
+ * Manage a ServiceBus Subscription.
  */
 export class Subscription extends pulumi.CustomResource {
     /**

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Create an EventHub Namespace.
+// Manage an EventHub Namespace.
 type EventHubNamespace struct {
 	s *pulumi.ResourceState
 }

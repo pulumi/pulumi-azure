@@ -8,7 +8,7 @@ from .. import utilities
 
 class Queue(pulumi.CustomResource):
     """
-    Create and manage a ServiceBus Queue.
+    Manage and manage a ServiceBus Queue.
     """
     def __init__(__self__, __name__, __opts__=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, location=None, lock_duration=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, support_ordering=None):
         """Create a Queue resource with the given unique name, props, and options."""
@@ -25,9 +25,8 @@ class Queue(pulumi.CustomResource):
             raise TypeError('Expected property auto_delete_on_idle to be a basestring')
         __self__.auto_delete_on_idle = auto_delete_on_idle
         """
-        The idle interval after which the
-        Queue is automatically deleted, minimum of 5 minutes. Provided in the TimeSpan
-        format.
+        The ISO 8601 timespan duration of the idle interval after which the
+        Queue is automatically deleted, minimum of 5 minutes.
         """
         __props__['autoDeleteOnIdle'] = auto_delete_on_idle
 
@@ -43,9 +42,8 @@ class Queue(pulumi.CustomResource):
             raise TypeError('Expected property default_message_ttl to be a basestring')
         __self__.default_message_ttl = default_message_ttl
         """
-        The TTL of messages sent to this queue. This is the default value
-        used when TTL is not set on message itself. Provided in the TimeSpan
-        format.
+        The ISO 8601 timespan duration of the TTL of messages sent to this
+        queue. This is the default value used when TTL is not set on message itself.
         """
         __props__['defaultMessageTtl'] = default_message_ttl
 
@@ -53,8 +51,8 @@ class Queue(pulumi.CustomResource):
             raise TypeError('Expected property duplicate_detection_history_time_window to be a basestring')
         __self__.duplicate_detection_history_time_window = duplicate_detection_history_time_window
         """
-        The duration during which
-        duplicates can be detected. Default value is 10 minutes. Provided in the TimeSpan format.
+        The ISO 8601 timespan duration during which
+        duplicates can be detected. Default value is 10 minutes. (`PT10M`)
         """
         __props__['duplicateDetectionHistoryTimeWindow'] = duplicate_detection_history_time_window
 

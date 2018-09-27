@@ -94,6 +94,10 @@ export class Database extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+     */
+    public readonly threatDetectionPolicy: pulumi.Output<{ disabledAlerts?: string[], emailAccountAdmins?: string, emailAddresses?: string[], retentionDays?: number, state?: string, storageAccountAccessKey?: string, storageEndpoint?: string, useServerDefault?: string }>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -126,6 +130,7 @@ export class Database extends pulumi.CustomResource {
             inputs["sourceDatabaseDeletionDate"] = state ? state.sourceDatabaseDeletionDate : undefined;
             inputs["sourceDatabaseId"] = state ? state.sourceDatabaseId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["threatDetectionPolicy"] = state ? state.threatDetectionPolicy : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
             if (!args || args.location === undefined) {
@@ -153,6 +158,7 @@ export class Database extends pulumi.CustomResource {
             inputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
             inputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["threatDetectionPolicy"] = args ? args.threatDetectionPolicy : undefined;
             inputs["creationDate"] = undefined /*out*/;
             inputs["defaultSecondaryLocation"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
@@ -239,6 +245,10 @@ export interface DatabaseState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+     */
+    readonly threatDetectionPolicy?: pulumi.Input<{ disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>, emailAccountAdmins?: pulumi.Input<string>, emailAddresses?: pulumi.Input<pulumi.Input<string>[]>, retentionDays?: pulumi.Input<number>, state?: pulumi.Input<string>, storageAccountAccessKey?: pulumi.Input<string>, storageEndpoint?: pulumi.Input<string>, useServerDefault?: pulumi.Input<string> }>;
 }
 
 /**
@@ -310,4 +320,8 @@ export interface DatabaseArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+     */
+    readonly threatDetectionPolicy?: pulumi.Input<{ disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>, emailAccountAdmins?: pulumi.Input<string>, emailAddresses?: pulumi.Input<pulumi.Input<string>[]>, retentionDays?: pulumi.Input<number>, state?: pulumi.Input<string>, storageAccountAccessKey?: pulumi.Input<string>, storageEndpoint?: pulumi.Input<string>, useServerDefault?: pulumi.Input<string> }>;
 }
