@@ -7,17 +7,17 @@ import * as utilities from "../utilities";
 /**
  * Assigns a given Principal (User or Application) to a given Role.
  */
-export class assignment extends pulumi.CustomResource {
+export class Assignment extends pulumi.CustomResource {
     /**
-     * Get an existing assignment resource's state with the given name, ID, and optional extra
+     * Get an existing Assignment resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: assignmentState): assignment {
-        return new assignment(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AssignmentState): Assignment {
+        return new Assignment(name, <any>state, { id });
     }
 
     /**
@@ -42,24 +42,24 @@ export class assignment extends pulumi.CustomResource {
     public readonly scope: pulumi.Output<string>;
 
     /**
-     * Create a assignment resource with the given unique name, arguments, and options.
+     * Create a Assignment resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: assignmentArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: assignmentArgs | assignmentState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AssignmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: assignmentState = argsOrState as assignmentState | undefined;
+            const state: AssignmentState = argsOrState as AssignmentState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
             inputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
             inputs["roleDefinitionName"] = state ? state.roleDefinitionName : undefined;
             inputs["scope"] = state ? state.scope : undefined;
         } else {
-            const args = argsOrState as assignmentArgs | undefined;
+            const args = argsOrState as AssignmentArgs | undefined;
             if (!args || args.principalId === undefined) {
                 throw new Error("Missing required property 'principalId'");
             }
@@ -72,14 +72,14 @@ export class assignment extends pulumi.CustomResource {
             inputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        super("azure:role/assignment:assignment", name, inputs, opts);
+        super("azure:role/assignment:Assignment", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering assignment resources.
+ * Input properties used for looking up and filtering Assignment resources.
  */
-export interface assignmentState {
+export interface AssignmentState {
     /**
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
@@ -103,9 +103,9 @@ export interface assignmentState {
 }
 
 /**
- * The set of arguments for constructing a assignment resource.
+ * The set of arguments for constructing a Assignment resource.
  */
-export interface assignmentArgs {
+export interface AssignmentArgs {
     /**
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
