@@ -6,12 +6,12 @@ import pulumi
 import pulumi.runtime
 from .. import utilities
 
-class assignment(pulumi.CustomResource):
+class Assignment(pulumi.CustomResource):
     """
     Assigns a given Principal (User or Application) to a given Role.
     """
     def __init__(__self__, __name__, __opts__=None, name=None, principal_id=None, role_definition_id=None, role_definition_name=None, scope=None):
-        """Create a assignment resource with the given unique name, props, and options."""
+        """Create a Assignment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
         if not isinstance(__name__, basestring):
@@ -65,8 +65,8 @@ class assignment(pulumi.CustomResource):
         """
         __props__['scope'] = scope
 
-        super(assignment, __self__).__init__(
-            'azure:role/assignment:assignment',
+        super(Assignment, __self__).__init__(
+            'azure:role/assignment:Assignment',
             __name__,
             __props__,
             __opts__)

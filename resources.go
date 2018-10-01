@@ -209,7 +209,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_autoscale_setting": {Tok: azureResource(azureAutoscale, "Setting")},
 
 			// Authorization
-			"azurerm_role_assignment": {Tok: azureResource(azureRole, "assignment")},
+			"azurerm_role_assignment": {Tok: azureResource(azureRole, "Assignment")},
 			"azurerm_role_definition": {Tok: azureResource(azureRole, "Definition")},
 
 			// Azure Container Service
@@ -618,8 +618,8 @@ func Provider() tfbridge.ProviderInfo {
 	// already have a name mapping entry, since those may have custom overrides set above (e.g., for length).
 	for resname, res := range prov.Resources {
 		if schema := p.ResourcesMap[resname]; schema != nil {
-			// Only apply auto-name to input properties (Optional || Required) named `name`
-			if tfs, has := schema.Schema[azureName]; has && (tfs.Optional || tfs.Required) {
+			// Only apply auto-name to Required input properties named `name`.
+			if tfs, has := schema.Schema[azureName]; has && tfs.Required {
 				if _, hasfield := res.Fields[azureName]; !hasfield {
 					if res.Fields == nil {
 						res.Fields = make(map[string]*tfbridge.SchemaInfo)
