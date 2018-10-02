@@ -209,7 +209,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_autoscale_setting": {Tok: azureResource(azureAutoscale, "Setting")},
 
 			// Authorization
-			"azurerm_role_assignment": {Tok: azureResource(azureRole, "assignment")},
+			"azurerm_role_assignment": {
+				Tok: azureResource(azureRole, "Assignment"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Supress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
+					azureName: {Name: azureName},
+				},
+			},
 			"azurerm_role_definition": {Tok: azureResource(azureRole, "Definition")},
 
 			// Azure Container Service
