@@ -9,13 +9,13 @@ import (
 )
 
 // Manages a Event Hubs authorization Rule within an Event Hub.
-type EventHubAuthorizationRule struct {
+type AuthorizationRule struct {
 	s *pulumi.ResourceState
 }
 
-// NewEventHubAuthorizationRule registers a new resource with the given unique name, arguments, and options.
-func NewEventHubAuthorizationRule(ctx *pulumi.Context,
-	name string, args *EventHubAuthorizationRuleArgs, opts ...pulumi.ResourceOpt) (*EventHubAuthorizationRule, error) {
+// NewAuthorizationRule registers a new resource with the given unique name, arguments, and options.
+func NewAuthorizationRule(ctx *pulumi.Context,
+	name string, args *AuthorizationRuleArgs, opts ...pulumi.ResourceOpt) (*AuthorizationRule, error) {
 	if args == nil || args.EventhubName == nil {
 		return nil, errors.New("missing required argument 'EventhubName'")
 	}
@@ -49,17 +49,17 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	inputs["primaryKey"] = nil
 	inputs["secondaryConnectionString"] = nil
 	inputs["secondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:eventhub/authorizationRule:AuthorizationRule", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventHubAuthorizationRule{s: s}, nil
+	return &AuthorizationRule{s: s}, nil
 }
 
-// GetEventHubAuthorizationRule gets an existing EventHubAuthorizationRule resource's state with the given name, ID, and optional
+// GetAuthorizationRule gets an existing AuthorizationRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetEventHubAuthorizationRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventHubAuthorizationRuleState, opts ...pulumi.ResourceOpt) (*EventHubAuthorizationRule, error) {
+func GetAuthorizationRule(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *AuthorizationRuleState, opts ...pulumi.ResourceOpt) (*AuthorizationRule, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["eventhubName"] = state.EventhubName
@@ -75,84 +75,84 @@ func GetEventHubAuthorizationRule(ctx *pulumi.Context,
 		inputs["secondaryKey"] = state.SecondaryKey
 		inputs["send"] = state.Send
 	}
-	s, err := ctx.ReadResource("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:eventhub/authorizationRule:AuthorizationRule", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventHubAuthorizationRule{s: s}, nil
+	return &AuthorizationRule{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventHubAuthorizationRule) URN() *pulumi.URNOutput {
+func (r *AuthorizationRule) URN() *pulumi.URNOutput {
 	return r.s.URN
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventHubAuthorizationRule) ID() *pulumi.IDOutput {
+func (r *AuthorizationRule) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
 // Specifies the name of the EventHub. Changing this forces a new resource to be created.
-func (r *EventHubAuthorizationRule) EventhubName() *pulumi.StringOutput {
+func (r *AuthorizationRule) EventhubName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eventhubName"])
 }
 
 // Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
-func (r *EventHubAuthorizationRule) Listen() *pulumi.BoolOutput {
+func (r *AuthorizationRule) Listen() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["listen"])
 }
 
-func (r *EventHubAuthorizationRule) Location() *pulumi.StringOutput {
+func (r *AuthorizationRule) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-func (r *EventHubAuthorizationRule) Manage() *pulumi.BoolOutput {
+func (r *AuthorizationRule) Manage() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["manage"])
 }
 
 // Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
-func (r *EventHubAuthorizationRule) Name() *pulumi.StringOutput {
+func (r *AuthorizationRule) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
-func (r *EventHubAuthorizationRule) NamespaceName() *pulumi.StringOutput {
+func (r *AuthorizationRule) NamespaceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The Primary Connection String for the Event Hubs authorization Rule.
-func (r *EventHubAuthorizationRule) PrimaryConnectionString() *pulumi.StringOutput {
+func (r *AuthorizationRule) PrimaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
 // The Primary Key for the Event Hubs authorization Rule.
-func (r *EventHubAuthorizationRule) PrimaryKey() *pulumi.StringOutput {
+func (r *AuthorizationRule) PrimaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
 // The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
-func (r *EventHubAuthorizationRule) ResourceGroupName() *pulumi.StringOutput {
+func (r *AuthorizationRule) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The Secondary Connection String for the Event Hubs authorization Rule.
-func (r *EventHubAuthorizationRule) SecondaryConnectionString() *pulumi.StringOutput {
+func (r *AuthorizationRule) SecondaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
 // The Secondary Key for the Event Hubs authorization Rule.
-func (r *EventHubAuthorizationRule) SecondaryKey() *pulumi.StringOutput {
+func (r *AuthorizationRule) SecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
-func (r *EventHubAuthorizationRule) Send() *pulumi.BoolOutput {
+func (r *AuthorizationRule) Send() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["send"])
 }
 
-// Input properties used for looking up and filtering EventHubAuthorizationRule resources.
-type EventHubAuthorizationRuleState struct {
+// Input properties used for looking up and filtering AuthorizationRule resources.
+type AuthorizationRuleState struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName interface{}
 	// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
@@ -178,8 +178,8 @@ type EventHubAuthorizationRuleState struct {
 	Send interface{}
 }
 
-// The set of arguments for constructing a EventHubAuthorizationRule resource.
-type EventHubAuthorizationRuleArgs struct {
+// The set of arguments for constructing a AuthorizationRule resource.
+type AuthorizationRuleArgs struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName interface{}
 	// Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.

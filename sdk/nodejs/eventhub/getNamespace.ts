@@ -7,17 +7,17 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to obtain information about an EventHub Namespace.
  */
-export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
-    return pulumi.runtime.invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", {
+export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
+    return pulumi.runtime.invoke("azure:eventhub/getNamespace:getNamespace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking getEventhubNamespace.
+ * A collection of arguments for invoking getNamespace.
  */
-export interface GetEventhubNamespaceArgs {
+export interface GetNamespaceArgs {
     /**
      * The name of the EventHub Namespace.
      */
@@ -29,9 +29,9 @@ export interface GetEventhubNamespaceArgs {
 }
 
 /**
- * A collection of values returned by getEventhubNamespace.
+ * A collection of values returned by getNamespace.
  */
-export interface GetEventhubNamespaceResult {
+export interface GetNamespaceResult {
     /**
      * Is Auto Inflate enabled for the EventHub Namespace?
      */

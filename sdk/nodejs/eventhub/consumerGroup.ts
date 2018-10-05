@@ -7,17 +7,17 @@ import * as utilities from "../utilities";
 /**
  * Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
  */
-export class EventHubConsumerGroup extends pulumi.CustomResource {
+export class ConsumerGroup extends pulumi.CustomResource {
     /**
-     * Get an existing EventHubConsumerGroup resource's state with the given name, ID, and optional extra
+     * Get an existing ConsumerGroup resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubConsumerGroupState): EventHubConsumerGroup {
-        return new EventHubConsumerGroup(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ConsumerGroupState): ConsumerGroup {
+        return new ConsumerGroup(name, <any>state, { id });
     }
 
     /**
@@ -43,17 +43,17 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
     public readonly userMetadata: pulumi.Output<string | undefined>;
 
     /**
-     * Create a EventHubConsumerGroup resource with the given unique name, arguments, and options.
+     * Create a ConsumerGroup resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventHubConsumerGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventHubConsumerGroupArgs | EventHubConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ConsumerGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ConsumerGroupArgs | ConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubConsumerGroupState = argsOrState as EventHubConsumerGroupState | undefined;
+            const state: ConsumerGroupState = argsOrState as ConsumerGroupState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -61,7 +61,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["userMetadata"] = state ? state.userMetadata : undefined;
         } else {
-            const args = argsOrState as EventHubConsumerGroupArgs | undefined;
+            const args = argsOrState as ConsumerGroupArgs | undefined;
             if (!args || args.eventhubName === undefined) {
                 throw new Error("Missing required property 'eventhubName'");
             }
@@ -78,14 +78,14 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
-        super("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, inputs, opts);
+        super("azure:eventhub/consumerGroup:ConsumerGroup", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering EventHubConsumerGroup resources.
+ * Input properties used for looking up and filtering ConsumerGroup resources.
  */
-export interface EventHubConsumerGroupState {
+export interface ConsumerGroupState {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
@@ -110,9 +110,9 @@ export interface EventHubConsumerGroupState {
 }
 
 /**
- * The set of arguments for constructing a EventHubConsumerGroup resource.
+ * The set of arguments for constructing a ConsumerGroup resource.
  */
-export interface EventHubConsumerGroupArgs {
+export interface ConsumerGroupArgs {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */

@@ -105,7 +105,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
-        super("azure:eventhub/subscriptionRule:SubscriptionRule", name, inputs, opts);
+        super("azure:servicebus/subscriptionRule:SubscriptionRule", name, inputs, opts);
     }
 }
 

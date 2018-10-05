@@ -7,17 +7,17 @@ import * as utilities from "../utilities";
 /**
  * Manages a Event Hubs authorization Rule within an Event Hub.
  */
-export class EventHubAuthorizationRule extends pulumi.CustomResource {
+export class AuthorizationRule extends pulumi.CustomResource {
     /**
-     * Get an existing EventHubAuthorizationRule resource's state with the given name, ID, and optional extra
+     * Get an existing AuthorizationRule resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubAuthorizationRuleState): EventHubAuthorizationRule {
-        return new EventHubAuthorizationRule(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AuthorizationRuleState): AuthorizationRule {
+        return new AuthorizationRule(name, <any>state, { id });
     }
 
     /**
@@ -67,17 +67,17 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     public readonly send: pulumi.Output<boolean | undefined>;
 
     /**
-     * Create a EventHubAuthorizationRule resource with the given unique name, arguments, and options.
+     * Create a AuthorizationRule resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventHubAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventHubAuthorizationRuleArgs | EventHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: AuthorizationRuleArgs | AuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubAuthorizationRuleState = argsOrState as EventHubAuthorizationRuleState | undefined;
+            const state: AuthorizationRuleState = argsOrState as AuthorizationRuleState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -91,7 +91,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["send"] = state ? state.send : undefined;
         } else {
-            const args = argsOrState as EventHubAuthorizationRuleArgs | undefined;
+            const args = argsOrState as AuthorizationRuleArgs | undefined;
             if (!args || args.eventhubName === undefined) {
                 throw new Error("Missing required property 'eventhubName'");
             }
@@ -114,14 +114,14 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, inputs, opts);
+        super("azure:eventhub/authorizationRule:AuthorizationRule", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering EventHubAuthorizationRule resources.
+ * Input properties used for looking up and filtering AuthorizationRule resources.
  */
-export interface EventHubAuthorizationRuleState {
+export interface AuthorizationRuleState {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
@@ -170,9 +170,9 @@ export interface EventHubAuthorizationRuleState {
 }
 
 /**
- * The set of arguments for constructing a EventHubAuthorizationRule resource.
+ * The set of arguments for constructing a AuthorizationRule resource.
  */
-export interface EventHubAuthorizationRuleArgs {
+export interface AuthorizationRuleArgs {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */

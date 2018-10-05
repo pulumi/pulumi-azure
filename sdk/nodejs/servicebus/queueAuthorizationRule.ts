@@ -111,7 +111,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule", name, inputs, opts);
+        super("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, inputs, opts);
     }
 }
 

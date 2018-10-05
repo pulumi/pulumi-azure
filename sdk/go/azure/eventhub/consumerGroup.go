@@ -9,13 +9,13 @@ import (
 )
 
 // Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
-type EventHubConsumerGroup struct {
+type ConsumerGroup struct {
 	s *pulumi.ResourceState
 }
 
-// NewEventHubConsumerGroup registers a new resource with the given unique name, arguments, and options.
-func NewEventHubConsumerGroup(ctx *pulumi.Context,
-	name string, args *EventHubConsumerGroupArgs, opts ...pulumi.ResourceOpt) (*EventHubConsumerGroup, error) {
+// NewConsumerGroup registers a new resource with the given unique name, arguments, and options.
+func NewConsumerGroup(ctx *pulumi.Context,
+	name string, args *ConsumerGroupArgs, opts ...pulumi.ResourceOpt) (*ConsumerGroup, error) {
 	if args == nil || args.EventhubName == nil {
 		return nil, errors.New("missing required argument 'EventhubName'")
 	}
@@ -41,17 +41,17 @@ func NewEventHubConsumerGroup(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["userMetadata"] = args.UserMetadata
 	}
-	s, err := ctx.RegisterResource("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:eventhub/consumerGroup:ConsumerGroup", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventHubConsumerGroup{s: s}, nil
+	return &ConsumerGroup{s: s}, nil
 }
 
-// GetEventHubConsumerGroup gets an existing EventHubConsumerGroup resource's state with the given name, ID, and optional
+// GetConsumerGroup gets an existing ConsumerGroup resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetEventHubConsumerGroup(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *EventHubConsumerGroupState, opts ...pulumi.ResourceOpt) (*EventHubConsumerGroup, error) {
+func GetConsumerGroup(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *ConsumerGroupState, opts ...pulumi.ResourceOpt) (*ConsumerGroup, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["eventhubName"] = state.EventhubName
@@ -61,54 +61,54 @@ func GetEventHubConsumerGroup(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["userMetadata"] = state.UserMetadata
 	}
-	s, err := ctx.ReadResource("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:eventhub/consumerGroup:ConsumerGroup", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &EventHubConsumerGroup{s: s}, nil
+	return &ConsumerGroup{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *EventHubConsumerGroup) URN() *pulumi.URNOutput {
+func (r *ConsumerGroup) URN() *pulumi.URNOutput {
 	return r.s.URN
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *EventHubConsumerGroup) ID() *pulumi.IDOutput {
+func (r *ConsumerGroup) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
 // Specifies the name of the EventHub. Changing this forces a new resource to be created.
-func (r *EventHubConsumerGroup) EventhubName() *pulumi.StringOutput {
+func (r *ConsumerGroup) EventhubName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eventhubName"])
 }
 
-func (r *EventHubConsumerGroup) Location() *pulumi.StringOutput {
+func (r *ConsumerGroup) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
 // Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
-func (r *EventHubConsumerGroup) Name() *pulumi.StringOutput {
+func (r *ConsumerGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
-func (r *EventHubConsumerGroup) NamespaceName() *pulumi.StringOutput {
+func (r *ConsumerGroup) NamespaceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
 // The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
-func (r *EventHubConsumerGroup) ResourceGroupName() *pulumi.StringOutput {
+func (r *ConsumerGroup) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // Specifies the user metadata.
-func (r *EventHubConsumerGroup) UserMetadata() *pulumi.StringOutput {
+func (r *ConsumerGroup) UserMetadata() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["userMetadata"])
 }
 
-// Input properties used for looking up and filtering EventHubConsumerGroup resources.
-type EventHubConsumerGroupState struct {
+// Input properties used for looking up and filtering ConsumerGroup resources.
+type ConsumerGroupState struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName interface{}
 	Location interface{}
@@ -122,8 +122,8 @@ type EventHubConsumerGroupState struct {
 	UserMetadata interface{}
 }
 
-// The set of arguments for constructing a EventHubConsumerGroup resource.
-type EventHubConsumerGroupArgs struct {
+// The set of arguments for constructing a ConsumerGroup resource.
+type ConsumerGroupArgs struct {
 	// Specifies the name of the EventHub. Changing this forces a new resource to be created.
 	EventhubName interface{}
 	Location interface{}

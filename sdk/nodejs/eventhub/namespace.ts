@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage a ServiceBus Namespace.
+ * Manage an EventHub Namespace.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -21,7 +21,11 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+     * Is Auto Inflate enabled for the EventHub Namespace?
+     */
+    public readonly autoInflateEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
      */
     public readonly capacity: pulumi.Output<number | undefined>;
     /**
@@ -47,17 +51,19 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+     */
+    public readonly maximumThroughputUnits: pulumi.Output<number>;
+    /**
+     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the namespace.
+     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * Defines which tier to use. Options are basic, standard or premium.
+     * Defines which tier to use. Valid options are `Basic` and `Standard`.
      */
     public readonly sku: pulumi.Output<string>;
     /**
@@ -77,12 +83,14 @@ export class Namespace extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: NamespaceState = argsOrState as NamespaceState | undefined;
+            inputs["autoInflateEnabled"] = state ? state.autoInflateEnabled : undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
             inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
             inputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
             inputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["maximumThroughputUnits"] = state ? state.maximumThroughputUnits : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
@@ -98,8 +106,10 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["autoInflateEnabled"] = args ? args.autoInflateEnabled : undefined;
             inputs["capacity"] = args ? args.capacity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -118,7 +128,11 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceState {
     /**
-     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+     * Is Auto Inflate enabled for the EventHub Namespace?
+     */
+    readonly autoInflateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
      */
     readonly capacity?: pulumi.Input<number>;
     /**
@@ -144,17 +158,19 @@ export interface NamespaceState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+     */
+    readonly maximumThroughputUnits?: pulumi.Input<number>;
+    /**
+     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the namespace.
+     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Defines which tier to use. Options are basic, standard or premium.
+     * Defines which tier to use. Valid options are `Basic` and `Standard`.
      */
     readonly sku?: pulumi.Input<string>;
     /**
@@ -168,7 +184,11 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     /**
-     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+     * Is Auto Inflate enabled for the EventHub Namespace?
+     */
+    readonly autoInflateEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
      */
     readonly capacity?: pulumi.Input<number>;
     /**
@@ -176,17 +196,19 @@ export interface NamespaceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-     * new resource to be created.
+     * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+     */
+    readonly maximumThroughputUnits?: pulumi.Input<number>;
+    /**
+     * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the namespace.
+     * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Defines which tier to use. Options are basic, standard or premium.
+     * Defines which tier to use. Valid options are `Basic` and `Standard`.
      */
     readonly sku: pulumi.Input<string>;
     /**

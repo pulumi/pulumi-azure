@@ -8,17 +8,17 @@ import (
 )
 
 // Use this data source to obtain information about an EventHub Namespace.
-func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs) (*GetEventhubNamespaceResult, error) {
+func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs) (*GetNamespaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 	}
-	outputs, err := ctx.Invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", inputs)
+	outputs, err := ctx.Invoke("azure:eventhub/getNamespace:getNamespace", inputs)
 	if err != nil {
 		return nil, err
 	}
-	return &GetEventhubNamespaceResult{
+	return &GetNamespaceResult{
 		AutoInflateEnabled: outputs["autoInflateEnabled"],
 		Capacity: outputs["capacity"],
 		DefaultPrimaryConnectionString: outputs["defaultPrimaryConnectionString"],
@@ -33,16 +33,16 @@ func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs
 	}, nil
 }
 
-// A collection of arguments for invoking getEventhubNamespace.
-type GetEventhubNamespaceArgs struct {
+// A collection of arguments for invoking getNamespace.
+type GetNamespaceArgs struct {
 	// The name of the EventHub Namespace.
 	Name interface{}
 	// The Name of the Resource Group where the EventHub Namespace exists.
 	ResourceGroupName interface{}
 }
 
-// A collection of values returned by getEventhubNamespace.
-type GetEventhubNamespaceResult struct {
+// A collection of values returned by getNamespace.
+type GetNamespaceResult struct {
 	// Is Auto Inflate enabled for the EventHub Namespace?
 	AutoInflateEnabled interface{}
 	// The Capacity / Throughput Units for a `Standard` SKU namespace.
