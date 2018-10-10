@@ -235,7 +235,8 @@
         "trafficmanager/getGeographicalLocation.ts",
         "trafficmanager/index.ts",
         "trafficmanager/profile.ts",
-        "utilities.ts"
+        "utilities.ts",
+        "utils.ts"
     ]
 }
 

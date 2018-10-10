@@ -596,6 +596,9 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				Files: []string{},
+				DestFiles: []string{
+					"utils.ts", // Helpers,
+				},
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"appservice": {
 						DestFiles: []string{
