@@ -18,6 +18,7 @@
         "appinsights/insights.ts",
         "appservice/activeSlot.ts",
         "appservice/appService.ts",
+        "appservice/appserviceMixins.ts",
         "appservice/customHostnameBinding.ts",
         "appservice/functionApp.ts",
         "appservice/getAppService.ts",

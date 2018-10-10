@@ -594,8 +594,14 @@ func Provider() tfbridge.ProviderInfo {
 				"@pulumi/pulumi": "dev",
 			},
 			Overlay: &tfbridge.OverlayInfo{
-				Files:   []string{},
-				Modules: map[string]*tfbridge.OverlayInfo{},
+				Files: []string{},
+				Modules: map[string]*tfbridge.OverlayInfo{
+					"appservice": {
+						DestFiles: []string{
+							"appserviceMixins.ts",
+						},
+					},
+				},
 			},
 		},
 		Python: &tfbridge.PythonInfo{

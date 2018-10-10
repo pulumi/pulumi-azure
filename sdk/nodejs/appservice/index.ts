@@ -4,6 +4,7 @@
 // Export members:
 export * from "./activeSlot";
 export * from "./appService";
+export * from "./appserviceMixins";
 export * from "./customHostnameBinding";
 export * from "./functionApp";
 export * from "./getAppService";
