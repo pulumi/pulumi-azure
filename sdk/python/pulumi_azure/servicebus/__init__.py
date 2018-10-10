@@ -3,9 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from event_hub import *
-from authorization_rule import *
-from consumer_group import *
 from namespace import *
 from namespace_authorization_rule import *
-from get_namespace import *
+from queue import *
+from queue_authorization_rule import *
+from subscription import *
+from subscription_rule import *
+from topic import *
+from topic_authorization_rule import *

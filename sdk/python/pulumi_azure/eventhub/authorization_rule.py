@@ -6,12 +6,12 @@ import pulumi
 import pulumi.runtime
 from .. import utilities
 
-class NamespaceAuthorizationRule(pulumi.CustomResource):
+class AuthorizationRule(pulumi.CustomResource):
     """
-    Manages an Authorization Rule for an Event Hub Namespace.
+    Manages a Event Hubs authorization Rule within an Event Hub.
     """
-    def __init__(__self__, __name__, __opts__=None, listen=None, location=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None):
-        """Create a NamespaceAuthorizationRule resource with the given unique name, props, and options."""
+    def __init__(__self__, __name__, __opts__=None, eventhub_name=None, listen=None, location=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None):
+        """Create a AuthorizationRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
         if not isinstance(__name__, basestring):
@@ -21,11 +21,21 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         __props__ = dict()
 
+        if not eventhub_name:
+            raise TypeError('Missing required property eventhub_name')
+        elif not isinstance(eventhub_name, basestring):
+            raise TypeError('Expected property eventhub_name to be a basestring')
+        __self__.eventhub_name = eventhub_name
+        """
+        Specifies the name of the EventHub. Changing this forces a new resource to be created.
+        """
+        __props__['eventhubName'] = eventhub_name
+
         if listen and not isinstance(listen, bool):
             raise TypeError('Expected property listen to be a bool')
         __self__.listen = listen
         """
-        Grants listen access to this this Authorization Rule. Defaults to `false`.
+        Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
         """
         __props__['listen'] = listen
 
@@ -38,7 +48,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property manage to be a bool')
         __self__.manage = manage
         """
-        Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
         __props__['manage'] = manage
 
@@ -46,7 +56,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
+        Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 
@@ -56,7 +66,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property namespace_name to be a basestring')
         __self__.namespace_name = namespace_name
         """
-        Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
         """
         __props__['namespaceName'] = namespace_name
 
@@ -74,34 +84,36 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property send to be a bool')
         __self__.send = send
         """
-        Grants send access to this this Authorization Rule. Defaults to `false`.
+        Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
         """
         __props__['send'] = send
 
         __self__.primary_connection_string = pulumi.runtime.UNKNOWN
         """
-        The Primary Connection String for the Authorization Rule.
+        The Primary Connection String for the Event Hubs authorization Rule.
         """
         __self__.primary_key = pulumi.runtime.UNKNOWN
         """
-        The Primary Key for the Authorization Rule.
+        The Primary Key for the Event Hubs authorization Rule.
         """
         __self__.secondary_connection_string = pulumi.runtime.UNKNOWN
         """
-        The Secondary Connection String for the Authorization Rule.
+        The Secondary Connection String for the Event Hubs authorization Rule.
         """
         __self__.secondary_key = pulumi.runtime.UNKNOWN
         """
-        The Secondary Key for the Authorization Rule.
+        The Secondary Key for the Event Hubs authorization Rule.
         """
 
-        super(NamespaceAuthorizationRule, __self__).__init__(
-            'azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule',
+        super(AuthorizationRule, __self__).__init__(
+            'azure:eventhub/authorizationRule:AuthorizationRule',
             __name__,
             __props__,
             __opts__)
 
     def set_outputs(self, outs):
+        if 'eventhubName' in outs:
+            self.eventhub_name = outs['eventhubName']
         if 'listen' in outs:
             self.listen = outs['listen']
         if 'location' in outs:
