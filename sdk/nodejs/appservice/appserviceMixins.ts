@@ -60,18 +60,18 @@ export type CallbackFactory<C extends Context, Data> = () => Callback<C, Data>;
 export type EventHandler<C extends Context, Data> = Callback<C, Data> | FunctionApp;
 
 /**
- * CallbackFunctionAppArgs provides configuration options for the serverless FunctionApp.  It is
+ * CallbackFunctionArgs provides configuration options for the serverless FunctionApp.  It is
  * effectively equivalent to [appservice.FunctionArgs] except with a few important differences
  * documented at the property level.
  */
-export type CallbackFunctionAppArgs<C extends Context, Data> = utils.Overwrite<FunctionAppArgs, {
+export type CallbackFunctionArgs<C extends Context, Data> = utils.Overwrite<FunctionAppArgs, {
     /**
      * Binding values that will be emitted into the function.json config file for the FunctionApp.
      * Used by Azure to control which services will invoke the FunctionApp.  See
      * https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings for more
      * details.
      */
-    bindings: pulumi.Input<Binding[]>;
+    bindings?: pulumi.Input<Binding[]>;
 
     /**
      * The Javascript callback to use as the entrypoint for the Azure FunctionApp out of.  Either
@@ -127,6 +127,21 @@ export type CallbackFunctionAppArgs<C extends Context, Data> = utils.Overwrite<F
     redirectConsoleOutput?: boolean;
 
     /**
+     * A key-value pair of App Settings.
+     */
+    appSettings?: pulumi.Input<{[key: string]: any}>;
+
+    /**
+     * Specifies the supported Azure location where the resource exists.
+     */
+    location?: pulumi.Input<string>;
+
+    /**
+     * The name of the resource group in which to create the Function App.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
+    /**
      * Options to control which files and packages are included with the serialized FunctionApp code.
      */
     codePathOptions?: pulumi.runtime.CodePathOptions;
@@ -162,17 +177,17 @@ export interface Binding {
 }
 
 /**
-* A CallbackFunctionApp is a special type of appservice.FunctionApp that can be created out of an
+* A CallbackFunction is a special type of appservice.FunctionApp that can be created out of an
 * actual JavaScript function instance.  The function instance will be analyzed and packaged up
 * (including dependencies) into a form that can be used by Azure.  See
 * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
 * details on this process.
 */
-export class CallbackFunctionApp<C extends Context, Data> extends FunctionApp {
+export class CallbackFunction<C extends Context, Data> extends FunctionApp {
     readonly storageAccount: storage.Account;
     readonly storageContainer: storage.Container;
 
-    constructor(name: string, args: CallbackFunctionAppArgs<C, Data>, opts: pulumi.ResourceOptions = {}) {
+    constructor(name: string, args: CallbackFunctionArgs<C, Data>, opts: pulumi.ResourceOptions = {}) {
         if (!args.resourceGroupName) {
             throw new pulumi.ResourceError("[resourceGroupName] must be provided in [args]", opts.parent);
         }

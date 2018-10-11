@@ -229,6 +229,7 @@
         "storage/index.ts",
         "storage/queue.ts",
         "storage/share.ts",
+        "storage/storageMixins.ts",
         "storage/table.ts",
         "storage/zipBlob.ts",
         "trafficmanager/endpoint.ts",

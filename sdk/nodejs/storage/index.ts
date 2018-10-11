@@ -9,5 +9,6 @@ export * from "./getAccount";
 export * from "./getAccountSAS";
 export * from "./queue";
 export * from "./share";
+export * from "./storageMixins";
 export * from "./table";
 export * from "./zipBlob";
