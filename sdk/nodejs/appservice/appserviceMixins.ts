@@ -16,8 +16,10 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as storage from "../storage";
 import * as utils from "../utils";
+import { Plan } from "./plan";
 import { FunctionApp, FunctionAppArgs } from "./functionApp";
 import * as azurefunctions from "azure-functions-ts-essentials";
+import * as azurestorage from "azure-storage";
 
 /**
  * Context is the shape of the context object passed to a FunctionApp callback.
@@ -63,6 +65,14 @@ export type EventHandler<C extends Context, Data> = Callback<C, Data> | Function
  * documented at the property level.
  */
 export type CallbackFunctionAppArgs<C extends Context, Data> = utils.Overwrite<FunctionAppArgs, {
+    /**
+     * Binding values that will be emitted into the function.json config file for the FunctionApp.
+     * Used by Azure to control which services will invoke the FunctionApp.  See
+     * https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings for more
+     * details.
+     */
+    bindings: pulumi.Input<Binding[]>;
+
     /**
      * The Javascript callback to use as the entrypoint for the Azure FunctionApp out of.  Either
      * [callback] or [callbackFactory] must be provided.
@@ -111,7 +121,249 @@ export type CallbackFunctionAppArgs<C extends Context, Data> = utils.Overwrite<F
     storageContainer?: storage.Container;
 
     /**
+     * Whether or not console output of the actual function code should be automatically redirected
+     * to the Context log stream. True if not specified.
+     */
+    redirectConsoleOutput?: boolean;
+
+    /**
      * Options to control which files and packages are included with the serialized FunctionApp code.
      */
     codePathOptions?: pulumi.runtime.CodePathOptions;
 }>;
+
+
+/**
+ * Represents a Binding that will be emitted into the function.json config file for the FunctionApp.
+ * Individual services will have more specific information they will define in their own bindings.
+ */
+export interface Binding {
+    type: string;
+    direction: string;
+    name: string;
+}
+
+/* @internal */ export function createFunctionAppFromEventHandler<C extends Context, Data>(
+    name: string, handler: EventHandler<C, Data>, bindings: pulumi.Input<Binding[]>,
+    location: pulumi.Input<string>, resourceGroupName: pulumi.Input<string>,
+    opts?: pulumi.ResourceOptions): FunctionApp {
+
+    if (handler instanceof Function) {
+        return new CallbackFunctionApp(name, {
+            callback: handler,
+            bindings: bindings,
+            location: location,
+            resourceGroupName: resourceGroupName,
+        }, opts);
+    }
+    else {
+        return handler;
+    }
+}
+
+/**
+* A CallbackFunctionApp is a special type of appservice.FunctionApp that can be created out of an
+* actual JavaScript function instance.  The function instance will be analyzed and packaged up
+* (including dependencies) into a form that can be used by Azure.  See
+* https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
+* details on this process.
+*/
+export class CallbackFunctionApp<C extends Context, Data> extends FunctionApp {
+    readonly storageAccount: storage.Account;
+    readonly storageContainer: storage.Container;
+
+    constructor(name: string, args: CallbackFunctionAppArgs<C, Data>, opts: pulumi.ResourceOptions = {}) {
+        if (!args.resourceGroupName) {
+            throw new pulumi.ResourceError("[resourceGroupName] must be provided in [args]", opts.parent);
+        }
+
+        if (!args.location) {
+            throw new pulumi.ResourceError("[location] must be provided in [args]", opts.parent);
+        }
+
+        const resourceGroupArgs = {
+            resourceGroupName: args.resourceGroupName,
+            location: args.location,
+        };
+
+        let appServicePlanId = args.appServicePlanId;
+        if (!appServicePlanId) {
+            const plan = new Plan(name, {
+                ...resourceGroupArgs,
+
+                kind: "FunctionApp",
+
+                sku: {
+                    tier: "Dynamic",
+                    size: "Y1",
+                },
+            }, opts);
+            appServicePlanId = plan.id;
+        }
+
+        const storageAccount = args.storageAccount || new storage.Account(makeSafeStorageAccountName(name), {
+            ...resourceGroupArgs,
+
+            accountKind: "StorageV2",
+            accountTier: "Standard",
+            accountReplicationType: "LRS",
+        }, opts);
+
+        const storageContainer = args.storageContainer || new storage.Container(makeSafeStorageContainerName(name), {
+            resourceGroupName: args.resourceGroupName,
+            storageAccountName: storageAccount.name,
+            containerAccessType: "private",
+        }, opts);
+
+        const assetMap = serializeCallback(name, args, args.bindings);
+        const blob = new storage.ZipBlob(name, {
+            resourceGroupName: args.resourceGroupName,
+            storageAccountName: storageAccount.name,
+            storageContainerName: storageContainer.name,
+            type: "block",
+            content: assetMap.apply(m => new pulumi.asset.AssetArchive(m)),
+        }, opts);
+
+        const codeBlobUrl = signedBlobReadUrl(blob, storageAccount, storageContainer);
+
+        const functionAppArgs = {
+            ...args,
+            ...resourceGroupArgs,
+
+            appServicePlanId: appServicePlanId,
+            storageConnectionString: storageAccount.primaryConnectionString,
+
+            appSettings: pulumi.output(args.appSettings).apply(settings => {
+                settings = settings || {};
+                return {
+                    ...settings,
+                    "WEBSITE_RUN_FROM_ZIP": codeBlobUrl,
+                };
+            }),
+        };
+
+        super(name, functionAppArgs, opts);
+    }
+}
+
+function makeSafeStorageAccountName(prefix: string) {
+    // Account name needs to be at max 24 chars (minus the extra 8 random chars);
+    // not exceed the max length of 24.
+    // Name must be alphanumeric.
+    return prefix.replace(/[^a-zA-Z0-9]/g, "").toLowerCase().substr(0, 24 - 8);
+}
+
+function makeSafeStorageContainerName(prefix: string) {
+    // Account name needs to be at max 63 chars (minus the extra 8 random chars);
+    // Name must be alphanumeric (and hyphens).
+    return prefix.replace(/[^a-zA-Z0-9-]/g, "").toLowerCase().substr(0, 63 - 8);
+}
+
+function redirectConsoleOutput<C extends Context, Data>(callback: Callback<C, Data>) {
+    return (context: C, data: Data) => {
+        // Redirect console logging to context logging.
+        console.log = context.log;
+        console.error = context.log.error;
+        console.warn = context.log.warn;
+        // tslint:disable-next-line:no-console
+        console.info = context.log.info;
+
+        return callback(context, data);
+    };
+}
+
+/**
+ * Takes in a callback and a set of bindings, and produces the right AssetMap layout that Azure
+ * FunctionApps expect.
+ */
+function serializeCallback<C extends Context, Data>(
+        name: string,
+        args: CallbackFunctionAppArgs<C, Data>,
+        bindingsInput: pulumi.Input<Binding[]>,
+    ): pulumi.Output<pulumi.asset.AssetMap> {
+
+    if (args.callback && args.callbackFactory) {
+        throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
+    }
+
+    if (!args.callback && !args.callbackFactory) {
+        throw new Error("Missing required function callback");
+    }
+
+    let func: Function;
+    if (args.redirectConsoleOutput !== false) {
+        if (args.callback) {
+            func = redirectConsoleOutput(args.callback);
+        }
+        else {
+            func = () => {
+                const innerFunc = args.callbackFactory!();
+                return redirectConsoleOutput(innerFunc);
+            };
+        }
+    }
+    else {
+        func = args.callback || args.callbackFactory;
+    }
+
+    const serializedHandlerPromise = pulumi.runtime.serializeFunction(
+        func, { isFactoryFunction: !!args.callbackFactory });
+
+    const pathSetPromise = pulumi.runtime.computeCodePaths(args.codePathOptions);
+
+    return pulumi.output(bindingsInput).apply(async (bindings) => {
+        const map: pulumi.asset.AssetMap = {};
+        map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
+            "tracing": {
+                "consoleLevel": "verbose",
+            },
+        }));
+
+        map[`${name}/function.json`] = new pulumi.asset.StringAsset(JSON.stringify({
+            "disabled": false,
+            "bindings": bindings,
+        }));
+
+        const serializedHandler = await serializedHandlerPromise;
+        map[`${name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
+        map[`${name}/handler.js`] = new pulumi.asset.StringAsset(serializedHandler.text);
+
+        // TODO: unify this code with aws-serverless instead of straight copying.
+        // For each of the required paths, add the corresponding FileArchive or FileAsset to the AssetMap.
+        const pathSet = await pathSetPromise;
+        for (const [path, value] of pathSet.entries()) {
+            map[name + "/" + path] = value;
+        }
+
+        return map;
+    });
+}
+
+export function signedBlobReadUrl(
+    blob: storage.Blob | storage.ZipBlob,
+    account: storage.Account,
+    container: storage.Container): pulumi.Output<string> {
+
+    // Choose a fixed, far-future expiration date for signed blob URLs. The shared access signature
+    // (SAS) we generate for the Azure storage blob must remain valid for as long as the Function
+    // App is deployed, since new instances will download the code on startup. By using a fixed
+    // date, rather than (e.g.) "today plus ten years", the signing operation is idempotent.
+    const signatureExpiration = new Date(2100, 1);
+
+    return pulumi.all([account.primaryConnectionString, container.name, blob.name]).apply(
+        ([connectionString, containerName, blobName]) => {
+            const blobService = new azurestorage.BlobService(connectionString);
+            const signature = blobService.generateSharedAccessSignature(
+                containerName,
+                blobName,
+                {
+                    AccessPolicy: {
+                        Expiry: signatureExpiration,
+                        Permissions: azurestorage.BlobUtilities.SharedAccessPermissions.READ,
+                    },
+                },
+            );
+
+            return blobService.getUrl(containerName, blobName, signature);
+        });
+}
