@@ -146,7 +146,7 @@ export interface Binding {
 /* @internal */ export function createFunctionAppFromEventHandler<C extends Context, Data>(
     name: string, handler: EventHandler<C, Data>, bindings: pulumi.Input<Binding[]>,
     location: pulumi.Input<string>, resourceGroupName: pulumi.Input<string>,
-    opts?: pulumi.ResourceOptions): FunctionApp {
+    opts: pulumi.ResourceOptions): FunctionApp {
 
     if (handler instanceof Function) {
         return new CallbackFunctionApp(name, {
