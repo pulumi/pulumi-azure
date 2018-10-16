@@ -6,12 +6,12 @@ import pulumi
 import pulumi.runtime
 from .. import utilities
 
-class NamespaceAuthorizationRule(pulumi.CustomResource):
+class TopicAuthorizationRule(pulumi.CustomResource):
     """
-    Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
+    Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
     """
-    def __init__(__self__, __name__, __opts__=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None):
-        """Create a NamespaceAuthorizationRule resource with the given unique name, props, and options."""
+    def __init__(__self__, __name__, __opts__=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None, topic_name=None):
+        """Create a TopicAuthorizationRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
         if not isinstance(__name__, basestring):
@@ -41,7 +41,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
+        Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 
@@ -73,25 +73,35 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         __props__['send'] = send
 
+        if not topic_name:
+            raise TypeError('Missing required property topic_name')
+        elif not isinstance(topic_name, basestring):
+            raise TypeError('Expected property topic_name to be a basestring')
+        __self__.topic_name = topic_name
+        """
+        Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+        """
+        __props__['topicName'] = topic_name
+
         __self__.primary_connection_string = pulumi.runtime.UNKNOWN
         """
-        The Primary Connection String for the ServiceBus Namespace authorization Rule.
+        The Primary Connection String for the ServiceBus Topic authorization Rule.
         """
         __self__.primary_key = pulumi.runtime.UNKNOWN
         """
-        The Primary Key for the ServiceBus Namespace authorization Rule.
+        The Primary Key for the ServiceBus Topic authorization Rule.
         """
         __self__.secondary_connection_string = pulumi.runtime.UNKNOWN
         """
-        The Secondary Connection String for the ServiceBus Namespace authorization Rule.
+        The Secondary Connection String for the ServiceBus Topic authorization Rule.
         """
         __self__.secondary_key = pulumi.runtime.UNKNOWN
         """
-        The Secondary Key for the ServiceBus Namespace authorization Rule.
+        The Secondary Key for the ServiceBus Topic authorization Rule.
         """
 
-        super(NamespaceAuthorizationRule, __self__).__init__(
-            'azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule',
+        super(TopicAuthorizationRule, __self__).__init__(
+            'azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule',
             __name__,
             __props__,
             __opts__)
@@ -117,3 +127,5 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             self.secondary_key = outs['secondaryKey']
         if 'send' in outs:
             self.send = outs['send']
+        if 'topicName' in outs:
+            self.topic_name = outs['topicName']

@@ -8,14 +8,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage a ServiceBus Namespace.
-type Namespace struct {
+// Manage an EventHub Namespace.
+type EventHubNamespace struct {
 	s *pulumi.ResourceState
 }
 
-// NewNamespace registers a new resource with the given unique name, arguments, and options.
-func NewNamespace(ctx *pulumi.Context,
-	name string, args *NamespaceArgs, opts ...pulumi.ResourceOpt) (*Namespace, error) {
+// NewEventHubNamespace registers a new resource with the given unique name, arguments, and options.
+func NewEventHubNamespace(ctx *pulumi.Context,
+	name string, args *EventHubNamespaceArgs, opts ...pulumi.ResourceOpt) (*EventHubNamespace, error) {
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -27,15 +27,19 @@ func NewNamespace(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["autoInflateEnabled"] = nil
 		inputs["capacity"] = nil
 		inputs["location"] = nil
+		inputs["maximumThroughputUnits"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["autoInflateEnabled"] = args.AutoInflateEnabled
 		inputs["capacity"] = args.Capacity
 		inputs["location"] = args.Location
+		inputs["maximumThroughputUnits"] = args.MaximumThroughputUnits
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
@@ -45,104 +49,116 @@ func NewNamespace(ctx *pulumi.Context,
 	inputs["defaultPrimaryKey"] = nil
 	inputs["defaultSecondaryConnectionString"] = nil
 	inputs["defaultSecondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:eventhub/namespace:Namespace", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:eventhub/eventHubNamespace:EventHubNamespace", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Namespace{s: s}, nil
+	return &EventHubNamespace{s: s}, nil
 }
 
-// GetNamespace gets an existing Namespace resource's state with the given name, ID, and optional
+// GetEventHubNamespace gets an existing EventHubNamespace resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetNamespace(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NamespaceState, opts ...pulumi.ResourceOpt) (*Namespace, error) {
+func GetEventHubNamespace(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *EventHubNamespaceState, opts ...pulumi.ResourceOpt) (*EventHubNamespace, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["autoInflateEnabled"] = state.AutoInflateEnabled
 		inputs["capacity"] = state.Capacity
 		inputs["defaultPrimaryConnectionString"] = state.DefaultPrimaryConnectionString
 		inputs["defaultPrimaryKey"] = state.DefaultPrimaryKey
 		inputs["defaultSecondaryConnectionString"] = state.DefaultSecondaryConnectionString
 		inputs["defaultSecondaryKey"] = state.DefaultSecondaryKey
 		inputs["location"] = state.Location
+		inputs["maximumThroughputUnits"] = state.MaximumThroughputUnits
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
 	}
-	s, err := ctx.ReadResource("azure:eventhub/namespace:Namespace", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:eventhub/eventHubNamespace:EventHubNamespace", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Namespace{s: s}, nil
+	return &EventHubNamespace{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Namespace) URN() *pulumi.URNOutput {
+func (r *EventHubNamespace) URN() *pulumi.URNOutput {
 	return r.s.URN
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Namespace) ID() *pulumi.IDOutput {
+func (r *EventHubNamespace) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
-func (r *Namespace) Capacity() *pulumi.IntOutput {
+// Is Auto Inflate enabled for the EventHub Namespace?
+func (r *EventHubNamespace) AutoInflateEnabled() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["autoInflateEnabled"])
+}
+
+// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+func (r *EventHubNamespace) Capacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["capacity"])
 }
 
 // The primary connection string for the authorization
 // rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultPrimaryConnectionString() *pulumi.StringOutput {
+func (r *EventHubNamespace) DefaultPrimaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultPrimaryConnectionString"])
 }
 
 // The primary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultPrimaryKey() *pulumi.StringOutput {
+func (r *EventHubNamespace) DefaultPrimaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultPrimaryKey"])
 }
 
 // The secondary connection string for the
 // authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultSecondaryConnectionString() *pulumi.StringOutput {
+func (r *EventHubNamespace) DefaultSecondaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryConnectionString"])
 }
 
 // The secondary access key for the authorization rule `RootManageSharedAccessKey`.
-func (r *Namespace) DefaultSecondaryKey() *pulumi.StringOutput {
+func (r *EventHubNamespace) DefaultSecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-func (r *Namespace) Location() *pulumi.StringOutput {
+func (r *EventHubNamespace) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-// new resource to be created.
-func (r *Namespace) Name() *pulumi.StringOutput {
+// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+func (r *EventHubNamespace) MaximumThroughputUnits() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["maximumThroughputUnits"])
+}
+
+// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+func (r *EventHubNamespace) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The name of the resource group in which to
-// create the namespace.
-func (r *Namespace) ResourceGroupName() *pulumi.StringOutput {
+// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
+func (r *EventHubNamespace) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Defines which tier to use. Options are basic, standard or premium.
-func (r *Namespace) Sku() *pulumi.StringOutput {
+// Defines which tier to use. Valid options are `Basic` and `Standard`.
+func (r *EventHubNamespace) Sku() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sku"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Namespace) Tags() *pulumi.MapOutput {
+func (r *EventHubNamespace) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Input properties used for looking up and filtering Namespace resources.
-type NamespaceState struct {
-	// Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+// Input properties used for looking up and filtering EventHubNamespace resources.
+type EventHubNamespaceState struct {
+	// Is Auto Inflate enabled for the EventHub Namespace?
+	AutoInflateEnabled interface{}
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
 	Capacity interface{}
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
@@ -156,31 +172,33 @@ type NamespaceState struct {
 	DefaultSecondaryKey interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-	// new resource to be created.
+	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+	MaximumThroughputUnits interface{}
+	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name interface{}
-	// The name of the resource group in which to
-	// create the namespace.
+	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Defines which tier to use. Options are basic, standard or premium.
+	// Defines which tier to use. Valid options are `Basic` and `Standard`.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
-// The set of arguments for constructing a Namespace resource.
-type NamespaceArgs struct {
-	// Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+// The set of arguments for constructing a EventHubNamespace resource.
+type EventHubNamespaceArgs struct {
+	// Is Auto Inflate enabled for the EventHub Namespace?
+	AutoInflateEnabled interface{}
+	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
 	Capacity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
-	// new resource to be created.
+	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+	MaximumThroughputUnits interface{}
+	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
 	Name interface{}
-	// The name of the resource group in which to
-	// create the namespace.
+	// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Defines which tier to use. Options are basic, standard or premium.
+	// Defines which tier to use. Valid options are `Basic` and `Standard`.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
