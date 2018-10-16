@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Authorization Rule for an Event Hub Namespace.
+ * Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
@@ -24,37 +24,36 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     public readonly listen: pulumi.Output<boolean | undefined>;
-    public readonly location: pulumi.Output<string | undefined>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     public readonly manage: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
      */
     public readonly namespaceName: pulumi.Output<string>;
     /**
-     * The Primary Connection String for the Authorization Rule.
+     * The Primary Connection String for the ServiceBus Namespace authorization Rule.
      */
     public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
-     * The Primary Key for the Authorization Rule.
+     * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
     public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
-     * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The Secondary Connection String for the Authorization Rule.
+     * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
     public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
-     * The Secondary Key for the Authorization Rule.
+     * The Secondary Key for the ServiceBus Namespace authorization Rule.
      */
     public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
@@ -75,7 +74,6 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: NamespaceAuthorizationRuleState = argsOrState as NamespaceAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
@@ -94,7 +92,6 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["listen"] = args ? args.listen : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["manage"] = args ? args.manage : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -105,7 +102,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, inputs, opts);
+        super("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, inputs, opts);
     }
 }
 
@@ -117,37 +114,36 @@ export interface NamespaceAuthorizationRuleState {
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     readonly manage?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
      */
     readonly namespaceName?: pulumi.Input<string>;
     /**
-     * The Primary Connection String for the Authorization Rule.
+     * The Primary Connection String for the ServiceBus Namespace authorization Rule.
      */
     readonly primaryConnectionString?: pulumi.Input<string>;
     /**
-     * The Primary Key for the Authorization Rule.
+     * The Primary Key for the ServiceBus Namespace authorization Rule.
      */
     readonly primaryKey?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The Secondary Connection String for the Authorization Rule.
+     * The Secondary Connection String for the ServiceBus Namespace authorization Rule.
      */
     readonly secondaryConnectionString?: pulumi.Input<string>;
     /**
-     * The Secondary Key for the Authorization Rule.
+     * The Secondary Key for the ServiceBus Namespace authorization Rule.
      */
     readonly secondaryKey?: pulumi.Input<string>;
     /**
@@ -164,21 +160,20 @@ export interface NamespaceAuthorizationRuleArgs {
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
-    readonly location?: pulumi.Input<string>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     readonly manage?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     * The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
