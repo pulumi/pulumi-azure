@@ -2,9 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./authorizationRule";
-export * from "./consumerGroup";
+export * from "./eventGridTopic";
 export * from "./eventHub";
-export * from "./getNamespace";
+export * from "./eventHubAuthorizationRule";
+export * from "./eventHubConsumerGroup";
+export * from "./eventHubNamespace";
+export * from "./eventHubNamespaceAuthorizationRule";
+export * from "./getEventhubNamespace";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
+export * from "./queue";
+export * from "./queueAuthorizationRule";
+export * from "./subscription";
+export * from "./subscriptionRule";
+export * from "./topic";
+export * from "./topicAuthorizationRule";

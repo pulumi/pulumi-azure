@@ -8,19 +8,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
-type NamespaceAuthorizationRule struct {
+// Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
+type TopicAuthorizationRule struct {
 	s *pulumi.ResourceState
 }
 
-// NewNamespaceAuthorizationRule registers a new resource with the given unique name, arguments, and options.
-func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
-	name string, args *NamespaceAuthorizationRuleArgs, opts ...pulumi.ResourceOpt) (*NamespaceAuthorizationRule, error) {
+// NewTopicAuthorizationRule registers a new resource with the given unique name, arguments, and options.
+func NewTopicAuthorizationRule(ctx *pulumi.Context,
+	name string, args *TopicAuthorizationRuleArgs, opts ...pulumi.ResourceOpt) (*TopicAuthorizationRule, error) {
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TopicName == nil {
+		return nil, errors.New("missing required argument 'TopicName'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
@@ -30,6 +33,7 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 		inputs["namespaceName"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["send"] = nil
+		inputs["topicName"] = nil
 	} else {
 		inputs["listen"] = args.Listen
 		inputs["manage"] = args.Manage
@@ -37,22 +41,23 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 		inputs["namespaceName"] = args.NamespaceName
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["send"] = args.Send
+		inputs["topicName"] = args.TopicName
 	}
 	inputs["primaryConnectionString"] = nil
 	inputs["primaryKey"] = nil
 	inputs["secondaryConnectionString"] = nil
 	inputs["secondaryKey"] = nil
-	s, err := ctx.RegisterResource("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NamespaceAuthorizationRule{s: s}, nil
+	return &TopicAuthorizationRule{s: s}, nil
 }
 
-// GetNamespaceAuthorizationRule gets an existing NamespaceAuthorizationRule resource's state with the given name, ID, and optional
+// GetTopicAuthorizationRule gets an existing TopicAuthorizationRule resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *NamespaceAuthorizationRuleState, opts ...pulumi.ResourceOpt) (*NamespaceAuthorizationRule, error) {
+func GetTopicAuthorizationRule(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *TopicAuthorizationRuleState, opts ...pulumi.ResourceOpt) (*TopicAuthorizationRule, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["listen"] = state.Listen
@@ -65,105 +70,113 @@ func GetNamespaceAuthorizationRule(ctx *pulumi.Context,
 		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
 		inputs["secondaryKey"] = state.SecondaryKey
 		inputs["send"] = state.Send
+		inputs["topicName"] = state.TopicName
 	}
-	s, err := ctx.ReadResource("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &NamespaceAuthorizationRule{s: s}, nil
+	return &TopicAuthorizationRule{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *NamespaceAuthorizationRule) URN() *pulumi.URNOutput {
+func (r *TopicAuthorizationRule) URN() *pulumi.URNOutput {
 	return r.s.URN
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *NamespaceAuthorizationRule) ID() *pulumi.IDOutput {
+func (r *TopicAuthorizationRule) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
 // Grants listen access to this this Authorization Rule. Defaults to `false`.
-func (r *NamespaceAuthorizationRule) Listen() *pulumi.BoolOutput {
+func (r *TopicAuthorizationRule) Listen() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["listen"])
 }
 
 // Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
-func (r *NamespaceAuthorizationRule) Manage() *pulumi.BoolOutput {
+func (r *TopicAuthorizationRule) Manage() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["manage"])
 }
 
-// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
-func (r *NamespaceAuthorizationRule) Name() *pulumi.StringOutput {
+// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
+func (r *TopicAuthorizationRule) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
-func (r *NamespaceAuthorizationRule) NamespaceName() *pulumi.StringOutput {
+func (r *TopicAuthorizationRule) NamespaceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
-// The Primary Connection String for the ServiceBus Namespace authorization Rule.
-func (r *NamespaceAuthorizationRule) PrimaryConnectionString() *pulumi.StringOutput {
+// The Primary Connection String for the ServiceBus Topic authorization Rule.
+func (r *TopicAuthorizationRule) PrimaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
-// The Primary Key for the ServiceBus Namespace authorization Rule.
-func (r *NamespaceAuthorizationRule) PrimaryKey() *pulumi.StringOutput {
+// The Primary Key for the ServiceBus Topic authorization Rule.
+func (r *TopicAuthorizationRule) PrimaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
 }
 
 // The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
-func (r *NamespaceAuthorizationRule) ResourceGroupName() *pulumi.StringOutput {
+func (r *TopicAuthorizationRule) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The Secondary Connection String for the ServiceBus Namespace authorization Rule.
-func (r *NamespaceAuthorizationRule) SecondaryConnectionString() *pulumi.StringOutput {
+// The Secondary Connection String for the ServiceBus Topic authorization Rule.
+func (r *TopicAuthorizationRule) SecondaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
-// The Secondary Key for the ServiceBus Namespace authorization Rule.
-func (r *NamespaceAuthorizationRule) SecondaryKey() *pulumi.StringOutput {
+// The Secondary Key for the ServiceBus Topic authorization Rule.
+func (r *TopicAuthorizationRule) SecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // Grants send access to this this Authorization Rule. Defaults to `false`.
-func (r *NamespaceAuthorizationRule) Send() *pulumi.BoolOutput {
+func (r *TopicAuthorizationRule) Send() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["send"])
 }
 
-// Input properties used for looking up and filtering NamespaceAuthorizationRule resources.
-type NamespaceAuthorizationRuleState struct {
+// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+func (r *TopicAuthorizationRule) TopicName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["topicName"])
+}
+
+// Input properties used for looking up and filtering TopicAuthorizationRule resources.
+type TopicAuthorizationRuleState struct {
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen interface{}
 	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage interface{}
-	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
+	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	NamespaceName interface{}
-	// The Primary Connection String for the ServiceBus Namespace authorization Rule.
+	// The Primary Connection String for the ServiceBus Topic authorization Rule.
 	PrimaryConnectionString interface{}
-	// The Primary Key for the ServiceBus Namespace authorization Rule.
+	// The Primary Key for the ServiceBus Topic authorization Rule.
 	PrimaryKey interface{}
 	// The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The Secondary Connection String for the ServiceBus Namespace authorization Rule.
+	// The Secondary Connection String for the ServiceBus Topic authorization Rule.
 	SecondaryConnectionString interface{}
-	// The Secondary Key for the ServiceBus Namespace authorization Rule.
+	// The Secondary Key for the ServiceBus Topic authorization Rule.
 	SecondaryKey interface{}
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send interface{}
+	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+	TopicName interface{}
 }
 
-// The set of arguments for constructing a NamespaceAuthorizationRule resource.
-type NamespaceAuthorizationRuleArgs struct {
+// The set of arguments for constructing a TopicAuthorizationRule resource.
+type TopicAuthorizationRuleArgs struct {
 	// Grants listen access to this this Authorization Rule. Defaults to `false`.
 	Listen interface{}
 	// Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
 	Manage interface{}
-	// Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
+	// Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
 	NamespaceName interface{}
@@ -171,4 +184,6 @@ type NamespaceAuthorizationRuleArgs struct {
 	ResourceGroupName interface{}
 	// Grants send access to this this Authorization Rule. Defaults to `false`.
 	Send interface{}
+	// Specifies the name of the ServiceBus Topic. Changing this forces a new resource to be created.
+	TopicName interface{}
 }
