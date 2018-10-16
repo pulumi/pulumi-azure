@@ -5,28 +5,27 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an Authorization Rule for an Event Hub Namespace.
+ * Manages an Authorization Rule for a ServiceBus Queue.
  */
-export class NamespaceAuthorizationRule extends pulumi.CustomResource {
+export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**
-     * Get an existing NamespaceAuthorizationRule resource's state with the given name, ID, and optional extra
+     * Get an existing QueueAuthorizationRule resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NamespaceAuthorizationRuleState): NamespaceAuthorizationRule {
-        return new NamespaceAuthorizationRule(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueueAuthorizationRuleState): QueueAuthorizationRule {
+        return new QueueAuthorizationRule(name, <any>state, { id });
     }
 
     /**
-     * Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
      */
     public readonly listen: pulumi.Output<boolean | undefined>;
-    public readonly location: pulumi.Output<string | undefined>;
     /**
-     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     public readonly manage: pulumi.Output<boolean | undefined>;
     /**
@@ -34,7 +33,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
      */
     public readonly namespaceName: pulumi.Output<string>;
     /**
@@ -46,7 +45,11 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryKey: pulumi.Output<string>;
     /**
-     * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+     */
+    public readonly queueName: pulumi.Output<string>;
+    /**
+     * The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
@@ -58,46 +61,49 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
-     * Grants send access to this this Authorization Rule. Defaults to `false`.
+     * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */
     public readonly send: pulumi.Output<boolean | undefined>;
 
     /**
-     * Create a NamespaceAuthorizationRule resource with the given unique name, arguments, and options.
+     * Create a QueueAuthorizationRule resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: NamespaceAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: NamespaceAuthorizationRuleArgs | NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: QueueAuthorizationRuleArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: QueueAuthorizationRuleArgs | QueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NamespaceAuthorizationRuleState = argsOrState as NamespaceAuthorizationRuleState | undefined;
+            const state: QueueAuthorizationRuleState = argsOrState as QueueAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
-            inputs["location"] = state ? state.location : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
+            inputs["queueName"] = state ? state.queueName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["send"] = state ? state.send : undefined;
         } else {
-            const args = argsOrState as NamespaceAuthorizationRuleArgs | undefined;
+            const args = argsOrState as QueueAuthorizationRuleArgs | undefined;
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
+            }
+            if (!args || args.queueName === undefined) {
+                throw new Error("Missing required property 'queueName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["listen"] = args ? args.listen : undefined;
-            inputs["location"] = args ? args.location : undefined;
             inputs["manage"] = args ? args.manage : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
+            inputs["queueName"] = args ? args.queueName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["send"] = args ? args.send : undefined;
             inputs["primaryConnectionString"] = undefined /*out*/;
@@ -105,21 +111,20 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, inputs, opts);
+        super("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering NamespaceAuthorizationRule resources.
+ * Input properties used for looking up and filtering QueueAuthorizationRule resources.
  */
-export interface NamespaceAuthorizationRuleState {
+export interface QueueAuthorizationRuleState {
     /**
-     * Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
-    readonly location?: pulumi.Input<string>;
     /**
-     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     readonly manage?: pulumi.Input<boolean>;
     /**
@@ -127,7 +132,7 @@ export interface NamespaceAuthorizationRuleState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
      */
     readonly namespaceName?: pulumi.Input<string>;
     /**
@@ -139,7 +144,11 @@ export interface NamespaceAuthorizationRuleState {
      */
     readonly primaryKey?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+     */
+    readonly queueName?: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -151,22 +160,21 @@ export interface NamespaceAuthorizationRuleState {
      */
     readonly secondaryKey?: pulumi.Input<string>;
     /**
-     * Grants send access to this this Authorization Rule. Defaults to `false`.
+     * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */
     readonly send?: pulumi.Input<boolean>;
 }
 
 /**
- * The set of arguments for constructing a NamespaceAuthorizationRule resource.
+ * The set of arguments for constructing a QueueAuthorizationRule resource.
  */
-export interface NamespaceAuthorizationRuleArgs {
+export interface QueueAuthorizationRuleArgs {
     /**
-     * Grants listen access to this this Authorization Rule. Defaults to `false`.
+     * Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
      */
     readonly listen?: pulumi.Input<boolean>;
-    readonly location?: pulumi.Input<string>;
     /**
-     * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+     * Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
     readonly manage?: pulumi.Input<boolean>;
     /**
@@ -174,15 +182,19 @@ export interface NamespaceAuthorizationRuleArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+     * Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+     */
+    readonly queueName: pulumi.Input<string>;
+    /**
+     * The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Grants send access to this this Authorization Rule. Defaults to `false`.
+     * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */
     readonly send?: pulumi.Input<boolean>;
 }

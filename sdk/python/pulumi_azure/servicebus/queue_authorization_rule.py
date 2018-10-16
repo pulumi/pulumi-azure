@@ -6,12 +6,12 @@ import pulumi
 import pulumi.runtime
 from .. import utilities
 
-class NamespaceAuthorizationRule(pulumi.CustomResource):
+class QueueAuthorizationRule(pulumi.CustomResource):
     """
-    Manages an Authorization Rule for an Event Hub Namespace.
+    Manages an Authorization Rule for a ServiceBus Queue.
     """
-    def __init__(__self__, __name__, __opts__=None, listen=None, location=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None):
-        """Create a NamespaceAuthorizationRule resource with the given unique name, props, and options."""
+    def __init__(__self__, __name__, __opts__=None, listen=None, manage=None, name=None, namespace_name=None, queue_name=None, resource_group_name=None, send=None):
+        """Create a QueueAuthorizationRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
         if not isinstance(__name__, basestring):
@@ -25,20 +25,15 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property listen to be a bool')
         __self__.listen = listen
         """
-        Grants listen access to this this Authorization Rule. Defaults to `false`.
+        Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
         """
         __props__['listen'] = listen
-
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        __props__['location'] = location
 
         if manage and not isinstance(manage, bool):
             raise TypeError('Expected property manage to be a bool')
         __self__.manage = manage
         """
-        Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
+        Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
         """
         __props__['manage'] = manage
 
@@ -56,9 +51,19 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property namespace_name to be a basestring')
         __self__.namespace_name = namespace_name
         """
-        Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
         """
         __props__['namespaceName'] = namespace_name
+
+        if not queue_name:
+            raise TypeError('Missing required property queue_name')
+        elif not isinstance(queue_name, basestring):
+            raise TypeError('Expected property queue_name to be a basestring')
+        __self__.queue_name = queue_name
+        """
+        Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
+        """
+        __props__['queueName'] = queue_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
@@ -66,7 +71,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property resource_group_name to be a basestring')
         __self__.resource_group_name = resource_group_name
         """
-        The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+        The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         """
         __props__['resourceGroupName'] = resource_group_name
 
@@ -74,7 +79,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property send to be a bool')
         __self__.send = send
         """
-        Grants send access to this this Authorization Rule. Defaults to `false`.
+        Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
         """
         __props__['send'] = send
 
@@ -95,8 +100,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         The Secondary Key for the Authorization Rule.
         """
 
-        super(NamespaceAuthorizationRule, __self__).__init__(
-            'azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule',
+        super(QueueAuthorizationRule, __self__).__init__(
+            'azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule',
             __name__,
             __props__,
             __opts__)
@@ -104,8 +109,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'listen' in outs:
             self.listen = outs['listen']
-        if 'location' in outs:
-            self.location = outs['location']
         if 'manage' in outs:
             self.manage = outs['manage']
         if 'name' in outs:
@@ -116,6 +119,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             self.primary_connection_string = outs['primaryConnectionString']
         if 'primaryKey' in outs:
             self.primary_key = outs['primaryKey']
+        if 'queueName' in outs:
+            self.queue_name = outs['queueName']
         if 'resourceGroupName' in outs:
             self.resource_group_name = outs['resourceGroupName']
         if 'secondaryConnectionString' in outs:

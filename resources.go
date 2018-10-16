@@ -44,7 +44,8 @@ const (
 	azureCosmosDB            = "cosmosdb"            // Cosmos DB
 	azureDatalake            = "datalake"            // Data Lake
 	azureDNS                 = "dns"                 // DNS
-	azureMessaging           = "eventhub"            // Event Hub
+	azureEventGrid           = "eventgrid"           // Event Grid
+	azureEventHub            = "eventhub"            // Event Hub
 	azureFunctions           = "functions"           // Functions
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureLogicApps           = "logicapps"           // Logic Apps
@@ -64,6 +65,7 @@ const (
 	azureRedis               = "redis"               // RedisCache
 	azureRelay               = "relay"               // Relay
 	azureScheduler           = "scheduler"           // Scheduler
+	azureServiceBus          = "servicebus"          // Service Bus
 	azureServiceFabric       = "servicefabric"       // Service Fabric
 	azureRole                = "role"                // Azure Role
 	azureSearch              = "search"              // Search
@@ -289,38 +291,40 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dns_zone":       {Tok: azureResource(azureDNS, "Zone")},
 
 			// Messaging
-			"azurerm_eventgrid_topic":                       {Tok: azureResource(azureMessaging, "EventGridTopic")},
-			"azurerm_eventhub":                              {Tok: azureResource(azureMessaging, "EventHub")},
-			"azurerm_eventhub_authorization_rule":           {Tok: azureResource(azureMessaging, "EventHubAuthorizationRule")},
-			"azurerm_eventhub_consumer_group":               {Tok: azureResource(azureMessaging, "EventHubConsumerGroup")},
-			"azurerm_eventhub_namespace":                    {Tok: azureResource(azureMessaging, "EventHubNamespace")},
-			"azurerm_eventhub_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "EventHubNamespaceAuthorizationRule")},
+			"azurerm_eventgrid_topic": {Tok: azureResource(azureEventGrid, "Topic")},
+
+			"azurerm_eventhub":                              {Tok: azureResource(azureEventHub, "EventHub")},
+			"azurerm_eventhub_authorization_rule":           {Tok: azureResource(azureEventHub, "AuthorizationRule")},
+			"azurerm_eventhub_consumer_group":               {Tok: azureResource(azureEventHub, "ConsumerGroup")},
+			"azurerm_eventhub_namespace":                    {Tok: azureResource(azureEventHub, "Namespace")},
+			"azurerm_eventhub_namespace_authorization_rule": {Tok: azureResource(azureEventHub, "NamespaceAuthorizationRule")},
+
 			"azurerm_servicebus_namespace": {
-				Tok: azureResource(azureMessaging, "Namespace"),
+				Tok: azureResource(azureServiceBus, "Namespace"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
 					// Max length of a servicehub namespace is 50.
 					azureName: AutoNameWithMaxLength(azureName, 50),
 				}},
-			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "NamespaceAuthorizationRule")},
+			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureResource(azureServiceBus, "NamespaceAuthorizationRule")},
 			"azurerm_servicebus_queue": {
-				Tok: azureResource(azureMessaging, "Queue"),
+				Tok: azureResource(azureServiceBus, "Queue"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
 					// Max length of a servicehub queue is 260.
 					azureName: AutoNameWithMaxLength(azureName, 260),
 				}},
-			"azurerm_servicebus_queue_authorization_rule": {Tok: azureResource(azureMessaging, "QueueAuthorizationRule")},
-			"azurerm_servicebus_subscription":             {Tok: azureResource(azureMessaging, "Subscription")},
-			"azurerm_servicebus_subscription_rule":        {Tok: azureResource(azureMessaging, "SubscriptionRule")},
+			"azurerm_servicebus_queue_authorization_rule": {Tok: azureResource(azureServiceBus, "QueueAuthorizationRule")},
+			"azurerm_servicebus_subscription":             {Tok: azureResource(azureServiceBus, "Subscription")},
+			"azurerm_servicebus_subscription_rule":        {Tok: azureResource(azureServiceBus, "SubscriptionRule")},
 			"azurerm_servicebus_topic": {
-				Tok: azureResource(azureMessaging, "Topic"),
+				Tok: azureResource(azureServiceBus, "Topic"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
 					// Max length of a servicehub topic is 260.
 					azureName: AutoNameWithMaxLength(azureName, 260),
 				}},
-			"azurerm_servicebus_topic_authorization_rule": {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
+			"azurerm_servicebus_topic_authorization_rule": {Tok: azureResource(azureServiceBus, "TopicAuthorizationRule")},
 
 			// IoT Resources
 			"azurerm_iothub": {Tok: azureResource(azureIot, "IoTHub"),
@@ -536,7 +540,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_registry":      {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":        {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":         {Tok: azureDataSource(azureDatalake, "getStore")},
-			"azurerm_eventhub_namespace":      {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
+			"azurerm_eventhub_namespace":      {Tok: azureDataSource(azureEventHub, "getNamespace")},
 			"azurerm_image":                   {Tok: azureDataSource(azureCompute, "getImage")},
 			"azurerm_log_analytics_workspace": {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
 			"azurerm_logic_app_workflow":      {Tok: azureDataSource(azureLogicApps, "getWorkflow")},

@@ -8,9 +8,9 @@ from .. import utilities
 
 class NamespaceAuthorizationRule(pulumi.CustomResource):
     """
-    Manages an Authorization Rule for an Event Hub Namespace.
+    Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
     """
-    def __init__(__self__, __name__, __opts__=None, listen=None, location=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None):
+    def __init__(__self__, __name__, __opts__=None, listen=None, manage=None, name=None, namespace_name=None, resource_group_name=None, send=None):
         """Create a NamespaceAuthorizationRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -29,11 +29,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         __props__['listen'] = listen
 
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        __props__['location'] = location
-
         if manage and not isinstance(manage, bool):
             raise TypeError('Expected property manage to be a bool')
         __self__.manage = manage
@@ -46,7 +41,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
+        Specifies the name of the ServiceBus Namespace Authorization Rule resource. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 
@@ -56,7 +51,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property namespace_name to be a basestring')
         __self__.namespace_name = namespace_name
         """
-        Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
+        Specifies the name of the ServiceBus Namespace. Changing this forces a new resource to be created.
         """
         __props__['namespaceName'] = namespace_name
 
@@ -66,7 +61,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             raise TypeError('Expected property resource_group_name to be a basestring')
         __self__.resource_group_name = resource_group_name
         """
-        The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
+        The name of the resource group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
         """
         __props__['resourceGroupName'] = resource_group_name
 
@@ -80,23 +75,23 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         __self__.primary_connection_string = pulumi.runtime.UNKNOWN
         """
-        The Primary Connection String for the Authorization Rule.
+        The Primary Connection String for the ServiceBus Namespace authorization Rule.
         """
         __self__.primary_key = pulumi.runtime.UNKNOWN
         """
-        The Primary Key for the Authorization Rule.
+        The Primary Key for the ServiceBus Namespace authorization Rule.
         """
         __self__.secondary_connection_string = pulumi.runtime.UNKNOWN
         """
-        The Secondary Connection String for the Authorization Rule.
+        The Secondary Connection String for the ServiceBus Namespace authorization Rule.
         """
         __self__.secondary_key = pulumi.runtime.UNKNOWN
         """
-        The Secondary Key for the Authorization Rule.
+        The Secondary Key for the ServiceBus Namespace authorization Rule.
         """
 
         super(NamespaceAuthorizationRule, __self__).__init__(
-            'azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule',
+            'azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule',
             __name__,
             __props__,
             __opts__)
@@ -104,8 +99,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     def set_outputs(self, outs):
         if 'listen' in outs:
             self.listen = outs['listen']
-        if 'location' in outs:
-            self.location = outs['location']
         if 'manage' in outs:
             self.manage = outs['manage']
         if 'name' in outs:
