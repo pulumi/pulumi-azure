@@ -10,7 +10,7 @@ class GetAccountResult(object):
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, endpoint=None, geo_locations=None, ip_range_filter=None, kind=None, location=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, write_endpoints=None, id=None):
+    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, endpoint=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None, id=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError('Expected argument capabilities to be a list')
         __self__.capabilities = capabilities
@@ -40,6 +40,12 @@ class GetAccountResult(object):
         __self__.ip_range_filter = ip_range_filter
         """
         The current IP Filter for this CosmosDB account
+        """
+        if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
+            raise TypeError('Expected argument is_virtual_network_filter_enabled to be a bool')
+        __self__.is_virtual_network_filter_enabled = is_virtual_network_filter_enabled
+        """
+        If virtual network filtering is enabled for this Cosmos DB account.
         """
         if kind and not isinstance(kind, basestring):
             raise TypeError('Expected argument kind to be a basestring')
@@ -95,6 +101,12 @@ class GetAccountResult(object):
         """
         A mapping of tags assigned to the resource.
         """
+        if virtual_network_rules and not isinstance(virtual_network_rules, list):
+            raise TypeError('Expected argument virtual_network_rules to be a list')
+        __self__.virtual_network_rules = virtual_network_rules
+        """
+        Subnets that are allowed to access this CosmosDB account.
+        """
         if write_endpoints and not isinstance(write_endpoints, list):
             raise TypeError('Expected argument write_endpoints to be a list')
         __self__.write_endpoints = write_endpoints
@@ -125,6 +137,7 @@ def get_account(name=None, resource_group_name=None):
         endpoint=__ret__.get('endpoint'),
         geo_locations=__ret__.get('geoLocations'),
         ip_range_filter=__ret__.get('ipRangeFilter'),
+        is_virtual_network_filter_enabled=__ret__.get('isVirtualNetworkFilterEnabled'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         offer_type=__ret__.get('offerType'),
@@ -134,5 +147,6 @@ def get_account(name=None, resource_group_name=None):
         secondary_master_key=__ret__.get('secondaryMasterKey'),
         secondary_readonly_master_key=__ret__.get('secondaryReadonlyMasterKey'),
         tags=__ret__.get('tags'),
+        virtual_network_rules=__ret__.get('virtualNetworkRules'),
         write_endpoints=__ret__.get('writeEndpoints'),
         id=__ret__.get('id'))

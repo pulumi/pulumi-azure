@@ -51,7 +51,7 @@ export class ScaleSet extends pulumi.CustomResource {
     /**
      * A Virtual Machine OS Profile block as documented below.
      */
-    public readonly osProfile: pulumi.Output<{ adminPassword: string, adminUsername: string, computerNamePrefix: string, customData?: string }>;
+    public readonly osProfile: pulumi.Output<{ adminPassword?: string, adminUsername: string, computerNamePrefix: string, customData?: string }>;
     /**
      * A Linux config block as documented below.
      */
@@ -232,7 +232,7 @@ export interface ScaleSetState {
     /**
      * A Virtual Machine OS Profile block as documented below.
      */
-    readonly osProfile?: pulumi.Input<{ adminPassword: pulumi.Input<string>, adminUsername: pulumi.Input<string>, computerNamePrefix: pulumi.Input<string>, customData?: pulumi.Input<string> }>;
+    readonly osProfile?: pulumi.Input<{ adminPassword?: pulumi.Input<string>, adminUsername: pulumi.Input<string>, computerNamePrefix: pulumi.Input<string>, customData?: pulumi.Input<string> }>;
     /**
      * A Linux config block as documented below.
      */
@@ -328,7 +328,7 @@ export interface ScaleSetArgs {
     /**
      * A Virtual Machine OS Profile block as documented below.
      */
-    readonly osProfile: pulumi.Input<{ adminPassword: pulumi.Input<string>, adminUsername: pulumi.Input<string>, computerNamePrefix: pulumi.Input<string>, customData?: pulumi.Input<string> }>;
+    readonly osProfile: pulumi.Input<{ adminPassword?: pulumi.Input<string>, adminUsername: pulumi.Input<string>, computerNamePrefix: pulumi.Input<string>, customData?: pulumi.Input<string> }>;
     /**
      * A Linux config block as documented below.
      */

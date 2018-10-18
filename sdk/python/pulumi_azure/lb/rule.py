@@ -37,7 +37,7 @@ class Rule(pulumi.CustomResource):
             raise TypeError('Expected property backend_port to be a int')
         __self__.backend_port = backend_port
         """
-        The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+        The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         """
         __props__['backendPort'] = backend_port
 
@@ -65,7 +65,7 @@ class Rule(pulumi.CustomResource):
             raise TypeError('Expected property frontend_port to be a int')
         __self__.frontend_port = frontend_port
         """
-        The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+        The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
         """
         __props__['frontendPort'] = frontend_port
 

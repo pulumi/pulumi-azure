@@ -10,7 +10,7 @@ class Cluster(pulumi.CustomResource):
     """
     Manage a Service Fabric Cluster.
     """
-    def __init__(__self__, __name__, __opts__=None, add_on_features=None, certificate=None, client_certificate_thumbprint=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, tags=None, upgrade_mode=None, vm_image=None):
+    def __init__(__self__, __name__, __opts__=None, add_on_features=None, certificate=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, tags=None, upgrade_mode=None, vm_image=None):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -37,13 +37,21 @@ class Cluster(pulumi.CustomResource):
         """
         __props__['certificate'] = certificate
 
-        if client_certificate_thumbprint and not isinstance(client_certificate_thumbprint, dict):
-            raise TypeError('Expected property client_certificate_thumbprint to be a dict')
-        __self__.client_certificate_thumbprint = client_certificate_thumbprint
+        if client_certificate_thumbprints and not isinstance(client_certificate_thumbprints, list):
+            raise TypeError('Expected property client_certificate_thumbprints to be a list')
+        __self__.client_certificate_thumbprints = client_certificate_thumbprints
         """
-        A `client_certificate_thumbprint` block as defined below.
+        One or two `client_certificate_thumbprint` blocks as defined below.
         """
-        __props__['clientCertificateThumbprint'] = client_certificate_thumbprint
+        __props__['clientCertificateThumbprints'] = client_certificate_thumbprints
+
+        if cluster_code_version and not isinstance(cluster_code_version, basestring):
+            raise TypeError('Expected property cluster_code_version to be a basestring')
+        __self__.cluster_code_version = cluster_code_version
+        """
+        Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+        """
+        __props__['clusterCodeVersion'] = cluster_code_version
 
         if diagnostics_config and not isinstance(diagnostics_config, dict):
             raise TypeError('Expected property diagnostics_config to be a dict')
@@ -163,8 +171,10 @@ class Cluster(pulumi.CustomResource):
             self.add_on_features = outs['addOnFeatures']
         if 'certificate' in outs:
             self.certificate = outs['certificate']
-        if 'clientCertificateThumbprint' in outs:
-            self.client_certificate_thumbprint = outs['clientCertificateThumbprint']
+        if 'clientCertificateThumbprints' in outs:
+            self.client_certificate_thumbprints = outs['clientCertificateThumbprints']
+        if 'clusterCodeVersion' in outs:
+            self.cluster_code_version = outs['clusterCodeVersion']
         if 'clusterEndpoint' in outs:
             self.cluster_endpoint = outs['clusterEndpoint']
         if 'diagnosticsConfig' in outs:
