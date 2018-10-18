@@ -35,7 +35,7 @@ class Application(pulumi.CustomResource):
             raise TypeError('Expected property homepage to be a basestring')
         __self__.homepage = homepage
         """
-        The URL to the application's home page. If no homepage is specified this defaults to `http://{name}`.
+        The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
         """
         __props__['homepage'] = homepage
 

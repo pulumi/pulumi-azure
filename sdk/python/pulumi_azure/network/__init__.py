@@ -8,6 +8,8 @@ from application_security_group import *
 from express_route_circuit import *
 from express_route_circuit_authorization import *
 from express_route_circuit_peering import *
+from firewall import *
+from firewall_network_rule_collection import *
 from local_network_gateway import *
 from network_interface import *
 from network_security_group import *

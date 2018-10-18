@@ -38,7 +38,7 @@ export interface GetBuiltinRoleDefinitionResult {
     /**
      * a `permissions` block as documented below.
      */
-    readonly permissions: { actions: string[], notActions: string[] }[];
+    readonly permissions: { actions: string[], dataActions: string[], notActions: string[], notDataActions: string[] }[];
     /**
      * the Type of the Role.
      */

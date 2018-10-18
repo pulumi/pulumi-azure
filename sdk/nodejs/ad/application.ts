@@ -31,7 +31,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly availableToOtherTenants: pulumi.Output<boolean | undefined>;
     /**
-     * The URL to the application's home page. If no homepage is specified this defaults to `http://{name}`.
+     * The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
      */
     public readonly homepage: pulumi.Output<string>;
     /**
@@ -97,7 +97,7 @@ export interface ApplicationState {
      */
     readonly availableToOtherTenants?: pulumi.Input<boolean>;
     /**
-     * The URL to the application's home page. If no homepage is specified this defaults to `http://{name}`.
+     * The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
      */
     readonly homepage?: pulumi.Input<string>;
     /**
@@ -127,7 +127,7 @@ export interface ApplicationArgs {
      */
     readonly availableToOtherTenants?: pulumi.Input<boolean>;
     /**
-     * The URL to the application's home page. If no homepage is specified this defaults to `http://{name}`.
+     * The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
      */
     readonly homepage?: pulumi.Input<string>;
     /**

@@ -71,6 +71,9 @@ class Account(pulumi.CustomResource):
         if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
             raise TypeError('Expected property is_virtual_network_filter_enabled to be a bool')
         __self__.is_virtual_network_filter_enabled = is_virtual_network_filter_enabled
+        """
+        Enables virtual network filtering for this Cosmos DB account.
+        """
         __props__['isVirtualNetworkFilterEnabled'] = is_virtual_network_filter_enabled
 
         if kind and not isinstance(kind, basestring):
@@ -130,6 +133,9 @@ class Account(pulumi.CustomResource):
         if virtual_network_rules and not isinstance(virtual_network_rules, list):
             raise TypeError('Expected property virtual_network_rules to be a list')
         __self__.virtual_network_rules = virtual_network_rules
+        """
+        Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+        """
         __props__['virtualNetworkRules'] = virtual_network_rules
 
         __self__.connection_strings = pulumi.runtime.UNKNOWN

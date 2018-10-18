@@ -7,3 +7,4 @@ from configuration import *
 from database import *
 from firewall_rule import *
 from server import *
+from virtual_network_rule import *

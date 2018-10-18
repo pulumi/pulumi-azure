@@ -29,9 +29,13 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly certificate: pulumi.Output<{ thumbprint: string, thumbprintSecondary?: string, x509StoreName: string } | undefined>;
     /**
-     * A `client_certificate_thumbprint` block as defined below.
+     * One or two `client_certificate_thumbprint` blocks as defined below.
      */
-    public readonly clientCertificateThumbprint: pulumi.Output<{ isAdmin: boolean, thumbprint: string } | undefined>;
+    public readonly clientCertificateThumbprints: pulumi.Output<{ isAdmin: boolean, thumbprint: string }[] | undefined>;
+    /**
+     * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+     */
+    public readonly clusterCodeVersion: pulumi.Output<string>;
     /**
      * The Cluster Endpoint for this Service Fabric Cluster.
      */
@@ -95,7 +99,8 @@ export class Cluster extends pulumi.CustomResource {
             const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["addOnFeatures"] = state ? state.addOnFeatures : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["clientCertificateThumbprint"] = state ? state.clientCertificateThumbprint : undefined;
+            inputs["clientCertificateThumbprints"] = state ? state.clientCertificateThumbprints : undefined;
+            inputs["clusterCodeVersion"] = state ? state.clusterCodeVersion : undefined;
             inputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
             inputs["diagnosticsConfig"] = state ? state.diagnosticsConfig : undefined;
             inputs["fabricSettings"] = state ? state.fabricSettings : undefined;
@@ -133,7 +138,8 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
             inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["clientCertificateThumbprint"] = args ? args.clientCertificateThumbprint : undefined;
+            inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
+            inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
             inputs["diagnosticsConfig"] = args ? args.diagnosticsConfig : undefined;
             inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -164,9 +170,13 @@ export interface ClusterState {
      */
     readonly certificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
     /**
-     * A `client_certificate_thumbprint` block as defined below.
+     * One or two `client_certificate_thumbprint` blocks as defined below.
      */
-    readonly clientCertificateThumbprint?: pulumi.Input<{ isAdmin: pulumi.Input<boolean>, thumbprint: pulumi.Input<string> }>;
+    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<{ isAdmin: pulumi.Input<boolean>, thumbprint: pulumi.Input<string> }>[]>;
+    /**
+     * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+     */
+    readonly clusterCodeVersion?: pulumi.Input<string>;
     /**
      * The Cluster Endpoint for this Service Fabric Cluster.
      */
@@ -230,9 +240,13 @@ export interface ClusterArgs {
      */
     readonly certificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
     /**
-     * A `client_certificate_thumbprint` block as defined below.
+     * One or two `client_certificate_thumbprint` blocks as defined below.
      */
-    readonly clientCertificateThumbprint?: pulumi.Input<{ isAdmin: pulumi.Input<boolean>, thumbprint: pulumi.Input<string> }>;
+    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<{ isAdmin: pulumi.Input<boolean>, thumbprint: pulumi.Input<string> }>[]>;
+    /**
+     * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+     */
+    readonly clusterCodeVersion?: pulumi.Input<string>;
     /**
      * A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
      */

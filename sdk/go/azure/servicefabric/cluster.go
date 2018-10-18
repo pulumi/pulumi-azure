@@ -41,7 +41,8 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil {
 		inputs["addOnFeatures"] = nil
 		inputs["certificate"] = nil
-		inputs["clientCertificateThumbprint"] = nil
+		inputs["clientCertificateThumbprints"] = nil
+		inputs["clusterCodeVersion"] = nil
 		inputs["diagnosticsConfig"] = nil
 		inputs["fabricSettings"] = nil
 		inputs["location"] = nil
@@ -56,7 +57,8 @@ func NewCluster(ctx *pulumi.Context,
 	} else {
 		inputs["addOnFeatures"] = args.AddOnFeatures
 		inputs["certificate"] = args.Certificate
-		inputs["clientCertificateThumbprint"] = args.ClientCertificateThumbprint
+		inputs["clientCertificateThumbprints"] = args.ClientCertificateThumbprints
+		inputs["clusterCodeVersion"] = args.ClusterCodeVersion
 		inputs["diagnosticsConfig"] = args.DiagnosticsConfig
 		inputs["fabricSettings"] = args.FabricSettings
 		inputs["location"] = args.Location
@@ -85,7 +87,8 @@ func GetCluster(ctx *pulumi.Context,
 	if state != nil {
 		inputs["addOnFeatures"] = state.AddOnFeatures
 		inputs["certificate"] = state.Certificate
-		inputs["clientCertificateThumbprint"] = state.ClientCertificateThumbprint
+		inputs["clientCertificateThumbprints"] = state.ClientCertificateThumbprints
+		inputs["clusterCodeVersion"] = state.ClusterCodeVersion
 		inputs["clusterEndpoint"] = state.ClusterEndpoint
 		inputs["diagnosticsConfig"] = state.DiagnosticsConfig
 		inputs["fabricSettings"] = state.FabricSettings
@@ -126,9 +129,14 @@ func (r *Cluster) Certificate() *pulumi.Output {
 	return r.s.State["certificate"]
 }
 
-// A `client_certificate_thumbprint` block as defined below.
-func (r *Cluster) ClientCertificateThumbprint() *pulumi.Output {
-	return r.s.State["clientCertificateThumbprint"]
+// One or two `client_certificate_thumbprint` blocks as defined below.
+func (r *Cluster) ClientCertificateThumbprints() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["clientCertificateThumbprints"])
+}
+
+// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+func (r *Cluster) ClusterCodeVersion() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["clusterCodeVersion"])
 }
 
 // The Cluster Endpoint for this Service Fabric Cluster.
@@ -197,8 +205,10 @@ type ClusterState struct {
 	AddOnFeatures interface{}
 	// A `certificate` block as defined below.
 	Certificate interface{}
-	// A `client_certificate_thumbprint` block as defined below.
-	ClientCertificateThumbprint interface{}
+	// One or two `client_certificate_thumbprint` blocks as defined below.
+	ClientCertificateThumbprints interface{}
+	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+	ClusterCodeVersion interface{}
 	// The Cluster Endpoint for this Service Fabric Cluster.
 	ClusterEndpoint interface{}
 	// A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
@@ -231,8 +241,10 @@ type ClusterArgs struct {
 	AddOnFeatures interface{}
 	// A `certificate` block as defined below.
 	Certificate interface{}
-	// A `client_certificate_thumbprint` block as defined below.
-	ClientCertificateThumbprint interface{}
+	// One or two `client_certificate_thumbprint` blocks as defined below.
+	ClientCertificateThumbprints interface{}
+	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+	ClusterCodeVersion interface{}
 	// A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
 	DiagnosticsConfig interface{}
 	// One or more `fabric_settings` blocks as defined below.

@@ -15,6 +15,7 @@
     "services/datalake/analytics/mgmt/2016-11-01/account",
     "services/datalake/store/2016-11-01/filesystem",
     "services/datalake/store/mgmt/2016-11-01/account",
+    "services/devtestlabs/mgmt/2016-05-15/dtl",
     "services/eventgrid/mgmt/2018-01-01/eventgrid",
     "services/eventhub/mgmt/2017-04-01/eventhub",
     "services/graphrbac/1.6/graphrbac",
@@ -51,8 +52,8 @@
     "storage",
     "version"
   ]
-  revision = "f912cddf81bffc1569ccd89719a36acb64ca3035"
-  version = "v20.2.0"
+  revision = "ef9744da754d0cf00d0cfeae7d1a83f2245a4b1c"
+  version = "v21.2.0"
 
 [[projects]]
   branch = "master"
@@ -245,8 +246,8 @@
     "ptypes/struct",
     "ptypes/timestamp"
   ]
-  revision = "b4deda0973fb4c70b50d226b1af49f3da59f5265"
-  version = "v1.1.0"
+  revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
+  version = "v1.2.0"
 
 [[projects]]
   name = "github.com/google/uuid"
@@ -636,7 +637,7 @@
     "azurerm/helpers/validate",
     "azurerm/utils"
   ]
-  revision = "d4416b3157923273e5b6ee01d1a420a608aa57d3"
+  revision = "f0c50a0b33deba79de2d7f34e3916d4e3ddd565e"
   source = "github.com/pulumi/terraform-provider-azurerm"
 
 [[projects]]
@@ -764,20 +765,18 @@
   revision = "1cbadb444a806fd9430d14ad08967ed91da4fa0a"
 
 [[projects]]
-  branch = "master"
   name = "google.golang.org/genproto"
   packages = ["googleapis/rpc/status"]
-  revision = "7f0da29060c682909f650ad8ed4e515bd74fa12a"
+  revision = "1e559d0a00eef8a9a43151db4665280bd8dd5886"
 
 [[projects]]
   name = "google.golang.org/grpc"
   packages = [
     ".",
-    "balancer",
     "codes",
     "connectivity",
     "credentials",
-    "grpclb/grpc_lb_v1/messages",
+    "grpclb/grpc_lb_v1",
     "grpclog",
     "internal",
     "keepalive",
@@ -786,14 +785,12 @@
     "peer",
     "reflection",
     "reflection/grpc_reflection_v1alpha",
-    "resolver",
     "stats",
     "status",
     "tap",
     "transport"
   ]
-  revision = "5ffe3083946d5603a0578721101dc8165b1d5b5f"
-  version = "v1.7.2"
+  revision = "7657092a1303cc5a6fa3fee988d57c665683a4da"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
@@ -878,6 +875,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "28f85d3bc8908f16bb48b5e794a3d187beedcbc686f9f90107a9f18e1a8e0336"
+  inputs-digest = "499262697991ead1a03c72bd3f6080d2d9a3f932d6abe7937d4f2f4b847d9ed6"
   solver-name = "gps-cdcl"
   solver-version = 1

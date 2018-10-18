@@ -43,14 +43,16 @@ const (
 	azureCore                = "core"                // Base Resources
 	azureCosmosDB            = "cosmosdb"            // Cosmos DB
 	azureDatalake            = "datalake"            // Data Lake
+	azureDevTest             = "devtest"             // Dev Test Labs
 	azureDNS                 = "dns"                 // DNS
-	azureMessaging           = "eventhub"            // Event Hub
 	azureFunctions           = "functions"           // Functions
+	azureIot                 = "iot"                 // IoT resource
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
-	azureIot                 = "iot"                 // IoT resource
+	azureMessaging           = "eventhub"            // Event Hub
 	azureMgmtResource        = "managementresource"  // Management Resource
+	azureManagementGroups    = "managementgroups"    // Management Groups
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMSI                 = "msi"                 // Managed Service Identity (MSI)
 	azureMySQL               = "mysql"               // MySql
@@ -258,9 +260,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine_data_disk_attachment": {Tok: azureResource(azureCompute, "DataDiskAttachment")},
 			"azurerm_virtual_machine_scale_set":            {Tok: azureResource(azureCompute, "ScaleSet")},
 
-			"azurerm_managed_disk": {Tok: azureResource(azureCompute, "ManagedDisk")},
-			"azurerm_snapshot":     {Tok: azureResource(azureCompute, "Snapshot")},
-			"azurerm_image":        {Tok: azureResource(azureCompute, "Image")},
+			"azurerm_managed_disk":         {Tok: azureResource(azureCompute, "ManagedDisk")},
+			"azurerm_snapshot":             {Tok: azureResource(azureCompute, "Snapshot")},
+			"azurerm_image":                {Tok: azureResource(azureCompute, "Image")},
+			"azurerm_shared_image":         {Tok: azureResource(azureCompute, "SharedImage")},
+			"azurerm_shared_image_gallery": {Tok: azureResource(azureCompute, "SharedImageGallery")},
+			"azurerm_shared_image_version": {Tok: azureResource(azureCompute, "SharedImageVersion")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -268,6 +273,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store":                   {Tok: azureResource(azureDatalake, "Store")},
 			"azurerm_data_lake_store_file":              {Tok: azureResource(azureDatalake, "StoreFile")},
 			"azurerm_data_lake_store_firewall_rule":     {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
+
+			// Dev Test
+			"azurerm_dev_test_lab":             {Tok: azureResource(azureDevTest, "Lab")},
+			"azurerm_dev_test_virtual_network": {Tok: azureResource(azureDevTest, "VirtualNetwork")},
 
 			// DNS
 			"azurerm_dns_a_record":     {Tok: azureResource(azureDNS, "ARecord")},
@@ -400,6 +409,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Managed Service Identity (MSI)
 			"azurerm_user_assigned_identity": {Tok: azureResource(azureMSI, "UserAssignedIdentity")},
 
+			// Management Groups
+			"azurerm_management_group": {Tok: azureResource(azureManagementGroups, "ManagementGroup")},
+
 			// Management Resource
 			"azurerm_management_lock": {Tok: azureResource(azureMgmtResource, "ManangementLock")},
 
@@ -408,16 +420,18 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_action_group": {Tok: azureResource(azureMonitoring, "ActionGroup")},
 
 			// MySQL
-			"azurerm_mysql_configuration": {Tok: azureResource(azureMySQL, "Configuration")},
-			"azurerm_mysql_database":      {Tok: azureResource(azureMySQL, "Database")},
-			"azurerm_mysql_firewall_rule": {Tok: azureResource(azureMySQL, "FirewallRule")},
-			"azurerm_mysql_server":        {Tok: azureResource(azureMySQL, "Server")},
+			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
+			"azurerm_mysql_database":             {Tok: azureResource(azureMySQL, "Database")},
+			"azurerm_mysql_firewall_rule":        {Tok: azureResource(azureMySQL, "FirewallRule")},
+			"azurerm_mysql_server":               {Tok: azureResource(azureMySQL, "Server")},
+			"azurerm_mysql_virtual_network_rule": {Tok: azureResource(azureMySQL, "VirtualNetworkRule")},
 
 			// Postgress SQL
-			"azurerm_postgresql_configuration": {Tok: azureResource(azurePostgresql, "Configuration")},
-			"azurerm_postgresql_database":      {Tok: azureResource(azurePostgresql, "Database")},
-			"azurerm_postgresql_firewall_rule": {Tok: azureResource(azurePostgresql, "FirewallRule")},
-			"azurerm_postgresql_server":        {Tok: azureResource(azurePostgresql, "Server")},
+			"azurerm_postgresql_configuration":        {Tok: azureResource(azurePostgresql, "Configuration")},
+			"azurerm_postgresql_database":             {Tok: azureResource(azurePostgresql, "Database")},
+			"azurerm_postgresql_firewall_rule":        {Tok: azureResource(azurePostgresql, "FirewallRule")},
+			"azurerm_postgresql_server":               {Tok: azureResource(azurePostgresql, "Server")},
+			"azurerm_postgresql_virtual_network_rule": {Tok: azureResource(azurePostgresql, "VirtualNetworkRule")},
 
 			// Policy
 			"azurerm_policy_assignment": {Tok: azureResource(azurePolicy, "Assignment")},
@@ -443,6 +457,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_local_network_gateway":              {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
 			"azurerm_application_gateway":                {Tok: azureResource(azureNetwork, "ApplicationGateway")},
 			"azurerm_application_security_group":         {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
+			"azurerm_firewall":                           {Tok: azureResource(azureNetwork, "Firewall")},
+			"azurerm_firewall_network_rule_collection":   {Tok: azureResource(azureNetwork, "FirewallNetworkRuleCollection")},
 			"azurerm_network_interface":                  {Tok: azureResource(azureNetwork, "NetworkInterface")},
 			"azurerm_network_security_group":             {Tok: azureResource(azureNetwork, "NetworkSecurityGroup")},
 			"azurerm_network_security_rule":              {Tok: azureResource(azureNetwork, "NetworkSecurityRule")},
@@ -536,10 +552,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_registry":      {Tok: azureDataSource(azureContainerService, "getRegistry")},
 			"azurerm_cosmosdb_account":        {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":         {Tok: azureDataSource(azureDatalake, "getStore")},
+			"azurerm_dev_test_lab":            {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_eventhub_namespace":      {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
 			"azurerm_image":                   {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_shared_image":            {Tok: azureDataSource(azureCompute, "getSharedImage")},
+			"azurerm_shared_image_gallery":    {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
+			"azurerm_shared_image_version":    {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
 			"azurerm_log_analytics_workspace": {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
 			"azurerm_logic_app_workflow":      {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
+			"azurerm_management_group":        {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
 			"azurerm_dns_zone":                {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),

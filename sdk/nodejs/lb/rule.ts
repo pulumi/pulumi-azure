@@ -27,7 +27,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly backendAddressPoolId: pulumi.Output<string>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
     public readonly backendPort: pulumi.Output<number>;
     /**
@@ -40,7 +40,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly frontendIpConfigurationName: pulumi.Output<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      */
     public readonly frontendPort: pulumi.Output<number>;
     /**
@@ -147,7 +147,7 @@ export interface RuleState {
      */
     readonly backendAddressPoolId?: pulumi.Input<string>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
     readonly backendPort?: pulumi.Input<number>;
     /**
@@ -160,7 +160,7 @@ export interface RuleState {
      */
     readonly frontendIpConfigurationName?: pulumi.Input<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      */
     readonly frontendPort?: pulumi.Input<number>;
     /**
@@ -203,7 +203,7 @@ export interface RuleArgs {
      */
     readonly backendAddressPoolId?: pulumi.Input<string>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
     readonly backendPort: pulumi.Input<number>;
     /**
@@ -215,7 +215,7 @@ export interface RuleArgs {
      */
     readonly frontendIpConfigurationName: pulumi.Input<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
      */
     readonly frontendPort: pulumi.Input<number>;
     /**

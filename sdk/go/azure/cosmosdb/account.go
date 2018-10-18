@@ -160,6 +160,7 @@ func (r *Account) IpRangeFilter() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipRangeFilter"])
 }
 
+// Enables virtual network filtering for this Cosmos DB account.
 func (r *Account) IsVirtualNetworkFilterEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["isVirtualNetworkFilterEnabled"])
 }
@@ -219,6 +220,7 @@ func (r *Account) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
 func (r *Account) VirtualNetworkRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["virtualNetworkRules"])
 }
@@ -245,6 +247,7 @@ type AccountState struct {
 	GeoLocations interface{}
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter interface{}
+	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled interface{}
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind interface{}
@@ -268,6 +271,7 @@ type AccountState struct {
 	SecondaryReadonlyMasterKey interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules interface{}
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints interface{}
@@ -286,6 +290,7 @@ type AccountArgs struct {
 	GeoLocations interface{}
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter interface{}
+	// Enables virtual network filtering for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled interface{}
 	// Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
 	Kind interface{}
@@ -299,5 +304,6 @@ type AccountArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules interface{}
 }
