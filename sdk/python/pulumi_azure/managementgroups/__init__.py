@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from management_group import *
+from get_management_group import *

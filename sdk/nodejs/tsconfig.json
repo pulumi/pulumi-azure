@@ -140,6 +140,7 @@
         "logicapps/triggerHttpRequest.ts",
         "logicapps/triggerRecurrence.ts",
         "logicapps/workflow.ts",
+        "managementgroups/getManagementGroup.ts",
         "managementgroups/index.ts",
         "managementgroups/managementGroup.ts",
         "managementresource/index.ts",

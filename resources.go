@@ -560,6 +560,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_shared_image_version":    {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
 			"azurerm_log_analytics_workspace": {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
 			"azurerm_logic_app_workflow":      {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
+			"azurerm_management_group":        {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
 			"azurerm_dns_zone":                {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
