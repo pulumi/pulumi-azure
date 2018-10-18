@@ -14,10 +14,11 @@
   [constraint.metadata]
     govendor-override = true
 
-# NOTE: the following overrides were injected by govinject. DO NOT EDIT THEM BY HAND.
+# NOTE: the following overrides were injected by govendor-override. It may be necessary to
+# remove some of these overrides in order to produce a buildable vendor tree.
 [[override]]
   name = "github.com/Azure/azure-sdk-for-go"
-  version = "v20.1.0"
+  version = "v21.1.0"
   [override.metadata]
     govendor-overriden=true
 

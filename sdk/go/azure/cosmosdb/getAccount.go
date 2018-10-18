@@ -25,6 +25,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		Endpoint: outputs["endpoint"],
 		GeoLocations: outputs["geoLocations"],
 		IpRangeFilter: outputs["ipRangeFilter"],
+		IsVirtualNetworkFilterEnabled: outputs["isVirtualNetworkFilterEnabled"],
 		Kind: outputs["kind"],
 		Location: outputs["location"],
 		OfferType: outputs["offerType"],
@@ -34,6 +35,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		SecondaryMasterKey: outputs["secondaryMasterKey"],
 		SecondaryReadonlyMasterKey: outputs["secondaryReadonlyMasterKey"],
 		Tags: outputs["tags"],
+		VirtualNetworkRules: outputs["virtualNetworkRules"],
 		WriteEndpoints: outputs["writeEndpoints"],
 		Id: outputs["id"],
 	}, nil
@@ -59,6 +61,8 @@ type GetAccountResult struct {
 	GeoLocations interface{}
 	// The current IP Filter for this CosmosDB account
 	IpRangeFilter interface{}
+	// If virtual network filtering is enabled for this Cosmos DB account.
+	IsVirtualNetworkFilterEnabled interface{}
 	// The Kind of the CosmosDB account.
 	Kind interface{}
 	// The name of the Azure region hosting replicated data.
@@ -77,6 +81,8 @@ type GetAccountResult struct {
 	SecondaryReadonlyMasterKey interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
+	// Subnets that are allowed to access this CosmosDB account.
+	VirtualNetworkRules interface{}
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints interface{}
 	// id is the provider-assigned unique ID for this managed resource.

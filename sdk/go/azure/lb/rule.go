@@ -117,7 +117,7 @@ func (r *Rule) BackendAddressPoolId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["backendAddressPoolId"])
 }
 
-// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 func (r *Rule) BackendPort() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["backendPort"])
 }
@@ -136,7 +136,7 @@ func (r *Rule) FrontendIpConfigurationName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["frontendIpConfigurationName"])
 }
 
-// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 func (r *Rule) FrontendPort() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["frontendPort"])
 }
@@ -184,14 +184,14 @@ func (r *Rule) ResourceGroupName() *pulumi.StringOutput {
 type RuleState struct {
 	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
 	BackendAddressPoolId interface{}
-	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort interface{}
 	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
 	EnableFloatingIp interface{}
 	FrontendIpConfigurationId interface{}
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName interface{}
-	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort interface{}
 	// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
 	IdleTimeoutInMinutes interface{}
@@ -214,13 +214,13 @@ type RuleState struct {
 type RuleArgs struct {
 	// A reference to a Backend Address Pool over which this Load Balancing Rule operates.
 	BackendAddressPoolId interface{}
-	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
+	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort interface{}
 	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
 	EnableFloatingIp interface{}
 	// The name of the frontend IP configuration to which the rule is associated.
 	FrontendIpConfigurationName interface{}
-	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
+	// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
 	FrontendPort interface{}
 	// Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
 	IdleTimeoutInMinutes interface{}

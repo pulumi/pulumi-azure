@@ -51,6 +51,10 @@ export interface GetAccountResult {
      */
     readonly ipRangeFilter: string;
     /**
+     * If virtual network filtering is enabled for this Cosmos DB account.
+     */
+    readonly isVirtualNetworkFilterEnabled: boolean;
+    /**
      * The Kind of the CosmosDB account.
      */
     readonly kind: string;
@@ -86,6 +90,10 @@ export interface GetAccountResult {
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: any};
+    /**
+     * Subnets that are allowed to access this CosmosDB account.
+     */
+    readonly virtualNetworkRules: { id: string }[];
     /**
      * A list of write endpoints available for this CosmosDB account.
      */

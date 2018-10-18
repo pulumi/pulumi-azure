@@ -54,7 +54,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * Can be specified multiple times to define multiple
      * subnets. Each `subnet` block supports fields documented below.
      */
-    public readonly subnets: pulumi.Output<{ addressPrefix: string, name: string, securityGroup?: string }[]>;
+    public readonly subnets: pulumi.Output<{ addressPrefix: string, id: string, name: string, securityGroup?: string }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -135,7 +135,7 @@ export interface VirtualNetworkState {
      * Can be specified multiple times to define multiple
      * subnets. Each `subnet` block supports fields documented below.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, securityGroup?: pulumi.Input<string> }>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, securityGroup?: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -175,7 +175,7 @@ export interface VirtualNetworkArgs {
      * Can be specified multiple times to define multiple
      * subnets. Each `subnet` block supports fields documented below.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, securityGroup?: pulumi.Input<string> }>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, securityGroup?: pulumi.Input<string> }>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

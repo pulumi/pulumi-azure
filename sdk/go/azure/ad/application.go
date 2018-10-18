@@ -82,7 +82,7 @@ func (r *Application) AvailableToOtherTenants() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["availableToOtherTenants"])
 }
 
-// The URL to the application's home page. If no homepage is specified this defaults to `http://{name}`.
+// The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
 func (r *Application) Homepage() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["homepage"])
 }
@@ -113,7 +113,7 @@ type ApplicationState struct {
 	ApplicationId interface{}
 	// Is this Azure AD Application available to other tenants? Defaults to `false`.
 	AvailableToOtherTenants interface{}
-	// The URL to the application's home page. If no homepage is specified this defaults to `http://{name}`.
+	// The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
 	Homepage interface{}
 	// A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
 	IdentifierUris interface{}
@@ -129,7 +129,7 @@ type ApplicationState struct {
 type ApplicationArgs struct {
 	// Is this Azure AD Application available to other tenants? Defaults to `false`.
 	AvailableToOtherTenants interface{}
-	// The URL to the application's home page. If no homepage is specified this defaults to `http://{name}`.
+	// The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
 	Homepage interface{}
 	// A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
 	IdentifierUris interface{}

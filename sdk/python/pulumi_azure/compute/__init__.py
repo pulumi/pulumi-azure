@@ -6,6 +6,9 @@
 from availability_set import *
 from image import *
 from managed_disk import *
+from shared_image import *
+from shared_image_gallery import *
+from shared_image_version import *
 from snapshot import *
 from virtual_machine import *
 from data_disk_attachment import *
@@ -14,4 +17,7 @@ from scale_set import *
 from get_image import *
 from get_managed_disk import *
 from get_platform_image import *
+from get_shared_image import *
+from get_shared_image_gallery import *
+from get_shared_image_version import *
 from get_snapshot import *
