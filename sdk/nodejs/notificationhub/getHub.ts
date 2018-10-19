@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about the specified Notification Hub within a Notification Hub Namespace.
+ * Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
     return pulumi.runtime.invoke("azure:notificationhub/getHub:getHub", {

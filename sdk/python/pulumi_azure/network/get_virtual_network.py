@@ -44,7 +44,7 @@ class GetVirtualNetworkResult(object):
 
 def get_virtual_network(name=None, resource_group_name=None):
     """
-    Use this data source to access the properties of an Azure Virtual Network.
+    Use this data source to access information about an existing Virtual Network.
     """
     __args__ = dict()
 

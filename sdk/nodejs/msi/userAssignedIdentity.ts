@@ -17,6 +17,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         return new UserAssignedIdentity(name, <any>state, { id });
     }
 
+    public /*out*/ readonly clientId: pulumi.Output<string>;
     public readonly location: pulumi.Output<string>;
     public readonly name: pulumi.Output<string>;
     public /*out*/ readonly principalId: pulumi.Output<string>;
@@ -35,6 +36,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: UserAssignedIdentityState = argsOrState as UserAssignedIdentityState | undefined;
+            inputs["clientId"] = state ? state.clientId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
@@ -52,6 +54,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["clientId"] = undefined /*out*/;
             inputs["principalId"] = undefined /*out*/;
         }
         super("azure:msi/userAssignedIdentity:UserAssignedIdentity", name, inputs, opts);
@@ -62,6 +65,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserAssignedIdentity resources.
  */
 export interface UserAssignedIdentityState {
+    readonly clientId?: pulumi.Input<string>;
     readonly location?: pulumi.Input<string>;
     readonly name?: pulumi.Input<string>;
     readonly principalId?: pulumi.Input<string>;

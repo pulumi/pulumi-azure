@@ -38,7 +38,7 @@ class GetProfileResult(object):
 
 def get_profile(name=None, resource_group_name=None):
     """
-    Use this data source to access information about a CDN Profile.
+    Use this data source to access information about an existing CDN Profile.
     """
     __args__ = dict()
 

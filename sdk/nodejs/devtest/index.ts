@@ -4,4 +4,7 @@
 // Export members:
 export * from "./getLab";
 export * from "./lab";
+export * from "./linuxVirtualMachine";
+export * from "./policy";
 export * from "./virtualNetwork";
+export * from "./windowsVirtualMachine";

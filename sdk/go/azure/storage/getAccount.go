@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Gets information about the specified Storage Account.
+// Use this data source to access information about an existing Storage Account.
 func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

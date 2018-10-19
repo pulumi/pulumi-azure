@@ -10,7 +10,7 @@ class Queue(pulumi.CustomResource):
     """
     Manage and manage a ServiceBus Queue.
     """
-    def __init__(__self__, __name__, __opts__=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, location=None, lock_duration=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, support_ordering=None):
+    def __init__(__self__, __name__, __opts__=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, location=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, support_ordering=None):
         """Create a Queue resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -100,6 +100,14 @@ class Queue(pulumi.CustomResource):
         """
         __props__['lockDuration'] = lock_duration
 
+        if max_delivery_count and not isinstance(max_delivery_count, int):
+            raise TypeError('Expected property max_delivery_count to be a int')
+        __self__.max_delivery_count = max_delivery_count
+        """
+        Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+        """
+        __props__['maxDeliveryCount'] = max_delivery_count
+
         if max_size_in_megabytes and not isinstance(max_size_in_megabytes, int):
             raise TypeError('Expected property max_size_in_megabytes to be a int')
         __self__.max_size_in_megabytes = max_size_in_megabytes
@@ -144,7 +152,7 @@ class Queue(pulumi.CustomResource):
             raise TypeError('Expected property requires_session to be a bool')
         __self__.requires_session = requires_session
         """
-        Boolean flag which controls whether the Queue requires sessions. 
+        Boolean flag which controls whether the Queue requires sessions.
         This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
         a queue can guarantee first-in-first-out delivery of messages.
         Changing this forces a new resource to be created. Defaults to `false`.
@@ -192,6 +200,8 @@ class Queue(pulumi.CustomResource):
             self.location = outs['location']
         if 'lockDuration' in outs:
             self.lock_duration = outs['lockDuration']
+        if 'maxDeliveryCount' in outs:
+            self.max_delivery_count = outs['maxDeliveryCount']
         if 'maxSizeInMegabytes' in outs:
             self.max_size_in_megabytes = outs['maxSizeInMegabytes']
         if 'name' in outs:

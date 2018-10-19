@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about a Container Registry
+ * Use this data source to access information about an existing Container Registry.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     return pulumi.runtime.invoke("azure:containerservice/getRegistry:getRegistry", {

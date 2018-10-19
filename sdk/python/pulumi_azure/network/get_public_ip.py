@@ -10,7 +10,7 @@ class GetPublicIPResult(object):
     """
     A collection of values returned by getPublicIP.
     """
-    def __init__(__self__, domain_name_label=None, fqdn=None, idle_timeout_in_minutes=None, ip_address=None, tags=None, id=None):
+    def __init__(__self__, domain_name_label=None, fqdn=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, tags=None, id=None):
         if domain_name_label and not isinstance(domain_name_label, basestring):
             raise TypeError('Expected argument domain_name_label to be a basestring')
         __self__.domain_name_label = domain_name_label
@@ -35,6 +35,12 @@ class GetPublicIPResult(object):
         """
         The IP address value that was allocated.
         """
+        if ip_version and not isinstance(ip_version, basestring):
+            raise TypeError('Expected argument ip_version to be a basestring')
+        __self__.ip_version = ip_version
+        """
+        The IP version being used, for example `IPv4` or `IPv6`.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -50,7 +56,7 @@ class GetPublicIPResult(object):
 
 def get_public_ip(name=None, resource_group_name=None, tags=None):
     """
-    Use this data source to access the properties of an existing Azure Public IP Address.
+    Use this data source to access information about an existing Public IP Address.
     """
     __args__ = dict()
 
@@ -64,5 +70,6 @@ def get_public_ip(name=None, resource_group_name=None, tags=None):
         fqdn=__ret__.get('fqdn'),
         idle_timeout_in_minutes=__ret__.get('idleTimeoutInMinutes'),
         ip_address=__ret__.get('ipAddress'),
+        ip_version=__ret__.get('ipVersion'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

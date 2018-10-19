@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of an Azure Virtual Network.
+ * Use this data source to access information about an existing Virtual Network.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
     return pulumi.runtime.invoke("azure:network/getVirtualNetwork:getVirtualNetwork", {

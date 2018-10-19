@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to obtain information about a Dev Test Lab.
+ * Use this data source to access information about an existing Dev Test Lab.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     return pulumi.runtime.invoke("azure:devtest/getLab:getLab", {

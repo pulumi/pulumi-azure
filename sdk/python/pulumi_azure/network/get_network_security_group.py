@@ -38,7 +38,7 @@ class GetNetworkSecurityGroupResult(object):
 
 def get_network_security_group(name=None, resource_group_name=None):
     """
-    Use this data source to access the properties of a Network Security Group.
+    Use this data source to access information about an existing Network Security Group.
     """
     __args__ = dict()
 

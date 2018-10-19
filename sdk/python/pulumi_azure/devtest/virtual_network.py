@@ -10,7 +10,7 @@ class VirtualNetwork(pulumi.CustomResource):
     """
     Manages a Virtual Network within a Dev Test Lab.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, lab_name=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, description=None, lab_name=None, name=None, resource_group_name=None, subnet=None, tags=None):
         """Create a VirtualNetwork resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -43,7 +43,7 @@ class VirtualNetwork(pulumi.CustomResource):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
         """
-        Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
+        Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         """
         __props__['name'] = name
 
@@ -56,6 +56,14 @@ class VirtualNetwork(pulumi.CustomResource):
         The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         """
         __props__['resourceGroupName'] = resource_group_name
+
+        if subnet and not isinstance(subnet, dict):
+            raise TypeError('Expected property subnet to be a dict')
+        __self__.subnet = subnet
+        """
+        A `subnet` block as defined below.
+        """
+        __props__['subnet'] = subnet
 
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected property tags to be a dict')
@@ -85,6 +93,8 @@ class VirtualNetwork(pulumi.CustomResource):
             self.name = outs['name']
         if 'resourceGroupName' in outs:
             self.resource_group_name = outs['resourceGroupName']
+        if 'subnet' in outs:
+            self.subnet = outs['subnet']
         if 'tags' in outs:
             self.tags = outs['tags']
         if 'uniqueIdentifier' in outs:

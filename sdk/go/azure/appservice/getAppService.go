@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to obtain information about an App Service.
+// Use this data source to access information about an existing App Service.
 func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServiceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

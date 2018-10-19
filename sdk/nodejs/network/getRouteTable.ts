@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about a Route Table
+ * Use this data source to access information about an existing Route Table.
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
     return pulumi.runtime.invoke("azure:network/getRouteTable:getRouteTable", {

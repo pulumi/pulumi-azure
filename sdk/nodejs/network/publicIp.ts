@@ -37,6 +37,10 @@ export class PublicIp extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
+     * The IP Version to use, IPv6 or IPv4.
+     */
+    public readonly ipVersion: pulumi.Output<string | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
+            inputs["ipVersion"] = state ? state.ipVersion : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publicIpAddressAllocation"] = state ? state.publicIpAddressAllocation : undefined;
@@ -108,6 +113,7 @@ export class PublicIp extends pulumi.CustomResource {
             }
             inputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
+            inputs["ipVersion"] = args ? args.ipVersion : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicIpAddressAllocation"] = args ? args.publicIpAddressAllocation : undefined;
@@ -143,6 +149,10 @@ export interface PublicIpState {
      * The IP address value that was allocated.
      */
     readonly ipAddress?: pulumi.Input<string>;
+    /**
+     * The IP Version to use, IPv6 or IPv4.
+     */
+    readonly ipVersion?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -191,6 +201,10 @@ export interface PublicIpArgs {
      * Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
      */
     readonly idleTimeoutInMinutes?: pulumi.Input<number>;
+    /**
+     * The IP Version to use, IPv6 or IPv4.
+     */
+    readonly ipVersion?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

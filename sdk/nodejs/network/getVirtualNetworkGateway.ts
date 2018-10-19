@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of an Azure Virtual Network Gateway.
+ * Use this data source to access information about an existing Virtual Network Gateway.
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
     return pulumi.runtime.invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", {

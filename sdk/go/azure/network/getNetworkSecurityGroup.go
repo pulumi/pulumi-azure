@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of a Network Security Group.
+// Use this data source to access information about an existing Network Security Group.
 func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGroupArgs) (*GetNetworkSecurityGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

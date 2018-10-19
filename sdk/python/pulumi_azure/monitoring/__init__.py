@@ -5,3 +5,6 @@
 # Export this package's modules as members:
 from alert_rule import *
 from action_group import *
+from activity_log_alert import *
+from log_profile import *
+from metric_alert import *

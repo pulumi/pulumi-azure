@@ -3,4 +3,7 @@
 
 // Export members:
 export * from "./actionGroup";
+export * from "./activityLogAlert";
 export * from "./alertRule";
+export * from "./logProfile";
+export * from "./metricAlert";

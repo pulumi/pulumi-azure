@@ -26,7 +26,7 @@ class GetPublicIPsResult(object):
 
 def get_public_i_ps(allocation_type=None, attached=None, name_prefix=None, resource_group_name=None):
     """
-    Use this data source to access a filtered list of Public IP Addresses
+    Use this data source to access information about a set of existing Public IP Addresses.
     """
     __args__ = dict()
 

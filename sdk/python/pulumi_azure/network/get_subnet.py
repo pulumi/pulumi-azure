@@ -44,7 +44,7 @@ class GetSubnetResult(object):
 
 def get_subnet(name=None, resource_group_name=None, virtual_network_name=None):
     """
-    Use this data source to access the properties of an Azure Subnet located within a Virtual Network.
+    Use this data source to access information about an existing Subnet within a Virtual Network.
     """
     __args__ = dict()
 

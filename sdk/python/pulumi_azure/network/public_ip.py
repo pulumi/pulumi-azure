@@ -10,7 +10,7 @@ class PublicIp(pulumi.CustomResource):
     """
     Manage a Public IP Address.
     """
-    def __init__(__self__, __name__, __opts__=None, domain_name_label=None, idle_timeout_in_minutes=None, location=None, name=None, public_ip_address_allocation=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
+    def __init__(__self__, __name__, __opts__=None, domain_name_label=None, idle_timeout_in_minutes=None, ip_version=None, location=None, name=None, public_ip_address_allocation=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None):
         """Create a PublicIp resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -36,6 +36,14 @@ class PublicIp(pulumi.CustomResource):
         Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         """
         __props__['idleTimeoutInMinutes'] = idle_timeout_in_minutes
+
+        if ip_version and not isinstance(ip_version, basestring):
+            raise TypeError('Expected property ip_version to be a basestring')
+        __self__.ip_version = ip_version
+        """
+        The IP Version to use, IPv6 or IPv4.
+        """
+        __props__['ipVersion'] = ip_version
 
         if not location:
             raise TypeError('Missing required property location')
@@ -133,6 +141,8 @@ class PublicIp(pulumi.CustomResource):
             self.idle_timeout_in_minutes = outs['idleTimeoutInMinutes']
         if 'ipAddress' in outs:
             self.ip_address = outs['ipAddress']
+        if 'ipVersion' in outs:
+            self.ip_version = outs['ipVersion']
         if 'location' in outs:
             self.location = outs['location']
         if 'name' in outs:

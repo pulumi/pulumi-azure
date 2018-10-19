@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about a Logic App Workflow.
+ * Use this data source to access information about an existing Logic App Workflow.
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
     return pulumi.runtime.invoke("azure:logicapps/getWorkflow:getWorkflow", {

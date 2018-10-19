@@ -44,7 +44,7 @@ class GetRouteTableResult(object):
 
 def get_route_table(name=None, resource_group_name=None):
     """
-    Gets information about a Route Table
+    Use this data source to access information about an existing Route Table.
     """
     __args__ = dict()
 

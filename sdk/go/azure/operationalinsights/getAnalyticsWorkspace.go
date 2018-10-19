@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Gets information about the specified Log Analytics (formally Operational Insights) Workspace.
+// Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
 func LookupAnalyticsWorkspace(ctx *pulumi.Context, args *GetAnalyticsWorkspaceArgs) (*GetAnalyticsWorkspaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

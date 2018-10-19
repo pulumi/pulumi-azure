@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of an Azure Platform Image.
+ * Use this data source to access information about a Platform Image.
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
     return pulumi.runtime.invoke("azure:compute/getPlatformImage:getPlatformImage", {

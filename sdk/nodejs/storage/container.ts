@@ -21,7 +21,7 @@ export class Container extends pulumi.CustomResource {
     }
 
     /**
-     * The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`. Changing this forces a new resource to be created.
+     * The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
      */
     public readonly containerAccessType: pulumi.Output<string | undefined>;
     /**
@@ -83,7 +83,7 @@ export class Container extends pulumi.CustomResource {
  */
 export interface ContainerState {
     /**
-     * The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`. Changing this forces a new resource to be created.
+     * The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
      */
     readonly containerAccessType?: pulumi.Input<string>;
     /**
@@ -111,7 +111,7 @@ export interface ContainerState {
  */
 export interface ContainerArgs {
     /**
-     * The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`. Changing this forces a new resource to be created.
+     * The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
      */
     readonly containerAccessType?: pulumi.Input<string>;
     /**

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to obtain information about a Data Lake Store.
+// Use this data source to access information about an existing Data Lake Store.
 func LookupStore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about the specified Storage Account.
+ * Use this data source to access information about an existing Storage Account.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     return pulumi.runtime.invoke("azure:storage/getAccount:getAccount", {

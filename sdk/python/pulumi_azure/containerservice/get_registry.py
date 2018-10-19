@@ -62,7 +62,7 @@ class GetRegistryResult(object):
 
 def get_registry(name=None, resource_group_name=None):
     """
-    Use this data source to access information about a Container Registry
+    Use this data source to access information about an existing Container Registry.
     """
     __args__ = dict()
 

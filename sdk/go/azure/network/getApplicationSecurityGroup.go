@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Get information about an Application Security Group.
+// Use this data source to access information about an existing Application Security Group.
 func LookupApplicationSecurityGroup(ctx *pulumi.Context, args *GetApplicationSecurityGroupArgs) (*GetApplicationSecurityGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

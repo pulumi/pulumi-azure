@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure subscription.
+// Use this data source to access information about an existing Subscription.
 func LookupSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs) (*GetSubscriptionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

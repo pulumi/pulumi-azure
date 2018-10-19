@@ -7,6 +7,9 @@ import pulumi.runtime
 from .. import utilities
 
 class Group(pulumi.CustomResource):
+    """
+    Manage as an Azure Container Group instance.
+    """
     def __init__(__self__, __name__, __opts__=None, containers=None, dns_name_label=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None):
         """Create a Group resource with the given unique name, props, and options."""
         if not __name__:
@@ -23,21 +26,33 @@ class Group(pulumi.CustomResource):
         elif not isinstance(containers, list):
             raise TypeError('Expected property containers to be a list')
         __self__.containers = containers
+        """
+        The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        """
         __props__['containers'] = containers
 
         if dns_name_label and not isinstance(dns_name_label, basestring):
             raise TypeError('Expected property dns_name_label to be a basestring')
         __self__.dns_name_label = dns_name_label
+        """
+        The DNS label/name for the container groups IP.
+        """
         __props__['dnsNameLabel'] = dns_name_label
 
         if image_registry_credentials and not isinstance(image_registry_credentials, list):
             raise TypeError('Expected property image_registry_credentials to be a list')
         __self__.image_registry_credentials = image_registry_credentials
+        """
+        Set image registry credentials for the group as documented in the `image_registry_credential` block below
+        """
         __props__['imageRegistryCredentials'] = image_registry_credentials
 
         if ip_address_type and not isinstance(ip_address_type, basestring):
             raise TypeError('Expected property ip_address_type to be a basestring')
         __self__.ip_address_type = ip_address_type
+        """
+        Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+        """
         __props__['ipAddressType'] = ip_address_type
 
         if not location:
@@ -45,11 +60,17 @@ class Group(pulumi.CustomResource):
         elif not isinstance(location, basestring):
             raise TypeError('Expected property location to be a basestring')
         __self__.location = location
+        """
+        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        """
         __props__['location'] = location
 
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
         __self__.name = name
+        """
+        Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        """
         __props__['name'] = name
 
         if not os_type:
@@ -57,6 +78,9 @@ class Group(pulumi.CustomResource):
         elif not isinstance(os_type, basestring):
             raise TypeError('Expected property os_type to be a basestring')
         __self__.os_type = os_type
+        """
+        The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
+        """
         __props__['osType'] = os_type
 
         if not resource_group_name:
@@ -64,11 +88,17 @@ class Group(pulumi.CustomResource):
         elif not isinstance(resource_group_name, basestring):
             raise TypeError('Expected property resource_group_name to be a basestring')
         __self__.resource_group_name = resource_group_name
+        """
+        The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
+        """
         __props__['resourceGroupName'] = resource_group_name
 
         if restart_policy and not isinstance(restart_policy, basestring):
             raise TypeError('Expected property restart_policy to be a basestring')
         __self__.restart_policy = restart_policy
+        """
+        Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
+        """
         __props__['restartPolicy'] = restart_policy
 
         if tags and not isinstance(tags, dict):
@@ -77,7 +107,13 @@ class Group(pulumi.CustomResource):
         __props__['tags'] = tags
 
         __self__.fqdn = pulumi.runtime.UNKNOWN
+        """
+        The FQDN of the container group derived from `dns_name_label`.
+        """
         __self__.ip_address = pulumi.runtime.UNKNOWN
+        """
+        The IP address allocated to the container group.
+        """
 
         super(Group, __self__).__init__(
             'azure:containerservice/group:Group',

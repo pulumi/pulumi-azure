@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Gets information about a Route Table
+// Use this data source to access information about an existing Route Table.
 func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTableResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

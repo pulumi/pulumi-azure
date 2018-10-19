@@ -38,6 +38,9 @@ class GetSharedImageVersionResult(object):
         if target_regions and not isinstance(target_regions, list):
             raise TypeError('Expected argument target_regions to be a list')
         __self__.target_regions = target_regions
+        """
+        One or more `target_region` blocks as documented below.
+        """
         if id and not isinstance(id, basestring):
             raise TypeError('Expected argument id to be a basestring')
         __self__.id = id
@@ -47,7 +50,7 @@ class GetSharedImageVersionResult(object):
 
 def get_shared_image_version(gallery_name=None, image_name=None, name=None, resource_group_name=None):
     """
-    Gets information about the specified Version of a Shared Image within the Shared Image Gallery.
+    Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
     
     -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
     """

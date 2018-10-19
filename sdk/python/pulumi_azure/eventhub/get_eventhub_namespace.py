@@ -82,7 +82,7 @@ class GetEventhubNamespaceResult(object):
 
 def get_eventhub_namespace(name=None, resource_group_name=None):
     """
-    Use this data source to obtain information about an EventHub Namespace.
+    Use this data source to access information about an existing EventHub Namespace.
     """
     __args__ = dict()
 

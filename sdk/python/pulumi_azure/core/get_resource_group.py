@@ -32,7 +32,7 @@ class GetResourceGroupResult(object):
 
 def get_resource_group(name=None):
     """
-    Use this data source to access the properties of an Azure resource group.
+    Use this data source to access information about an existing Resource Group.
     """
     __args__ = dict()
 

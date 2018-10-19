@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manage as an Azure Container Group instance.
 type Group struct {
 	s *pulumi.ResourceState
 }
@@ -96,46 +97,57 @@ func (r *Group) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
+// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 func (r *Group) Containers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["containers"])
 }
 
+// The DNS label/name for the container groups IP.
 func (r *Group) DnsNameLabel() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsNameLabel"])
 }
 
+// The FQDN of the container group derived from `dns_name_label`.
 func (r *Group) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
+// Set image registry credentials for the group as documented in the `image_registry_credential` block below
 func (r *Group) ImageRegistryCredentials() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["imageRegistryCredentials"])
 }
 
+// The IP address allocated to the container group.
 func (r *Group) IpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
+// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
 func (r *Group) IpAddressType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipAddressType"])
 }
 
+// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *Group) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
+// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 func (r *Group) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 func (r *Group) OsType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["osType"])
 }
 
+// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 func (r *Group) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
 func (r *Group) RestartPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["restartPolicy"])
 }
@@ -146,30 +158,50 @@ func (r *Group) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Group resources.
 type GroupState struct {
+	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers interface{}
+	// The DNS label/name for the container groups IP.
 	DnsNameLabel interface{}
+	// The FQDN of the container group derived from `dns_name_label`.
 	Fqdn interface{}
+	// Set image registry credentials for the group as documented in the `image_registry_credential` block below
 	ImageRegistryCredentials interface{}
+	// The IP address allocated to the container group.
 	IpAddress interface{}
+	// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
 	IpAddressType interface{}
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name interface{}
+	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType interface{}
+	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
 	RestartPolicy interface{}
 	Tags interface{}
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
+	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers interface{}
+	// The DNS label/name for the container groups IP.
 	DnsNameLabel interface{}
+	// Set image registry credentials for the group as documented in the `image_registry_credential` block below
 	ImageRegistryCredentials interface{}
+	// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
 	IpAddressType interface{}
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name interface{}
+	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType interface{}
+	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
 	RestartPolicy interface{}
 	Tags interface{}
 }
