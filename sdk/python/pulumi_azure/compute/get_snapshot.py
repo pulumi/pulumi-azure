@@ -56,7 +56,7 @@ class GetSnapshotResult(object):
 
 def get_snapshot(name=None, resource_group_name=None):
     """
-    Use this data source to access the properties of a Snapshot of an Disk.
+    Use this data source to access information about an existing Snapshot.
     """
     __args__ = dict()
 

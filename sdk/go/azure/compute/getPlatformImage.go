@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure Platform Image.
+// Use this data source to access information about a Platform Image.
 func LookupPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs) (*GetPlatformImageResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

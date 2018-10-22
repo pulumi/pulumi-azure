@@ -86,7 +86,7 @@ class GetAppServiceResult(object):
 
 def get_app_service(name=None, resource_group_name=None, site_config=None):
     """
-    Use this data source to obtain information about an App Service.
+    Use this data source to access information about an existing App Service.
     """
     __args__ = dict()
 

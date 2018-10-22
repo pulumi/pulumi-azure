@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of a Recovery Services Vault.
+// Use this data source to access information about an existing Recovery Services Vault.
 func LookupVault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -28,7 +28,7 @@ func LookupVault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, erro
 
 // A collection of arguments for invoking getVault.
 type GetVaultArgs struct {
-	// Specifies the name of the Recovery Services Vault. 
+	// Specifies the name of the Recovery Services Vault.
 	Name interface{}
 	// The name of the resource group in which the Recovery Services Vault resides.
 	ResourceGroupName interface{}
@@ -36,7 +36,7 @@ type GetVaultArgs struct {
 
 // A collection of values returned by getVault.
 type GetVaultResult struct {
-	// The Azure location where the resource resides. 
+	// The Azure location where the resource resides.
 	Location interface{}
 	// The vault's current SKU.
 	Sku interface{}

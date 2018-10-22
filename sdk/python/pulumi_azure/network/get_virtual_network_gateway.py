@@ -87,7 +87,7 @@ class GetVirtualNetworkGatewayResult(object):
 
 def get_virtual_network_gateway(name=None, resource_group_name=None):
     """
-    Use this data source to access the properties of an Azure Virtual Network Gateway.
+    Use this data source to access information about an existing Virtual Network Gateway.
     """
     __args__ = dict()
 

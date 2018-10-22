@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access information about a Container Registry
+// Use this data source to access information about an existing Container Registry.
 func LookupRegistry(ctx *pulumi.Context, args *GetRegistryArgs) (*GetRegistryResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

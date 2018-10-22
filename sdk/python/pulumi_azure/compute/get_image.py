@@ -44,7 +44,7 @@ class GetImageResult(object):
 
 def get_image(name=None, name_regex=None, resource_group_name=None, sort_descending=None):
     """
-    Use this data source to access information about an Image.
+    Use this data source to access information about an existing Image.
     """
     __args__ = dict()
 

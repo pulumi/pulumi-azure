@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Gets information about the specified Notification Hub Namespace.
+// Use this data source to access information about an existing Notification Hub Namespace.
 func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs) (*GetNamespaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

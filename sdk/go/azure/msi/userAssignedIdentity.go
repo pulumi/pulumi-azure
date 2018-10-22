@@ -33,6 +33,7 @@ func NewUserAssignedIdentity(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
 	}
+	inputs["clientId"] = nil
 	inputs["principalId"] = nil
 	s, err := ctx.RegisterResource("azure:msi/userAssignedIdentity:UserAssignedIdentity", name, true, inputs, opts...)
 	if err != nil {
@@ -47,6 +48,7 @@ func GetUserAssignedIdentity(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *UserAssignedIdentityState, opts ...pulumi.ResourceOpt) (*UserAssignedIdentity, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["clientId"] = state.ClientId
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["principalId"] = state.PrincipalId
@@ -68,6 +70,10 @@ func (r *UserAssignedIdentity) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *UserAssignedIdentity) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+func (r *UserAssignedIdentity) ClientId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["clientId"])
 }
 
 func (r *UserAssignedIdentity) Location() *pulumi.StringOutput {
@@ -92,6 +98,7 @@ func (r *UserAssignedIdentity) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering UserAssignedIdentity resources.
 type UserAssignedIdentityState struct {
+	ClientId interface{}
 	Location interface{}
 	Name interface{}
 	PrincipalId interface{}

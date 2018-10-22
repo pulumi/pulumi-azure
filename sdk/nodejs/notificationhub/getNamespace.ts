@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about the specified Notification Hub Namespace.
+ * Use this data source to access information about an existing Notification Hub Namespace.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     return pulumi.runtime.invoke("azure:notificationhub/getNamespace:getNamespace", {

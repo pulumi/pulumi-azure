@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure scheduler job collection.
+// Use this data source to access information about an existing Scheduler Job Collection.
 func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJobCollectionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -30,21 +30,21 @@ func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJ
 
 // A collection of arguments for invoking getJobCollection.
 type GetJobCollectionArgs struct {
-	// Specifies the name of the Scheduler Job Collection. 
+	// Specifies the name of the Scheduler Job Collection.
 	Name interface{}
-	// Specifies the name of the resource group in which the Scheduler Job Collection resides. 
+	// Specifies the name of the resource group in which the Scheduler Job Collection resides.
 	ResourceGroupName interface{}
 }
 
 // A collection of values returned by getJobCollection.
 type GetJobCollectionResult struct {
-	// The Azure location where the resource exists. 
+	// The Azure location where the resource exists.
 	Location interface{}
-	// The Job collection quotas as documented in the `quota` block below. 
+	// The Job collection quotas as documented in the `quota` block below.
 	Quotas interface{}
-	// The Job Collection's pricing level's SKU. 
+	// The Job Collection's pricing level's SKU.
 	Sku interface{}
-	// The Job Collection's state. 
+	// The Job Collection's state.
 	State interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}

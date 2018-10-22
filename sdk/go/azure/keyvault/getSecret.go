@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Returns information about the specified Key Vault Secret.
+// Use this data source to access information about an existing Key Vault Secret.
 // 
 // ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).

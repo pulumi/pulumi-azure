@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure Virtual Network Gateway.
+// Use this data source to access information about an existing Virtual Network Gateway.
 func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGatewayArgs) (*GetVirtualNetworkGatewayResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

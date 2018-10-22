@@ -62,7 +62,7 @@ class GetManagedDiskResult(object):
 
 def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None):
     """
-    Use this data source to access the properties of an existing Azure Managed Disk.
+    Use this data source to access information about an existing Managed Disk.
     """
     __args__ = dict()
 

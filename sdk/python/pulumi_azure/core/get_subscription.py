@@ -53,7 +53,7 @@ class GetSubscriptionResult(object):
 
 def get_subscription(subscription_id=None):
     """
-    Use this data source to access the properties of an Azure subscription.
+    Use this data source to access information about an existing Subscription.
     """
     __args__ = dict()
 

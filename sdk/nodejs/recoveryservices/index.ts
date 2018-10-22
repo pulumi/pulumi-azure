@@ -3,4 +3,6 @@
 
 // Export members:
 export * from "./getVault";
+export * from "./protectedVM";
+export * from "./protectionPolicyVM";
 export * from "./vault";

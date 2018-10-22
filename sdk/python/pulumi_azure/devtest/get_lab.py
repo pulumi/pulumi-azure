@@ -74,7 +74,7 @@ class GetLabResult(object):
 
 def get_lab(name=None, resource_group_name=None):
     """
-    Use this data source to obtain information about a Dev Test Lab.
+    Use this data source to access information about an existing Dev Test Lab.
     """
     __args__ = dict()
 

@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an existing Azure Managed Disk.
+// Use this data source to access information about an existing Managed Disk.
 func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManagedDiskResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

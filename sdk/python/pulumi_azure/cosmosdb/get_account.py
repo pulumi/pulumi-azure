@@ -122,7 +122,7 @@ class GetAccountResult(object):
 
 def get_account(name=None, resource_group_name=None):
     """
-    Use this data source to access the properties of an Azure CosmosDB (formally DocumentDB) Account.
+    Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
     """
     __args__ = dict()
 

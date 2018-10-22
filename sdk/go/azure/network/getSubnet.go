@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure Subnet located within a Virtual Network.
+// Use this data source to access information about an existing Subnet within a Virtual Network.
 func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

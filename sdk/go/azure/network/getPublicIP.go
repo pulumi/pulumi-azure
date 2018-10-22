@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an existing Azure Public IP Address.
+// Use this data source to access information about an existing Public IP Address.
 func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -24,6 +24,7 @@ func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPRes
 		Fqdn: outputs["fqdn"],
 		IdleTimeoutInMinutes: outputs["idleTimeoutInMinutes"],
 		IpAddress: outputs["ipAddress"],
+		IpVersion: outputs["ipVersion"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -48,6 +49,8 @@ type GetPublicIPResult struct {
 	IdleTimeoutInMinutes interface{}
 	// The IP address value that was allocated.
 	IpAddress interface{}
+	// The IP version being used, for example `IPv4` or `IPv6`.
+	IpVersion interface{}
 	// A mapping of tags to assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

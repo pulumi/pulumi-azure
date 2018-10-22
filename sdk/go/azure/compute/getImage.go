@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access information about an Image.
+// Use this data source to access information about an existing Image.
 func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

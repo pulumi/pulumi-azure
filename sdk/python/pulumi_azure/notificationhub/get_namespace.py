@@ -47,7 +47,7 @@ class GetNamespaceResult(object):
 
 def get_namespace(name=None, resource_group_name=None):
     """
-    Gets information about the specified Notification Hub Namespace.
+    Use this data source to access information about an existing Notification Hub Namespace.
     """
     __args__ = dict()
 

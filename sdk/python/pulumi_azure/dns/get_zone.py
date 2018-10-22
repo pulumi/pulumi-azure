@@ -65,7 +65,7 @@ class GetZoneResult(object):
 
 def get_zone(name=None, resource_group_name=None):
     """
-    Use this data source to obtain information about a DNS Zone.
+    Use this data source to access information about an existing DNS Zone.
     """
     __args__ = dict()
 

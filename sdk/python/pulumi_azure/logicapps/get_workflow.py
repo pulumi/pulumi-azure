@@ -56,7 +56,7 @@ class GetWorkflowResult(object):
 
 def get_workflow(name=None, resource_group_name=None):
     """
-    Gets information about a Logic App Workflow.
+    Use this data source to access information about an existing Logic App Workflow.
     """
     __args__ = dict()
 

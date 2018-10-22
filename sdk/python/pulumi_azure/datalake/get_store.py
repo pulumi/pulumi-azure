@@ -59,7 +59,7 @@ class GetStoreResult(object):
 
 def get_store(name=None, resource_group_name=None):
     """
-    Use this data source to obtain information about a Data Lake Store.
+    Use this data source to access information about an existing Data Lake Store.
     """
     __args__ = dict()
 

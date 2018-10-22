@@ -25,7 +25,7 @@ class Container(pulumi.CustomResource):
             raise TypeError('Expected property container_access_type to be a basestring')
         __self__.container_access_type = container_access_type
         """
-        The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`. Changing this forces a new resource to be created.
+        The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
         """
         __props__['containerAccessType'] = container_access_type
 

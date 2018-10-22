@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of a Snapshot of an Disk.
+ * Use this data source to access information about an existing Snapshot.
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
     return pulumi.runtime.invoke("azure:compute/getSnapshot:getSnapshot", {

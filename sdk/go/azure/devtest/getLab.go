@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to obtain information about a Dev Test Lab.
+// Use this data source to access information about an existing Dev Test Lab.
 func LookupLab(ctx *pulumi.Context, args *GetLabArgs) (*GetLabResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

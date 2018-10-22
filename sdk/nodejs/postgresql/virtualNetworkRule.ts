@@ -23,6 +23,10 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     }
 
     /**
+     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     */
+    public readonly ignoreMissingVnetServiceEndpoint: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
@@ -51,6 +55,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: VirtualNetworkRuleState = argsOrState as VirtualNetworkRuleState | undefined;
+            inputs["ignoreMissingVnetServiceEndpoint"] = state ? state.ignoreMissingVnetServiceEndpoint : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serverName"] = state ? state.serverName : undefined;
@@ -66,6 +71,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if (!args || args.subnetId === undefined) {
                 throw new Error("Missing required property 'subnetId'");
             }
+            inputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
@@ -79,6 +85,10 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualNetworkRule resources.
  */
 export interface VirtualNetworkRuleState {
+    /**
+     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     */
+    readonly ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      */
@@ -101,6 +111,10 @@ export interface VirtualNetworkRuleState {
  * The set of arguments for constructing a VirtualNetworkRule resource.
  */
 export interface VirtualNetworkRuleArgs {
+    /**
+     * Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+     */
+    readonly ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
     /**
      * The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      */

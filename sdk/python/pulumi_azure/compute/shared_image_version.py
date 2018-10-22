@@ -102,6 +102,9 @@ class SharedImageVersion(pulumi.CustomResource):
         elif not isinstance(target_regions, list):
             raise TypeError('Expected property target_regions to be a list')
         __self__.target_regions = target_regions
+        """
+        One or more `target_region` blocks as documented below.
+        """
         __props__['targetRegions'] = target_regions
 
         super(SharedImageVersion, __self__).__init__(

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of an Azure scheduler job collection.
+ * Use this data source to access information about an existing Scheduler Job Collection.
  */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
     return pulumi.runtime.invoke("azure:scheduler/getJobCollection:getJobCollection", {
@@ -19,11 +19,11 @@ export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.Invok
  */
 export interface GetJobCollectionArgs {
     /**
-     * Specifies the name of the Scheduler Job Collection. 
+     * Specifies the name of the Scheduler Job Collection.
      */
     readonly name: string;
     /**
-     * Specifies the name of the resource group in which the Scheduler Job Collection resides. 
+     * Specifies the name of the resource group in which the Scheduler Job Collection resides.
      */
     readonly resourceGroupName: string;
 }
@@ -33,19 +33,19 @@ export interface GetJobCollectionArgs {
  */
 export interface GetJobCollectionResult {
     /**
-     * The Azure location where the resource exists. 
+     * The Azure location where the resource exists.
      */
     readonly location: string;
     /**
-     * The Job collection quotas as documented in the `quota` block below. 
+     * The Job collection quotas as documented in the `quota` block below.
      */
     readonly quotas: { maxJobCount: number, maxRecurrenceFrequency: string, maxRecurrenceInterval: number, maxRetryInterval: number }[];
     /**
-     * The Job Collection's pricing level's SKU. 
+     * The Job Collection's pricing level's SKU.
      */
     readonly sku: string;
     /**
-     * The Job Collection's state. 
+     * The Job Collection's state.
      */
     readonly state: string;
     /**

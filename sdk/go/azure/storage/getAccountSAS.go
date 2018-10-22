@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to create a Shared Access Signature (SAS) for an Azure Storage Account.
+// Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
 // 
 // Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
 // 
@@ -44,7 +44,7 @@ type GetAccountSASArgs struct {
 	HttpsOnly interface{}
 	// A `permissions` block as defined below.
 	Permissions interface{}
-	// A `resource_types` block as defined below. 
+	// A `resource_types` block as defined below.
 	ResourceTypes interface{}
 	// A `services` block as defined below.
 	Services interface{}
@@ -54,7 +54,7 @@ type GetAccountSASArgs struct {
 
 // A collection of values returned by getAccountSAS.
 type GetAccountSASResult struct {
-	// The computed Account Shared Access Signature (SAS). 
+	// The computed Account Shared Access Signature (SAS).
 	Sas interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

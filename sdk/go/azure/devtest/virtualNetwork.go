@@ -28,12 +28,14 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 		inputs["labName"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["subnet"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["labName"] = args.LabName
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["subnet"] = args.Subnet
 		inputs["tags"] = args.Tags
 	}
 	inputs["uniqueIdentifier"] = nil
@@ -54,6 +56,7 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 		inputs["labName"] = state.LabName
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["subnet"] = state.Subnet
 		inputs["tags"] = state.Tags
 		inputs["uniqueIdentifier"] = state.UniqueIdentifier
 	}
@@ -84,7 +87,7 @@ func (r *VirtualNetwork) LabName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["labName"])
 }
 
-// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
+// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
 func (r *VirtualNetwork) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -92,6 +95,11 @@ func (r *VirtualNetwork) Name() *pulumi.StringOutput {
 // The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 func (r *VirtualNetwork) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+}
+
+// A `subnet` block as defined below.
+func (r *VirtualNetwork) Subnet() *pulumi.Output {
+	return r.s.State["subnet"]
 }
 
 // A mapping of tags to assign to the resource.
@@ -110,10 +118,12 @@ type VirtualNetworkState struct {
 	Description interface{}
 	// Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
 	LabName interface{}
-	// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
+	// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `subnet` block as defined below.
+	Subnet interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The unique immutable identifier of the Dev Test Virtual Network.
@@ -126,10 +136,12 @@ type VirtualNetworkArgs struct {
 	Description interface{}
 	// Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
 	LabName interface{}
-	// Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
+	// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `subnet` block as defined below.
+	Subnet interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

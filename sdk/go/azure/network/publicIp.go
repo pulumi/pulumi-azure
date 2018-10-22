@@ -29,6 +29,7 @@ func NewPublicIp(ctx *pulumi.Context,
 	if args == nil {
 		inputs["domainNameLabel"] = nil
 		inputs["idleTimeoutInMinutes"] = nil
+		inputs["ipVersion"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["publicIpAddressAllocation"] = nil
@@ -40,6 +41,7 @@ func NewPublicIp(ctx *pulumi.Context,
 	} else {
 		inputs["domainNameLabel"] = args.DomainNameLabel
 		inputs["idleTimeoutInMinutes"] = args.IdleTimeoutInMinutes
+		inputs["ipVersion"] = args.IpVersion
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["publicIpAddressAllocation"] = args.PublicIpAddressAllocation
@@ -68,6 +70,7 @@ func GetPublicIp(ctx *pulumi.Context,
 		inputs["fqdn"] = state.Fqdn
 		inputs["idleTimeoutInMinutes"] = state.IdleTimeoutInMinutes
 		inputs["ipAddress"] = state.IpAddress
+		inputs["ipVersion"] = state.IpVersion
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["publicIpAddressAllocation"] = state.PublicIpAddressAllocation
@@ -112,6 +115,11 @@ func (r *PublicIp) IdleTimeoutInMinutes() *pulumi.IntOutput {
 // The IP address value that was allocated.
 func (r *PublicIp) IpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
+}
+
+// The IP Version to use, IPv6 or IPv4.
+func (r *PublicIp) IpVersion() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["ipVersion"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -166,6 +174,8 @@ type PublicIpState struct {
 	IdleTimeoutInMinutes interface{}
 	// The IP address value that was allocated.
 	IpAddress interface{}
+	// The IP Version to use, IPv6 or IPv4.
+	IpVersion interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Public IP resource . Changing this forces a
@@ -192,6 +202,8 @@ type PublicIpArgs struct {
 	DomainNameLabel interface{}
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
 	IdleTimeoutInMinutes interface{}
+	// The IP Version to use, IPv6 or IPv4.
+	IpVersion interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Public IP resource . Changing this forces a

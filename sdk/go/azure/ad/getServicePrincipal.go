@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Gets information about a Service Principal associated with an Application within Azure Active Directory.
+// Gets information about an existing Service Principal associated with an Application within Azure Active Directory.
 // 
 // -> **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
 func LookupServicePrincipal(ctx *pulumi.Context, args *GetServicePrincipalArgs) (*GetServicePrincipalResult, error) {

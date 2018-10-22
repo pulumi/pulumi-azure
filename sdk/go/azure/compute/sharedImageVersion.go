@@ -138,6 +138,7 @@ func (r *SharedImageVersion) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// One or more `target_region` blocks as documented below.
 func (r *SharedImageVersion) TargetRegions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["targetRegions"])
 }
@@ -160,6 +161,7 @@ type SharedImageVersionState struct {
 	ResourceGroupName interface{}
 	// A collection of tags which should be applied to this resource.
 	Tags interface{}
+	// One or more `target_region` blocks as documented below.
 	TargetRegions interface{}
 }
 
@@ -181,5 +183,6 @@ type SharedImageVersionArgs struct {
 	ResourceGroupName interface{}
 	// A collection of tags which should be applied to this resource.
 	Tags interface{}
+	// One or more `target_region` blocks as documented below.
 	TargetRegions interface{}
 }

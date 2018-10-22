@@ -15,7 +15,7 @@ class GetVaultResult(object):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
-        The Azure location where the resource resides. 
+        The Azure location where the resource resides.
         """
         if sku and not isinstance(sku, basestring):
             raise TypeError('Expected argument sku to be a basestring')
@@ -38,7 +38,7 @@ class GetVaultResult(object):
 
 def get_vault(name=None, resource_group_name=None):
     """
-    Use this data source to access the properties of a Recovery Services Vault.
+    Use this data source to access information about an existing Recovery Services Vault.
     """
     __args__ = dict()
 

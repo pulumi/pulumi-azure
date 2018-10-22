@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Allows you to manage an Azure Search Service
+ * Allows you to manage an Azure Search Service.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -33,6 +33,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly partitionCount: pulumi.Output<number>;
     /**
+     * The Search Service Administration primary key.
+     */
+    public /*out*/ readonly primaryKey: pulumi.Output<string>;
+    /**
      * Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
      */
     public readonly replicaCount: pulumi.Output<number>;
@@ -40,6 +44,10 @@ export class Service extends pulumi.CustomResource {
      * The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * The Search Service Administration secondary key.
+     */
+    public /*out*/ readonly secondaryKey: pulumi.Output<string>;
     /**
      * Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
      */
@@ -64,8 +72,10 @@ export class Service extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionCount"] = state ? state.partitionCount : undefined;
+            inputs["primaryKey"] = state ? state.primaryKey : undefined;
             inputs["replicaCount"] = state ? state.replicaCount : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -86,6 +96,8 @@ export class Service extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["primaryKey"] = undefined /*out*/;
+            inputs["secondaryKey"] = undefined /*out*/;
         }
         super("azure:search/service:Service", name, inputs, opts);
     }
@@ -108,6 +120,10 @@ export interface ServiceState {
      */
     readonly partitionCount?: pulumi.Input<number>;
     /**
+     * The Search Service Administration primary key.
+     */
+    readonly primaryKey?: pulumi.Input<string>;
+    /**
      * Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
      */
     readonly replicaCount?: pulumi.Input<number>;
@@ -115,6 +131,10 @@ export interface ServiceState {
      * The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The Search Service Administration secondary key.
+     */
+    readonly secondaryKey?: pulumi.Input<string>;
     /**
      * Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
      */

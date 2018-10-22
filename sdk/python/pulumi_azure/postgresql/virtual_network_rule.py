@@ -12,7 +12,7 @@ class VirtualNetworkRule(pulumi.CustomResource):
     
     -> **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-vnet)
     """
-    def __init__(__self__, __name__, __opts__=None, name=None, resource_group_name=None, server_name=None, subnet_id=None):
+    def __init__(__self__, __name__, __opts__=None, ignore_missing_vnet_service_endpoint=None, name=None, resource_group_name=None, server_name=None, subnet_id=None):
         """Create a VirtualNetworkRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -22,6 +22,14 @@ class VirtualNetworkRule(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        if ignore_missing_vnet_service_endpoint and not isinstance(ignore_missing_vnet_service_endpoint, bool):
+            raise TypeError('Expected property ignore_missing_vnet_service_endpoint to be a bool')
+        __self__.ignore_missing_vnet_service_endpoint = ignore_missing_vnet_service_endpoint
+        """
+        Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+        """
+        __props__['ignoreMissingVnetServiceEndpoint'] = ignore_missing_vnet_service_endpoint
 
         if name and not isinstance(name, basestring):
             raise TypeError('Expected property name to be a basestring')
@@ -68,6 +76,8 @@ class VirtualNetworkRule(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'ignoreMissingVnetServiceEndpoint' in outs:
+            self.ignore_missing_vnet_service_endpoint = outs['ignoreMissingVnetServiceEndpoint']
         if 'name' in outs:
             self.name = outs['name']
         if 'resourceGroupName' in outs:

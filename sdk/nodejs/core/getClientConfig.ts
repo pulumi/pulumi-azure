@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the configuration of the Azure Resource Manager
- * provider.
+ * Use this data source to access the configuration of the AzureRM provider.
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
     return pulumi.runtime.invoke("azure:core/getClientConfig:getClientConfig", {

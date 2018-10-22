@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Gets information about a Key Vault.
+// Use this data source to access information about an existing Key Vault.
 func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -24,6 +24,7 @@ func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultRes
 		EnabledForDiskEncryption: outputs["enabledForDiskEncryption"],
 		EnabledForTemplateDeployment: outputs["enabledForTemplateDeployment"],
 		Location: outputs["location"],
+		NetworkAcls: outputs["networkAcls"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		TenantId: outputs["tenantId"],
@@ -52,6 +53,7 @@ type GetKeyVaultResult struct {
 	EnabledForTemplateDeployment interface{}
 	// The Azure Region in which the Key Vault exists.
 	Location interface{}
+	NetworkAcls interface{}
 	// A `sku` block as described below.
 	Sku interface{}
 	// A mapping of tags assigned to the Key Vault.

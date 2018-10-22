@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to create a Shared Access Signature (SAS) for an Azure Storage Account.
+ * Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
  * 
  * Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
  * 
@@ -45,7 +45,7 @@ export interface GetAccountSASArgs {
      */
     readonly permissions: { add: boolean, create: boolean, delete: boolean, list: boolean, process: boolean, read: boolean, update: boolean, write: boolean };
     /**
-     * A `resource_types` block as defined below. 
+     * A `resource_types` block as defined below.
      */
     readonly resourceTypes: { container: boolean, object: boolean, service: boolean };
     /**
@@ -63,7 +63,7 @@ export interface GetAccountSASArgs {
  */
 export interface GetAccountSASResult {
     /**
-     * The computed Account Shared Access Signature (SAS). 
+     * The computed Account Shared Access Signature (SAS).
      */
     readonly sas: string;
     /**

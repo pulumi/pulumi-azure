@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of an existing Azure Public IP Address.
+ * Use this data source to access information about an existing Public IP Address.
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
     return pulumi.runtime.invoke("azure:network/getPublicIP:getPublicIP", {
@@ -50,6 +50,10 @@ export interface GetPublicIPResult {
      * The IP address value that was allocated.
      */
     readonly ipAddress: string;
+    /**
+     * The IP version being used, for example `IPv4` or `IPv6`.
+     */
+    readonly ipVersion: string;
     /**
      * A mapping of tags to assigned to the resource.
      */

@@ -4,5 +4,8 @@
 
 # Export this package's modules as members:
 from lab import *
+from linux_virtual_machine import *
+from policy import *
 from virtual_network import *
+from windows_virtual_machine import *
 from get_lab import *

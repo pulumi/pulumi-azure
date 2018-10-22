@@ -8,7 +8,7 @@ from .. import utilities
 
 class Service(pulumi.CustomResource):
     """
-    Allows you to manage an Azure Search Service
+    Allows you to manage an Azure Search Service.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, partition_count=None, replica_count=None, resource_group_name=None, sku=None, tags=None):
         """Create a Service resource with the given unique name, props, and options."""
@@ -83,6 +83,15 @@ class Service(pulumi.CustomResource):
         """
         __props__['tags'] = tags
 
+        __self__.primary_key = pulumi.runtime.UNKNOWN
+        """
+        The Search Service Administration primary key.
+        """
+        __self__.secondary_key = pulumi.runtime.UNKNOWN
+        """
+        The Search Service Administration secondary key.
+        """
+
         super(Service, __self__).__init__(
             'azure:search/service:Service',
             __name__,
@@ -96,10 +105,14 @@ class Service(pulumi.CustomResource):
             self.name = outs['name']
         if 'partitionCount' in outs:
             self.partition_count = outs['partitionCount']
+        if 'primaryKey' in outs:
+            self.primary_key = outs['primaryKey']
         if 'replicaCount' in outs:
             self.replica_count = outs['replicaCount']
         if 'resourceGroupName' in outs:
             self.resource_group_name = outs['resourceGroupName']
+        if 'secondaryKey' in outs:
+            self.secondary_key = outs['secondaryKey']
         if 'sku' in outs:
             self.sku = outs['sku']
         if 'tags' in outs:

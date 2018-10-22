@@ -47,7 +47,7 @@ export class ScaleSet extends pulumi.CustomResource {
     /**
      * A collection of network profile block as documented below.
      */
-    public readonly networkProfiles: pulumi.Output<{ acceleratedNetworking?: boolean, dnsSettings?: { dnsServers: string[] }, ipConfigurations: { applicationGatewayBackendAddressPoolIds?: string[], loadBalancerBackendAddressPoolIds?: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary?: boolean, publicIpAddressConfiguration?: { domainNameLabel: string, idleTimeout: number, name: string }, subnetId: string }[], ipForwarding?: boolean, name: string, networkSecurityGroupId?: string, primary: boolean }[]>;
+    public readonly networkProfiles: pulumi.Output<{ acceleratedNetworking?: boolean, dnsSettings?: { dnsServers: string[] }, ipConfigurations: { applicationGatewayBackendAddressPoolIds?: string[], loadBalancerBackendAddressPoolIds?: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, publicIpAddressConfiguration?: { domainNameLabel: string, idleTimeout: number, name: string }, subnetId: string }[], ipForwarding?: boolean, name: string, networkSecurityGroupId?: string, primary: boolean }[]>;
     /**
      * A Virtual Machine OS Profile block as documented below.
      */
@@ -228,7 +228,7 @@ export interface ScaleSetState {
     /**
      * A collection of network profile block as documented below.
      */
-    readonly networkProfiles?: pulumi.Input<pulumi.Input<{ acceleratedNetworking?: pulumi.Input<boolean>, dnsSettings?: pulumi.Input<{ dnsServers: pulumi.Input<pulumi.Input<string>[]> }>, ipConfigurations: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, publicIpAddressConfiguration?: pulumi.Input<{ domainNameLabel: pulumi.Input<string>, idleTimeout: pulumi.Input<number>, name: pulumi.Input<string> }>, subnetId: pulumi.Input<string> }>[]>, ipForwarding?: pulumi.Input<boolean>, name: pulumi.Input<string>, networkSecurityGroupId?: pulumi.Input<string>, primary: pulumi.Input<boolean> }>[]>;
+    readonly networkProfiles?: pulumi.Input<pulumi.Input<{ acceleratedNetworking?: pulumi.Input<boolean>, dnsSettings?: pulumi.Input<{ dnsServers: pulumi.Input<pulumi.Input<string>[]> }>, ipConfigurations: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary: pulumi.Input<boolean>, publicIpAddressConfiguration?: pulumi.Input<{ domainNameLabel: pulumi.Input<string>, idleTimeout: pulumi.Input<number>, name: pulumi.Input<string> }>, subnetId: pulumi.Input<string> }>[]>, ipForwarding?: pulumi.Input<boolean>, name: pulumi.Input<string>, networkSecurityGroupId?: pulumi.Input<string>, primary: pulumi.Input<boolean> }>[]>;
     /**
      * A Virtual Machine OS Profile block as documented below.
      */
@@ -324,7 +324,7 @@ export interface ScaleSetArgs {
     /**
      * A collection of network profile block as documented below.
      */
-    readonly networkProfiles: pulumi.Input<pulumi.Input<{ acceleratedNetworking?: pulumi.Input<boolean>, dnsSettings?: pulumi.Input<{ dnsServers: pulumi.Input<pulumi.Input<string>[]> }>, ipConfigurations: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, publicIpAddressConfiguration?: pulumi.Input<{ domainNameLabel: pulumi.Input<string>, idleTimeout: pulumi.Input<number>, name: pulumi.Input<string> }>, subnetId: pulumi.Input<string> }>[]>, ipForwarding?: pulumi.Input<boolean>, name: pulumi.Input<string>, networkSecurityGroupId?: pulumi.Input<string>, primary: pulumi.Input<boolean> }>[]>;
+    readonly networkProfiles: pulumi.Input<pulumi.Input<{ acceleratedNetworking?: pulumi.Input<boolean>, dnsSettings?: pulumi.Input<{ dnsServers: pulumi.Input<pulumi.Input<string>[]> }>, ipConfigurations: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary: pulumi.Input<boolean>, publicIpAddressConfiguration?: pulumi.Input<{ domainNameLabel: pulumi.Input<string>, idleTimeout: pulumi.Input<number>, name: pulumi.Input<string> }>, subnetId: pulumi.Input<string> }>[]>, ipForwarding?: pulumi.Input<boolean>, name: pulumi.Input<string>, networkSecurityGroupId?: pulumi.Input<string>, primary: pulumi.Input<boolean> }>[]>;
     /**
      * A Virtual Machine OS Profile block as documented below.
      */

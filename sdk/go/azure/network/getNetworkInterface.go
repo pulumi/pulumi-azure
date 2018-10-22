@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure Network Interface.
+// Use this data source to access information about an existing Network Interface.
 func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) (*GetNetworkInterfaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

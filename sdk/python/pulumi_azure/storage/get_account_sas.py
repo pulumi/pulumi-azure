@@ -15,7 +15,7 @@ class GetAccountSASResult(object):
             raise TypeError('Expected argument sas to be a basestring')
         __self__.sas = sas
         """
-        The computed Account Shared Access Signature (SAS). 
+        The computed Account Shared Access Signature (SAS).
         """
         if id and not isinstance(id, basestring):
             raise TypeError('Expected argument id to be a basestring')
@@ -26,7 +26,7 @@ class GetAccountSASResult(object):
 
 def get_account_sas(connection_string=None, expiry=None, https_only=None, permissions=None, resource_types=None, services=None, start=None):
     """
-    Use this data source to create a Shared Access Signature (SAS) for an Azure Storage Account.
+    Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
     
     Shared access signatures allow fine-grained, ephemeral access control to various aspects of an Azure Storage Account.
     

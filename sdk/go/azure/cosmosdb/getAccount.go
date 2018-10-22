@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure CosmosDB (formally DocumentDB) Account.
+// Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
 func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -43,9 +43,9 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 
 // A collection of arguments for invoking getAccount.
 type GetAccountArgs struct {
-	// Specifies the name of the CosmosDB Account. 
+	// Specifies the name of the CosmosDB Account.
 	Name interface{}
-	// Specifies the name of the resource group in which the CosmosDB Account resides. 
+	// Specifies the name of the resource group in which the CosmosDB Account resides.
 	ResourceGroupName interface{}
 }
 
