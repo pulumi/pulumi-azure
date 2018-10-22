@@ -184,7 +184,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_azuread_service_principal":          {Tok: azureResource(azureAD, "ServicePrincipal")},
 			"azurerm_azuread_service_principal_password": {Tok: azureResource(azureAD, "ServicePrincipalPassword")},
 
-			// AppInsights
+			// API Mannagement
 			"azurerm_api_management": {Tok: azureResource(azureAPIManagement, "API")},
 
 			// AppInsights
