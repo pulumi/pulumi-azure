@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from api import *
+from get_api import *

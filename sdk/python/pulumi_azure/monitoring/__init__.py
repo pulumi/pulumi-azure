@@ -8,3 +8,4 @@ from action_group import *
 from activity_log_alert import *
 from log_profile import *
 from metric_alert import *
+from get_log_profile import *

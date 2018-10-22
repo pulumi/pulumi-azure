@@ -568,13 +568,20 @@ func Provider() tfbridge.ProviderInfo {
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_azuread_application":       {Tok: azureDataSource(azureAD, "getApplication")},
 			"azurerm_azuread_service_principal": {Tok: azureDataSource(azureAD, "getServicePrincipal")},
-			// "azurerm_api_management":            {Tok: azureDataSource(azureAPIManagement, "getAPI")},
+			"azurerm_api_management": {
+				Tok: azureDataSource(azureAPIManagement, "getAPI"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Ensure "sku" is a singleton
+					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+				},
+			},
 			"azurerm_app_service": {
 				Tok: azureDataSource(azureAppService, "getAppService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
-				}},
+				},
+			},
 			"azurerm_app_service_plan": {
 				Tok: azureDataSource(azureAppService, "getAppServicePlan"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -597,8 +604,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_workspace": {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
 			"azurerm_logic_app_workflow":      {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
 			"azurerm_management_group":        {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
-			// "azurerm_monitor_log_profile":     {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
-			"azurerm_dns_zone": {Tok: azureDataSource(azureDNS, "getZone")},
+			"azurerm_monitor_log_profile":     {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
+			"azurerm_dns_zone":                {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
 				Fields: map[string]*tfbridge.SchemaInfo{

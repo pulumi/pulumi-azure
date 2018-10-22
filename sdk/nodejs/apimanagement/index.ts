@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./aPI";
+export * from "./getAPI";
