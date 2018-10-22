@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to obtain information about an EventHub Namespace.
+// Use this data source to access information about an existing EventHub Namespace.
 func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs) (*GetEventhubNamespaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

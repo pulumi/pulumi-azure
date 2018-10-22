@@ -15,25 +15,25 @@ class GetJobCollectionResult(object):
             raise TypeError('Expected argument location to be a basestring')
         __self__.location = location
         """
-        The Azure location where the resource exists. 
+        The Azure location where the resource exists.
         """
         if quotas and not isinstance(quotas, list):
             raise TypeError('Expected argument quotas to be a list')
         __self__.quotas = quotas
         """
-        The Job collection quotas as documented in the `quota` block below. 
+        The Job collection quotas as documented in the `quota` block below.
         """
         if sku and not isinstance(sku, basestring):
             raise TypeError('Expected argument sku to be a basestring')
         __self__.sku = sku
         """
-        The Job Collection's pricing level's SKU. 
+        The Job Collection's pricing level's SKU.
         """
         if state and not isinstance(state, basestring):
             raise TypeError('Expected argument state to be a basestring')
         __self__.state = state
         """
-        The Job Collection's state. 
+        The Job Collection's state.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
@@ -50,7 +50,7 @@ class GetJobCollectionResult(object):
 
 def get_job_collection(name=None, resource_group_name=None):
     """
-    Use this data source to access the properties of an Azure scheduler job collection.
+    Use this data source to access information about an existing Scheduler Job Collection.
     """
     __args__ = dict()
 

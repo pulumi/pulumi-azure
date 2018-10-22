@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of an existing Azure Managed Disk.
+ * Use this data source to access information about an existing Managed Disk.
  */
 export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> {
     return pulumi.runtime.invoke("azure:compute/getManagedDisk:getManagedDisk", {

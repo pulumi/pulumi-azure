@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure resource group.
+// Use this data source to access information about an existing Resource Group.
 func LookupResourceGroup(ctx *pulumi.Context, args *GetResourceGroupArgs) (*GetResourceGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

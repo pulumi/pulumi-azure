@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access information about a CDN Profile.
+// Use this data source to access information about an existing CDN Profile.
 func LookupProfile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

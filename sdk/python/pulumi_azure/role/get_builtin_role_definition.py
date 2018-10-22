@@ -44,7 +44,7 @@ class GetBuiltinRoleDefinitionResult(object):
 
 def get_builtin_role_definition(name=None):
     """
-    Use this data source to access the properties of a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.
+    Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.
     """
     __args__ = dict()
 

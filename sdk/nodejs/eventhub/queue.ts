@@ -64,6 +64,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly lockDuration: pulumi.Output<string>;
     /**
+     * Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+     */
+    public readonly maxDeliveryCount: pulumi.Output<number | undefined>;
+    /**
      * Integer value which controls the size of
      * memory allocated for the queue. For supported values see the "Queue/topic size"
      * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -86,7 +90,7 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly requiresDuplicateDetection: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean flag which controls whether the Queue requires sessions. 
+     * Boolean flag which controls whether the Queue requires sessions.
      * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
      * a queue can guarantee first-in-first-out delivery of messages.
      * Changing this forces a new resource to be created. Defaults to `false`.
@@ -120,6 +124,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["lockDuration"] = state ? state.lockDuration : undefined;
+            inputs["maxDeliveryCount"] = state ? state.maxDeliveryCount : undefined;
             inputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["namespaceName"] = state ? state.namespaceName : undefined;
@@ -144,6 +149,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["lockDuration"] = args ? args.lockDuration : undefined;
+            inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             inputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
@@ -204,6 +210,10 @@ export interface QueueState {
      */
     readonly lockDuration?: pulumi.Input<string>;
     /**
+     * Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+     */
+    readonly maxDeliveryCount?: pulumi.Input<number>;
+    /**
      * Integer value which controls the size of
      * memory allocated for the queue. For supported values see the "Queue/topic size"
      * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -226,7 +236,7 @@ export interface QueueState {
      */
     readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether the Queue requires sessions. 
+     * Boolean flag which controls whether the Queue requires sessions.
      * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
      * a queue can guarantee first-in-first-out delivery of messages.
      * Changing this forces a new resource to be created. Defaults to `false`.
@@ -288,6 +298,10 @@ export interface QueueArgs {
      */
     readonly lockDuration?: pulumi.Input<string>;
     /**
+     * Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+     */
+    readonly maxDeliveryCount?: pulumi.Input<number>;
+    /**
      * Integer value which controls the size of
      * memory allocated for the queue. For supported values see the "Queue/topic size"
      * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -310,7 +324,7 @@ export interface QueueArgs {
      */
     readonly requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
-     * Boolean flag which controls whether the Queue requires sessions. 
+     * Boolean flag which controls whether the Queue requires sessions.
      * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
      * a queue can guarantee first-in-first-out delivery of messages.
      * Changing this forces a new resource to be created. Defaults to `false`.

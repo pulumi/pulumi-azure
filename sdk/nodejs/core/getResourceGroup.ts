@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of an Azure resource group.
+ * Use this data source to access information about an existing Resource Group.
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
     return pulumi.runtime.invoke("azure:core/getResourceGroup:getResourceGroup", {

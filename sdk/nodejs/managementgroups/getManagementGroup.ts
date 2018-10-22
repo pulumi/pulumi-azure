@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of a Management Group.
+ * Use this data source to access information about an existing Management Group.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {

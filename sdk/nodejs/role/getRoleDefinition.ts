@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of a custom Role Definition. To access information about a built-in Role Definition, please see the `azurerm_builtin_role_definition` data source instead.
+ * Use this data source to access information about an existing Custom Role Definition. To access information about a built-in Role Definition, please see the `azurerm_builtin_role_definition` data source instead.
  */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     return pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
@@ -44,7 +44,7 @@ export interface GetRoleDefinitionResult {
     /**
      * a `permissions` block as documented below.
      */
-    readonly permissions: { actions: string[], notActions: string[] }[];
+    readonly permissions: { actions: string[], dataActions?: string[], notActions: string[], notDataActions?: string[] }[];
     /**
      * the Type of the Role.
      */

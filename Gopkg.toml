@@ -192,7 +192,7 @@
 
 [[override]]
   name = "github.com/hashicorp/terraform"
-  revision = "dc8036636ae76c7a7d1a7bd4e0ee09686a216a3b"
+  revision = "c96155cc68b1da43e49893ddc19a609f0085af19"
   [override.metadata]
     govendor-overriden=true
 

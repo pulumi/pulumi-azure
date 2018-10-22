@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of a Management Group.
+// Use this data source to access information about an existing Management Group.
 func LookupManagementGroup(ctx *pulumi.Context, args *GetManagementGroupArgs) (*GetManagementGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

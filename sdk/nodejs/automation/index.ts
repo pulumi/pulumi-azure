@@ -4,5 +4,8 @@
 // Export members:
 export * from "./account";
 export * from "./credential";
+export * from "./dscConfiguration";
+export * from "./dscNodeConfiguration";
+export * from "./module";
 export * from "./runBook";
 export * from "./schedule";

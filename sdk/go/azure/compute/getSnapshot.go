@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of a Snapshot of an Disk.
+// Use this data source to access information about an existing Snapshot.
 func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

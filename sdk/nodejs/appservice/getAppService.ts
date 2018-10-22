@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to obtain information about an App Service.
+ * Use this data source to access information about an existing App Service.
  */
 export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {
     return pulumi.runtime.invoke("azure:appservice/getAppService:getAppService", {

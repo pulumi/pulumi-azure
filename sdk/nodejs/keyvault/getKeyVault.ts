@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about a Key Vault.
+ * Use this data source to access information about an existing Key Vault.
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
     return pulumi.runtime.invoke("azure:keyvault/getKeyVault:getKeyVault", {
@@ -52,6 +52,7 @@ export interface GetKeyVaultResult {
      * The Azure Region in which the Key Vault exists.
      */
     readonly location: string;
+    readonly networkAcls: { bypass: string, defaultAction: string, ipRules: string[], virtualNetworkSubnetIds: string[] }[];
     /**
      * A `sku` block as described below.
      */

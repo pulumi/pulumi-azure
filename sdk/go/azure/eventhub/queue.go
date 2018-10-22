@@ -33,6 +33,7 @@ func NewQueue(ctx *pulumi.Context,
 		inputs["enablePartitioning"] = nil
 		inputs["location"] = nil
 		inputs["lockDuration"] = nil
+		inputs["maxDeliveryCount"] = nil
 		inputs["maxSizeInMegabytes"] = nil
 		inputs["name"] = nil
 		inputs["namespaceName"] = nil
@@ -50,6 +51,7 @@ func NewQueue(ctx *pulumi.Context,
 		inputs["enablePartitioning"] = args.EnablePartitioning
 		inputs["location"] = args.Location
 		inputs["lockDuration"] = args.LockDuration
+		inputs["maxDeliveryCount"] = args.MaxDeliveryCount
 		inputs["maxSizeInMegabytes"] = args.MaxSizeInMegabytes
 		inputs["name"] = args.Name
 		inputs["namespaceName"] = args.NamespaceName
@@ -80,6 +82,7 @@ func GetQueue(ctx *pulumi.Context,
 		inputs["enablePartitioning"] = state.EnablePartitioning
 		inputs["location"] = state.Location
 		inputs["lockDuration"] = state.LockDuration
+		inputs["maxDeliveryCount"] = state.MaxDeliveryCount
 		inputs["maxSizeInMegabytes"] = state.MaxSizeInMegabytes
 		inputs["name"] = state.Name
 		inputs["namespaceName"] = state.NamespaceName
@@ -159,6 +162,11 @@ func (r *Queue) LockDuration() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["lockDuration"])
 }
 
+// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+func (r *Queue) MaxDeliveryCount() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["maxDeliveryCount"])
+}
+
 // Integer value which controls the size of
 // memory allocated for the queue. For supported values see the "Queue/topic size"
 // section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -185,7 +193,7 @@ func (r *Queue) RequiresDuplicateDetection() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["requiresDuplicateDetection"])
 }
 
-// Boolean flag which controls whether the Queue requires sessions. 
+// Boolean flag which controls whether the Queue requires sessions.
 // This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
 // a queue can guarantee first-in-first-out delivery of messages.
 // Changing this forces a new resource to be created. Defaults to `false`.
@@ -232,6 +240,8 @@ type QueueState struct {
 	Location interface{}
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
 	LockDuration interface{}
+	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+	MaxDeliveryCount interface{}
 	// Integer value which controls the size of
 	// memory allocated for the queue. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -246,7 +256,7 @@ type QueueState struct {
 	// the Queue requires duplicate detection. Changing this forces
 	// a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection interface{}
-	// Boolean flag which controls whether the Queue requires sessions. 
+	// Boolean flag which controls whether the Queue requires sessions.
 	// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
 	// a queue can guarantee first-in-first-out delivery of messages.
 	// Changing this forces a new resource to be created. Defaults to `false`.
@@ -286,6 +296,8 @@ type QueueArgs struct {
 	Location interface{}
 	// The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
 	LockDuration interface{}
+	// Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+	MaxDeliveryCount interface{}
 	// Integer value which controls the size of
 	// memory allocated for the queue. For supported values see the "Queue/topic size"
 	// section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
@@ -300,7 +312,7 @@ type QueueArgs struct {
 	// the Queue requires duplicate detection. Changing this forces
 	// a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection interface{}
-	// Boolean flag which controls whether the Queue requires sessions. 
+	// Boolean flag which controls whether the Queue requires sessions.
 	// This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
 	// a queue can guarantee first-in-first-out delivery of messages.
 	// Changing this forces a new resource to be created. Defaults to `false`.

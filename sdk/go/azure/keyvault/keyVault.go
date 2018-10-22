@@ -38,6 +38,7 @@ func NewKeyVault(ctx *pulumi.Context,
 		inputs["enabledForTemplateDeployment"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
+		inputs["networkAcls"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
@@ -49,6 +50,7 @@ func NewKeyVault(ctx *pulumi.Context,
 		inputs["enabledForTemplateDeployment"] = args.EnabledForTemplateDeployment
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
+		inputs["networkAcls"] = args.NetworkAcls
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
@@ -74,6 +76,7 @@ func GetKeyVault(ctx *pulumi.Context,
 		inputs["enabledForTemplateDeployment"] = state.EnabledForTemplateDeployment
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
+		inputs["networkAcls"] = state.NetworkAcls
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
@@ -97,47 +100,42 @@ func (r *KeyVault) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// An access policy block as described below. A maximum of 16
-// may be declared.
+// An access policy block as described below. A maximum of 16 may be declared.
 func (r *KeyVault) AccessPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["accessPolicies"])
 }
 
-// Boolean flag to specify whether Azure Virtual
-// Machines are permitted to retrieve certificates stored as secrets from the key
-// vault. Defaults to false.
+// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 func (r *KeyVault) EnabledForDeployment() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabledForDeployment"])
 }
 
-// Boolean flag to specify whether Azure
-// Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-// Defaults to false.
+// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
 func (r *KeyVault) EnabledForDiskEncryption() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabledForDiskEncryption"])
 }
 
-// Boolean flag to specify whether
-// Azure Resource Manager is permitted to retrieve secrets from the key vault.
-// Defaults to false.
+// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
 func (r *KeyVault) EnabledForTemplateDeployment() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabledForTemplateDeployment"])
 }
 
-// Specifies the supported Azure location where the resource exists.
-// Changing this forces a new resource to be created.
+// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *KeyVault) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// SKU name to specify whether the key vault is a `standard`
-// or `premium` vault.
+// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 func (r *KeyVault) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The name of the resource group in which to
-// create the Key Vault. Changing this forces a new resource to be created.
+// A `network_acls` block as defined below.
+func (r *KeyVault) NetworkAcls() *pulumi.Output {
+	return r.s.State["networkAcls"]
+}
+
+// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 func (r *KeyVault) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -152,88 +150,66 @@ func (r *KeyVault) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The Azure Active Directory tenant ID that should be used
-// for authenticating requests to the key vault. Must match the `tenant_id` used
-// above.
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (r *KeyVault) TenantId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tenantId"])
 }
 
-// The URI of the vault for performing operations on keys and secrets.
+// The URI of the Key Vault, used for performing operations on keys and secrets.
 func (r *KeyVault) VaultUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
 }
 
 // Input properties used for looking up and filtering KeyVault resources.
 type KeyVaultState struct {
-	// An access policy block as described below. A maximum of 16
-	// may be declared.
+	// An access policy block as described below. A maximum of 16 may be declared.
 	AccessPolicies interface{}
-	// Boolean flag to specify whether Azure Virtual
-	// Machines are permitted to retrieve certificates stored as secrets from the key
-	// vault. Defaults to false.
+	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment interface{}
-	// Boolean flag to specify whether Azure
-	// Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	// Defaults to false.
+	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
 	EnabledForDiskEncryption interface{}
-	// Boolean flag to specify whether
-	// Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	// Defaults to false.
+	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
 	EnabledForTemplateDeployment interface{}
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// SKU name to specify whether the key vault is a `standard`
-	// or `premium` vault.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 	Name interface{}
-	// The name of the resource group in which to
-	// create the Key Vault. Changing this forces a new resource to be created.
+	// A `network_acls` block as defined below.
+	NetworkAcls interface{}
+	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// An SKU block as described below.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The Azure Active Directory tenant ID that should be used
-	// for authenticating requests to the key vault. Must match the `tenant_id` used
-	// above.
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId interface{}
-	// The URI of the vault for performing operations on keys and secrets.
+	// The URI of the Key Vault, used for performing operations on keys and secrets.
 	VaultUri interface{}
 }
 
 // The set of arguments for constructing a KeyVault resource.
 type KeyVaultArgs struct {
-	// An access policy block as described below. A maximum of 16
-	// may be declared.
+	// An access policy block as described below. A maximum of 16 may be declared.
 	AccessPolicies interface{}
-	// Boolean flag to specify whether Azure Virtual
-	// Machines are permitted to retrieve certificates stored as secrets from the key
-	// vault. Defaults to false.
+	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment interface{}
-	// Boolean flag to specify whether Azure
-	// Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys.
-	// Defaults to false.
+	// Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
 	EnabledForDiskEncryption interface{}
-	// Boolean flag to specify whether
-	// Azure Resource Manager is permitted to retrieve secrets from the key vault.
-	// Defaults to false.
+	// Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
 	EnabledForTemplateDeployment interface{}
-	// Specifies the supported Azure location where the resource exists.
-	// Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// SKU name to specify whether the key vault is a `standard`
-	// or `premium` vault.
+	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 	Name interface{}
-	// The name of the resource group in which to
-	// create the Key Vault. Changing this forces a new resource to be created.
+	// A `network_acls` block as defined below.
+	NetworkAcls interface{}
+	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// An SKU block as described below.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The Azure Active Directory tenant ID that should be used
-	// for authenticating requests to the key vault. Must match the `tenant_id` used
-	// above.
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId interface{}
 }

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access a filtered list of Public IP Addresses
+ * Use this data source to access information about a set of existing Public IP Addresses.
  */
 export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> {
     return pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {

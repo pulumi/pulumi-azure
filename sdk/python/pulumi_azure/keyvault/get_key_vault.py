@@ -10,7 +10,7 @@ class GetKeyVaultResult(object):
     """
     A collection of values returned by getKeyVault.
     """
-    def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, sku=None, tags=None, tenant_id=None, vault_uri=None, id=None):
+    def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, network_acls=None, sku=None, tags=None, tenant_id=None, vault_uri=None, id=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError('Expected argument access_policies to be a list')
         __self__.access_policies = access_policies
@@ -41,6 +41,9 @@ class GetKeyVaultResult(object):
         """
         The Azure Region in which the Key Vault exists.
         """
+        if network_acls and not isinstance(network_acls, list):
+            raise TypeError('Expected argument network_acls to be a list')
+        __self__.network_acls = network_acls
         if sku and not isinstance(sku, dict):
             raise TypeError('Expected argument sku to be a dict')
         __self__.sku = sku
@@ -74,7 +77,7 @@ class GetKeyVaultResult(object):
 
 def get_key_vault(name=None, resource_group_name=None):
     """
-    Gets information about a Key Vault.
+    Use this data source to access information about an existing Key Vault.
     """
     __args__ = dict()
 
@@ -88,6 +91,7 @@ def get_key_vault(name=None, resource_group_name=None):
         enabled_for_disk_encryption=__ret__.get('enabledForDiskEncryption'),
         enabled_for_template_deployment=__ret__.get('enabledForTemplateDeployment'),
         location=__ret__.get('location'),
+        network_acls=__ret__.get('networkAcls'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         tenant_id=__ret__.get('tenantId'),

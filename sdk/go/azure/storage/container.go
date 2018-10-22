@@ -71,7 +71,7 @@ func (r *Container) ID() *pulumi.IDOutput {
 	return r.s.ID
 }
 
-// The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`. Changing this forces a new resource to be created.
+// The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
 func (r *Container) ContainerAccessType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["containerAccessType"])
 }
@@ -100,7 +100,7 @@ func (r *Container) StorageAccountName() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Container resources.
 type ContainerState struct {
-	// The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`. Changing this forces a new resource to be created.
+	// The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
 	ContainerAccessType interface{}
 	// The name of the storage container. Must be unique within the storage service the container is located.
 	Name interface{}
@@ -116,7 +116,7 @@ type ContainerState struct {
 
 // The set of arguments for constructing a Container resource.
 type ContainerArgs struct {
-	// The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`. Changing this forces a new resource to be created.
+	// The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
 	ContainerAccessType interface{}
 	// The name of the storage container. Must be unique within the storage service the container is located.
 	Name interface{}

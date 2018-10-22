@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access a filtered list of Public IP Addresses
+// Use this data source to access information about a set of existing Public IP Addresses.
 func LookupPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs) (*GetPublicIPsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

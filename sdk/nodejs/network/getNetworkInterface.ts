@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of an Azure Network Interface.
+ * Use this data source to access information about an existing Network Interface.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     return pulumi.runtime.invoke("azure:network/getNetworkInterface:getNetworkInterface", {

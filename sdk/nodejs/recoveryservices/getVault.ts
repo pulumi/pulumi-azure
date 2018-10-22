@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access the properties of a Recovery Services Vault.
+ * Use this data source to access information about an existing Recovery Services Vault.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
     return pulumi.runtime.invoke("azure:recoveryservices/getVault:getVault", {
@@ -19,7 +19,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
  */
 export interface GetVaultArgs {
     /**
-     * Specifies the name of the Recovery Services Vault. 
+     * Specifies the name of the Recovery Services Vault.
      */
     readonly name: string;
     /**
@@ -33,7 +33,7 @@ export interface GetVaultArgs {
  */
 export interface GetVaultResult {
     /**
-     * The Azure location where the resource resides. 
+     * The Azure location where the resource resides.
      */
     readonly location: string;
     /**

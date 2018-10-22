@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Allows you to manage an Azure Search Service
+// Allows you to manage an Azure Search Service.
 type Service struct {
 	s *pulumi.ResourceState
 }
@@ -43,6 +43,8 @@ func NewService(ctx *pulumi.Context,
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
 	}
+	inputs["primaryKey"] = nil
+	inputs["secondaryKey"] = nil
 	s, err := ctx.RegisterResource("azure:search/service:Service", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,8 +61,10 @@ func GetService(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["partitionCount"] = state.PartitionCount
+		inputs["primaryKey"] = state.PrimaryKey
 		inputs["replicaCount"] = state.ReplicaCount
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["secondaryKey"] = state.SecondaryKey
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
 	}
@@ -96,6 +100,11 @@ func (r *Service) PartitionCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["partitionCount"])
 }
 
+// The Search Service Administration primary key.
+func (r *Service) PrimaryKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryKey"])
+}
+
 // Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
 func (r *Service) ReplicaCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["replicaCount"])
@@ -104,6 +113,11 @@ func (r *Service) ReplicaCount() *pulumi.IntOutput {
 // The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
 func (r *Service) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+}
+
+// The Search Service Administration secondary key.
+func (r *Service) SecondaryKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
 // Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
@@ -124,10 +138,14 @@ type ServiceState struct {
 	Name interface{}
 	// Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
 	PartitionCount interface{}
+	// The Search Service Administration primary key.
+	PrimaryKey interface{}
 	// Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
 	ReplicaCount interface{}
 	// The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The Search Service Administration secondary key.
+	SecondaryKey interface{}
 	// Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
 	Sku interface{}
 	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.

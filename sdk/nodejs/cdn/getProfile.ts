@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about a CDN Profile.
+ * Use this data source to access information about an existing CDN Profile.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     return pulumi.runtime.invoke("azure:cdn/getProfile:getProfile", {

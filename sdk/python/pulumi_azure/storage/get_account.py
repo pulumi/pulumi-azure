@@ -179,7 +179,7 @@ class GetAccountResult(object):
 
 def get_account(name=None, resource_group_name=None):
     """
-    Gets information about the specified Storage Account.
+    Use this data source to access information about an existing Storage Account.
     """
     __args__ = dict()
 

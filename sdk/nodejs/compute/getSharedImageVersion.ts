@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about the specified Version of a Shared Image within the Shared Image Gallery.
+ * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
  * 
  * -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
  */
@@ -60,6 +60,9 @@ export interface GetSharedImageVersionResult {
      * A mapping of tags assigned to the Shared Image.
      */
     readonly tags: {[key: string]: any};
+    /**
+     * One or more `target_region` blocks as documented below.
+     */
     readonly targetRegions: { name: string, regionalReplicaCount: number }[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

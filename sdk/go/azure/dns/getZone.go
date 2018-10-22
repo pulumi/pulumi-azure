@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to obtain information about a DNS Zone.
+// Use this data source to access information about an existing DNS Zone.
 func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

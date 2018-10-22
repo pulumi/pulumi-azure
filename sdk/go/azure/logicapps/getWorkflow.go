@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Gets information about a Logic App Workflow.
+// Use this data source to access information about an existing Logic App Workflow.
 func LookupWorkflow(ctx *pulumi.Context, args *GetWorkflowArgs) (*GetWorkflowResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

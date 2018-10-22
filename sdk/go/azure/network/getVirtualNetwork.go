@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the properties of an Azure Virtual Network.
+// Use this data source to access information about an existing Virtual Network.
 func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*GetVirtualNetworkResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

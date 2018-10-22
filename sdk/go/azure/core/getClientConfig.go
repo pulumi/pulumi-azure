@@ -7,8 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access the configuration of the Azure Resource Manager
-// provider.
+// Use this data source to access the configuration of the AzureRM provider.
 func LookupClientConfig(ctx *pulumi.Context) (*GetClientConfigResult, error) {
 	outputs, err := ctx.Invoke("azure:core/getClientConfig:getClientConfig", nil)
 	if err != nil {

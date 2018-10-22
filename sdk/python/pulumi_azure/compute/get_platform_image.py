@@ -26,7 +26,7 @@ class GetPlatformImageResult(object):
 
 def get_platform_image(location=None, offer=None, publisher=None, sku=None):
     """
-    Use this data source to access the properties of an Azure Platform Image.
+    Use this data source to access information about a Platform Image.
     """
     __args__ = dict()
 

@@ -35,8 +35,7 @@ class GetClientConfigResult(object):
 
 def get_client_config():
     """
-    Use this data source to access the configuration of the Azure Resource Manager
-    provider.
+    Use this data source to access the configuration of the AzureRM provider.
     """
     __args__ = dict()
 

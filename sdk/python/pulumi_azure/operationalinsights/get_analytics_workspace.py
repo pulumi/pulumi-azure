@@ -65,7 +65,7 @@ class GetAnalyticsWorkspaceResult(object):
 
 def get_analytics_workspace(name=None, resource_group_name=None):
     """
-    Gets information about the specified Log Analytics (formally Operational Insights) Workspace.
+    Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
     """
     __args__ = dict()
 

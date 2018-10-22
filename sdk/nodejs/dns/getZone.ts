@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to obtain information about a DNS Zone.
+ * Use this data source to access information about an existing DNS Zone.
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     return pulumi.runtime.invoke("azure:dns/getZone:getZone", {

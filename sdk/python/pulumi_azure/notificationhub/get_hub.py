@@ -38,7 +38,7 @@ class GetHubResult(object):
 
 def get_hub(name=None, namespace_name=None, resource_group_name=None):
     """
-    Gets information about the specified Notification Hub within a Notification Hub Namespace.
+    Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
     """
     __args__ = dict()
 

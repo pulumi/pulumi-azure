@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to obtain information about an EventHub Namespace.
+ * Use this data source to access information about an existing EventHub Namespace.
  */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
     return pulumi.runtime.invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", {

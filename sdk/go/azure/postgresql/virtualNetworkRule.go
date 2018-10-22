@@ -29,11 +29,13 @@ func NewVirtualNetworkRule(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["ignoreMissingVnetServiceEndpoint"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["serverName"] = nil
 		inputs["subnetId"] = nil
 	} else {
+		inputs["ignoreMissingVnetServiceEndpoint"] = args.IgnoreMissingVnetServiceEndpoint
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["serverName"] = args.ServerName
@@ -52,6 +54,7 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *VirtualNetworkRuleState, opts ...pulumi.ResourceOpt) (*VirtualNetworkRule, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["ignoreMissingVnetServiceEndpoint"] = state.IgnoreMissingVnetServiceEndpoint
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["serverName"] = state.ServerName
@@ -72,6 +75,11 @@ func (r *VirtualNetworkRule) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *VirtualNetworkRule) ID() *pulumi.IDOutput {
 	return r.s.ID
+}
+
+// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+func (r *VirtualNetworkRule) IgnoreMissingVnetServiceEndpoint() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["ignoreMissingVnetServiceEndpoint"])
 }
 
 // The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
@@ -96,6 +104,8 @@ func (r *VirtualNetworkRule) SubnetId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering VirtualNetworkRule resources.
 type VirtualNetworkRuleState struct {
+	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+	IgnoreMissingVnetServiceEndpoint interface{}
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.
@@ -108,6 +118,8 @@ type VirtualNetworkRuleState struct {
 
 // The set of arguments for constructing a VirtualNetworkRule resource.
 type VirtualNetworkRuleArgs struct {
+	// Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? Defaults to `false`.
+	IgnoreMissingVnetServiceEndpoint interface{}
 	// The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created.

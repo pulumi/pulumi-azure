@@ -38,7 +38,7 @@ class GetManagementGroupResult(object):
 
 def get_management_group(group_id=None):
     """
-    Use this data source to access the properties of a Management Group.
+    Use this data source to access information about an existing Management Group.
     """
     __args__ = dict()
 

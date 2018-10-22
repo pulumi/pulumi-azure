@@ -7,11 +7,13 @@
     "services/appinsights/mgmt/2015-05-01/insights",
     "services/automation/mgmt/2015-10-31/automation",
     "services/cdn/mgmt/2017-10-12/cdn",
+    "services/cognitiveservices/mgmt/2017-04-18/cognitiveservices",
     "services/compute/mgmt/2018-06-01/compute",
-    "services/containerinstance/mgmt/2018-04-01/containerinstance",
+    "services/containerinstance/mgmt/2018-06-01/containerinstance",
     "services/containerregistry/mgmt/2017-10-01/containerregistry",
     "services/containerservice/mgmt/2018-03-31/containerservice",
     "services/cosmos-db/mgmt/2015-04-08/documentdb",
+    "services/databricks/mgmt/2018-04-01/databricks",
     "services/datalake/analytics/mgmt/2016-11-01/account",
     "services/datalake/store/2016-11-01/filesystem",
     "services/datalake/store/mgmt/2016-11-01/account",
@@ -21,12 +23,13 @@
     "services/graphrbac/1.6/graphrbac",
     "services/iothub/mgmt/2018-04-01/devices",
     "services/keyvault/2016-10-01/keyvault",
-    "services/keyvault/mgmt/2016-10-01/keyvault",
+    "services/keyvault/mgmt/2018-02-14/keyvault",
     "services/logic/mgmt/2016-06-01/logic",
     "services/mysql/mgmt/2017-12-01/mysql",
     "services/network/mgmt/2018-04-01/network",
     "services/notificationhubs/mgmt/2017-04-01/notificationhubs",
     "services/postgresql/mgmt/2017-12-01/postgresql",
+    "services/preview/apimanagement/mgmt/2018-06-01-preview/apimanagement",
     "services/preview/authorization/mgmt/2018-01-01-preview/authorization",
     "services/preview/dns/mgmt/2018-03-01-preview/dns",
     "services/preview/monitor/mgmt/2018-03-01/insights",
@@ -34,7 +37,9 @@
     "services/preview/operationalinsights/mgmt/2015-11-01-preview/operationalinsights",
     "services/preview/operationsmanagement/mgmt/2015-11-01-preview/operationsmanagement",
     "services/preview/resources/mgmt/2018-03-01-preview/management",
+    "services/preview/security/mgmt/2017-08-01-preview/security",
     "services/preview/sql/mgmt/2015-05-01-preview/sql",
+    "services/recoveryservices/mgmt/2016-06-01/backup",
     "services/recoveryservices/mgmt/2016-06-01/recoveryservices",
     "services/redis/mgmt/2018-03-01/redis",
     "services/relay/mgmt/2017-04-01/relay",
@@ -353,6 +358,7 @@
     "helper/schema",
     "helper/structure",
     "helper/validation",
+    "httpclient",
     "moduledeps",
     "plugin/discovery",
     "registry",
@@ -365,7 +371,7 @@
     "tfdiags",
     "version"
   ]
-  revision = "dc8036636ae76c7a7d1a7bd4e0ee09686a216a3b"
+  revision = "c96155cc68b1da43e49893ddc19a609f0085af19"
 
 [[projects]]
   name = "github.com/inconshreveable/mousetrap"
@@ -635,9 +641,10 @@
     "azurerm/helpers/set",
     "azurerm/helpers/suppress",
     "azurerm/helpers/validate",
-    "azurerm/utils"
+    "azurerm/utils",
+    "version"
   ]
-  revision = "f0c50a0b33deba79de2d7f34e3916d4e3ddd565e"
+  revision = "8377a5ba58500e75c4a6762fa8a6d9610b6e29b3"
   source = "github.com/pulumi/terraform-provider-azurerm"
 
 [[projects]]
@@ -875,6 +882,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "499262697991ead1a03c72bd3f6080d2d9a3f932d6abe7937d4f2f4b847d9ed6"
+  inputs-digest = "7e255e27f0e7aa7a761b08da8053f2b719b7b3d304d90cd37b38faae055a1795"
   solver-name = "gps-cdcl"
   solver-version = 1

@@ -42,6 +42,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         __self__.tags = tags
         __props__['tags'] = tags
 
+        __self__.client_id = pulumi.runtime.UNKNOWN
         __self__.principal_id = pulumi.runtime.UNKNOWN
 
         super(UserAssignedIdentity, __self__).__init__(
@@ -51,6 +52,8 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __opts__)
 
     def set_outputs(self, outs):
+        if 'clientId' in outs:
+            self.client_id = outs['clientId']
         if 'location' in outs:
             self.location = outs['location']
         if 'name' in outs:

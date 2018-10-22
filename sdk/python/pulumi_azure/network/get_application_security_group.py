@@ -32,7 +32,7 @@ class GetApplicationSecurityGroupResult(object):
 
 def get_application_security_group(name=None, resource_group_name=None):
     """
-    Get information about an Application Security Group.
+    Use this data source to access information about an existing Application Security Group.
     """
     __args__ = dict()
 

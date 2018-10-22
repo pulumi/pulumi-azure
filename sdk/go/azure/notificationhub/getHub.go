@@ -7,7 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Gets information about the specified Notification Hub within a Notification Hub Namespace.
+// Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
 func LookupHub(ctx *pulumi.Context, args *GetHubArgs) (*GetHubResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

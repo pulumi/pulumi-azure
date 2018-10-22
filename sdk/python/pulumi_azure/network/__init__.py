@@ -12,6 +12,9 @@ from firewall import *
 from firewall_network_rule_collection import *
 from local_network_gateway import *
 from network_interface import *
+from network_interface_application_gateway_backend_address_pool_association import *
+from network_interface_backend_address_pool_association import *
+from network_interface_nat_rule_association import *
 from network_security_group import *
 from network_security_rule import *
 from network_watcher import *
@@ -20,6 +23,8 @@ from public_ip import *
 from route import *
 from route_table import *
 from subnet import *
+from subnet_network_security_group_association import *
+from subnet_route_table_association import *
 from virtual_network import *
 from virtual_network_gateway import *
 from virtual_network_gateway_connection import *

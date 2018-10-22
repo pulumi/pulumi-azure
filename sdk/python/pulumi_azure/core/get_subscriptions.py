@@ -26,7 +26,7 @@ class GetSubscriptionsResult(object):
 
 def get_subscriptions():
     """
-    Use this data source to access a list of all Azure subscriptions currently available.
+    Use this data source to access information about all the Subscriptions currently available.
     """
     __args__ = dict()
 
