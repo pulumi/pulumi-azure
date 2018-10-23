@@ -19,20 +19,20 @@ func LookupAPI(ctx *pulumi.Context, args *GetAPIArgs) (*GetAPIResult, error) {
 		return nil, err
 	}
 	return &GetAPIResult{
-		AdditionalLocations:     outputs["additionalLocations"],
-		GatewayRegionalUrl:      outputs["gatewayRegionalUrl"],
-		GatewayUrl:              outputs["gatewayUrl"],
-		HostnameConfigurations:  outputs["hostnameConfigurations"],
-		Location:                outputs["location"],
-		ManagementApiUrl:        outputs["managementApiUrl"],
+		AdditionalLocations: outputs["additionalLocations"],
+		GatewayRegionalUrl: outputs["gatewayRegionalUrl"],
+		GatewayUrl: outputs["gatewayUrl"],
+		HostnameConfigurations: outputs["hostnameConfigurations"],
+		Location: outputs["location"],
+		ManagementApiUrl: outputs["managementApiUrl"],
 		NotificationSenderEmail: outputs["notificationSenderEmail"],
-		PortalUrl:               outputs["portalUrl"],
-		PublisherEmail:          outputs["publisherEmail"],
-		PublisherName:           outputs["publisherName"],
-		ScmUrl:                  outputs["scmUrl"],
-		Sku:                     outputs["sku"],
-		Tags:                    outputs["tags"],
-		Id:                      outputs["id"],
+		PortalUrl: outputs["portalUrl"],
+		PublisherEmail: outputs["publisherEmail"],
+		PublisherName: outputs["publisherName"],
+		ScmUrl: outputs["scmUrl"],
+		Sku: outputs["sku"],
+		Tags: outputs["tags"],
+		Id: outputs["id"],
 	}, nil
 }
 
