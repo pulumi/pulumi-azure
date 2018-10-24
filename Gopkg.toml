@@ -6,6 +6,15 @@
   branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
 
+# DO NOT REMOVE THESE [pulumi/pulumi-terraform#229]
+# These versions are required by tfbridge - we must build against them even if the provider requests an older version.
+[[override]]
+  name = "github.com/mitchellh/copystructure"
+  revision = "d23ffcb85de31694d6ccaa23ccb4a03e55c1303f"
+[[override]]
+  name = "github.com/mitchellh/reflectwalk"
+  revision = "63d60e9d0dbc60cf9164e6510889b0db6683d98c"
+
 [[constraint]]
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-azurerm"
@@ -227,12 +236,6 @@
     govendor-overriden=true
 
 [[override]]
-  name = "github.com/mitchellh/copystructure"
-  revision = "5af94aef99f597e6a9e1f6ac6be6ce0f3c96b49d"
-  [override.metadata]
-    govendor-overriden=true
-
-[[override]]
   name = "github.com/mitchellh/go-homedir"
   revision = "58046073cbffe2f25d425fe1331102f55cf719de"
   [override.metadata]
@@ -259,12 +262,6 @@
 [[override]]
   name = "github.com/mitchellh/mapstructure"
   revision = "53818660ed4955e899c0bcafa97299a388bd7c8e"
-  [override.metadata]
-    govendor-overriden=true
-
-[[override]]
-  name = "github.com/mitchellh/reflectwalk"
-  revision = "92573fe8d000a145bfebc03a16bc22b34945867f"
   [override.metadata]
     govendor-overriden=true
 
