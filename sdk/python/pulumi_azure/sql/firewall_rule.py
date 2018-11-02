@@ -14,7 +14,7 @@ class FirewallRule(pulumi.CustomResource):
         """Create a FirewallRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,51 +23,20 @@ class FirewallRule(pulumi.CustomResource):
 
         if not end_ip_address:
             raise TypeError('Missing required property end_ip_address')
-        elif not isinstance(end_ip_address, basestring):
-            raise TypeError('Expected property end_ip_address to be a basestring')
-        __self__.end_ip_address = end_ip_address
-        """
-        The ending IP address to allow through the firewall for this rule.
-        """
         __props__['endIpAddress'] = end_ip_address
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the firewall rule.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to
-        create the sql server.
-        """
         __props__['resourceGroupName'] = resource_group_name
 
         if not server_name:
             raise TypeError('Missing required property server_name')
-        elif not isinstance(server_name, basestring):
-            raise TypeError('Expected property server_name to be a basestring')
-        __self__.server_name = server_name
-        """
-        The name of the SQL Server on which to create the Firewall Rule.
-        """
         __props__['serverName'] = server_name
 
         if not start_ip_address:
             raise TypeError('Missing required property start_ip_address')
-        elif not isinstance(start_ip_address, basestring):
-            raise TypeError('Expected property start_ip_address to be a basestring')
-        __self__.start_ip_address = start_ip_address
-        """
-        The starting IP address to allow through the firewall for this rule.
-        """
         __props__['startIpAddress'] = start_ip_address
 
         super(FirewallRule, __self__).__init__(
@@ -76,14 +45,3 @@ class FirewallRule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'endIpAddress' in outs:
-            self.end_ip_address = outs['endIpAddress']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'serverName' in outs:
-            self.server_name = outs['serverName']
-        if 'startIpAddress' in outs:
-            self.start_ip_address = outs['startIpAddress']

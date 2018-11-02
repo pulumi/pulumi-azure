@@ -18,7 +18,7 @@ class DataDiskAttachment(pulumi.CustomResource):
         """Create a DataDiskAttachment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,58 +27,22 @@ class DataDiskAttachment(pulumi.CustomResource):
 
         if not caching:
             raise TypeError('Missing required property caching')
-        elif not isinstance(caching, basestring):
-            raise TypeError('Expected property caching to be a basestring')
-        __self__.caching = caching
-        """
-        Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
-        """
         __props__['caching'] = caching
 
-        if create_option and not isinstance(create_option, basestring):
-            raise TypeError('Expected property create_option to be a basestring')
-        __self__.create_option = create_option
-        """
-        The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
-        """
         __props__['createOption'] = create_option
 
         if not lun:
             raise TypeError('Missing required property lun')
-        elif not isinstance(lun, int):
-            raise TypeError('Expected property lun to be a int')
-        __self__.lun = lun
-        """
-        The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
-        """
         __props__['lun'] = lun
 
         if not managed_disk_id:
             raise TypeError('Missing required property managed_disk_id')
-        elif not isinstance(managed_disk_id, basestring):
-            raise TypeError('Expected property managed_disk_id to be a basestring')
-        __self__.managed_disk_id = managed_disk_id
-        """
-        The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
-        """
         __props__['managedDiskId'] = managed_disk_id
 
         if not virtual_machine_id:
             raise TypeError('Missing required property virtual_machine_id')
-        elif not isinstance(virtual_machine_id, basestring):
-            raise TypeError('Expected property virtual_machine_id to be a basestring')
-        __self__.virtual_machine_id = virtual_machine_id
-        """
-        The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
-        """
         __props__['virtualMachineId'] = virtual_machine_id
 
-        if write_accelerator_enabled and not isinstance(write_accelerator_enabled, bool):
-            raise TypeError('Expected property write_accelerator_enabled to be a bool')
-        __self__.write_accelerator_enabled = write_accelerator_enabled
-        """
-        Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
-        """
         __props__['writeAcceleratorEnabled'] = write_accelerator_enabled
 
         super(DataDiskAttachment, __self__).__init__(
@@ -87,16 +51,3 @@ class DataDiskAttachment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'caching' in outs:
-            self.caching = outs['caching']
-        if 'createOption' in outs:
-            self.create_option = outs['createOption']
-        if 'lun' in outs:
-            self.lun = outs['lun']
-        if 'managedDiskId' in outs:
-            self.managed_disk_id = outs['managedDiskId']
-        if 'virtualMachineId' in outs:
-            self.virtual_machine_id = outs['virtualMachineId']
-        if 'writeAcceleratorEnabled' in outs:
-            self.write_accelerator_enabled = outs['writeAcceleratorEnabled']

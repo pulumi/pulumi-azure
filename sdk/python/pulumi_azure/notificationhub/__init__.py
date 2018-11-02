@@ -3,8 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from hub import *
-from authorization_rule import *
-from namespace import *
-from get_hub import *
-from get_namespace import *
+from .hub import *
+from .authorization_rule import *
+from .namespace import *
+from .get_hub import *
+from .get_namespace import *

@@ -3,7 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from assignment import *
-from definition import *
-from get_builtin_role_definition import *
-from get_role_definition import *
+from .assignment import *
+from .definition import *
+from .get_builtin_role_definition import *
+from .get_role_definition import *

@@ -73,12 +73,12 @@ func GetActionGroup(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *ActionGroup) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ActionGroup) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // One or more `email_receiver` blocks as defined below.

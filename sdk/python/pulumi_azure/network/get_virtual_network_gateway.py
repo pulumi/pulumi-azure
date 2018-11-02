@@ -20,8 +20,8 @@ class GetVirtualNetworkGatewayResult(object):
         if bgp_settings and not isinstance(bgp_settings, list):
             raise TypeError('Expected argument bgp_settings to be a list')
         __self__.bgp_settings = bgp_settings
-        if default_local_network_gateway_id and not isinstance(default_local_network_gateway_id, basestring):
-            raise TypeError('Expected argument default_local_network_gateway_id to be a basestring')
+        if default_local_network_gateway_id and not isinstance(default_local_network_gateway_id, str):
+            raise TypeError('Expected argument default_local_network_gateway_id to be a str')
         __self__.default_local_network_gateway_id = default_local_network_gateway_id
         """
         The ID of the local network gateway
@@ -42,14 +42,14 @@ class GetVirtualNetworkGatewayResult(object):
         """
         One or two `ip_configuration` blocks documented below.
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The location/region where the Virtual Network Gateway is located.
         """
-        if sku and not isinstance(sku, basestring):
-            raise TypeError('Expected argument sku to be a basestring')
+        if sku and not isinstance(sku, str):
+            raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
         """
         Configuration of the size and capacity of the Virtual Network Gateway.
@@ -60,8 +60,8 @@ class GetVirtualNetworkGatewayResult(object):
         """
         A mapping of tags assigned to the resource.
         """
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected argument type to be a basestring')
+        if type and not isinstance(type, str):
+            raise TypeError('Expected argument type to be a str')
         __self__.type = type
         """
         The type of the Virtual Network Gateway.
@@ -72,14 +72,14 @@ class GetVirtualNetworkGatewayResult(object):
         """
         A `vpn_client_configuration` block which is documented below.
         """
-        if vpn_type and not isinstance(vpn_type, basestring):
-            raise TypeError('Expected argument vpn_type to be a basestring')
+        if vpn_type and not isinstance(vpn_type, str):
+            raise TypeError('Expected argument vpn_type to be a str')
         __self__.vpn_type = vpn_type
         """
         The routing type of the Virtual Network Gateway.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

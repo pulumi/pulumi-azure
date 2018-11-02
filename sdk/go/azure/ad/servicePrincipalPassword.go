@@ -69,12 +69,12 @@ func GetServicePrincipalPassword(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *ServicePrincipalPassword) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ServicePrincipalPassword) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.

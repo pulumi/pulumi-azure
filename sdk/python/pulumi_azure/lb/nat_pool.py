@@ -16,7 +16,7 @@ class NatPool(pulumi.CustomResource):
         """Create a NatPool resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,88 +25,37 @@ class NatPool(pulumi.CustomResource):
 
         if not backend_port:
             raise TypeError('Missing required property backend_port')
-        elif not isinstance(backend_port, int):
-            raise TypeError('Expected property backend_port to be a int')
-        __self__.backend_port = backend_port
-        """
-        The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
-        """
         __props__['backendPort'] = backend_port
 
         if not frontend_ip_configuration_name:
             raise TypeError('Missing required property frontend_ip_configuration_name')
-        elif not isinstance(frontend_ip_configuration_name, basestring):
-            raise TypeError('Expected property frontend_ip_configuration_name to be a basestring')
-        __self__.frontend_ip_configuration_name = frontend_ip_configuration_name
-        """
-        The name of the frontend IP configuration exposing this rule.
-        """
         __props__['frontendIpConfigurationName'] = frontend_ip_configuration_name
 
         if not frontend_port_end:
             raise TypeError('Missing required property frontend_port_end')
-        elif not isinstance(frontend_port_end, int):
-            raise TypeError('Expected property frontend_port_end to be a int')
-        __self__.frontend_port_end = frontend_port_end
-        """
-        The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-        """
         __props__['frontendPortEnd'] = frontend_port_end
 
         if not frontend_port_start:
             raise TypeError('Missing required property frontend_port_start')
-        elif not isinstance(frontend_port_start, int):
-            raise TypeError('Expected property frontend_port_start to be a int')
-        __self__.frontend_port_start = frontend_port_start
-        """
-        The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-        """
         __props__['frontendPortStart'] = frontend_port_start
 
         if not loadbalancer_id:
             raise TypeError('Missing required property loadbalancer_id')
-        elif not isinstance(loadbalancer_id, basestring):
-            raise TypeError('Expected property loadbalancer_id to be a basestring')
-        __self__.loadbalancer_id = loadbalancer_id
-        """
-        The ID of the Load Balancer in which to create the NAT pool.
-        """
         __props__['loadbalancerId'] = loadbalancer_id
 
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the NAT pool.
-        """
         __props__['name'] = name
 
         if not protocol:
             raise TypeError('Missing required property protocol')
-        elif not isinstance(protocol, basestring):
-            raise TypeError('Expected property protocol to be a basestring')
-        __self__.protocol = protocol
-        """
-        The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
-        """
         __props__['protocol'] = protocol
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the resource.
-        """
         __props__['resourceGroupName'] = resource_group_name
 
-        __self__.frontend_ip_configuration_id = pulumi.runtime.UNKNOWN
+        __props__['frontend_ip_configuration_id'] = None
 
         super(NatPool, __self__).__init__(
             'azure:lb/natPool:NatPool',
@@ -114,24 +63,3 @@ class NatPool(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'backendPort' in outs:
-            self.backend_port = outs['backendPort']
-        if 'frontendIpConfigurationId' in outs:
-            self.frontend_ip_configuration_id = outs['frontendIpConfigurationId']
-        if 'frontendIpConfigurationName' in outs:
-            self.frontend_ip_configuration_name = outs['frontendIpConfigurationName']
-        if 'frontendPortEnd' in outs:
-            self.frontend_port_end = outs['frontendPortEnd']
-        if 'frontendPortStart' in outs:
-            self.frontend_port_start = outs['frontendPortStart']
-        if 'loadbalancerId' in outs:
-            self.loadbalancer_id = outs['loadbalancerId']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'protocol' in outs:
-            self.protocol = outs['protocol']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']

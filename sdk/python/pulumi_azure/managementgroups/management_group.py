@@ -14,43 +14,19 @@ class ManagementGroup(pulumi.CustomResource):
         """Create a ManagementGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if display_name and not isinstance(display_name, basestring):
-            raise TypeError('Expected property display_name to be a basestring')
-        __self__.display_name = display_name
-        """
-        A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
-        """
         __props__['displayName'] = display_name
 
-        if group_id and not isinstance(group_id, basestring):
-            raise TypeError('Expected property group_id to be a basestring')
-        __self__.group_id = group_id
-        """
-        The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
-        """
         __props__['groupId'] = group_id
 
-        if parent_management_group_id and not isinstance(parent_management_group_id, basestring):
-            raise TypeError('Expected property parent_management_group_id to be a basestring')
-        __self__.parent_management_group_id = parent_management_group_id
-        """
-        The ID of the Parent Management Group. Changing this forces a new resource to be created.
-        """
         __props__['parentManagementGroupId'] = parent_management_group_id
 
-        if subscription_ids and not isinstance(subscription_ids, list):
-            raise TypeError('Expected property subscription_ids to be a list')
-        __self__.subscription_ids = subscription_ids
-        """
-        A list of Subscription ID's which should be assigned to the Management Group.
-        """
         __props__['subscriptionIds'] = subscription_ids
 
         super(ManagementGroup, __self__).__init__(
@@ -59,12 +35,3 @@ class ManagementGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'displayName' in outs:
-            self.display_name = outs['displayName']
-        if 'groupId' in outs:
-            self.group_id = outs['groupId']
-        if 'parentManagementGroupId' in outs:
-            self.parent_management_group_id = outs['parentManagementGroupId']
-        if 'subscriptionIds' in outs:
-            self.subscription_ids = outs['subscriptionIds']

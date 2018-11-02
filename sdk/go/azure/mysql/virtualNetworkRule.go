@@ -66,12 +66,12 @@ func GetVirtualNetworkRule(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *VirtualNetworkRule) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *VirtualNetworkRule) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.

@@ -103,12 +103,12 @@ func GetFunctionApp(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *FunctionApp) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *FunctionApp) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.

@@ -61,12 +61,12 @@ func GetNetworkInterfaceNatRuleAssociation(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *NetworkInterfaceNatRuleAssociation) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *NetworkInterfaceNatRuleAssociation) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.

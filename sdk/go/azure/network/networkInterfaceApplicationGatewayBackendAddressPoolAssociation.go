@@ -61,12 +61,12 @@ func GetNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx *pul
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.

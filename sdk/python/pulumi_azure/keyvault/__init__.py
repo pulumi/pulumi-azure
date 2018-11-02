@@ -3,11 +3,11 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from key_vault import *
-from access_policy import *
-from certifiate import *
-from key import *
-from secret import *
-from get_key_vault import *
-from get_access_policy import *
-from get_secret import *
+from .key_vault import *
+from .access_policy import *
+from .certifiate import *
+from .key import *
+from .secret import *
+from .get_key_vault import *
+from .get_access_policy import *
+from .get_secret import *

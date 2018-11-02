@@ -14,151 +14,58 @@ class Cluster(pulumi.CustomResource):
         """Create a Cluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if add_on_features and not isinstance(add_on_features, list):
-            raise TypeError('Expected property add_on_features to be a list')
-        __self__.add_on_features = add_on_features
-        """
-        A List of one or more features which should be enabled, such as `DnsService`.
-        """
         __props__['addOnFeatures'] = add_on_features
 
-        if certificate and not isinstance(certificate, dict):
-            raise TypeError('Expected property certificate to be a dict')
-        __self__.certificate = certificate
-        """
-        A `certificate` block as defined below.
-        """
         __props__['certificate'] = certificate
 
-        if client_certificate_thumbprints and not isinstance(client_certificate_thumbprints, list):
-            raise TypeError('Expected property client_certificate_thumbprints to be a list')
-        __self__.client_certificate_thumbprints = client_certificate_thumbprints
-        """
-        One or two `client_certificate_thumbprint` blocks as defined below.
-        """
         __props__['clientCertificateThumbprints'] = client_certificate_thumbprints
 
-        if cluster_code_version and not isinstance(cluster_code_version, basestring):
-            raise TypeError('Expected property cluster_code_version to be a basestring')
-        __self__.cluster_code_version = cluster_code_version
-        """
-        Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
-        """
         __props__['clusterCodeVersion'] = cluster_code_version
 
-        if diagnostics_config and not isinstance(diagnostics_config, dict):
-            raise TypeError('Expected property diagnostics_config to be a dict')
-        __self__.diagnostics_config = diagnostics_config
-        """
-        A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
-        """
         __props__['diagnosticsConfig'] = diagnostics_config
 
-        if fabric_settings and not isinstance(fabric_settings, list):
-            raise TypeError('Expected property fabric_settings to be a list')
-        __self__.fabric_settings = fabric_settings
-        """
-        One or more `fabric_settings` blocks as defined below.
-        """
         __props__['fabricSettings'] = fabric_settings
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
-        """
         __props__['location'] = location
 
         if not management_endpoint:
             raise TypeError('Missing required property management_endpoint')
-        elif not isinstance(management_endpoint, basestring):
-            raise TypeError('Expected property management_endpoint to be a basestring')
-        __self__.management_endpoint = management_endpoint
-        """
-        Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
-        """
         __props__['managementEndpoint'] = management_endpoint
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not node_types:
             raise TypeError('Missing required property node_types')
-        elif not isinstance(node_types, list):
-            raise TypeError('Expected property node_types to be a list')
-        __self__.node_types = node_types
-        """
-        One or more `node_type` blocks as defined below.
-        """
         __props__['nodeTypes'] = node_types
 
         if not reliability_level:
             raise TypeError('Missing required property reliability_level')
-        elif not isinstance(reliability_level, basestring):
-            raise TypeError('Expected property reliability_level to be a basestring')
-        __self__.reliability_level = reliability_level
-        """
-        Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
-        """
         __props__['reliabilityLevel'] = reliability_level
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
-        """
         __props__['resourceGroupName'] = resource_group_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not upgrade_mode:
             raise TypeError('Missing required property upgrade_mode')
-        elif not isinstance(upgrade_mode, basestring):
-            raise TypeError('Expected property upgrade_mode to be a basestring')
-        __self__.upgrade_mode = upgrade_mode
-        """
-        Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
-        """
         __props__['upgradeMode'] = upgrade_mode
 
         if not vm_image:
             raise TypeError('Missing required property vm_image')
-        elif not isinstance(vm_image, basestring):
-            raise TypeError('Expected property vm_image to be a basestring')
-        __self__.vm_image = vm_image
-        """
-        Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
-        """
         __props__['vmImage'] = vm_image
 
-        __self__.cluster_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The Cluster Endpoint for this Service Fabric Cluster.
-        """
+        __props__['cluster_endpoint'] = None
 
         super(Cluster, __self__).__init__(
             'azure:servicefabric/cluster:Cluster',
@@ -166,36 +73,3 @@ class Cluster(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'addOnFeatures' in outs:
-            self.add_on_features = outs['addOnFeatures']
-        if 'certificate' in outs:
-            self.certificate = outs['certificate']
-        if 'clientCertificateThumbprints' in outs:
-            self.client_certificate_thumbprints = outs['clientCertificateThumbprints']
-        if 'clusterCodeVersion' in outs:
-            self.cluster_code_version = outs['clusterCodeVersion']
-        if 'clusterEndpoint' in outs:
-            self.cluster_endpoint = outs['clusterEndpoint']
-        if 'diagnosticsConfig' in outs:
-            self.diagnostics_config = outs['diagnosticsConfig']
-        if 'fabricSettings' in outs:
-            self.fabric_settings = outs['fabricSettings']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'managementEndpoint' in outs:
-            self.management_endpoint = outs['managementEndpoint']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'nodeTypes' in outs:
-            self.node_types = outs['nodeTypes']
-        if 'reliabilityLevel' in outs:
-            self.reliability_level = outs['reliabilityLevel']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'upgradeMode' in outs:
-            self.upgrade_mode = outs['upgradeMode']
-        if 'vmImage' in outs:
-            self.vm_image = outs['vmImage']

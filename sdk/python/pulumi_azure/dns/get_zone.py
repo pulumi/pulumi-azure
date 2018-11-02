@@ -11,8 +11,8 @@ class GetZoneResult(object):
     A collection of values returned by getZone.
     """
     def __init__(__self__, max_number_of_record_sets=None, name_servers=None, number_of_record_sets=None, registration_virtual_network_ids=None, resolution_virtual_network_ids=None, resource_group_name=None, tags=None, zone_type=None, id=None):
-        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, basestring):
-            raise TypeError('Expected argument max_number_of_record_sets to be a basestring')
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, str):
+            raise TypeError('Expected argument max_number_of_record_sets to be a str')
         __self__.max_number_of_record_sets = max_number_of_record_sets
         """
         Maximum number of Records in the zone.
@@ -23,8 +23,8 @@ class GetZoneResult(object):
         """
         A list of values that make up the NS record for the zone.
         """
-        if number_of_record_sets and not isinstance(number_of_record_sets, basestring):
-            raise TypeError('Expected argument number_of_record_sets to be a basestring')
+        if number_of_record_sets and not isinstance(number_of_record_sets, str):
+            raise TypeError('Expected argument number_of_record_sets to be a str')
         __self__.number_of_record_sets = number_of_record_sets
         """
         The number of records already in the zone.
@@ -41,8 +41,8 @@ class GetZoneResult(object):
         """
         A list of Virtual Network ID's that resolve records in this DNS zone.
         """
-        if resource_group_name and not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected argument resource_group_name to be a basestring')
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
         __self__.resource_group_name = resource_group_name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
@@ -50,14 +50,14 @@ class GetZoneResult(object):
         """
         A mapping of tags to assign to the EventHub Namespace.
         """
-        if zone_type and not isinstance(zone_type, basestring):
-            raise TypeError('Expected argument zone_type to be a basestring')
+        if zone_type and not isinstance(zone_type, str):
+            raise TypeError('Expected argument zone_type to be a str')
         __self__.zone_type = zone_type
         """
         The type of this DNS zone, such as `Public` or `Private`.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

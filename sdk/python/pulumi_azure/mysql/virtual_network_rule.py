@@ -16,49 +16,25 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """Create a VirtualNetworkRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group where the MySQL server resides. Changing this forces a new resource to be created.
-        """
         __props__['resourceGroupName'] = resource_group_name
 
         if not server_name:
             raise TypeError('Missing required property server_name')
-        elif not isinstance(server_name, basestring):
-            raise TypeError('Expected property server_name to be a basestring')
-        __self__.server_name = server_name
-        """
-        The name of the SQL Server to which this MySQL virtual network rule will be applied to. Changing this forces a new resource to be created.
-        """
         __props__['serverName'] = server_name
 
         if not subnet_id:
             raise TypeError('Missing required property subnet_id')
-        elif not isinstance(subnet_id, basestring):
-            raise TypeError('Expected property subnet_id to be a basestring')
-        __self__.subnet_id = subnet_id
-        """
-        The ID of the subnet that the MySQL server will be connected to.
-        """
         __props__['subnetId'] = subnet_id
 
         super(VirtualNetworkRule, __self__).__init__(
@@ -67,12 +43,3 @@ class VirtualNetworkRule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'serverName' in outs:
-            self.server_name = outs['serverName']
-        if 'subnetId' in outs:
-            self.subnet_id = outs['subnetId']

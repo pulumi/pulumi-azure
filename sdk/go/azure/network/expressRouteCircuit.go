@@ -92,12 +92,12 @@ func GetExpressRouteCircuit(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *ExpressRouteCircuit) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ExpressRouteCircuit) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.

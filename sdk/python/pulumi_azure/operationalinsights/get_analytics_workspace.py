@@ -11,17 +11,17 @@ class GetAnalyticsWorkspaceResult(object):
     A collection of values returned by getAnalyticsWorkspace.
     """
     def __init__(__self__, location=None, portal_url=None, primary_shared_key=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None, id=None):
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
-        if portal_url and not isinstance(portal_url, basestring):
-            raise TypeError('Expected argument portal_url to be a basestring')
+        if portal_url and not isinstance(portal_url, str):
+            raise TypeError('Expected argument portal_url to be a str')
         __self__.portal_url = portal_url
         """
         The Portal URL for the Log Analytics Workspace.
         """
-        if primary_shared_key and not isinstance(primary_shared_key, basestring):
-            raise TypeError('Expected argument primary_shared_key to be a basestring')
+        if primary_shared_key and not isinstance(primary_shared_key, str):
+            raise TypeError('Expected argument primary_shared_key to be a str')
         __self__.primary_shared_key = primary_shared_key
         """
         The Primary shared key for the Log Analytics Workspace.
@@ -32,14 +32,14 @@ class GetAnalyticsWorkspaceResult(object):
         """
         The workspace data retention in days.
         """
-        if secondary_shared_key and not isinstance(secondary_shared_key, basestring):
-            raise TypeError('Expected argument secondary_shared_key to be a basestring')
+        if secondary_shared_key and not isinstance(secondary_shared_key, str):
+            raise TypeError('Expected argument secondary_shared_key to be a str')
         __self__.secondary_shared_key = secondary_shared_key
         """
         The Secondary shared key for the Log Analytics Workspace.
         """
-        if sku and not isinstance(sku, basestring):
-            raise TypeError('Expected argument sku to be a basestring')
+        if sku and not isinstance(sku, str):
+            raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
         """
         The Sku of the Log Analytics Workspace.
@@ -50,14 +50,14 @@ class GetAnalyticsWorkspaceResult(object):
         """
         A mapping of tags assigned to the resource.
         """
-        if workspace_id and not isinstance(workspace_id, basestring):
-            raise TypeError('Expected argument workspace_id to be a basestring')
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError('Expected argument workspace_id to be a str')
         __self__.workspace_id = workspace_id
         """
         The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

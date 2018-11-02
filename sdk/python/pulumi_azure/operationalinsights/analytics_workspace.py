@@ -14,7 +14,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         """Create a AnalyticsWorkspace resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,74 +23,26 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        """
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
-        """
         __props__['resourceGroupName'] = resource_group_name
 
-        if retention_in_days and not isinstance(retention_in_days, int):
-            raise TypeError('Expected property retention_in_days to be a int')
-        __self__.retention_in_days = retention_in_days
-        """
-        The workspace data retention in days. Possible values range between 30 and 730.
-        """
         __props__['retentionInDays'] = retention_in_days
 
         if not sku:
             raise TypeError('Missing required property sku')
-        elif not isinstance(sku, basestring):
-            raise TypeError('Expected property sku to be a basestring')
-        __self__.sku = sku
-        """
-        Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
-        """
         __props__['sku'] = sku
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.portal_url = pulumi.runtime.UNKNOWN
-        """
-        The Portal URL for the Log Analytics Workspace.
-        """
-        __self__.primary_shared_key = pulumi.runtime.UNKNOWN
-        """
-        The Primary shared key for the Log Analytics Workspace.
-        """
-        __self__.secondary_shared_key = pulumi.runtime.UNKNOWN
-        """
-        The Secondary shared key for the Log Analytics Workspace.
-        """
-        __self__.workspace_id = pulumi.runtime.UNKNOWN
-        """
-        The Workspace (or Customer) ID for the Log Analytics Workspace.
-        """
+        __props__['portal_url'] = None
+        __props__['primary_shared_key'] = None
+        __props__['secondary_shared_key'] = None
+        __props__['workspace_id'] = None
 
         super(AnalyticsWorkspace, __self__).__init__(
             'azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace',
@@ -98,24 +50,3 @@ class AnalyticsWorkspace(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'portalUrl' in outs:
-            self.portal_url = outs['portalUrl']
-        if 'primarySharedKey' in outs:
-            self.primary_shared_key = outs['primarySharedKey']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'retentionInDays' in outs:
-            self.retention_in_days = outs['retentionInDays']
-        if 'secondarySharedKey' in outs:
-            self.secondary_shared_key = outs['secondarySharedKey']
-        if 'sku' in outs:
-            self.sku = outs['sku']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'workspaceId' in outs:
-            self.workspace_id = outs['workspaceId']

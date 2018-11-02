@@ -23,34 +23,34 @@ class GetEventhubNamespaceResult(object):
         """
         The Capacity / Throughput Units for a `Standard` SKU namespace.
         """
-        if default_primary_connection_string and not isinstance(default_primary_connection_string, basestring):
-            raise TypeError('Expected argument default_primary_connection_string to be a basestring')
+        if default_primary_connection_string and not isinstance(default_primary_connection_string, str):
+            raise TypeError('Expected argument default_primary_connection_string to be a str')
         __self__.default_primary_connection_string = default_primary_connection_string
         """
         The primary connection string for the authorization
         rule `RootManageSharedAccessKey`.
         """
-        if default_primary_key and not isinstance(default_primary_key, basestring):
-            raise TypeError('Expected argument default_primary_key to be a basestring')
+        if default_primary_key and not isinstance(default_primary_key, str):
+            raise TypeError('Expected argument default_primary_key to be a str')
         __self__.default_primary_key = default_primary_key
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
-        if default_secondary_connection_string and not isinstance(default_secondary_connection_string, basestring):
-            raise TypeError('Expected argument default_secondary_connection_string to be a basestring')
+        if default_secondary_connection_string and not isinstance(default_secondary_connection_string, str):
+            raise TypeError('Expected argument default_secondary_connection_string to be a str')
         __self__.default_secondary_connection_string = default_secondary_connection_string
         """
         The secondary connection string for the
         authorization rule `RootManageSharedAccessKey`.
         """
-        if default_secondary_key and not isinstance(default_secondary_key, basestring):
-            raise TypeError('Expected argument default_secondary_key to be a basestring')
+        if default_secondary_key and not isinstance(default_secondary_key, str):
+            raise TypeError('Expected argument default_secondary_key to be a str')
         __self__.default_secondary_key = default_secondary_key
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure location where the EventHub Namespace exists
@@ -61,8 +61,8 @@ class GetEventhubNamespaceResult(object):
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled.
         """
-        if sku and not isinstance(sku, basestring):
-            raise TypeError('Expected argument sku to be a basestring')
+        if sku and not isinstance(sku, str):
+            raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
         """
         Defines which tier to use.
@@ -73,8 +73,8 @@ class GetEventhubNamespaceResult(object):
         """
         A mapping of tags to assign to the EventHub Namespace.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

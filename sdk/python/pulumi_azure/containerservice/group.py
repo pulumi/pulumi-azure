@@ -14,7 +14,7 @@ class Group(pulumi.CustomResource):
         """Create a Group resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,97 +23,34 @@ class Group(pulumi.CustomResource):
 
         if not containers:
             raise TypeError('Missing required property containers')
-        elif not isinstance(containers, list):
-            raise TypeError('Expected property containers to be a list')
-        __self__.containers = containers
-        """
-        The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
-        """
         __props__['containers'] = containers
 
-        if dns_name_label and not isinstance(dns_name_label, basestring):
-            raise TypeError('Expected property dns_name_label to be a basestring')
-        __self__.dns_name_label = dns_name_label
-        """
-        The DNS label/name for the container groups IP.
-        """
         __props__['dnsNameLabel'] = dns_name_label
 
-        if image_registry_credentials and not isinstance(image_registry_credentials, list):
-            raise TypeError('Expected property image_registry_credentials to be a list')
-        __self__.image_registry_credentials = image_registry_credentials
-        """
-        Set image registry credentials for the group as documented in the `image_registry_credential` block below
-        """
         __props__['imageRegistryCredentials'] = image_registry_credentials
 
-        if ip_address_type and not isinstance(ip_address_type, basestring):
-            raise TypeError('Expected property ip_address_type to be a basestring')
-        __self__.ip_address_type = ip_address_type
-        """
-        Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
-        """
         __props__['ipAddressType'] = ip_address_type
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        """
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the Container Group. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not os_type:
             raise TypeError('Missing required property os_type')
-        elif not isinstance(os_type, basestring):
-            raise TypeError('Expected property os_type to be a basestring')
-        __self__.os_type = os_type
-        """
-        The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
-        """
         __props__['osType'] = os_type
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-        """
         __props__['resourceGroupName'] = resource_group_name
 
-        if restart_policy and not isinstance(restart_policy, basestring):
-            raise TypeError('Expected property restart_policy to be a basestring')
-        __self__.restart_policy = restart_policy
-        """
-        Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
-        """
         __props__['restartPolicy'] = restart_policy
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
         __props__['tags'] = tags
 
-        __self__.fqdn = pulumi.runtime.UNKNOWN
-        """
-        The FQDN of the container group derived from `dns_name_label`.
-        """
-        __self__.ip_address = pulumi.runtime.UNKNOWN
-        """
-        The IP address allocated to the container group.
-        """
+        __props__['fqdn'] = None
+        __props__['ip_address'] = None
 
         super(Group, __self__).__init__(
             'azure:containerservice/group:Group',
@@ -121,28 +58,3 @@ class Group(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'containers' in outs:
-            self.containers = outs['containers']
-        if 'dnsNameLabel' in outs:
-            self.dns_name_label = outs['dnsNameLabel']
-        if 'fqdn' in outs:
-            self.fqdn = outs['fqdn']
-        if 'imageRegistryCredentials' in outs:
-            self.image_registry_credentials = outs['imageRegistryCredentials']
-        if 'ipAddress' in outs:
-            self.ip_address = outs['ipAddress']
-        if 'ipAddressType' in outs:
-            self.ip_address_type = outs['ipAddressType']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'osType' in outs:
-            self.os_type = outs['osType']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'restartPolicy' in outs:
-            self.restart_policy = outs['restartPolicy']
-        if 'tags' in outs:
-            self.tags = outs['tags']
