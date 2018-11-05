@@ -14,60 +14,27 @@ class Assignment(pulumi.CustomResource):
         """Create a Assignment resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A description to use for this Policy Assignment. Changing this forces a new resource to be created.
-        """
         __props__['description'] = description
 
-        if display_name and not isinstance(display_name, basestring):
-            raise TypeError('Expected property display_name to be a basestring')
-        __self__.display_name = display_name
-        """
-        A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
-        """
         __props__['displayName'] = display_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Policy Assignment. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
-        if parameters and not isinstance(parameters, basestring):
-            raise TypeError('Expected property parameters to be a basestring')
-        __self__.parameters = parameters
-        """
-        Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
-        """
         __props__['parameters'] = parameters
 
         if not policy_definition_id:
             raise TypeError('Missing required property policy_definition_id')
-        elif not isinstance(policy_definition_id, basestring):
-            raise TypeError('Expected property policy_definition_id to be a basestring')
-        __self__.policy_definition_id = policy_definition_id
-        """
-        The ID of the Policy Definition to be applied at the specified Scope.
-        """
         __props__['policyDefinitionId'] = policy_definition_id
 
         if not scope:
             raise TypeError('Missing required property scope')
-        elif not isinstance(scope, basestring):
-            raise TypeError('Expected property scope to be a basestring')
-        __self__.scope = scope
         __props__['scope'] = scope
 
         super(Assignment, __self__).__init__(
@@ -76,16 +43,3 @@ class Assignment(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'displayName' in outs:
-            self.display_name = outs['displayName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'parameters' in outs:
-            self.parameters = outs['parameters']
-        if 'policyDefinitionId' in outs:
-            self.policy_definition_id = outs['policyDefinitionId']
-        if 'scope' in outs:
-            self.scope = outs['scope']

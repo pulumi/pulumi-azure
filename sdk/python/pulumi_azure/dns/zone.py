@@ -14,75 +14,30 @@ class Zone(pulumi.CustomResource):
         """Create a Zone resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the DNS Zone. Must be a valid domain name.
-        """
         __props__['name'] = name
 
-        if registration_virtual_network_ids and not isinstance(registration_virtual_network_ids, list):
-            raise TypeError('Expected property registration_virtual_network_ids to be a list')
-        __self__.registration_virtual_network_ids = registration_virtual_network_ids
-        """
-        A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        """
         __props__['registrationVirtualNetworkIds'] = registration_virtual_network_ids
 
-        if resolution_virtual_network_ids and not isinstance(resolution_virtual_network_ids, list):
-            raise TypeError('Expected property resolution_virtual_network_ids to be a list')
-        __self__.resolution_virtual_network_ids = resolution_virtual_network_ids
-        """
-        A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
-        """
         __props__['resolutionVirtualNetworkIds'] = resolution_virtual_network_ids
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        """
         __props__['resourceGroupName'] = resource_group_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if zone_type and not isinstance(zone_type, basestring):
-            raise TypeError('Expected property zone_type to be a basestring')
-        __self__.zone_type = zone_type
-        """
-        Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
-        """
         __props__['zoneType'] = zone_type
 
-        __self__.max_number_of_record_sets = pulumi.runtime.UNKNOWN
-        """
-        (Optional) Maximum number of Records in the zone. Defaults to `1000`.
-        """
-        __self__.name_servers = pulumi.runtime.UNKNOWN
-        """
-        (Optional) A list of values that make up the NS record for the zone.
-        """
-        __self__.number_of_record_sets = pulumi.runtime.UNKNOWN
-        """
-        (Optional) The number of records already in the zone.
-        """
+        __props__['max_number_of_record_sets'] = None
+        __props__['name_servers'] = None
+        __props__['number_of_record_sets'] = None
 
         super(Zone, __self__).__init__(
             'azure:dns/zone:Zone',
@@ -90,22 +45,3 @@ class Zone(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'maxNumberOfRecordSets' in outs:
-            self.max_number_of_record_sets = outs['maxNumberOfRecordSets']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'nameServers' in outs:
-            self.name_servers = outs['nameServers']
-        if 'numberOfRecordSets' in outs:
-            self.number_of_record_sets = outs['numberOfRecordSets']
-        if 'registrationVirtualNetworkIds' in outs:
-            self.registration_virtual_network_ids = outs['registrationVirtualNetworkIds']
-        if 'resolutionVirtualNetworkIds' in outs:
-            self.resolution_virtual_network_ids = outs['resolutionVirtualNetworkIds']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'zoneType' in outs:
-            self.zone_type = outs['zoneType']

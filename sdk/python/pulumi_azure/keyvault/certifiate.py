@@ -14,73 +14,31 @@ class Certifiate(pulumi.CustomResource):
         """Create a Certifiate resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if certificate and not isinstance(certificate, dict):
-            raise TypeError('Expected property certificate to be a dict')
-        __self__.certificate = certificate
-        """
-        A `certificate` block as defined below, used to Import an existing certificate.
-        """
         __props__['certificate'] = certificate
 
         if not certificate_policy:
             raise TypeError('Missing required property certificate_policy')
-        elif not isinstance(certificate_policy, dict):
-            raise TypeError('Expected property certificate_policy to be a dict')
-        __self__.certificate_policy = certificate_policy
-        """
-        A `certificate_policy` block as defined below.
-        """
         __props__['certificatePolicy'] = certificate_policy
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not vault_uri:
             raise TypeError('Missing required property vault_uri')
-        elif not isinstance(vault_uri, basestring):
-            raise TypeError('Expected property vault_uri to be a basestring')
-        __self__.vault_uri = vault_uri
-        """
-        Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
-        """
         __props__['vaultUri'] = vault_uri
 
-        __self__.certificate_data = pulumi.runtime.UNKNOWN
-        """
-        The raw Key Vault Certificate.
-        """
-        __self__.secret_id = pulumi.runtime.UNKNOWN
-        """
-        The ID of the associated Key Vault Secret.
-        """
-        __self__.thumbprint = pulumi.runtime.UNKNOWN
-        """
-        The X509 Thumbprint of the Key Vault Certificate returned as hex string.
-        """
-        __self__.version = pulumi.runtime.UNKNOWN
-        """
-        The current version of the Key Vault Certificate.
-        """
+        __props__['certificate_data'] = None
+        __props__['secret_id'] = None
+        __props__['thumbprint'] = None
+        __props__['version'] = None
 
         super(Certifiate, __self__).__init__(
             'azure:keyvault/certifiate:Certifiate',
@@ -88,22 +46,3 @@ class Certifiate(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'certificate' in outs:
-            self.certificate = outs['certificate']
-        if 'certificateData' in outs:
-            self.certificate_data = outs['certificateData']
-        if 'certificatePolicy' in outs:
-            self.certificate_policy = outs['certificatePolicy']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'secretId' in outs:
-            self.secret_id = outs['secretId']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'thumbprint' in outs:
-            self.thumbprint = outs['thumbprint']
-        if 'vaultUri' in outs:
-            self.vault_uri = outs['vaultUri']
-        if 'version' in outs:
-            self.version = outs['version']

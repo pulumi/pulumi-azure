@@ -35,14 +35,14 @@ class GetNetworkInterfaceResult(object):
         """
         Indicate if IP forwarding is set on the specified Network Interface.
         """
-        if internal_dns_name_label and not isinstance(internal_dns_name_label, basestring):
-            raise TypeError('Expected argument internal_dns_name_label to be a basestring')
+        if internal_dns_name_label and not isinstance(internal_dns_name_label, str):
+            raise TypeError('Expected argument internal_dns_name_label to be a str')
         __self__.internal_dns_name_label = internal_dns_name_label
         """
         The internal dns name label of the specified Network Interface.
         """
-        if internal_fqdn and not isinstance(internal_fqdn, basestring):
-            raise TypeError('Expected argument internal_fqdn to be a basestring')
+        if internal_fqdn and not isinstance(internal_fqdn, str):
+            raise TypeError('Expected argument internal_fqdn to be a str')
         __self__.internal_fqdn = internal_fqdn
         """
         The internal FQDN associated to the specified Network Interface.
@@ -53,26 +53,26 @@ class GetNetworkInterfaceResult(object):
         """
         One or more `ip_configuration` blocks as defined below.
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The location of the specified Network Interface.
         """
-        if mac_address and not isinstance(mac_address, basestring):
-            raise TypeError('Expected argument mac_address to be a basestring')
+        if mac_address and not isinstance(mac_address, str):
+            raise TypeError('Expected argument mac_address to be a str')
         __self__.mac_address = mac_address
         """
         The MAC address used by the specified Network Interface.
         """
-        if network_security_group_id and not isinstance(network_security_group_id, basestring):
-            raise TypeError('Expected argument network_security_group_id to be a basestring')
+        if network_security_group_id and not isinstance(network_security_group_id, str):
+            raise TypeError('Expected argument network_security_group_id to be a str')
         __self__.network_security_group_id = network_security_group_id
         """
         The ID of the network security group associated to the specified Network Interface.
         """
-        if private_ip_address and not isinstance(private_ip_address, basestring):
-            raise TypeError('Expected argument private_ip_address to be a basestring')
+        if private_ip_address and not isinstance(private_ip_address, str):
+            raise TypeError('Expected argument private_ip_address to be a str')
         __self__.private_ip_address = private_ip_address
         """
         The Private IP Address assigned to this Network Interface.
@@ -89,14 +89,14 @@ class GetNetworkInterfaceResult(object):
         """
         List the tags associated to the specified Network Interface.
         """
-        if virtual_machine_id and not isinstance(virtual_machine_id, basestring):
-            raise TypeError('Expected argument virtual_machine_id to be a basestring')
+        if virtual_machine_id and not isinstance(virtual_machine_id, str):
+            raise TypeError('Expected argument virtual_machine_id to be a str')
         __self__.virtual_machine_id = virtual_machine_id
         """
         The ID of the virtual machine that the specified Network Interface is attached to.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

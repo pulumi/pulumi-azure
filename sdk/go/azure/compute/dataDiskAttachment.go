@@ -77,12 +77,12 @@ func GetDataDiskAttachment(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *DataDiskAttachment) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *DataDiskAttachment) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.

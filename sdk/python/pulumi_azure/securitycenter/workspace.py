@@ -18,7 +18,7 @@ class Workspace(pulumi.CustomResource):
         """Create a Workspace resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,22 +27,10 @@ class Workspace(pulumi.CustomResource):
 
         if not scope:
             raise TypeError('Missing required property scope')
-        elif not isinstance(scope, basestring):
-            raise TypeError('Expected property scope to be a basestring')
-        __self__.scope = scope
-        """
-        The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
-        """
         __props__['scope'] = scope
 
         if not workspace_id:
             raise TypeError('Missing required property workspace_id')
-        elif not isinstance(workspace_id, basestring):
-            raise TypeError('Expected property workspace_id to be a basestring')
-        __self__.workspace_id = workspace_id
-        """
-        The resource ID of the log analytics workspace to save the data in.
-        """
         __props__['workspaceId'] = workspace_id
 
         super(Workspace, __self__).__init__(
@@ -51,8 +39,3 @@ class Workspace(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'scope' in outs:
-            self.scope = outs['scope']
-        if 'workspaceId' in outs:
-            self.workspace_id = outs['workspaceId']

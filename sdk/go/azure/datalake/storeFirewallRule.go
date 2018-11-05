@@ -70,12 +70,12 @@ func GetStoreFirewallRule(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *StoreFirewallRule) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *StoreFirewallRule) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.

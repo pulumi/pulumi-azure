@@ -11,14 +11,14 @@ class GetAccountSASResult(object):
     A collection of values returned by getAccountSAS.
     """
     def __init__(__self__, sas=None, id=None):
-        if sas and not isinstance(sas, basestring):
-            raise TypeError('Expected argument sas to be a basestring')
+        if sas and not isinstance(sas, str):
+            raise TypeError('Expected argument sas to be a str')
         __self__.sas = sas
         """
         The computed Account Shared Access Signature (SAS).
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

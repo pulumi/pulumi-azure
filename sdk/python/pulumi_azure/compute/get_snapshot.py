@@ -11,11 +11,11 @@ class GetSnapshotResult(object):
     A collection of values returned by getSnapshot.
     """
     def __init__(__self__, creation_option=None, disk_size_gb=None, encryption_settings=None, os_type=None, source_resource_id=None, source_uri=None, storage_account_id=None, time_created=None, id=None):
-        if creation_option and not isinstance(creation_option, basestring):
-            raise TypeError('Expected argument creation_option to be a basestring')
+        if creation_option and not isinstance(creation_option, str):
+            raise TypeError('Expected argument creation_option to be a str')
         __self__.creation_option = creation_option
-        if disk_size_gb and not isinstance(disk_size_gb, basestring):
-            raise TypeError('Expected argument disk_size_gb to be a basestring')
+        if disk_size_gb and not isinstance(disk_size_gb, str):
+            raise TypeError('Expected argument disk_size_gb to be a str')
         __self__.disk_size_gb = disk_size_gb
         """
         The size of the Snapshotted Disk in GB.
@@ -23,32 +23,32 @@ class GetSnapshotResult(object):
         if encryption_settings and not isinstance(encryption_settings, list):
             raise TypeError('Expected argument encryption_settings to be a list')
         __self__.encryption_settings = encryption_settings
-        if os_type and not isinstance(os_type, basestring):
-            raise TypeError('Expected argument os_type to be a basestring')
+        if os_type and not isinstance(os_type, str):
+            raise TypeError('Expected argument os_type to be a str')
         __self__.os_type = os_type
-        if source_resource_id and not isinstance(source_resource_id, basestring):
-            raise TypeError('Expected argument source_resource_id to be a basestring')
+        if source_resource_id and not isinstance(source_resource_id, str):
+            raise TypeError('Expected argument source_resource_id to be a str')
         __self__.source_resource_id = source_resource_id
         """
         The reference to an existing snapshot.
         """
-        if source_uri and not isinstance(source_uri, basestring):
-            raise TypeError('Expected argument source_uri to be a basestring')
+        if source_uri and not isinstance(source_uri, str):
+            raise TypeError('Expected argument source_uri to be a str')
         __self__.source_uri = source_uri
         """
         The URI to a Managed or Unmanaged Disk.
         """
-        if storage_account_id and not isinstance(storage_account_id, basestring):
-            raise TypeError('Expected argument storage_account_id to be a basestring')
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError('Expected argument storage_account_id to be a str')
         __self__.storage_account_id = storage_account_id
         """
         The ID of an storage account.
         """
-        if time_created and not isinstance(time_created, basestring):
-            raise TypeError('Expected argument time_created to be a basestring')
+        if time_created and not isinstance(time_created, str):
+            raise TypeError('Expected argument time_created to be a str')
         __self__.time_created = time_created
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

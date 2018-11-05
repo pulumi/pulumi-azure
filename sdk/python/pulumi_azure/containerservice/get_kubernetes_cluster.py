@@ -23,14 +23,14 @@ class GetKubernetesClusterResult(object):
         """
         One or more `agent_profile_pool` blocks as documented below.
         """
-        if dns_prefix and not isinstance(dns_prefix, basestring):
-            raise TypeError('Expected argument dns_prefix to be a basestring')
+        if dns_prefix and not isinstance(dns_prefix, str):
+            raise TypeError('Expected argument dns_prefix to be a str')
         __self__.dns_prefix = dns_prefix
         """
         The DNS Prefix of the managed Kubernetes cluster.
         """
-        if fqdn and not isinstance(fqdn, basestring):
-            raise TypeError('Expected argument fqdn to be a basestring')
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError('Expected argument fqdn to be a str')
         __self__.fqdn = fqdn
         """
         The FQDN of the Azure Kubernetes Managed Cluster.
@@ -41,14 +41,14 @@ class GetKubernetesClusterResult(object):
         """
         A `kube_config` block as defined below.
         """
-        if kube_config_raw and not isinstance(kube_config_raw, basestring):
-            raise TypeError('Expected argument kube_config_raw to be a basestring')
+        if kube_config_raw and not isinstance(kube_config_raw, str):
+            raise TypeError('Expected argument kube_config_raw to be a str')
         __self__.kube_config_raw = kube_config_raw
         """
         Base64 encoded Kubernetes configuration.
         """
-        if kubernetes_version and not isinstance(kubernetes_version, basestring):
-            raise TypeError('Expected argument kubernetes_version to be a basestring')
+        if kubernetes_version and not isinstance(kubernetes_version, str):
+            raise TypeError('Expected argument kubernetes_version to be a str')
         __self__.kubernetes_version = kubernetes_version
         """
         The version of Kubernetes used on the managed Kubernetes Cluster.
@@ -59,8 +59,8 @@ class GetKubernetesClusterResult(object):
         """
         A `linux_profile` block as documented below.
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure Region in which the managed Kubernetes Cluster exists.
@@ -71,8 +71,8 @@ class GetKubernetesClusterResult(object):
         """
         A `network_profile` block as documented below.
         """
-        if node_resource_group and not isinstance(node_resource_group, basestring):
-            raise TypeError('Expected argument node_resource_group to be a basestring')
+        if node_resource_group and not isinstance(node_resource_group, str):
+            raise TypeError('Expected argument node_resource_group to be a str')
         __self__.node_resource_group = node_resource_group
         """
         Auto-generated Resource Group containing AKS Cluster resources.
@@ -89,8 +89,8 @@ class GetKubernetesClusterResult(object):
         """
         A mapping of tags assigned to this resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

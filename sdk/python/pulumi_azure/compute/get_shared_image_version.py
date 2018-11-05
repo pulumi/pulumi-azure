@@ -17,14 +17,14 @@ class GetSharedImageVersionResult(object):
         """
         Is this Image Version excluded from the `latest` filter?
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The supported Azure location where the Shared Image Gallery exists.
         """
-        if managed_image_id and not isinstance(managed_image_id, basestring):
-            raise TypeError('Expected argument managed_image_id to be a basestring')
+        if managed_image_id and not isinstance(managed_image_id, str):
+            raise TypeError('Expected argument managed_image_id to be a str')
         __self__.managed_image_id = managed_image_id
         """
         The ID of the Managed Image which was the source of this Shared Image Version.
@@ -41,8 +41,8 @@ class GetSharedImageVersionResult(object):
         """
         One or more `target_region` blocks as documented below.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

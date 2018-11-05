@@ -18,7 +18,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         """Create a SubscriptionPricing resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -27,12 +27,6 @@ class SubscriptionPricing(pulumi.CustomResource):
 
         if not tier:
             raise TypeError('Missing required property tier')
-        elif not isinstance(tier, basestring):
-            raise TypeError('Expected property tier to be a basestring')
-        __self__.tier = tier
-        """
-        The pricing tier to use. Possible values are `Free` and `Standard`.
-        """
         __props__['tier'] = tier
 
         super(SubscriptionPricing, __self__).__init__(
@@ -41,6 +35,3 @@ class SubscriptionPricing(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'tier' in outs:
-            self.tier = outs['tier']

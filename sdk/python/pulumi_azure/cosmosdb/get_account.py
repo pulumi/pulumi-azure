@@ -26,8 +26,8 @@ class GetAccountResult(object):
         """
         If automatic failover is enabled for this CosmosDB Account.
         """
-        if endpoint and not isinstance(endpoint, basestring):
-            raise TypeError('Expected argument endpoint to be a basestring')
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError('Expected argument endpoint to be a str')
         __self__.endpoint = endpoint
         """
         The endpoint used to connect to the CosmosDB account.
@@ -35,8 +35,8 @@ class GetAccountResult(object):
         if geo_locations and not isinstance(geo_locations, list):
             raise TypeError('Expected argument geo_locations to be a list')
         __self__.geo_locations = geo_locations
-        if ip_range_filter and not isinstance(ip_range_filter, basestring):
-            raise TypeError('Expected argument ip_range_filter to be a basestring')
+        if ip_range_filter and not isinstance(ip_range_filter, str):
+            raise TypeError('Expected argument ip_range_filter to be a str')
         __self__.ip_range_filter = ip_range_filter
         """
         The current IP Filter for this CosmosDB account
@@ -47,32 +47,32 @@ class GetAccountResult(object):
         """
         If virtual network filtering is enabled for this Cosmos DB account.
         """
-        if kind and not isinstance(kind, basestring):
-            raise TypeError('Expected argument kind to be a basestring')
+        if kind and not isinstance(kind, str):
+            raise TypeError('Expected argument kind to be a str')
         __self__.kind = kind
         """
         The Kind of the CosmosDB account.
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The name of the Azure region hosting replicated data.
         """
-        if offer_type and not isinstance(offer_type, basestring):
-            raise TypeError('Expected argument offer_type to be a basestring')
+        if offer_type and not isinstance(offer_type, str):
+            raise TypeError('Expected argument offer_type to be a str')
         __self__.offer_type = offer_type
         """
         The Offer Type to used by this CosmosDB Account.
         """
-        if primary_master_key and not isinstance(primary_master_key, basestring):
-            raise TypeError('Expected argument primary_master_key to be a basestring')
+        if primary_master_key and not isinstance(primary_master_key, str):
+            raise TypeError('Expected argument primary_master_key to be a str')
         __self__.primary_master_key = primary_master_key
         """
         The Primary master key for the CosmosDB Account.
         """
-        if primary_readonly_master_key and not isinstance(primary_readonly_master_key, basestring):
-            raise TypeError('Expected argument primary_readonly_master_key to be a basestring')
+        if primary_readonly_master_key and not isinstance(primary_readonly_master_key, str):
+            raise TypeError('Expected argument primary_readonly_master_key to be a str')
         __self__.primary_readonly_master_key = primary_readonly_master_key
         """
         The Primary read-only master Key for the CosmosDB Account.
@@ -83,14 +83,14 @@ class GetAccountResult(object):
         """
         A list of read endpoints available for this CosmosDB account.
         """
-        if secondary_master_key and not isinstance(secondary_master_key, basestring):
-            raise TypeError('Expected argument secondary_master_key to be a basestring')
+        if secondary_master_key and not isinstance(secondary_master_key, str):
+            raise TypeError('Expected argument secondary_master_key to be a str')
         __self__.secondary_master_key = secondary_master_key
         """
         The Secondary master key for the CosmosDB Account.
         """
-        if secondary_readonly_master_key and not isinstance(secondary_readonly_master_key, basestring):
-            raise TypeError('Expected argument secondary_readonly_master_key to be a basestring')
+        if secondary_readonly_master_key and not isinstance(secondary_readonly_master_key, str):
+            raise TypeError('Expected argument secondary_readonly_master_key to be a str')
         __self__.secondary_readonly_master_key = secondary_readonly_master_key
         """
         The Secondary read-only master key for the CosmosDB Account.
@@ -113,8 +113,8 @@ class GetAccountResult(object):
         """
         A list of write endpoints available for this CosmosDB account.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

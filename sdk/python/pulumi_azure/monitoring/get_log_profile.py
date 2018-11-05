@@ -26,20 +26,20 @@ class GetLogProfileResult(object):
         if retention_policy and not isinstance(retention_policy, dict):
             raise TypeError('Expected argument retention_policy to be a dict')
         __self__.retention_policy = retention_policy
-        if servicebus_rule_id and not isinstance(servicebus_rule_id, basestring):
-            raise TypeError('Expected argument servicebus_rule_id to be a basestring')
+        if servicebus_rule_id and not isinstance(servicebus_rule_id, str):
+            raise TypeError('Expected argument servicebus_rule_id to be a str')
         __self__.servicebus_rule_id = servicebus_rule_id
         """
         The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
         """
-        if storage_account_id and not isinstance(storage_account_id, basestring):
-            raise TypeError('Expected argument storage_account_id to be a basestring')
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError('Expected argument storage_account_id to be a str')
         __self__.storage_account_id = storage_account_id
         """
         The resource id of the storage account in which the Activity Log is stored.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

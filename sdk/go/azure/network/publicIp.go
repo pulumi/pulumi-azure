@@ -89,12 +89,12 @@ func GetPublicIp(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *PublicIp) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *PublicIp) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.

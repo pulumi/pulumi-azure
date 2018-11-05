@@ -11,14 +11,14 @@ class GetWorkflowResult(object):
     A collection of values returned by getWorkflow.
     """
     def __init__(__self__, access_endpoint=None, location=None, parameters=None, tags=None, workflow_schema=None, workflow_version=None, id=None):
-        if access_endpoint and not isinstance(access_endpoint, basestring):
-            raise TypeError('Expected argument access_endpoint to be a basestring')
+        if access_endpoint and not isinstance(access_endpoint, str):
+            raise TypeError('Expected argument access_endpoint to be a str')
         __self__.access_endpoint = access_endpoint
         """
         The Access Endpoint for the Logic App Workflow
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure location where the Logic App Workflow exists.
@@ -35,20 +35,20 @@ class GetWorkflowResult(object):
         """
         A mapping of tags assigned to the resource.
         """
-        if workflow_schema and not isinstance(workflow_schema, basestring):
-            raise TypeError('Expected argument workflow_schema to be a basestring')
+        if workflow_schema and not isinstance(workflow_schema, str):
+            raise TypeError('Expected argument workflow_schema to be a str')
         __self__.workflow_schema = workflow_schema
         """
         The Schema used for this Logic App Workflow.
         """
-        if workflow_version and not isinstance(workflow_version, basestring):
-            raise TypeError('Expected argument workflow_version to be a basestring')
+        if workflow_version and not isinstance(workflow_version, str):
+            raise TypeError('Expected argument workflow_version to be a str')
         __self__.workflow_version = workflow_version
         """
         The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

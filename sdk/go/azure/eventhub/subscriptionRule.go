@@ -85,12 +85,12 @@ func GetSubscriptionRule(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *SubscriptionRule) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *SubscriptionRule) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.

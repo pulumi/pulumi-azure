@@ -35,8 +35,8 @@ class GetKeyVaultResult(object):
         """
         Can Azure Resource Manager retrieve secrets from the Key Vault?
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure Region in which the Key Vault exists.
@@ -56,20 +56,20 @@ class GetKeyVaultResult(object):
         """
         A mapping of tags assigned to the Key Vault.
         """
-        if tenant_id and not isinstance(tenant_id, basestring):
-            raise TypeError('Expected argument tenant_id to be a basestring')
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError('Expected argument tenant_id to be a str')
         __self__.tenant_id = tenant_id
         """
         The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
         """
-        if vault_uri and not isinstance(vault_uri, basestring):
-            raise TypeError('Expected argument vault_uri to be a basestring')
+        if vault_uri and not isinstance(vault_uri, str):
+            raise TypeError('Expected argument vault_uri to be a str')
         __self__.vault_uri = vault_uri
         """
         The URI of the vault for performing operations on keys and secrets.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

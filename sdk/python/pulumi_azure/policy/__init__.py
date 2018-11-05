@@ -3,5 +3,5 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from assignment import *
-from definition import *
+from .assignment import *
+from .definition import *

@@ -11,7 +11,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """Create a UserAssignedIdentity resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -20,30 +20,18 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
         __props__['resourceGroupName'] = resource_group_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
         __props__['tags'] = tags
 
-        __self__.client_id = pulumi.runtime.UNKNOWN
-        __self__.principal_id = pulumi.runtime.UNKNOWN
+        __props__['client_id'] = None
+        __props__['principal_id'] = None
 
         super(UserAssignedIdentity, __self__).__init__(
             'azure:msi/userAssignedIdentity:UserAssignedIdentity',
@@ -51,16 +39,3 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'clientId' in outs:
-            self.client_id = outs['clientId']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'principalId' in outs:
-            self.principal_id = outs['principalId']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'tags' in outs:
-            self.tags = outs['tags']
