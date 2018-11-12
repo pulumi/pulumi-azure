@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Schedule(pulumi.CustomResource):
     """
@@ -21,13 +21,13 @@ class Schedule(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accountName'] = account_name
+        __props__['account_name'] = account_name
 
-        __props__['automationAccountName'] = automation_account_name
+        __props__['automation_account_name'] = automation_account_name
 
         __props__['description'] = description
 
-        __props__['expiryTime'] = expiry_time
+        __props__['expiry_time'] = expiry_time
 
         if not frequency:
             raise TypeError('Missing required property frequency')
@@ -35,25 +35,32 @@ class Schedule(pulumi.CustomResource):
 
         __props__['interval'] = interval
 
-        __props__['monthDays'] = month_days
+        __props__['month_days'] = month_days
 
-        __props__['monthlyOccurrences'] = monthly_occurrences
+        __props__['monthly_occurrences'] = monthly_occurrences
 
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['startTime'] = start_time
+        __props__['start_time'] = start_time
 
         __props__['timezone'] = timezone
 
-        __props__['weekDays'] = week_days
+        __props__['week_days'] = week_days
 
         super(Schedule, __self__).__init__(
             'azure:automation/schedule:Schedule',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

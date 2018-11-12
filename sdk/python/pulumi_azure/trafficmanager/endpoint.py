@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Endpoint(pulumi.CustomResource):
     """
@@ -21,13 +21,13 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['endpointLocation'] = endpoint_location
+        __props__['endpoint_location'] = endpoint_location
 
-        __props__['endpointStatus'] = endpoint_status
+        __props__['endpoint_status'] = endpoint_status
 
-        __props__['geoMappings'] = geo_mappings
+        __props__['geo_mappings'] = geo_mappings
 
-        __props__['minChildEndpoints'] = min_child_endpoints
+        __props__['min_child_endpoints'] = min_child_endpoints
 
         __props__['name'] = name
 
@@ -35,15 +35,15 @@ class Endpoint(pulumi.CustomResource):
 
         if not profile_name:
             raise TypeError('Missing required property profile_name')
-        __props__['profileName'] = profile_name
+        __props__['profile_name'] = profile_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['target'] = target
 
-        __props__['targetResourceId'] = target_resource_id
+        __props__['target_resource_id'] = target_resource_id
 
         if not type:
             raise TypeError('Missing required property type')
@@ -58,4 +58,11 @@ class Endpoint(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

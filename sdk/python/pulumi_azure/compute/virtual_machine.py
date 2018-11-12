@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VirtualMachine(pulumi.CustomResource):
     """
@@ -23,17 +23,17 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['availabilitySetId'] = availability_set_id
+        __props__['availability_set_id'] = availability_set_id
 
-        __props__['bootDiagnostics'] = boot_diagnostics
+        __props__['boot_diagnostics'] = boot_diagnostics
 
-        __props__['deleteDataDisksOnTermination'] = delete_data_disks_on_termination
+        __props__['delete_data_disks_on_termination'] = delete_data_disks_on_termination
 
-        __props__['deleteOsDiskOnTermination'] = delete_os_disk_on_termination
+        __props__['delete_os_disk_on_termination'] = delete_os_disk_on_termination
 
         __props__['identity'] = identity
 
-        __props__['licenseType'] = license_type
+        __props__['license_type'] = license_type
 
         if not location:
             raise TypeError('Missing required property location')
@@ -43,37 +43,37 @@ class VirtualMachine(pulumi.CustomResource):
 
         if not network_interface_ids:
             raise TypeError('Missing required property network_interface_ids')
-        __props__['networkInterfaceIds'] = network_interface_ids
+        __props__['network_interface_ids'] = network_interface_ids
 
-        __props__['osProfile'] = os_profile
+        __props__['os_profile'] = os_profile
 
-        __props__['osProfileLinuxConfig'] = os_profile_linux_config
+        __props__['os_profile_linux_config'] = os_profile_linux_config
 
-        __props__['osProfileSecrets'] = os_profile_secrets
+        __props__['os_profile_secrets'] = os_profile_secrets
 
-        __props__['osProfileWindowsConfig'] = os_profile_windows_config
+        __props__['os_profile_windows_config'] = os_profile_windows_config
 
         __props__['plan'] = plan
 
-        __props__['primaryNetworkInterfaceId'] = primary_network_interface_id
+        __props__['primary_network_interface_id'] = primary_network_interface_id
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['storageDataDisks'] = storage_data_disks
+        __props__['storage_data_disks'] = storage_data_disks
 
-        __props__['storageImageReference'] = storage_image_reference
+        __props__['storage_image_reference'] = storage_image_reference
 
         if not storage_os_disk:
             raise TypeError('Missing required property storage_os_disk')
-        __props__['storageOsDisk'] = storage_os_disk
+        __props__['storage_os_disk'] = storage_os_disk
 
         __props__['tags'] = tags
 
         if not vm_size:
             raise TypeError('Missing required property vm_size')
-        __props__['vmSize'] = vm_size
+        __props__['vm_size'] = vm_size
 
         __props__['zones'] = zones
 
@@ -82,4 +82,11 @@ class VirtualMachine(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetZoneResult(object):
     """
@@ -63,7 +63,7 @@ class GetZoneResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_zone(name=None, resource_group_name=None):
+async def get_zone(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing DNS Zone.
     """
@@ -71,7 +71,7 @@ def get_zone(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:dns/getZone:getZone', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:dns/getZone:getZone', __args__)
 
     return GetZoneResult(
         max_number_of_record_sets=__ret__.get('maxNumberOfRecordSets'),

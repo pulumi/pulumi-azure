@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VirtualNetworkGateway(pulumi.CustomResource):
     """
@@ -23,17 +23,17 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['activeActive'] = active_active
+        __props__['active_active'] = active_active
 
-        __props__['bgpSettings'] = bgp_settings
+        __props__['bgp_settings'] = bgp_settings
 
-        __props__['defaultLocalNetworkGatewayId'] = default_local_network_gateway_id
+        __props__['default_local_network_gateway_id'] = default_local_network_gateway_id
 
-        __props__['enableBgp'] = enable_bgp
+        __props__['enable_bgp'] = enable_bgp
 
         if not ip_configurations:
             raise TypeError('Missing required property ip_configurations')
-        __props__['ipConfigurations'] = ip_configurations
+        __props__['ip_configurations'] = ip_configurations
 
         if not location:
             raise TypeError('Missing required property location')
@@ -43,7 +43,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not sku:
             raise TypeError('Missing required property sku')
@@ -55,13 +55,20 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
-        __props__['vpnClientConfiguration'] = vpn_client_configuration
+        __props__['vpn_client_configuration'] = vpn_client_configuration
 
-        __props__['vpnType'] = vpn_type
+        __props__['vpn_type'] = vpn_type
 
         super(VirtualNetworkGateway, __self__).__init__(
             'azure:network/virtualNetworkGateway:VirtualNetworkGateway',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

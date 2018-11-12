@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VirtualNetworkPeering(pulumi.CustomResource):
     """
@@ -22,31 +22,38 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowForwardedTraffic'] = allow_forwarded_traffic
+        __props__['allow_forwarded_traffic'] = allow_forwarded_traffic
 
-        __props__['allowGatewayTransit'] = allow_gateway_transit
+        __props__['allow_gateway_transit'] = allow_gateway_transit
 
-        __props__['allowVirtualNetworkAccess'] = allow_virtual_network_access
+        __props__['allow_virtual_network_access'] = allow_virtual_network_access
 
         __props__['name'] = name
 
         if not remote_virtual_network_id:
             raise TypeError('Missing required property remote_virtual_network_id')
-        __props__['remoteVirtualNetworkId'] = remote_virtual_network_id
+        __props__['remote_virtual_network_id'] = remote_virtual_network_id
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['useRemoteGateways'] = use_remote_gateways
+        __props__['use_remote_gateways'] = use_remote_gateways
 
         if not virtual_network_name:
             raise TypeError('Missing required property virtual_network_name')
-        __props__['virtualNetworkName'] = virtual_network_name
+        __props__['virtual_network_name'] = virtual_network_name
 
         super(VirtualNetworkPeering, __self__).__init__(
             'azure:network/virtualNetworkPeering:VirtualNetworkPeering',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

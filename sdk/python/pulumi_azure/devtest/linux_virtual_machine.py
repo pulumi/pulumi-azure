@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LinuxVirtualMachine(pulumi.CustomResource):
     """
@@ -21,27 +21,27 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowClaim'] = allow_claim
+        __props__['allow_claim'] = allow_claim
 
-        __props__['disallowPublicIpAddress'] = disallow_public_ip_address
+        __props__['disallow_public_ip_address'] = disallow_public_ip_address
 
         if not gallery_image_reference:
             raise TypeError('Missing required property gallery_image_reference')
-        __props__['galleryImageReference'] = gallery_image_reference
+        __props__['gallery_image_reference'] = gallery_image_reference
 
-        __props__['inboundNatRules'] = inbound_nat_rules
+        __props__['inbound_nat_rules'] = inbound_nat_rules
 
         if not lab_name:
             raise TypeError('Missing required property lab_name')
-        __props__['labName'] = lab_name
+        __props__['lab_name'] = lab_name
 
         if not lab_subnet_name:
             raise TypeError('Missing required property lab_subnet_name')
-        __props__['labSubnetName'] = lab_subnet_name
+        __props__['lab_subnet_name'] = lab_subnet_name
 
         if not lab_virtual_network_id:
             raise TypeError('Missing required property lab_virtual_network_id')
-        __props__['labVirtualNetworkId'] = lab_virtual_network_id
+        __props__['lab_virtual_network_id'] = lab_virtual_network_id
 
         if not location:
             raise TypeError('Missing required property location')
@@ -55,17 +55,17 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not size:
             raise TypeError('Missing required property size')
         __props__['size'] = size
 
-        __props__['sshKey'] = ssh_key
+        __props__['ssh_key'] = ssh_key
 
         if not storage_type:
             raise TypeError('Missing required property storage_type')
-        __props__['storageType'] = storage_type
+        __props__['storage_type'] = storage_type
 
         __props__['tags'] = tags
 
@@ -81,4 +81,11 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

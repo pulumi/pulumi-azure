@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Key(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class Key(pulumi.CustomResource):
 
         if not key_opts:
             raise TypeError('Missing required property key_opts')
-        __props__['keyOpts'] = key_opts
+        __props__['key_opts'] = key_opts
 
         if not key_size:
             raise TypeError('Missing required property key_size')
-        __props__['keySize'] = key_size
+        __props__['key_size'] = key_size
 
         if not key_type:
             raise TypeError('Missing required property key_type')
-        __props__['keyType'] = key_type
+        __props__['key_type'] = key_type
 
         __props__['name'] = name
 
@@ -39,7 +39,7 @@ class Key(pulumi.CustomResource):
 
         if not vault_uri:
             raise TypeError('Missing required property vault_uri')
-        __props__['vaultUri'] = vault_uri
+        __props__['vault_uri'] = vault_uri
 
         __props__['e'] = None
         __props__['n'] = None
@@ -50,4 +50,11 @@ class Key(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

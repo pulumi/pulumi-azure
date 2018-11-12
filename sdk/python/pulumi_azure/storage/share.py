@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Share(pulumi.CustomResource):
     """
@@ -27,11 +27,11 @@ class Share(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not storage_account_name:
             raise TypeError('Missing required property storage_account_name')
-        __props__['storageAccountName'] = storage_account_name
+        __props__['storage_account_name'] = storage_account_name
 
         __props__['url'] = None
 
@@ -40,4 +40,11 @@ class Share(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

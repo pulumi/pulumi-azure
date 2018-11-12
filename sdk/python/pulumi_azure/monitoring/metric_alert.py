@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class MetricAlert(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, actions=None, auto_mitigate=None, criterias=None, description=None, enabled=None, frequency=None, name=None, resource_group_name=None, scopes=None, severity=None, tags=None, window_size=None):
@@ -20,7 +20,7 @@ class MetricAlert(pulumi.CustomResource):
 
         __props__['actions'] = actions
 
-        __props__['autoMitigate'] = auto_mitigate
+        __props__['auto_mitigate'] = auto_mitigate
 
         if not criterias:
             raise TypeError('Missing required property criterias')
@@ -36,7 +36,7 @@ class MetricAlert(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not scopes:
             raise TypeError('Missing required property scopes')
@@ -46,11 +46,18 @@ class MetricAlert(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        __props__['windowSize'] = window_size
+        __props__['window_size'] = window_size
 
         super(MetricAlert, __self__).__init__(
             'azure:monitoring/metricAlert:MetricAlert',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

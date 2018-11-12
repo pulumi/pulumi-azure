@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAccessPolicyResult(object):
     """
@@ -36,14 +36,14 @@ class GetAccessPolicyResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_access_policy(name=None):
+async def get_access_policy(name=None):
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__)
 
     return GetAccessPolicyResult(
         certificate_permissions=__ret__.get('certificatePermissions'),

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetApplicationResult(object):
     """
@@ -60,7 +60,7 @@ class GetApplicationResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_application(name=None, object_id=None):
+async def get_application(name=None, object_id=None):
     """
     Use this data source to access information about an existing Application within Azure Active Directory.
     
@@ -70,7 +70,7 @@ def get_application(name=None, object_id=None):
 
     __args__['name'] = name
     __args__['objectId'] = object_id
-    __ret__ = pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__)
 
     return GetApplicationResult(
         application_id=__ret__.get('applicationId'),

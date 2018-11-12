@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Image(pulumi.CustomResource):
     """
@@ -21,7 +21,7 @@ class Image(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['dataDisks'] = data_disks
+        __props__['data_disks'] = data_disks
 
         if not location:
             raise TypeError('Missing required property location')
@@ -29,13 +29,13 @@ class Image(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['osDisk'] = os_disk
+        __props__['os_disk'] = os_disk
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['sourceVirtualMachineId'] = source_virtual_machine_id
+        __props__['source_virtual_machine_id'] = source_virtual_machine_id
 
         __props__['tags'] = tags
 
@@ -44,4 +44,11 @@ class Image(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

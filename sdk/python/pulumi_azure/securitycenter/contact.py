@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Contact(pulumi.CustomResource):
     """
@@ -25,11 +25,11 @@ class Contact(pulumi.CustomResource):
 
         if not alert_notifications:
             raise TypeError('Missing required property alert_notifications')
-        __props__['alertNotifications'] = alert_notifications
+        __props__['alert_notifications'] = alert_notifications
 
         if not alerts_to_admins:
             raise TypeError('Missing required property alerts_to_admins')
-        __props__['alertsToAdmins'] = alerts_to_admins
+        __props__['alerts_to_admins'] = alerts_to_admins
 
         if not email:
             raise TypeError('Missing required property email')
@@ -44,4 +44,11 @@ class Contact(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetPublicIPsResult(object):
     """
@@ -24,7 +24,7 @@ class GetPublicIPsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_public_i_ps(allocation_type=None, attached=None, name_prefix=None, resource_group_name=None):
+async def get_public_i_ps(allocation_type=None, attached=None, name_prefix=None, resource_group_name=None):
     """
     Use this data source to access information about a set of existing Public IP Addresses.
     """
@@ -34,7 +34,7 @@ def get_public_i_ps(allocation_type=None, attached=None, name_prefix=None, resou
     __args__['attached'] = attached
     __args__['namePrefix'] = name_prefix
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__)
 
     return GetPublicIPsResult(
         public_ips=__ret__.get('publicIps'),

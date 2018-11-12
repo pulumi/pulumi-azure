@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Firewall(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class Firewall(pulumi.CustomResource):
 
         if not ip_configuration:
             raise TypeError('Missing required property ip_configuration')
-        __props__['ipConfiguration'] = ip_configuration
+        __props__['ip_configuration'] = ip_configuration
 
         if not location:
             raise TypeError('Missing required property location')
@@ -35,7 +35,7 @@ class Firewall(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -44,4 +44,11 @@ class Firewall(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

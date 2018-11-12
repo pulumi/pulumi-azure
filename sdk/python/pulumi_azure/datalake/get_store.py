@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetStoreResult(object):
     """
@@ -57,7 +57,7 @@ class GetStoreResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_store(name=None, resource_group_name=None):
+async def get_store(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Data Lake Store.
     """
@@ -65,7 +65,7 @@ def get_store(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:datalake/getStore:getStore', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:datalake/getStore:getStore', __args__)
 
     return GetStoreResult(
         encryption_state=__ret__.get('encryptionState'),

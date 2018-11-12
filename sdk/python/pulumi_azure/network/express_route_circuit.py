@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ExpressRouteCircuit(pulumi.CustomResource):
     """
@@ -21,11 +21,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['allowClassicOperations'] = allow_classic_operations
+        __props__['allow_classic_operations'] = allow_classic_operations
 
         if not bandwidth_in_mbps:
             raise TypeError('Missing required property bandwidth_in_mbps')
-        __props__['bandwidthInMbps'] = bandwidth_in_mbps
+        __props__['bandwidth_in_mbps'] = bandwidth_in_mbps
 
         if not location:
             raise TypeError('Missing required property location')
@@ -35,15 +35,15 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         if not peering_location:
             raise TypeError('Missing required property peering_location')
-        __props__['peeringLocation'] = peering_location
+        __props__['peering_location'] = peering_location
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not service_provider_name:
             raise TypeError('Missing required property service_provider_name')
-        __props__['serviceProviderName'] = service_provider_name
+        __props__['service_provider_name'] = service_provider_name
 
         if not sku:
             raise TypeError('Missing required property sku')
@@ -59,4 +59,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

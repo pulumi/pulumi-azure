@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Cluster(pulumi.CustomResource):
     """
@@ -21,17 +21,17 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['addOnFeatures'] = add_on_features
+        __props__['add_on_features'] = add_on_features
 
         __props__['certificate'] = certificate
 
-        __props__['clientCertificateThumbprints'] = client_certificate_thumbprints
+        __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
 
-        __props__['clusterCodeVersion'] = cluster_code_version
+        __props__['cluster_code_version'] = cluster_code_version
 
-        __props__['diagnosticsConfig'] = diagnostics_config
+        __props__['diagnostics_config'] = diagnostics_config
 
-        __props__['fabricSettings'] = fabric_settings
+        __props__['fabric_settings'] = fabric_settings
 
         if not location:
             raise TypeError('Missing required property location')
@@ -39,31 +39,31 @@ class Cluster(pulumi.CustomResource):
 
         if not management_endpoint:
             raise TypeError('Missing required property management_endpoint')
-        __props__['managementEndpoint'] = management_endpoint
+        __props__['management_endpoint'] = management_endpoint
 
         __props__['name'] = name
 
         if not node_types:
             raise TypeError('Missing required property node_types')
-        __props__['nodeTypes'] = node_types
+        __props__['node_types'] = node_types
 
         if not reliability_level:
             raise TypeError('Missing required property reliability_level')
-        __props__['reliabilityLevel'] = reliability_level
+        __props__['reliability_level'] = reliability_level
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
         if not upgrade_mode:
             raise TypeError('Missing required property upgrade_mode')
-        __props__['upgradeMode'] = upgrade_mode
+        __props__['upgrade_mode'] = upgrade_mode
 
         if not vm_image:
             raise TypeError('Missing required property vm_image')
-        __props__['vmImage'] = vm_image
+        __props__['vm_image'] = vm_image
 
         __props__['cluster_endpoint'] = None
 
@@ -72,4 +72,11 @@ class Cluster(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

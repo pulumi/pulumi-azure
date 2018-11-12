@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Certifiate(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class Certifiate(pulumi.CustomResource):
 
         if not certificate_policy:
             raise TypeError('Missing required property certificate_policy')
-        __props__['certificatePolicy'] = certificate_policy
+        __props__['certificate_policy'] = certificate_policy
 
         __props__['name'] = name
 
@@ -33,7 +33,7 @@ class Certifiate(pulumi.CustomResource):
 
         if not vault_uri:
             raise TypeError('Missing required property vault_uri')
-        __props__['vaultUri'] = vault_uri
+        __props__['vault_uri'] = vault_uri
 
         __props__['certificate_data'] = None
         __props__['secret_id'] = None
@@ -45,4 +45,11 @@ class Certifiate(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

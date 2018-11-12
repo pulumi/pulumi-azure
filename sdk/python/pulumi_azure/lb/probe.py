@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Probe(pulumi.CustomResource):
     """
@@ -23,17 +23,17 @@ class Probe(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['intervalInSeconds'] = interval_in_seconds
+        __props__['interval_in_seconds'] = interval_in_seconds
 
         if not loadbalancer_id:
             raise TypeError('Missing required property loadbalancer_id')
-        __props__['loadbalancerId'] = loadbalancer_id
+        __props__['loadbalancer_id'] = loadbalancer_id
 
         __props__['location'] = location
 
         __props__['name'] = name
 
-        __props__['numberOfProbes'] = number_of_probes
+        __props__['number_of_probes'] = number_of_probes
 
         if not port:
             raise TypeError('Missing required property port')
@@ -41,11 +41,11 @@ class Probe(pulumi.CustomResource):
 
         __props__['protocol'] = protocol
 
-        __props__['requestPath'] = request_path
+        __props__['request_path'] = request_path
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['load_balancer_rules'] = None
 
@@ -54,4 +54,11 @@ class Probe(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

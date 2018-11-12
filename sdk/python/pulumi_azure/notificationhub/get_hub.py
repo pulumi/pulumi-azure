@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetHubResult(object):
     """
@@ -36,7 +36,7 @@ class GetHubResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_hub(name=None, namespace_name=None, resource_group_name=None):
+async def get_hub(name=None, namespace_name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
     """
@@ -45,7 +45,7 @@ def get_hub(name=None, namespace_name=None, resource_group_name=None):
     __args__['name'] = name
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:notificationhub/getHub:getHub', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:notificationhub/getHub:getHub', __args__)
 
     return GetHubResult(
         apns_credentials=__ret__.get('apnsCredentials'),

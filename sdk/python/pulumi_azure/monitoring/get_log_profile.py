@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetLogProfileResult(object):
     """
@@ -45,14 +45,14 @@ class GetLogProfileResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_log_profile(name=None):
+async def get_log_profile(name=None):
     """
     Use this data source to access the properties of a Log Profile.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('azure:monitoring/getLogProfile:getLogProfile', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:monitoring/getLogProfile:getLogProfile', __args__)
 
     return GetLogProfileResult(
         categories=__ret__.get('categories'),

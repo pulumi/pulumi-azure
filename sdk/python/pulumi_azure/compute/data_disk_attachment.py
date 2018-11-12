@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DataDiskAttachment(pulumi.CustomResource):
     """
@@ -29,7 +29,7 @@ class DataDiskAttachment(pulumi.CustomResource):
             raise TypeError('Missing required property caching')
         __props__['caching'] = caching
 
-        __props__['createOption'] = create_option
+        __props__['create_option'] = create_option
 
         if not lun:
             raise TypeError('Missing required property lun')
@@ -37,17 +37,24 @@ class DataDiskAttachment(pulumi.CustomResource):
 
         if not managed_disk_id:
             raise TypeError('Missing required property managed_disk_id')
-        __props__['managedDiskId'] = managed_disk_id
+        __props__['managed_disk_id'] = managed_disk_id
 
         if not virtual_machine_id:
             raise TypeError('Missing required property virtual_machine_id')
-        __props__['virtualMachineId'] = virtual_machine_id
+        __props__['virtual_machine_id'] = virtual_machine_id
 
-        __props__['writeAcceleratorEnabled'] = write_accelerator_enabled
+        __props__['write_accelerator_enabled'] = write_accelerator_enabled
 
         super(DataDiskAttachment, __self__).__init__(
             'azure:compute/dataDiskAttachment:DataDiskAttachment',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

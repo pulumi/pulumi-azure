@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Rule(pulumi.CustomResource):
     """
@@ -23,35 +23,35 @@ class Rule(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['backendAddressPoolId'] = backend_address_pool_id
+        __props__['backend_address_pool_id'] = backend_address_pool_id
 
         if not backend_port:
             raise TypeError('Missing required property backend_port')
-        __props__['backendPort'] = backend_port
+        __props__['backend_port'] = backend_port
 
-        __props__['enableFloatingIp'] = enable_floating_ip
+        __props__['enable_floating_ip'] = enable_floating_ip
 
         if not frontend_ip_configuration_name:
             raise TypeError('Missing required property frontend_ip_configuration_name')
-        __props__['frontendIpConfigurationName'] = frontend_ip_configuration_name
+        __props__['frontend_ip_configuration_name'] = frontend_ip_configuration_name
 
         if not frontend_port:
             raise TypeError('Missing required property frontend_port')
-        __props__['frontendPort'] = frontend_port
+        __props__['frontend_port'] = frontend_port
 
-        __props__['idleTimeoutInMinutes'] = idle_timeout_in_minutes
+        __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
 
-        __props__['loadDistribution'] = load_distribution
+        __props__['load_distribution'] = load_distribution
 
         if not loadbalancer_id:
             raise TypeError('Missing required property loadbalancer_id')
-        __props__['loadbalancerId'] = loadbalancer_id
+        __props__['loadbalancer_id'] = loadbalancer_id
 
         __props__['location'] = location
 
         __props__['name'] = name
 
-        __props__['probeId'] = probe_id
+        __props__['probe_id'] = probe_id
 
         if not protocol:
             raise TypeError('Missing required property protocol')
@@ -59,7 +59,7 @@ class Rule(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['frontend_ip_configuration_id'] = None
 
@@ -68,4 +68,11 @@ class Rule(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

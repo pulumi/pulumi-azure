@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ActionGroup(pulumi.CustomResource):
     """
@@ -21,7 +21,7 @@ class ActionGroup(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['emailReceivers'] = email_receivers
+        __props__['email_receivers'] = email_receivers
 
         __props__['enabled'] = enabled
 
@@ -29,21 +29,28 @@ class ActionGroup(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not short_name:
             raise TypeError('Missing required property short_name')
-        __props__['shortName'] = short_name
+        __props__['short_name'] = short_name
 
-        __props__['smsReceivers'] = sms_receivers
+        __props__['sms_receivers'] = sms_receivers
 
         __props__['tags'] = tags
 
-        __props__['webhookReceivers'] = webhook_receivers
+        __props__['webhook_receivers'] = webhook_receivers
 
         super(ActionGroup, __self__).__init__(
             'azure:monitoring/actionGroup:ActionGroup',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

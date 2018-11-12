@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetPlatformImageResult(object):
     """
@@ -24,7 +24,7 @@ class GetPlatformImageResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_platform_image(location=None, offer=None, publisher=None, sku=None):
+async def get_platform_image(location=None, offer=None, publisher=None, sku=None):
     """
     Use this data source to access information about a Platform Image.
     """
@@ -34,7 +34,7 @@ def get_platform_image(location=None, offer=None, publisher=None, sku=None):
     __args__['offer'] = offer
     __args__['publisher'] = publisher
     __args__['sku'] = sku
-    __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__)
 
     return GetPlatformImageResult(
         version=__ret__.get('version'),

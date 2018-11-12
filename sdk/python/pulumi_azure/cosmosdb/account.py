@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Account(pulumi.CustomResource):
     """
@@ -25,17 +25,17 @@ class Account(pulumi.CustomResource):
 
         if not consistency_policy:
             raise TypeError('Missing required property consistency_policy')
-        __props__['consistencyPolicy'] = consistency_policy
+        __props__['consistency_policy'] = consistency_policy
 
-        __props__['enableAutomaticFailover'] = enable_automatic_failover
+        __props__['enable_automatic_failover'] = enable_automatic_failover
 
-        __props__['failoverPolicies'] = failover_policies
+        __props__['failover_policies'] = failover_policies
 
-        __props__['geoLocations'] = geo_locations
+        __props__['geo_locations'] = geo_locations
 
-        __props__['ipRangeFilter'] = ip_range_filter
+        __props__['ip_range_filter'] = ip_range_filter
 
-        __props__['isVirtualNetworkFilterEnabled'] = is_virtual_network_filter_enabled
+        __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
 
         __props__['kind'] = kind
 
@@ -47,15 +47,15 @@ class Account(pulumi.CustomResource):
 
         if not offer_type:
             raise TypeError('Missing required property offer_type')
-        __props__['offerType'] = offer_type
+        __props__['offer_type'] = offer_type
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
-        __props__['virtualNetworkRules'] = virtual_network_rules
+        __props__['virtual_network_rules'] = virtual_network_rules
 
         __props__['connection_strings'] = None
         __props__['endpoint'] = None
@@ -71,4 +71,11 @@ class Account(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

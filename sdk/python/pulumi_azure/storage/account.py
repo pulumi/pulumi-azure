@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Account(pulumi.CustomResource):
     """
@@ -21,29 +21,29 @@ class Account(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accessTier'] = access_tier
+        __props__['access_tier'] = access_tier
 
-        __props__['accountEncryptionSource'] = account_encryption_source
+        __props__['account_encryption_source'] = account_encryption_source
 
-        __props__['accountKind'] = account_kind
+        __props__['account_kind'] = account_kind
 
         if not account_replication_type:
             raise TypeError('Missing required property account_replication_type')
-        __props__['accountReplicationType'] = account_replication_type
+        __props__['account_replication_type'] = account_replication_type
 
         if not account_tier:
             raise TypeError('Missing required property account_tier')
-        __props__['accountTier'] = account_tier
+        __props__['account_tier'] = account_tier
 
-        __props__['accountType'] = account_type
+        __props__['account_type'] = account_type
 
-        __props__['customDomain'] = custom_domain
+        __props__['custom_domain'] = custom_domain
 
-        __props__['enableBlobEncryption'] = enable_blob_encryption
+        __props__['enable_blob_encryption'] = enable_blob_encryption
 
-        __props__['enableFileEncryption'] = enable_file_encryption
+        __props__['enable_file_encryption'] = enable_file_encryption
 
-        __props__['enableHttpsTrafficOnly'] = enable_https_traffic_only
+        __props__['enable_https_traffic_only'] = enable_https_traffic_only
 
         __props__['identity'] = identity
 
@@ -53,11 +53,11 @@ class Account(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['networkRules'] = network_rules
+        __props__['network_rules'] = network_rules
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -82,4 +82,11 @@ class Account(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

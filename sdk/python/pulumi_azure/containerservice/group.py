@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Group(pulumi.CustomResource):
     """
@@ -25,11 +25,11 @@ class Group(pulumi.CustomResource):
             raise TypeError('Missing required property containers')
         __props__['containers'] = containers
 
-        __props__['dnsNameLabel'] = dns_name_label
+        __props__['dns_name_label'] = dns_name_label
 
-        __props__['imageRegistryCredentials'] = image_registry_credentials
+        __props__['image_registry_credentials'] = image_registry_credentials
 
-        __props__['ipAddressType'] = ip_address_type
+        __props__['ip_address_type'] = ip_address_type
 
         if not location:
             raise TypeError('Missing required property location')
@@ -39,13 +39,13 @@ class Group(pulumi.CustomResource):
 
         if not os_type:
             raise TypeError('Missing required property os_type')
-        __props__['osType'] = os_type
+        __props__['os_type'] = os_type
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['restartPolicy'] = restart_policy
+        __props__['restart_policy'] = restart_policy
 
         __props__['tags'] = tags
 
@@ -57,4 +57,11 @@ class Group(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

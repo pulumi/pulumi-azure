@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Extension(pulumi.CustomResource):
     """
@@ -26,7 +26,7 @@ class Extension(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['autoUpgradeMinorVersion'] = auto_upgrade_minor_version
+        __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
 
         if not location:
             raise TypeError('Missing required property location')
@@ -34,7 +34,7 @@ class Extension(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['protectedSettings'] = protected_settings
+        __props__['protected_settings'] = protected_settings
 
         if not publisher:
             raise TypeError('Missing required property publisher')
@@ -42,7 +42,7 @@ class Extension(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['settings'] = settings
 
@@ -54,15 +54,22 @@ class Extension(pulumi.CustomResource):
 
         if not type_handler_version:
             raise TypeError('Missing required property type_handler_version')
-        __props__['typeHandlerVersion'] = type_handler_version
+        __props__['type_handler_version'] = type_handler_version
 
         if not virtual_machine_name:
             raise TypeError('Missing required property virtual_machine_name')
-        __props__['virtualMachineName'] = virtual_machine_name
+        __props__['virtual_machine_name'] = virtual_machine_name
 
         super(Extension, __self__).__init__(
             'azure:compute/extension:Extension',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

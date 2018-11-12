@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Subnet(pulumi.CustomResource):
     """
@@ -27,29 +27,36 @@ class Subnet(pulumi.CustomResource):
 
         if not address_prefix:
             raise TypeError('Missing required property address_prefix')
-        __props__['addressPrefix'] = address_prefix
+        __props__['address_prefix'] = address_prefix
 
-        __props__['ipConfigurations'] = ip_configurations
+        __props__['ip_configurations'] = ip_configurations
 
         __props__['name'] = name
 
-        __props__['networkSecurityGroupId'] = network_security_group_id
+        __props__['network_security_group_id'] = network_security_group_id
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['routeTableId'] = route_table_id
+        __props__['route_table_id'] = route_table_id
 
-        __props__['serviceEndpoints'] = service_endpoints
+        __props__['service_endpoints'] = service_endpoints
 
         if not virtual_network_name:
             raise TypeError('Missing required property virtual_network_name')
-        __props__['virtualNetworkName'] = virtual_network_name
+        __props__['virtual_network_name'] = virtual_network_name
 
         super(Subnet, __self__).__init__(
             'azure:network/subnet:Subnet',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

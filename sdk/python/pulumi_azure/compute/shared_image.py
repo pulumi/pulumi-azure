@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SharedImage(pulumi.CustomResource):
     """
@@ -29,7 +29,7 @@ class SharedImage(pulumi.CustomResource):
 
         if not gallery_name:
             raise TypeError('Missing required property gallery_name')
-        __props__['galleryName'] = gallery_name
+        __props__['gallery_name'] = gallery_name
 
         if not identifier:
             raise TypeError('Missing required property identifier')
@@ -43,15 +43,15 @@ class SharedImage(pulumi.CustomResource):
 
         if not os_type:
             raise TypeError('Missing required property os_type')
-        __props__['osType'] = os_type
+        __props__['os_type'] = os_type
 
-        __props__['privacyStatementUri'] = privacy_statement_uri
+        __props__['privacy_statement_uri'] = privacy_statement_uri
 
-        __props__['releaseNoteUri'] = release_note_uri
+        __props__['release_note_uri'] = release_note_uri
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -60,4 +60,11 @@ class SharedImage(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

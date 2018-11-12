@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetRoleDefinitionResult(object):
     """
@@ -45,7 +45,7 @@ class GetRoleDefinitionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_role_definition(role_definition_id=None, scope=None):
+async def get_role_definition(role_definition_id=None, scope=None):
     """
     Use this data source to access information about an existing Custom Role Definition. To access information about a built-in Role Definition, please see the `azurerm_builtin_role_definition` data source instead.
     """
@@ -53,7 +53,7 @@ def get_role_definition(role_definition_id=None, scope=None):
 
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope
-    __ret__ = pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__)
 
     return GetRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),

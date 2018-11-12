@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ScaleSet(pulumi.CustomResource):
     """
@@ -24,13 +24,13 @@ class ScaleSet(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['bootDiagnostics'] = boot_diagnostics
+        __props__['boot_diagnostics'] = boot_diagnostics
 
         __props__['extensions'] = extensions
 
         __props__['identity'] = identity
 
-        __props__['licenseType'] = license_type
+        __props__['license_type'] = license_type
 
         if not location:
             raise TypeError('Missing required property location')
@@ -40,17 +40,17 @@ class ScaleSet(pulumi.CustomResource):
 
         if not network_profiles:
             raise TypeError('Missing required property network_profiles')
-        __props__['networkProfiles'] = network_profiles
+        __props__['network_profiles'] = network_profiles
 
         if not os_profile:
             raise TypeError('Missing required property os_profile')
-        __props__['osProfile'] = os_profile
+        __props__['os_profile'] = os_profile
 
-        __props__['osProfileLinuxConfig'] = os_profile_linux_config
+        __props__['os_profile_linux_config'] = os_profile_linux_config
 
-        __props__['osProfileSecrets'] = os_profile_secrets
+        __props__['os_profile_secrets'] = os_profile_secrets
 
-        __props__['osProfileWindowsConfig'] = os_profile_windows_config
+        __props__['os_profile_windows_config'] = os_profile_windows_config
 
         __props__['overprovision'] = overprovision
 
@@ -60,27 +60,27 @@ class ScaleSet(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['singlePlacementGroup'] = single_placement_group
+        __props__['single_placement_group'] = single_placement_group
 
         if not sku:
             raise TypeError('Missing required property sku')
         __props__['sku'] = sku
 
-        __props__['storageProfileDataDisks'] = storage_profile_data_disks
+        __props__['storage_profile_data_disks'] = storage_profile_data_disks
 
-        __props__['storageProfileImageReference'] = storage_profile_image_reference
+        __props__['storage_profile_image_reference'] = storage_profile_image_reference
 
         if not storage_profile_os_disk:
             raise TypeError('Missing required property storage_profile_os_disk')
-        __props__['storageProfileOsDisk'] = storage_profile_os_disk
+        __props__['storage_profile_os_disk'] = storage_profile_os_disk
 
         __props__['tags'] = tags
 
         if not upgrade_policy_mode:
             raise TypeError('Missing required property upgrade_policy_mode')
-        __props__['upgradePolicyMode'] = upgrade_policy_mode
+        __props__['upgrade_policy_mode'] = upgrade_policy_mode
 
         __props__['zones'] = zones
 
@@ -89,4 +89,11 @@ class ScaleSet(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class StoreFile(pulumi.CustomResource):
     """
@@ -26,19 +26,26 @@ class StoreFile(pulumi.CustomResource):
 
         if not account_name:
             raise TypeError('Missing required property account_name')
-        __props__['accountName'] = account_name
+        __props__['account_name'] = account_name
 
         if not local_file_path:
             raise TypeError('Missing required property local_file_path')
-        __props__['localFilePath'] = local_file_path
+        __props__['local_file_path'] = local_file_path
 
         if not remote_file_path:
             raise TypeError('Missing required property remote_file_path')
-        __props__['remoteFilePath'] = remote_file_path
+        __props__['remote_file_path'] = remote_file_path
 
         super(StoreFile, __self__).__init__(
             'azure:datalake/storeFile:StoreFile',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

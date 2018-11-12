@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class KeyVault(pulumi.CustomResource):
     """
@@ -23,13 +23,13 @@ class KeyVault(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['accessPolicies'] = access_policies
+        __props__['access_policies'] = access_policies
 
-        __props__['enabledForDeployment'] = enabled_for_deployment
+        __props__['enabled_for_deployment'] = enabled_for_deployment
 
-        __props__['enabledForDiskEncryption'] = enabled_for_disk_encryption
+        __props__['enabled_for_disk_encryption'] = enabled_for_disk_encryption
 
-        __props__['enabledForTemplateDeployment'] = enabled_for_template_deployment
+        __props__['enabled_for_template_deployment'] = enabled_for_template_deployment
 
         if not location:
             raise TypeError('Missing required property location')
@@ -37,11 +37,11 @@ class KeyVault(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['networkAcls'] = network_acls
+        __props__['network_acls'] = network_acls
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not sku:
             raise TypeError('Missing required property sku')
@@ -51,7 +51,7 @@ class KeyVault(pulumi.CustomResource):
 
         if not tenant_id:
             raise TypeError('Missing required property tenant_id')
-        __props__['tenantId'] = tenant_id
+        __props__['tenant_id'] = tenant_id
 
         __props__['vault_uri'] = None
 
@@ -60,4 +60,11 @@ class KeyVault(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

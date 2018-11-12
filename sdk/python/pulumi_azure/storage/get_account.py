@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAccountResult(object):
     """
@@ -177,7 +177,7 @@ class GetAccountResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_account(name=None, resource_group_name=None):
+async def get_account(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Storage Account.
     """
@@ -185,7 +185,7 @@ def get_account(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:storage/getAccount:getAccount', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:storage/getAccount:getAccount', __args__)
 
     return GetAccountResult(
         access_tier=__ret__.get('accessTier'),

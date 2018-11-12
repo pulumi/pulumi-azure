@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class API(pulumi.CustomResource):
     """
@@ -21,11 +21,11 @@ class API(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['additionalLocation'] = additional_location
+        __props__['additional_location'] = additional_location
 
         __props__['certificates'] = certificates
 
-        __props__['hostnameConfiguration'] = hostname_configuration
+        __props__['hostname_configuration'] = hostname_configuration
 
         __props__['identity'] = identity
 
@@ -35,19 +35,19 @@ class API(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['notificationSenderEmail'] = notification_sender_email
+        __props__['notification_sender_email'] = notification_sender_email
 
         if not publisher_email:
             raise TypeError('Missing required property publisher_email')
-        __props__['publisherEmail'] = publisher_email
+        __props__['publisher_email'] = publisher_email
 
         if not publisher_name:
             raise TypeError('Missing required property publisher_name')
-        __props__['publisherName'] = publisher_name
+        __props__['publisher_name'] = publisher_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['security'] = security
 
@@ -68,4 +68,11 @@ class API(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

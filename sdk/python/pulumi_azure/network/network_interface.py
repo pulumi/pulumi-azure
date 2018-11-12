@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class NetworkInterface(pulumi.CustomResource):
     """
@@ -21,39 +21,39 @@ class NetworkInterface(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['appliedDnsServers'] = applied_dns_servers
+        __props__['applied_dns_servers'] = applied_dns_servers
 
-        __props__['dnsServers'] = dns_servers
+        __props__['dns_servers'] = dns_servers
 
-        __props__['enableAcceleratedNetworking'] = enable_accelerated_networking
+        __props__['enable_accelerated_networking'] = enable_accelerated_networking
 
-        __props__['enableIpForwarding'] = enable_ip_forwarding
+        __props__['enable_ip_forwarding'] = enable_ip_forwarding
 
-        __props__['internalDnsNameLabel'] = internal_dns_name_label
+        __props__['internal_dns_name_label'] = internal_dns_name_label
 
-        __props__['internalFqdn'] = internal_fqdn
+        __props__['internal_fqdn'] = internal_fqdn
 
         if not ip_configurations:
             raise TypeError('Missing required property ip_configurations')
-        __props__['ipConfigurations'] = ip_configurations
+        __props__['ip_configurations'] = ip_configurations
 
         if not location:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
-        __props__['macAddress'] = mac_address
+        __props__['mac_address'] = mac_address
 
         __props__['name'] = name
 
-        __props__['networkSecurityGroupId'] = network_security_group_id
+        __props__['network_security_group_id'] = network_security_group_id
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
-        __props__['virtualMachineId'] = virtual_machine_id
+        __props__['virtual_machine_id'] = virtual_machine_id
 
         __props__['private_ip_address'] = None
         __props__['private_ip_addresses'] = None
@@ -63,4 +63,11 @@ class NetworkInterface(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ApplicationGateway(pulumi.CustomResource):
     def __init__(__self__, __name__, __opts__=None, authentication_certificates=None, backend_address_pools=None, backend_http_settings=None, disabled_ssl_protocols=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, request_routing_rules=None, resource_group_name=None, sku=None, ssl_certificates=None, tags=None, url_path_maps=None, waf_configuration=None):
@@ -18,33 +18,33 @@ class ApplicationGateway(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['authenticationCertificates'] = authentication_certificates
+        __props__['authentication_certificates'] = authentication_certificates
 
         if not backend_address_pools:
             raise TypeError('Missing required property backend_address_pools')
-        __props__['backendAddressPools'] = backend_address_pools
+        __props__['backend_address_pools'] = backend_address_pools
 
         if not backend_http_settings:
             raise TypeError('Missing required property backend_http_settings')
-        __props__['backendHttpSettings'] = backend_http_settings
+        __props__['backend_http_settings'] = backend_http_settings
 
-        __props__['disabledSslProtocols'] = disabled_ssl_protocols
+        __props__['disabled_ssl_protocols'] = disabled_ssl_protocols
 
         if not frontend_ip_configurations:
             raise TypeError('Missing required property frontend_ip_configurations')
-        __props__['frontendIpConfigurations'] = frontend_ip_configurations
+        __props__['frontend_ip_configurations'] = frontend_ip_configurations
 
         if not frontend_ports:
             raise TypeError('Missing required property frontend_ports')
-        __props__['frontendPorts'] = frontend_ports
+        __props__['frontend_ports'] = frontend_ports
 
         if not gateway_ip_configurations:
             raise TypeError('Missing required property gateway_ip_configurations')
-        __props__['gatewayIpConfigurations'] = gateway_ip_configurations
+        __props__['gateway_ip_configurations'] = gateway_ip_configurations
 
         if not http_listeners:
             raise TypeError('Missing required property http_listeners')
-        __props__['httpListeners'] = http_listeners
+        __props__['http_listeners'] = http_listeners
 
         if not location:
             raise TypeError('Missing required property location')
@@ -56,27 +56,34 @@ class ApplicationGateway(pulumi.CustomResource):
 
         if not request_routing_rules:
             raise TypeError('Missing required property request_routing_rules')
-        __props__['requestRoutingRules'] = request_routing_rules
+        __props__['request_routing_rules'] = request_routing_rules
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not sku:
             raise TypeError('Missing required property sku')
         __props__['sku'] = sku
 
-        __props__['sslCertificates'] = ssl_certificates
+        __props__['ssl_certificates'] = ssl_certificates
 
         __props__['tags'] = tags
 
-        __props__['urlPathMaps'] = url_path_maps
+        __props__['url_path_maps'] = url_path_maps
 
-        __props__['wafConfiguration'] = waf_configuration
+        __props__['waf_configuration'] = waf_configuration
 
         super(ApplicationGateway, __self__).__init__(
             'azure:network/applicationGateway:ApplicationGateway',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

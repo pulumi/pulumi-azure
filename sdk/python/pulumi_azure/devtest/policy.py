@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Policy(pulumi.CustomResource):
     """
@@ -25,23 +25,23 @@ class Policy(pulumi.CustomResource):
 
         if not evaluator_type:
             raise TypeError('Missing required property evaluator_type')
-        __props__['evaluatorType'] = evaluator_type
+        __props__['evaluator_type'] = evaluator_type
 
-        __props__['factData'] = fact_data
+        __props__['fact_data'] = fact_data
 
         if not lab_name:
             raise TypeError('Missing required property lab_name')
-        __props__['labName'] = lab_name
+        __props__['lab_name'] = lab_name
 
         __props__['name'] = name
 
         if not policy_set_name:
             raise TypeError('Missing required property policy_set_name')
-        __props__['policySetName'] = policy_set_name
+        __props__['policy_set_name'] = policy_set_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -54,4 +54,11 @@ class Policy(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

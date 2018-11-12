@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Assignment(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class Assignment(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['displayName'] = display_name
+        __props__['display_name'] = display_name
 
         __props__['name'] = name
 
@@ -31,7 +31,7 @@ class Assignment(pulumi.CustomResource):
 
         if not policy_definition_id:
             raise TypeError('Missing required property policy_definition_id')
-        __props__['policyDefinitionId'] = policy_definition_id
+        __props__['policy_definition_id'] = policy_definition_id
 
         if not scope:
             raise TypeError('Missing required property scope')
@@ -42,4 +42,11 @@ class Assignment(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

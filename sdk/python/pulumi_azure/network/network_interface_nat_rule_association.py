@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
     """
@@ -23,19 +23,26 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
 
         if not ip_configuration_name:
             raise TypeError('Missing required property ip_configuration_name')
-        __props__['ipConfigurationName'] = ip_configuration_name
+        __props__['ip_configuration_name'] = ip_configuration_name
 
         if not nat_rule_id:
             raise TypeError('Missing required property nat_rule_id')
-        __props__['natRuleId'] = nat_rule_id
+        __props__['nat_rule_id'] = nat_rule_id
 
         if not network_interface_id:
             raise TypeError('Missing required property network_interface_id')
-        __props__['networkInterfaceId'] = network_interface_id
+        __props__['network_interface_id'] = network_interface_id
 
         super(NetworkInterfaceNatRuleAssociation, __self__).__init__(
             'azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

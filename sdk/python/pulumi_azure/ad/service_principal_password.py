@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ServicePrincipalPassword(pulumi.CustomResource):
     """
@@ -25,15 +25,15 @@ class ServicePrincipalPassword(pulumi.CustomResource):
 
         if not end_date:
             raise TypeError('Missing required property end_date')
-        __props__['endDate'] = end_date
+        __props__['end_date'] = end_date
 
-        __props__['keyId'] = key_id
+        __props__['key_id'] = key_id
 
         if not service_principal_id:
             raise TypeError('Missing required property service_principal_id')
-        __props__['servicePrincipalId'] = service_principal_id
+        __props__['service_principal_id'] = service_principal_id
 
-        __props__['startDate'] = start_date
+        __props__['start_date'] = start_date
 
         if not value:
             raise TypeError('Missing required property value')
@@ -44,4 +44,11 @@ class ServicePrincipalPassword(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

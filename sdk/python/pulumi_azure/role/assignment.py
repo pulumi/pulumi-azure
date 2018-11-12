@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Assignment(pulumi.CustomResource):
     """
@@ -25,11 +25,11 @@ class Assignment(pulumi.CustomResource):
 
         if not principal_id:
             raise TypeError('Missing required property principal_id')
-        __props__['principalId'] = principal_id
+        __props__['principal_id'] = principal_id
 
-        __props__['roleDefinitionId'] = role_definition_id
+        __props__['role_definition_id'] = role_definition_id
 
-        __props__['roleDefinitionName'] = role_definition_name
+        __props__['role_definition_name'] = role_definition_name
 
         if not scope:
             raise TypeError('Missing required property scope')
@@ -40,4 +40,11 @@ class Assignment(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Hub(pulumi.CustomResource):
     """
@@ -21,9 +21,9 @@ class Hub(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['apnsCredential'] = apns_credential
+        __props__['apns_credential'] = apns_credential
 
-        __props__['gcmCredential'] = gcm_credential
+        __props__['gcm_credential'] = gcm_credential
 
         if not location:
             raise TypeError('Missing required property location')
@@ -33,15 +33,22 @@ class Hub(pulumi.CustomResource):
 
         if not namespace_name:
             raise TypeError('Missing required property namespace_name')
-        __props__['namespaceName'] = namespace_name
+        __props__['namespace_name'] = namespace_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         super(Hub, __self__).__init__(
             'azure:notificationhub/hub:Hub',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Server(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class Server(pulumi.CustomResource):
 
         if not administrator_login:
             raise TypeError('Missing required property administrator_login')
-        __props__['administratorLogin'] = administrator_login
+        __props__['administrator_login'] = administrator_login
 
         if not administrator_login_password:
             raise TypeError('Missing required property administrator_login_password')
-        __props__['administratorLoginPassword'] = administrator_login_password
+        __props__['administrator_login_password'] = administrator_login_password
 
         if not location:
             raise TypeError('Missing required property location')
@@ -37,7 +37,7 @@ class Server(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not sku:
             raise TypeError('Missing required property sku')
@@ -45,11 +45,11 @@ class Server(pulumi.CustomResource):
 
         if not ssl_enforcement:
             raise TypeError('Missing required property ssl_enforcement')
-        __props__['sslEnforcement'] = ssl_enforcement
+        __props__['ssl_enforcement'] = ssl_enforcement
 
         if not storage_profile:
             raise TypeError('Missing required property storage_profile')
-        __props__['storageProfile'] = storage_profile
+        __props__['storage_profile'] = storage_profile
 
         __props__['tags'] = tags
 
@@ -64,4 +64,11 @@ class Server(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

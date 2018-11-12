@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Insights(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class Insights(pulumi.CustomResource):
 
         if not application_type:
             raise TypeError('Missing required property application_type')
-        __props__['applicationType'] = application_type
+        __props__['application_type'] = application_type
 
         if not location:
             raise TypeError('Missing required property location')
@@ -33,7 +33,7 @@ class Insights(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -45,4 +45,11 @@ class Insights(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

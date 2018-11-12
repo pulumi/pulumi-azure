@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSnapshotResult(object):
     """
@@ -54,7 +54,7 @@ class GetSnapshotResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_snapshot(name=None, resource_group_name=None):
+async def get_snapshot(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Snapshot.
     """
@@ -62,7 +62,7 @@ def get_snapshot(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:compute/getSnapshot:getSnapshot', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getSnapshot:getSnapshot', __args__)
 
     return GetSnapshotResult(
         creation_option=__ret__.get('creationOption'),

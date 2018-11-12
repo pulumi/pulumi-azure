@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetKeyVaultResult(object):
     """
@@ -75,7 +75,7 @@ class GetKeyVaultResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_key_vault(name=None, resource_group_name=None):
+async def get_key_vault(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Key Vault.
     """
@@ -83,7 +83,7 @@ def get_key_vault(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:keyvault/getKeyVault:getKeyVault', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:keyvault/getKeyVault:getKeyVault', __args__)
 
     return GetKeyVaultResult(
         access_policies=__ret__.get('accessPolicies'),
