@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TriggerHttpRequest(pulumi.CustomResource):
     """
@@ -23,13 +23,13 @@ class TriggerHttpRequest(pulumi.CustomResource):
 
         if not logic_app_id:
             raise TypeError('Missing required property logic_app_id')
-        __props__['logicAppId'] = logic_app_id
+        __props__['logic_app_id'] = logic_app_id
 
         __props__['method'] = method
 
         __props__['name'] = name
 
-        __props__['relativePath'] = relative_path
+        __props__['relative_path'] = relative_path
 
         if not schema:
             raise TypeError('Missing required property schema')
@@ -40,4 +40,11 @@ class TriggerHttpRequest(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

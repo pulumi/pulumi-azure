@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Cache(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class Cache(pulumi.CustomResource):
             raise TypeError('Missing required property capacity')
         __props__['capacity'] = capacity
 
-        __props__['enableNonSslPort'] = enable_non_ssl_port
+        __props__['enable_non_ssl_port'] = enable_non_ssl_port
 
         if not family:
             raise TypeError('Missing required property family')
@@ -37,25 +37,25 @@ class Cache(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['patchSchedules'] = patch_schedules
+        __props__['patch_schedules'] = patch_schedules
 
-        __props__['privateStaticIpAddress'] = private_static_ip_address
+        __props__['private_static_ip_address'] = private_static_ip_address
 
         if not redis_configuration:
             raise TypeError('Missing required property redis_configuration')
-        __props__['redisConfiguration'] = redis_configuration
+        __props__['redis_configuration'] = redis_configuration
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['shardCount'] = shard_count
+        __props__['shard_count'] = shard_count
 
         if not sku_name:
             raise TypeError('Missing required property sku_name')
-        __props__['skuName'] = sku_name
+        __props__['sku_name'] = sku_name
 
-        __props__['subnetId'] = subnet_id
+        __props__['subnet_id'] = subnet_id
 
         __props__['tags'] = tags
 
@@ -70,4 +70,11 @@ class Cache(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Snapshot(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class Snapshot(pulumi.CustomResource):
 
         if not create_option:
             raise TypeError('Missing required property create_option')
-        __props__['createOption'] = create_option
+        __props__['create_option'] = create_option
 
-        __props__['diskSizeGb'] = disk_size_gb
+        __props__['disk_size_gb'] = disk_size_gb
 
-        __props__['encryptionSettings'] = encryption_settings
+        __props__['encryption_settings'] = encryption_settings
 
         if not location:
             raise TypeError('Missing required property location')
@@ -37,13 +37,13 @@ class Snapshot(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['sourceResourceId'] = source_resource_id
+        __props__['source_resource_id'] = source_resource_id
 
-        __props__['sourceUri'] = source_uri
+        __props__['source_uri'] = source_uri
 
-        __props__['storageAccountId'] = storage_account_id
+        __props__['storage_account_id'] = storage_account_id
 
         __props__['tags'] = tags
 
@@ -52,4 +52,11 @@ class Snapshot(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

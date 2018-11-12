@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Module(pulumi.CustomResource):
     """
@@ -23,21 +23,28 @@ class Module(pulumi.CustomResource):
 
         if not automation_account_name:
             raise TypeError('Missing required property automation_account_name')
-        __props__['automationAccountName'] = automation_account_name
+        __props__['automation_account_name'] = automation_account_name
 
         if not module_link:
             raise TypeError('Missing required property module_link')
-        __props__['moduleLink'] = module_link
+        __props__['module_link'] = module_link
 
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         super(Module, __self__).__init__(
             'azure:automation/module:Module',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

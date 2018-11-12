@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class PacketCapture(pulumi.CustomResource):
     """
@@ -23,33 +23,40 @@ class PacketCapture(pulumi.CustomResource):
 
         __props__['filters'] = filters
 
-        __props__['maximumBytesPerPacket'] = maximum_bytes_per_packet
+        __props__['maximum_bytes_per_packet'] = maximum_bytes_per_packet
 
-        __props__['maximumBytesPerSession'] = maximum_bytes_per_session
+        __props__['maximum_bytes_per_session'] = maximum_bytes_per_session
 
-        __props__['maximumCaptureDuration'] = maximum_capture_duration
+        __props__['maximum_capture_duration'] = maximum_capture_duration
 
         __props__['name'] = name
 
         if not network_watcher_name:
             raise TypeError('Missing required property network_watcher_name')
-        __props__['networkWatcherName'] = network_watcher_name
+        __props__['network_watcher_name'] = network_watcher_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not storage_location:
             raise TypeError('Missing required property storage_location')
-        __props__['storageLocation'] = storage_location
+        __props__['storage_location'] = storage_location
 
         if not target_resource_id:
             raise TypeError('Missing required property target_resource_id')
-        __props__['targetResourceId'] = target_resource_id
+        __props__['target_resource_id'] = target_resource_id
 
         super(PacketCapture, __self__).__init__(
             'azure:network/packetCapture:PacketCapture',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

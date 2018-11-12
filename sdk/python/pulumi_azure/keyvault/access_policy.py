@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AccessPolicy(pulumi.CustomResource):
     """
@@ -25,37 +25,44 @@ class AccessPolicy(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['applicationId'] = application_id
+        __props__['application_id'] = application_id
 
-        __props__['certificatePermissions'] = certificate_permissions
+        __props__['certificate_permissions'] = certificate_permissions
 
         if not key_permissions:
             raise TypeError('Missing required property key_permissions')
-        __props__['keyPermissions'] = key_permissions
+        __props__['key_permissions'] = key_permissions
 
         if not object_id:
             raise TypeError('Missing required property object_id')
-        __props__['objectId'] = object_id
+        __props__['object_id'] = object_id
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not secret_permissions:
             raise TypeError('Missing required property secret_permissions')
-        __props__['secretPermissions'] = secret_permissions
+        __props__['secret_permissions'] = secret_permissions
 
         if not tenant_id:
             raise TypeError('Missing required property tenant_id')
-        __props__['tenantId'] = tenant_id
+        __props__['tenant_id'] = tenant_id
 
         if not vault_name:
             raise TypeError('Missing required property vault_name')
-        __props__['vaultName'] = vault_name
+        __props__['vault_name'] = vault_name
 
         super(AccessPolicy, __self__).__init__(
             'azure:keyvault/accessPolicy:AccessPolicy',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

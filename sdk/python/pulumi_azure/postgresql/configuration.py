@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Configuration(pulumi.CustomResource):
     """
@@ -25,11 +25,11 @@ class Configuration(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not server_name:
             raise TypeError('Missing required property server_name')
-        __props__['serverName'] = server_name
+        __props__['server_name'] = server_name
 
         if not value:
             raise TypeError('Missing required property value')
@@ -40,4 +40,11 @@ class Configuration(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

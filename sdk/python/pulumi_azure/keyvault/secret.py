@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Secret(pulumi.CustomResource):
     """
@@ -24,7 +24,7 @@ class Secret(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['contentType'] = content_type
+        __props__['content_type'] = content_type
 
         __props__['name'] = name
 
@@ -36,7 +36,7 @@ class Secret(pulumi.CustomResource):
 
         if not vault_uri:
             raise TypeError('Missing required property vault_uri')
-        __props__['vaultUri'] = vault_uri
+        __props__['vault_uri'] = vault_uri
 
         __props__['version'] = None
 
@@ -45,4 +45,11 @@ class Secret(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

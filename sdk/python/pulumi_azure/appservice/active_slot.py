@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ActiveSlot(pulumi.CustomResource):
     """
@@ -25,19 +25,26 @@ class ActiveSlot(pulumi.CustomResource):
 
         if not app_service_name:
             raise TypeError('Missing required property app_service_name')
-        __props__['appServiceName'] = app_service_name
+        __props__['app_service_name'] = app_service_name
 
         if not app_service_slot_name:
             raise TypeError('Missing required property app_service_slot_name')
-        __props__['appServiceSlotName'] = app_service_slot_name
+        __props__['app_service_slot_name'] = app_service_slot_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         super(ActiveSlot, __self__).__init__(
             'azure:appservice/activeSlot:ActiveSlot',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

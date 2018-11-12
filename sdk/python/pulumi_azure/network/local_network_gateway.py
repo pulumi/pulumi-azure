@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LocalNetworkGateway(pulumi.CustomResource):
     """
@@ -23,13 +23,13 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
         if not address_spaces:
             raise TypeError('Missing required property address_spaces')
-        __props__['addressSpaces'] = address_spaces
+        __props__['address_spaces'] = address_spaces
 
-        __props__['bgpSettings'] = bgp_settings
+        __props__['bgp_settings'] = bgp_settings
 
         if not gateway_address:
             raise TypeError('Missing required property gateway_address')
-        __props__['gatewayAddress'] = gateway_address
+        __props__['gateway_address'] = gateway_address
 
         if not location:
             raise TypeError('Missing required property location')
@@ -39,7 +39,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -48,4 +48,11 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

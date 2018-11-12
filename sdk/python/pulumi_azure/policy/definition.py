@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Definition(pulumi.CustomResource):
     """
@@ -25,7 +25,7 @@ class Definition(pulumi.CustomResource):
 
         if not display_name:
             raise TypeError('Missing required property display_name')
-        __props__['displayName'] = display_name
+        __props__['display_name'] = display_name
 
         __props__['metadata'] = metadata
 
@@ -37,15 +37,22 @@ class Definition(pulumi.CustomResource):
 
         __props__['parameters'] = parameters
 
-        __props__['policyRule'] = policy_rule
+        __props__['policy_rule'] = policy_rule
 
         if not policy_type:
             raise TypeError('Missing required property policy_type')
-        __props__['policyType'] = policy_type
+        __props__['policy_type'] = policy_type
 
         super(Definition, __self__).__init__(
             'azure:policy/definition:Definition',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

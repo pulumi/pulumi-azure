@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetServicePrincipalResult(object):
     """
@@ -27,7 +27,7 @@ class GetServicePrincipalResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_service_principal(application_id=None, display_name=None, object_id=None):
+async def get_service_principal(application_id=None, display_name=None, object_id=None):
     """
     Gets information about an existing Service Principal associated with an Application within Azure Active Directory.
     
@@ -38,7 +38,7 @@ def get_service_principal(application_id=None, display_name=None, object_id=None
     __args__['applicationId'] = application_id
     __args__['displayName'] = display_name
     __args__['objectId'] = object_id
-    __ret__ = pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__)
 
     return GetServicePrincipalResult(
         application_id=__ret__.get('applicationId'),

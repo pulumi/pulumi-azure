@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Route(pulumi.CustomResource):
     """
@@ -23,27 +23,34 @@ class Route(pulumi.CustomResource):
 
         if not address_prefix:
             raise TypeError('Missing required property address_prefix')
-        __props__['addressPrefix'] = address_prefix
+        __props__['address_prefix'] = address_prefix
 
         __props__['name'] = name
 
-        __props__['nextHopInIpAddress'] = next_hop_in_ip_address
+        __props__['next_hop_in_ip_address'] = next_hop_in_ip_address
 
         if not next_hop_type:
             raise TypeError('Missing required property next_hop_type')
-        __props__['nextHopType'] = next_hop_type
+        __props__['next_hop_type'] = next_hop_type
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not route_table_name:
             raise TypeError('Missing required property route_table_name')
-        __props__['routeTableName'] = route_table_name
+        __props__['route_table_name'] = route_table_name
 
         super(Route, __self__).__init__(
             'azure:network/route:Route',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

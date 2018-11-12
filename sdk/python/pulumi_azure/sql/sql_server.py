@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SqlServer(pulumi.CustomResource):
     """
@@ -26,11 +26,11 @@ class SqlServer(pulumi.CustomResource):
 
         if not administrator_login:
             raise TypeError('Missing required property administrator_login')
-        __props__['administratorLogin'] = administrator_login
+        __props__['administrator_login'] = administrator_login
 
         if not administrator_login_password:
             raise TypeError('Missing required property administrator_login_password')
-        __props__['administratorLoginPassword'] = administrator_login_password
+        __props__['administrator_login_password'] = administrator_login_password
 
         if not location:
             raise TypeError('Missing required property location')
@@ -40,7 +40,7 @@ class SqlServer(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -55,4 +55,11 @@ class SqlServer(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

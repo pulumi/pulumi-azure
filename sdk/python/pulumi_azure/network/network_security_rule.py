@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class NetworkSecurityRule(pulumi.CustomResource):
     """
@@ -31,15 +31,15 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['destinationAddressPrefix'] = destination_address_prefix
+        __props__['destination_address_prefix'] = destination_address_prefix
 
-        __props__['destinationAddressPrefixes'] = destination_address_prefixes
+        __props__['destination_address_prefixes'] = destination_address_prefixes
 
-        __props__['destinationApplicationSecurityGroupIds'] = destination_application_security_group_ids
+        __props__['destination_application_security_group_ids'] = destination_application_security_group_ids
 
-        __props__['destinationPortRange'] = destination_port_range
+        __props__['destination_port_range'] = destination_port_range
 
-        __props__['destinationPortRanges'] = destination_port_ranges
+        __props__['destination_port_ranges'] = destination_port_ranges
 
         if not direction:
             raise TypeError('Missing required property direction')
@@ -49,7 +49,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
         if not network_security_group_name:
             raise TypeError('Missing required property network_security_group_name')
-        __props__['networkSecurityGroupName'] = network_security_group_name
+        __props__['network_security_group_name'] = network_security_group_name
 
         if not priority:
             raise TypeError('Missing required property priority')
@@ -61,21 +61,28 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['sourceAddressPrefix'] = source_address_prefix
+        __props__['source_address_prefix'] = source_address_prefix
 
-        __props__['sourceAddressPrefixes'] = source_address_prefixes
+        __props__['source_address_prefixes'] = source_address_prefixes
 
-        __props__['sourceApplicationSecurityGroupIds'] = source_application_security_group_ids
+        __props__['source_application_security_group_ids'] = source_application_security_group_ids
 
-        __props__['sourcePortRange'] = source_port_range
+        __props__['source_port_range'] = source_port_range
 
-        __props__['sourcePortRanges'] = source_port_ranges
+        __props__['source_port_ranges'] = source_port_ranges
 
         super(NetworkSecurityRule, __self__).__init__(
             'azure:network/networkSecurityRule:NetworkSecurityRule',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

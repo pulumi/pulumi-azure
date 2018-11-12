@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Slot(pulumi.CustomResource):
     """
@@ -26,21 +26,21 @@ class Slot(pulumi.CustomResource):
 
         if not app_service_name:
             raise TypeError('Missing required property app_service_name')
-        __props__['appServiceName'] = app_service_name
+        __props__['app_service_name'] = app_service_name
 
         if not app_service_plan_id:
             raise TypeError('Missing required property app_service_plan_id')
-        __props__['appServicePlanId'] = app_service_plan_id
+        __props__['app_service_plan_id'] = app_service_plan_id
 
-        __props__['appSettings'] = app_settings
+        __props__['app_settings'] = app_settings
 
-        __props__['clientAffinityEnabled'] = client_affinity_enabled
+        __props__['client_affinity_enabled'] = client_affinity_enabled
 
-        __props__['connectionStrings'] = connection_strings
+        __props__['connection_strings'] = connection_strings
 
         __props__['enabled'] = enabled
 
-        __props__['httpsOnly'] = https_only
+        __props__['https_only'] = https_only
 
         __props__['identity'] = identity
 
@@ -52,9 +52,9 @@ class Slot(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['siteConfig'] = site_config
+        __props__['site_config'] = site_config
 
         __props__['tags'] = tags
 
@@ -65,4 +65,11 @@ class Slot(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

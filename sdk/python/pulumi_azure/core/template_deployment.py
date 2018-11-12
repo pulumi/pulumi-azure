@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class TemplateDeployment(pulumi.CustomResource):
     """
@@ -27,19 +27,19 @@ class TemplateDeployment(pulumi.CustomResource):
 
         if not deployment_mode:
             raise TypeError('Missing required property deployment_mode')
-        __props__['deploymentMode'] = deployment_mode
+        __props__['deployment_mode'] = deployment_mode
 
         __props__['name'] = name
 
         __props__['parameters'] = parameters
 
-        __props__['parametersBody'] = parameters_body
+        __props__['parameters_body'] = parameters_body
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['templateBody'] = template_body
+        __props__['template_body'] = template_body
 
         __props__['outputs'] = None
 
@@ -48,4 +48,11 @@ class TemplateDeployment(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

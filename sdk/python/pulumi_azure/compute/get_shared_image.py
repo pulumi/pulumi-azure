@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSharedImageResult(object):
     """
@@ -63,7 +63,7 @@ class GetSharedImageResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_shared_image(gallery_name=None, name=None, resource_group_name=None):
+async def get_shared_image(gallery_name=None, name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
     
@@ -74,7 +74,7 @@ def get_shared_image(gallery_name=None, name=None, resource_group_name=None):
     __args__['galleryName'] = gallery_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImage:getSharedImage', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getSharedImage:getSharedImage', __args__)
 
     return GetSharedImageResult(
         description=__ret__.get('description'),

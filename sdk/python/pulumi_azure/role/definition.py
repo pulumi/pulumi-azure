@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Definition(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class Definition(pulumi.CustomResource):
 
         if not assignable_scopes:
             raise TypeError('Missing required property assignable_scopes')
-        __props__['assignableScopes'] = assignable_scopes
+        __props__['assignable_scopes'] = assignable_scopes
 
         __props__['description'] = description
 
@@ -33,7 +33,7 @@ class Definition(pulumi.CustomResource):
             raise TypeError('Missing required property permissions')
         __props__['permissions'] = permissions
 
-        __props__['roleDefinitionId'] = role_definition_id
+        __props__['role_definition_id'] = role_definition_id
 
         if not scope:
             raise TypeError('Missing required property scope')
@@ -44,4 +44,11 @@ class Definition(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

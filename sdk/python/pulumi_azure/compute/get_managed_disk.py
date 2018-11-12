@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetManagedDiskResult(object):
     """
@@ -60,7 +60,7 @@ class GetManagedDiskResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None):
+async def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None):
     """
     Use this data source to access information about an existing Managed Disk.
     """
@@ -70,7 +70,7 @@ def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None)
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
     __args__['zones'] = zones
-    __ret__ = pulumi.runtime.invoke('azure:compute/getManagedDisk:getManagedDisk', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getManagedDisk:getManagedDisk', __args__)
 
     return GetManagedDiskResult(
         disk_size_gb=__ret__.get('diskSizeGb'),

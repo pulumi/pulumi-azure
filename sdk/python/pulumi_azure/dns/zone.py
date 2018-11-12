@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Zone(pulumi.CustomResource):
     """
@@ -23,17 +23,17 @@ class Zone(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['registrationVirtualNetworkIds'] = registration_virtual_network_ids
+        __props__['registration_virtual_network_ids'] = registration_virtual_network_ids
 
-        __props__['resolutionVirtualNetworkIds'] = resolution_virtual_network_ids
+        __props__['resolution_virtual_network_ids'] = resolution_virtual_network_ids
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
-        __props__['zoneType'] = zone_type
+        __props__['zone_type'] = zone_type
 
         __props__['max_number_of_record_sets'] = None
         __props__['name_servers'] = None
@@ -44,4 +44,11 @@ class Zone(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

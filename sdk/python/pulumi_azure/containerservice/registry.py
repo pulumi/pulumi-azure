@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Registry(pulumi.CustomResource):
     """
@@ -24,7 +24,7 @@ class Registry(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['adminEnabled'] = admin_enabled
+        __props__['admin_enabled'] = admin_enabled
 
         if not location:
             raise TypeError('Missing required property location')
@@ -34,13 +34,13 @@ class Registry(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['sku'] = sku
 
-        __props__['storageAccount'] = storage_account
+        __props__['storage_account'] = storage_account
 
-        __props__['storageAccountId'] = storage_account_id
+        __props__['storage_account_id'] = storage_account_id
 
         __props__['tags'] = tags
 
@@ -53,4 +53,11 @@ class Registry(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

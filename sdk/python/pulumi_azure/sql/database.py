@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Database(pulumi.CustomResource):
     """
@@ -23,43 +23,43 @@ class Database(pulumi.CustomResource):
 
         __props__['collation'] = collation
 
-        __props__['createMode'] = create_mode
+        __props__['create_mode'] = create_mode
 
         __props__['edition'] = edition
 
-        __props__['elasticPoolName'] = elastic_pool_name
+        __props__['elastic_pool_name'] = elastic_pool_name
 
-        __props__['import'] = import_
+        __props__['import_'] = import_
 
         if not location:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
-        __props__['maxSizeBytes'] = max_size_bytes
+        __props__['max_size_bytes'] = max_size_bytes
 
         __props__['name'] = name
 
-        __props__['requestedServiceObjectiveId'] = requested_service_objective_id
+        __props__['requested_service_objective_id'] = requested_service_objective_id
 
-        __props__['requestedServiceObjectiveName'] = requested_service_objective_name
+        __props__['requested_service_objective_name'] = requested_service_objective_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['restorePointInTime'] = restore_point_in_time
+        __props__['restore_point_in_time'] = restore_point_in_time
 
         if not server_name:
             raise TypeError('Missing required property server_name')
-        __props__['serverName'] = server_name
+        __props__['server_name'] = server_name
 
-        __props__['sourceDatabaseDeletionDate'] = source_database_deletion_date
+        __props__['source_database_deletion_date'] = source_database_deletion_date
 
-        __props__['sourceDatabaseId'] = source_database_id
+        __props__['source_database_id'] = source_database_id
 
         __props__['tags'] = tags
 
-        __props__['threatDetectionPolicy'] = threat_detection_policy
+        __props__['threat_detection_policy'] = threat_detection_policy
 
         __props__['creation_date'] = None
         __props__['default_secondary_location'] = None
@@ -70,4 +70,11 @@ class Database(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

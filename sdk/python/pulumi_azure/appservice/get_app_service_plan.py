@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAppServicePlanResult(object):
     """
@@ -54,7 +54,7 @@ class GetAppServicePlanResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_app_service_plan(name=None, resource_group_name=None):
+async def get_app_service_plan(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
     """
@@ -62,7 +62,7 @@ def get_app_service_plan(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__)
 
     return GetAppServicePlanResult(
         kind=__ret__.get('kind'),

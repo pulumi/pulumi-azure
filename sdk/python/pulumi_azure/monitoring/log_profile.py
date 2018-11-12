@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LogProfile(pulumi.CustomResource):
     """
@@ -33,15 +33,22 @@ class LogProfile(pulumi.CustomResource):
 
         if not retention_policy:
             raise TypeError('Missing required property retention_policy')
-        __props__['retentionPolicy'] = retention_policy
+        __props__['retention_policy'] = retention_policy
 
-        __props__['servicebusRuleId'] = servicebus_rule_id
+        __props__['servicebus_rule_id'] = servicebus_rule_id
 
-        __props__['storageAccountId'] = storage_account_id
+        __props__['storage_account_id'] = storage_account_id
 
         super(LogProfile, __self__).__init__(
             'azure:monitoring/logProfile:LogProfile',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

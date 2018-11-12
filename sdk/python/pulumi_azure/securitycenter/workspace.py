@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Workspace(pulumi.CustomResource):
     """
@@ -31,11 +31,18 @@ class Workspace(pulumi.CustomResource):
 
         if not workspace_id:
             raise TypeError('Missing required property workspace_id')
-        __props__['workspaceId'] = workspace_id
+        __props__['workspace_id'] = workspace_id
 
         super(Workspace, __self__).__init__(
             'azure:securitycenter/workspace:Workspace',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Service(pulumi.CustomResource):
     """
@@ -70,15 +70,15 @@ class Service(pulumi.CustomResource):
 
         if not agent_pool_profile:
             raise TypeError('Missing required property agent_pool_profile')
-        __props__['agentPoolProfile'] = agent_pool_profile
+        __props__['agent_pool_profile'] = agent_pool_profile
 
         if not diagnostics_profile:
             raise TypeError('Missing required property diagnostics_profile')
-        __props__['diagnosticsProfile'] = diagnostics_profile
+        __props__['diagnostics_profile'] = diagnostics_profile
 
         if not linux_profile:
             raise TypeError('Missing required property linux_profile')
-        __props__['linuxProfile'] = linux_profile
+        __props__['linux_profile'] = linux_profile
 
         if not location:
             raise TypeError('Missing required property location')
@@ -86,19 +86,19 @@ class Service(pulumi.CustomResource):
 
         if not master_profile:
             raise TypeError('Missing required property master_profile')
-        __props__['masterProfile'] = master_profile
+        __props__['master_profile'] = master_profile
 
         __props__['name'] = name
 
         if not orchestration_platform:
             raise TypeError('Missing required property orchestration_platform')
-        __props__['orchestrationPlatform'] = orchestration_platform
+        __props__['orchestration_platform'] = orchestration_platform
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        __props__['servicePrincipal'] = service_principal
+        __props__['service_principal'] = service_principal
 
         __props__['tags'] = tags
 
@@ -107,4 +107,11 @@ class Service(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

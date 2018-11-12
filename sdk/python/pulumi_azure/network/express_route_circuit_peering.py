@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
     """
@@ -23,33 +23,33 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         if not express_route_circuit_name:
             raise TypeError('Missing required property express_route_circuit_name')
-        __props__['expressRouteCircuitName'] = express_route_circuit_name
+        __props__['express_route_circuit_name'] = express_route_circuit_name
 
-        __props__['microsoftPeeringConfig'] = microsoft_peering_config
+        __props__['microsoft_peering_config'] = microsoft_peering_config
 
-        __props__['peerAsn'] = peer_asn
+        __props__['peer_asn'] = peer_asn
 
         if not peering_type:
             raise TypeError('Missing required property peering_type')
-        __props__['peeringType'] = peering_type
+        __props__['peering_type'] = peering_type
 
         if not primary_peer_address_prefix:
             raise TypeError('Missing required property primary_peer_address_prefix')
-        __props__['primaryPeerAddressPrefix'] = primary_peer_address_prefix
+        __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not secondary_peer_address_prefix:
             raise TypeError('Missing required property secondary_peer_address_prefix')
-        __props__['secondaryPeerAddressPrefix'] = secondary_peer_address_prefix
+        __props__['secondary_peer_address_prefix'] = secondary_peer_address_prefix
 
-        __props__['sharedKey'] = shared_key
+        __props__['shared_key'] = shared_key
 
         if not vlan_id:
             raise TypeError('Missing required property vlan_id')
-        __props__['vlanId'] = vlan_id
+        __props__['vlan_id'] = vlan_id
 
         __props__['azure_asn'] = None
         __props__['primary_azure_port'] = None
@@ -60,4 +60,11 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Credential(pulumi.CustomResource):
     """
@@ -23,7 +23,7 @@ class Credential(pulumi.CustomResource):
 
         if not account_name:
             raise TypeError('Missing required property account_name')
-        __props__['accountName'] = account_name
+        __props__['account_name'] = account_name
 
         __props__['description'] = description
 
@@ -35,7 +35,7 @@ class Credential(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not username:
             raise TypeError('Missing required property username')
@@ -46,4 +46,11 @@ class Credential(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

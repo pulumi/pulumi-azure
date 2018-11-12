@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Application(pulumi.CustomResource):
     """
@@ -23,17 +23,17 @@ class Application(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['availableToOtherTenants'] = available_to_other_tenants
+        __props__['available_to_other_tenants'] = available_to_other_tenants
 
         __props__['homepage'] = homepage
 
-        __props__['identifierUris'] = identifier_uris
+        __props__['identifier_uris'] = identifier_uris
 
         __props__['name'] = name
 
-        __props__['oauth2AllowImplicitFlow'] = oauth2_allow_implicit_flow
+        __props__['oauth2_allow_implicit_flow'] = oauth2_allow_implicit_flow
 
-        __props__['replyUrls'] = reply_urls
+        __props__['reply_urls'] = reply_urls
 
         __props__['application_id'] = None
 
@@ -42,4 +42,11 @@ class Application(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

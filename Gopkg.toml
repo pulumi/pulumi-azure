@@ -1,10 +1,10 @@
 [[constraint]]
   name = "github.com/pulumi/pulumi"
-  version = "v0.15.1"
+  branch = "master"
 
 [[constraint]]
-  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
+  branch = "master"
 
 # DO NOT REMOVE THESE [pulumi/pulumi-terraform#229]
 # These versions are required by tfbridge - we must build against them even if the provider requests an older version.

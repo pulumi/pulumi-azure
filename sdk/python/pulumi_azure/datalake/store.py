@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Store(pulumi.CustomResource):
     """
@@ -21,13 +21,13 @@ class Store(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['encryptionState'] = encryption_state
+        __props__['encryption_state'] = encryption_state
 
-        __props__['encryptionType'] = encryption_type
+        __props__['encryption_type'] = encryption_type
 
-        __props__['firewallAllowAzureIps'] = firewall_allow_azure_ips
+        __props__['firewall_allow_azure_ips'] = firewall_allow_azure_ips
 
-        __props__['firewallState'] = firewall_state
+        __props__['firewall_state'] = firewall_state
 
         if not location:
             raise TypeError('Missing required property location')
@@ -37,7 +37,7 @@ class Store(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -50,4 +50,11 @@ class Store(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

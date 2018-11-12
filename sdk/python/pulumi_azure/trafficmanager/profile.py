@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Profile(pulumi.CustomResource):
     """
@@ -23,25 +23,25 @@ class Profile(pulumi.CustomResource):
 
         if not dns_configs:
             raise TypeError('Missing required property dns_configs')
-        __props__['dnsConfigs'] = dns_configs
+        __props__['dns_configs'] = dns_configs
 
         if not monitor_configs:
             raise TypeError('Missing required property monitor_configs')
-        __props__['monitorConfigs'] = monitor_configs
+        __props__['monitor_configs'] = monitor_configs
 
         __props__['name'] = name
 
-        __props__['profileStatus'] = profile_status
+        __props__['profile_status'] = profile_status
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
         if not traffic_routing_method:
             raise TypeError('Missing required property traffic_routing_method')
-        __props__['trafficRoutingMethod'] = traffic_routing_method
+        __props__['traffic_routing_method'] = traffic_routing_method
 
         __props__['fqdn'] = None
 
@@ -50,4 +50,11 @@ class Profile(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

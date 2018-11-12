@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class SharedImageVersion(pulumi.CustomResource):
     """
@@ -23,15 +23,15 @@ class SharedImageVersion(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['excludeFromLatest'] = exclude_from_latest
+        __props__['exclude_from_latest'] = exclude_from_latest
 
         if not gallery_name:
             raise TypeError('Missing required property gallery_name')
-        __props__['galleryName'] = gallery_name
+        __props__['gallery_name'] = gallery_name
 
         if not image_name:
             raise TypeError('Missing required property image_name')
-        __props__['imageName'] = image_name
+        __props__['image_name'] = image_name
 
         if not location:
             raise TypeError('Missing required property location')
@@ -39,23 +39,30 @@ class SharedImageVersion(pulumi.CustomResource):
 
         if not managed_image_id:
             raise TypeError('Missing required property managed_image_id')
-        __props__['managedImageId'] = managed_image_id
+        __props__['managed_image_id'] = managed_image_id
 
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
         if not target_regions:
             raise TypeError('Missing required property target_regions')
-        __props__['targetRegions'] = target_regions
+        __props__['target_regions'] = target_regions
 
         super(SharedImageVersion, __self__).__init__(
             'azure:compute/sharedImageVersion:SharedImageVersion',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

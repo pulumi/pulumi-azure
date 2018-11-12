@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class FirewallNetworkRuleCollection(pulumi.CustomResource):
     """
@@ -29,7 +29,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
 
         if not azure_firewall_name:
             raise TypeError('Missing required property azure_firewall_name')
-        __props__['azureFirewallName'] = azure_firewall_name
+        __props__['azure_firewall_name'] = azure_firewall_name
 
         __props__['name'] = name
 
@@ -39,7 +39,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not rules:
             raise TypeError('Missing required property rules')
@@ -50,4 +50,11 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetClientConfigResult(object):
     """
@@ -33,13 +33,13 @@ class GetClientConfigResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_client_config():
+async def get_client_config():
     """
     Use this data source to access the configuration of the AzureRM provider.
     """
     __args__ = dict()
 
-    __ret__ = pulumi.runtime.invoke('azure:core/getClientConfig:getClientConfig', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:core/getClientConfig:getClientConfig', __args__)
 
     return GetClientConfigResult(
         client_id=__ret__.get('clientId'),

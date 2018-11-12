@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ProtectedVM(pulumi.CustomResource):
     """
@@ -21,19 +21,19 @@ class ProtectedVM(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['backupPolicyId'] = backup_policy_id
+        __props__['backup_policy_id'] = backup_policy_id
 
         if not recovery_vault_name:
             raise TypeError('Missing required property recovery_vault_name')
-        __props__['recoveryVaultName'] = recovery_vault_name
+        __props__['recovery_vault_name'] = recovery_vault_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not source_vm_id:
             raise TypeError('Missing required property source_vm_id')
-        __props__['sourceVmId'] = source_vm_id
+        __props__['source_vm_id'] = source_vm_id
 
         __props__['tags'] = tags
 
@@ -42,4 +42,11 @@ class ProtectedVM(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

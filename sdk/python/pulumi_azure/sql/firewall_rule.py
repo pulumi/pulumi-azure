@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class FirewallRule(pulumi.CustomResource):
     """
@@ -23,25 +23,32 @@ class FirewallRule(pulumi.CustomResource):
 
         if not end_ip_address:
             raise TypeError('Missing required property end_ip_address')
-        __props__['endIpAddress'] = end_ip_address
+        __props__['end_ip_address'] = end_ip_address
 
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not server_name:
             raise TypeError('Missing required property server_name')
-        __props__['serverName'] = server_name
+        __props__['server_name'] = server_name
 
         if not start_ip_address:
             raise TypeError('Missing required property start_ip_address')
-        __props__['startIpAddress'] = start_ip_address
+        __props__['start_ip_address'] = start_ip_address
 
         super(FirewallRule, __self__).__init__(
             'azure:sql/firewallRule:FirewallRule',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetNetworkSecurityGroupResult(object):
     """
@@ -36,7 +36,7 @@ class GetNetworkSecurityGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_network_security_group(name=None, resource_group_name=None):
+async def get_network_security_group(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Network Security Group.
     """
@@ -44,7 +44,7 @@ def get_network_security_group(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup', __args__)
 
     return GetNetworkSecurityGroupResult(
         location=__ret__.get('location'),

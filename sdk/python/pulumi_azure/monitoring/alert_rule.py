@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AlertRule(pulumi.CustomResource):
     """
@@ -27,7 +27,7 @@ class AlertRule(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        __props__['emailAction'] = email_action
+        __props__['email_action'] = email_action
 
         __props__['enabled'] = enabled
 
@@ -37,7 +37,7 @@ class AlertRule(pulumi.CustomResource):
 
         if not metric_name:
             raise TypeError('Missing required property metric_name')
-        __props__['metricName'] = metric_name
+        __props__['metric_name'] = metric_name
 
         __props__['name'] = name
 
@@ -51,11 +51,11 @@ class AlertRule(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        __props__['resourceId'] = resource_id
+        __props__['resource_id'] = resource_id
 
         __props__['tags'] = tags
 
@@ -63,11 +63,18 @@ class AlertRule(pulumi.CustomResource):
             raise TypeError('Missing required property threshold')
         __props__['threshold'] = threshold
 
-        __props__['webhookAction'] = webhook_action
+        __props__['webhook_action'] = webhook_action
 
         super(AlertRule, __self__).__init__(
             'azure:monitoring/alertRule:AlertRule',
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

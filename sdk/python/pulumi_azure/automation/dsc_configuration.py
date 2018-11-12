@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class DscConfiguration(pulumi.CustomResource):
     """
@@ -23,11 +23,11 @@ class DscConfiguration(pulumi.CustomResource):
 
         if not automation_account_name:
             raise TypeError('Missing required property automation_account_name')
-        __props__['automationAccountName'] = automation_account_name
+        __props__['automation_account_name'] = automation_account_name
 
         if not content_embedded:
             raise TypeError('Missing required property content_embedded')
-        __props__['contentEmbedded'] = content_embedded
+        __props__['content_embedded'] = content_embedded
 
         __props__['description'] = description
 
@@ -35,13 +35,13 @@ class DscConfiguration(pulumi.CustomResource):
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
-        __props__['logVerbose'] = log_verbose
+        __props__['log_verbose'] = log_verbose
 
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['state'] = None
 
@@ -50,4 +50,11 @@ class DscConfiguration(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

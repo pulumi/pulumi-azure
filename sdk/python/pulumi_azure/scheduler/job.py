@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Job(pulumi.CustomResource):
     """
@@ -21,17 +21,17 @@ class Job(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['actionStorageQueue'] = action_storage_queue
+        __props__['action_storage_queue'] = action_storage_queue
 
-        __props__['actionWeb'] = action_web
+        __props__['action_web'] = action_web
 
-        __props__['errorActionStorageQueue'] = error_action_storage_queue
+        __props__['error_action_storage_queue'] = error_action_storage_queue
 
-        __props__['errorActionWeb'] = error_action_web
+        __props__['error_action_web'] = error_action_web
 
         if not job_collection_name:
             raise TypeError('Missing required property job_collection_name')
-        __props__['jobCollectionName'] = job_collection_name
+        __props__['job_collection_name'] = job_collection_name
 
         __props__['name'] = name
 
@@ -39,11 +39,11 @@ class Job(pulumi.CustomResource):
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['retry'] = retry
 
-        __props__['startTime'] = start_time
+        __props__['start_time'] = start_time
 
         __props__['state'] = state
 
@@ -52,4 +52,11 @@ class Job(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

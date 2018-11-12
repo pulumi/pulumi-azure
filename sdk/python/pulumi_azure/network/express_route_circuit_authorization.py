@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     """
@@ -23,13 +23,13 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
 
         if not express_route_circuit_name:
             raise TypeError('Missing required property express_route_circuit_name')
-        __props__['expressRouteCircuitName'] = express_route_circuit_name
+        __props__['express_route_circuit_name'] = express_route_circuit_name
 
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['authorization_key'] = None
         __props__['authorization_use_status'] = None
@@ -39,4 +39,11 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

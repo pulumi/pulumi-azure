@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ElasticPool(pulumi.CustomResource):
     """
@@ -21,9 +21,9 @@ class ElasticPool(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['dbDtuMax'] = db_dtu_max
+        __props__['db_dtu_max'] = db_dtu_max
 
-        __props__['dbDtuMin'] = db_dtu_min
+        __props__['db_dtu_min'] = db_dtu_min
 
         if not dtu:
             raise TypeError('Missing required property dtu')
@@ -39,15 +39,15 @@ class ElasticPool(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['poolSize'] = pool_size
+        __props__['pool_size'] = pool_size
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not server_name:
             raise TypeError('Missing required property server_name')
-        __props__['serverName'] = server_name
+        __props__['server_name'] = server_name
 
         __props__['tags'] = tags
 
@@ -58,4 +58,11 @@ class ElasticPool(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

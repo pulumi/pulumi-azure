@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Endpoint(pulumi.CustomResource):
     """
@@ -21,15 +21,15 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['contentTypesToCompresses'] = content_types_to_compresses
+        __props__['content_types_to_compresses'] = content_types_to_compresses
 
-        __props__['geoFilters'] = geo_filters
+        __props__['geo_filters'] = geo_filters
 
-        __props__['isCompressionEnabled'] = is_compression_enabled
+        __props__['is_compression_enabled'] = is_compression_enabled
 
-        __props__['isHttpAllowed'] = is_http_allowed
+        __props__['is_http_allowed'] = is_http_allowed
 
-        __props__['isHttpsAllowed'] = is_https_allowed
+        __props__['is_https_allowed'] = is_https_allowed
 
         if not location:
             raise TypeError('Missing required property location')
@@ -37,27 +37,27 @@ class Endpoint(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        __props__['optimizationType'] = optimization_type
+        __props__['optimization_type'] = optimization_type
 
         if not origins:
             raise TypeError('Missing required property origins')
         __props__['origins'] = origins
 
-        __props__['originHostHeader'] = origin_host_header
+        __props__['origin_host_header'] = origin_host_header
 
-        __props__['originPath'] = origin_path
+        __props__['origin_path'] = origin_path
 
-        __props__['probePath'] = probe_path
+        __props__['probe_path'] = probe_path
 
         if not profile_name:
             raise TypeError('Missing required property profile_name')
-        __props__['profileName'] = profile_name
+        __props__['profile_name'] = profile_name
 
-        __props__['querystringCachingBehaviour'] = querystring_caching_behaviour
+        __props__['querystring_caching_behaviour'] = querystring_caching_behaviour
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
@@ -68,4 +68,11 @@ class Endpoint(pulumi.CustomResource):
             __name__,
             __props__,
             __opts__)
+
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
