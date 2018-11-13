@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ServicePrincipal(pulumi.CustomResource):
     """
@@ -16,7 +16,7 @@ class ServicePrincipal(pulumi.CustomResource):
         """Create a ServicePrincipal resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,18 +25,9 @@ class ServicePrincipal(pulumi.CustomResource):
 
         if not application_id:
             raise TypeError('Missing required property application_id')
-        elif not isinstance(application_id, basestring):
-            raise TypeError('Expected property application_id to be a basestring')
-        __self__.application_id = application_id
-        """
-        The ID of the Azure AD Application for which to create a Service Principal.
-        """
-        __props__['applicationId'] = application_id
+        __props__['application_id'] = application_id
 
-        __self__.display_name = pulumi.runtime.UNKNOWN
-        """
-        The Display Name of the Azure Active Directory Application associated with this Service Principal.
-        """
+        __props__['display_name'] = None
 
         super(ServicePrincipal, __self__).__init__(
             'azure:ad/servicePrincipal:ServicePrincipal',
@@ -44,8 +35,10 @@ class ServicePrincipal(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'applicationId' in outs:
-            self.application_id = outs['applicationId']
-        if 'displayName' in outs:
-            self.display_name = outs['displayName']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         """Create a ExpressRouteCircuitPeering resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,101 +23,37 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         if not express_route_circuit_name:
             raise TypeError('Missing required property express_route_circuit_name')
-        elif not isinstance(express_route_circuit_name, basestring):
-            raise TypeError('Expected property express_route_circuit_name to be a basestring')
-        __self__.express_route_circuit_name = express_route_circuit_name
-        """
-        The name of the ExpressRoute Circuit in which to create the Peering.
-        """
-        __props__['expressRouteCircuitName'] = express_route_circuit_name
+        __props__['express_route_circuit_name'] = express_route_circuit_name
 
-        if microsoft_peering_config and not isinstance(microsoft_peering_config, dict):
-            raise TypeError('Expected property microsoft_peering_config to be a dict')
-        __self__.microsoft_peering_config = microsoft_peering_config
-        """
-        A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
-        """
-        __props__['microsoftPeeringConfig'] = microsoft_peering_config
+        __props__['microsoft_peering_config'] = microsoft_peering_config
 
-        if peer_asn and not isinstance(peer_asn, int):
-            raise TypeError('Expected property peer_asn to be a int')
-        __self__.peer_asn = peer_asn
-        """
-        The Either a 16-bit or a 32-bit ASN. Can either be public or private..
-        """
-        __props__['peerAsn'] = peer_asn
+        __props__['peer_asn'] = peer_asn
 
         if not peering_type:
             raise TypeError('Missing required property peering_type')
-        elif not isinstance(peering_type, basestring):
-            raise TypeError('Expected property peering_type to be a basestring')
-        __self__.peering_type = peering_type
-        """
-        The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
-        """
-        __props__['peeringType'] = peering_type
+        __props__['peering_type'] = peering_type
 
         if not primary_peer_address_prefix:
             raise TypeError('Missing required property primary_peer_address_prefix')
-        elif not isinstance(primary_peer_address_prefix, basestring):
-            raise TypeError('Expected property primary_peer_address_prefix to be a basestring')
-        __self__.primary_peer_address_prefix = primary_peer_address_prefix
-        """
-        A `/30` subnet for the primary link.
-        """
-        __props__['primaryPeerAddressPrefix'] = primary_peer_address_prefix
+        __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to
-        create the Express Route Circuit Peering. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not secondary_peer_address_prefix:
             raise TypeError('Missing required property secondary_peer_address_prefix')
-        elif not isinstance(secondary_peer_address_prefix, basestring):
-            raise TypeError('Expected property secondary_peer_address_prefix to be a basestring')
-        __self__.secondary_peer_address_prefix = secondary_peer_address_prefix
-        """
-        A `/30` subnet for the secondary link.
-        """
-        __props__['secondaryPeerAddressPrefix'] = secondary_peer_address_prefix
+        __props__['secondary_peer_address_prefix'] = secondary_peer_address_prefix
 
-        if shared_key and not isinstance(shared_key, basestring):
-            raise TypeError('Expected property shared_key to be a basestring')
-        __self__.shared_key = shared_key
-        """
-        The shared key. Can be a maximum of 25 characters.
-        """
-        __props__['sharedKey'] = shared_key
+        __props__['shared_key'] = shared_key
 
         if not vlan_id:
             raise TypeError('Missing required property vlan_id')
-        elif not isinstance(vlan_id, int):
-            raise TypeError('Expected property vlan_id to be a int')
-        __self__.vlan_id = vlan_id
-        """
-        A valid VLAN ID to establish this peering on.
-        """
-        __props__['vlanId'] = vlan_id
+        __props__['vlan_id'] = vlan_id
 
-        __self__.azure_asn = pulumi.runtime.UNKNOWN
-        """
-        The ASN used by Azure.
-        """
-        __self__.primary_azure_port = pulumi.runtime.UNKNOWN
-        """
-        The Primary Port used by Azure for this Peering.
-        """
-        __self__.secondary_azure_port = pulumi.runtime.UNKNOWN
-        """
-        The Secondary Port used by Azure for this Peering.
-        """
+        __props__['azure_asn'] = None
+        __props__['primary_azure_port'] = None
+        __props__['secondary_azure_port'] = None
 
         super(ExpressRouteCircuitPeering, __self__).__init__(
             'azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering',
@@ -125,28 +61,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'azureAsn' in outs:
-            self.azure_asn = outs['azureAsn']
-        if 'expressRouteCircuitName' in outs:
-            self.express_route_circuit_name = outs['expressRouteCircuitName']
-        if 'microsoftPeeringConfig' in outs:
-            self.microsoft_peering_config = outs['microsoftPeeringConfig']
-        if 'peerAsn' in outs:
-            self.peer_asn = outs['peerAsn']
-        if 'peeringType' in outs:
-            self.peering_type = outs['peeringType']
-        if 'primaryAzurePort' in outs:
-            self.primary_azure_port = outs['primaryAzurePort']
-        if 'primaryPeerAddressPrefix' in outs:
-            self.primary_peer_address_prefix = outs['primaryPeerAddressPrefix']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'secondaryAzurePort' in outs:
-            self.secondary_azure_port = outs['secondaryAzurePort']
-        if 'secondaryPeerAddressPrefix' in outs:
-            self.secondary_peer_address_prefix = outs['secondaryPeerAddressPrefix']
-        if 'sharedKey' in outs:
-            self.shared_key = outs['sharedKey']
-        if 'vlanId' in outs:
-            self.vlan_id = outs['vlanId']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

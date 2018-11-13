@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AvailabilitySet(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class AvailabilitySet(pulumi.CustomResource):
         """Create a AvailabilitySet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,62 +23,20 @@ class AvailabilitySet(pulumi.CustomResource):
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        """
         __props__['location'] = location
 
-        if managed and not isinstance(managed, bool):
-            raise TypeError('Expected property managed to be a bool')
-        __self__.managed = managed
-        """
-        Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
-        """
         __props__['managed'] = managed
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the availability set. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
-        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, int):
-            raise TypeError('Expected property platform_fault_domain_count to be a int')
-        __self__.platform_fault_domain_count = platform_fault_domain_count
-        """
-        Specifies the number of fault domains that are used. Defaults to 3.
-        """
-        __props__['platformFaultDomainCount'] = platform_fault_domain_count
+        __props__['platform_fault_domain_count'] = platform_fault_domain_count
 
-        if platform_update_domain_count and not isinstance(platform_update_domain_count, int):
-            raise TypeError('Expected property platform_update_domain_count to be a int')
-        __self__.platform_update_domain_count = platform_update_domain_count
-        """
-        Specifies the number of update domains that are used. Defaults to 5.
-        """
-        __props__['platformUpdateDomainCount'] = platform_update_domain_count
+        __props__['platform_update_domain_count'] = platform_update_domain_count
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         super(AvailabilitySet, __self__).__init__(
@@ -87,18 +45,10 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'managed' in outs:
-            self.managed = outs['managed']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'platformFaultDomainCount' in outs:
-            self.platform_fault_domain_count = outs['platformFaultDomainCount']
-        if 'platformUpdateDomainCount' in outs:
-            self.platform_update_domain_count = outs['platformUpdateDomainCount']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'tags' in outs:
-            self.tags = outs['tags']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

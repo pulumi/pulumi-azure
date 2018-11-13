@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ServicePrincipalPassword(pulumi.CustomResource):
     """
@@ -16,7 +16,7 @@ class ServicePrincipalPassword(pulumi.CustomResource):
         """Create a ServicePrincipalPassword resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,48 +25,18 @@ class ServicePrincipalPassword(pulumi.CustomResource):
 
         if not end_date:
             raise TypeError('Missing required property end_date')
-        elif not isinstance(end_date, basestring):
-            raise TypeError('Expected property end_date to be a basestring')
-        __self__.end_date = end_date
-        """
-        The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
-        """
-        __props__['endDate'] = end_date
+        __props__['end_date'] = end_date
 
-        if key_id and not isinstance(key_id, basestring):
-            raise TypeError('Expected property key_id to be a basestring')
-        __self__.key_id = key_id
-        """
-        A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
-        """
-        __props__['keyId'] = key_id
+        __props__['key_id'] = key_id
 
         if not service_principal_id:
             raise TypeError('Missing required property service_principal_id')
-        elif not isinstance(service_principal_id, basestring):
-            raise TypeError('Expected property service_principal_id to be a basestring')
-        __self__.service_principal_id = service_principal_id
-        """
-        The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
-        """
-        __props__['servicePrincipalId'] = service_principal_id
+        __props__['service_principal_id'] = service_principal_id
 
-        if start_date and not isinstance(start_date, basestring):
-            raise TypeError('Expected property start_date to be a basestring')
-        __self__.start_date = start_date
-        """
-        The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
-        """
-        __props__['startDate'] = start_date
+        __props__['start_date'] = start_date
 
         if not value:
             raise TypeError('Missing required property value')
-        elif not isinstance(value, basestring):
-            raise TypeError('Expected property value to be a basestring')
-        __self__.value = value
-        """
-        The Password for this Service Principal.
-        """
         __props__['value'] = value
 
         super(ServicePrincipalPassword, __self__).__init__(
@@ -75,14 +45,10 @@ class ServicePrincipalPassword(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'endDate' in outs:
-            self.end_date = outs['endDate']
-        if 'keyId' in outs:
-            self.key_id = outs['keyId']
-        if 'servicePrincipalId' in outs:
-            self.service_principal_id = outs['servicePrincipalId']
-        if 'startDate' in outs:
-            self.start_date = outs['startDate']
-        if 'value' in outs:
-            self.value = outs['value']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

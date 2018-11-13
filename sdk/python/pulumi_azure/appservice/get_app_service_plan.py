@@ -4,21 +4,21 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAppServicePlanResult(object):
     """
     A collection of values returned by getAppServicePlan.
     """
     def __init__(__self__, kind=None, location=None, maximum_number_of_workers=None, properties=None, sku=None, tags=None, id=None):
-        if kind and not isinstance(kind, basestring):
-            raise TypeError('Expected argument kind to be a basestring')
+        if kind and not isinstance(kind, str):
+            raise TypeError('Expected argument kind to be a str')
         __self__.kind = kind
         """
         The Operating System type of the App Service Plan
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure location where the App Service Plan exists
@@ -47,14 +47,14 @@ class GetAppServicePlanResult(object):
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_app_service_plan(name=None, resource_group_name=None):
+async def get_app_service_plan(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
     """
@@ -62,7 +62,7 @@ def get_app_service_plan(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__)
 
     return GetAppServicePlanResult(
         kind=__ret__.get('kind'),

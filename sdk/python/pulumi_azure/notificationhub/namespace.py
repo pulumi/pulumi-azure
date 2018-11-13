@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Namespace(pulumi.CustomResource):
     """
@@ -14,73 +14,34 @@ class Namespace(pulumi.CustomResource):
         """Create a Namespace resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        Is this Notification Hub Namespace enabled? Defaults to `true`.
-        """
         __props__['enabled'] = enabled
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        The Azure Region in which this Notification Hub Namespace should be created.
-        """
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not namespace_type:
             raise TypeError('Missing required property namespace_type')
-        elif not isinstance(namespace_type, basestring):
-            raise TypeError('Expected property namespace_type to be a basestring')
-        __self__.namespace_type = namespace_type
-        """
-        The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
-        """
-        __props__['namespaceType'] = namespace_type
+        __props__['namespace_type'] = namespace_type
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not sku:
             raise TypeError('Missing required property sku')
-        elif not isinstance(sku, dict):
-            raise TypeError('Expected property sku to be a dict')
-        __self__.sku = sku
-        """
-        A `sku` block as defined below.
-        """
         __props__['sku'] = sku
 
-        __self__.servicebus_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The ServiceBus Endpoint for this Notification Hub Namespace.
-        """
+        __props__['servicebus_endpoint'] = None
 
         super(Namespace, __self__).__init__(
             'azure:notificationhub/namespace:Namespace',
@@ -88,18 +49,10 @@ class Namespace(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namespaceType' in outs:
-            self.namespace_type = outs['namespaceType']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'servicebusEndpoint' in outs:
-            self.servicebus_endpoint = outs['servicebusEndpoint']
-        if 'sku' in outs:
-            self.sku = outs['sku']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

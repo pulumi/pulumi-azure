@@ -4,15 +4,15 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetResourceGroupResult(object):
     """
     A collection of values returned by getResourceGroup.
     """
     def __init__(__self__, location=None, tags=None, id=None):
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The location of the resource group.
@@ -23,21 +23,21 @@ class GetResourceGroupResult(object):
         """
         A mapping of tags assigned to the resource group.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_resource_group(name=None):
+async def get_resource_group(name=None):
     """
     Use this data source to access information about an existing Resource Group.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('azure:core/getResourceGroup:getResourceGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:core/getResourceGroup:getResourceGroup', __args__)
 
     return GetResourceGroupResult(
         location=__ret__.get('location'),

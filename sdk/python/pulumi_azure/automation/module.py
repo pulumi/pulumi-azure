@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Module(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class Module(pulumi.CustomResource):
         """Create a Module resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,41 +23,17 @@ class Module(pulumi.CustomResource):
 
         if not automation_account_name:
             raise TypeError('Missing required property automation_account_name')
-        elif not isinstance(automation_account_name, basestring):
-            raise TypeError('Expected property automation_account_name to be a basestring')
-        __self__.automation_account_name = automation_account_name
-        """
-        The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
-        """
-        __props__['automationAccountName'] = automation_account_name
+        __props__['automation_account_name'] = automation_account_name
 
         if not module_link:
             raise TypeError('Missing required property module_link')
-        elif not isinstance(module_link, dict):
-            raise TypeError('Expected property module_link to be a dict')
-        __self__.module_link = module_link
-        """
-        The published Module link.
-        """
-        __props__['moduleLink'] = module_link
+        __props__['module_link'] = module_link
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the Module. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         super(Module, __self__).__init__(
             'azure:automation/module:Module',
@@ -65,12 +41,10 @@ class Module(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'automationAccountName' in outs:
-            self.automation_account_name = outs['automationAccountName']
-        if 'moduleLink' in outs:
-            self.module_link = outs['moduleLink']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

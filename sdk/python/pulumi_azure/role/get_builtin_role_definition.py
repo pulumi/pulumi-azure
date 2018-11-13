@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetBuiltinRoleDefinitionResult(object):
     """
@@ -17,8 +17,8 @@ class GetBuiltinRoleDefinitionResult(object):
         """
         One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
         """
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         the Description of the built-in Role.
@@ -29,27 +29,27 @@ class GetBuiltinRoleDefinitionResult(object):
         """
         a `permissions` block as documented below.
         """
-        if type and not isinstance(type, basestring):
-            raise TypeError('Expected argument type to be a basestring')
+        if type and not isinstance(type, str):
+            raise TypeError('Expected argument type to be a str')
         __self__.type = type
         """
         the Type of the Role.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_builtin_role_definition(name=None):
+async def get_builtin_role_definition(name=None):
     """
     Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = pulumi.runtime.invoke('azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition', __args__)
 
     return GetBuiltinRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),

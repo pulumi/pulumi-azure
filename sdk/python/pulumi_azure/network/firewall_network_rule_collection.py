@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class FirewallNetworkRuleCollection(pulumi.CustomResource):
     """
@@ -16,7 +16,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         """Create a FirewallNetworkRuleCollection resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,60 +25,24 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
 
         if not action:
             raise TypeError('Missing required property action')
-        elif not isinstance(action, basestring):
-            raise TypeError('Expected property action to be a basestring')
-        __self__.action = action
-        """
-        Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
-        """
         __props__['action'] = action
 
         if not azure_firewall_name:
             raise TypeError('Missing required property azure_firewall_name')
-        elif not isinstance(azure_firewall_name, basestring):
-            raise TypeError('Expected property azure_firewall_name to be a basestring')
-        __self__.azure_firewall_name = azure_firewall_name
-        """
-        Specifies the name of the Firewall in which to the Network Rule Collection should be created. Changing this forces a new resource to be created.
-        """
-        __props__['azureFirewallName'] = azure_firewall_name
+        __props__['azure_firewall_name'] = azure_firewall_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not priority:
             raise TypeError('Missing required property priority')
-        elif not isinstance(priority, int):
-            raise TypeError('Expected property priority to be a int')
-        __self__.priority = priority
-        """
-        Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
-        """
         __props__['priority'] = priority
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not rules:
             raise TypeError('Missing required property rules')
-        elif not isinstance(rules, list):
-            raise TypeError('Expected property rules to be a list')
-        __self__.rules = rules
-        """
-        One or more `rule` blocks as defined below.
-        """
         __props__['rules'] = rules
 
         super(FirewallNetworkRuleCollection, __self__).__init__(
@@ -87,16 +51,10 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'action' in outs:
-            self.action = outs['action']
-        if 'azureFirewallName' in outs:
-            self.azure_firewall_name = outs['azureFirewallName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'priority' in outs:
-            self.priority = outs['priority']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'rules' in outs:
-            self.rules = outs['rules']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

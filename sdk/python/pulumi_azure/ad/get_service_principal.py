@@ -4,30 +4,30 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetServicePrincipalResult(object):
     """
     A collection of values returned by getServicePrincipal.
     """
     def __init__(__self__, application_id=None, display_name=None, object_id=None, id=None):
-        if application_id and not isinstance(application_id, basestring):
-            raise TypeError('Expected argument application_id to be a basestring')
+        if application_id and not isinstance(application_id, str):
+            raise TypeError('Expected argument application_id to be a str')
         __self__.application_id = application_id
-        if display_name and not isinstance(display_name, basestring):
-            raise TypeError('Expected argument display_name to be a basestring')
+        if display_name and not isinstance(display_name, str):
+            raise TypeError('Expected argument display_name to be a str')
         __self__.display_name = display_name
-        if object_id and not isinstance(object_id, basestring):
-            raise TypeError('Expected argument object_id to be a basestring')
+        if object_id and not isinstance(object_id, str):
+            raise TypeError('Expected argument object_id to be a str')
         __self__.object_id = object_id
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_service_principal(application_id=None, display_name=None, object_id=None):
+async def get_service_principal(application_id=None, display_name=None, object_id=None):
     """
     Gets information about an existing Service Principal associated with an Application within Azure Active Directory.
     
@@ -38,7 +38,7 @@ def get_service_principal(application_id=None, display_name=None, object_id=None
     __args__['applicationId'] = application_id
     __args__['displayName'] = display_name
     __args__['objectId'] = object_id
-    __ret__ = pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__)
 
     return GetServicePrincipalResult(
         application_id=__ret__.get('applicationId'),

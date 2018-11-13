@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Account(pulumi.CustomResource):
     """
@@ -14,211 +14,68 @@ class Account(pulumi.CustomResource):
         """Create a Account resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if access_tier and not isinstance(access_tier, basestring):
-            raise TypeError('Expected property access_tier to be a basestring')
-        __self__.access_tier = access_tier
-        """
-        Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
-        """
-        __props__['accessTier'] = access_tier
+        __props__['access_tier'] = access_tier
 
-        if account_encryption_source and not isinstance(account_encryption_source, basestring):
-            raise TypeError('Expected property account_encryption_source to be a basestring')
-        __self__.account_encryption_source = account_encryption_source
-        """
-        The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-        """
-        __props__['accountEncryptionSource'] = account_encryption_source
+        __props__['account_encryption_source'] = account_encryption_source
 
-        if account_kind and not isinstance(account_kind, basestring):
-            raise TypeError('Expected property account_kind to be a basestring')
-        __self__.account_kind = account_kind
-        """
-        Defines the Kind of account. Valid options are `Storage`,
-        `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-        Defaults to `Storage`.
-        """
-        __props__['accountKind'] = account_kind
+        __props__['account_kind'] = account_kind
 
         if not account_replication_type:
             raise TypeError('Missing required property account_replication_type')
-        elif not isinstance(account_replication_type, basestring):
-            raise TypeError('Expected property account_replication_type to be a basestring')
-        __self__.account_replication_type = account_replication_type
-        """
-        Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
-        """
-        __props__['accountReplicationType'] = account_replication_type
+        __props__['account_replication_type'] = account_replication_type
 
         if not account_tier:
             raise TypeError('Missing required property account_tier')
-        elif not isinstance(account_tier, basestring):
-            raise TypeError('Expected property account_tier to be a basestring')
-        __self__.account_tier = account_tier
-        """
-        Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
-        """
-        __props__['accountTier'] = account_tier
+        __props__['account_tier'] = account_tier
 
-        if account_type and not isinstance(account_type, basestring):
-            raise TypeError('Expected property account_type to be a basestring')
-        __self__.account_type = account_type
-        __props__['accountType'] = account_type
+        __props__['account_type'] = account_type
 
-        if custom_domain and not isinstance(custom_domain, dict):
-            raise TypeError('Expected property custom_domain to be a dict')
-        __self__.custom_domain = custom_domain
-        """
-        A `custom_domain` block as documented below.
-        """
-        __props__['customDomain'] = custom_domain
+        __props__['custom_domain'] = custom_domain
 
-        if enable_blob_encryption and not isinstance(enable_blob_encryption, bool):
-            raise TypeError('Expected property enable_blob_encryption to be a bool')
-        __self__.enable_blob_encryption = enable_blob_encryption
-        """
-        Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        """
-        __props__['enableBlobEncryption'] = enable_blob_encryption
+        __props__['enable_blob_encryption'] = enable_blob_encryption
 
-        if enable_file_encryption and not isinstance(enable_file_encryption, bool):
-            raise TypeError('Expected property enable_file_encryption to be a bool')
-        __self__.enable_file_encryption = enable_file_encryption
-        """
-        Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
-        """
-        __props__['enableFileEncryption'] = enable_file_encryption
+        __props__['enable_file_encryption'] = enable_file_encryption
 
-        if enable_https_traffic_only and not isinstance(enable_https_traffic_only, bool):
-            raise TypeError('Expected property enable_https_traffic_only to be a bool')
-        __self__.enable_https_traffic_only = enable_https_traffic_only
-        """
-        Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
-        for more information.
-        """
-        __props__['enableHttpsTrafficOnly'] = enable_https_traffic_only
+        __props__['enable_https_traffic_only'] = enable_https_traffic_only
 
-        if identity and not isinstance(identity, dict):
-            raise TypeError('Expected property identity to be a dict')
-        __self__.identity = identity
-        """
-        A Managed Service Identity block as defined below.
-        """
         __props__['identity'] = identity
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the supported Azure location where the
-        resource exists. Changing this forces a new resource to be created.
-        """
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
-        """
         __props__['name'] = name
 
-        if network_rules and not isinstance(network_rules, dict):
-            raise TypeError('Expected property network_rules to be a dict')
-        __self__.network_rules = network_rules
-        """
-        A `network_rules` block as documented below.
-        """
-        __props__['networkRules'] = network_rules
+        __props__['network_rules'] = network_rules
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to
-        create the storage account. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.primary_access_key = pulumi.runtime.UNKNOWN
-        """
-        The primary access key for the storage account
-        """
-        __self__.primary_blob_connection_string = pulumi.runtime.UNKNOWN
-        """
-        The connection string associated with the primary blob location
-        """
-        __self__.primary_blob_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The endpoint URL for blob storage in the primary location.
-        """
-        __self__.primary_connection_string = pulumi.runtime.UNKNOWN
-        """
-        The connection string associated with the primary location
-        """
-        __self__.primary_file_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The endpoint URL for file storage in the primary location.
-        """
-        __self__.primary_location = pulumi.runtime.UNKNOWN
-        """
-        The primary location of the storage account.
-        """
-        __self__.primary_queue_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The endpoint URL for queue storage in the primary location.
-        """
-        __self__.primary_table_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The endpoint URL for table storage in the primary location.
-        """
-        __self__.secondary_access_key = pulumi.runtime.UNKNOWN
-        """
-        The secondary access key for the storage account
-        """
-        __self__.secondary_blob_connection_string = pulumi.runtime.UNKNOWN
-        """
-        The connection string associated with the secondary blob location
-        """
-        __self__.secondary_blob_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The endpoint URL for blob storage in the secondary location.
-        """
-        __self__.secondary_connection_string = pulumi.runtime.UNKNOWN
-        """
-        The connection string associated with the secondary location
-        """
-        __self__.secondary_location = pulumi.runtime.UNKNOWN
-        """
-        The secondary location of the storage account.
-        """
-        __self__.secondary_queue_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The endpoint URL for queue storage in the secondary location.
-        """
-        __self__.secondary_table_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The endpoint URL for table storage in the secondary location.
-        """
+        __props__['primary_access_key'] = None
+        __props__['primary_blob_connection_string'] = None
+        __props__['primary_blob_endpoint'] = None
+        __props__['primary_connection_string'] = None
+        __props__['primary_file_endpoint'] = None
+        __props__['primary_location'] = None
+        __props__['primary_queue_endpoint'] = None
+        __props__['primary_table_endpoint'] = None
+        __props__['secondary_access_key'] = None
+        __props__['secondary_blob_connection_string'] = None
+        __props__['secondary_blob_endpoint'] = None
+        __props__['secondary_connection_string'] = None
+        __props__['secondary_location'] = None
+        __props__['secondary_queue_endpoint'] = None
+        __props__['secondary_table_endpoint'] = None
 
         super(Account, __self__).__init__(
             'azure:storage/account:Account',
@@ -226,66 +83,10 @@ class Account(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'accessTier' in outs:
-            self.access_tier = outs['accessTier']
-        if 'accountEncryptionSource' in outs:
-            self.account_encryption_source = outs['accountEncryptionSource']
-        if 'accountKind' in outs:
-            self.account_kind = outs['accountKind']
-        if 'accountReplicationType' in outs:
-            self.account_replication_type = outs['accountReplicationType']
-        if 'accountTier' in outs:
-            self.account_tier = outs['accountTier']
-        if 'accountType' in outs:
-            self.account_type = outs['accountType']
-        if 'customDomain' in outs:
-            self.custom_domain = outs['customDomain']
-        if 'enableBlobEncryption' in outs:
-            self.enable_blob_encryption = outs['enableBlobEncryption']
-        if 'enableFileEncryption' in outs:
-            self.enable_file_encryption = outs['enableFileEncryption']
-        if 'enableHttpsTrafficOnly' in outs:
-            self.enable_https_traffic_only = outs['enableHttpsTrafficOnly']
-        if 'identity' in outs:
-            self.identity = outs['identity']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'networkRules' in outs:
-            self.network_rules = outs['networkRules']
-        if 'primaryAccessKey' in outs:
-            self.primary_access_key = outs['primaryAccessKey']
-        if 'primaryBlobConnectionString' in outs:
-            self.primary_blob_connection_string = outs['primaryBlobConnectionString']
-        if 'primaryBlobEndpoint' in outs:
-            self.primary_blob_endpoint = outs['primaryBlobEndpoint']
-        if 'primaryConnectionString' in outs:
-            self.primary_connection_string = outs['primaryConnectionString']
-        if 'primaryFileEndpoint' in outs:
-            self.primary_file_endpoint = outs['primaryFileEndpoint']
-        if 'primaryLocation' in outs:
-            self.primary_location = outs['primaryLocation']
-        if 'primaryQueueEndpoint' in outs:
-            self.primary_queue_endpoint = outs['primaryQueueEndpoint']
-        if 'primaryTableEndpoint' in outs:
-            self.primary_table_endpoint = outs['primaryTableEndpoint']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'secondaryAccessKey' in outs:
-            self.secondary_access_key = outs['secondaryAccessKey']
-        if 'secondaryBlobConnectionString' in outs:
-            self.secondary_blob_connection_string = outs['secondaryBlobConnectionString']
-        if 'secondaryBlobEndpoint' in outs:
-            self.secondary_blob_endpoint = outs['secondaryBlobEndpoint']
-        if 'secondaryConnectionString' in outs:
-            self.secondary_connection_string = outs['secondaryConnectionString']
-        if 'secondaryLocation' in outs:
-            self.secondary_location = outs['secondaryLocation']
-        if 'secondaryQueueEndpoint' in outs:
-            self.secondary_queue_endpoint = outs['secondaryQueueEndpoint']
-        if 'secondaryTableEndpoint' in outs:
-            self.secondary_table_endpoint = outs['secondaryTableEndpoint']
-        if 'tags' in outs:
-            self.tags = outs['tags']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

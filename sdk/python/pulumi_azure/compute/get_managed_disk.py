@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetManagedDiskResult(object):
     """
@@ -17,26 +17,26 @@ class GetManagedDiskResult(object):
         """
         The size of the managed disk in gigabytes.
         """
-        if os_type and not isinstance(os_type, basestring):
-            raise TypeError('Expected argument os_type to be a basestring')
+        if os_type and not isinstance(os_type, str):
+            raise TypeError('Expected argument os_type to be a str')
         __self__.os_type = os_type
         """
         The operating system for managed disk. Valid values are `Linux` or `Windows`
         """
-        if source_resource_id and not isinstance(source_resource_id, basestring):
-            raise TypeError('Expected argument source_resource_id to be a basestring')
+        if source_resource_id and not isinstance(source_resource_id, str):
+            raise TypeError('Expected argument source_resource_id to be a str')
         __self__.source_resource_id = source_resource_id
         """
         ID of an existing managed disk that the current resource was created from.
         """
-        if source_uri and not isinstance(source_uri, basestring):
-            raise TypeError('Expected argument source_uri to be a basestring')
+        if source_uri and not isinstance(source_uri, str):
+            raise TypeError('Expected argument source_uri to be a str')
         __self__.source_uri = source_uri
         """
         The source URI for the managed disk
         """
-        if storage_account_type and not isinstance(storage_account_type, basestring):
-            raise TypeError('Expected argument storage_account_type to be a basestring')
+        if storage_account_type and not isinstance(storage_account_type, str):
+            raise TypeError('Expected argument storage_account_type to be a str')
         __self__.storage_account_type = storage_account_type
         """
         The storage account type for the managed disk.
@@ -53,14 +53,14 @@ class GetManagedDiskResult(object):
         """
         (Optional) A collection containing the availability zone the managed disk is allocated in.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None):
+async def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None):
     """
     Use this data source to access information about an existing Managed Disk.
     """
@@ -70,7 +70,7 @@ def get_managed_disk(name=None, resource_group_name=None, tags=None, zones=None)
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
     __args__['zones'] = zones
-    __ret__ = pulumi.runtime.invoke('azure:compute/getManagedDisk:getManagedDisk', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getManagedDisk:getManagedDisk', __args__)
 
     return GetManagedDiskResult(
         disk_size_gb=__ret__.get('diskSizeGb'),

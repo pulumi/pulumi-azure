@@ -4,39 +4,39 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAccountResult(object):
     """
     A collection of values returned by getAccount.
     """
     def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, location=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_connection_string=None, primary_file_endpoint=None, primary_location=None, primary_queue_endpoint=None, primary_table_endpoint=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_connection_string=None, secondary_location=None, secondary_queue_endpoint=None, secondary_table_endpoint=None, tags=None, id=None):
-        if access_tier and not isinstance(access_tier, basestring):
-            raise TypeError('Expected argument access_tier to be a basestring')
+        if access_tier and not isinstance(access_tier, str):
+            raise TypeError('Expected argument access_tier to be a str')
         __self__.access_tier = access_tier
         """
         The access tier for `BlobStorage` accounts.
         """
-        if account_encryption_source and not isinstance(account_encryption_source, basestring):
-            raise TypeError('Expected argument account_encryption_source to be a basestring')
+        if account_encryption_source and not isinstance(account_encryption_source, str):
+            raise TypeError('Expected argument account_encryption_source to be a str')
         __self__.account_encryption_source = account_encryption_source
         """
         The Encryption Source for this Storage Account.
         """
-        if account_kind and not isinstance(account_kind, basestring):
-            raise TypeError('Expected argument account_kind to be a basestring')
+        if account_kind and not isinstance(account_kind, str):
+            raise TypeError('Expected argument account_kind to be a str')
         __self__.account_kind = account_kind
         """
         The Kind of account.
         """
-        if account_replication_type and not isinstance(account_replication_type, basestring):
-            raise TypeError('Expected argument account_replication_type to be a basestring')
+        if account_replication_type and not isinstance(account_replication_type, str):
+            raise TypeError('Expected argument account_replication_type to be a str')
         __self__.account_replication_type = account_replication_type
         """
         The type of replication used for this storage account.
         """
-        if account_tier and not isinstance(account_tier, basestring):
-            raise TypeError('Expected argument account_tier to be a basestring')
+        if account_tier and not isinstance(account_tier, str):
+            raise TypeError('Expected argument account_tier to be a str')
         __self__.account_tier = account_tier
         """
         The Tier of this storage account.
@@ -68,98 +68,98 @@ class GetAccountResult(object):
         Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
         for more information.
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure location where the Storage Account exists
         """
-        if primary_access_key and not isinstance(primary_access_key, basestring):
-            raise TypeError('Expected argument primary_access_key to be a basestring')
+        if primary_access_key and not isinstance(primary_access_key, str):
+            raise TypeError('Expected argument primary_access_key to be a str')
         __self__.primary_access_key = primary_access_key
         """
         The primary access key for the Storage Account.
         """
-        if primary_blob_connection_string and not isinstance(primary_blob_connection_string, basestring):
-            raise TypeError('Expected argument primary_blob_connection_string to be a basestring')
+        if primary_blob_connection_string and not isinstance(primary_blob_connection_string, str):
+            raise TypeError('Expected argument primary_blob_connection_string to be a str')
         __self__.primary_blob_connection_string = primary_blob_connection_string
         """
         The connection string associated with the primary blob location
         """
-        if primary_blob_endpoint and not isinstance(primary_blob_endpoint, basestring):
-            raise TypeError('Expected argument primary_blob_endpoint to be a basestring')
+        if primary_blob_endpoint and not isinstance(primary_blob_endpoint, str):
+            raise TypeError('Expected argument primary_blob_endpoint to be a str')
         __self__.primary_blob_endpoint = primary_blob_endpoint
         """
         The endpoint URL for blob storage in the primary location.
         """
-        if primary_connection_string and not isinstance(primary_connection_string, basestring):
-            raise TypeError('Expected argument primary_connection_string to be a basestring')
+        if primary_connection_string and not isinstance(primary_connection_string, str):
+            raise TypeError('Expected argument primary_connection_string to be a str')
         __self__.primary_connection_string = primary_connection_string
         """
         The connection string associated with the primary location
         """
-        if primary_file_endpoint and not isinstance(primary_file_endpoint, basestring):
-            raise TypeError('Expected argument primary_file_endpoint to be a basestring')
+        if primary_file_endpoint and not isinstance(primary_file_endpoint, str):
+            raise TypeError('Expected argument primary_file_endpoint to be a str')
         __self__.primary_file_endpoint = primary_file_endpoint
         """
         The endpoint URL for file storage in the primary location.
         """
-        if primary_location and not isinstance(primary_location, basestring):
-            raise TypeError('Expected argument primary_location to be a basestring')
+        if primary_location and not isinstance(primary_location, str):
+            raise TypeError('Expected argument primary_location to be a str')
         __self__.primary_location = primary_location
         """
         The primary location of the Storage Account.
         """
-        if primary_queue_endpoint and not isinstance(primary_queue_endpoint, basestring):
-            raise TypeError('Expected argument primary_queue_endpoint to be a basestring')
+        if primary_queue_endpoint and not isinstance(primary_queue_endpoint, str):
+            raise TypeError('Expected argument primary_queue_endpoint to be a str')
         __self__.primary_queue_endpoint = primary_queue_endpoint
         """
         The endpoint URL for queue storage in the primary location.
         """
-        if primary_table_endpoint and not isinstance(primary_table_endpoint, basestring):
-            raise TypeError('Expected argument primary_table_endpoint to be a basestring')
+        if primary_table_endpoint and not isinstance(primary_table_endpoint, str):
+            raise TypeError('Expected argument primary_table_endpoint to be a str')
         __self__.primary_table_endpoint = primary_table_endpoint
         """
         The endpoint URL for table storage in the primary location.
         """
-        if secondary_access_key and not isinstance(secondary_access_key, basestring):
-            raise TypeError('Expected argument secondary_access_key to be a basestring')
+        if secondary_access_key and not isinstance(secondary_access_key, str):
+            raise TypeError('Expected argument secondary_access_key to be a str')
         __self__.secondary_access_key = secondary_access_key
         """
         The secondary access key for the Storage Account.
         """
-        if secondary_blob_connection_string and not isinstance(secondary_blob_connection_string, basestring):
-            raise TypeError('Expected argument secondary_blob_connection_string to be a basestring')
+        if secondary_blob_connection_string and not isinstance(secondary_blob_connection_string, str):
+            raise TypeError('Expected argument secondary_blob_connection_string to be a str')
         __self__.secondary_blob_connection_string = secondary_blob_connection_string
         """
         The connection string associated with the secondary blob location
         """
-        if secondary_blob_endpoint and not isinstance(secondary_blob_endpoint, basestring):
-            raise TypeError('Expected argument secondary_blob_endpoint to be a basestring')
+        if secondary_blob_endpoint and not isinstance(secondary_blob_endpoint, str):
+            raise TypeError('Expected argument secondary_blob_endpoint to be a str')
         __self__.secondary_blob_endpoint = secondary_blob_endpoint
         """
         The endpoint URL for blob storage in the secondary location.
         """
-        if secondary_connection_string and not isinstance(secondary_connection_string, basestring):
-            raise TypeError('Expected argument secondary_connection_string to be a basestring')
+        if secondary_connection_string and not isinstance(secondary_connection_string, str):
+            raise TypeError('Expected argument secondary_connection_string to be a str')
         __self__.secondary_connection_string = secondary_connection_string
         """
         The connection string associated with the secondary location
         """
-        if secondary_location and not isinstance(secondary_location, basestring):
-            raise TypeError('Expected argument secondary_location to be a basestring')
+        if secondary_location and not isinstance(secondary_location, str):
+            raise TypeError('Expected argument secondary_location to be a str')
         __self__.secondary_location = secondary_location
         """
         The secondary location of the Storage Account.
         """
-        if secondary_queue_endpoint and not isinstance(secondary_queue_endpoint, basestring):
-            raise TypeError('Expected argument secondary_queue_endpoint to be a basestring')
+        if secondary_queue_endpoint and not isinstance(secondary_queue_endpoint, str):
+            raise TypeError('Expected argument secondary_queue_endpoint to be a str')
         __self__.secondary_queue_endpoint = secondary_queue_endpoint
         """
         The endpoint URL for queue storage in the secondary location.
         """
-        if secondary_table_endpoint and not isinstance(secondary_table_endpoint, basestring):
-            raise TypeError('Expected argument secondary_table_endpoint to be a basestring')
+        if secondary_table_endpoint and not isinstance(secondary_table_endpoint, str):
+            raise TypeError('Expected argument secondary_table_endpoint to be a str')
         __self__.secondary_table_endpoint = secondary_table_endpoint
         """
         The endpoint URL for table storage in the secondary location.
@@ -170,14 +170,14 @@ class GetAccountResult(object):
         """
         A mapping of tags to assigned to the resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_account(name=None, resource_group_name=None):
+async def get_account(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Storage Account.
     """
@@ -185,7 +185,7 @@ def get_account(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:storage/getAccount:getAccount', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:storage/getAccount:getAccount', __args__)
 
     return GetAccountResult(
         access_tier=__ret__.get('accessTier'),

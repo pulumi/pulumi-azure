@@ -4,15 +4,15 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSecretResult(object):
     """
     A collection of values returned by getSecret.
     """
     def __init__(__self__, content_type=None, tags=None, value=None, version=None, id=None):
-        if content_type and not isinstance(content_type, basestring):
-            raise TypeError('Expected argument content_type to be a basestring')
+        if content_type and not isinstance(content_type, str):
+            raise TypeError('Expected argument content_type to be a str')
         __self__.content_type = content_type
         """
         The content type for the Key Vault Secret.
@@ -23,26 +23,26 @@ class GetSecretResult(object):
         """
         Any tags assigned to this resource.
         """
-        if value and not isinstance(value, basestring):
-            raise TypeError('Expected argument value to be a basestring')
+        if value and not isinstance(value, str):
+            raise TypeError('Expected argument value to be a str')
         __self__.value = value
         """
         The value of the Key Vault Secret.
         """
-        if version and not isinstance(version, basestring):
-            raise TypeError('Expected argument version to be a basestring')
+        if version and not isinstance(version, str):
+            raise TypeError('Expected argument version to be a str')
         __self__.version = version
         """
         The current version of the Key Vault Secret.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_secret(name=None, vault_uri=None):
+async def get_secret(name=None, vault_uri=None):
     """
     Use this data source to access information about an existing Key Vault Secret.
     
@@ -53,7 +53,7 @@ def get_secret(name=None, vault_uri=None):
 
     __args__['name'] = name
     __args__['vaultUri'] = vault_uri
-    __ret__ = pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__)
 
     return GetSecretResult(
         content_type=__ret__.get('contentType'),

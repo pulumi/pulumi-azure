@@ -3,6 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from endpoint import *
-from profile import *
-from get_profile import *
+from .endpoint import *
+from .profile import *
+from .get_profile import *

@@ -3,10 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from account import *
-from credential import *
-from dsc_configuration import *
-from dsc_node_configuration import *
-from module import *
-from run_book import *
-from schedule import *
+from .account import *
+from .credential import *
+from .dsc_configuration import *
+from .dsc_node_configuration import *
+from .module import *
+from .run_book import *
+from .schedule import *

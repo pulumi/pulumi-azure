@@ -4,21 +4,21 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetProfileResult(object):
     """
     A collection of values returned by getProfile.
     """
     def __init__(__self__, location=None, sku=None, tags=None, id=None):
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure Region where the resource exists.
         """
-        if sku and not isinstance(sku, basestring):
-            raise TypeError('Expected argument sku to be a basestring')
+        if sku and not isinstance(sku, str):
+            raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
         """
         The pricing related information of current CDN profile.
@@ -29,14 +29,14 @@ class GetProfileResult(object):
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_profile(name=None, resource_group_name=None):
+async def get_profile(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing CDN Profile.
     """
@@ -44,7 +44,7 @@ def get_profile(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:cdn/getProfile:getProfile', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:cdn/getProfile:getProfile', __args__)
 
     return GetProfileResult(
         location=__ret__.get('location'),

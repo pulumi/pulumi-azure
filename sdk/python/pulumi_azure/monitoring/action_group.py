@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ActionGroup(pulumi.CustomResource):
     """
@@ -14,80 +14,32 @@ class ActionGroup(pulumi.CustomResource):
         """Create a ActionGroup resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if email_receivers and not isinstance(email_receivers, list):
-            raise TypeError('Expected property email_receivers to be a list')
-        __self__.email_receivers = email_receivers
-        """
-        One or more `email_receiver` blocks as defined below.
-        """
-        __props__['emailReceivers'] = email_receivers
+        __props__['email_receivers'] = email_receivers
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
-        """
         __props__['enabled'] = enabled
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the Action Group instance.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not short_name:
             raise TypeError('Missing required property short_name')
-        elif not isinstance(short_name, basestring):
-            raise TypeError('Expected property short_name to be a basestring')
-        __self__.short_name = short_name
-        """
-        The short name of the action group. This will be used in SMS messages.
-        """
-        __props__['shortName'] = short_name
+        __props__['short_name'] = short_name
 
-        if sms_receivers and not isinstance(sms_receivers, list):
-            raise TypeError('Expected property sms_receivers to be a list')
-        __self__.sms_receivers = sms_receivers
-        """
-        One or more `sms_receiver ` blocks as defined below.
-        """
-        __props__['smsReceivers'] = sms_receivers
+        __props__['sms_receivers'] = sms_receivers
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if webhook_receivers and not isinstance(webhook_receivers, list):
-            raise TypeError('Expected property webhook_receivers to be a list')
-        __self__.webhook_receivers = webhook_receivers
-        """
-        One or more `webhook_receiver ` blocks as defined below.
-        """
-        __props__['webhookReceivers'] = webhook_receivers
+        __props__['webhook_receivers'] = webhook_receivers
 
         super(ActionGroup, __self__).__init__(
             'azure:monitoring/actionGroup:ActionGroup',
@@ -95,20 +47,10 @@ class ActionGroup(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'emailReceivers' in outs:
-            self.email_receivers = outs['emailReceivers']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'shortName' in outs:
-            self.short_name = outs['shortName']
-        if 'smsReceivers' in outs:
-            self.sms_receivers = outs['smsReceivers']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'webhookReceivers' in outs:
-            self.webhook_receivers = outs['webhookReceivers']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

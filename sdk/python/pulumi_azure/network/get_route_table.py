@@ -4,15 +4,15 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetRouteTableResult(object):
     """
     A collection of values returned by getRouteTable.
     """
     def __init__(__self__, location=None, routes=None, subnets=None, tags=None, id=None):
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure Region in which the Route Table exists.
@@ -35,14 +35,14 @@ class GetRouteTableResult(object):
         """
         A mapping of tags assigned to the Route Table.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_route_table(name=None, resource_group_name=None):
+async def get_route_table(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Route Table.
     """
@@ -50,7 +50,7 @@ def get_route_table(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:network/getRouteTable:getRouteTable', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:network/getRouteTable:getRouteTable', __args__)
 
     return GetRouteTableResult(
         location=__ret__.get('location'),

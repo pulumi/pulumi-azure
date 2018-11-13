@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AuthorizationRule(pulumi.CustomResource):
     """
@@ -14,83 +14,35 @@ class AuthorizationRule(pulumi.CustomResource):
         """Create a AuthorizationRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if listen and not isinstance(listen, bool):
-            raise TypeError('Expected property listen to be a bool')
-        __self__.listen = listen
-        """
-        Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
-        """
         __props__['listen'] = listen
 
-        if manage and not isinstance(manage, bool):
-            raise TypeError('Expected property manage to be a bool')
-        __self__.manage = manage
-        """
-        Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
-        """
         __props__['manage'] = manage
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name to use for this Authorization Rule. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not namespace_name:
             raise TypeError('Missing required property namespace_name')
-        elif not isinstance(namespace_name, basestring):
-            raise TypeError('Expected property namespace_name to be a basestring')
-        __self__.namespace_name = namespace_name
-        """
-        The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
-        """
-        __props__['namespaceName'] = namespace_name
+        __props__['namespace_name'] = namespace_name
 
         if not notification_hub_name:
             raise TypeError('Missing required property notification_hub_name')
-        elif not isinstance(notification_hub_name, basestring):
-            raise TypeError('Expected property notification_hub_name to be a basestring')
-        __self__.notification_hub_name = notification_hub_name
-        """
-        The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
-        """
-        __props__['notificationHubName'] = notification_hub_name
+        __props__['notification_hub_name'] = notification_hub_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if send and not isinstance(send, bool):
-            raise TypeError('Expected property send to be a bool')
-        __self__.send = send
-        """
-        Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
-        """
         __props__['send'] = send
 
-        __self__.primary_access_key = pulumi.runtime.UNKNOWN
-        """
-        The Primary Access Key associated with this Authorization Rule.
-        """
-        __self__.secondary_access_key = pulumi.runtime.UNKNOWN
-        """
-        The Secondary Access Key associated with this Authorization Rule.
-        """
+        __props__['primary_access_key'] = None
+        __props__['secondary_access_key'] = None
 
         super(AuthorizationRule, __self__).__init__(
             'azure:notificationhub/authorizationRule:AuthorizationRule',
@@ -98,22 +50,10 @@ class AuthorizationRule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'listen' in outs:
-            self.listen = outs['listen']
-        if 'manage' in outs:
-            self.manage = outs['manage']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'namespaceName' in outs:
-            self.namespace_name = outs['namespaceName']
-        if 'notificationHubName' in outs:
-            self.notification_hub_name = outs['notificationHubName']
-        if 'primaryAccessKey' in outs:
-            self.primary_access_key = outs['primaryAccessKey']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'secondaryAccessKey' in outs:
-            self.secondary_access_key = outs['secondaryAccessKey']
-        if 'send' in outs:
-            self.send = outs['send']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

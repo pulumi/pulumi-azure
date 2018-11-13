@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ProtectedVM(pulumi.CustomResource):
     """
@@ -14,54 +14,27 @@ class ProtectedVM(pulumi.CustomResource):
         """Create a ProtectedVM resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if backup_policy_id and not isinstance(backup_policy_id, basestring):
-            raise TypeError('Expected property backup_policy_id to be a basestring')
-        __self__.backup_policy_id = backup_policy_id
-        __props__['backupPolicyId'] = backup_policy_id
+        __props__['backup_policy_id'] = backup_policy_id
 
         if not recovery_vault_name:
             raise TypeError('Missing required property recovery_vault_name')
-        elif not isinstance(recovery_vault_name, basestring):
-            raise TypeError('Expected property recovery_vault_name to be a basestring')
-        __self__.recovery_vault_name = recovery_vault_name
-        """
-        Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        """
-        __props__['recoveryVaultName'] = recovery_vault_name
+        __props__['recovery_vault_name'] = recovery_vault_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not source_vm_id:
             raise TypeError('Missing required property source_vm_id')
-        elif not isinstance(source_vm_id, basestring):
-            raise TypeError('Expected property source_vm_id to be a basestring')
-        __self__.source_vm_id = source_vm_id
-        """
-        Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
-        """
-        __props__['sourceVmId'] = source_vm_id
+        __props__['source_vm_id'] = source_vm_id
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         super(ProtectedVM, __self__).__init__(
@@ -70,14 +43,10 @@ class ProtectedVM(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'backupPolicyId' in outs:
-            self.backup_policy_id = outs['backupPolicyId']
-        if 'recoveryVaultName' in outs:
-            self.recovery_vault_name = outs['recoveryVaultName']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'sourceVmId' in outs:
-            self.source_vm_id = outs['sourceVmId']
-        if 'tags' in outs:
-            self.tags = outs['tags']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

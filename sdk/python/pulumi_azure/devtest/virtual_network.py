@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class VirtualNetwork(pulumi.CustomResource):
     """
@@ -14,69 +14,30 @@ class VirtualNetwork(pulumi.CustomResource):
         """Create a VirtualNetwork resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A description for the Virtual Network.
-        """
         __props__['description'] = description
 
         if not lab_name:
             raise TypeError('Missing required property lab_name')
-        elif not isinstance(lab_name, basestring):
-            raise TypeError('Expected property lab_name to be a basestring')
-        __self__.lab_name = lab_name
-        """
-        Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
-        """
-        __props__['labName'] = lab_name
+        __props__['lab_name'] = lab_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if subnet and not isinstance(subnet, dict):
-            raise TypeError('Expected property subnet to be a dict')
-        __self__.subnet = subnet
-        """
-        A `subnet` block as defined below.
-        """
         __props__['subnet'] = subnet
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.unique_identifier = pulumi.runtime.UNKNOWN
-        """
-        The unique immutable identifier of the Dev Test Virtual Network.
-        """
+        __props__['unique_identifier'] = None
 
         super(VirtualNetwork, __self__).__init__(
             'azure:devtest/virtualNetwork:VirtualNetwork',
@@ -84,18 +45,10 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'labName' in outs:
-            self.lab_name = outs['labName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'subnet' in outs:
-            self.subnet = outs['subnet']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'uniqueIdentifier' in outs:
-            self.unique_identifier = outs['uniqueIdentifier']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

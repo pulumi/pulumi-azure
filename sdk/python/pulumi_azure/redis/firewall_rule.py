@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class FirewallRule(pulumi.CustomResource):
     """
@@ -16,7 +16,7 @@ class FirewallRule(pulumi.CustomResource):
         """Create a FirewallRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,51 +25,21 @@ class FirewallRule(pulumi.CustomResource):
 
         if not end_ip:
             raise TypeError('Missing required property end_ip')
-        elif not isinstance(end_ip, basestring):
-            raise TypeError('Expected property end_ip to be a basestring')
-        __self__.end_ip = end_ip
-        """
-        The highest IP address included in the range.
-        """
-        __props__['endIp'] = end_ip
+        __props__['end_ip'] = end_ip
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Firewall Rule. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not redis_cache_name:
             raise TypeError('Missing required property redis_cache_name')
-        elif not isinstance(redis_cache_name, basestring):
-            raise TypeError('Expected property redis_cache_name to be a basestring')
-        __self__.redis_cache_name = redis_cache_name
-        """
-        The name of the Redis Cache. Changing this forces a new resource to be created.
-        """
-        __props__['redisCacheName'] = redis_cache_name
+        __props__['redis_cache_name'] = redis_cache_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which this Redis Cache exists.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not start_ip:
             raise TypeError('Missing required property start_ip')
-        elif not isinstance(start_ip, basestring):
-            raise TypeError('Expected property start_ip to be a basestring')
-        __self__.start_ip = start_ip
-        """
-        The lowest IP address included in the range
-        """
-        __props__['startIp'] = start_ip
+        __props__['start_ip'] = start_ip
 
         super(FirewallRule, __self__).__init__(
             'azure:redis/firewallRule:FirewallRule',
@@ -77,14 +47,10 @@ class FirewallRule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'endIp' in outs:
-            self.end_ip = outs['endIp']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'redisCacheName' in outs:
-            self.redis_cache_name = outs['redisCacheName']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'startIp' in outs:
-            self.start_ip = outs['startIp']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

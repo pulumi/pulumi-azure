@@ -4,21 +4,21 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSharedImageGalleryResult(object):
     """
     A collection of values returned by getSharedImageGallery.
     """
     def __init__(__self__, description=None, location=None, tags=None, unique_name=None, id=None):
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         A description for the Shared Image Gallery.
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
@@ -26,20 +26,20 @@ class GetSharedImageGalleryResult(object):
         """
         A mapping of tags which are assigned to the Shared Image Gallery.
         """
-        if unique_name and not isinstance(unique_name, basestring):
-            raise TypeError('Expected argument unique_name to be a basestring')
+        if unique_name and not isinstance(unique_name, str):
+            raise TypeError('Expected argument unique_name to be a str')
         __self__.unique_name = unique_name
         """
         The unique name assigned to the Shared Image Gallery.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_shared_image_gallery(name=None, resource_group_name=None):
+async def get_shared_image_gallery(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Shared Image Gallery.
     
@@ -49,7 +49,7 @@ def get_shared_image_gallery(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageGallery:getSharedImageGallery', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getSharedImageGallery:getSharedImageGallery', __args__)
 
     return GetSharedImageGalleryResult(
         description=__ret__.get('description'),

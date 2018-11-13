@@ -4,15 +4,15 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetApplicationResult(object):
     """
     A collection of values returned by getApplication.
     """
     def __init__(__self__, application_id=None, available_to_other_tenants=None, homepage=None, identifier_uris=None, name=None, oauth2_allow_implicit_flow=None, object_id=None, reply_urls=None, id=None):
-        if application_id and not isinstance(application_id, basestring):
-            raise TypeError('Expected argument application_id to be a basestring')
+        if application_id and not isinstance(application_id, str):
+            raise TypeError('Expected argument application_id to be a str')
         __self__.application_id = application_id
         """
         the Application ID of the Azure Active Directory Application.
@@ -23,8 +23,8 @@ class GetApplicationResult(object):
         """
         Is this Azure AD Application available to other tenants?
         """
-        if homepage and not isinstance(homepage, basestring):
-            raise TypeError('Expected argument homepage to be a basestring')
+        if homepage and not isinstance(homepage, str):
+            raise TypeError('Expected argument homepage to be a str')
         __self__.homepage = homepage
         if identifier_uris and not isinstance(identifier_uris, list):
             raise TypeError('Expected argument identifier_uris to be a list')
@@ -32,8 +32,8 @@ class GetApplicationResult(object):
         """
         A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
         """
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected argument name to be a basestring')
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
         __self__.name = name
         if oauth2_allow_implicit_flow and not isinstance(oauth2_allow_implicit_flow, bool):
             raise TypeError('Expected argument oauth2_allow_implicit_flow to be a bool')
@@ -41,8 +41,8 @@ class GetApplicationResult(object):
         """
         Does this Azure AD Application allow OAuth2.0 implicit flow tokens?
         """
-        if object_id and not isinstance(object_id, basestring):
-            raise TypeError('Expected argument object_id to be a basestring')
+        if object_id and not isinstance(object_id, str):
+            raise TypeError('Expected argument object_id to be a str')
         __self__.object_id = object_id
         """
         the Object ID of the Azure Active Directory Application.
@@ -53,14 +53,14 @@ class GetApplicationResult(object):
         """
         A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_application(name=None, object_id=None):
+async def get_application(name=None, object_id=None):
     """
     Use this data source to access information about an existing Application within Azure Active Directory.
     
@@ -70,7 +70,7 @@ def get_application(name=None, object_id=None):
 
     __args__['name'] = name
     __args__['objectId'] = object_id
-    __ret__ = pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__)
 
     return GetApplicationResult(
         application_id=__ret__.get('applicationId'),

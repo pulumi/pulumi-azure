@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class AlertRule(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class AlertRule(pulumi.CustomResource):
         """Create a AlertRule resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,131 +23,47 @@ class AlertRule(pulumi.CustomResource):
 
         if not aggregation:
             raise TypeError('Missing required property aggregation')
-        elif not isinstance(aggregation, basestring):
-            raise TypeError('Expected property aggregation to be a basestring')
-        __self__.aggregation = aggregation
-        """
-        Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
-        """
         __props__['aggregation'] = aggregation
 
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected property description to be a basestring')
-        __self__.description = description
-        """
-        A verbose description of the alert rule that will be included in the alert email.
-        """
         __props__['description'] = description
 
-        if email_action and not isinstance(email_action, dict):
-            raise TypeError('Expected property email_action to be a dict')
-        __self__.email_action = email_action
-        """
-        A `email_action` block as defined below.
-        """
-        __props__['emailAction'] = email_action
+        __props__['email_action'] = email_action
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        If `true`, the alert rule is enabled. Defaults to `true`.
-        """
         __props__['enabled'] = enabled
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        """
         __props__['location'] = location
 
         if not metric_name:
             raise TypeError('Missing required property metric_name')
-        elif not isinstance(metric_name, basestring):
-            raise TypeError('Expected property metric_name to be a basestring')
-        __self__.metric_name = metric_name
-        """
-        The metric that defines what the rule monitors.
-        """
-        __props__['metricName'] = metric_name
+        __props__['metric_name'] = metric_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the alert rule. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not operator:
             raise TypeError('Missing required property operator')
-        elif not isinstance(operator, basestring):
-            raise TypeError('Expected property operator to be a basestring')
-        __self__.operator = operator
-        """
-        The operator used to compare the metric data and the threshold. Possible values are `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, and `LessThanOrEqual`.
-        """
         __props__['operator'] = operator
 
         if not period:
             raise TypeError('Missing required property period')
-        elif not isinstance(period, basestring):
-            raise TypeError('Expected property period to be a basestring')
-        __self__.period = period
-        """
-        The period of time formatted in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) that is used to monitor the alert activity based on the threshold. The period must be between 5 minutes and 1 day.
-        """
         __props__['period'] = period
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the alert rule. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
         if not resource_id:
             raise TypeError('Missing required property resource_id')
-        elif not isinstance(resource_id, basestring):
-            raise TypeError('Expected property resource_id to be a basestring')
-        __self__.resource_id = resource_id
-        """
-        The ID of the resource monitored by the alert rule.
-        """
-        __props__['resourceId'] = resource_id
+        __props__['resource_id'] = resource_id
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
-        """
         __props__['tags'] = tags
 
         if not threshold:
             raise TypeError('Missing required property threshold')
-        elif not isinstance(threshold, float):
-            raise TypeError('Expected property threshold to be a float')
-        __self__.threshold = threshold
-        """
-        The threshold value that activates the alert.
-        """
         __props__['threshold'] = threshold
 
-        if webhook_action and not isinstance(webhook_action, dict):
-            raise TypeError('Expected property webhook_action to be a dict')
-        __self__.webhook_action = webhook_action
-        """
-        A `webhook_action` block as defined below.
-        """
-        __props__['webhookAction'] = webhook_action
+        __props__['webhook_action'] = webhook_action
 
         super(AlertRule, __self__).__init__(
             'azure:monitoring/alertRule:AlertRule',
@@ -155,32 +71,10 @@ class AlertRule(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'aggregation' in outs:
-            self.aggregation = outs['aggregation']
-        if 'description' in outs:
-            self.description = outs['description']
-        if 'emailAction' in outs:
-            self.email_action = outs['emailAction']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'metricName' in outs:
-            self.metric_name = outs['metricName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'operator' in outs:
-            self.operator = outs['operator']
-        if 'period' in outs:
-            self.period = outs['period']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'resourceId' in outs:
-            self.resource_id = outs['resourceId']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'threshold' in outs:
-            self.threshold = outs['threshold']
-        if 'webhookAction' in outs:
-            self.webhook_action = outs['webhookAction']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class FunctionApp(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class FunctionApp(pulumi.CustomResource):
         """Create a FunctionApp resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,136 +23,43 @@ class FunctionApp(pulumi.CustomResource):
 
         if not app_service_plan_id:
             raise TypeError('Missing required property app_service_plan_id')
-        elif not isinstance(app_service_plan_id, basestring):
-            raise TypeError('Expected property app_service_plan_id to be a basestring')
-        __self__.app_service_plan_id = app_service_plan_id
-        """
-        The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
-        """
-        __props__['appServicePlanId'] = app_service_plan_id
+        __props__['app_service_plan_id'] = app_service_plan_id
 
-        if app_settings and not isinstance(app_settings, dict):
-            raise TypeError('Expected property app_settings to be a dict')
-        __self__.app_settings = app_settings
-        """
-        A key-value pair of App Settings.
-        """
-        __props__['appSettings'] = app_settings
+        __props__['app_settings'] = app_settings
 
-        if client_affinity_enabled and not isinstance(client_affinity_enabled, bool):
-            raise TypeError('Expected property client_affinity_enabled to be a bool')
-        __self__.client_affinity_enabled = client_affinity_enabled
-        """
-        Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
-        """
-        __props__['clientAffinityEnabled'] = client_affinity_enabled
+        __props__['client_affinity_enabled'] = client_affinity_enabled
 
-        if connection_strings and not isinstance(connection_strings, list):
-            raise TypeError('Expected property connection_strings to be a list')
-        __self__.connection_strings = connection_strings
-        """
-        An `connection_string` block as defined below.
-        """
-        __props__['connectionStrings'] = connection_strings
+        __props__['connection_strings'] = connection_strings
 
-        if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected property enabled to be a bool')
-        __self__.enabled = enabled
-        """
-        Is the Function App enabled?
-        """
         __props__['enabled'] = enabled
 
-        if https_only and not isinstance(https_only, bool):
-            raise TypeError('Expected property https_only to be a bool')
-        __self__.https_only = https_only
-        """
-        Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        """
-        __props__['httpsOnly'] = https_only
+        __props__['https_only'] = https_only
 
-        if identity and not isinstance(identity, dict):
-            raise TypeError('Expected property identity to be a dict')
-        __self__.identity = identity
-        """
-        An `identity` block as defined below.
-        """
         __props__['identity'] = identity
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        """
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Connection String.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the Function App.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if site_config and not isinstance(site_config, dict):
-            raise TypeError('Expected property site_config to be a dict')
-        __self__.site_config = site_config
-        """
-        A `site_config` object as defined below.
-        """
-        __props__['siteConfig'] = site_config
+        __props__['site_config'] = site_config
 
         if not storage_connection_string:
             raise TypeError('Missing required property storage_connection_string')
-        elif not isinstance(storage_connection_string, basestring):
-            raise TypeError('Expected property storage_connection_string to be a basestring')
-        __self__.storage_connection_string = storage_connection_string
-        """
-        The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
-        """
-        __props__['storageConnectionString'] = storage_connection_string
+        __props__['storage_connection_string'] = storage_connection_string
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        if version and not isinstance(version, basestring):
-            raise TypeError('Expected property version to be a basestring')
-        __self__.version = version
-        """
-        The runtime version associated with the Function App. Defaults to `~1`.
-        """
         __props__['version'] = version
 
-        __self__.default_hostname = pulumi.runtime.UNKNOWN
-        """
-        The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
-        """
-        __self__.outbound_ip_addresses = pulumi.runtime.UNKNOWN
-        """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
-        """
-        __self__.site_credential = pulumi.runtime.UNKNOWN
-        """
-        A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        """
+        __props__['default_hostname'] = None
+        __props__['outbound_ip_addresses'] = None
+        __props__['site_credential'] = None
 
         super(FunctionApp, __self__).__init__(
             'azure:appservice/functionApp:FunctionApp',
@@ -160,38 +67,10 @@ class FunctionApp(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'appServicePlanId' in outs:
-            self.app_service_plan_id = outs['appServicePlanId']
-        if 'appSettings' in outs:
-            self.app_settings = outs['appSettings']
-        if 'clientAffinityEnabled' in outs:
-            self.client_affinity_enabled = outs['clientAffinityEnabled']
-        if 'connectionStrings' in outs:
-            self.connection_strings = outs['connectionStrings']
-        if 'defaultHostname' in outs:
-            self.default_hostname = outs['defaultHostname']
-        if 'enabled' in outs:
-            self.enabled = outs['enabled']
-        if 'httpsOnly' in outs:
-            self.https_only = outs['httpsOnly']
-        if 'identity' in outs:
-            self.identity = outs['identity']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'outboundIpAddresses' in outs:
-            self.outbound_ip_addresses = outs['outboundIpAddresses']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'siteConfig' in outs:
-            self.site_config = outs['siteConfig']
-        if 'siteCredential' in outs:
-            self.site_credential = outs['siteCredential']
-        if 'storageConnectionString' in outs:
-            self.storage_connection_string = outs['storageConnectionString']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'version' in outs:
-            self.version = outs['version']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

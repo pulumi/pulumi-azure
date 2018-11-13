@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class ProtectionPolicyVM(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         """Create a ProtectionPolicyVM resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,77 +23,26 @@ class ProtectionPolicyVM(pulumi.CustomResource):
 
         if not backup:
             raise TypeError('Missing required property backup')
-        elif not isinstance(backup, dict):
-            raise TypeError('Expected property backup to be a dict')
-        __self__.backup = backup
-        """
-        Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
-        """
         __props__['backup'] = backup
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not recovery_vault_name:
             raise TypeError('Missing required property recovery_vault_name')
-        elif not isinstance(recovery_vault_name, basestring):
-            raise TypeError('Expected property recovery_vault_name to be a basestring')
-        __self__.recovery_vault_name = recovery_vault_name
-        """
-        Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
-        """
-        __props__['recoveryVaultName'] = recovery_vault_name
+        __props__['recovery_vault_name'] = recovery_vault_name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if retention_daily and not isinstance(retention_daily, dict):
-            raise TypeError('Expected property retention_daily to be a dict')
-        __self__.retention_daily = retention_daily
-        """
-        Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
-        """
-        __props__['retentionDaily'] = retention_daily
+        __props__['retention_daily'] = retention_daily
 
-        if retention_monthly and not isinstance(retention_monthly, dict):
-            raise TypeError('Expected property retention_monthly to be a dict')
-        __self__.retention_monthly = retention_monthly
-        """
-        Configures the policy monthly retention as documented in the `retention_monthly` block below.
-        """
-        __props__['retentionMonthly'] = retention_monthly
+        __props__['retention_monthly'] = retention_monthly
 
-        if retention_weekly and not isinstance(retention_weekly, dict):
-            raise TypeError('Expected property retention_weekly to be a dict')
-        __self__.retention_weekly = retention_weekly
-        """
-        Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
-        """
-        __props__['retentionWeekly'] = retention_weekly
+        __props__['retention_weekly'] = retention_weekly
 
-        if retention_yearly and not isinstance(retention_yearly, dict):
-            raise TypeError('Expected property retention_yearly to be a dict')
-        __self__.retention_yearly = retention_yearly
-        """
-        Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        """
-        __props__['retentionYearly'] = retention_yearly
+        __props__['retention_yearly'] = retention_yearly
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
         __props__['tags'] = tags
 
         super(ProtectionPolicyVM, __self__).__init__(
@@ -102,22 +51,10 @@ class ProtectionPolicyVM(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'backup' in outs:
-            self.backup = outs['backup']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'recoveryVaultName' in outs:
-            self.recovery_vault_name = outs['recoveryVaultName']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'retentionDaily' in outs:
-            self.retention_daily = outs['retentionDaily']
-        if 'retentionMonthly' in outs:
-            self.retention_monthly = outs['retentionMonthly']
-        if 'retentionWeekly' in outs:
-            self.retention_weekly = outs['retentionWeekly']
-        if 'retentionYearly' in outs:
-            self.retention_yearly = outs['retentionYearly']
-        if 'tags' in outs:
-            self.tags = outs['tags']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

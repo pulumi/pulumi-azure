@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class LoadBalancer(pulumi.CustomResource):
     """
@@ -14,73 +14,31 @@ class LoadBalancer(pulumi.CustomResource):
         """Create a LoadBalancer resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
-            raise TypeError('Expected property frontend_ip_configurations to be a list')
-        __self__.frontend_ip_configurations = frontend_ip_configurations
-        """
-        A frontend ip configuration block as documented below.
-        """
-        __props__['frontendIpConfigurations'] = frontend_ip_configurations
+        __props__['frontend_ip_configurations'] = frontend_ip_configurations
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the supported Azure location where the resource exists.
-        """
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the frontend ip configuration.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the LoadBalancer.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if sku and not isinstance(sku, basestring):
-            raise TypeError('Expected property sku to be a basestring')
-        __self__.sku = sku
-        """
-        The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
-        """
         __props__['sku'] = sku
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.private_ip_address = pulumi.runtime.UNKNOWN
-        """
-        Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
-        """
-        __self__.private_ip_addresses = pulumi.runtime.UNKNOWN
-        """
-        The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
-        """
+        __props__['private_ip_address'] = None
+        __props__['private_ip_addresses'] = None
 
         super(LoadBalancer, __self__).__init__(
             'azure:lb/loadBalancer:LoadBalancer',
@@ -88,20 +46,10 @@ class LoadBalancer(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'frontendIpConfigurations' in outs:
-            self.frontend_ip_configurations = outs['frontendIpConfigurations']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'privateIpAddress' in outs:
-            self.private_ip_address = outs['privateIpAddress']
-        if 'privateIpAddresses' in outs:
-            self.private_ip_addresses = outs['privateIpAddresses']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'sku' in outs:
-            self.sku = outs['sku']
-        if 'tags' in outs:
-            self.tags = outs['tags']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

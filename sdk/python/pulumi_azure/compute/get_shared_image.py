@@ -4,21 +4,21 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetSharedImageResult(object):
     """
     A collection of values returned by getSharedImage.
     """
     def __init__(__self__, description=None, eula=None, identifiers=None, location=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, tags=None, id=None):
-        if description and not isinstance(description, basestring):
-            raise TypeError('Expected argument description to be a basestring')
+        if description and not isinstance(description, str):
+            raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         The description of this Shared Image.
         """
-        if eula and not isinstance(eula, basestring):
-            raise TypeError('Expected argument eula to be a basestring')
+        if eula and not isinstance(eula, str):
+            raise TypeError('Expected argument eula to be a str')
         __self__.eula = eula
         """
         The End User Licence Agreement for the Shared Image.
@@ -26,26 +26,26 @@ class GetSharedImageResult(object):
         if identifiers and not isinstance(identifiers, list):
             raise TypeError('Expected argument identifiers to be a list')
         __self__.identifiers = identifiers
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The supported Azure location where the Shared Image Gallery exists.
         """
-        if os_type and not isinstance(os_type, basestring):
-            raise TypeError('Expected argument os_type to be a basestring')
+        if os_type and not isinstance(os_type, str):
+            raise TypeError('Expected argument os_type to be a str')
         __self__.os_type = os_type
         """
         The type of Operating System present in this Shared Image.
         """
-        if privacy_statement_uri and not isinstance(privacy_statement_uri, basestring):
-            raise TypeError('Expected argument privacy_statement_uri to be a basestring')
+        if privacy_statement_uri and not isinstance(privacy_statement_uri, str):
+            raise TypeError('Expected argument privacy_statement_uri to be a str')
         __self__.privacy_statement_uri = privacy_statement_uri
         """
         The URI containing the Privacy Statement for this Shared Image.
         """
-        if release_note_uri and not isinstance(release_note_uri, basestring):
-            raise TypeError('Expected argument release_note_uri to be a basestring')
+        if release_note_uri and not isinstance(release_note_uri, str):
+            raise TypeError('Expected argument release_note_uri to be a str')
         __self__.release_note_uri = release_note_uri
         """
         The URI containing the Release Notes for this Shared Image.
@@ -56,14 +56,14 @@ class GetSharedImageResult(object):
         """
         A mapping of tags assigned to the Shared Image.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_shared_image(gallery_name=None, name=None, resource_group_name=None):
+async def get_shared_image(gallery_name=None, name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
     
@@ -74,7 +74,7 @@ def get_shared_image(gallery_name=None, name=None, resource_group_name=None):
     __args__['galleryName'] = gallery_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImage:getSharedImage', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getSharedImage:getSharedImage', __args__)
 
     return GetSharedImageResult(
         description=__ret__.get('description'),

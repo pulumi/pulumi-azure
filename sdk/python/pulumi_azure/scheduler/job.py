@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Job(pulumi.CustomResource):
     """
@@ -14,103 +14,37 @@ class Job(pulumi.CustomResource):
         """Create a Job resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if action_storage_queue and not isinstance(action_storage_queue, dict):
-            raise TypeError('Expected property action_storage_queue to be a dict')
-        __self__.action_storage_queue = action_storage_queue
-        """
-        A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
-        """
-        __props__['actionStorageQueue'] = action_storage_queue
+        __props__['action_storage_queue'] = action_storage_queue
 
-        if action_web and not isinstance(action_web, dict):
-            raise TypeError('Expected property action_web to be a dict')
-        __self__.action_web = action_web
-        """
-        A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
-        """
-        __props__['actionWeb'] = action_web
+        __props__['action_web'] = action_web
 
-        if error_action_storage_queue and not isinstance(error_action_storage_queue, dict):
-            raise TypeError('Expected property error_action_storage_queue to be a dict')
-        __self__.error_action_storage_queue = error_action_storage_queue
-        """
-        A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
-        """
-        __props__['errorActionStorageQueue'] = error_action_storage_queue
+        __props__['error_action_storage_queue'] = error_action_storage_queue
 
-        if error_action_web and not isinstance(error_action_web, dict):
-            raise TypeError('Expected property error_action_web to be a dict')
-        __self__.error_action_web = error_action_web
-        """
-        A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
-        """
-        __props__['errorActionWeb'] = error_action_web
+        __props__['error_action_web'] = error_action_web
 
         if not job_collection_name:
             raise TypeError('Missing required property job_collection_name')
-        elif not isinstance(job_collection_name, basestring):
-            raise TypeError('Expected property job_collection_name to be a basestring')
-        __self__.job_collection_name = job_collection_name
-        """
-        Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
-        """
-        __props__['jobCollectionName'] = job_collection_name
+        __props__['job_collection_name'] = job_collection_name
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the Scheduler Job. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
-        if recurrence and not isinstance(recurrence, dict):
-            raise TypeError('Expected property recurrence to be a dict')
-        __self__.recurrence = recurrence
-        """
-        A `recurrence` block defining a job occurrence schedule.
-        """
         __props__['recurrence'] = recurrence
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to create the Scheduler Job. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if retry and not isinstance(retry, dict):
-            raise TypeError('Expected property retry to be a dict')
-        __self__.retry = retry
-        """
-        A `retry` block defining how to retry as described below.
-        """
         __props__['retry'] = retry
 
-        if start_time and not isinstance(start_time, basestring):
-            raise TypeError('Expected property start_time to be a basestring')
-        __self__.start_time = start_time
-        """
-        The time the first instance of the job is to start running at.
-        """
-        __props__['startTime'] = start_time
+        __props__['start_time'] = start_time
 
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected property state to be a basestring')
-        __self__.state = state
-        """
-        The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
-        """
         __props__['state'] = state
 
         super(Job, __self__).__init__(
@@ -119,26 +53,10 @@ class Job(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'actionStorageQueue' in outs:
-            self.action_storage_queue = outs['actionStorageQueue']
-        if 'actionWeb' in outs:
-            self.action_web = outs['actionWeb']
-        if 'errorActionStorageQueue' in outs:
-            self.error_action_storage_queue = outs['errorActionStorageQueue']
-        if 'errorActionWeb' in outs:
-            self.error_action_web = outs['errorActionWeb']
-        if 'jobCollectionName' in outs:
-            self.job_collection_name = outs['jobCollectionName']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'recurrence' in outs:
-            self.recurrence = outs['recurrence']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'retry' in outs:
-            self.retry = outs['retry']
-        if 'startTime' in outs:
-            self.start_time = outs['startTime']
-        if 'state' in outs:
-            self.state = outs['state']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

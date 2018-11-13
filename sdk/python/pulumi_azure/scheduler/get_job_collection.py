@@ -4,15 +4,15 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetJobCollectionResult(object):
     """
     A collection of values returned by getJobCollection.
     """
     def __init__(__self__, location=None, quotas=None, sku=None, state=None, tags=None, id=None):
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure location where the resource exists.
@@ -23,14 +23,14 @@ class GetJobCollectionResult(object):
         """
         The Job collection quotas as documented in the `quota` block below.
         """
-        if sku and not isinstance(sku, basestring):
-            raise TypeError('Expected argument sku to be a basestring')
+        if sku and not isinstance(sku, str):
+            raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
         """
         The Job Collection's pricing level's SKU.
         """
-        if state and not isinstance(state, basestring):
-            raise TypeError('Expected argument state to be a basestring')
+        if state and not isinstance(state, str):
+            raise TypeError('Expected argument state to be a str')
         __self__.state = state
         """
         The Job Collection's state.
@@ -41,14 +41,14 @@ class GetJobCollectionResult(object):
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_job_collection(name=None, resource_group_name=None):
+async def get_job_collection(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Scheduler Job Collection.
     """
@@ -56,7 +56,7 @@ def get_job_collection(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:scheduler/getJobCollection:getJobCollection', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:scheduler/getJobCollection:getJobCollection', __args__)
 
     return GetJobCollectionResult(
         location=__ret__.get('location'),

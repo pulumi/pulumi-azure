@@ -95,12 +95,12 @@ func GetNatPool(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *NatPool) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *NatPool) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.

@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAPIResult(object):
     """
@@ -17,14 +17,14 @@ class GetAPIResult(object):
         """
         One or more `additional_location` blocks as defined below
         """
-        if gateway_regional_url and not isinstance(gateway_regional_url, basestring):
-            raise TypeError('Expected argument gateway_regional_url to be a basestring')
+        if gateway_regional_url and not isinstance(gateway_regional_url, str):
+            raise TypeError('Expected argument gateway_regional_url to be a str')
         __self__.gateway_regional_url = gateway_regional_url
         """
         Gateway URL of the API Management service in the Region.
         """
-        if gateway_url and not isinstance(gateway_url, basestring):
-            raise TypeError('Expected argument gateway_url to be a basestring')
+        if gateway_url and not isinstance(gateway_url, str):
+            raise TypeError('Expected argument gateway_url to be a str')
         __self__.gateway_url = gateway_url
         """
         The URL for the API Management Service's Gateway.
@@ -35,44 +35,44 @@ class GetAPIResult(object):
         """
         A `hostname_configuration` block as defined below.
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The location name of the additional region among Azure Data center regions.
         """
-        if management_api_url and not isinstance(management_api_url, basestring):
-            raise TypeError('Expected argument management_api_url to be a basestring')
+        if management_api_url and not isinstance(management_api_url, str):
+            raise TypeError('Expected argument management_api_url to be a str')
         __self__.management_api_url = management_api_url
         """
         The URL for the Management API.
         """
-        if notification_sender_email and not isinstance(notification_sender_email, basestring):
-            raise TypeError('Expected argument notification_sender_email to be a basestring')
+        if notification_sender_email and not isinstance(notification_sender_email, str):
+            raise TypeError('Expected argument notification_sender_email to be a str')
         __self__.notification_sender_email = notification_sender_email
         """
         The email address from which the notification will be sent.
         """
-        if portal_url and not isinstance(portal_url, basestring):
-            raise TypeError('Expected argument portal_url to be a basestring')
+        if portal_url and not isinstance(portal_url, str):
+            raise TypeError('Expected argument portal_url to be a str')
         __self__.portal_url = portal_url
         """
         The URL of the Publisher Portal.
         """
-        if publisher_email and not isinstance(publisher_email, basestring):
-            raise TypeError('Expected argument publisher_email to be a basestring')
+        if publisher_email and not isinstance(publisher_email, str):
+            raise TypeError('Expected argument publisher_email to be a str')
         __self__.publisher_email = publisher_email
         """
         The email of Publisher/Company of the API Management Service.
         """
-        if publisher_name and not isinstance(publisher_name, basestring):
-            raise TypeError('Expected argument publisher_name to be a basestring')
+        if publisher_name and not isinstance(publisher_name, str):
+            raise TypeError('Expected argument publisher_name to be a str')
         __self__.publisher_name = publisher_name
         """
         The name of the Publisher/Company of the API Management Service.
         """
-        if scm_url and not isinstance(scm_url, basestring):
-            raise TypeError('Expected argument scm_url to be a basestring')
+        if scm_url and not isinstance(scm_url, str):
+            raise TypeError('Expected argument scm_url to be a str')
         __self__.scm_url = scm_url
         """
         The SCM (Source Code Management) endpoint.
@@ -89,14 +89,14 @@ class GetAPIResult(object):
         """
         A mapping of tags assigned to the resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_api(name=None, resource_group_name=None):
+async def get_api(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing API Management Service.
     """
@@ -104,7 +104,7 @@ def get_api(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = pulumi.runtime.invoke('azure:apimanagement/getAPI:getAPI', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getAPI:getAPI', __args__)
 
     return GetAPIResult(
         additional_locations=__ret__.get('additionalLocations'),

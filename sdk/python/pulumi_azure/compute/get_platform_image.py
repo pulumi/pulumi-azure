@@ -4,27 +4,27 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetPlatformImageResult(object):
     """
     A collection of values returned by getPlatformImage.
     """
     def __init__(__self__, version=None, id=None):
-        if version and not isinstance(version, basestring):
-            raise TypeError('Expected argument version to be a basestring')
+        if version and not isinstance(version, str):
+            raise TypeError('Expected argument version to be a str')
         __self__.version = version
         """
         The latest version of the Platform Image.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_platform_image(location=None, offer=None, publisher=None, sku=None):
+async def get_platform_image(location=None, offer=None, publisher=None, sku=None):
     """
     Use this data source to access information about a Platform Image.
     """
@@ -34,7 +34,7 @@ def get_platform_image(location=None, offer=None, publisher=None, sku=None):
     __args__['offer'] = offer
     __args__['publisher'] = publisher
     __args__['sku'] = sku
-    __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__)
 
     return GetPlatformImageResult(
         version=__ret__.get('version'),

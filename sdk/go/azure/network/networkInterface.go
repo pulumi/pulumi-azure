@@ -98,12 +98,12 @@ func GetNetworkInterface(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *NetworkInterface) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *NetworkInterface) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set

@@ -41,7 +41,6 @@ const (
 	azureCDN                 = "cdn"                 // CDN
 	azureCognitive           = "cognitive"           // Cognitive
 	azureCompute             = "compute"             // Virtual Machines
-	azureCataBricks          = "databricks"          // DataBricks
 	azureContainerService    = "containerservice"    // Azure Container Service
 	azureCore                = "core"                // Base Resources
 	azureCosmosDB            = "cosmosdb"            // Cosmos DB
@@ -49,7 +48,6 @@ const (
 	azureDataBricks          = "databricks"          // DataBricks
 	azureDevTest             = "devtest"             // Dev Test Labs
 	azureDNS                 = "dns"                 // DNS
-	azureFunctions           = "functions"           // Functions
 	azureIot                 = "iot"                 // IoT resource
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureLogicApps           = "logicapps"           // Logic Apps
@@ -61,7 +59,6 @@ const (
 	azureMSI                 = "msi"                 // Managed Service Identity (MSI)
 	azureMySQL               = "mysql"               // MySql
 	azureNetwork             = "network"             // Networking
-	azureNetworkWatcher      = "networkwatcher"      // Network Watcher
 	azureNotificationHub     = "notificationhub"     // Notification Hub
 	azureOperationalInsights = "operationalinsights" // Operational Insights
 	azurePostgresql          = "postgresql"          // Postgress SQL
@@ -89,15 +86,15 @@ func azureType(mod string, typ string) tokens.Type {
 	return tokens.Type(azureMember(mod, typ))
 }
 
-// azureDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the Azure
-// package and names the file by simply lower casing the data source's first character.
+// azureDataSource manufactures a standard resource token given a module and resource name.  It automatically uses the
+// Azure package and names the file by simply lower casing the data source's first character.
 func azureDataSource(mod string, res string) tokens.ModuleMember {
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
 	return azureMember(mod+"/"+fn, res)
 }
 
-// azureResource manufactures a standard resource token given a module and resource name.  It automatically uses the Azure
-// package and names the file by simply lower casing the resource's first character.
+// azureResource manufactures a standard resource token given a module and resource name.  It automatically uses the
+// Azure package and names the file by simply lower casing the resource's first character.
 func azureResource(mod string, res string) tokens.Type {
 	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
 	return azureType(mod+"/"+fn, res)
@@ -109,6 +106,8 @@ func boolRef(b bool) *bool {
 }
 
 // Provider returns additional overlaid schema and metadata associated with the azure package.
+//
+// nolint: lll
 func Provider() tfbridge.ProviderInfo {
 	const azureName = "name"
 
@@ -225,7 +224,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_role_assignment": {
 				Tok: azureResource(azureRole, "Assignment"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					// Supress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
+					// Suppress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
 					azureName: {Name: azureName},
 				},
 			},
@@ -473,16 +472,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_sql_active_directory_administrator": {Tok: azureResource(azureSQL, "ActiveDirectoryAdministrator")},
 
 			// Network
-			"azurerm_virtual_network":                                                        {Tok: azureResource(azureNetwork, "VirtualNetwork")},
-			"azurerm_virtual_network_peering":                                                {Tok: azureResource(azureNetwork, "VirtualNetworkPeering")},
-			"azurerm_virtual_network_gateway":                                                {Tok: azureResource(azureNetwork, "VirtualNetworkGateway")},
-			"azurerm_virtual_network_gateway_connection":                                     {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection")},
-			"azurerm_local_network_gateway":                                                  {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
-			"azurerm_application_gateway":                                                    {Tok: azureResource(azureNetwork, "ApplicationGateway")},
-			"azurerm_application_security_group":                                             {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
-			"azurerm_firewall":                                                               {Tok: azureResource(azureNetwork, "Firewall")},
-			"azurerm_firewall_network_rule_collection":                                       {Tok: azureResource(azureNetwork, "FirewallNetworkRuleCollection")},
-			"azurerm_network_interface":                                                      {Tok: azureResource(azureNetwork, "NetworkInterface")},
+			"azurerm_virtual_network":                    {Tok: azureResource(azureNetwork, "VirtualNetwork")},
+			"azurerm_virtual_network_peering":            {Tok: azureResource(azureNetwork, "VirtualNetworkPeering")},
+			"azurerm_virtual_network_gateway":            {Tok: azureResource(azureNetwork, "VirtualNetworkGateway")},
+			"azurerm_virtual_network_gateway_connection": {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection")},
+			"azurerm_local_network_gateway":              {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
+			"azurerm_application_gateway":                {Tok: azureResource(azureNetwork, "ApplicationGateway")},
+			"azurerm_application_security_group":         {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
+			"azurerm_firewall":                           {Tok: azureResource(azureNetwork, "Firewall")},
+			"azurerm_firewall_network_rule_collection":   {Tok: azureResource(azureNetwork, "FirewallNetworkRuleCollection")},
+			"azurerm_network_interface":                  {Tok: azureResource(azureNetwork, "NetworkInterface")},
 			"azurerm_network_interface_application_gateway_backend_address_pool_association": {Tok: azureResource(azureNetwork, "NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation")},
 			"azurerm_network_interface_backend_address_pool_association":                     {Tok: azureResource(azureNetwork, "NetworkInterfaceBackendAddressPoolAssociation")},
 			"azurerm_network_interface_nat_rule_association":                                 {Tok: azureResource(azureNetwork, "NetworkInterfaceNatRuleAssociation")},
@@ -652,7 +651,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^8.0.25", // so we can access strongly typed node definitions.
 			},
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^0.16.0",
+				"@pulumi/pulumi": "^0.16.4",
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				Files:   []string{},
@@ -661,7 +660,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.16.0,<0.17.0",
+				"pulumi": ">=0.16.4,<0.17.0",
 			},
 		},
 	}
@@ -724,7 +723,7 @@ type AutoNameOptions struct {
 }
 
 // AutoName creates custom schema for a Terraform name property which is automatically populated
-// from the resource's URN name, and tranformed based on the provided options.
+// from the resource's URN name, and transformed based on the provided options.
 func AutoName(name string, options AutoNameOptions) *tfbridge.SchemaInfo {
 	return &tfbridge.SchemaInfo{
 		Name: name,

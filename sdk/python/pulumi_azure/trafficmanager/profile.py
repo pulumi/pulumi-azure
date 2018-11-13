@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Profile(pulumi.CustomResource):
     """
@@ -14,7 +14,7 @@ class Profile(pulumi.CustomResource):
         """Create a Profile resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -23,82 +23,27 @@ class Profile(pulumi.CustomResource):
 
         if not dns_configs:
             raise TypeError('Missing required property dns_configs')
-        elif not isinstance(dns_configs, list):
-            raise TypeError('Expected property dns_configs to be a list')
-        __self__.dns_configs = dns_configs
-        """
-        This block specifies the DNS configuration of the
-        Profile, it supports the fields documented below.
-        """
-        __props__['dnsConfigs'] = dns_configs
+        __props__['dns_configs'] = dns_configs
 
         if not monitor_configs:
             raise TypeError('Missing required property monitor_configs')
-        elif not isinstance(monitor_configs, list):
-            raise TypeError('Expected property monitor_configs to be a list')
-        __self__.monitor_configs = monitor_configs
-        """
-        This block specifies the Endpoint monitoring
-        configuration for the Profile, it supports the fields documented below.
-        """
-        __props__['monitorConfigs'] = monitor_configs
+        __props__['monitor_configs'] = monitor_configs
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        The name of the virtual network. Changing this forces a
-        new resource to be created.
-        """
         __props__['name'] = name
 
-        if profile_status and not isinstance(profile_status, basestring):
-            raise TypeError('Expected property profile_status to be a basestring')
-        __self__.profile_status = profile_status
-        """
-        The status of the profile, can be set to either
-        `Enabled` or `Disabled`. Defaults to `Enabled`.
-        """
-        __props__['profileStatus'] = profile_status
+        __props__['profile_status'] = profile_status
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group in which to
-        create the virtual network.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
         if not traffic_routing_method:
             raise TypeError('Missing required property traffic_routing_method')
-        elif not isinstance(traffic_routing_method, basestring):
-            raise TypeError('Expected property traffic_routing_method to be a basestring')
-        __self__.traffic_routing_method = traffic_routing_method
-        """
-        Specifies the algorithm used to route
-        traffic, possible values are:
-        - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
-        - `Performance` - Traffic is routed via the User's closest Endpoint
-        - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
-        - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
-        """
-        __props__['trafficRoutingMethod'] = traffic_routing_method
+        __props__['traffic_routing_method'] = traffic_routing_method
 
-        __self__.fqdn = pulumi.runtime.UNKNOWN
-        """
-        The FQDN of the created Profile.
-        """
+        __props__['fqdn'] = None
 
         super(Profile, __self__).__init__(
             'azure:trafficmanager/profile:Profile',
@@ -106,20 +51,10 @@ class Profile(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'dnsConfigs' in outs:
-            self.dns_configs = outs['dnsConfigs']
-        if 'fqdn' in outs:
-            self.fqdn = outs['fqdn']
-        if 'monitorConfigs' in outs:
-            self.monitor_configs = outs['monitorConfigs']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'profileStatus' in outs:
-            self.profile_status = outs['profileStatus']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'trafficRoutingMethod' in outs:
-            self.traffic_routing_method = outs['trafficRoutingMethod']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

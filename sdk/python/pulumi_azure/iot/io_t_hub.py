@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class IoTHub(pulumi.CustomResource):
     """
@@ -14,100 +14,40 @@ class IoTHub(pulumi.CustomResource):
         """Create a IoTHub resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if endpoints and not isinstance(endpoints, list):
-            raise TypeError('Expected property endpoints to be a list')
-        __self__.endpoints = endpoints
-        """
-        An `endpoint` block as defined below.
-        """
         __props__['endpoints'] = endpoints
 
         if not location:
             raise TypeError('Missing required property location')
-        elif not isinstance(location, basestring):
-            raise TypeError('Expected property location to be a basestring')
-        __self__.location = location
-        """
-        Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
-        """
         __props__['location'] = location
 
-        if name and not isinstance(name, basestring):
-            raise TypeError('Expected property name to be a basestring')
-        __self__.name = name
-        """
-        Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
-        """
         __props__['name'] = name
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
-        elif not isinstance(resource_group_name, basestring):
-            raise TypeError('Expected property resource_group_name to be a basestring')
-        __self__.resource_group_name = resource_group_name
-        """
-        The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
-        """
-        __props__['resourceGroupName'] = resource_group_name
+        __props__['resource_group_name'] = resource_group_name
 
-        if routes and not isinstance(routes, list):
-            raise TypeError('Expected property routes to be a list')
-        __self__.routes = routes
-        """
-        A `route` block as defined below.
-        """
         __props__['routes'] = routes
 
         if not sku:
             raise TypeError('Missing required property sku')
-        elif not isinstance(sku, dict):
-            raise TypeError('Expected property sku to be a dict')
-        __self__.sku = sku
-        """
-        A `sku` block as defined below.
-        """
         __props__['sku'] = sku
 
-        if tags and not isinstance(tags, dict):
-            raise TypeError('Expected property tags to be a dict')
-        __self__.tags = tags
-        """
-        A mapping of tags to assign to the resource.
-        """
         __props__['tags'] = tags
 
-        __self__.event_hub_events_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The EventHub compatible endpoint for events data
-        """
-        __self__.event_hub_events_path = pulumi.runtime.UNKNOWN
-        """
-        The EventHub compatible path for events data
-        """
-        __self__.event_hub_operations_endpoint = pulumi.runtime.UNKNOWN
-        """
-        The EventHub compatible endpoint for operational data
-        """
-        __self__.event_hub_operations_path = pulumi.runtime.UNKNOWN
-        """
-        The EventHub compatible path for operational data
-        """
-        __self__.hostname = pulumi.runtime.UNKNOWN
-        """
-        The hostname of the IotHub Resource.
-        """
-        __self__.shared_access_policies = pulumi.runtime.UNKNOWN
-        """
-        One or more `shared_access_policy` blocks as defined below.
-        """
-        __self__.type = pulumi.runtime.UNKNOWN
+        __props__['event_hub_events_endpoint'] = None
+        __props__['event_hub_events_path'] = None
+        __props__['event_hub_operations_endpoint'] = None
+        __props__['event_hub_operations_path'] = None
+        __props__['hostname'] = None
+        __props__['shared_access_policies'] = None
+        __props__['type'] = None
 
         super(IoTHub, __self__).__init__(
             'azure:iot/ioTHub:IoTHub',
@@ -115,32 +55,10 @@ class IoTHub(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'endpoints' in outs:
-            self.endpoints = outs['endpoints']
-        if 'eventHubEventsEndpoint' in outs:
-            self.event_hub_events_endpoint = outs['eventHubEventsEndpoint']
-        if 'eventHubEventsPath' in outs:
-            self.event_hub_events_path = outs['eventHubEventsPath']
-        if 'eventHubOperationsEndpoint' in outs:
-            self.event_hub_operations_endpoint = outs['eventHubOperationsEndpoint']
-        if 'eventHubOperationsPath' in outs:
-            self.event_hub_operations_path = outs['eventHubOperationsPath']
-        if 'hostname' in outs:
-            self.hostname = outs['hostname']
-        if 'location' in outs:
-            self.location = outs['location']
-        if 'name' in outs:
-            self.name = outs['name']
-        if 'resourceGroupName' in outs:
-            self.resource_group_name = outs['resourceGroupName']
-        if 'routes' in outs:
-            self.routes = outs['routes']
-        if 'sharedAccessPolicies' in outs:
-            self.shared_access_policies = outs['sharedAccessPolicies']
-        if 'sku' in outs:
-            self.sku = outs['sku']
-        if 'tags' in outs:
-            self.tags = outs['tags']
-        if 'type' in outs:
-            self.type = outs['type']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

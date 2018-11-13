@@ -4,15 +4,15 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetAppServiceResult(object):
     """
     A collection of values returned by getAppService.
     """
     def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, location=None, outbound_ip_addresses=None, site_config=None, site_credentials=None, source_controls=None, tags=None, id=None):
-        if app_service_plan_id and not isinstance(app_service_plan_id, basestring):
-            raise TypeError('Expected argument app_service_plan_id to be a basestring')
+        if app_service_plan_id and not isinstance(app_service_plan_id, str):
+            raise TypeError('Expected argument app_service_plan_id to be a str')
         __self__.app_service_plan_id = app_service_plan_id
         """
         The ID of the App Service Plan within which the App Service exists.
@@ -35,8 +35,8 @@ class GetAppServiceResult(object):
         """
         An `connection_string` block as defined below.
         """
-        if default_site_hostname and not isinstance(default_site_hostname, basestring):
-            raise TypeError('Expected argument default_site_hostname to be a basestring')
+        if default_site_hostname and not isinstance(default_site_hostname, str):
+            raise TypeError('Expected argument default_site_hostname to be a str')
         __self__.default_site_hostname = default_site_hostname
         if enabled and not isinstance(enabled, bool):
             raise TypeError('Expected argument enabled to be a bool')
@@ -50,14 +50,14 @@ class GetAppServiceResult(object):
         """
         Can the App Service only be accessed via HTTPS?
         """
-        if location and not isinstance(location, basestring):
-            raise TypeError('Expected argument location to be a basestring')
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure location where the App Service exists.
         """
-        if outbound_ip_addresses and not isinstance(outbound_ip_addresses, basestring):
-            raise TypeError('Expected argument outbound_ip_addresses to be a basestring')
+        if outbound_ip_addresses and not isinstance(outbound_ip_addresses, str):
+            raise TypeError('Expected argument outbound_ip_addresses to be a str')
         __self__.outbound_ip_addresses = outbound_ip_addresses
         if site_config and not isinstance(site_config, dict):
             raise TypeError('Expected argument site_config to be a dict')
@@ -77,14 +77,14 @@ class GetAppServiceResult(object):
         """
         A mapping of tags to assign to the resource.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_app_service(name=None, resource_group_name=None, site_config=None):
+async def get_app_service(name=None, resource_group_name=None, site_config=None):
     """
     Use this data source to access information about an existing App Service.
     """
@@ -93,7 +93,7 @@ def get_app_service(name=None, resource_group_name=None, site_config=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteConfig'] = site_config
-    __ret__ = pulumi.runtime.invoke('azure:appservice/getAppService:getAppService', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:appservice/getAppService:getAppService', __args__)
 
     return GetAppServiceResult(
         app_service_plan_id=__ret__.get('appServicePlanId'),

@@ -3,9 +3,9 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from group import *
-from registry import *
-from service import *
-from kubernetes_cluster import *
-from get_registry import *
-from get_kubernetes_cluster import *
+from .group import *
+from .registry import *
+from .service import *
+from .kubernetes_cluster import *
+from .get_registry import *
+from .get_kubernetes_cluster import *

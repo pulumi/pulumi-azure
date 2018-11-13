@@ -61,12 +61,12 @@ func GetCustomHostnameBinding(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *CustomHostnameBinding) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *CustomHostnameBinding) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.

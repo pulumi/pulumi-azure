@@ -4,7 +4,7 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class Contact(pulumi.CustomResource):
     """
@@ -16,7 +16,7 @@ class Contact(pulumi.CustomResource):
         """Create a Contact resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, basestring):
+        if not isinstance(__name__, str):
             raise TypeError('Expected resource name to be a string')
         if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -25,42 +25,18 @@ class Contact(pulumi.CustomResource):
 
         if not alert_notifications:
             raise TypeError('Missing required property alert_notifications')
-        elif not isinstance(alert_notifications, bool):
-            raise TypeError('Expected property alert_notifications to be a bool')
-        __self__.alert_notifications = alert_notifications
-        """
-        Whether to send security alerts notifications to the security contact.
-        """
-        __props__['alertNotifications'] = alert_notifications
+        __props__['alert_notifications'] = alert_notifications
 
         if not alerts_to_admins:
             raise TypeError('Missing required property alerts_to_admins')
-        elif not isinstance(alerts_to_admins, bool):
-            raise TypeError('Expected property alerts_to_admins to be a bool')
-        __self__.alerts_to_admins = alerts_to_admins
-        """
-        Whether to send security alerts notifications to subscription admins.
-        """
-        __props__['alertsToAdmins'] = alerts_to_admins
+        __props__['alerts_to_admins'] = alerts_to_admins
 
         if not email:
             raise TypeError('Missing required property email')
-        elif not isinstance(email, basestring):
-            raise TypeError('Expected property email to be a basestring')
-        __self__.email = email
-        """
-        The email of the Security Center Contact.
-        """
         __props__['email'] = email
 
         if not phone:
             raise TypeError('Missing required property phone')
-        elif not isinstance(phone, basestring):
-            raise TypeError('Expected property phone to be a basestring')
-        __self__.phone = phone
-        """
-        The phone number of the Security Center Contact.
-        """
         __props__['phone'] = phone
 
         super(Contact, __self__).__init__(
@@ -69,12 +45,10 @@ class Contact(pulumi.CustomResource):
             __props__,
             __opts__)
 
-    def set_outputs(self, outs):
-        if 'alertNotifications' in outs:
-            self.alert_notifications = outs['alertNotifications']
-        if 'alertsToAdmins' in outs:
-            self.alerts_to_admins = outs['alertsToAdmins']
-        if 'email' in outs:
-            self.email = outs['email']
-        if 'phone' in outs:
-            self.phone = outs['phone']
+
+    def translate_output_property(self, prop):
+        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+    def translate_input_property(self, prop):
+        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

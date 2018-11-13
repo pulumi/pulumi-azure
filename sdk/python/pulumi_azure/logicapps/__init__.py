@@ -3,10 +3,10 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from action_custom import *
-from action_http import *
-from trigger_custom import *
-from trigger_http_request import *
-from trigger_recurrence import *
-from workflow import *
-from get_workflow import *
+from .action_custom import *
+from .action_http import *
+from .trigger_custom import *
+from .trigger_http_request import *
+from .trigger_recurrence import *
+from .workflow import *
+from .get_workflow import *

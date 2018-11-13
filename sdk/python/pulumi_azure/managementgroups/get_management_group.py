@@ -4,21 +4,21 @@
 
 import pulumi
 import pulumi.runtime
-from .. import utilities
+from .. import utilities, tables
 
 class GetManagementGroupResult(object):
     """
     A collection of values returned by getManagementGroup.
     """
     def __init__(__self__, display_name=None, parent_management_group_id=None, subscription_ids=None, id=None):
-        if display_name and not isinstance(display_name, basestring):
-            raise TypeError('Expected argument display_name to be a basestring')
+        if display_name and not isinstance(display_name, str):
+            raise TypeError('Expected argument display_name to be a str')
         __self__.display_name = display_name
         """
         A friendly name for the Management Group.
         """
-        if parent_management_group_id and not isinstance(parent_management_group_id, basestring):
-            raise TypeError('Expected argument parent_management_group_id to be a basestring')
+        if parent_management_group_id and not isinstance(parent_management_group_id, str):
+            raise TypeError('Expected argument parent_management_group_id to be a str')
         __self__.parent_management_group_id = parent_management_group_id
         """
         The ID of any Parent Management Group.
@@ -29,21 +29,21 @@ class GetManagementGroupResult(object):
         """
         A list of Subscription ID's which are assigned to the Management Group.
         """
-        if id and not isinstance(id, basestring):
-            raise TypeError('Expected argument id to be a basestring')
+        if id and not isinstance(id, str):
+            raise TypeError('Expected argument id to be a str')
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.
         """
 
-def get_management_group(group_id=None):
+async def get_management_group(group_id=None):
     """
     Use this data source to access information about an existing Management Group.
     """
     __args__ = dict()
 
     __args__['groupId'] = group_id
-    __ret__ = pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__)
 
     return GetManagementGroupResult(
         display_name=__ret__.get('displayName'),

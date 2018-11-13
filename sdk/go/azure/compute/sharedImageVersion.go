@@ -90,12 +90,12 @@ func GetSharedImageVersion(ctx *pulumi.Context,
 
 // URN is this resource's unique name assigned by Pulumi.
 func (r *SharedImageVersion) URN() *pulumi.URNOutput {
-	return r.s.URN
+	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
 func (r *SharedImageVersion) ID() *pulumi.IDOutput {
-	return r.s.ID
+	return r.s.ID()
 }
 
 // Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
