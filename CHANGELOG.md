@@ -1,6 +1,15 @@
 
 ## 0.16.5 (unreleased)
 
+### Major Changes
+
+- RBAC is now enabled on managed Kubernetes clusters using the settings in `roleBasedAcessControl`
+  instead of using the `enableRBAC` parameters.
+
+### Improvements
+
+- Updated to v1.19.0 of the Terraform AzureRM provider.
+
 ## 0.16.4 (Released Novemeber 13th, 2018)
 
 ### Major Changes
