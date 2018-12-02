@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a policy for all of the resource groups under the subscription.
+ * Manages a policy rule definition. Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
  */
 export class Definition extends pulumi.CustomResource {
     /**
@@ -30,8 +30,8 @@ export class Definition extends pulumi.CustomResource {
     public readonly displayName: pulumi.Output<string>;
     /**
      * The metadata for the policy definition. This
-     * is a json object representing the rule that contains an if and
-     * a then block.
+     * is a json object representing additional metadata that should be stored
+     * with the policy definition.
      */
     public readonly metadata: pulumi.Output<string | undefined>;
     /**
@@ -121,8 +121,8 @@ export interface DefinitionState {
     readonly displayName?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
-     * is a json object representing the rule that contains an if and
-     * a then block.
+     * is a json object representing additional metadata that should be stored
+     * with the policy definition.
      */
     readonly metadata?: pulumi.Input<string>;
     /**
@@ -169,8 +169,8 @@ export interface DefinitionArgs {
     readonly displayName: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
-     * is a json object representing the rule that contains an if and
-     * a then block.
+     * is a json object representing additional metadata that should be stored
+     * with the policy definition.
      */
     readonly metadata?: pulumi.Input<string>;
     /**

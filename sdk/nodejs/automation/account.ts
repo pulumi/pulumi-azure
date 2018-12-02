@@ -21,6 +21,18 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+     */
+    public /*out*/ readonly dscPrimaryAccessKey: pulumi.Output<string>;
+    /**
+     * The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+     */
+    public /*out*/ readonly dscSecondaryAccessKey: pulumi.Output<string>;
+    /**
+     * The DSC Server Endpoint associated with this Automation Account.
+     */
+    public /*out*/ readonly dscServerEndpoint: pulumi.Output<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -53,6 +65,9 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AccountState = argsOrState as AccountState | undefined;
+            inputs["dscPrimaryAccessKey"] = state ? state.dscPrimaryAccessKey : undefined;
+            inputs["dscSecondaryAccessKey"] = state ? state.dscSecondaryAccessKey : undefined;
+            inputs["dscServerEndpoint"] = state ? state.dscServerEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -74,6 +89,9 @@ export class Account extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["dscPrimaryAccessKey"] = undefined /*out*/;
+            inputs["dscSecondaryAccessKey"] = undefined /*out*/;
+            inputs["dscServerEndpoint"] = undefined /*out*/;
         }
         super("azure:automation/account:Account", name, inputs, opts);
     }
@@ -83,6 +101,18 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
+    /**
+     * The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+     */
+    readonly dscPrimaryAccessKey?: pulumi.Input<string>;
+    /**
+     * The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+     */
+    readonly dscSecondaryAccessKey?: pulumi.Input<string>;
+    /**
+     * The DSC Server Endpoint associated with this Automation Account.
+     */
+    readonly dscServerEndpoint?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

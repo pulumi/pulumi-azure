@@ -42,6 +42,10 @@ export interface GetAccountResult {
      */
     readonly enableAutomaticFailover: boolean;
     /**
+     * If multi-master is enabled for this Cosmos DB account.
+     */
+    readonly enableMultipleWriteLocations: boolean;
+    /**
      * The endpoint used to connect to the CosmosDB account.
      */
     readonly endpoint: string;

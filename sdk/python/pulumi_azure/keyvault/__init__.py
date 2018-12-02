@@ -10,4 +10,5 @@ from .key import *
 from .secret import *
 from .get_key_vault import *
 from .get_access_policy import *
+from .get_key import *
 from .get_secret import *

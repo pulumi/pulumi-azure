@@ -65,6 +65,7 @@ func NewAPI(ctx *pulumi.Context,
 	inputs["gatewayUrl"] = nil
 	inputs["managementApiUrl"] = nil
 	inputs["portalUrl"] = nil
+	inputs["publicIpAddresses"] = nil
 	inputs["scmUrl"] = nil
 	s, err := ctx.RegisterResource("azure:apimanagement/aPI:API", name, true, inputs, opts...)
 	if err != nil {
@@ -90,6 +91,7 @@ func GetAPI(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["notificationSenderEmail"] = state.NotificationSenderEmail
 		inputs["portalUrl"] = state.PortalUrl
+		inputs["publicIpAddresses"] = state.PublicIpAddresses
 		inputs["publisherEmail"] = state.PublisherEmail
 		inputs["publisherName"] = state.PublisherName
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -170,6 +172,11 @@ func (r *API) PortalUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["portalUrl"])
 }
 
+// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+func (r *API) PublicIpAddresses() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["publicIpAddresses"])
+}
+
 // The email of publisher/company.
 func (r *API) PublisherEmail() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publisherEmail"])
@@ -229,6 +236,8 @@ type APIState struct {
 	NotificationSenderEmail interface{}
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl interface{}
+	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+	PublicIpAddresses interface{}
 	// The email of publisher/company.
 	PublisherEmail interface{}
 	// The name of publisher/company.

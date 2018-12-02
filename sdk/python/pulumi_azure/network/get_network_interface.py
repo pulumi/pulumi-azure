@@ -44,9 +44,6 @@ class GetNetworkInterfaceResult(object):
         if internal_fqdn and not isinstance(internal_fqdn, str):
             raise TypeError('Expected argument internal_fqdn to be a str')
         __self__.internal_fqdn = internal_fqdn
-        """
-        The internal FQDN associated to the specified Network Interface.
-        """
         if ip_configurations and not isinstance(ip_configurations, list):
             raise TypeError('Expected argument ip_configurations to be a list')
         __self__.ip_configurations = ip_configurations

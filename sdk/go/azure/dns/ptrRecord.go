@@ -101,7 +101,7 @@ func (r *PtrRecord) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The Time To Live (TTL) of the DNS record.
+// The Time To Live (TTL) of the DNS record in seconds.
 func (r *PtrRecord) Ttl() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["ttl"])
 }
@@ -121,7 +121,7 @@ type PtrRecordState struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The Time To Live (TTL) of the DNS record.
+	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl interface{}
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName interface{}
@@ -137,7 +137,7 @@ type PtrRecordArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The Time To Live (TTL) of the DNS record.
+	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl interface{}
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName interface{}

@@ -4,4 +4,5 @@
 // Export members:
 export * from "./analyticsSolution";
 export * from "./analyticsWorkspace";
+export * from "./analyticsWorkspaceLinkedService";
 export * from "./getAnalyticsWorkspace";

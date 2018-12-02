@@ -56,7 +56,7 @@ type GetManagedDiskResult struct {
 	StorageAccountType interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
-	// (Optional) A collection containing the availability zone the managed disk is allocated in.
+	// A collection containing the availability zone the managed disk is allocated in.
 	Zones interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

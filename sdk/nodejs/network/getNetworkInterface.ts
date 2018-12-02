@@ -52,9 +52,6 @@ export interface GetNetworkInterfaceResult {
      * The internal dns name label of the specified Network Interface.
      */
     readonly internalDnsNameLabel: string;
-    /**
-     * The internal FQDN associated to the specified Network Interface.
-     */
     readonly internalFqdn: string;
     /**
      * One or more `ip_configuration` blocks as defined below.

@@ -8,10 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a managed Kubernetes Cluster (AKS)
+// Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
 // 
-// ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
-// [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+// ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type KubernetesCluster struct {
 	s *pulumi.ResourceState
 }
@@ -39,26 +38,26 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["addonProfile"] = nil
 		inputs["agentPoolProfile"] = nil
 		inputs["dnsPrefix"] = nil
-		inputs["enableRbac"] = nil
 		inputs["kubernetesVersion"] = nil
 		inputs["linuxProfile"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["networkProfile"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["roleBasedAccessControl"] = nil
 		inputs["servicePrincipal"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["addonProfile"] = args.AddonProfile
 		inputs["agentPoolProfile"] = args.AgentPoolProfile
 		inputs["dnsPrefix"] = args.DnsPrefix
-		inputs["enableRbac"] = args.EnableRbac
 		inputs["kubernetesVersion"] = args.KubernetesVersion
 		inputs["linuxProfile"] = args.LinuxProfile
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["networkProfile"] = args.NetworkProfile
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["roleBasedAccessControl"] = args.RoleBasedAccessControl
 		inputs["servicePrincipal"] = args.ServicePrincipal
 		inputs["tags"] = args.Tags
 	}
@@ -82,7 +81,6 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 		inputs["addonProfile"] = state.AddonProfile
 		inputs["agentPoolProfile"] = state.AgentPoolProfile
 		inputs["dnsPrefix"] = state.DnsPrefix
-		inputs["enableRbac"] = state.EnableRbac
 		inputs["fqdn"] = state.Fqdn
 		inputs["kubeConfig"] = state.KubeConfig
 		inputs["kubeConfigRaw"] = state.KubeConfigRaw
@@ -93,6 +91,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 		inputs["networkProfile"] = state.NetworkProfile
 		inputs["nodeResourceGroup"] = state.NodeResourceGroup
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["roleBasedAccessControl"] = state.RoleBasedAccessControl
 		inputs["servicePrincipal"] = state.ServicePrincipal
 		inputs["tags"] = state.Tags
 	}
@@ -118,7 +117,7 @@ func (r *KubernetesCluster) AddonProfile() *pulumi.Output {
 	return r.s.State["addonProfile"]
 }
 
-// One or more Agent Pool Profile's block as documented below.
+// One or more `agent_pool_profile` blocks as documented below.
 func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
 	return r.s.State["agentPoolProfile"]
 }
@@ -126,11 +125,6 @@ func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
 // DNS prefix specified when creating the managed cluster.
 func (r *KubernetesCluster) DnsPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsPrefix"])
-}
-
-// True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
-func (r *KubernetesCluster) EnableRbac() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enableRbac"])
 }
 
 // The FQDN of the Azure Kubernetes Managed Cluster.
@@ -143,9 +137,7 @@ func (r *KubernetesCluster) KubeConfig() *pulumi.Output {
 	return r.s.State["kubeConfig"]
 }
 
-// Raw Kubernetes config to be used by
-// [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and
-// other compatible tools
+// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 func (r *KubernetesCluster) KubeConfigRaw() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kubeConfigRaw"])
 }
@@ -155,38 +147,42 @@ func (r *KubernetesCluster) KubernetesVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kubernetesVersion"])
 }
 
-// A Linux Profile block as documented below.
+// A `linux_profile` block.
 func (r *KubernetesCluster) LinuxProfile() *pulumi.Output {
 	return r.s.State["linuxProfile"]
 }
 
-// The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
+// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
+// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A Network Profile block as documented below.
-// -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+// A `network_profile` block.
 func (r *KubernetesCluster) NetworkProfile() *pulumi.Output {
 	return r.s.State["networkProfile"]
 }
 
-// Auto-generated Resource Group containing AKS Cluster resources.
+// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
 func (r *KubernetesCluster) NodeResourceGroup() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["nodeResourceGroup"])
 }
 
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A Service Principal block as documented below.
+// A `role_based_access_control` block. Changing this forces a new resource to be created.
+func (r *KubernetesCluster) RoleBasedAccessControl() *pulumi.Output {
+	return r.s.State["roleBasedAccessControl"]
+}
+
+// A `service_principal` block as documented below.
 func (r *KubernetesCluster) ServicePrincipal() *pulumi.Output {
 	return r.s.State["servicePrincipal"]
 }
@@ -200,36 +196,33 @@ func (r *KubernetesCluster) Tags() *pulumi.MapOutput {
 type KubernetesClusterState struct {
 	// A `addon_profile` block.
 	AddonProfile interface{}
-	// One or more Agent Pool Profile's block as documented below.
+	// One or more `agent_pool_profile` blocks as documented below.
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix interface{}
-	// True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
-	EnableRbac interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
 	// A `kube_config` block as defined below.
 	KubeConfig interface{}
-	// Raw Kubernetes config to be used by
-	// [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and
-	// other compatible tools
+	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw interface{}
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion interface{}
-	// A Linux Profile block as documented below.
+	// A `linux_profile` block.
 	LinuxProfile interface{}
-	// The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
+	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
+	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name interface{}
-	// A Network Profile block as documented below.
-	// -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+	// A `network_profile` block.
 	NetworkProfile interface{}
-	// Auto-generated Resource Group containing AKS Cluster resources.
+	// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroup interface{}
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A Service Principal block as documented below.
+	// A `role_based_access_control` block. Changing this forces a new resource to be created.
+	RoleBasedAccessControl interface{}
+	// A `service_principal` block as documented below.
 	ServicePrincipal interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -239,26 +232,25 @@ type KubernetesClusterState struct {
 type KubernetesClusterArgs struct {
 	// A `addon_profile` block.
 	AddonProfile interface{}
-	// One or more Agent Pool Profile's block as documented below.
+	// One or more `agent_pool_profile` blocks as documented below.
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster.
 	DnsPrefix interface{}
-	// True or False. Enables or Disables Kubernetes Role Based Access Control (RBAC). Defaults to True. Changing this forces a new resource to be created.
-	EnableRbac interface{}
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion interface{}
-	// A Linux Profile block as documented below.
+	// A `linux_profile` block.
 	LinuxProfile interface{}
-	// The location where the AKS Managed Cluster instance should be created. Changing this forces a new resource to be created.
+	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the AKS Managed Cluster instance to create. Changing this forces a new resource to be created.
+	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name interface{}
-	// A Network Profile block as documented below.
-	// -> **NOTE:** If `network_profile` is not defined, `kubenet` profile will be used by default.
+	// A `network_profile` block.
 	NetworkProfile interface{}
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A Service Principal block as documented below.
+	// A `role_based_access_control` block. Changing this forces a new resource to be created.
+	RoleBasedAccessControl interface{}
+	// A `service_principal` block as documented below.
 	ServicePrincipal interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

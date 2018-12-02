@@ -31,7 +31,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
      */
-    public readonly nextHopInIpAddress: pulumi.Output<string>;
+    public readonly nextHopInIpAddress: pulumi.Output<string | undefined>;
     /**
      * The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
      */

@@ -27,6 +27,7 @@ func LookupAPI(ctx *pulumi.Context, args *GetAPIArgs) (*GetAPIResult, error) {
 		ManagementApiUrl: outputs["managementApiUrl"],
 		NotificationSenderEmail: outputs["notificationSenderEmail"],
 		PortalUrl: outputs["portalUrl"],
+		PublicIpAddresses: outputs["publicIpAddresses"],
 		PublisherEmail: outputs["publisherEmail"],
 		PublisherName: outputs["publisherName"],
 		ScmUrl: outputs["scmUrl"],
@@ -62,6 +63,8 @@ type GetAPIResult struct {
 	NotificationSenderEmail interface{}
 	// The URL of the Publisher Portal.
 	PortalUrl interface{}
+	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+	PublicIpAddresses interface{}
 	// The email of Publisher/Company of the API Management Service.
 	PublisherEmail interface{}
 	// The name of the Publisher/Company of the API Management Service.

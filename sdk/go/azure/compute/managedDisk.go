@@ -158,7 +158,7 @@ func (r *ManagedDisk) SourceUri() *pulumi.StringOutput {
 }
 
 // The type of storage to use for the managed disk.
-// Allowable values are `Standard_LRS` or `Premium_LRS`.
+// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 func (r *ManagedDisk) StorageAccountType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageAccountType"])
 }
@@ -201,7 +201,7 @@ type ManagedDiskState struct {
 	// URI to a valid VHD file to be used when `create_option` is `Import`.
 	SourceUri interface{}
 	// The type of storage to use for the managed disk.
-	// Allowable values are `Standard_LRS` or `Premium_LRS`.
+	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -237,7 +237,7 @@ type ManagedDiskArgs struct {
 	// URI to a valid VHD file to be used when `create_option` is `Import`.
 	SourceUri interface{}
 	// The type of storage to use for the managed disk.
-	// Allowable values are `Standard_LRS` or `Premium_LRS`.
+	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
 	StorageAccountType interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

@@ -57,7 +57,6 @@ type GetNetworkInterfaceResult struct {
 	EnableIpForwarding interface{}
 	// The internal dns name label of the specified Network Interface.
 	InternalDnsNameLabel interface{}
-	// The internal FQDN associated to the specified Network Interface.
 	InternalFqdn interface{}
 	// One or more `ip_configuration` blocks as defined below.
 	IpConfigurations interface{}

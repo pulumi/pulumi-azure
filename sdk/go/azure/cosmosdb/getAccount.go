@@ -22,6 +22,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		Capabilities: outputs["capabilities"],
 		ConsistencyPolicies: outputs["consistencyPolicies"],
 		EnableAutomaticFailover: outputs["enableAutomaticFailover"],
+		EnableMultipleWriteLocations: outputs["enableMultipleWriteLocations"],
 		Endpoint: outputs["endpoint"],
 		GeoLocations: outputs["geoLocations"],
 		IpRangeFilter: outputs["ipRangeFilter"],
@@ -56,6 +57,8 @@ type GetAccountResult struct {
 	ConsistencyPolicies interface{}
 	// If automatic failover is enabled for this CosmosDB Account.
 	EnableAutomaticFailover interface{}
+	// If multi-master is enabled for this Cosmos DB account.
+	EnableMultipleWriteLocations interface{}
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint interface{}
 	GeoLocations interface{}

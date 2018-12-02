@@ -39,7 +39,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
      */
-    public readonly routes: pulumi.Output<{ addressPrefix: string, name: string, nextHopInIpAddress: string, nextHopType: string }[]>;
+    public readonly routes: pulumi.Output<{ addressPrefix: string, name: string, nextHopInIpAddress?: string, nextHopType: string }[]>;
     /**
      * The collection of Subnets associated with this route table.
      */

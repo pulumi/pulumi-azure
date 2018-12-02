@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a policy for all of the resource groups under the subscription.
+// Manages a policy rule definition. Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
 type Definition struct {
 	s *pulumi.ResourceState
 }
@@ -95,8 +95,8 @@ func (r *Definition) DisplayName() *pulumi.StringOutput {
 }
 
 // The metadata for the policy definition. This
-// is a json object representing the rule that contains an if and
-// a then block.
+// is a json object representing additional metadata that should be stored
+// with the policy definition.
 func (r *Definition) Metadata() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["metadata"])
 }
@@ -141,8 +141,8 @@ type DefinitionState struct {
 	// The display name of the policy definition.
 	DisplayName interface{}
 	// The metadata for the policy definition. This
-	// is a json object representing the rule that contains an if and
-	// a then block.
+	// is a json object representing additional metadata that should be stored
+	// with the policy definition.
 	Metadata interface{}
 	// The policy mode that allows you to specify which resource
 	// types will be evaluated.  The value can be "All", "Indexed" or
@@ -171,8 +171,8 @@ type DefinitionArgs struct {
 	// The display name of the policy definition.
 	DisplayName interface{}
 	// The metadata for the policy definition. This
-	// is a json object representing the rule that contains an if and
-	// a then block.
+	// is a json object representing additional metadata that should be stored
+	// with the policy definition.
 	Metadata interface{}
 	// The policy mode that allows you to specify which resource
 	// types will be evaluated.  The value can be "All", "Indexed" or

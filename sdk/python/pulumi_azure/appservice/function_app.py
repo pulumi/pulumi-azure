@@ -10,7 +10,7 @@ class FunctionApp(pulumi.CustomResource):
     """
     Manages a Function App.
     """
-    def __init__(__self__, __name__, __opts__=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None):
+    def __init__(__self__, __name__, __opts__=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None):
         """Create a FunctionApp resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -30,6 +30,8 @@ class FunctionApp(pulumi.CustomResource):
         __props__['client_affinity_enabled'] = client_affinity_enabled
 
         __props__['connection_strings'] = connection_strings
+
+        __props__['enable_builtin_logging'] = enable_builtin_logging
 
         __props__['enabled'] = enabled
 

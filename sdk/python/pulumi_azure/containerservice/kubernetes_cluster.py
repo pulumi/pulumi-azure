@@ -8,12 +8,11 @@ from .. import utilities, tables
 
 class KubernetesCluster(pulumi.CustomResource):
     """
-    Manages a managed Kubernetes Cluster (AKS)
+    Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
     
-    ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
-    [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, enable_rbac=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, service_principal=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None):
         """Create a KubernetesCluster resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -34,8 +33,6 @@ class KubernetesCluster(pulumi.CustomResource):
             raise TypeError('Missing required property dns_prefix')
         __props__['dns_prefix'] = dns_prefix
 
-        __props__['enable_rbac'] = enable_rbac
-
         __props__['kubernetes_version'] = kubernetes_version
 
         __props__['linux_profile'] = linux_profile
@@ -51,6 +48,8 @@ class KubernetesCluster(pulumi.CustomResource):
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
+
+        __props__['role_based_access_control'] = role_based_access_control
 
         if not service_principal:
             raise TypeError('Missing required property service_principal')

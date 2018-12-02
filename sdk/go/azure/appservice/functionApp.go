@@ -34,6 +34,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 		inputs["appSettings"] = nil
 		inputs["clientAffinityEnabled"] = nil
 		inputs["connectionStrings"] = nil
+		inputs["enableBuiltinLogging"] = nil
 		inputs["enabled"] = nil
 		inputs["httpsOnly"] = nil
 		inputs["identity"] = nil
@@ -49,6 +50,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 		inputs["appSettings"] = args.AppSettings
 		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
 		inputs["connectionStrings"] = args.ConnectionStrings
+		inputs["enableBuiltinLogging"] = args.EnableBuiltinLogging
 		inputs["enabled"] = args.Enabled
 		inputs["httpsOnly"] = args.HttpsOnly
 		inputs["identity"] = args.Identity
@@ -81,6 +83,7 @@ func GetFunctionApp(ctx *pulumi.Context,
 		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
 		inputs["connectionStrings"] = state.ConnectionStrings
 		inputs["defaultHostname"] = state.DefaultHostname
+		inputs["enableBuiltinLogging"] = state.EnableBuiltinLogging
 		inputs["enabled"] = state.Enabled
 		inputs["httpsOnly"] = state.HttpsOnly
 		inputs["identity"] = state.Identity
@@ -134,6 +137,11 @@ func (r *FunctionApp) ConnectionStrings() *pulumi.ArrayOutput {
 // The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 func (r *FunctionApp) DefaultHostname() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultHostname"])
+}
+
+// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+func (r *FunctionApp) EnableBuiltinLogging() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enableBuiltinLogging"])
 }
 
 // Is the Function App enabled?
@@ -208,6 +216,8 @@ type FunctionAppState struct {
 	ConnectionStrings interface{}
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname interface{}
+	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+	EnableBuiltinLogging interface{}
 	// Is the Function App enabled?
 	Enabled interface{}
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.
@@ -244,6 +254,8 @@ type FunctionAppArgs struct {
 	ClientAffinityEnabled interface{}
 	// An `connection_string` block as defined below.
 	ConnectionStrings interface{}
+	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
+	EnableBuiltinLogging interface{}
 	// Is the Function App enabled?
 	Enabled interface{}
 	// Can the Function App only be accessed via HTTPS? Defaults to `false`.

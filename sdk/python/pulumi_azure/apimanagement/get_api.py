@@ -10,7 +10,7 @@ class GetAPIResult(object):
     """
     A collection of values returned by getAPI.
     """
-    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, location=None, management_api_url=None, notification_sender_email=None, portal_url=None, publisher_email=None, publisher_name=None, scm_url=None, sku=None, tags=None, id=None):
+    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, location=None, management_api_url=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, scm_url=None, sku=None, tags=None, id=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError('Expected argument additional_locations to be a list')
         __self__.additional_locations = additional_locations
@@ -58,6 +58,12 @@ class GetAPIResult(object):
         __self__.portal_url = portal_url
         """
         The URL of the Publisher Portal.
+        """
+        if public_ip_addresses and not isinstance(public_ip_addresses, list):
+            raise TypeError('Expected argument public_ip_addresses to be a list')
+        __self__.public_ip_addresses = public_ip_addresses
+        """
+        Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         """
         if publisher_email and not isinstance(publisher_email, str):
             raise TypeError('Expected argument publisher_email to be a str')
@@ -115,6 +121,7 @@ async def get_api(name=None, resource_group_name=None):
         management_api_url=__ret__.get('managementApiUrl'),
         notification_sender_email=__ret__.get('notificationSenderEmail'),
         portal_url=__ret__.get('portalUrl'),
+        public_ip_addresses=__ret__.get('publicIpAddresses'),
         publisher_email=__ret__.get('publisherEmail'),
         publisher_name=__ret__.get('publisherName'),
         scm_url=__ret__.get('scmUrl'),

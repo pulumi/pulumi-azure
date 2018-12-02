@@ -20,7 +20,10 @@ export class ProtectedVM extends pulumi.CustomResource {
         return new ProtectedVM(name, <any>state, { id });
     }
 
-    public readonly backupPolicyId: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+     */
+    public readonly backupPolicyId: pulumi.Output<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
@@ -57,6 +60,9 @@ export class ProtectedVM extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ProtectedVMArgs | undefined;
+            if (!args || args.backupPolicyId === undefined) {
+                throw new Error("Missing required property 'backupPolicyId'");
+            }
             if (!args || args.recoveryVaultName === undefined) {
                 throw new Error("Missing required property 'recoveryVaultName'");
             }
@@ -80,6 +86,9 @@ export class ProtectedVM extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ProtectedVM resources.
  */
 export interface ProtectedVMState {
+    /**
+     * Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+     */
     readonly backupPolicyId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -103,7 +112,10 @@ export interface ProtectedVMState {
  * The set of arguments for constructing a ProtectedVM resource.
  */
 export interface ProtectedVMArgs {
-    readonly backupPolicyId?: pulumi.Input<string>;
+    /**
+     * Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+     */
+    readonly backupPolicyId: pulumi.Input<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */

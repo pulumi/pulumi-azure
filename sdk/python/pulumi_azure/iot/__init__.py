@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .io_t_hub import *
+from .consumer_group import *

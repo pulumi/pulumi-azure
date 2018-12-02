@@ -8,7 +8,7 @@ from .. import utilities, tables
 
 class Definition(pulumi.CustomResource):
     """
-    Manages a policy for all of the resource groups under the subscription.
+    Manages a policy rule definition. Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, display_name=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None):
         """Create a Definition resource with the given unique name, props, and options."""

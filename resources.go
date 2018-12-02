@@ -46,6 +46,7 @@ const (
 	azureCosmosDB            = "cosmosdb"            // Cosmos DB
 	azureDatalake            = "datalake"            // Data Lake
 	azureDataBricks          = "databricks"          // DataBricks
+	azureDevSpace            = "devspace"            // DevSpace
 	azureDevTest             = "devtest"             // Dev Test Labs
 	azureDNS                 = "dns"                 // DNS
 	azureIot                 = "iot"                 // IoT resource
@@ -57,6 +58,7 @@ const (
 	azureManagementGroups    = "managementgroups"    // Management Groups
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMSI                 = "msi"                 // Managed Service Identity (MSI)
+	azureMSSQL               = "mssql"               // MS Sql
 	azureMySQL               = "mysql"               // MySql
 	azureNetwork             = "network"             // Networking
 	azureNotificationHub     = "notificationhub"     // Notification Hub
@@ -290,6 +292,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store_file":              {Tok: azureResource(azureDatalake, "StoreFile")},
 			"azurerm_data_lake_store_firewall_rule":     {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
 
+			// DevSpace
+			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
+
 			// Dev Test
 			"azurerm_dev_test_lab":                     {Tok: azureResource(azureDevTest, "Lab")},
 			"azurerm_dev_test_linux_virtual_machine":   {Tok: azureResource(azureDevTest, "LinuxVirtualMachine")},
@@ -356,6 +361,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "iothub.html.markdown",
 				},
 			},
+			"azurerm_iothub_consumer_group": {Tok: azureResource(azureIot, "ConsumerGroup")},
 
 			// KeyVault
 			"azurerm_key_vault": {
@@ -421,6 +427,9 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "log_analytics_solution.html.markdown",
 				}},
+			"azurerm_log_analytics_workspace_linked_service": {
+				Tok: azureResource(azureOperationalInsights, "AnalyticsWorkspaceLinkedService"),
+			},
 
 			// CosmosDB
 			"azurerm_cosmosdb_account": {Tok: azureResource(azureCosmosDB, "Account")},
@@ -438,8 +447,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_metric_alertrule":           {Tok: azureResource(azureMonitoring, "AlertRule")},
 			"azurerm_monitor_action_group":       {Tok: azureResource(azureMonitoring, "ActionGroup")},
 			"azurerm_monitor_activity_log_alert": {Tok: azureResource(azureMonitoring, "ActivityLogAlert")},
+			"azurerm_monitor_diagnostic_setting": {Tok: azureResource(azureMonitoring, "DiagnosticSetting")},
 			"azurerm_monitor_log_profile":        {Tok: azureResource(azureMonitoring, "LogProfile")},
 			"azurerm_monitor_metric_alert":       {Tok: azureResource(azureMonitoring, "MetricAlert")},
+
+			// MS SQL
+			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
 
 			// MySQL
 			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
@@ -588,23 +601,24 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_subscriptions":           {Tok: azureDataSource(azureCore, "getSubscriptions")},
-			"azurerm_cdn_profile":             {Tok: azureDataSource(azureCDN, "getProfile")},
-			"azurerm_client_config":           {Tok: azureDataSource(azureCore, "getClientConfig")},
-			"azurerm_container_registry":      {Tok: azureDataSource(azureContainerService, "getRegistry")},
-			"azurerm_cosmosdb_account":        {Tok: azureDataSource(azureCosmosDB, "getAccount")},
-			"azurerm_data_lake_store":         {Tok: azureDataSource(azureDatalake, "getStore")},
-			"azurerm_dev_test_lab":            {Tok: azureDataSource(azureDevTest, "getLab")},
-			"azurerm_eventhub_namespace":      {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
-			"azurerm_image":                   {Tok: azureDataSource(azureCompute, "getImage")},
-			"azurerm_shared_image":            {Tok: azureDataSource(azureCompute, "getSharedImage")},
-			"azurerm_shared_image_gallery":    {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
-			"azurerm_shared_image_version":    {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
-			"azurerm_log_analytics_workspace": {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
-			"azurerm_logic_app_workflow":      {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
-			"azurerm_management_group":        {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
-			"azurerm_monitor_log_profile":     {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
-			"azurerm_dns_zone":                {Tok: azureDataSource(azureDNS, "getZone")},
+			"azurerm_subscriptions":                 {Tok: azureDataSource(azureCore, "getSubscriptions")},
+			"azurerm_cdn_profile":                   {Tok: azureDataSource(azureCDN, "getProfile")},
+			"azurerm_client_config":                 {Tok: azureDataSource(azureCore, "getClientConfig")},
+			"azurerm_container_registry":            {Tok: azureDataSource(azureContainerService, "getRegistry")},
+			"azurerm_cosmosdb_account":              {Tok: azureDataSource(azureCosmosDB, "getAccount")},
+			"azurerm_data_lake_store":               {Tok: azureDataSource(azureDatalake, "getStore")},
+			"azurerm_dev_test_lab":                  {Tok: azureDataSource(azureDevTest, "getLab")},
+			"azurerm_eventhub_namespace":            {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
+			"azurerm_image":                         {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_shared_image":                  {Tok: azureDataSource(azureCompute, "getSharedImage")},
+			"azurerm_shared_image_gallery":          {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
+			"azurerm_shared_image_version":          {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
+			"azurerm_log_analytics_workspace":       {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
+			"azurerm_logic_app_workflow":            {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
+			"azurerm_management_group":              {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
+			"azurerm_monitor_diagnostic_categories": {Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories")},
+			"azurerm_monitor_log_profile":           {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
+			"azurerm_dns_zone":                      {Tok: azureDataSource(azureDNS, "getZone")},
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -614,6 +628,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 
 			"azurerm_key_vault_access_policy": {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
+			"azurerm_key_vault_key":           {Tok: azureDataSource(azureKeyVault, "getKey")},
 			"azurerm_key_vault_secret":        {Tok: azureDataSource(azureKeyVault, "getSecret")},
 			"azurerm_kubernetes_cluster":      {Tok: azureDataSource(azureContainerService, "getKubernetesCluster")},
 			"azurerm_notification_hub":        {Tok: azureDataSource(azureNotificationHub, "getHub")},

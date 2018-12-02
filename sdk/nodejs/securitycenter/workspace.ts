@@ -29,7 +29,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly scope: pulumi.Output<string>;
     /**
-     * The resource ID of the log analytics workspace to save the data in.
+     * The ID of the Log Analytics Workspace to save the data in.
      */
     public readonly workspaceId: pulumi.Output<string>;
 
@@ -71,7 +71,7 @@ export interface WorkspaceState {
      */
     readonly scope?: pulumi.Input<string>;
     /**
-     * The resource ID of the log analytics workspace to save the data in.
+     * The ID of the Log Analytics Workspace to save the data in.
      */
     readonly workspaceId?: pulumi.Input<string>;
 }
@@ -85,7 +85,7 @@ export interface WorkspaceArgs {
      */
     readonly scope: pulumi.Input<string>;
     /**
-     * The resource ID of the log analytics workspace to save the data in.
+     * The ID of the Log Analytics Workspace to save the data in.
      */
     readonly workspaceId: pulumi.Input<string>;
 }

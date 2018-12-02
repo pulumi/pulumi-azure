@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Configured the specified Policy Definition at the specified Scope.
+ * Configures the specified Policy Definition at the specified Scope.
  */
 export class Assignment extends pulumi.CustomResource {
     /**

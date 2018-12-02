@@ -51,7 +51,7 @@ class GetManagedDiskResult(object):
             raise TypeError('Expected argument zones to be a list')
         __self__.zones = zones
         """
-        (Optional) A collection containing the availability zone the managed disk is allocated in.
+        A collection containing the availability zone the managed disk is allocated in.
         """
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')

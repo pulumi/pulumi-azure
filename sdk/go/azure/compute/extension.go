@@ -150,6 +150,7 @@ func (r *Extension) Settings() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["settings"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *Extension) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -196,6 +197,7 @@ type ExtensionState struct {
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
 	Settings interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The type of extension, available types for a publisher can
 	// be found using the Azure CLI.
@@ -232,6 +234,7 @@ type ExtensionArgs struct {
 	// The settings passed to the extension, these are
 	// specified as a JSON object in a string.
 	Settings interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// The type of extension, available types for a publisher can
 	// be found using the Azure CLI.

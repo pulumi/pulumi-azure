@@ -8,9 +8,7 @@ from .. import utilities, tables
 
 class FirewallRule(pulumi.CustomResource):
     """
-    Manages a Firewall Rule associated with a Premium Redis Cache.
-    
-    ~> **Note:** Redis Firewall Rules can only be assigned to a Redis Cache with a `Premium` SKU.
+    Manages a Firewall Rule associated with a Redis Cache.
     """
     def __init__(__self__, __name__, __opts__=None, end_ip=None, name=None, redis_cache_name=None, resource_group_name=None, start_ip=None):
         """Create a FirewallRule resource with the given unique name, props, and options."""

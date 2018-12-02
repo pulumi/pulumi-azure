@@ -5,3 +5,5 @@
 .pulumi
 Pulumi.*.yaml
 yarn.lock
+.idea/
+*.iml

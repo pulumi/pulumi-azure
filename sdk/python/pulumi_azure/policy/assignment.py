@@ -8,7 +8,7 @@ from .. import utilities, tables
 
 class Assignment(pulumi.CustomResource):
     """
-    Configured the specified Policy Definition at the specified Scope.
+    Configures the specified Policy Definition at the specified Scope.
     """
     def __init__(__self__, __name__, __opts__=None, description=None, display_name=None, name=None, parameters=None, policy_definition_id=None, scope=None):
         """Create a Assignment resource with the given unique name, props, and options."""

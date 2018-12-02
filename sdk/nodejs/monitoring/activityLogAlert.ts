@@ -18,7 +18,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     }
 
     public readonly actions: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;
-    public readonly criteria: pulumi.Output<{ caller?: string, category: string, level?: string, operationName: string, resourceId?: string, status?: string, subStatus?: string }>;
+    public readonly criteria: pulumi.Output<{ caller?: string, category: string, level?: string, operationName?: string, resourceGroup?: string, resourceId?: string, resourceProvider?: string, resourceType?: string, status?: string, subStatus?: string }>;
     public readonly description: pulumi.Output<string | undefined>;
     public readonly enabled: pulumi.Output<boolean | undefined>;
     public readonly name: pulumi.Output<string>;
@@ -75,7 +75,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
  */
 export interface ActivityLogAlertState {
     readonly actions?: pulumi.Input<pulumi.Input<{ actionGroupId: pulumi.Input<string>, webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>[]>;
-    readonly criteria?: pulumi.Input<{ caller?: pulumi.Input<string>, category: pulumi.Input<string>, level?: pulumi.Input<string>, operationName: pulumi.Input<string>, resourceId?: pulumi.Input<string>, status?: pulumi.Input<string>, subStatus?: pulumi.Input<string> }>;
+    readonly criteria?: pulumi.Input<{ caller?: pulumi.Input<string>, category: pulumi.Input<string>, level?: pulumi.Input<string>, operationName?: pulumi.Input<string>, resourceGroup?: pulumi.Input<string>, resourceId?: pulumi.Input<string>, resourceProvider?: pulumi.Input<string>, resourceType?: pulumi.Input<string>, status?: pulumi.Input<string>, subStatus?: pulumi.Input<string> }>;
     readonly description?: pulumi.Input<string>;
     readonly enabled?: pulumi.Input<boolean>;
     readonly name?: pulumi.Input<string>;
@@ -89,7 +89,7 @@ export interface ActivityLogAlertState {
  */
 export interface ActivityLogAlertArgs {
     readonly actions?: pulumi.Input<pulumi.Input<{ actionGroupId: pulumi.Input<string>, webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>[]>;
-    readonly criteria: pulumi.Input<{ caller?: pulumi.Input<string>, category: pulumi.Input<string>, level?: pulumi.Input<string>, operationName: pulumi.Input<string>, resourceId?: pulumi.Input<string>, status?: pulumi.Input<string>, subStatus?: pulumi.Input<string> }>;
+    readonly criteria: pulumi.Input<{ caller?: pulumi.Input<string>, category: pulumi.Input<string>, level?: pulumi.Input<string>, operationName?: pulumi.Input<string>, resourceGroup?: pulumi.Input<string>, resourceId?: pulumi.Input<string>, resourceProvider?: pulumi.Input<string>, resourceType?: pulumi.Input<string>, status?: pulumi.Input<string>, subStatus?: pulumi.Input<string> }>;
     readonly description?: pulumi.Input<string>;
     readonly enabled?: pulumi.Input<boolean>;
     readonly name?: pulumi.Input<string>;

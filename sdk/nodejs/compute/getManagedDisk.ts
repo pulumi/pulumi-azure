@@ -61,7 +61,7 @@ export interface GetManagedDiskResult {
      */
     readonly tags: {[key: string]: any};
     /**
-     * (Optional) A collection containing the availability zone the managed disk is allocated in.
+     * A collection containing the availability zone the managed disk is allocated in.
      */
     readonly zones: string[];
     /**

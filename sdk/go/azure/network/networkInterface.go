@@ -131,7 +131,6 @@ func (r *NetworkInterface) InternalDnsNameLabel() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["internalDnsNameLabel"])
 }
 
-// Fully qualified DNS name supporting internal communications between VMs in the same VNet
 func (r *NetworkInterface) InternalFqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["internalFqdn"])
 }
@@ -197,7 +196,6 @@ type NetworkInterfaceState struct {
 	EnableIpForwarding interface{}
 	// Relative DNS name for this NIC used for internal communications between VMs in the same VNet
 	InternalDnsNameLabel interface{}
-	// Fully qualified DNS name supporting internal communications between VMs in the same VNet
 	InternalFqdn interface{}
 	// One or more `ip_configuration` associated with this NIC as documented below.
 	IpConfigurations interface{}
@@ -232,7 +230,6 @@ type NetworkInterfaceArgs struct {
 	EnableIpForwarding interface{}
 	// Relative DNS name for this NIC used for internal communications between VMs in the same VNet
 	InternalDnsNameLabel interface{}
-	// Fully qualified DNS name supporting internal communications between VMs in the same VNet
 	InternalFqdn interface{}
 	// One or more `ip_configuration` associated with this NIC as documented below.
 	IpConfigurations interface{}
