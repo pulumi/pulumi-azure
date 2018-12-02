@@ -61,6 +61,9 @@ export class Extension extends pulumi.CustomResource {
      * specified as a JSON object in a string.
      */
     public readonly settings: pulumi.Output<string | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
     /**
      * The type of extension, available types for a publisher can
@@ -177,6 +180,9 @@ export interface ExtensionState {
      * specified as a JSON object in a string.
      */
     readonly settings?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The type of extension, available types for a publisher can
@@ -235,6 +241,9 @@ export interface ExtensionArgs {
      * specified as a JSON object in a string.
      */
     readonly settings?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * The type of extension, available types for a publisher can

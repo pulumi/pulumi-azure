@@ -7,8 +7,10 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Service Instance
  * 
- * ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
+ * ~> **NOTE:** All arguments including the client secret will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ~> **NOTE:** You may wish to consider using Azure Kubernetes Service (AKS) for new deployments.
  * 
  * ## Example Usage (DCOS)
  * 

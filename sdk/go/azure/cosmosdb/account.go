@@ -33,6 +33,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["capabilities"] = nil
 		inputs["consistencyPolicy"] = nil
 		inputs["enableAutomaticFailover"] = nil
+		inputs["enableMultipleWriteLocations"] = nil
 		inputs["failoverPolicies"] = nil
 		inputs["geoLocations"] = nil
 		inputs["ipRangeFilter"] = nil
@@ -48,6 +49,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["capabilities"] = args.Capabilities
 		inputs["consistencyPolicy"] = args.ConsistencyPolicy
 		inputs["enableAutomaticFailover"] = args.EnableAutomaticFailover
+		inputs["enableMultipleWriteLocations"] = args.EnableMultipleWriteLocations
 		inputs["failoverPolicies"] = args.FailoverPolicies
 		inputs["geoLocations"] = args.GeoLocations
 		inputs["ipRangeFilter"] = args.IpRangeFilter
@@ -85,6 +87,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["connectionStrings"] = state.ConnectionStrings
 		inputs["consistencyPolicy"] = state.ConsistencyPolicy
 		inputs["enableAutomaticFailover"] = state.EnableAutomaticFailover
+		inputs["enableMultipleWriteLocations"] = state.EnableMultipleWriteLocations
 		inputs["endpoint"] = state.Endpoint
 		inputs["failoverPolicies"] = state.FailoverPolicies
 		inputs["geoLocations"] = state.GeoLocations
@@ -139,6 +142,11 @@ func (r *Account) ConsistencyPolicy() *pulumi.Output {
 // Enable automatic fail over for this Cosmos DB account.
 func (r *Account) EnableAutomaticFailover() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableAutomaticFailover"])
+}
+
+// Enable multi-master support for this Cosmos DB account.
+func (r *Account) EnableMultipleWriteLocations() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enableMultipleWriteLocations"])
 }
 
 // The endpoint used to connect to the CosmosDB account.
@@ -240,6 +248,8 @@ type AccountState struct {
 	ConsistencyPolicy interface{}
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover interface{}
+	// Enable multi-master support for this Cosmos DB account.
+	EnableMultipleWriteLocations interface{}
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint interface{}
 	FailoverPolicies interface{}
@@ -285,6 +295,8 @@ type AccountArgs struct {
 	ConsistencyPolicy interface{}
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover interface{}
+	// Enable multi-master support for this Cosmos DB account.
+	EnableMultipleWriteLocations interface{}
 	FailoverPolicies interface{}
 	// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
 	GeoLocations interface{}

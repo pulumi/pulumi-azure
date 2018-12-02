@@ -37,6 +37,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly enableAutomaticFailover: pulumi.Output<boolean | undefined>;
     /**
+     * Enable multi-master support for this Cosmos DB account.
+     */
+    public readonly enableMultipleWriteLocations: pulumi.Output<boolean | undefined>;
+    /**
      * The endpoint used to connect to the CosmosDB account.
      */
     public /*out*/ readonly endpoint: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class Account extends pulumi.CustomResource {
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;
             inputs["enableAutomaticFailover"] = state ? state.enableAutomaticFailover : undefined;
+            inputs["enableMultipleWriteLocations"] = state ? state.enableMultipleWriteLocations : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["failoverPolicies"] = state ? state.failoverPolicies : undefined;
             inputs["geoLocations"] = state ? state.geoLocations : undefined;
@@ -157,6 +162,7 @@ export class Account extends pulumi.CustomResource {
             inputs["capabilities"] = args ? args.capabilities : undefined;
             inputs["consistencyPolicy"] = args ? args.consistencyPolicy : undefined;
             inputs["enableAutomaticFailover"] = args ? args.enableAutomaticFailover : undefined;
+            inputs["enableMultipleWriteLocations"] = args ? args.enableMultipleWriteLocations : undefined;
             inputs["failoverPolicies"] = args ? args.failoverPolicies : undefined;
             inputs["geoLocations"] = args ? args.geoLocations : undefined;
             inputs["ipRangeFilter"] = args ? args.ipRangeFilter : undefined;
@@ -201,6 +207,10 @@ export interface AccountState {
      * Enable automatic fail over for this Cosmos DB account.
      */
     readonly enableAutomaticFailover?: pulumi.Input<boolean>;
+    /**
+     * Enable multi-master support for this Cosmos DB account.
+     */
+    readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**
      * The endpoint used to connect to the CosmosDB account.
      */
@@ -288,6 +298,10 @@ export interface AccountArgs {
      * Enable automatic fail over for this Cosmos DB account.
      */
     readonly enableAutomaticFailover?: pulumi.Input<boolean>;
+    /**
+     * Enable multi-master support for this Cosmos DB account.
+     */
+    readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
     readonly failoverPolicies?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }>[]>;
     /**
      * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.

@@ -33,6 +33,7 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 		Location: outputs["location"],
 		NetworkProfiles: outputs["networkProfiles"],
 		NodeResourceGroup: outputs["nodeResourceGroup"],
+		RoleBasedAccessControls: outputs["roleBasedAccessControls"],
 		ServicePrincipals: outputs["servicePrincipals"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -71,6 +72,8 @@ type GetKubernetesClusterResult struct {
 	NetworkProfiles interface{}
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup interface{}
+	// A `role_based_access_control` block as documented below.
+	RoleBasedAccessControls interface{}
 	// A `service_principal` block as documented below.
 	ServicePrincipals interface{}
 	// A mapping of tags assigned to this resource.

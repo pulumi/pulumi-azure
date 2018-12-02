@@ -61,6 +61,7 @@ class API(pulumi.CustomResource):
         __props__['gateway_url'] = None
         __props__['management_api_url'] = None
         __props__['portal_url'] = None
+        __props__['public_ip_addresses'] = None
         __props__['scm_url'] = None
 
         super(API, __self__).__init__(

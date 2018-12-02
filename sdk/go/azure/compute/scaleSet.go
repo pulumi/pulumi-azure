@@ -42,8 +42,11 @@ func NewScaleSet(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["automaticOsUpgrade"] = nil
 		inputs["bootDiagnostics"] = nil
+		inputs["evictionPolicy"] = nil
 		inputs["extensions"] = nil
+		inputs["healthProbeId"] = nil
 		inputs["identity"] = nil
 		inputs["licenseType"] = nil
 		inputs["location"] = nil
@@ -57,6 +60,7 @@ func NewScaleSet(ctx *pulumi.Context,
 		inputs["plan"] = nil
 		inputs["priority"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["rollingUpgradePolicy"] = nil
 		inputs["singlePlacementGroup"] = nil
 		inputs["sku"] = nil
 		inputs["storageProfileDataDisks"] = nil
@@ -66,8 +70,11 @@ func NewScaleSet(ctx *pulumi.Context,
 		inputs["upgradePolicyMode"] = nil
 		inputs["zones"] = nil
 	} else {
+		inputs["automaticOsUpgrade"] = args.AutomaticOsUpgrade
 		inputs["bootDiagnostics"] = args.BootDiagnostics
+		inputs["evictionPolicy"] = args.EvictionPolicy
 		inputs["extensions"] = args.Extensions
+		inputs["healthProbeId"] = args.HealthProbeId
 		inputs["identity"] = args.Identity
 		inputs["licenseType"] = args.LicenseType
 		inputs["location"] = args.Location
@@ -81,6 +88,7 @@ func NewScaleSet(ctx *pulumi.Context,
 		inputs["plan"] = args.Plan
 		inputs["priority"] = args.Priority
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["rollingUpgradePolicy"] = args.RollingUpgradePolicy
 		inputs["singlePlacementGroup"] = args.SinglePlacementGroup
 		inputs["sku"] = args.Sku
 		inputs["storageProfileDataDisks"] = args.StorageProfileDataDisks
@@ -103,8 +111,11 @@ func GetScaleSet(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ScaleSetState, opts ...pulumi.ResourceOpt) (*ScaleSet, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["automaticOsUpgrade"] = state.AutomaticOsUpgrade
 		inputs["bootDiagnostics"] = state.BootDiagnostics
+		inputs["evictionPolicy"] = state.EvictionPolicy
 		inputs["extensions"] = state.Extensions
+		inputs["healthProbeId"] = state.HealthProbeId
 		inputs["identity"] = state.Identity
 		inputs["licenseType"] = state.LicenseType
 		inputs["location"] = state.Location
@@ -118,6 +129,7 @@ func GetScaleSet(ctx *pulumi.Context,
 		inputs["plan"] = state.Plan
 		inputs["priority"] = state.Priority
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["rollingUpgradePolicy"] = state.RollingUpgradePolicy
 		inputs["singlePlacementGroup"] = state.SinglePlacementGroup
 		inputs["sku"] = state.Sku
 		inputs["storageProfileDataDisks"] = state.StorageProfileDataDisks
@@ -144,14 +156,29 @@ func (r *ScaleSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+func (r *ScaleSet) AutomaticOsUpgrade() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["automaticOsUpgrade"])
+}
+
 // A boot diagnostics profile block as referenced below.
 func (r *ScaleSet) BootDiagnostics() *pulumi.Output {
 	return r.s.State["bootDiagnostics"]
 }
 
+// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+func (r *ScaleSet) EvictionPolicy() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["evictionPolicy"])
+}
+
 // Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 func (r *ScaleSet) Extensions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["extensions"])
+}
+
+// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+func (r *ScaleSet) HealthProbeId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["healthProbeId"])
 }
 
 func (r *ScaleSet) Identity() *pulumi.Output {
@@ -198,7 +225,7 @@ func (r *ScaleSet) OsProfileWindowsConfig() *pulumi.Output {
 	return r.s.State["osProfileWindowsConfig"]
 }
 
-// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
+// Specifies whether the virtual machine scale set should be overprovisioned.
 func (r *ScaleSet) Overprovision() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["overprovision"])
 }
@@ -208,7 +235,7 @@ func (r *ScaleSet) Plan() *pulumi.Output {
 	return r.s.State["plan"]
 }
 
-// Specifies the priority for the virtual machines in the scale set, defaults to `Regular`. Possible values are `Low` and `Regular`.
+// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
 func (r *ScaleSet) Priority() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["priority"])
 }
@@ -218,8 +245,12 @@ func (r *ScaleSet) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Defaults to `true`. Changing this forces a
-// new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+// A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+func (r *ScaleSet) RollingUpgradePolicy() *pulumi.Output {
+	return r.s.State["rollingUpgradePolicy"]
+}
+
+// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 func (r *ScaleSet) SinglePlacementGroup() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["singlePlacementGroup"])
 }
@@ -249,7 +280,7 @@ func (r *ScaleSet) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Manual` or `Automatic`.
+// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 func (r *ScaleSet) UpgradePolicyMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["upgradePolicyMode"])
 }
@@ -261,10 +292,16 @@ func (r *ScaleSet) Zones() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering ScaleSet resources.
 type ScaleSetState struct {
+	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+	AutomaticOsUpgrade interface{}
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics interface{}
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+	EvictionPolicy interface{}
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions interface{}
+	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+	HealthProbeId interface{}
 	Identity interface{}
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType interface{}
@@ -282,16 +319,17 @@ type ScaleSetState struct {
 	OsProfileSecrets interface{}
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig interface{}
-	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
+	// Specifies whether the virtual machine scale set should be overprovisioned.
 	Overprovision interface{}
 	// A plan block as documented below.
 	Plan interface{}
-	// Specifies the priority for the virtual machines in the scale set, defaults to `Regular`. Possible values are `Low` and `Regular`.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
 	Priority interface{}
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Defaults to `true`. Changing this forces a
-	// new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+	RollingUpgradePolicy interface{}
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup interface{}
 	// Specifies the SKU of the image used to create the virtual machines.
 	Sku interface{}
@@ -303,7 +341,7 @@ type ScaleSetState struct {
 	StorageProfileOsDisk interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Manual` or `Automatic`.
+	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode interface{}
 	// A collection of availability zones to spread the Virtual Machines over.
 	Zones interface{}
@@ -311,10 +349,16 @@ type ScaleSetState struct {
 
 // The set of arguments for constructing a ScaleSet resource.
 type ScaleSetArgs struct {
+	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+	AutomaticOsUpgrade interface{}
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics interface{}
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
+	EvictionPolicy interface{}
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions interface{}
+	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+	HealthProbeId interface{}
 	Identity interface{}
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
 	LicenseType interface{}
@@ -332,16 +376,17 @@ type ScaleSetArgs struct {
 	OsProfileSecrets interface{}
 	// A Windows config block as documented below.
 	OsProfileWindowsConfig interface{}
-	// Specifies whether the virtual machine scale set should be overprovisioned. Defaults to `true`.
+	// Specifies whether the virtual machine scale set should be overprovisioned.
 	Overprovision interface{}
 	// A plan block as documented below.
 	Plan interface{}
-	// Specifies the priority for the virtual machines in the scale set, defaults to `Regular`. Possible values are `Low` and `Regular`.
+	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
 	Priority interface{}
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Defaults to `true`. Changing this forces a
-	// new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
+	// A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+	RollingUpgradePolicy interface{}
+	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup interface{}
 	// Specifies the SKU of the image used to create the virtual machines.
 	Sku interface{}
@@ -353,7 +398,7 @@ type ScaleSetArgs struct {
 	StorageProfileOsDisk interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Manual` or `Automatic`.
+	// Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
 	UpgradePolicyMode interface{}
 	// A collection of availability zones to spread the Virtual Machines over.
 	Zones interface{}

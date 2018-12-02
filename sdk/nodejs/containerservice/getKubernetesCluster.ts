@@ -80,6 +80,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly nodeResourceGroup: string;
     /**
+     * A `role_based_access_control` block as documented below.
+     */
+    readonly roleBasedAccessControls: { azureActiveDirectories: { clientAppId: string, serverAppId: string, tenantId: string }[] }[];
+    /**
      * A `service_principal` block as documented below.
      */
     readonly servicePrincipals: { clientId: string }[];

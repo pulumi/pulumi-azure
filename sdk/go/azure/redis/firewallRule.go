@@ -8,9 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Firewall Rule associated with a Premium Redis Cache.
-// 
-// ~> **Note:** Redis Firewall Rules can only be assigned to a Redis Cache with a `Premium` SKU.
+// Manages a Firewall Rule associated with a Redis Cache.
 type FirewallRule struct {
 	s *pulumi.ResourceState
 }

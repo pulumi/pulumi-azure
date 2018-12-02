@@ -37,6 +37,10 @@ class Account(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
+        __props__['dsc_primary_access_key'] = None
+        __props__['dsc_secondary_access_key'] = None
+        __props__['dsc_server_endpoint'] = None
+
         super(Account, __self__).__init__(
             'azure:automation/account:Account',
             __name__,

@@ -13,7 +13,7 @@ class ScaleSet(pulumi.CustomResource):
     ~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
-    def __init__(__self__, __name__, __opts__=None, boot_diagnostics=None, extensions=None, identity=None, license_type=None, location=None, name=None, network_profiles=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, overprovision=None, plan=None, priority=None, resource_group_name=None, single_placement_group=None, sku=None, storage_profile_data_disks=None, storage_profile_image_reference=None, storage_profile_os_disk=None, tags=None, upgrade_policy_mode=None, zones=None):
+    def __init__(__self__, __name__, __opts__=None, automatic_os_upgrade=None, boot_diagnostics=None, eviction_policy=None, extensions=None, health_probe_id=None, identity=None, license_type=None, location=None, name=None, network_profiles=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, overprovision=None, plan=None, priority=None, resource_group_name=None, rolling_upgrade_policy=None, single_placement_group=None, sku=None, storage_profile_data_disks=None, storage_profile_image_reference=None, storage_profile_os_disk=None, tags=None, upgrade_policy_mode=None, zones=None):
         """Create a ScaleSet resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -24,9 +24,15 @@ class ScaleSet(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['automatic_os_upgrade'] = automatic_os_upgrade
+
         __props__['boot_diagnostics'] = boot_diagnostics
 
+        __props__['eviction_policy'] = eviction_policy
+
         __props__['extensions'] = extensions
+
+        __props__['health_probe_id'] = health_probe_id
 
         __props__['identity'] = identity
 
@@ -61,6 +67,8 @@ class ScaleSet(pulumi.CustomResource):
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
+
+        __props__['rolling_upgrade_policy'] = rolling_upgrade_policy
 
         __props__['single_placement_group'] = single_placement_group
 

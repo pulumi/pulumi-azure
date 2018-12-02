@@ -65,6 +65,10 @@ export class API extends pulumi.CustomResource {
      */
     public /*out*/ readonly portalUrl: pulumi.Output<string>;
     /**
+     * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+     */
+    public /*out*/ readonly publicIpAddresses: pulumi.Output<string[]>;
+    /**
      * The email of publisher/company.
      */
     public readonly publisherEmail: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class API extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
+            inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
             inputs["publisherEmail"] = state ? state.publisherEmail : undefined;
             inputs["publisherName"] = state ? state.publisherName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -157,6 +162,7 @@ export class API extends pulumi.CustomResource {
             inputs["gatewayUrl"] = undefined /*out*/;
             inputs["managementApiUrl"] = undefined /*out*/;
             inputs["portalUrl"] = undefined /*out*/;
+            inputs["publicIpAddresses"] = undefined /*out*/;
             inputs["scmUrl"] = undefined /*out*/;
         }
         super("azure:apimanagement/aPI:API", name, inputs, opts);
@@ -211,6 +217,10 @@ export interface APIState {
      * The URL for the Publisher Portal associated with this API Management service.
      */
     readonly portalUrl?: pulumi.Input<string>;
+    /**
+     * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+     */
+    readonly publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The email of publisher/company.
      */

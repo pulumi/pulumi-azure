@@ -41,6 +41,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultHostname: pulumi.Output<string>;
     /**
+     * Should the built-in logging of this Function App be enabled? Defaults to `true`.
+     */
+    public readonly enableBuiltinLogging: pulumi.Output<boolean | undefined>;
+    /**
      * Is the Function App enabled?
      */
     public readonly enabled: pulumi.Output<boolean | undefined>;
@@ -106,6 +110,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["defaultHostname"] = state ? state.defaultHostname : undefined;
+            inputs["enableBuiltinLogging"] = state ? state.enableBuiltinLogging : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
@@ -136,6 +141,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["appSettings"] = args ? args.appSettings : undefined;
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
+            inputs["enableBuiltinLogging"] = args ? args.enableBuiltinLogging : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -178,6 +184,10 @@ export interface FunctionAppState {
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
     readonly defaultHostname?: pulumi.Input<string>;
+    /**
+     * Should the built-in logging of this Function App be enabled? Defaults to `true`.
+     */
+    readonly enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
      * Is the Function App enabled?
      */
@@ -248,6 +258,10 @@ export interface FunctionAppArgs {
      * An `connection_string` block as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    /**
+     * Should the built-in logging of this Function App be enabled? Defaults to `true`.
+     */
+    readonly enableBuiltinLogging?: pulumi.Input<boolean>;
     /**
      * Is the Function App enabled?
      */

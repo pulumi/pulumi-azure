@@ -10,7 +10,7 @@ class Account(pulumi.CustomResource):
     """
     Manages a CosmosDB (formally DocumentDB) Account.
     """
-    def __init__(__self__, __name__, __opts__=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, failover_policies=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None, virtual_network_rules=None):
+    def __init__(__self__, __name__, __opts__=None, capabilities=None, consistency_policy=None, enable_automatic_failover=None, enable_multiple_write_locations=None, failover_policies=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, resource_group_name=None, tags=None, virtual_network_rules=None):
         """Create a Account resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -28,6 +28,8 @@ class Account(pulumi.CustomResource):
         __props__['consistency_policy'] = consistency_policy
 
         __props__['enable_automatic_failover'] = enable_automatic_failover
+
+        __props__['enable_multiple_write_locations'] = enable_multiple_write_locations
 
         __props__['failover_policies'] = failover_policies
 

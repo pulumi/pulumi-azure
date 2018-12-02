@@ -10,7 +10,7 @@ class GetKubernetesClusterResult(object):
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, network_profiles=None, node_resource_group=None, service_principals=None, tags=None, id=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, network_profiles=None, node_resource_group=None, role_based_access_controls=None, service_principals=None, tags=None, id=None):
         if addon_profiles and not isinstance(addon_profiles, list):
             raise TypeError('Expected argument addon_profiles to be a list')
         __self__.addon_profiles = addon_profiles
@@ -77,6 +77,12 @@ class GetKubernetesClusterResult(object):
         """
         Auto-generated Resource Group containing AKS Cluster resources.
         """
+        if role_based_access_controls and not isinstance(role_based_access_controls, list):
+            raise TypeError('Expected argument role_based_access_controls to be a list')
+        __self__.role_based_access_controls = role_based_access_controls
+        """
+        A `role_based_access_control` block as documented below.
+        """
         if service_principals and not isinstance(service_principals, list):
             raise TypeError('Expected argument service_principals to be a list')
         __self__.service_principals = service_principals
@@ -121,6 +127,7 @@ async def get_kubernetes_cluster(name=None, resource_group_name=None):
         location=__ret__.get('location'),
         network_profiles=__ret__.get('networkProfiles'),
         node_resource_group=__ret__.get('nodeResourceGroup'),
+        role_based_access_controls=__ret__.get('roleBasedAccessControls'),
         service_principals=__ret__.get('servicePrincipals'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

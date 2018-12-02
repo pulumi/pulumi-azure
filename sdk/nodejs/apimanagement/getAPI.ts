@@ -65,6 +65,10 @@ export interface GetAPIResult {
      */
     readonly portalUrl: string;
     /**
+     * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+     */
+    readonly publicIpAddresses: string[];
+    /**
      * The email of Publisher/Company of the API Management Service.
      */
     readonly publisherEmail: string;

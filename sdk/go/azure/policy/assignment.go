@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Configured the specified Policy Definition at the specified Scope.
+// Configures the specified Policy Definition at the specified Scope.
 type Assignment struct {
 	s *pulumi.ResourceState
 }

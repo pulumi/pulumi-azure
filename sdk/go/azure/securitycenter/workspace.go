@@ -72,7 +72,7 @@ func (r *Workspace) Scope() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["scope"])
 }
 
-// The resource ID of the log analytics workspace to save the data in.
+// The ID of the Log Analytics Workspace to save the data in.
 func (r *Workspace) WorkspaceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["workspaceId"])
 }
@@ -81,7 +81,7 @@ func (r *Workspace) WorkspaceId() *pulumi.StringOutput {
 type WorkspaceState struct {
 	// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
 	Scope interface{}
-	// The resource ID of the log analytics workspace to save the data in.
+	// The ID of the Log Analytics Workspace to save the data in.
 	WorkspaceId interface{}
 }
 
@@ -89,6 +89,6 @@ type WorkspaceState struct {
 type WorkspaceArgs struct {
 	// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
 	Scope interface{}
-	// The resource ID of the log analytics workspace to save the data in.
+	// The ID of the Log Analytics Workspace to save the data in.
 	WorkspaceId interface{}
 }

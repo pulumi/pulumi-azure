@@ -39,6 +39,9 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
 	}
+	inputs["dscPrimaryAccessKey"] = nil
+	inputs["dscSecondaryAccessKey"] = nil
+	inputs["dscServerEndpoint"] = nil
 	s, err := ctx.RegisterResource("azure:automation/account:Account", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -52,6 +55,9 @@ func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["dscPrimaryAccessKey"] = state.DscPrimaryAccessKey
+		inputs["dscSecondaryAccessKey"] = state.DscSecondaryAccessKey
+		inputs["dscServerEndpoint"] = state.DscServerEndpoint
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -73,6 +79,21 @@ func (r *Account) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Account) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+func (r *Account) DscPrimaryAccessKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["dscPrimaryAccessKey"])
+}
+
+// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+func (r *Account) DscSecondaryAccessKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["dscSecondaryAccessKey"])
+}
+
+// The DSC Server Endpoint associated with this Automation Account.
+func (r *Account) DscServerEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["dscServerEndpoint"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -102,6 +123,12 @@ func (r *Account) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
+	// The Primary Access Key for the DSC Endpoint associated with this Automation Account.
+	DscPrimaryAccessKey interface{}
+	// The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
+	DscSecondaryAccessKey interface{}
+	// The DSC Server Endpoint associated with this Automation Account.
+	DscServerEndpoint interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The SKU name of the account - only `Basic` is supported at this time. Defaults to `Basic`.

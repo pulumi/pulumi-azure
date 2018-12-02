@@ -40,9 +40,6 @@ export class NetworkInterface extends pulumi.CustomResource {
      * Relative DNS name for this NIC used for internal communications between VMs in the same VNet
      */
     public readonly internalDnsNameLabel: pulumi.Output<string>;
-    /**
-     * Fully qualified DNS name supporting internal communications between VMs in the same VNet
-     */
     public readonly internalFqdn: pulumi.Output<string>;
     /**
      * One or more `ip_configuration` associated with this NIC as documented below.
@@ -166,9 +163,6 @@ export interface NetworkInterfaceState {
      * Relative DNS name for this NIC used for internal communications between VMs in the same VNet
      */
     readonly internalDnsNameLabel?: pulumi.Input<string>;
-    /**
-     * Fully qualified DNS name supporting internal communications between VMs in the same VNet
-     */
     readonly internalFqdn?: pulumi.Input<string>;
     /**
      * One or more `ip_configuration` associated with this NIC as documented below.
@@ -233,9 +227,6 @@ export interface NetworkInterfaceArgs {
      * Relative DNS name for this NIC used for internal communications between VMs in the same VNet
      */
     readonly internalDnsNameLabel?: pulumi.Input<string>;
-    /**
-     * Fully qualified DNS name supporting internal communications between VMs in the same VNet
-     */
     readonly internalFqdn?: pulumi.Input<string>;
     /**
      * One or more `ip_configuration` associated with this NIC as documented below.

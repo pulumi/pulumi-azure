@@ -21,6 +21,8 @@ class ProtectedVM(pulumi.CustomResource):
 
         __props__ = dict()
 
+        if not backup_policy_id:
+            raise TypeError('Missing required property backup_policy_id')
         __props__['backup_policy_id'] = backup_policy_id
 
         if not recovery_vault_name:

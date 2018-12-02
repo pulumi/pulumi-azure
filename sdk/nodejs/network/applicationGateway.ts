@@ -27,7 +27,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     public readonly httpListeners: pulumi.Output<{ frontendIpConfigurationId: string, frontendIpConfigurationName: string, frontendPortId: string, frontendPortName: string, hostName?: string, id: string, name: string, protocol: string, requireSni?: boolean, sslCertificateId: string, sslCertificateName?: string }[]>;
     public readonly location: pulumi.Output<string>;
     public readonly name: pulumi.Output<string>;
-    public readonly probes: pulumi.Output<{ host: string, id: string, interval: number, match?: { body?: string, statusCodes?: string[] }, minimumServers?: number, name: string, path: string, protocol: string, timeout: number, unhealthyThreshold: number }[] | undefined>;
+    public readonly probes: pulumi.Output<{ host: string, id: string, interval: number, match: { body?: string, statusCodes?: string[] }, minimumServers?: number, name: string, path: string, protocol: string, timeout: number, unhealthyThreshold: number }[] | undefined>;
     public readonly requestRoutingRules: pulumi.Output<{ backendAddressPoolId: string, backendAddressPoolName?: string, backendHttpSettingsId: string, backendHttpSettingsName?: string, httpListenerId: string, httpListenerName: string, id: string, name: string, ruleType: string, urlPathMapId: string, urlPathMapName?: string }[]>;
     public readonly resourceGroupName: pulumi.Output<string>;
     public readonly sku: pulumi.Output<{ capacity: number, name: string, tier: string }>;
