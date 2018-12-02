@@ -5,6 +5,7 @@
 export * from "./accessPolicy";
 export * from "./certifiate";
 export * from "./getAccessPolicy";
+export * from "./getKey";
 export * from "./getKeyVault";
 export * from "./getSecret";
 export * from "./key";
