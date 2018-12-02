@@ -5,6 +5,7 @@
 export * from "./actionGroup";
 export * from "./activityLogAlert";
 export * from "./alertRule";
+export * from "./diagnosticSetting";
 export * from "./getLogProfile";
 export * from "./logProfile";
 export * from "./metricAlert";

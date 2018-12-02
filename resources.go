@@ -46,6 +46,7 @@ const (
 	azureCosmosDB            = "cosmosdb"            // Cosmos DB
 	azureDatalake            = "datalake"            // Data Lake
 	azureDataBricks          = "databricks"          // DataBricks
+	azureDevSpace            = "devspace"            // DevSpace
 	azureDevTest             = "devtest"             // Dev Test Labs
 	azureDNS                 = "dns"                 // DNS
 	azureIot                 = "iot"                 // IoT resource
@@ -57,6 +58,7 @@ const (
 	azureManagementGroups    = "managementgroups"    // Management Groups
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMSI                 = "msi"                 // Managed Service Identity (MSI)
+	azureMSSQL               = "mssql"               // MS Sql
 	azureMySQL               = "mysql"               // MySql
 	azureNetwork             = "network"             // Networking
 	azureNotificationHub     = "notificationhub"     // Notification Hub
@@ -290,6 +292,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store_file":              {Tok: azureResource(azureDatalake, "StoreFile")},
 			"azurerm_data_lake_store_firewall_rule":     {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
 
+			// DevSpace
+			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
+
 			// Dev Test
 			"azurerm_dev_test_lab":                     {Tok: azureResource(azureDevTest, "Lab")},
 			"azurerm_dev_test_linux_virtual_machine":   {Tok: azureResource(azureDevTest, "LinuxVirtualMachine")},
@@ -356,6 +361,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "iothub.html.markdown",
 				},
 			},
+			"azurerm_iothub_consumer_group": {Tok: azureResource(azureIot, "ConsumerGroup")},
 
 			// KeyVault
 			"azurerm_key_vault": {
@@ -421,6 +427,9 @@ func Provider() tfbridge.ProviderInfo {
 				Docs: &tfbridge.DocInfo{
 					Source: "log_analytics_solution.html.markdown",
 				}},
+			"azurerm_log_analytics_workspace_linked_service": {
+				Tok: azureResource(azureOperationalInsights, "AnalyticsWorkspaceLinkedService"),
+			},
 
 			// CosmosDB
 			"azurerm_cosmosdb_account": {Tok: azureResource(azureCosmosDB, "Account")},
@@ -438,8 +447,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_metric_alertrule":           {Tok: azureResource(azureMonitoring, "AlertRule")},
 			"azurerm_monitor_action_group":       {Tok: azureResource(azureMonitoring, "ActionGroup")},
 			"azurerm_monitor_activity_log_alert": {Tok: azureResource(azureMonitoring, "ActivityLogAlert")},
+			"azurerm_monitor_diagnostic_setting": {Tok: azureResource(azureMonitoring, "DiagnosticSetting")},
 			"azurerm_monitor_log_profile":        {Tok: azureResource(azureMonitoring, "LogProfile")},
 			"azurerm_monitor_metric_alert":       {Tok: azureResource(azureMonitoring, "MetricAlert")},
+
+			// MS SQL
+			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
 
 			// MySQL
 			"azurerm_mysql_configuration":        {Tok: azureResource(azureMySQL, "Configuration")},
