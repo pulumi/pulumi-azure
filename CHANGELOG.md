@@ -1,5 +1,6 @@
+## 0.16.6 (unreleased)
 
-## 0.16.5 (unreleased)
+## 0.16.5 (Released December 5th, 2018)
 
 ### Major Changes
 
