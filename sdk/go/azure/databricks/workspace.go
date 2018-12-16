@@ -28,12 +28,14 @@ func NewWorkspace(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["location"] = nil
+		inputs["managedResourceGroupName"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["location"] = args.Location
+		inputs["managedResourceGroupName"] = args.ManagedResourceGroupName
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
@@ -55,6 +57,7 @@ func GetWorkspace(ctx *pulumi.Context,
 	if state != nil {
 		inputs["location"] = state.Location
 		inputs["managedResourceGroupId"] = state.ManagedResourceGroupId
+		inputs["managedResourceGroupName"] = state.ManagedResourceGroupName
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
@@ -87,6 +90,11 @@ func (r *Workspace) ManagedResourceGroupId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["managedResourceGroupId"])
 }
 
+// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
+func (r *Workspace) ManagedResourceGroupName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["managedResourceGroupName"])
+}
+
 // Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 func (r *Workspace) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -113,6 +121,8 @@ type WorkspaceState struct {
 	Location interface{}
 	// The ID of the Managed Resource Group created by the Databricks Workspace.
 	ManagedResourceGroupId interface{}
+	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
+	ManagedResourceGroupName interface{}
 	// Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
@@ -127,6 +137,8 @@ type WorkspaceState struct {
 type WorkspaceArgs struct {
 	// Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
 	Location interface{}
+	// The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
+	ManagedResourceGroupName interface{}
 	// Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.

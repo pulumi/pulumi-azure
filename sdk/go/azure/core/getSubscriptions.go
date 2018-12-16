@@ -8,8 +8,13 @@ import (
 )
 
 // Use this data source to access information about all the Subscriptions currently available.
-func LookupSubscriptions(ctx *pulumi.Context) (*GetSubscriptionsResult, error) {
-	outputs, err := ctx.Invoke("azure:core/getSubscriptions:getSubscriptions", nil)
+func LookupSubscriptions(ctx *pulumi.Context, args *GetSubscriptionsArgs) (*GetSubscriptionsResult, error) {
+	inputs := make(map[string]interface{})
+	if args != nil {
+		inputs["displayNameContains"] = args.DisplayNameContains
+		inputs["displayNamePrefix"] = args.DisplayNamePrefix
+	}
+	outputs, err := ctx.Invoke("azure:core/getSubscriptions:getSubscriptions", inputs)
 	if err != nil {
 		return nil, err
 	}
@@ -17,6 +22,14 @@ func LookupSubscriptions(ctx *pulumi.Context) (*GetSubscriptionsResult, error) {
 		Subscriptions: outputs["subscriptions"],
 		Id: outputs["id"],
 	}, nil
+}
+
+// A collection of arguments for invoking getSubscriptions.
+type GetSubscriptionsArgs struct {
+	// A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+	DisplayNameContains interface{}
+	// A case-insensitive prefix which can be used to filter on the `display_name` field
+	DisplayNamePrefix interface{}
 }
 
 // A collection of values returned by getSubscriptions.

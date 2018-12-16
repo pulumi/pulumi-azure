@@ -26,6 +26,8 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 		AgentPoolProfiles: outputs["agentPoolProfiles"],
 		DnsPrefix: outputs["dnsPrefix"],
 		Fqdn: outputs["fqdn"],
+		KubeAdminConfigs: outputs["kubeAdminConfigs"],
+		KubeAdminConfigRaw: outputs["kubeAdminConfigRaw"],
 		KubeConfigs: outputs["kubeConfigs"],
 		KubeConfigRaw: outputs["kubeConfigRaw"],
 		KubernetesVersion: outputs["kubernetesVersion"],
@@ -58,6 +60,10 @@ type GetKubernetesClusterResult struct {
 	DnsPrefix interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
+	// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigs interface{}
+	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigRaw interface{}
 	// A `kube_config` block as defined below.
 	KubeConfigs interface{}
 	// Base64 encoded Kubernetes configuration.

@@ -10,7 +10,7 @@ class Plan(pulumi.CustomResource):
     """
     Manage an App Service Plan component.
     """
-    def __init__(__self__, __name__, __opts__=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, app_service_environment_id=None, kind=None, location=None, name=None, per_site_scaling=None, properties=None, reserved=None, resource_group_name=None, sku=None, tags=None):
         """Create a Plan resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -21,6 +21,8 @@ class Plan(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['app_service_environment_id'] = app_service_environment_id
+
         __props__['kind'] = kind
 
         if not location:
@@ -29,7 +31,11 @@ class Plan(pulumi.CustomResource):
 
         __props__['name'] = name
 
+        __props__['per_site_scaling'] = per_site_scaling
+
         __props__['properties'] = properties
+
+        __props__['reserved'] = reserved
 
         if not resource_group_name:
             raise TypeError('Missing required property resource_group_name')

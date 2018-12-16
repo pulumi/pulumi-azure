@@ -19,8 +19,8 @@ export class Registry extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RegistryState): Registry {
-        return new Registry(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RegistryState, opts?: pulumi.CustomResourceOptions): Registry {
+        return new Registry(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -35,6 +35,10 @@ export class Registry extends pulumi.CustomResource {
      * The Username associated with the Container Registry Admin account - if the admin account is enabled.
      */
     public /*out*/ readonly adminUsername: pulumi.Output<string>;
+    /**
+     * A list of Azure locations where the container registry should be geo-replicated.
+     */
+    public readonly georeplicationLocations: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -80,6 +84,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["adminEnabled"] = state ? state.adminEnabled : undefined;
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
             inputs["adminUsername"] = state ? state.adminUsername : undefined;
+            inputs["georeplicationLocations"] = state ? state.georeplicationLocations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["loginServer"] = state ? state.loginServer : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -97,6 +102,7 @@ export class Registry extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["adminEnabled"] = args ? args.adminEnabled : undefined;
+            inputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -128,6 +134,10 @@ export interface RegistryState {
      * The Username associated with the Container Registry Admin account - if the admin account is enabled.
      */
     readonly adminUsername?: pulumi.Input<string>;
+    /**
+     * A list of Azure locations where the container registry should be geo-replicated.
+     */
+    readonly georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -167,6 +177,10 @@ export interface RegistryArgs {
      * Specifies whether the admin user is enabled. Defaults to `false`.
      */
     readonly adminEnabled?: pulumi.Input<boolean>;
+    /**
+     * A list of Azure locations where the container registry should be geo-replicated.
+     */
+    readonly georeplicationLocations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

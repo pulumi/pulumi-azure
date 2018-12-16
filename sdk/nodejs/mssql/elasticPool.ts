@@ -16,8 +16,8 @@ export class ElasticPool extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ElasticPoolState): ElasticPool {
-        return new ElasticPool(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ElasticPoolState, opts?: pulumi.CustomResourceOptions): ElasticPool {
+        return new ElasticPool(name, <any>state, { ...opts, id: id });
     }
 
     public /*out*/ readonly elasticPoolProperties: pulumi.Output<{ creationDate: string, licenseType: string, maxSizeBytes: number, state: string, zoneRedundant: boolean }>;
@@ -25,6 +25,10 @@ export class ElasticPool extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
+    /**
+     * The storage limit for the database elastic pool in bytes.
+     */
+    public /*out*/ readonly maxSizeBytes: pulumi.Output<number>;
     /**
      * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
      */
@@ -49,6 +53,10 @@ export class ElasticPool extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Whether or not this elastic pool is zone redundant.
+     */
+    public /*out*/ readonly zoneRedundant: pulumi.Output<boolean>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.
@@ -64,12 +72,14 @@ export class ElasticPool extends pulumi.CustomResource {
             const state: ElasticPoolState = argsOrState as ElasticPoolState | undefined;
             inputs["elasticPoolProperties"] = state ? state.elasticPoolProperties : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["perDatabaseSettings"] = state ? state.perDatabaseSettings : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serverName"] = state ? state.serverName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
             if (!args || args.location === undefined) {
@@ -95,6 +105,8 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["elasticPoolProperties"] = undefined /*out*/;
+            inputs["maxSizeBytes"] = undefined /*out*/;
+            inputs["zoneRedundant"] = undefined /*out*/;
         }
         super("azure:mssql/elasticPool:ElasticPool", name, inputs, opts);
     }
@@ -109,6 +121,10 @@ export interface ElasticPoolState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The storage limit for the database elastic pool in bytes.
+     */
+    readonly maxSizeBytes?: pulumi.Input<number>;
     /**
      * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
      */
@@ -133,6 +149,10 @@ export interface ElasticPoolState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Whether or not this elastic pool is zone redundant.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }
 
 /**

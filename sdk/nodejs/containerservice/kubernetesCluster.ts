@@ -18,8 +18,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: KubernetesClusterState): KubernetesCluster {
-        return new KubernetesCluster(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: KubernetesClusterState, opts?: pulumi.CustomResourceOptions): KubernetesCluster {
+        return new KubernetesCluster(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -38,6 +38,14 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
     public /*out*/ readonly fqdn: pulumi.Output<string>;
+    /**
+     * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     */
+    public /*out*/ readonly kubeAdminConfig: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
+    /**
+     * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     */
+    public /*out*/ readonly kubeAdminConfigRaw: pulumi.Output<string>;
     /**
      * A `kube_config` block as defined below.
      */
@@ -77,7 +85,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `role_based_access_control` block. Changing this forces a new resource to be created.
      */
-    public readonly roleBasedAccessControl: pulumi.Output<{ azureActiveDirectory: { clientAppId: string, serverAppId: string, serverAppSecret: string, tenantId: string } } | undefined>;
+    public readonly roleBasedAccessControl: pulumi.Output<{ azureActiveDirectory?: { clientAppId: string, serverAppId: string, serverAppSecret: string, tenantId: string }, enabled: boolean }>;
     /**
      * A `service_principal` block as documented below.
      */
@@ -103,6 +111,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["agentPoolProfile"] = state ? state.agentPoolProfile : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["kubeAdminConfig"] = state ? state.kubeAdminConfig : undefined;
+            inputs["kubeAdminConfigRaw"] = state ? state.kubeAdminConfigRaw : undefined;
             inputs["kubeConfig"] = state ? state.kubeConfig : undefined;
             inputs["kubeConfigRaw"] = state ? state.kubeConfigRaw : undefined;
             inputs["kubernetesVersion"] = state ? state.kubernetesVersion : undefined;
@@ -145,6 +155,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["fqdn"] = undefined /*out*/;
+            inputs["kubeAdminConfig"] = undefined /*out*/;
+            inputs["kubeAdminConfigRaw"] = undefined /*out*/;
             inputs["kubeConfig"] = undefined /*out*/;
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["nodeResourceGroup"] = undefined /*out*/;
@@ -173,6 +185,14 @@ export interface KubernetesClusterState {
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
     readonly fqdn?: pulumi.Input<string>;
+    /**
+     * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     */
+    readonly kubeAdminConfig?: pulumi.Input<{ clientCertificate?: pulumi.Input<string>, clientKey?: pulumi.Input<string>, clusterCaCertificate?: pulumi.Input<string>, host?: pulumi.Input<string>, password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
+    /**
+     * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     */
+    readonly kubeAdminConfigRaw?: pulumi.Input<string>;
     /**
      * A `kube_config` block as defined below.
      */
@@ -212,7 +232,7 @@ export interface KubernetesClusterState {
     /**
      * A `role_based_access_control` block. Changing this forces a new resource to be created.
      */
-    readonly roleBasedAccessControl?: pulumi.Input<{ azureActiveDirectory: pulumi.Input<{ clientAppId: pulumi.Input<string>, serverAppId: pulumi.Input<string>, serverAppSecret: pulumi.Input<string>, tenantId?: pulumi.Input<string> }> }>;
+    readonly roleBasedAccessControl?: pulumi.Input<{ azureActiveDirectory?: pulumi.Input<{ clientAppId: pulumi.Input<string>, serverAppId: pulumi.Input<string>, serverAppSecret: pulumi.Input<string>, tenantId?: pulumi.Input<string> }>, enabled: pulumi.Input<boolean> }>;
     /**
      * A `service_principal` block as documented below.
      */
@@ -266,7 +286,7 @@ export interface KubernetesClusterArgs {
     /**
      * A `role_based_access_control` block. Changing this forces a new resource to be created.
      */
-    readonly roleBasedAccessControl?: pulumi.Input<{ azureActiveDirectory: pulumi.Input<{ clientAppId: pulumi.Input<string>, serverAppId: pulumi.Input<string>, serverAppSecret: pulumi.Input<string>, tenantId?: pulumi.Input<string> }> }>;
+    readonly roleBasedAccessControl?: pulumi.Input<{ azureActiveDirectory?: pulumi.Input<{ clientAppId: pulumi.Input<string>, serverAppId: pulumi.Input<string>, serverAppSecret: pulumi.Input<string>, tenantId?: pulumi.Input<string> }>, enabled: pulumi.Input<boolean> }>;
     /**
      * A `service_principal` block as documented below.
      */

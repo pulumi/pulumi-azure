@@ -13,8 +13,8 @@ export class MetricAlert extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MetricAlertState): MetricAlert {
-        return new MetricAlert(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: MetricAlertState, opts?: pulumi.CustomResourceOptions): MetricAlert {
+        return new MetricAlert(name, <any>state, { ...opts, id: id });
     }
 
     public readonly actions: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;

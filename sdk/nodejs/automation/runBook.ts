@@ -16,8 +16,8 @@ export class RunBook extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RunBookState): RunBook {
-        return new RunBook(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RunBookState, opts?: pulumi.CustomResourceOptions): RunBook {
+        return new RunBook(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -60,6 +60,9 @@ export class RunBook extends pulumi.CustomResource {
      * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
      */
     public readonly runbookType: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
 
     /**
@@ -168,6 +171,9 @@ export interface RunBookState {
      * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
      */
     readonly runbookType?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
@@ -215,5 +221,8 @@ export interface RunBookArgs {
      * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
      */
     readonly runbookType: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

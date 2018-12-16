@@ -36,6 +36,7 @@ func NewProtectionPolicyVM(ctx *pulumi.Context,
 		inputs["retentionWeekly"] = nil
 		inputs["retentionYearly"] = nil
 		inputs["tags"] = nil
+		inputs["timezone"] = nil
 	} else {
 		inputs["backup"] = args.Backup
 		inputs["name"] = args.Name
@@ -46,6 +47,7 @@ func NewProtectionPolicyVM(ctx *pulumi.Context,
 		inputs["retentionWeekly"] = args.RetentionWeekly
 		inputs["retentionYearly"] = args.RetentionYearly
 		inputs["tags"] = args.Tags
+		inputs["timezone"] = args.Timezone
 	}
 	s, err := ctx.RegisterResource("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, true, inputs, opts...)
 	if err != nil {
@@ -69,6 +71,7 @@ func GetProtectionPolicyVM(ctx *pulumi.Context,
 		inputs["retentionWeekly"] = state.RetentionWeekly
 		inputs["retentionYearly"] = state.RetentionYearly
 		inputs["tags"] = state.Tags
+		inputs["timezone"] = state.Timezone
 	}
 	s, err := ctx.ReadResource("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, id, inputs, opts...)
 	if err != nil {
@@ -131,6 +134,11 @@ func (r *ProtectionPolicyVM) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// Specifies the timezone. Defaults to `UTC`
+func (r *ProtectionPolicyVM) Timezone() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["timezone"])
+}
+
 // Input properties used for looking up and filtering ProtectionPolicyVM resources.
 type ProtectionPolicyVMState struct {
 	// Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
@@ -150,6 +158,8 @@ type ProtectionPolicyVMState struct {
 	// Configures the policy yearly retention as documented in the `retention_yearly` block below.
 	RetentionYearly interface{}
 	Tags interface{}
+	// Specifies the timezone. Defaults to `UTC`
+	Timezone interface{}
 }
 
 // The set of arguments for constructing a ProtectionPolicyVM resource.
@@ -171,4 +181,6 @@ type ProtectionPolicyVMArgs struct {
 	// Configures the policy yearly retention as documented in the `retention_yearly` block below.
 	RetentionYearly interface{}
 	Tags interface{}
+	// Specifies the timezone. Defaults to `UTC`
+	Timezone interface{}
 }

@@ -10,7 +10,7 @@ class GetKubernetesClusterResult(object):
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, network_profiles=None, node_resource_group=None, role_based_access_controls=None, service_principals=None, tags=None, id=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_admin_configs=None, kube_admin_config_raw=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, network_profiles=None, node_resource_group=None, role_based_access_controls=None, service_principals=None, tags=None, id=None):
         if addon_profiles and not isinstance(addon_profiles, list):
             raise TypeError('Expected argument addon_profiles to be a list')
         __self__.addon_profiles = addon_profiles
@@ -34,6 +34,18 @@ class GetKubernetesClusterResult(object):
         __self__.fqdn = fqdn
         """
         The FQDN of the Azure Kubernetes Managed Cluster.
+        """
+        if kube_admin_configs and not isinstance(kube_admin_configs, list):
+            raise TypeError('Expected argument kube_admin_configs to be a list')
+        __self__.kube_admin_configs = kube_admin_configs
+        """
+        A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        """
+        if kube_admin_config_raw and not isinstance(kube_admin_config_raw, str):
+            raise TypeError('Expected argument kube_admin_config_raw to be a str')
+        __self__.kube_admin_config_raw = kube_admin_config_raw
+        """
+        Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
         """
         if kube_configs and not isinstance(kube_configs, list):
             raise TypeError('Expected argument kube_configs to be a list')
@@ -120,6 +132,8 @@ async def get_kubernetes_cluster(name=None, resource_group_name=None):
         agent_pool_profiles=__ret__.get('agentPoolProfiles'),
         dns_prefix=__ret__.get('dnsPrefix'),
         fqdn=__ret__.get('fqdn'),
+        kube_admin_configs=__ret__.get('kubeAdminConfigs'),
+        kube_admin_config_raw=__ret__.get('kubeAdminConfigRaw'),
         kube_configs=__ret__.get('kubeConfigs'),
         kube_config_raw=__ret__.get('kubeConfigRaw'),
         kubernetes_version=__ret__.get('kubernetesVersion'),

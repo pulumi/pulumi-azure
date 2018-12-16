@@ -28,6 +28,7 @@ func NewRegistry(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["adminEnabled"] = nil
+		inputs["georeplicationLocations"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
@@ -37,6 +38,7 @@ func NewRegistry(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["adminEnabled"] = args.AdminEnabled
+		inputs["georeplicationLocations"] = args.GeoreplicationLocations
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -64,6 +66,7 @@ func GetRegistry(ctx *pulumi.Context,
 		inputs["adminEnabled"] = state.AdminEnabled
 		inputs["adminPassword"] = state.AdminPassword
 		inputs["adminUsername"] = state.AdminUsername
+		inputs["georeplicationLocations"] = state.GeoreplicationLocations
 		inputs["location"] = state.Location
 		inputs["loginServer"] = state.LoginServer
 		inputs["name"] = state.Name
@@ -103,6 +106,11 @@ func (r *Registry) AdminPassword() *pulumi.StringOutput {
 // The Username associated with the Container Registry Admin account - if the admin account is enabled.
 func (r *Registry) AdminUsername() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["adminUsername"])
+}
+
+// A list of Azure locations where the container registry should be geo-replicated.
+func (r *Registry) GeoreplicationLocations() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["georeplicationLocations"])
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -152,6 +160,8 @@ type RegistryState struct {
 	AdminPassword interface{}
 	// The Username associated with the Container Registry Admin account - if the admin account is enabled.
 	AdminUsername interface{}
+	// A list of Azure locations where the container registry should be geo-replicated.
+	GeoreplicationLocations interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The URL that can be used to log into the container registry.
@@ -173,6 +183,8 @@ type RegistryState struct {
 type RegistryArgs struct {
 	// Specifies whether the admin user is enabled. Defaults to `false`.
 	AdminEnabled interface{}
+	// A list of Azure locations where the container registry should be geo-replicated.
+	GeoreplicationLocations interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.

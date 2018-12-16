@@ -62,6 +62,8 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["fqdn"] = nil
+	inputs["kubeAdminConfig"] = nil
+	inputs["kubeAdminConfigRaw"] = nil
 	inputs["kubeConfig"] = nil
 	inputs["kubeConfigRaw"] = nil
 	inputs["nodeResourceGroup"] = nil
@@ -82,6 +84,8 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 		inputs["agentPoolProfile"] = state.AgentPoolProfile
 		inputs["dnsPrefix"] = state.DnsPrefix
 		inputs["fqdn"] = state.Fqdn
+		inputs["kubeAdminConfig"] = state.KubeAdminConfig
+		inputs["kubeAdminConfigRaw"] = state.KubeAdminConfigRaw
 		inputs["kubeConfig"] = state.KubeConfig
 		inputs["kubeConfigRaw"] = state.KubeConfigRaw
 		inputs["kubernetesVersion"] = state.KubernetesVersion
@@ -130,6 +134,16 @@ func (r *KubernetesCluster) DnsPrefix() *pulumi.StringOutput {
 // The FQDN of the Azure Kubernetes Managed Cluster.
 func (r *KubernetesCluster) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+}
+
+// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+func (r *KubernetesCluster) KubeAdminConfig() *pulumi.Output {
+	return r.s.State["kubeAdminConfig"]
+}
+
+// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+func (r *KubernetesCluster) KubeAdminConfigRaw() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["kubeAdminConfigRaw"])
 }
 
 // A `kube_config` block as defined below.
@@ -202,6 +216,10 @@ type KubernetesClusterState struct {
 	DnsPrefix interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
+	// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfig interface{}
+	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	KubeAdminConfigRaw interface{}
 	// A `kube_config` block as defined below.
 	KubeConfig interface{}
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools

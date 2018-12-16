@@ -16,8 +16,8 @@ export class TriggerRecurrence extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TriggerRecurrenceState): TriggerRecurrence {
-        return new TriggerRecurrence(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TriggerRecurrenceState, opts?: pulumi.CustomResourceOptions): TriggerRecurrence {
+        return new TriggerRecurrence(name, <any>state, { ...opts, id: id });
     }
 
     /**

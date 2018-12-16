@@ -29,8 +29,6 @@ class AccessPolicy(pulumi.CustomResource):
 
         __props__['certificate_permissions'] = certificate_permissions
 
-        if not key_permissions:
-            raise TypeError('Missing required property key_permissions')
         __props__['key_permissions'] = key_permissions
 
         if not object_id:
@@ -41,8 +39,6 @@ class AccessPolicy(pulumi.CustomResource):
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
-        if not secret_permissions:
-            raise TypeError('Missing required property secret_permissions')
         __props__['secret_permissions'] = secret_permissions
 
         if not tenant_id:

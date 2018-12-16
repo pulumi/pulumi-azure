@@ -10,7 +10,7 @@ class Workspace(pulumi.CustomResource):
     """
     Manages a Databricks Workspace
     """
-    def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, location=None, managed_resource_group_name=None, name=None, resource_group_name=None, sku=None, tags=None):
         """Create a Workspace resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -24,6 +24,8 @@ class Workspace(pulumi.CustomResource):
         if not location:
             raise TypeError('Missing required property location')
         __props__['location'] = location
+
+        __props__['managed_resource_group_name'] = managed_resource_group_name
 
         __props__['name'] = name
 

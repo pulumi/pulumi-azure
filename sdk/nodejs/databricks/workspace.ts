@@ -16,8 +16,8 @@ export class Workspace extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WorkspaceState): Workspace {
-        return new Workspace(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: WorkspaceState, opts?: pulumi.CustomResourceOptions): Workspace {
+        return new Workspace(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -28,6 +28,10 @@ export class Workspace extends pulumi.CustomResource {
      * The ID of the Managed Resource Group created by the Databricks Workspace.
      */
     public /*out*/ readonly managedResourceGroupId: pulumi.Output<string>;
+    /**
+     * The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
+     */
+    public readonly managedResourceGroupName: pulumi.Output<string>;
     /**
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      */
@@ -59,6 +63,7 @@ export class Workspace extends pulumi.CustomResource {
             const state: WorkspaceState = argsOrState as WorkspaceState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
+            inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
@@ -75,6 +80,7 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -97,6 +103,10 @@ export interface WorkspaceState {
      * The ID of the Managed Resource Group created by the Databricks Workspace.
      */
     readonly managedResourceGroupId?: pulumi.Input<string>;
+    /**
+     * The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
+     */
+    readonly managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      */
@@ -123,6 +133,10 @@ export interface WorkspaceArgs {
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
+     */
+    readonly managedResourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      */

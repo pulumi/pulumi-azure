@@ -16,8 +16,8 @@ export class AnalyticsSolution extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AnalyticsSolutionState): AnalyticsSolution {
-        return new AnalyticsSolution(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AnalyticsSolutionState, opts?: pulumi.CustomResourceOptions): AnalyticsSolution {
+        return new AnalyticsSolution(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -36,6 +36,9 @@ export class AnalyticsSolution extends pulumi.CustomResource {
      * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
     public readonly solutionName: pulumi.Output<string>;
+    /**
+     * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
+     */
     public readonly workspaceName: pulumi.Output<string>;
     /**
      * The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
@@ -111,6 +114,9 @@ export interface AnalyticsSolutionState {
      * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
     readonly solutionName?: pulumi.Input<string>;
+    /**
+     * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
+     */
     readonly workspaceName?: pulumi.Input<string>;
     /**
      * The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
@@ -138,6 +144,9 @@ export interface AnalyticsSolutionArgs {
      * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
     readonly solutionName: pulumi.Input<string>;
+    /**
+     * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
+     */
     readonly workspaceName: pulumi.Input<string>;
     /**
      * The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.

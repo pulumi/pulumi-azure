@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("azure");
 
+export let clientCertificatePassword: string | undefined = __config.get("clientCertificatePassword");
+export let clientCertificatePath: string | undefined = __config.get("clientCertificatePath");
 export let clientId: string | undefined = __config.get("clientId") || (utilities.getEnv("ARM_CLIENT_ID") || "");
 export let clientSecret: string | undefined = __config.get("clientSecret") || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
 export let environment: string = utilities.requireWithDefault(() => __config.require("environment"), (utilities.getEnv("ARM_ENVIRONMENT") || "public"));
