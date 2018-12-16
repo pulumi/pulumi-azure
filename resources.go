@@ -53,6 +53,7 @@ const (
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
+	azureMariaDB             = "mariadb"             // MariaDB
 	azureMessaging           = "eventhub"            // Event Hub
 	azureMgmtResource        = "managementresource"  // Management Resource
 	azureManagementGroups    = "managementgroups"    // Management Groups
@@ -415,6 +416,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logic_app_trigger_http_request": {Tok: azureResource(azureLogicApps, "TriggerHttpRequest")},
 			"azurerm_logic_app_trigger_recurrence":   {Tok: azureResource(azureLogicApps, "TriggerRecurrence")},
 			"azurerm_logic_app_workflow":             {Tok: azureResource(azureLogicApps, "Workflow")},
+
+			// MariaDB
+			"azurerm_mariadb_database": {Tok: azureResource(azureMariaDB, "Database")},
+			"azurerm_mariadb_server":   {Tok: azureResource(azureMariaDB, "Server")},
 
 			// Notification Hub
 			"azurerm_notification_hub":                    {Tok: azureResource(azureNotificationHub, "Hub")},
