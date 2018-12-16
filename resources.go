@@ -69,11 +69,12 @@ const (
 	azureRecoveryServices    = "recoveryservices"    // Recovery Services
 	azureRedis               = "redis"               // RedisCache
 	azureRelay               = "relay"               // Relay
+	azureRole                = "role"                // Azure Role
 	azureScheduler           = "scheduler"           // Scheduler
 	azureSecurityCenter      = "securitycenter"      // Security Center
 	azureServiceFabric       = "servicefabric"       // Service Fabric
-	azureRole                = "role"                // Azure Role
 	azureSearch              = "search"              // Search
+	azureSignalr             = "signalr"             // SignalR
 	azureSQL                 = "sql"                 // SQL
 	azureStorage             = "storage"             // Storage
 	azureTrafficManager      = "trafficmanager"      // Traffic Manager
@@ -555,6 +556,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Search
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},
+
+			// SignalR
+			"azurerm_signalr_service": {Tok: azureResource(azureSignalr, "Service")},
 
 			// Storage
 			"azurerm_storage_account": {Tok: azureResource(azureStorage, "Account")},

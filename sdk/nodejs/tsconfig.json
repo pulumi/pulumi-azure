@@ -268,6 +268,8 @@
         "securitycenter/workspace.ts",
         "servicefabric/cluster.ts",
         "servicefabric/index.ts",
+        "signalr/index.ts",
+        "signalr/service.ts",
         "sql/activeDirectoryAdministrator.ts",
         "sql/database.ts",
         "sql/elasticPool.ts",
