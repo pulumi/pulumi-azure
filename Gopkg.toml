@@ -27,13 +27,13 @@
 # remove some of these overrides in order to produce a buildable vendor tree.
 [[override]]
   name = "github.com/Azure/azure-sdk-for-go"
-  version = "v21.3.0"
+  version = "=v21.3.0"
   [override.metadata]
     govendor-overridden=true
 
 [[override]]
   name = "github.com/Azure/go-autorest"
-  version = "v10.15.4"
+  version = "=v10.15.4"
   [override.metadata]
     govendor-overridden=true
 
@@ -69,7 +69,7 @@
 
 [[override]]
   name = "github.com/aws/aws-sdk-go"
-  version = "v1.8.34"
+  version = "=v1.8.34"
   [override.metadata]
     govendor-overridden=true
 
@@ -136,6 +136,12 @@
 [[override]]
   name = "github.com/hashicorp/errwrap"
   revision = "d6c0cd88035724dd42e0f335ae30161c20575ecc"
+  [override.metadata]
+    govendor-overridden=true
+
+[[override]]
+  name = "github.com/hashicorp/go-azure-helpers"
+  version = "=0.3.1"
   [override.metadata]
     govendor-overridden=true
 
@@ -207,7 +213,7 @@
 
 [[override]]
   name = "github.com/hashicorp/terraform"
-  version = "v0.11.9"
+  version = "=v0.11.9"
   [override.metadata]
     govendor-overridden=true
 
@@ -351,6 +357,6 @@
 
 [[override]]
   name = "k8s.io/kubernetes"
-  version = "v1.6.1"
+  version = "=v1.6.1"
   [override.metadata]
     govendor-overridden=true
