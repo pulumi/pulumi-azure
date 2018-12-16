@@ -625,6 +625,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_workspace":       {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
 			"azurerm_logic_app_workflow":            {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
 			"azurerm_management_group":              {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
+			"azurerm_monitor_action_group":          {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
 			"azurerm_monitor_diagnostic_categories": {Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories")},
 			"azurerm_monitor_log_profile":           {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
 			"azurerm_dns_zone":                      {Tok: azureDataSource(azureDNS, "getZone")},

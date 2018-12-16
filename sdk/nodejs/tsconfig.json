@@ -169,6 +169,7 @@
         "monitoring/activityLogAlert.ts",
         "monitoring/alertRule.ts",
         "monitoring/diagnosticSetting.ts",
+        "monitoring/getActionGroup.ts",
         "monitoring/getDiagnosticCategories.ts",
         "monitoring/getLogProfile.ts",
         "monitoring/index.ts",
