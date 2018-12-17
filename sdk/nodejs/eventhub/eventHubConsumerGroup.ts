@@ -16,8 +16,8 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubConsumerGroupState): EventHubConsumerGroup {
-        return new EventHubConsumerGroup(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubConsumerGroupState, opts?: pulumi.CustomResourceOptions): EventHubConsumerGroup {
+        return new EventHubConsumerGroup(name, <any>state, { ...opts, id: id });
     }
 
     /**

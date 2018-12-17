@@ -27,18 +27,24 @@ func NewPlan(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["appServiceEnvironmentId"] = nil
 		inputs["kind"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
+		inputs["perSiteScaling"] = nil
 		inputs["properties"] = nil
+		inputs["reserved"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["appServiceEnvironmentId"] = args.AppServiceEnvironmentId
 		inputs["kind"] = args.Kind
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
+		inputs["perSiteScaling"] = args.PerSiteScaling
 		inputs["properties"] = args.Properties
+		inputs["reserved"] = args.Reserved
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
@@ -57,11 +63,14 @@ func GetPlan(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *PlanState, opts ...pulumi.ResourceOpt) (*Plan, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["appServiceEnvironmentId"] = state.AppServiceEnvironmentId
 		inputs["kind"] = state.Kind
 		inputs["location"] = state.Location
 		inputs["maximumNumberOfWorkers"] = state.MaximumNumberOfWorkers
 		inputs["name"] = state.Name
+		inputs["perSiteScaling"] = state.PerSiteScaling
 		inputs["properties"] = state.Properties
+		inputs["reserved"] = state.Reserved
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
@@ -83,6 +92,11 @@ func (r *Plan) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+func (r *Plan) AppServiceEnvironmentId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["appServiceEnvironmentId"])
+}
+
 // The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 func (r *Plan) Kind() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kind"])
@@ -93,7 +107,7 @@ func (r *Plan) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Maximum number of instances that can be assigned to this App Service plan.
+// The maximum number of workers supported with the App Service Plan's sku.
 func (r *Plan) MaximumNumberOfWorkers() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maximumNumberOfWorkers"])
 }
@@ -103,9 +117,18 @@ func (r *Plan) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A `properties` block as documented below.
+// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+func (r *Plan) PerSiteScaling() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["perSiteScaling"])
+}
+
 func (r *Plan) Properties() *pulumi.Output {
 	return r.s.State["properties"]
+}
+
+// Is this App Service Plan `Reserved`. Defaults to `false`.
+func (r *Plan) Reserved() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["reserved"])
 }
 
 // The name of the resource group in which to create the App Service Plan component.
@@ -125,16 +148,21 @@ func (r *Plan) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Plan resources.
 type PlanState struct {
+	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	AppServiceEnvironmentId interface{}
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Maximum number of instances that can be assigned to this App Service plan.
+	// The maximum number of workers supported with the App Service Plan's sku.
 	MaximumNumberOfWorkers interface{}
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `properties` block as documented below.
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	PerSiteScaling interface{}
 	Properties interface{}
+	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	Reserved interface{}
 	// The name of the resource group in which to create the App Service Plan component.
 	ResourceGroupName interface{}
 	// A `sku` block as documented below.
@@ -145,14 +173,19 @@ type PlanState struct {
 
 // The set of arguments for constructing a Plan resource.
 type PlanArgs struct {
+	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+	AppServiceEnvironmentId interface{}
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `properties` block as documented below.
+	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+	PerSiteScaling interface{}
 	Properties interface{}
+	// Is this App Service Plan `Reserved`. Defaults to `false`.
+	Reserved interface{}
 	// The name of the resource group in which to create the App Service Plan component.
 	ResourceGroupName interface{}
 	// A `sku` block as documented below.

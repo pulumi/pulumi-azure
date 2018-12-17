@@ -8,6 +8,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi/config"
 )
 
+func GetClientCertificatePassword(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:clientCertificatePassword")
+}
+
+func GetClientCertificatePath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:clientCertificatePath")
+}
+
 func GetClientId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:clientId")
 	if err == nil {

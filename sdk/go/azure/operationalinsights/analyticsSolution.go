@@ -107,6 +107,7 @@ func (r *AnalyticsSolution) SolutionName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["solutionName"])
 }
 
+// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 func (r *AnalyticsSolution) WorkspaceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["workspaceName"])
 }
@@ -126,6 +127,7 @@ type AnalyticsSolutionState struct {
 	ResourceGroupName interface{}
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName interface{}
+	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName interface{}
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceResourceId interface{}
@@ -141,6 +143,7 @@ type AnalyticsSolutionArgs struct {
 	ResourceGroupName interface{}
 	// Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
 	SolutionName interface{}
+	// The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceName interface{}
 	// The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
 	WorkspaceResourceId interface{}

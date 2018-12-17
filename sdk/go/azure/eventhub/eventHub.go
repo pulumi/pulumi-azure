@@ -110,7 +110,7 @@ func (r *EventHub) NamespaceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["namespaceName"])
 }
 
-// Specifies the current number of shards on the Event Hub.
+// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
 func (r *EventHub) PartitionCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["partitionCount"])
 }
@@ -136,7 +136,7 @@ type EventHubState struct {
 	Name interface{}
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName interface{}
-	// Specifies the current number of shards on the Event Hub.
+	// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
 	PartitionCount interface{}
 	// The identifiers for partitions created for Event Hubs.
 	PartitionIds interface{}
@@ -155,7 +155,7 @@ type EventHubArgs struct {
 	Name interface{}
 	// Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
 	NamespaceName interface{}
-	// Specifies the current number of shards on the Event Hub.
+	// Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
 	PartitionCount interface{}
 	// The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

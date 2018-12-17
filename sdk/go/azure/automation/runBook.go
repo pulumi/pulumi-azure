@@ -155,6 +155,7 @@ func (r *RunBook) RunbookType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["runbookType"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *RunBook) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -181,6 +182,7 @@ type RunBookState struct {
 	ResourceGroupName interface{}
 	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
 	RunbookType interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
@@ -206,5 +208,6 @@ type RunBookArgs struct {
 	ResourceGroupName interface{}
 	// The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
 	RunbookType interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

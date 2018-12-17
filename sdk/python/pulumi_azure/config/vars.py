@@ -8,6 +8,10 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('azure')
 
+client_certificate_password = __config__.get('clientCertificatePassword')
+
+client_certificate_path = __config__.get('clientCertificatePath')
+
 client_id = __config__.get('clientId') or (utilities.get_env('ARM_CLIENT_ID') or '')
 
 client_secret = __config__.get('clientSecret') or (utilities.get_env('ARM_CLIENT_SECRET') or '')

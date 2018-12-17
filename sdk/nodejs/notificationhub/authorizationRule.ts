@@ -16,8 +16,8 @@ export class AuthorizationRule extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AuthorizationRuleState): AuthorizationRule {
-        return new AuthorizationRule(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AuthorizationRuleState, opts?: pulumi.CustomResourceOptions): AuthorizationRule {
+        return new AuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
     /**

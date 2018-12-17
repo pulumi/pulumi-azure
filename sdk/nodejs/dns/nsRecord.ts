@@ -16,8 +16,8 @@ export class NsRecord extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NsRecordState): NsRecord {
-        return new NsRecord(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NsRecordState, opts?: pulumi.CustomResourceOptions): NsRecord {
+        return new NsRecord(name, <any>state, { ...opts, id: id });
     }
 
     /**

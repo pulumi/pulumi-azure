@@ -19,6 +19,8 @@ export class Provider extends pulumi.ProviderResource {
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
+            inputs["clientCertificatePassword"] = args ? args.clientCertificatePassword : undefined;
+            inputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
             inputs["clientId"] = (args ? args.clientId : undefined) || (utilities.getEnv("ARM_CLIENT_ID") || "");
             inputs["clientSecret"] = (args ? args.clientSecret : undefined) || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
             inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
@@ -37,6 +39,8 @@ export class Provider extends pulumi.ProviderResource {
  * The set of arguments for constructing a Provider resource.
  */
 export interface ProviderArgs {
+    readonly clientCertificatePassword?: pulumi.Input<string>;
+    readonly clientCertificatePath?: pulumi.Input<string>;
     readonly clientId?: pulumi.Input<string>;
     readonly clientSecret?: pulumi.Input<string>;
     readonly environment?: pulumi.Input<string>;

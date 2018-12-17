@@ -16,8 +16,8 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProtectionPolicyVMState): ProtectionPolicyVM {
-        return new ProtectionPolicyVM(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProtectionPolicyVMState, opts?: pulumi.CustomResourceOptions): ProtectionPolicyVM {
+        return new ProtectionPolicyVM(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -53,6 +53,10 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
      */
     public readonly retentionYearly: pulumi.Output<{ count: number, months: string[], weekdays: string[], weeks: string[] } | undefined>;
     public readonly tags: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Specifies the timezone. Defaults to `UTC`
+     */
+    public readonly timezone: pulumi.Output<string | undefined>;
 
     /**
      * Create a ProtectionPolicyVM resource with the given unique name, arguments, and options.
@@ -75,6 +79,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
             inputs["retentionWeekly"] = state ? state.retentionWeekly : undefined;
             inputs["retentionYearly"] = state ? state.retentionYearly : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as ProtectionPolicyVMArgs | undefined;
             if (!args || args.backup === undefined) {
@@ -95,6 +100,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
             inputs["retentionWeekly"] = args ? args.retentionWeekly : undefined;
             inputs["retentionYearly"] = args ? args.retentionYearly : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["timezone"] = args ? args.timezone : undefined;
         }
         super("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, inputs, opts);
     }
@@ -137,6 +143,10 @@ export interface ProtectionPolicyVMState {
      */
     readonly retentionYearly?: pulumi.Input<{ count: pulumi.Input<number>, months: pulumi.Input<pulumi.Input<string>[]>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Specifies the timezone. Defaults to `UTC`
+     */
+    readonly timezone?: pulumi.Input<string>;
 }
 
 /**
@@ -176,4 +186,8 @@ export interface ProtectionPolicyVMArgs {
      */
     readonly retentionYearly?: pulumi.Input<{ count: pulumi.Input<number>, months: pulumi.Input<pulumi.Input<string>[]>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Specifies the timezone. Defaults to `UTC`
+     */
+    readonly timezone?: pulumi.Input<string>;
 }

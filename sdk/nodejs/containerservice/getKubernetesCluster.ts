@@ -52,6 +52,14 @@ export interface GetKubernetesClusterResult {
      */
     readonly fqdn: string;
     /**
+     * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     */
+    readonly kubeAdminConfigs: { clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }[];
+    /**
+     * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     */
+    readonly kubeAdminConfigRaw: string;
+    /**
      * A `kube_config` block as defined below.
      */
     readonly kubeConfigs: { clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }[];
@@ -82,7 +90,7 @@ export interface GetKubernetesClusterResult {
     /**
      * A `role_based_access_control` block as documented below.
      */
-    readonly roleBasedAccessControls: { azureActiveDirectories: { clientAppId: string, serverAppId: string, tenantId: string }[] }[];
+    readonly roleBasedAccessControls: { azureActiveDirectories: { clientAppId: string, serverAppId: string, tenantId: string }[], enabled: boolean }[];
     /**
      * A `service_principal` block as documented below.
      */

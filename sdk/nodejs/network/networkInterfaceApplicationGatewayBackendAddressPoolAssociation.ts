@@ -16,8 +16,8 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState): NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
-        return new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState, opts?: pulumi.CustomResourceOptions): NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
+        return new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(name, <any>state, { ...opts, id: id });
     }
 
     /**

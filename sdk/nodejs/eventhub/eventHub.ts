@@ -16,8 +16,8 @@ export class EventHub extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubState): EventHub {
-        return new EventHub(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventHubState, opts?: pulumi.CustomResourceOptions): EventHub {
+        return new EventHub(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -38,7 +38,7 @@ export class EventHub extends pulumi.CustomResource {
      */
     public readonly namespaceName: pulumi.Output<string>;
     /**
-     * Specifies the current number of shards on the Event Hub.
+     * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
      */
     public readonly partitionCount: pulumi.Output<number>;
     /**
@@ -119,7 +119,7 @@ export interface EventHubState {
      */
     readonly namespaceName?: pulumi.Input<string>;
     /**
-     * Specifies the current number of shards on the Event Hub.
+     * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
      */
     readonly partitionCount?: pulumi.Input<number>;
     /**
@@ -154,7 +154,7 @@ export interface EventHubArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Specifies the current number of shards on the Event Hub.
+     * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
      */
     readonly partitionCount: pulumi.Input<number>;
     /**

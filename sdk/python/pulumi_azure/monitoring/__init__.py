@@ -9,5 +9,6 @@ from .activity_log_alert import *
 from .diagnostic_setting import *
 from .log_profile import *
 from .metric_alert import *
+from .get_action_group import *
 from .get_diagnostic_categories import *
 from .get_log_profile import *

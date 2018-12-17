@@ -46,6 +46,8 @@ class ElasticPool(pulumi.CustomResource):
         __props__['tags'] = tags
 
         __props__['elastic_pool_properties'] = None
+        __props__['max_size_bytes'] = None
+        __props__['zone_redundant'] = None
 
         super(ElasticPool, __self__).__init__(
             'azure:mssql/elasticPool:ElasticPool',

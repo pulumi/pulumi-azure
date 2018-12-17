@@ -20,8 +20,8 @@ export class AccessPolicy extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccessPolicyState): AccessPolicy {
-        return new AccessPolicy(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AccessPolicyState, opts?: pulumi.CustomResourceOptions): AccessPolicy {
+        return new AccessPolicy(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -39,7 +39,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      * the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
-    public readonly keyPermissions: pulumi.Output<string[]>;
+    public readonly keyPermissions: pulumi.Output<string[] | undefined>;
     /**
      * The object ID of a user, service principal or security
      * group in the Azure Active Directory tenant for the vault. The object ID must
@@ -56,7 +56,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      * List of secret permissions, must be one or more
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
      */
-    public readonly secretPermissions: pulumi.Output<string[]>;
+    public readonly secretPermissions: pulumi.Output<string[] | undefined>;
     /**
      * The Azure Active Directory tenant ID that should be used
      * for authenticating requests to the key vault. Changing this forces a new resource
@@ -91,17 +91,11 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as AccessPolicyArgs | undefined;
-            if (!args || args.keyPermissions === undefined) {
-                throw new Error("Missing required property 'keyPermissions'");
-            }
             if (!args || args.objectId === undefined) {
                 throw new Error("Missing required property 'objectId'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.secretPermissions === undefined) {
-                throw new Error("Missing required property 'secretPermissions'");
             }
             if (!args || args.tenantId === undefined) {
                 throw new Error("Missing required property 'tenantId'");
@@ -191,7 +185,7 @@ export interface AccessPolicyArgs {
      * the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
-    readonly keyPermissions: pulumi.Input<pulumi.Input<string>[]>;
+    readonly keyPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The object ID of a user, service principal or security
      * group in the Azure Active Directory tenant for the vault. The object ID must
@@ -208,7 +202,7 @@ export interface AccessPolicyArgs {
      * List of secret permissions, must be one or more
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
      */
-    readonly secretPermissions: pulumi.Input<pulumi.Input<string>[]>;
+    readonly secretPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Azure Active Directory tenant ID that should be used
      * for authenticating requests to the key vault. Changing this forces a new resource

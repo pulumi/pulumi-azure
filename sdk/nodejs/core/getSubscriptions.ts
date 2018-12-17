@@ -7,9 +7,26 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about all the Subscriptions currently available.
  */
-export function getSubscriptions(opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
+export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
+    args = args || {};
     return pulumi.runtime.invoke("azure:core/getSubscriptions:getSubscriptions", {
+        "displayNameContains": args.displayNameContains,
+        "displayNamePrefix": args.displayNamePrefix,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getSubscriptions.
+ */
+export interface GetSubscriptionsArgs {
+    /**
+     * A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+     */
+    readonly displayNameContains?: string;
+    /**
+     * A case-insensitive prefix which can be used to filter on the `display_name` field
+     */
+    readonly displayNamePrefix?: string;
 }
 
 /**

@@ -16,8 +16,8 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DiagnosticSettingState): DiagnosticSetting {
-        return new DiagnosticSetting(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DiagnosticSettingState, opts?: pulumi.CustomResourceOptions): DiagnosticSetting {
+        return new DiagnosticSetting(name, <any>state, { ...opts, id: id });
     }
 
     public readonly eventhubAuthorizationRuleId: pulumi.Output<string | undefined>;
@@ -42,6 +42,9 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      * With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
      */
     public readonly storageAccountId: pulumi.Output<string | undefined>;
+    /**
+     * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+     */
     public readonly targetResourceId: pulumi.Output<string>;
 
     /**
@@ -108,6 +111,9 @@ export interface DiagnosticSettingState {
      * With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
+    /**
+     * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+     */
     readonly targetResourceId?: pulumi.Input<string>;
 }
 
@@ -137,5 +143,8 @@ export interface DiagnosticSettingArgs {
      * With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
+    /**
+     * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+     */
     readonly targetResourceId: pulumi.Input<string>;
 }

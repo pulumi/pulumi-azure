@@ -53,6 +53,7 @@ const (
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
+	azureMariaDB             = "mariadb"             // MariaDB
 	azureMessaging           = "eventhub"            // Event Hub
 	azureMgmtResource        = "managementresource"  // Management Resource
 	azureManagementGroups    = "managementgroups"    // Management Groups
@@ -68,11 +69,12 @@ const (
 	azureRecoveryServices    = "recoveryservices"    // Recovery Services
 	azureRedis               = "redis"               // RedisCache
 	azureRelay               = "relay"               // Relay
+	azureRole                = "role"                // Azure Role
 	azureScheduler           = "scheduler"           // Scheduler
 	azureSecurityCenter      = "securitycenter"      // Security Center
 	azureServiceFabric       = "servicefabric"       // Service Fabric
-	azureRole                = "role"                // Azure Role
 	azureSearch              = "search"              // Search
+	azureSignalr             = "signalr"             // SignalR
 	azureSQL                 = "sql"                 // SQL
 	azureStorage             = "storage"             // Storage
 	azureTrafficManager      = "trafficmanager"      // Traffic Manager
@@ -416,6 +418,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logic_app_trigger_recurrence":   {Tok: azureResource(azureLogicApps, "TriggerRecurrence")},
 			"azurerm_logic_app_workflow":             {Tok: azureResource(azureLogicApps, "Workflow")},
 
+			// MariaDB
+			"azurerm_mariadb_database": {Tok: azureResource(azureMariaDB, "Database")},
+			"azurerm_mariadb_server":   {Tok: azureResource(azureMariaDB, "Server")},
+
 			// Notification Hub
 			"azurerm_notification_hub":                    {Tok: azureResource(azureNotificationHub, "Hub")},
 			"azurerm_notification_hub_authorization_rule": {Tok: azureResource(azureNotificationHub, "AuthorizationRule")},
@@ -551,6 +557,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Search
 			"azurerm_search_service": {Tok: azureResource(azureSearch, "Service")},
 
+			// SignalR
+			"azurerm_signalr_service": {Tok: azureResource(azureSignalr, "Service")},
+
 			// Storage
 			"azurerm_storage_account": {Tok: azureResource(azureStorage, "Account")},
 			"azurerm_storage_blob": {
@@ -616,6 +625,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_log_analytics_workspace":       {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
 			"azurerm_logic_app_workflow":            {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
 			"azurerm_management_group":              {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
+			"azurerm_monitor_action_group":          {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
 			"azurerm_monitor_diagnostic_categories": {Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories")},
 			"azurerm_monitor_log_profile":           {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
 			"azurerm_dns_zone":                      {Tok: azureDataSource(azureDNS, "getZone")},

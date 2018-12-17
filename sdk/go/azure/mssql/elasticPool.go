@@ -50,6 +50,8 @@ func NewElasticPool(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["elasticPoolProperties"] = nil
+	inputs["maxSizeBytes"] = nil
+	inputs["zoneRedundant"] = nil
 	s, err := ctx.RegisterResource("azure:mssql/elasticPool:ElasticPool", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -65,12 +67,14 @@ func GetElasticPool(ctx *pulumi.Context,
 	if state != nil {
 		inputs["elasticPoolProperties"] = state.ElasticPoolProperties
 		inputs["location"] = state.Location
+		inputs["maxSizeBytes"] = state.MaxSizeBytes
 		inputs["name"] = state.Name
 		inputs["perDatabaseSettings"] = state.PerDatabaseSettings
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["serverName"] = state.ServerName
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
+		inputs["zoneRedundant"] = state.ZoneRedundant
 	}
 	s, err := ctx.ReadResource("azure:mssql/elasticPool:ElasticPool", name, id, inputs, opts...)
 	if err != nil {
@@ -96,6 +100,11 @@ func (r *ElasticPool) ElasticPoolProperties() *pulumi.Output {
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *ElasticPool) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
+}
+
+// The storage limit for the database elastic pool in bytes.
+func (r *ElasticPool) MaxSizeBytes() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["maxSizeBytes"])
 }
 
 // Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
@@ -128,11 +137,18 @@ func (r *ElasticPool) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// Whether or not this elastic pool is zone redundant.
+func (r *ElasticPool) ZoneRedundant() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["zoneRedundant"])
+}
+
 // Input properties used for looking up and filtering ElasticPool resources.
 type ElasticPoolState struct {
 	ElasticPoolProperties interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// The storage limit for the database elastic pool in bytes.
+	MaxSizeBytes interface{}
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
 	Name interface{}
 	// A `per_database_settings` block as defined below.
@@ -145,6 +161,8 @@ type ElasticPoolState struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Whether or not this elastic pool is zone redundant.
+	ZoneRedundant interface{}
 }
 
 // The set of arguments for constructing a ElasticPool resource.

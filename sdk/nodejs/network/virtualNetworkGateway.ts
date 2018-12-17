@@ -18,8 +18,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualNetworkGatewayState): VirtualNetworkGateway {
-        return new VirtualNetworkGateway(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualNetworkGatewayState, opts?: pulumi.CustomResourceOptions): VirtualNetworkGateway {
+        return new VirtualNetworkGateway(name, <any>state, { ...opts, id: id });
     }
 
     /**

@@ -16,8 +16,8 @@ export class Store extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StoreState): Store {
-        return new Store(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: StoreState, opts?: pulumi.CustomResourceOptions): Store {
+        return new Store(name, <any>state, { ...opts, id: id });
     }
 
     /**

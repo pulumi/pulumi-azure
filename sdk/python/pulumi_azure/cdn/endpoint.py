@@ -8,7 +8,7 @@ from .. import utilities, tables
 
 class Endpoint(pulumi.CustomResource):
     """
-    A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
+    A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
     """
     def __init__(__self__, __name__, __opts__=None, content_types_to_compresses=None, geo_filters=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origins=None, origin_host_header=None, origin_path=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None):
         """Create a Endpoint resource with the given unique name, props, and options."""

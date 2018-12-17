@@ -111,6 +111,7 @@ func (r *DiagnosticSetting) StorageAccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
+// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 func (r *DiagnosticSetting) TargetResourceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetResourceId"])
 }
@@ -129,6 +130,7 @@ type DiagnosticSettingState struct {
 	Name interface{}
 	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
 	StorageAccountId interface{}
+	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId interface{}
 }
 
@@ -146,5 +148,6 @@ type DiagnosticSettingArgs struct {
 	Name interface{}
 	// With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
 	StorageAccountId interface{}
+	// The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
 	TargetResourceId interface{}
 }

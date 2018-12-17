@@ -58,6 +58,8 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__['tags'] = tags
 
         __props__['fqdn'] = None
+        __props__['kube_admin_config'] = None
+        __props__['kube_admin_config_raw'] = None
         __props__['kube_config'] = None
         __props__['kube_config_raw'] = None
         __props__['node_resource_group'] = None

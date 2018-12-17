@@ -18,8 +18,8 @@ export class ServicePrincipal extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServicePrincipalState): ServicePrincipal {
-        return new ServicePrincipal(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServicePrincipalState, opts?: pulumi.CustomResourceOptions): ServicePrincipal {
+        return new ServicePrincipal(name, <any>state, { ...opts, id: id });
     }
 
     /**

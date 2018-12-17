@@ -16,8 +16,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AnalyticsWorkspaceState): AnalyticsWorkspace {
-        return new AnalyticsWorkspace(name, <any>state, { id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AnalyticsWorkspaceState, opts?: pulumi.CustomResourceOptions): AnalyticsWorkspace {
+        return new AnalyticsWorkspace(name, <any>state, { ...opts, id: id });
     }
 
     /**

@@ -20,17 +20,11 @@ type AccessPolicy struct {
 // NewAccessPolicy registers a new resource with the given unique name, arguments, and options.
 func NewAccessPolicy(ctx *pulumi.Context,
 	name string, args *AccessPolicyArgs, opts ...pulumi.ResourceOpt) (*AccessPolicy, error) {
-	if args == nil || args.KeyPermissions == nil {
-		return nil, errors.New("missing required argument 'KeyPermissions'")
-	}
 	if args == nil || args.ObjectId == nil {
 		return nil, errors.New("missing required argument 'ObjectId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.SecretPermissions == nil {
-		return nil, errors.New("missing required argument 'SecretPermissions'")
 	}
 	if args == nil || args.TenantId == nil {
 		return nil, errors.New("missing required argument 'TenantId'")

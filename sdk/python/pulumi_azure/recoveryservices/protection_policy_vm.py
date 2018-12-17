@@ -10,7 +10,7 @@ class ProtectionPolicyVM(pulumi.CustomResource):
     """
     Manages an Recovery Services VM Protection Policy.
     """
-    def __init__(__self__, __name__, __opts__=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, retention_monthly=None, retention_weekly=None, retention_yearly=None, tags=None):
+    def __init__(__self__, __name__, __opts__=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, retention_monthly=None, retention_weekly=None, retention_yearly=None, tags=None, timezone=None):
         """Create a ProtectionPolicyVM resource with the given unique name, props, and options."""
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')
@@ -44,6 +44,8 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         __props__['retention_yearly'] = retention_yearly
 
         __props__['tags'] = tags
+
+        __props__['timezone'] = timezone
 
         super(ProtectionPolicyVM, __self__).__init__(
             'azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM',
