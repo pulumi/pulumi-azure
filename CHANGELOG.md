@@ -1,4 +1,10 @@
-## 0.16.6 (unreleased)
+## 0.16.7 (unreleased)
+
+## 0.16.6 (Released December 17th, 2018)
+
+### Improvements
+
+- Updated to v1.20.0 of the Terraform AzureRM provider.
 
 ## 0.16.5 (Released December 5th, 2018)
 
