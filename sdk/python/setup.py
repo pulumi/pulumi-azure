@@ -26,7 +26,7 @@ setup(name='pulumi_azure',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-azure'
       },
-      license='Apache 2.0',
+      license='Apache-2.0',
       packages=find_packages(),
       install_requires=[
           'pulumi>=0.16.4,<0.17.0'

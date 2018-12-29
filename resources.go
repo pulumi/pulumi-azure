@@ -123,7 +123,7 @@ func Provider() tfbridge.ProviderInfo {
 		Description: "A Pulumi package for creating and managing Microsoft Azure cloud resources.",
 		Keywords:    []string{"pulumi", "azure"},
 		Homepage:    "https://pulumi.io",
-		License:     "Apache 2.0",
+		License:     "Apache-2.0",
 		Repository:  "https://github.com/pulumi/pulumi-azure",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"subscription_id": {
