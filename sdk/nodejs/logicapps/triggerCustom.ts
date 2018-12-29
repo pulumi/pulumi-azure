@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Custom Trigger within a Logic App Workflow
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "East US",
+ *     name: "workflow-resources",
+ * });
+ * const azurerm_logic_app_workflow_test = new azure.logicapps.Workflow("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "workflow1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_logic_app_trigger_custom_test = new azure.logicapps.TriggerCustom("test", {
+ *     body: "{\n  \"recurrence\": {\n    \"frequency\": \"Day\",\n    \"interval\": 1\n  },\n  \"type\": \"Recurrence\"\n}\n",
+ *     logicAppId: azurerm_logic_app_workflow_test.id,
+ *     name: "example-trigger",
+ * });
+ * ```
  */
 export class TriggerCustom extends pulumi.CustomResource {
     /**

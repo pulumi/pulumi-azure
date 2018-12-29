@@ -6,6 +6,44 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs authorization Rule within an Event Hub.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_eventhub_namespace_test = new azure.eventhub.EventHubNamespace("test", {
+ *     capacity: 2,
+ *     location: "West US",
+ *     name: "acceptanceTestEventHubNamespace",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Basic",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const azurerm_eventhub_test = new azure.eventhub.EventHub("test", {
+ *     messageRetention: 2,
+ *     name: "acceptanceTestEventHub",
+ *     namespaceName: azurerm_eventhub_namespace_test.name,
+ *     partitionCount: 2,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_eventhub_authorization_rule_test = new azure.eventhub.EventHubAuthorizationRule("test", {
+ *     eventhubName: azurerm_eventhub_test.name,
+ *     listen: true,
+ *     manage: false,
+ *     name: "navi",
+ *     namespaceName: azurerm_eventhub_namespace_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     send: false,
+ * });
+ * ```
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**

@@ -8,6 +8,67 @@ import * as utilities from "../utilities";
  * Manages a Network Rule Collection within an Azure Firewall.
  * 
  * -> **NOTE** Azure Firewall is currently in Public Preview.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "North Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testpip",
+ *     publicIpAddressAllocation: "Static",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard",
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testvnet",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.1.0/24",
+ *     name: "AzureFirewallSubnet",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_firewall_test = new azure.network.Firewall("test", {
+ *     ipConfiguration: {
+ *         internalPublicIpAddressId: azurerm_public_ip_test.id,
+ *         name: "configuration",
+ *         subnetId: azurerm_subnet_test.id,
+ *     },
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testfirewall",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_firewall_network_rule_collection_test = new azure.network.FirewallNetworkRuleCollection("test", {
+ *     action: "Allow",
+ *     azureFirewallName: azurerm_firewall_test.name,
+ *     name: "testcollection",
+ *     priority: 100,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     rules: [{
+ *         destinationAddresses: [
+ *             "8.8.8.8",
+ *             "8.8.4.4",
+ *         ],
+ *         destinationPorts: ["53"],
+ *         name: "testrule",
+ *         protocols: [
+ *             "TCP",
+ *             "UDP",
+ *         ],
+ *         sourceAddresses: ["10.0.0.0/16"],
+ *     }],
+ * });
+ * ```
  */
 export class FirewallNetworkRuleCollection extends pulumi.CustomResource {
     /**

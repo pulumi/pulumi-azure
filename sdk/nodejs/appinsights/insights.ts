@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Application Insights component.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "tf-test",
+ * });
+ * const azurerm_application_insights_test = new azure.appinsights.Insights("test", {
+ *     applicationType: "Web",
+ *     location: "West Europe",
+ *     name: "tf-test-appinsights",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * 
+ * export const appId = azurerm_application_insights_test.appId;
+ * export const instrumentationKey = azurerm_application_insights_test.instrumentationKey;
+ * ```
  */
 export class Insights extends pulumi.CustomResource {
     /**

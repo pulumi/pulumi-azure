@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Key Vault.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_key_vault_test = pulumi.output(azure.keyvault.getKeyVault({
+ *     name: "mykeyvault",
+ *     resourceGroupName: "some-resource-group",
+ * }));
+ * 
+ * export const vaultUri = azurerm_key_vault_test.apply(__arg0 => __arg0.vaultUri);
+ * ```
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
     return pulumi.runtime.invoke("azure:keyvault/getKeyVault:getKeyVault", {

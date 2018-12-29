@@ -6,6 +6,35 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Database
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_sql_server_test = new azure.sql.SqlServer("test", {
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ *     location: "West US",
+ *     name: "mysqlserver",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     version: "12.0",
+ * });
+ * const azurerm_sql_database_test = new azure.sql.Database("test", {
+ *     location: "West US",
+ *     name: "mysqldatabase",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serverName: azurerm_sql_server_test.name,
+ *     tags: {
+ *         environment: "production",
+ *     },
+ * });
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

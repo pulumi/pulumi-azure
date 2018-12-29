@@ -6,6 +6,35 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Service Fabric Cluster.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_service_fabric_cluster_test = new azure.servicefabric.Cluster("test", {
+ *     clusterCodeVersion: "6.3.176.9494",
+ *     location: azurerm_resource_group_test.location,
+ *     managementEndpoint: "https://example:80",
+ *     name: "example-servicefabric",
+ *     nodeTypes: [{
+ *         clientEndpointPort: 2020,
+ *         httpEndpointPort: 80,
+ *         instanceCount: 3,
+ *         isPrimary: true,
+ *         name: "first",
+ *     }],
+ *     reliabilityLevel: "Bronze",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     upgradeMode: "Manual",
+ *     vmImage: "Windows",
+ * });
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

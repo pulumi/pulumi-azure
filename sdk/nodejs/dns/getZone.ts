@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing DNS Zone.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_dns_zone_test = pulumi.output(azure.dns.getZone({
+ *     name: "search-eventhubns",
+ *     resourceGroupName: "search-service",
+ * }));
+ * 
+ * export const dnsZoneId = azurerm_dns_zone_test.apply(__arg0 => __arg0.id);
+ * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     return pulumi.runtime.invoke("azure:dns/getZone:getZone", {

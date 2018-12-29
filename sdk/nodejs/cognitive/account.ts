@@ -6,6 +6,31 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Cognitive Services Account.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_cognitive_account_test = new azure.cognitive.Account("test", {
+ *     kind: "Face",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-account",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         Acceptance: "Test",
+ *     },
+ * });
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

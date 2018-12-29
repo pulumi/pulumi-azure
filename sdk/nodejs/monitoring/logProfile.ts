@@ -8,6 +8,50 @@ import * as utilities from "../utilities";
  * Manages a [Log Profile](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.
  * 
  * -> **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "eastus",
+ *     name: "logprofiletest-rg",
+ * });
+ * const azurerm_eventhub_namespace_test = new azure.eventhub.EventHubNamespace("test", {
+ *     capacity: 2,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "logprofileeventhub",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "GRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "afscsdfytw",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_monitor_log_profile_test = new azure.monitoring.LogProfile("test", {
+ *     categories: [
+ *         "Action",
+ *         "Delete",
+ *         "Write",
+ *     ],
+ *     locations: [
+ *         "westus",
+ *         "global",
+ *     ],
+ *     name: "default",
+ *     retentionPolicy: {
+ *         days: 7,
+ *         enabled: true,
+ *     },
+ *     servicebusRuleId: azurerm_eventhub_namespace_test.id.apply(__arg0 => `${__arg0}/authorizationrules/RootManageSharedAccessKey`),
+ *     storageAccountId: azurerm_storage_account_test.id,
+ * });
+ * ```
  */
 export class LogProfile extends pulumi.CustomResource {
     /**

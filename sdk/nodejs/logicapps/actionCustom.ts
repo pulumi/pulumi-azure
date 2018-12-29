@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Custom Action within a Logic App Workflow
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "East US",
+ *     name: "workflow-resources",
+ * });
+ * const azurerm_logic_app_workflow_test = new azure.logicapps.Workflow("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "workflow1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_logic_app_action_custom_test = new azure.logicapps.ActionCustom("test", {
+ *     body: "{\n    \"description\": \"A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).\",\n    \"inputs\": {\n        \"variables\": [\n            {\n                \"name\": \"ExpirationAgeInDays\",\n                \"type\": \"Integer\",\n                \"value\": -30\n            }\n        ]\n    },\n    \"runAfter\": {},\n    \"type\": \"InitializeVariable\"\n}\n",
+ *     logicAppId: azurerm_logic_app_workflow_test.id,
+ *     name: "example-action",
+ * });
+ * ```
  */
 export class ActionCustom extends pulumi.CustomResource {
     /**

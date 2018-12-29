@@ -6,6 +6,46 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an ExpressRoute Circuit Peering.
+ * 
+ * ## Example Usage (Creating a Microsoft Peering)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "exprtTest",
+ * });
+ * const azurerm_express_route_circuit_test = new azure.network.ExpressRouteCircuit("test", {
+ *     allowClassicOperations: false,
+ *     bandwidthInMbps: 50,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "expressRoute1",
+ *     peeringLocation: "Silicon Valley",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serviceProviderName: "Equinix",
+ *     sku: {
+ *         family: "MeteredData",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const azurerm_express_route_circuit_peering_test = new azure.network.ExpressRouteCircuitPeering("test", {
+ *     expressRouteCircuitName: azurerm_express_route_circuit_test.name,
+ *     microsoftPeeringConfig: {
+ *         advertisedPublicPrefixes: ["123.1.0.0/24"],
+ *     },
+ *     peerAsn: 100,
+ *     peeringType: "MicrosoftPeering",
+ *     primaryPeerAddressPrefix: "123.0.0.0/30",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     secondaryPeerAddressPrefix: "123.0.0.4/30",
+ *     vlanId: 300,
+ * });
+ * ```
  */
 export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**

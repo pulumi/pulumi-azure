@@ -10,7 +10,7 @@ class Job(pulumi.CustomResource):
     """
     Manages a Scheduler Job.
     
-    ~> **NOTE:** Support for Scheduler Job has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
+    > **NOTE:** Support for Scheduler Job has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
     """
     def __init__(__self__, __name__, __opts__=None, action_storage_queue=None, action_web=None, error_action_storage_queue=None, error_action_web=None, job_collection_name=None, name=None, recurrence=None, resource_group_name=None, retry=None, start_time=None, state=None):
         """Create a Job resource with the given unique name, props, and options."""

@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Public IP Address.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestPublicIp1",
+ *     publicIpAddressAllocation: "static",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class PublicIp extends pulumi.CustomResource {
     /**

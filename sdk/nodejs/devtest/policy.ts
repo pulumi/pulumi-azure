@@ -6,6 +6,38 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Policy within a Dev Test Policy Set.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "example-resources",
+ * });
+ * const azurerm_dev_test_lab_test = new azure.devtest.Lab("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-devtestlab",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Sydney: "Australia",
+ *     },
+ * });
+ * const azurerm_dev_test_policy_test = new azure.devtest.Policy("test", {
+ *     evaluatorType: "MaxValuePolicy",
+ *     factData: "",
+ *     labName: azurerm_dev_test_lab_test.name,
+ *     name: "LabVmCount",
+ *     policySetName: "default",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Acceptance: "Test",
+ *     },
+ *     threshold: "999",
+ * });
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

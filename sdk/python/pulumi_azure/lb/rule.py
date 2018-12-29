@@ -10,7 +10,7 @@ class Rule(pulumi.CustomResource):
     """
     Manages a Load Balancer Rule.
     
-    ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+    > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     """
     def __init__(__self__, __name__, __opts__=None, backend_address_pool_id=None, backend_port=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
         """Create a Rule resource with the given unique name, props, and options."""

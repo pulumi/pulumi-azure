@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "eastus",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_user_assigned_identity_testIdentity = new azure.msi.UserAssignedIdentity("testIdentity", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "search-api",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * ```
+ */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
      * Get an existing UserAssignedIdentity resource's state with the given name, ID, and optional extra

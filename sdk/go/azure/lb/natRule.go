@@ -10,7 +10,7 @@ import (
 
 // Manages a Load Balancer NAT Rule.
 // 
-// ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+// > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type NatRule struct {
 	s *pulumi.ResourceState
 }

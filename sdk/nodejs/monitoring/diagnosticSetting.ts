@@ -6,6 +6,44 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Diagnostic Setting for an existing Resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_key_vault_test = pulumi.output(azure.keyvault.getKeyVault({
+ *     name: "example-vault",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * }));
+ * const azurerm_storage_account_test = pulumi.output(azure.storage.getAccount({
+ *     name: "examplestoracc",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * }));
+ * const azurerm_monitor_diagnostic_setting_test = new azure.monitoring.DiagnosticSetting("test", {
+ *     logs: [{
+ *         category: "AuditEvent",
+ *         enabled: false,
+ *         retentionPolicy: {
+ *             enabled: false,
+ *         },
+ *     }],
+ *     metrics: [{
+ *         category: "AllMetrics",
+ *         retentionPolicy: {
+ *             enabled: false,
+ *         },
+ *     }],
+ *     name: "example",
+ *     storageAccountId: azurerm_storage_account_test.apply(__arg0 => __arg0.id),
+ *     targetResourceId: azurerm_key_vault_test.apply(__arg0 => __arg0.id),
+ * });
+ * ```
  */
 export class DiagnosticSetting extends pulumi.CustomResource {
     /**

@@ -8,6 +8,47 @@ import * as utilities from "../utilities";
  * Manages an Azure Firewall.
  * 
  * -> **NOTE** Azure Firewall is currently in Public Preview.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "North Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testpip",
+ *     publicIpAddressAllocation: "Static",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard",
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testvnet",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.1.0/24",
+ *     name: "AzureFirewallSubnet",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_firewall_test = new azure.network.Firewall("test", {
+ *     ipConfiguration: {
+ *         internalPublicIpAddressId: azurerm_public_ip_test.id,
+ *         name: "configuration",
+ *         subnetId: azurerm_subnet_test.id,
+ *     },
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testfirewall",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * ```
  */
 export class Firewall extends pulumi.CustomResource {
     /**

@@ -8,6 +8,92 @@ import * as utilities from "../utilities";
  * Manages an App Service (within an App Service Plan).
  * 
  * -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
+ * 
+ * ## Example Usage (.net 4.x)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as random from "@pulumi/random";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "some-resource-group",
+ * });
+ * const random_id_server = new random.RandomId("server", {
+ *     byteLength: 8,
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "some-app-service-plan",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "S1",
+ *         tier: "Standard",
+ *     },
+ * });
+ * const azurerm_app_service_test = new azure.appservice.AppService("test", {
+ *     appServicePlanId: azurerm_app_service_plan_test.id,
+ *     appSettings: {
+ *         SOME_KEY: "some-value",
+ *     },
+ *     connectionStrings: [{
+ *         name: "Database",
+ *         type: "SQLServer",
+ *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: random_id_server.hex,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     siteConfig: {
+ *         dotnetFrameworkVersion: "v4.0",
+ *         scmType: "LocalGit",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage (Java 1.8)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as random from "@pulumi/random";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "some-resource-group",
+ * });
+ * const random_id_server = new random.RandomId("server", {
+ *     byteLength: 8,
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "some-app-service-plan",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "S1",
+ *         tier: "Standard",
+ *     },
+ * });
+ * const azurerm_app_service_test = new azure.appservice.AppService("test", {
+ *     appServicePlanId: azurerm_app_service_plan_test.id,
+ *     location: azurerm_resource_group_test.location,
+ *     name: random_id_server.hex,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     siteConfig: {
+ *         javaContainer: "JETTY",
+ *         javaContainerVersion: "9.3",
+ *         javaVersion: "1.8",
+ *         scmType: "LocalGit",
+ *     },
+ * });
+ * ```
  */
 export class AppService extends pulumi.CustomResource {
     /**

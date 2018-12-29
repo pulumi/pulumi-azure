@@ -10,7 +10,7 @@ class JobCollection(pulumi.CustomResource):
     """
     Manages a Scheduler Job Collection.
     
-    ~> **NOTE:** Support for Scheduler Job Collections has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
+    > **NOTE:** Support for Scheduler Job Collections has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, quota=None, resource_group_name=None, sku=None, state=None, tags=None):
         """Create a JobCollection resource with the given unique name, props, and options."""

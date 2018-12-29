@@ -10,9 +10,9 @@ class SubscriptionPricing(pulumi.CustomResource):
     """
     Manages the Pricing Tier for Azure Security Center in the current subscription.
     
-    ~> **NOTE:** This resource requires the `Owner` permission on the Subscription.
+    > **NOTE:** This resource requires the `Owner` permission on the Subscription.
     
-    ~> **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
+    > **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
     """
     def __init__(__self__, __name__, __opts__=None, tier=None):
         """Create a SubscriptionPricing resource with the given unique name, props, and options."""

@@ -10,7 +10,7 @@ class Contact(pulumi.CustomResource):
     """
     Manages the subscription's Security Center Contact.
     
-    ~> **NOTE:** Owner access permission is required. 
+    > **NOTE:** Owner access permission is required. 
     """
     def __init__(__self__, __name__, __opts__=None, alert_notifications=None, alerts_to_admins=None, email=None, phone=None):
         """Create a Contact resource with the given unique name, props, and options."""

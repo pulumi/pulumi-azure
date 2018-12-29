@@ -7,8 +7,30 @@ import * as utilities from "../utilities";
 /**
  * Manage a Azure Data Lake Store File.
  * 
- * ~> **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then 
+ * > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then 
  * taint the resource so the `azurerm_data_lake_store_file` gets recreated with the new data.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "northeurope",
+ *     name: "example",
+ * });
+ * const azurerm_data_lake_store_example = new azure.datalake.Store("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "consumptiondatalake",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_data_lake_store_file_example = new azure.datalake.StoreFile("example", {
+ *     localFilePath: "/path/to/local/file",
+ *     remoteFilePath: "/path/created/for/remote/file",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * ```
  */
 export class StoreFile extends pulumi.CustomResource {
     /**

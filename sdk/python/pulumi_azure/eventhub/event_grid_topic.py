@@ -10,7 +10,7 @@ class EventGridTopic(pulumi.CustomResource):
     """
     Manages an EventGrid Topic
     
-    ~> **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+    > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
     """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, tags=None):
         """Create a EventGridTopic resource with the given unique name, props, and options."""

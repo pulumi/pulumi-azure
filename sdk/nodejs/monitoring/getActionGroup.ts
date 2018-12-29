@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_monitor_action_group_example = pulumi.output(azure.monitoring.getActionGroup({
+ *     name: "tfex-actiongroup",
+ *     resourceGroupName: "terraform-example-rg",
+ * }));
+ * 
+ * export const actionGroupId = azurerm_monitor_action_group_example.apply(__arg0 => __arg0.id);
+ * ```
+ */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
     return pulumi.runtime.invoke("azure:monitoring/getActionGroup:getActionGroup", {
         "name": args.name,

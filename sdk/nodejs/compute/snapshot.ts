@@ -6,6 +6,33 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Disk Snapshot.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "snapshot-rg",
+ * });
+ * const azurerm_managed_disk_test = new azure.compute.ManagedDisk("test", {
+ *     createOption: "Empty",
+ *     diskSizeGb: Number.parseFloat("10"),
+ *     location: azurerm_resource_group_test.location,
+ *     name: "managed-disk",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountType: "Standard_LRS",
+ * });
+ * const azurerm_snapshot_test = new azure.compute.Snapshot("test", {
+ *     createOption: "Copy",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "snapshot",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sourceUri: azurerm_managed_disk_test.id,
+ * });
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

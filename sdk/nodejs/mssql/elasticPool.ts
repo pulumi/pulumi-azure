@@ -6,6 +6,42 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "westeurope",
+ *     name: "my-resource-group",
+ * });
+ * const azurerm_sql_server_test = new azure.sql.SqlServer("test", {
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "my-sql-server",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     version: "12.0",
+ * });
+ * const azurerm_mssql_elasticpool_test = new azure.mssql.ElasticPool("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test-epool",
+ *     perDatabaseSettings: {
+ *         maxCapacity: 4,
+ *         minCapacity: 0.250000,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serverName: azurerm_sql_server_test.name,
+ *     sku: {
+ *         capacity: 4,
+ *         family: "Gen5",
+ *         name: "GP_Gen5",
+ *         tier: "GeneralPurpose",
+ *     },
+ * });
+ * ```
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**

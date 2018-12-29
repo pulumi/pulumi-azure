@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a resource group on Azure.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "testResourceGroup1",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**

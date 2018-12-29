@@ -6,6 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a local network gateway connection over which specific connections can be configured.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "localNetworkGWTest",
+ * });
+ * const azurerm_local_network_gateway_home = new azure.network.LocalNetworkGateway("home", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     gatewayAddress: "12.13.14.15",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "backHome",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * ```
  */
 export class LocalNetworkGateway extends pulumi.CustomResource {
     /**

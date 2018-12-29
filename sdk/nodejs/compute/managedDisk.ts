@@ -6,6 +6,64 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a managed disk.
+ * 
+ * ## Example Usage with Create Empty
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US 2",
+ *     name: "acctestRG",
+ * });
+ * const azurerm_managed_disk_test = new azure.compute.ManagedDisk("test", {
+ *     createOption: "Empty",
+ *     diskSizeGb: Number.parseFloat("1"),
+ *     location: "West US 2",
+ *     name: "acctestmd",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountType: "Standard_LRS",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage with Create Copy
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US 2",
+ *     name: "acctestRG",
+ * });
+ * const azurerm_managed_disk_source = new azure.compute.ManagedDisk("source", {
+ *     createOption: "Empty",
+ *     diskSizeGb: Number.parseFloat("1"),
+ *     location: "West US 2",
+ *     name: "acctestmd1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountType: "Standard_LRS",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const azurerm_managed_disk_copy = new azure.compute.ManagedDisk("copy", {
+ *     createOption: "Copy",
+ *     diskSizeGb: Number.parseFloat("1"),
+ *     location: "West US 2",
+ *     name: "acctestmd2",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sourceResourceId: azurerm_managed_disk_source.id,
+ *     storageAccountType: "Standard_LRS",
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
  */
 export class ManagedDisk extends pulumi.CustomResource {
     /**

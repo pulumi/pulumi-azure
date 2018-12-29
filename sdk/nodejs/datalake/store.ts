@@ -6,6 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Data Lake Store.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "northeurope",
+ *     name: "example",
+ * });
+ * const azurerm_data_lake_store_example = new azure.datalake.Store("example", {
+ *     encryptionState: "Enabled",
+ *     encryptionType: "SystemManaged",
+ *     location: azurerm_resource_group_example.location,
+ *     name: "consumptiondatalake",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * ```
  */
 export class Store extends pulumi.CustomResource {
     /**

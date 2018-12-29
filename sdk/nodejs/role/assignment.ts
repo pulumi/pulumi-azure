@@ -6,6 +6,73 @@ import * as utilities from "../utilities";
 
 /**
  * Assigns a given Principal (User or Application) to a given Role.
+ * 
+ * ## Example Usage (using a built-in Role)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_client_config_test = pulumi.output(azure.core.getClientConfig({}));
+ * const azurerm_subscription_primary = pulumi.output(azure.core.getSubscription({}));
+ * const azurerm_role_assignment_test = new azure.role.Assignment("test", {
+ *     principalId: azurerm_client_config_test.apply(__arg0 => __arg0.servicePrincipalObjectId),
+ *     roleDefinitionName: "Reader",
+ *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ * });
+ * ```
+ * 
+ * ## Example Usage (Custom Role & Service Principal)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_client_config_test = pulumi.output(azure.core.getClientConfig({}));
+ * const azurerm_subscription_primary = pulumi.output(azure.core.getSubscription({}));
+ * const azurerm_role_definition_test = new azure.role.Definition("test", {
+ *     assignableScopes: [azurerm_subscription_primary.apply(__arg0 => __arg0.id)],
+ *     name: "my-custom-role-definition",
+ *     permissions: [{
+ *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+ *         notActions: [],
+ *     }],
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ * });
+ * const azurerm_role_assignment_test = new azure.role.Assignment("test", {
+ *     name: "00000000-0000-0000-0000-000000000000",
+ *     principalId: azurerm_client_config_test.apply(__arg0 => __arg0.servicePrincipalObjectId),
+ *     roleDefinitionId: azurerm_role_definition_test.id,
+ *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ * });
+ * ```
+ * 
+ * ## Example Usage (Custom Role & User)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_client_config_test = pulumi.output(azure.core.getClientConfig({}));
+ * const azurerm_subscription_primary = pulumi.output(azure.core.getSubscription({}));
+ * const azurerm_role_definition_test = new azure.role.Definition("test", {
+ *     assignableScopes: [azurerm_subscription_primary.apply(__arg0 => __arg0.id)],
+ *     name: "my-custom-role-definition",
+ *     permissions: [{
+ *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+ *         notActions: [],
+ *     }],
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ * });
+ * const azurerm_role_assignment_test = new azure.role.Assignment("test", {
+ *     name: "00000000-0000-0000-0000-000000000000",
+ *     principalId: azurerm_client_config_test.apply(__arg0 => __arg0.clientId),
+ *     roleDefinitionId: azurerm_role_definition_test.id,
+ *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ * });
+ * ```
  */
 export class Assignment extends pulumi.CustomResource {
     /**

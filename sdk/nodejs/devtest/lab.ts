@@ -6,6 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Dev Test Lab.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "example-resources",
+ * });
+ * const azurerm_dev_test_lab_test = new azure.devtest.Lab("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-devtestlab",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Sydney: "Australia",
+ *     },
+ * });
+ * ```
  */
 export class Lab extends pulumi.CustomResource {
     /**

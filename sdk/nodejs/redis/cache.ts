@@ -6,6 +6,109 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Redis Cache.
+ * 
+ * ## Example Usage (Basic)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "redis-resources",
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 0,
+ *     enableNonSslPort: false,
+ *     family: "C",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-redis-basic",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     skuName: "Basic",
+ * });
+ * ```
+ * 
+ * ## Example Usage (Standard)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "redis-resources",
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 2,
+ *     enableNonSslPort: false,
+ *     family: "C",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-redis-standard",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     skuName: "Standard",
+ * });
+ * ```
+ * 
+ * ## Example Usage (Premium with Clustering)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "redis-resources",
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 1,
+ *     enableNonSslPort: false,
+ *     family: "P",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-redis-premium",
+ *     redisConfiguration: {
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *         maxmemoryReserved: 2,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     shardCount: 3,
+ *     skuName: "Premium",
+ * });
+ * ```
+ * 
+ * ## Example Usage (Premium with Backup)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "redis-resources",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "GRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "redissa",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 3,
+ *     enableNonSslPort: false,
+ *     family: "P",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-redis-pbkup",
+ *     redisConfiguration: {
+ *         rdbBackupEnabled: true,
+ *         rdbBackupFrequency: 60,
+ *         rdbBackupMaxSnapshotCount: 1,
+ *         rdbStorageConnectionString: pulumi.all([azurerm_storage_account_test.primaryBlobEndpoint, azurerm_storage_account_test.name, azurerm_storage_account_test.primaryAccessKey]).apply(([__arg0, __arg1, __arg2]) => `DefaultEndpointsProtocol=https;BlobEndpoint=${__arg0};AccountName=${__arg1};AccountKey=${__arg2}`),
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     skuName: "Premium",
+ * });
+ * ```
  */
 export class Cache extends pulumi.CustomResource {
     /**

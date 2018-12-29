@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS AAAA Records within Azure DNS.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_dns_aaaa_record_test = new azure.dns.AaaaRecord("test", {
+ *     name: "test",
+ *     records: ["2607:f8b0:4009:1803::1005"],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     ttl: 300,
+ *     zoneName: azurerm_dns_zone_test.name,
+ * });
+ * ```
  */
 export class AaaaRecord extends pulumi.CustomResource {
     /**

@@ -8,6 +8,22 @@ import * as utilities from "../utilities";
  * Manages an Application within Azure Active Directory.
  * 
  * -> **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_azuread_application_test = new azure.ad.Application("test", {
+ *     availableToOtherTenants: false,
+ *     homepage: "https://homepage",
+ *     identifierUris: ["https://uri"],
+ *     name: "example",
+ *     oauth2AllowImplicitFlow: true,
+ *     replyUrls: ["https://replyurl"],
+ * });
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

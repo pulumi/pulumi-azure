@@ -10,7 +10,7 @@ class ScaleSet(pulumi.CustomResource):
     """
     Manage a virtual machine scale set.
     
-    ~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
+    > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
     """
     def __init__(__self__, __name__, __opts__=None, automatic_os_upgrade=None, boot_diagnostics=None, eviction_policy=None, extensions=None, health_probe_id=None, identity=None, license_type=None, location=None, name=None, network_profiles=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, overprovision=None, plan=None, priority=None, resource_group_name=None, rolling_upgrade_policy=None, single_placement_group=None, sku=None, storage_profile_data_disks=None, storage_profile_image_reference=None, storage_profile_os_disk=None, tags=None, upgrade_policy_mode=None, zones=None):

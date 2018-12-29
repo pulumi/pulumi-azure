@@ -10,7 +10,7 @@ import (
 
 // Manage a Load Balancer Backend Address Pool.
 // 
-// ~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+// > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type BackendAddressPool struct {
 	s *pulumi.ResourceState
 }

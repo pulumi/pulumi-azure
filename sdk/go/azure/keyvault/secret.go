@@ -10,7 +10,7 @@ import (
 
 // Manages a Key Vault Secret.
 // 
-// ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+// > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Secret struct {
 	s *pulumi.ResourceState

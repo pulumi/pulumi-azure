@@ -6,6 +6,54 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Windows Virtual Machine within a Dev Test Lab.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "example-resources",
+ * });
+ * const azurerm_dev_test_lab_test = new azure.devtest.Lab("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-devtestlab",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Sydney: "Australia",
+ *     },
+ * });
+ * const azurerm_dev_test_virtual_network_test = new azure.devtest.VirtualNetwork("test", {
+ *     labName: azurerm_dev_test_lab_test.name,
+ *     name: "example-network",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     subnet: {
+ *         useInVirtualMachineCreation: "Allow",
+ *         usePublicIpAddress: "Allow",
+ *     },
+ * });
+ * const azurerm_dev_test_windows_virtual_machine_test = new azure.devtest.WindowsVirtualMachine("test", {
+ *     galleryImageReference: {
+ *         offer: "UbuntuServer",
+ *         publisher: "Canonical",
+ *         sku: "18.04-LTS",
+ *         version: "latest",
+ *     },
+ *     labName: azurerm_dev_test_lab_test.name,
+ *     labSubnetName: azurerm_dev_test_virtual_network_test.subnet.apply(__arg0 => __arg0.name),
+ *     labVirtualNetworkId: azurerm_dev_test_virtual_network_test.id,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-vm03",
+ *     notes: "Some notes about this Virtual Machine.",
+ *     password: "Pa$w0rd1234!",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     size: "Standard_DS2",
+ *     storageType: "Premium",
+ *     username: "exampleuser99",
+ * });
+ * ```
  */
 export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**

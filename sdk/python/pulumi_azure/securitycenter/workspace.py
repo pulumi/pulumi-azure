@@ -10,9 +10,9 @@ class Workspace(pulumi.CustomResource):
     """
     Manages the subscription's Security Center Workspace.
     
-    ~> **NOTE:** Owner access permission is required.
+    > **NOTE:** Owner access permission is required.
     
-    ~> **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
+    > **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
     """
     def __init__(__self__, __name__, __opts__=None, scope=None, workspace_id=None):
         """Create a Workspace resource with the given unique name, props, and options."""

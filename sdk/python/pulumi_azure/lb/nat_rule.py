@@ -10,7 +10,7 @@ class NatRule(pulumi.CustomResource):
     """
     Manages a Load Balancer NAT Rule.
     
-    ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+    > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     """
     def __init__(__self__, __name__, __opts__=None, backend_port=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, loadbalancer_id=None, location=None, name=None, protocol=None, resource_group_name=None):
         """Create a NatRule resource with the given unique name, props, and options."""

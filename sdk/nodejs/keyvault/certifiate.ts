@@ -6,6 +6,219 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Certificate.
+ * 
+ * ## Example Usage (Importing a PFX)
+ * 
+ * > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "key-vault-certificate-example",
+ * });
+ * const azurerm_client_config_current = pulumi.output(azure.core.getClientConfig({}));
+ * const azurerm_key_vault_test = new azure.keyvault.KeyVault("test", {
+ *     accessPolicies: [{
+ *         certificatePermissions: [
+ *             "create",
+ *             "delete",
+ *             "deleteissuers",
+ *             "get",
+ *             "getissuers",
+ *             "import",
+ *             "list",
+ *             "listissuers",
+ *             "managecontacts",
+ *             "manageissuers",
+ *             "setissuers",
+ *             "update",
+ *         ],
+ *         keyPermissions: [
+ *             "backup",
+ *             "create",
+ *             "decrypt",
+ *             "delete",
+ *             "encrypt",
+ *             "get",
+ *             "import",
+ *             "list",
+ *             "purge",
+ *             "recover",
+ *             "restore",
+ *             "sign",
+ *             "unwrapKey",
+ *             "update",
+ *             "verify",
+ *             "wrapKey",
+ *         ],
+ *         objectId: azurerm_client_config_current.apply(__arg0 => __arg0.servicePrincipalObjectId),
+ *         secretPermissions: [
+ *             "backup",
+ *             "delete",
+ *             "get",
+ *             "list",
+ *             "purge",
+ *             "recover",
+ *             "restore",
+ *             "set",
+ *         ],
+ *         tenantId: azurerm_client_config_current.apply(__arg0 => __arg0.tenantId),
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "keyvaultcertexample",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "standard",
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ *     tenantId: azurerm_client_config_current.apply(__arg0 => __arg0.tenantId),
+ * });
+ * const azurerm_key_vault_certificate_test = new azure.keyvault.Certifiate("test", {
+ *     certificate: {
+ *         contents: Buffer.from(fs.readFileSync("certificate-to-import.pfx", "utf-8")).toString("base64"),
+ *         password: "",
+ *     },
+ *     certificatePolicy: {
+ *         issuerParameters: {
+ *             name: "Self",
+ *         },
+ *         keyProperties: {
+ *             exportable: true,
+ *             keySize: 2048,
+ *             keyType: "RSA",
+ *             reuseKey: false,
+ *         },
+ *         secretProperties: {
+ *             contentType: "application/x-pkcs12",
+ *         },
+ *     },
+ *     name: "imported-cert",
+ *     vaultUri: azurerm_key_vault_test.vaultUri,
+ * });
+ * ```
+ * 
+ * ## Example Usage (Generating a new certificate)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "key-vault-certificate-example",
+ * });
+ * const azurerm_client_config_current = pulumi.output(azure.core.getClientConfig({}));
+ * const azurerm_key_vault_test = new azure.keyvault.KeyVault("test", {
+ *     accessPolicies: [{
+ *         certificatePermissions: [
+ *             "create",
+ *             "delete",
+ *             "deleteissuers",
+ *             "get",
+ *             "getissuers",
+ *             "import",
+ *             "list",
+ *             "listissuers",
+ *             "managecontacts",
+ *             "manageissuers",
+ *             "setissuers",
+ *             "update",
+ *         ],
+ *         keyPermissions: [
+ *             "backup",
+ *             "create",
+ *             "decrypt",
+ *             "delete",
+ *             "encrypt",
+ *             "get",
+ *             "import",
+ *             "list",
+ *             "purge",
+ *             "recover",
+ *             "restore",
+ *             "sign",
+ *             "unwrapKey",
+ *             "update",
+ *             "verify",
+ *             "wrapKey",
+ *         ],
+ *         objectId: azurerm_client_config_current.apply(__arg0 => __arg0.servicePrincipalObjectId),
+ *         secretPermissions: [
+ *             "backup",
+ *             "delete",
+ *             "get",
+ *             "list",
+ *             "purge",
+ *             "recover",
+ *             "restore",
+ *             "set",
+ *         ],
+ *         tenantId: azurerm_client_config_current.apply(__arg0 => __arg0.tenantId),
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "keyvaultcertexample",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "standard",
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ *     tenantId: azurerm_client_config_current.apply(__arg0 => __arg0.tenantId),
+ * });
+ * const azurerm_key_vault_certificate_test = new azure.keyvault.Certifiate("test", {
+ *     certificatePolicy: {
+ *         issuerParameters: {
+ *             name: "Self",
+ *         },
+ *         keyProperties: {
+ *             exportable: true,
+ *             keySize: 2048,
+ *             keyType: "RSA",
+ *             reuseKey: true,
+ *         },
+ *         lifetimeActions: [{
+ *             action: {
+ *                 actionType: "AutoRenew",
+ *             },
+ *             trigger: {
+ *                 daysBeforeExpiry: 30,
+ *             },
+ *         }],
+ *         secretProperties: {
+ *             contentType: "application/x-pkcs12",
+ *         },
+ *         x509CertificateProperties: {
+ *             extendedKeyUsages: ["1.3.6.1.5.5.7.3.1"],
+ *             keyUsages: [
+ *                 "cRLSign",
+ *                 "dataEncipherment",
+ *                 "digitalSignature",
+ *                 "keyAgreement",
+ *                 "keyCertSign",
+ *                 "keyEncipherment",
+ *             ],
+ *             subject: "CN=hello-world",
+ *             subjectAlternativeNames: {
+ *                 dnsNames: [
+ *                     "internal.contoso.com",
+ *                     "domain.hello.world",
+ *                 ],
+ *             },
+ *             validityInMonths: 12,
+ *         },
+ *     },
+ *     name: "generated-cert",
+ *     vaultUri: azurerm_key_vault_test.vaultUri,
+ * });
+ * ```
+ * 
  */
 export class Certifiate extends pulumi.CustomResource {
     /**

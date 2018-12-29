@@ -6,6 +6,34 @@ import * as utilities from "../utilities";
 
 /**
  * Configures the specified Policy Definition at the specified Scope.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_policy_definition_test = new azure.policy.Definition("test", {
+ *     displayName: "acctestpol-%d",
+ *     mode: "All",
+ *     name: "my-policy-definition",
+ *     parameters: "\t{\n    \"allowedLocations\": {\n      \"type\": \"Array\",\n      \"metadata\": {\n        \"description\": \"The list of allowed locations for resources.\",\n        \"displayName\": \"Allowed locations\",\n        \"strongType\": \"location\"\n      }\n    }\n  }\n",
+ *     policyRule: "\t{\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"in\": \"[parameters('allowedLocations')]\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"audit\"\n    }\n  }\n",
+ *     policyType: "Custom",
+ * });
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "test-resources",
+ * });
+ * const azurerm_policy_assignment_test = new azure.policy.Assignment("test", {
+ *     description: "Policy Assignment created via an Acceptance Test",
+ *     displayName: "Acceptance Test Run %d",
+ *     name: "example-policy-assignment",
+ *     parameters: "{\n  \"allowedLocations\": {\n    \"value\": [ \"West Europe\" ]\n  }\n}\n",
+ *     policyDefinitionId: azurerm_policy_definition_test.id,
+ *     scope: azurerm_resource_group_test.id,
+ * });
+ * ```
  */
 export class Assignment extends pulumi.CustomResource {
     /**

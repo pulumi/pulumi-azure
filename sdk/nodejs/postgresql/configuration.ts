@@ -6,6 +6,44 @@ import * as utilities from "../utilities";
 
 /**
  * Sets a PostgreSQL Configuration value on a PostgreSQL Server.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const azurerm_postgresql_server_test = new azure.postgresql.Server("test", {
+ *     administratorLogin: "psqladminun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "postgresql-server-1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen4",
+ *         name: "B_Gen4_2",
+ *         tier: "Basic",
+ *     },
+ *     sslEnforcement: "Enabled",
+ *     storageProfile: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *         storageMb: 5120,
+ *     },
+ *     version: "9.5",
+ * });
+ * const azurerm_postgresql_configuration_test = new azure.postgresql.Configuration("test", {
+ *     name: "backslash_quote",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serverName: azurerm_postgresql_server_test.name,
+ *     value: "on",
+ * });
+ * ```
  */
 export class Configuration extends pulumi.CustomResource {
     /**

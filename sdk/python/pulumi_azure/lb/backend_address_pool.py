@@ -10,7 +10,7 @@ class BackendAddressPool(pulumi.CustomResource):
     """
     Manage a Load Balancer Backend Address Pool.
     
-    ~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+    > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     """
     def __init__(__self__, __name__, __opts__=None, loadbalancer_id=None, location=None, name=None, resource_group_name=None):
         """Create a BackendAddressPool resource with the given unique name, props, and options."""

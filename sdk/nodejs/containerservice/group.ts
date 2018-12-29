@@ -6,6 +6,76 @@ import * as utilities from "../utilities";
 
 /**
  * Manage as an Azure Container Group instance.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_aci_rg = new azure.core.ResourceGroup("aci-rg", {
+ *     location: "west us",
+ *     name: "aci-test",
+ * });
+ * const azurerm_storage_account_aci_sa = new azure.storage.Account("aci-sa", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_aci_rg.location,
+ *     name: "acistorageacct",
+ *     resourceGroupName: azurerm_resource_group_aci_rg.name,
+ * });
+ * const azurerm_storage_share_aci_share = new azure.storage.Share("aci-share", {
+ *     name: "aci-test-share",
+ *     quota: 50,
+ *     resourceGroupName: azurerm_resource_group_aci_rg.name,
+ *     storageAccountName: azurerm_storage_account_aci_sa.name,
+ * });
+ * const azurerm_container_group_aci_helloworld = new azure.containerservice.Group("aci-helloworld", {
+ *     containers: [
+ *         {
+ *             commands: [
+ *                 "/bin/bash",
+ *                 "-c",
+ *                 "'/path to/myscript.sh'",
+ *             ],
+ *             cpu: Number.parseFloat("0.5"),
+ *             environmentVariables: {
+ *                 NODE_ENV: "testing",
+ *             },
+ *             image: "seanmckenna/aci-hellofiles",
+ *             memory: Number.parseFloat("1.5"),
+ *             name: "hw",
+ *             port: Number.parseFloat("80"),
+ *             secureEnvironmentVariables: {
+ *                 ACCESS_KEY: "secure_testing",
+ *             },
+ *             volumes: [{
+ *                 mountPath: "/aci/logs",
+ *                 name: "logs",
+ *                 readOnly: false,
+ *                 shareName: azurerm_storage_share_aci_share.name,
+ *                 storageAccountKey: azurerm_storage_account_aci_sa.primaryAccessKey,
+ *                 storageAccountName: azurerm_storage_account_aci_sa.name,
+ *             }],
+ *         },
+ *         {
+ *             cpu: Number.parseFloat("0.5"),
+ *             image: "microsoft/aci-tutorial-sidecar",
+ *             memory: Number.parseFloat("1.5"),
+ *             name: "sidecar",
+ *         },
+ *     ],
+ *     dnsNameLabel: "aci-label",
+ *     ipAddressType: "public",
+ *     location: azurerm_resource_group_aci_rg.location,
+ *     name: "aci-hw",
+ *     osType: "Linux",
+ *     resourceGroupName: azurerm_resource_group_aci_rg.name,
+ *     tags: {
+ *         environment: "testing",
+ *     },
+ * });
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

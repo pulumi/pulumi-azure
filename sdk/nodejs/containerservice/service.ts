@@ -7,10 +7,10 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Service Instance
  * 
- * ~> **NOTE:** All arguments including the client secret will be stored in the raw state as plain-text.
+ * > **NOTE:** All arguments including the client secret will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
- * ~> **DEPRECATED:** [Azure Container Service (ACS) has been deprecated by Azure in favour of Azure (Managed) Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/updates/azure-container-service-will-retire-on-january-31-2020/). Support for ACS will be removed in the next major version of the AzureRM Provider (2.0) - and we **strongly recommend** you consider using Azure Kubernetes Service (AKS) for new deployments.
+ * > **DEPRECATED:** [Azure Container Service (ACS) has been deprecated by Azure in favour of Azure (Managed) Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/updates/azure-container-service-will-retire-on-january-31-2020/). Support for ACS will be removed in the next major version of the AzureRM Provider (2.0) - and we **strongly recommend** you consider using Azure Kubernetes Service (AKS) for new deployments.
  * 
  * ## Example Usage (DCOS)
  * 
@@ -54,6 +54,89 @@ import * as utilities from "../utilities";
  *     Environment = "Production"
  *   }
  * }
+ * ```
+ * 
+ * ## Example Usage (Kubernetes)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acctestRG1",
+ * });
+ * const azurerm_container_service_test = new azure.containerservice.Service("test", {
+ *     agentPoolProfile: {
+ *         count: 1,
+ *         dnsPrefix: "acctestagent1",
+ *         name: "default",
+ *         vmSize: "Standard_F2",
+ *     },
+ *     diagnosticsProfile: {
+ *         enabled: false,
+ *     },
+ *     linuxProfile: {
+ *         adminUsername: "acctestuser1",
+ *         sshKey: {
+ *             keyData: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld",
+ *         },
+ *     },
+ *     location: azurerm_resource_group_test.location,
+ *     masterProfile: {
+ *         count: 1,
+ *         dnsPrefix: "acctestmaster1",
+ *     },
+ *     name: "acctestcontservice1",
+ *     orchestrationPlatform: "Kubernetes",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     servicePrincipal: {
+ *         clientId: "00000000-0000-0000-0000-000000000000",
+ *         clientSecret: "00000000000000000000000000000000",
+ *     },
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * ```
+ * ###  Example Usage (Swarm)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acctestRG1",
+ * });
+ * const azurerm_container_service_test = new azure.containerservice.Service("test", {
+ *     agentPoolProfile: {
+ *         count: 1,
+ *         dnsPrefix: "acctestagent1",
+ *         name: "default",
+ *         vmSize: "Standard_F2",
+ *     },
+ *     diagnosticsProfile: {
+ *         enabled: false,
+ *     },
+ *     linuxProfile: {
+ *         adminUsername: "acctestuser1",
+ *         sshKey: {
+ *             keyData: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld",
+ *         },
+ *     },
+ *     location: azurerm_resource_group_test.location,
+ *     masterProfile: {
+ *         count: 1,
+ *         dnsPrefix: "acctestmaster1",
+ *     },
+ *     name: "acctestcontservice1",
+ *     orchestrationPlatform: "Swarm",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
  * ```
  */
 export class Service extends pulumi.CustomResource {

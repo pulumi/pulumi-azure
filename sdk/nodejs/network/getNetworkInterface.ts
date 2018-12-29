@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Network Interface.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_network_interface_test = pulumi.output(azure.network.getNetworkInterface({
+ *     name: "acctest-nic",
+ *     resourceGroupName: "networking",
+ * }));
+ * 
+ * export const networkInterfaceId = azurerm_network_interface_test.apply(__arg0 => __arg0.id);
+ * ```
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     return pulumi.runtime.invoke("azure:network/getNetworkInterface:getNetworkInterface", {

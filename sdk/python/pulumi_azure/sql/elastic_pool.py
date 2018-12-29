@@ -10,7 +10,7 @@ class ElasticPool(pulumi.CustomResource):
     """
     Allows you to manage an Azure SQL Elastic Pool.
     
-    ~> **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azurerm_mssql_elasticpool version instead.
+    > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azurerm_mssql_elasticpool version instead.
     """
     def __init__(__self__, __name__, __opts__=None, db_dtu_max=None, db_dtu_min=None, dtu=None, edition=None, location=None, name=None, pool_size=None, resource_group_name=None, server_name=None, tags=None):
         """Create a ElasticPool resource with the given unique name, props, and options."""
