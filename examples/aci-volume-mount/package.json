@@ -10,8 +10,8 @@
         "@pulumi/pulumi": "dev"
     },
     "devDependencies": {
-        "@types/node": "^8.0.26",
-        "typescript": "^3.0.3"
+        "@types/node": "^10.0.0",
+        "typescript": "^3.0.0"
     },
     "peerDependencies": {
         "@pulumi/azure": "latest"
