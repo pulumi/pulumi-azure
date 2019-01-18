@@ -10,7 +10,7 @@ import (
 
 // Manages an Azure Container Registry.
 // 
-// ~> **Note:** All arguments including the access key will be stored in the raw state as plain-text.
+// > **Note:** All arguments including the access key will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type Registry struct {
 	s *pulumi.ResourceState

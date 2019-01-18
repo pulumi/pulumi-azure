@@ -5,7 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a policy rule definition. Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
+ * Manages a policy rule definition on a management group or your provider subscription. 
+ * 
+ * Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_policy_definition_policy = new azure.policy.Definition("policy", {
+ *     displayName: "acceptance test policy definition",
+ *     mode: "Indexed",
+ *     name: "accTestPolicy",
+ *     parameters: "\t{\n    \"allowedLocations\": {\n      \"type\": \"Array\",\n      \"metadata\": {\n        \"description\": \"The list of allowed locations for resources.\",\n        \"displayName\": \"Allowed locations\",\n        \"strongType\": \"location\"\n      }\n    }\n  }\n",
+ *     policyRule: "\t{\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"in\": \"[parameters('allowedLocations')]\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"audit\"\n    }\n  }\n",
+ *     policyType: "Custom",
+ * });
+ * ```
  */
 export class Definition extends pulumi.CustomResource {
     /**
@@ -28,6 +46,10 @@ export class Definition extends pulumi.CustomResource {
      * The display name of the policy definition.
      */
     public readonly displayName: pulumi.Output<string>;
+    /**
+     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     */
+    public readonly managementGroupId: pulumi.Output<string | undefined>;
     /**
      * The metadata for the policy definition. This
      * is a json object representing additional metadata that should be stored
@@ -77,6 +99,7 @@ export class Definition extends pulumi.CustomResource {
             const state: DefinitionState = argsOrState as DefinitionState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
+            inputs["managementGroupId"] = state ? state.managementGroupId : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;
             inputs["mode"] = state ? state.mode : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -96,6 +119,7 @@ export class Definition extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["managementGroupId"] = args ? args.managementGroupId : undefined;
             inputs["metadata"] = args ? args.metadata : undefined;
             inputs["mode"] = args ? args.mode : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -119,6 +143,10 @@ export interface DefinitionState {
      * The display name of the policy definition.
      */
     readonly displayName?: pulumi.Input<string>;
+    /**
+     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     */
+    readonly managementGroupId?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
      * is a json object representing additional metadata that should be stored
@@ -167,6 +195,10 @@ export interface DefinitionArgs {
      * The display name of the policy definition.
      */
     readonly displayName: pulumi.Input<string>;
+    /**
+     * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+     */
+    readonly managementGroupId?: pulumi.Input<string>;
     /**
      * The metadata for the policy definition. This
      * is a json object representing additional metadata that should be stored

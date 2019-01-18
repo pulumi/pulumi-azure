@@ -6,6 +6,44 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Diagnostic Setting for an existing Resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_key_vault_test = pulumi.output(azure.keyvault.getKeyVault({
+ *     name: "example-vault",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * }));
+ * const azurerm_storage_account_test = pulumi.output(azure.storage.getAccount({
+ *     name: "examplestoracc",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * }));
+ * const azurerm_monitor_diagnostic_setting_test = new azure.monitoring.DiagnosticSetting("test", {
+ *     logs: [{
+ *         category: "AuditEvent",
+ *         enabled: false,
+ *         retentionPolicy: {
+ *             enabled: false,
+ *         },
+ *     }],
+ *     metrics: [{
+ *         category: "AllMetrics",
+ *         retentionPolicy: {
+ *             enabled: false,
+ *         },
+ *     }],
+ *     name: "example",
+ *     storageAccountId: azurerm_storage_account_test.apply(__arg0 => __arg0.id),
+ *     targetResourceId: azurerm_key_vault_test.apply(__arg0 => __arg0.id),
+ * });
+ * ```
  */
 export class DiagnosticSetting extends pulumi.CustomResource {
     /**
@@ -20,7 +58,13 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         return new DiagnosticSetting(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     */
     public readonly eventhubAuthorizationRuleId: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     */
     public readonly eventhubName: pulumi.Output<string | undefined>;
     /**
      * One or more `log` blocks as defined below.
@@ -89,7 +133,13 @@ export class DiagnosticSetting extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DiagnosticSetting resources.
  */
 export interface DiagnosticSettingState {
+    /**
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     */
     readonly eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     */
     readonly eventhubName?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.
@@ -121,7 +171,13 @@ export interface DiagnosticSettingState {
  * The set of arguments for constructing a DiagnosticSetting resource.
  */
 export interface DiagnosticSettingArgs {
+    /**
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
+     */
     readonly eventhubAuthorizationRuleId?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
+     */
     readonly eventhubName?: pulumi.Input<string>;
     /**
      * One or more `log` blocks as defined below.

@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Databricks Workspace
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "example-resources",
+ * });
+ * const azurerm_databricks_workspace_test = new azure.databricks.Workspace("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "databricks-test",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

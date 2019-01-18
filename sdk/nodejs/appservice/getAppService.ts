@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing App Service.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_app_service_test = pulumi.output(azure.appservice.getAppService({
+ *     name: "search-app-service",
+ *     resourceGroupName: "search-service",
+ * }));
+ * 
+ * export const appServiceId = azurerm_app_service_test.apply(__arg0 => __arg0.id);
+ * ```
  */
 export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {
     return pulumi.runtime.invoke("azure:appservice/getAppService:getAppService", {
@@ -63,7 +77,14 @@ export interface GetAppServiceResult {
      * The Azure location where the App Service exists.
      */
     readonly location: string;
+    /**
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+     */
     readonly outboundIpAddresses: string;
+    /**
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     */
+    readonly possibleOutboundIpAddresses: string;
     /**
      * A `site_config` block as defined below.
      */

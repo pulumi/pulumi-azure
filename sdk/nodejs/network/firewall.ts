@@ -7,7 +7,46 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Firewall.
  * 
- * -> **NOTE** Azure Firewall is currently in Public Preview.
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "North Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Static",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testpip",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard",
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testvnet",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.1.0/24",
+ *     name: "AzureFirewallSubnet",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_firewall_test = new azure.network.Firewall("test", {
+ *     ipConfiguration: {
+ *         name: "configuration",
+ *         publicIpAddressId: azurerm_public_ip_test.id,
+ *         subnetId: azurerm_subnet_test.id,
+ *     },
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testfirewall",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * ```
  */
 export class Firewall extends pulumi.CustomResource {
     /**
@@ -25,7 +64,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * A `ip_configuration` block as documented below.
      */
-    public readonly ipConfiguration: pulumi.Output<{ internalPublicIpAddressId: string, name: string, privateIpAddress: string, subnetId: string }>;
+    public readonly ipConfiguration: pulumi.Output<{ internalPublicIpAddressId: string, name: string, privateIpAddress: string, publicIpAddressId: string, subnetId: string }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -88,7 +127,7 @@ export interface FirewallState {
     /**
      * A `ip_configuration` block as documented below.
      */
-    readonly ipConfiguration?: pulumi.Input<{ internalPublicIpAddressId: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>;
+    readonly ipConfiguration?: pulumi.Input<{ internalPublicIpAddressId?: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -114,7 +153,7 @@ export interface FirewallArgs {
     /**
      * A `ip_configuration` block as documented below.
      */
-    readonly ipConfiguration: pulumi.Input<{ internalPublicIpAddressId: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>;
+    readonly ipConfiguration: pulumi.Input<{ internalPublicIpAddressId?: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

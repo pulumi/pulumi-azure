@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access the properties of a Log Profile.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_monitor_log_profile_test = pulumi.output(azure.monitoring.getLogProfile({
+ *     name: "test-logprofile",
+ * }));
+ * 
+ * export const logProfileStorageAccountId = azurerm_monitor_log_profile_test.apply(__arg0 => __arg0.storageAccountId);
+ * ```
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
     return pulumi.runtime.invoke("azure:monitoring/getLogProfile:getLogProfile", {

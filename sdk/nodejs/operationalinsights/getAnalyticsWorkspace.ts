@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Log Analytics (formally Operational Insights) Workspace.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_log_analytics_workspace_test = pulumi.output(azure.operationalinsights.getAnalyticsWorkspace({
+ *     name: "acctest-01",
+ *     resourceGroupName: "acctest",
+ * }));
+ * 
+ * export const logAnalyticsWorkspaceId = azurerm_log_analytics_workspace_test.apply(__arg0 => __arg0.workspaceId);
+ * ```
  */
 export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> {
     return pulumi.runtime.invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", {

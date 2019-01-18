@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Configures the specified Policy Definition at the specified Scope.
+// Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
 type Assignment struct {
 	s *pulumi.ResourceState
 }
@@ -26,14 +26,20 @@ func NewAssignment(ctx *pulumi.Context,
 	if args == nil {
 		inputs["description"] = nil
 		inputs["displayName"] = nil
+		inputs["identity"] = nil
+		inputs["location"] = nil
 		inputs["name"] = nil
+		inputs["notScopes"] = nil
 		inputs["parameters"] = nil
 		inputs["policyDefinitionId"] = nil
 		inputs["scope"] = nil
 	} else {
 		inputs["description"] = args.Description
 		inputs["displayName"] = args.DisplayName
+		inputs["identity"] = args.Identity
+		inputs["location"] = args.Location
 		inputs["name"] = args.Name
+		inputs["notScopes"] = args.NotScopes
 		inputs["parameters"] = args.Parameters
 		inputs["policyDefinitionId"] = args.PolicyDefinitionId
 		inputs["scope"] = args.Scope
@@ -53,7 +59,10 @@ func GetAssignment(ctx *pulumi.Context,
 	if state != nil {
 		inputs["description"] = state.Description
 		inputs["displayName"] = state.DisplayName
+		inputs["identity"] = state.Identity
+		inputs["location"] = state.Location
 		inputs["name"] = state.Name
+		inputs["notScopes"] = state.NotScopes
 		inputs["parameters"] = state.Parameters
 		inputs["policyDefinitionId"] = state.PolicyDefinitionId
 		inputs["scope"] = state.Scope
@@ -85,9 +94,24 @@ func (r *Assignment) DisplayName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["displayName"])
 }
 
+// An `identity` block.
+func (r *Assignment) Identity() *pulumi.Output {
+	return r.s.State["identity"]
+}
+
+// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+func (r *Assignment) Location() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["location"])
+}
+
 // The name of the Policy Assignment. Changing this forces a new resource to be created.
 func (r *Assignment) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
+}
+
+// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+func (r *Assignment) NotScopes() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["notScopes"])
 }
 
 // Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
@@ -110,8 +134,14 @@ type AssignmentState struct {
 	Description interface{}
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
 	DisplayName interface{}
+	// An `identity` block.
+	Identity interface{}
+	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+	Location interface{}
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name interface{}
+	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+	NotScopes interface{}
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
 	Parameters interface{}
 	// The ID of the Policy Definition to be applied at the specified Scope.
@@ -125,8 +155,14 @@ type AssignmentArgs struct {
 	Description interface{}
 	// A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
 	DisplayName interface{}
+	// An `identity` block.
+	Identity interface{}
+	// The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+	Location interface{}
 	// The name of the Policy Assignment. Changing this forces a new resource to be created.
 	Name interface{}
+	// A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+	NotScopes interface{}
 	// Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
 	Parameters interface{}
 	// The ID of the Policy Definition to be applied at the specified Scope.

@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Application Insights component.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "tf-test",
+ * });
+ * const azurerm_application_insights_test = new azure.appinsights.Insights("test", {
+ *     applicationType: "Web",
+ *     location: "West Europe",
+ *     name: "tf-test-appinsights",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * 
+ * export const appId = azurerm_application_insights_test.appId;
+ * export const instrumentationKey = azurerm_application_insights_test.instrumentationKey;
+ * ```
  */
 export class Insights extends pulumi.CustomResource {
     /**
@@ -25,7 +46,7 @@ export class Insights extends pulumi.CustomResource {
      */
     public /*out*/ readonly appId: pulumi.Output<string>;
     /**
-     * Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store` and `Web`.
+     * Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
      */
     public readonly applicationType: pulumi.Output<string>;
     /**
@@ -102,7 +123,7 @@ export interface InsightsState {
      */
     readonly appId?: pulumi.Input<string>;
     /**
-     * Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store` and `Web`.
+     * Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
      */
     readonly applicationType?: pulumi.Input<string>;
     /**
@@ -134,7 +155,7 @@ export interface InsightsState {
  */
 export interface InsightsArgs {
     /**
-     * Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store` and `Web`.
+     * Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
      */
     readonly applicationType: pulumi.Input<string>;
     /**

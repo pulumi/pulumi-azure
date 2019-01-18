@@ -29,6 +29,7 @@ func NewEventHubNamespace(ctx *pulumi.Context,
 	if args == nil {
 		inputs["autoInflateEnabled"] = nil
 		inputs["capacity"] = nil
+		inputs["kafkaEnabled"] = nil
 		inputs["location"] = nil
 		inputs["maximumThroughputUnits"] = nil
 		inputs["name"] = nil
@@ -38,6 +39,7 @@ func NewEventHubNamespace(ctx *pulumi.Context,
 	} else {
 		inputs["autoInflateEnabled"] = args.AutoInflateEnabled
 		inputs["capacity"] = args.Capacity
+		inputs["kafkaEnabled"] = args.KafkaEnabled
 		inputs["location"] = args.Location
 		inputs["maximumThroughputUnits"] = args.MaximumThroughputUnits
 		inputs["name"] = args.Name
@@ -68,6 +70,7 @@ func GetEventHubNamespace(ctx *pulumi.Context,
 		inputs["defaultPrimaryKey"] = state.DefaultPrimaryKey
 		inputs["defaultSecondaryConnectionString"] = state.DefaultSecondaryConnectionString
 		inputs["defaultSecondaryKey"] = state.DefaultSecondaryKey
+		inputs["kafkaEnabled"] = state.KafkaEnabled
 		inputs["location"] = state.Location
 		inputs["maximumThroughputUnits"] = state.MaximumThroughputUnits
 		inputs["name"] = state.Name
@@ -124,6 +127,11 @@ func (r *EventHubNamespace) DefaultSecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
 }
 
+// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+func (r *EventHubNamespace) KafkaEnabled() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["kafkaEnabled"])
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *EventHubNamespace) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
@@ -170,6 +178,8 @@ type EventHubNamespaceState struct {
 	DefaultSecondaryConnectionString interface{}
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey interface{}
+	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+	KafkaEnabled interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
@@ -190,6 +200,8 @@ type EventHubNamespaceArgs struct {
 	AutoInflateEnabled interface{}
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
 	Capacity interface{}
+	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+	KafkaEnabled interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.

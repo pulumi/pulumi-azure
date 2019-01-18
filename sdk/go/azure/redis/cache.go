@@ -49,6 +49,7 @@ func NewCache(ctx *pulumi.Context,
 		inputs["skuName"] = nil
 		inputs["subnetId"] = nil
 		inputs["tags"] = nil
+		inputs["zones"] = nil
 	} else {
 		inputs["capacity"] = args.Capacity
 		inputs["enableNonSslPort"] = args.EnableNonSslPort
@@ -63,6 +64,7 @@ func NewCache(ctx *pulumi.Context,
 		inputs["skuName"] = args.SkuName
 		inputs["subnetId"] = args.SubnetId
 		inputs["tags"] = args.Tags
+		inputs["zones"] = args.Zones
 	}
 	inputs["hostname"] = nil
 	inputs["port"] = nil
@@ -100,6 +102,7 @@ func GetCache(ctx *pulumi.Context,
 		inputs["sslPort"] = state.SslPort
 		inputs["subnetId"] = state.SubnetId
 		inputs["tags"] = state.Tags
+		inputs["zones"] = state.Zones
 	}
 	s, err := ctx.ReadResource("azure:redis/cache:Cache", name, id, inputs, opts...)
 	if err != nil {
@@ -205,8 +208,14 @@ func (r *Cache) SubnetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["subnetId"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *Cache) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
+// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+func (r *Cache) Zones() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["zones"])
 }
 
 // Input properties used for looking up and filtering Cache resources.
@@ -247,7 +256,10 @@ type CacheState struct {
 	SslPort interface{}
 	// The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
 	SubnetId interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+	Zones interface{}
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -278,5 +290,8 @@ type CacheArgs struct {
 	SkuName interface{}
 	// The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
 	SubnetId interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+	Zones interface{}
 }

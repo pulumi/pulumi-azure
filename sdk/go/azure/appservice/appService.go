@@ -57,6 +57,7 @@ func NewAppService(ctx *pulumi.Context,
 	}
 	inputs["defaultSiteHostname"] = nil
 	inputs["outboundIpAddresses"] = nil
+	inputs["possibleOutboundIpAddresses"] = nil
 	inputs["siteCredential"] = nil
 	inputs["sourceControl"] = nil
 	s, err := ctx.RegisterResource("azure:appservice/appService:AppService", name, true, inputs, opts...)
@@ -83,6 +84,7 @@ func GetAppService(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["outboundIpAddresses"] = state.OutboundIpAddresses
+		inputs["possibleOutboundIpAddresses"] = state.PossibleOutboundIpAddresses
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["siteConfig"] = state.SiteConfig
 		inputs["siteCredential"] = state.SiteCredential
@@ -161,6 +163,11 @@ func (r *AppService) OutboundIpAddresses() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["outboundIpAddresses"])
 }
 
+// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+func (r *AppService) PossibleOutboundIpAddresses() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["possibleOutboundIpAddresses"])
+}
+
 // The name of the resource group in which to create the App Service.
 func (r *AppService) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
@@ -210,6 +217,8 @@ type AppServiceState struct {
 	Name interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses interface{}
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+	PossibleOutboundIpAddresses interface{}
 	// The name of the resource group in which to create the App Service.
 	ResourceGroupName interface{}
 	// A `site_config` block as defined below.

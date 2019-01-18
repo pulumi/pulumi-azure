@@ -8,9 +8,54 @@ import * as utilities from "../utilities";
  * Manages a virtual network including any configured subnets. Each subnet can
  * optionally be configured with a security group to be associated with the subnet.
  * 
- * ~> **NOTE on Virtual Networks and Subnet's:** Terraform currently
+ * > **NOTE on Virtual Networks and Subnet's:** Terraform currently
  * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_network_security_group_test = new azure.network.NetworkSecurityGroup("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acceptanceTestSecurityGroup1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     dnsServers: [
+ *         "10.0.0.4",
+ *         "10.0.0.5",
+ *     ],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "virtualNetwork1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     subnets: [
+ *         {
+ *             addressPrefix: "10.0.1.0/24",
+ *             name: "subnet1",
+ *         },
+ *         {
+ *             addressPrefix: "10.0.2.0/24",
+ *             name: "subnet2",
+ *         },
+ *         {
+ *             addressPrefix: "10.0.3.0/24",
+ *             name: "subnet3",
+ *             securityGroup: azurerm_network_security_group_test.id,
+ *         },
+ *     ],
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**

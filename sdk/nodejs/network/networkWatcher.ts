@@ -6,6 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Network Watcher.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "production-nwwatcher",
+ * });
+ * const azurerm_network_watcher_test = new azure.network.NetworkWatcher("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "production-nwwatcher",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * ```
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**

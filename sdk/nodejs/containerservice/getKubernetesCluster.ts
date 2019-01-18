@@ -7,8 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
  * 
- * ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the client secret will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_kubernetes_cluster_test = pulumi.output(azure.containerservice.getKubernetesCluster({
+ *     name: "myakscluster",
+ *     resourceGroupName: "my-example-resource-group",
+ * }));
+ * ```
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
     return pulumi.runtime.invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", {

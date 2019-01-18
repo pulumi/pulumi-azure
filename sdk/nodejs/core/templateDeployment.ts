@@ -7,9 +7,34 @@ import * as utilities from "../utilities";
 /**
  * Manage a template deployment of resources
  * 
- * ~> **Note on ARM Template Deployments:** Due to the way the underlying Azure API is designed, Terraform can only manage the deployment of the ARM Template - and not any resources which are created by it.
+ * > **Note on ARM Template Deployments:** Due to the way the underlying Azure API is designed, Terraform can only manage the deployment of the ARM Template - and not any resources which are created by it.
  * This means that when deleting the `azurerm_template_deployment` resource, Terraform will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
  * One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
+ * 
+ * ## Example Usage
+ * 
+ * > **Note:** This example uses Storage Accounts and Public IP's which are natively supported by Terraform - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acctestRG-01",
+ * });
+ * const azurerm_template_deployment_test = new azure.core.TemplateDeployment("test", {
+ *     deploymentMode: "Incremental",
+ *     name: "acctesttemplate-01",
+ *     parameters: {
+ *         storageAccountType: "Standard_GRS",
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     templateBody: "{\n  \"$schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",\n  \"contentVersion\": \"1.0.0.0\",\n  \"parameters\": {\n    \"storageAccountType\": {\n      \"type\": \"string\",\n      \"defaultValue\": \"Standard_LRS\",\n      \"allowedValues\": [\n        \"Standard_LRS\",\n        \"Standard_GRS\",\n        \"Standard_ZRS\"\n      ],\n      \"metadata\": {\n        \"description\": \"Storage Account type\"\n      }\n    }\n  },\n  \"variables\": {\n    \"location\": \"[resourceGroup().location]\",\n    \"storageAccountName\": \"[concat(uniquestring(resourceGroup().id), 'storage')]\",\n    \"publicIPAddressName\": \"[concat('myPublicIp', uniquestring(resourceGroup().id))]\",\n    \"publicIPAddressType\": \"Dynamic\",\n    \"apiVersion\": \"2015-06-15\",\n    \"dnsLabelPrefix\": \"terraform-acctest\"\n  },\n  \"resources\": [\n    {\n      \"type\": \"Microsoft.Storage/storageAccounts\",\n      \"name\": \"[variables('storageAccountName')]\",\n      \"apiVersion\": \"[variables('apiVersion')]\",\n      \"location\": \"[variables('location')]\",\n      \"properties\": {\n        \"accountType\": \"[parameters('storageAccountType')]\"\n      }\n    },\n    {\n      \"type\": \"Microsoft.Network/publicIPAddresses\",\n      \"apiVersion\": \"[variables('apiVersion')]\",\n      \"name\": \"[variables('publicIPAddressName')]\",\n      \"location\": \"[variables('location')]\",\n      \"properties\": {\n        \"publicIPAllocationMethod\": \"[variables('publicIPAddressType')]\",\n        \"dnsSettings\": {\n          \"domainNameLabel\": \"[variables('dnsLabelPrefix')]\"\n        }\n      }\n    }\n  ],\n  \"outputs\": {\n    \"storageAccountName\": {\n      \"type\": \"string\",\n      \"value\": \"[variables('storageAccountName')]\"\n    }\n  }\n}\n",
+ * });
+ * 
+ * export const storageAccountName = azurerm_template_deployment_test.outputs.apply(__arg0 => (<any>__arg0)["storageAccountName"]);
+ * ```
  */
 export class TemplateDeployment extends pulumi.CustomResource {
     /**

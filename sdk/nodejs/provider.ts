@@ -5,7 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * The provider type for the azurerm package
+ * The provider type for the azurerm package. By default, resources use package-wide configuration
+ * settings, however an explicit `Provider` instance may be created and passed during resource
+ * construction to achieve fine-grained programmatic control over provider settings. See the
+ * [documentation](https://pulumi.io/reference/programming-model.html#providers) for more information.
  */
 export class Provider extends pulumi.ProviderResource {
 
@@ -25,6 +28,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["clientSecret"] = (args ? args.clientSecret : undefined) || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
             inputs["environment"] = (args ? args.environment : undefined) || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
             inputs["msiEndpoint"] = (args ? args.msiEndpoint : undefined) || (utilities.getEnv("ARM_MSI_ENDPOINT") || "");
+            inputs["partnerId"] = args ? args.partnerId : undefined;
             inputs["skipCredentialsValidation"] = pulumi.output((args ? args.skipCredentialsValidation : undefined) || (utilities.getEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") || false)).apply(JSON.stringify);
             inputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) || (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
             inputs["subscriptionId"] = (args ? args.subscriptionId : undefined) || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
@@ -45,6 +49,7 @@ export interface ProviderArgs {
     readonly clientSecret?: pulumi.Input<string>;
     readonly environment?: pulumi.Input<string>;
     readonly msiEndpoint?: pulumi.Input<string>;
+    readonly partnerId?: pulumi.Input<string>;
     readonly skipCredentialsValidation?: pulumi.Input<boolean>;
     readonly skipProviderRegistration?: pulumi.Input<boolean>;
     readonly subscriptionId?: pulumi.Input<string>;

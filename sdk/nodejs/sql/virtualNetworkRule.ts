@@ -6,6 +6,45 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ *     name: "example-sql-server-vnet-rule",
+ * });
+ * const azurerm_sql_server_sqlserver = new azure.sql.SqlServer("sqlserver", {
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ *     location: azurerm_resource_group_example.location,
+ *     name: "unqiueazuresqlserver",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     version: "12.0",
+ * });
+ * const azurerm_virtual_network_vnet = new azure.network.VirtualNetwork("vnet", {
+ *     addressSpaces: ["10.7.29.0/29"],
+ *     location: azurerm_resource_group_example.location,
+ *     name: "example-vnet",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_subnet_subnet = new azure.network.Subnet("subnet", {
+ *     addressPrefix: "10.7.29.0/29",
+ *     name: "example-subnet",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     serviceEndpoints: ["Microsoft.Sql"],
+ *     virtualNetworkName: azurerm_virtual_network_vnet.name,
+ * });
+ * const azurerm_sql_virtual_network_rule_sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
+ *     name: "sql-vnet-rule",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     serverName: azurerm_sql_server_sqlserver.name,
+ *     subnetId: azurerm_subnet_subnet.id,
+ * });
+ * ```
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

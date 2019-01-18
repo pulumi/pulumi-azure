@@ -8,7 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a policy rule definition. Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
+// Manages a policy rule definition on a management group or your provider subscription. 
+// 
+// Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
 type Definition struct {
 	s *pulumi.ResourceState
 }
@@ -29,6 +31,7 @@ func NewDefinition(ctx *pulumi.Context,
 	if args == nil {
 		inputs["description"] = nil
 		inputs["displayName"] = nil
+		inputs["managementGroupId"] = nil
 		inputs["metadata"] = nil
 		inputs["mode"] = nil
 		inputs["name"] = nil
@@ -38,6 +41,7 @@ func NewDefinition(ctx *pulumi.Context,
 	} else {
 		inputs["description"] = args.Description
 		inputs["displayName"] = args.DisplayName
+		inputs["managementGroupId"] = args.ManagementGroupId
 		inputs["metadata"] = args.Metadata
 		inputs["mode"] = args.Mode
 		inputs["name"] = args.Name
@@ -60,6 +64,7 @@ func GetDefinition(ctx *pulumi.Context,
 	if state != nil {
 		inputs["description"] = state.Description
 		inputs["displayName"] = state.DisplayName
+		inputs["managementGroupId"] = state.ManagementGroupId
 		inputs["metadata"] = state.Metadata
 		inputs["mode"] = state.Mode
 		inputs["name"] = state.Name
@@ -92,6 +97,11 @@ func (r *Definition) Description() *pulumi.StringOutput {
 // The display name of the policy definition.
 func (r *Definition) DisplayName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["displayName"])
+}
+
+// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+func (r *Definition) ManagementGroupId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["managementGroupId"])
 }
 
 // The metadata for the policy definition. This
@@ -140,6 +150,8 @@ type DefinitionState struct {
 	Description interface{}
 	// The display name of the policy definition.
 	DisplayName interface{}
+	// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	ManagementGroupId interface{}
 	// The metadata for the policy definition. This
 	// is a json object representing additional metadata that should be stored
 	// with the policy definition.
@@ -170,6 +182,8 @@ type DefinitionArgs struct {
 	Description interface{}
 	// The display name of the policy definition.
 	DisplayName interface{}
+	// The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+	ManagementGroupId interface{}
 	// The metadata for the policy definition. This
 	// is a json object representing additional metadata that should be stored
 	// with the policy definition.

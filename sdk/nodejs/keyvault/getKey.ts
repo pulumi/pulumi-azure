@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Key Vault Key.
  * 
- * ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {

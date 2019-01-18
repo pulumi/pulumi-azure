@@ -79,8 +79,8 @@ func (r *Zone) ID() *pulumi.IDOutput {
 }
 
 // (Optional) Maximum number of Records in the zone. Defaults to `1000`.
-func (r *Zone) MaxNumberOfRecordSets() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["maxNumberOfRecordSets"])
+func (r *Zone) MaxNumberOfRecordSets() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["maxNumberOfRecordSets"])
 }
 
 // The name of the DNS Zone. Must be a valid domain name.
@@ -94,8 +94,8 @@ func (r *Zone) NameServers() *pulumi.ArrayOutput {
 }
 
 // (Optional) The number of records already in the zone.
-func (r *Zone) NumberOfRecordSets() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["numberOfRecordSets"])
+func (r *Zone) NumberOfRecordSets() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["numberOfRecordSets"])
 }
 
 // A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.

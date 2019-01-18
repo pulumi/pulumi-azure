@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Data Lake Analytics Account.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "northeurope",
+ *     name: "tfex-datalake-account",
+ * });
+ * const azurerm_data_lake_store_example = new azure.datalake.Store("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfexdatalakestore",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_data_lake_analytics_account_example = new azure.datalake.AnalyticsAccount("example", {
+ *     defaultStoreAccountName: azurerm_data_lake_store_example.name,
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfexdatalakeaccount",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * ```
  */
 export class AnalyticsAccount extends pulumi.CustomResource {
     /**

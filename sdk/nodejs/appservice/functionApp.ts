@@ -6,6 +6,77 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Function App.
+ * 
+ * ## Example Usage (with App Service Plan)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "westus2",
+ *     name: "azure-functions-test-rg",
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "azure-functions-test-service-plan",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "S1",
+ *         tier: "Standard",
+ *     },
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "functionsapptestsa",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_function_app_test = new azure.appservice.FunctionApp("test", {
+ *     appServicePlanId: azurerm_app_service_plan_test.id,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test-azure-functions",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageConnectionString: azurerm_storage_account_test.primaryConnectionString,
+ * });
+ * ```
+ * 
+ * ## Example Usage (in a Consumption Plan)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "westus2",
+ *     name: "azure-functions-cptest-rg",
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     kind: "FunctionApp",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "azure-functions-test-service-plan",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "Y1",
+ *         tier: "Dynamic",
+ *     },
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "functionsapptestsa",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_function_app_test = new azure.appservice.FunctionApp("test", {
+ *     appServicePlanId: azurerm_app_service_plan_test.id,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test-azure-functions",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageConnectionString: azurerm_storage_account_test.primaryConnectionString,
+ * });
+ * ```
  */
 export class FunctionApp extends pulumi.CustomResource {
     /**

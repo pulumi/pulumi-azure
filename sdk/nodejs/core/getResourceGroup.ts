@@ -6,6 +6,25 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Resource Group.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = pulumi.output(azure.core.getResourceGroup({
+ *     name: "dsrg_test",
+ * }));
+ * const azurerm_managed_disk_test = new azure.compute.ManagedDisk("test", {
+ *     createOption: "Empty",
+ *     diskSizeGb: Number.parseFloat("1"),
+ *     location: azurerm_resource_group_test.apply(__arg0 => __arg0.location),
+ *     name: "managed_disk_name",
+ *     resourceGroupName: azurerm_resource_group_test.apply(__arg0 => __arg0.name),
+ *     storageAccountType: "Standard_LRS",
+ * });
+ * ```
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
     return pulumi.runtime.invoke("azure:core/getResourceGroup:getResourceGroup", {

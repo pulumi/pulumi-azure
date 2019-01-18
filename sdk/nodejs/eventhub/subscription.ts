@@ -6,6 +6,40 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a ServiceBus Subscription.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "tfex-servicebus-subscription",
+ * });
+ * const azurerm_servicebus_namespace_example = new azure.eventhub.Namespace("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfex_sevicebus_namespace",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "terraform",
+ *     },
+ * });
+ * const azurerm_servicebus_topic_example = new azure.eventhub.Topic("example", {
+ *     enablePartitioning: true,
+ *     name: "tfex_sevicebus_topic",
+ *     namespaceName: azurerm_servicebus_namespace_example.name,
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_servicebus_subscription_example = new azure.eventhub.Subscription("example", {
+ *     maxDeliveryCount: 1,
+ *     name: "tfex_sevicebus_subscription",
+ *     namespaceName: azurerm_servicebus_namespace_example.name,
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     topicName: azurerm_servicebus_topic_example.name,
+ * });
+ * ```
  */
 export class Subscription extends pulumi.CustomResource {
     /**

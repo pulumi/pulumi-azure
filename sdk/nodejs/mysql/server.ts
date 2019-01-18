@@ -6,6 +6,38 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a MySQL Server.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const azurerm_mysql_server_test = new azure.mysql.Server("test", {
+ *     administratorLogin: "mysqladminun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "mysql-server-1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen4",
+ *         name: "B_Gen4_2",
+ *         tier: "Basic",
+ *     },
+ *     sslEnforcement: "Enabled",
+ *     storageProfile: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *         storageMb: 5120,
+ *     },
+ *     version: "5.7",
+ * });
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

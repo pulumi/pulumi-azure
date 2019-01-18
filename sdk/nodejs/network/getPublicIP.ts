@@ -6,12 +6,86 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Public IP Address.
+ * 
+ * ## Example Usage (reference an existing)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_public_ip_test = pulumi.output(azure.network.getPublicIP({
+ *     name: "name_of_public_ip",
+ *     resourceGroupName: "name_of_resource_group",
+ * }));
+ * 
+ * export const domainNameLabel = azurerm_public_ip_test.apply(__arg0 => __arg0.domainNameLabel);
+ * export const publicIpAddress = azurerm_public_ip_test.apply(__arg0 => __arg0.ipAddress);
+ * ```
+ * 
+ * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US 2",
+ *     name: "test-resources",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Dynamic",
+ *     idleTimeoutInMinutes: 30,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test-pip",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "test",
+ *     },
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test-network",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         privateIpAddress: "10.0.2.5",
+ *         privateIpAddressAllocation: "Static",
+ *         publicIpAddressId: azurerm_public_ip_test.id,
+ *         subnetId: azurerm_subnet_test.id,
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test-nic",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_virtual_machine_test = new azure.compute.VirtualMachine("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test-vm",
+ *     networkInterfaceIds: [azurerm_network_interface_test.id],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_public_ip_test = pulumi.output(azure.network.getPublicIP({
+ *     name: azurerm_public_ip_test.name,
+ *     resourceGroupName: azurerm_virtual_machine_test.resourceGroupName,
+ * }));
+ * 
+ * export const publicIpAddress = azurerm_public_ip_test.apply(__arg0 => __arg0.ipAddress);
+ * ```
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
     return pulumi.runtime.invoke("azure:network/getPublicIP:getPublicIP", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "tags": args.tags,
+        "zones": args.zones,
     }, opts);
 }
 
@@ -28,12 +102,14 @@ export interface GetPublicIPArgs {
      */
     readonly resourceGroupName: string;
     readonly tags?: {[key: string]: any};
+    readonly zones?: string[];
 }
 
 /**
  * A collection of values returned by getPublicIP.
  */
 export interface GetPublicIPResult {
+    readonly allocationMethod: string;
     /**
      * The label for the Domain Name.
      */
@@ -54,10 +130,14 @@ export interface GetPublicIPResult {
      * The IP version being used, for example `IPv4` or `IPv6`.
      */
     readonly ipVersion: string;
+    readonly location: string;
+    readonly reverseFqdn: string;
+    readonly sku: string;
     /**
      * A mapping of tags to assigned to the resource.
      */
     readonly tags: {[key: string]: any};
+    readonly zones: string[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

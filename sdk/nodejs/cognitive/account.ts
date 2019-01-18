@@ -6,6 +6,31 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Cognitive Services Account.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_cognitive_account_test = new azure.cognitive.Account("test", {
+ *     kind: "Face",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-account",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         Acceptance: "Test",
+ *     },
+ * });
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -25,7 +50,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `Emotion`, `Face`, `LUIS`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+     * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `Emotion`, `Face`, `LUIS`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
      */
     public readonly kind: pulumi.Output<string>;
     /**
@@ -103,7 +128,7 @@ export interface AccountState {
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
-     * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `Emotion`, `Face`, `LUIS`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+     * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `Emotion`, `Face`, `LUIS`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
      */
     readonly kind?: pulumi.Input<string>;
     /**
@@ -133,7 +158,7 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
-     * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `Emotion`, `Face`, `LUIS`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
+     * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `Emotion`, `Face`, `LUIS`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
      */
     readonly kind: pulumi.Input<string>;
     /**

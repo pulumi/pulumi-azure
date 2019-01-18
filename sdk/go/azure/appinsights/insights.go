@@ -84,7 +84,7 @@ func (r *Insights) AppId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["appId"])
 }
 
-// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store` and `Web`.
+// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
 func (r *Insights) ApplicationType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["applicationType"])
 }
@@ -120,7 +120,7 @@ func (r *Insights) Tags() *pulumi.MapOutput {
 type InsightsState struct {
 	// The App ID associated with this Application Insights component.
 	AppId interface{}
-	// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store` and `Web`.
+	// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
 	ApplicationType interface{}
 	// The Instrumentation Key for this Application Insights component.
 	InstrumentationKey interface{}
@@ -138,7 +138,7 @@ type InsightsState struct {
 
 // The set of arguments for constructing a Insights resource.
 type InsightsArgs struct {
-	// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store` and `Web`.
+	// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
 	ApplicationType interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

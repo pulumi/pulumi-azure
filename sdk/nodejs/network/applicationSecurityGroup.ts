@@ -6,6 +6,26 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Application Security Group.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "tf-test",
+ * });
+ * const azurerm_application_security_group_test = new azure.network.ApplicationSecurityGroup("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-appsecuritygroup",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Hello: "World",
+ *     },
+ * });
+ * ```
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**

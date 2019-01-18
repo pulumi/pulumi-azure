@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access the configuration of the AzureRM provider.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_client_config_current = pulumi.output(azure.core.getClientConfig({}));
+ * 
+ * export const accountId = azurerm_client_config_current.apply(__arg0 => __arg0.servicePrincipalApplicationId);
+ * ```
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
     return pulumi.runtime.invoke("azure:core/getClientConfig:getClientConfig", {

@@ -79,12 +79,12 @@ func (r *LoadBalancer) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A frontend ip configuration block as documented below.
+// A `frontend_ip_configuration` block as documented below.
 func (r *LoadBalancer) FrontendIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
 
-// Specifies the supported Azure location where the resource exists.
+// Specifies the supported Azure Region where the Load Balancer should be created.
 func (r *LoadBalancer) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
@@ -104,7 +104,7 @@ func (r *LoadBalancer) PrivateIpAddresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
 }
 
-// The name of the resource group in which to create the LoadBalancer.
+// The name of the Resource Group in which to create the Load Balancer.
 func (r *LoadBalancer) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -121,9 +121,9 @@ func (r *LoadBalancer) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type LoadBalancerState struct {
-	// A frontend ip configuration block as documented below.
+	// A `frontend_ip_configuration` block as documented below.
 	FrontendIpConfigurations interface{}
-	// Specifies the supported Azure location where the resource exists.
+	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location interface{}
 	// Specifies the name of the frontend ip configuration.
 	Name interface{}
@@ -131,7 +131,7 @@ type LoadBalancerState struct {
 	PrivateIpAddress interface{}
 	// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
 	PrivateIpAddresses interface{}
-	// The name of the resource group in which to create the LoadBalancer.
+	// The name of the Resource Group in which to create the Load Balancer.
 	ResourceGroupName interface{}
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku interface{}
@@ -141,13 +141,13 @@ type LoadBalancerState struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	// A frontend ip configuration block as documented below.
+	// A `frontend_ip_configuration` block as documented below.
 	FrontendIpConfigurations interface{}
-	// Specifies the supported Azure location where the resource exists.
+	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location interface{}
 	// Specifies the name of the frontend ip configuration.
 	Name interface{}
-	// The name of the resource group in which to create the LoadBalancer.
+	// The name of the Resource Group in which to create the Load Balancer.
 	ResourceGroupName interface{}
 	// The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
 	Sku interface{}

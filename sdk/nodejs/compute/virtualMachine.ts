@@ -7,7 +7,76 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Machine.
  * 
- * ~> **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
+ * > **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
+ * 
+ * ## Example Usage (from an Azure Platform Image)
+ * 
+ * This example provisions a Virtual Machine with Managed Disks. Other examples of the `azurerm_virtual_machine` resource can be found in [the `./examples/virtual-machines` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/virtual-machines)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const config = new pulumi.Config();
+ * const var_prefix = config.get("prefix") || "tfvmex";
+ * 
+ * const azurerm_resource_group_main = new azure.core.ResourceGroup("main", {
+ *     location: "West US 2",
+ *     name: `${var_prefix}-resources`,
+ * });
+ * const azurerm_virtual_network_main = new azure.network.VirtualNetwork("main", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_main.location,
+ *     name: `${var_prefix}-network`,
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ * });
+ * const azurerm_subnet_internal = new azure.network.Subnet("internal", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "internal",
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     virtualNetworkName: azurerm_virtual_network_main.name,
+ * });
+ * const azurerm_network_interface_main = new azure.network.NetworkInterface("main", {
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: azurerm_subnet_internal.id,
+ *     }],
+ *     location: azurerm_resource_group_main.location,
+ *     name: `${var_prefix}-nic`,
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ * });
+ * const azurerm_virtual_machine_main = new azure.compute.VirtualMachine("main", {
+ *     location: azurerm_resource_group_main.location,
+ *     name: `${var_prefix}-vm`,
+ *     networkInterfaceIds: [azurerm_network_interface_main.id],
+ *     osProfile: {
+ *         adminPassword: "Password1234!",
+ *         adminUsername: "testadmin",
+ *         computerName: "hostname",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     storageImageReference: {
+ *         offer: "UbuntuServer",
+ *         publisher: "Canonical",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storageOsDisk: {
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Standard_LRS",
+ *         name: "myosdisk1",
+ *     },
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ * ```
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

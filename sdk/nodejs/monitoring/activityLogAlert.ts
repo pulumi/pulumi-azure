@@ -4,6 +4,53 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_main = new azure.core.ResourceGroup("main", {
+ *     location: "West US",
+ *     name: "example-resources",
+ * });
+ * const azurerm_monitor_action_group_main = new azure.monitoring.ActionGroup("main", {
+ *     name: "example-actiongroup",
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     shortName: "p0action",
+ *     webhookReceivers: [{
+ *         name: "callmyapi",
+ *         serviceUri: "http://example.com/alert",
+ *     }],
+ * });
+ * const azurerm_storage_account_to_monitor = new azure.storage.Account("to_monitor", {
+ *     accountReplicationType: "GRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_main.location,
+ *     name: "examplesa",
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ * });
+ * const azurerm_monitor_activity_log_alert_main = new azure.monitoring.ActivityLogAlert("main", {
+ *     actions: [{
+ *         actionGroupId: azurerm_monitor_action_group_main.id,
+ *         webhookProperties: {
+ *             from: "terraform",
+ *         },
+ *     }],
+ *     criteria: {
+ *         category: "Recommendation",
+ *         operationName: "Microsoft.Storage/storageAccounts/write",
+ *         resourceId: azurerm_storage_account_to_monitor.id,
+ *     },
+ *     description: "This alert will monitor a specific storage account updates.",
+ *     name: "example-activitylogalert",
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     scopes: [azurerm_resource_group_main.id],
+ * });
+ * ```
+ */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * Get an existing ActivityLogAlert resource's state with the given name, ID, and optional extra

@@ -7,9 +7,40 @@ import * as utilities from "../utilities";
 /**
  * Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
  * 
- * ~> **NOTE on Virtual Networks and Subnet's:** Terraform currently
+ * > **NOTE on Virtual Networks and Subnet's:** Terraform currently
  * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acceptanceTestVirtualNetwork1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.1.0/24",
+ *     delegations: [{
+ *         name: "acctestdelegation",
+ *         serviceDelegation: {
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *             name: "Microsoft.ContainerInstance/containerGroups",
+ *         },
+ *     }],
+ *     name: "testsubnet",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * ```
  */
 export class Subnet extends pulumi.CustomResource {
     /**
@@ -28,6 +59,10 @@ export class Subnet extends pulumi.CustomResource {
      * The address prefix to use for the subnet.
      */
     public readonly addressPrefix: pulumi.Output<string>;
+    /**
+     * One or more `delegation` blocks as defined below.
+     */
+    public readonly delegations: pulumi.Output<{ name: string, serviceDelegation: { actions?: string[], name: string } }[] | undefined>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */
@@ -70,6 +105,7 @@ export class Subnet extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: SubnetState = argsOrState as SubnetState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
+            inputs["delegations"] = state ? state.delegations : undefined;
             inputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
@@ -89,6 +125,7 @@ export class Subnet extends pulumi.CustomResource {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
             inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            inputs["delegations"] = args ? args.delegations : undefined;
             inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
@@ -109,6 +146,10 @@ export interface SubnetState {
      * The address prefix to use for the subnet.
      */
     readonly addressPrefix?: pulumi.Input<string>;
+    /**
+     * One or more `delegation` blocks as defined below.
+     */
+    readonly delegations?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, serviceDelegation: pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }> }>[]>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */
@@ -147,6 +188,10 @@ export interface SubnetArgs {
      * The address prefix to use for the subnet.
      */
     readonly addressPrefix: pulumi.Input<string>;
+    /**
+     * One or more `delegation` blocks as defined below.
+     */
+    readonly delegations?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, serviceDelegation: pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }> }>[]>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */

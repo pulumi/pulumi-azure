@@ -6,6 +6,63 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
+ * 
+ * ## Example Usage (Subscription Level Lock)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_subscription_current = pulumi.output(azure.core.getSubscription({}));
+ * const azurerm_management_lock_subscription_level = new azure.managementresource.ManangementLock("subscription-level", {
+ *     lockLevel: "CanNotDelete",
+ *     name: "subscription-level",
+ *     notes: "Items can't be deleted in this subscription!",
+ *     scope: azurerm_subscription_current.apply(__arg0 => __arg0.id),
+ * });
+ * ```
+ * ###  Example Usage (Resource Group Level Lock)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "locked-resource-group",
+ * });
+ * const azurerm_management_lock_resource_group_level = new azure.managementresource.ManangementLock("resource-group-level", {
+ *     lockLevel: "ReadOnly",
+ *     name: "resource-group-level",
+ *     notes: "This Resource Group is Read-Only",
+ *     scope: azurerm_resource_group_test.id,
+ * });
+ * ```
+ * 
+ * ## Example Usage (Resource Level Lock)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "locked-resource-group",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Static",
+ *     idleTimeoutInMinutes: 30,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "locked-publicip",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_management_lock_public_ip = new azure.managementresource.ManangementLock("public-ip", {
+ *     lockLevel: "CanNotDelete",
+ *     name: "resource-ip",
+ *     notes: "Locked because it's needed by a third-party",
+ *     scope: azurerm_public_ip_test.id,
+ * });
+ * ```
  */
 export class ManangementLock extends pulumi.CustomResource {
     /**

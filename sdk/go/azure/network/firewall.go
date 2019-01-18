@@ -9,8 +9,6 @@ import (
 )
 
 // Manages an Azure Firewall.
-// 
-// -> **NOTE** Azure Firewall is currently in Public Preview.
 type Firewall struct {
 	s *pulumi.ResourceState
 }

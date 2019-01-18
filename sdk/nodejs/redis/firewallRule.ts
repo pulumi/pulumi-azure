@@ -6,6 +6,47 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Firewall Rule associated with a Redis Cache.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "redis-resourcegroup",
+ * });
+ * const random_id_server = new random.RandomId("server", {
+ *     byteLength: 8,
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 1,
+ *     enableNonSslPort: false,
+ *     family: "P",
+ *     location: azurerm_resource_group_test.location,
+ *     name: random_id_server.hex.apply(__arg0 => `redis${__arg0}`),
+ *     redisConfiguration: {
+ *         maxclients: 256,
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *         maxmemoryReserved: 2,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     skuName: "Premium",
+ * });
+ * const azurerm_redis_firewall_rule_test = new azure.redis.FirewallRule("test", {
+ *     endIp: "2.3.4.5",
+ *     name: "someIPrange",
+ *     redisCacheName: azurerm_redis_cache_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     startIp: "1.2.3.4",
+ * });
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

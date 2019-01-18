@@ -6,6 +6,39 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Runbook.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_automation_account_example = new azure.automation.Account("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "account1",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: {
+ *         name: "Basic",
+ *     },
+ * });
+ * const azurerm_automation_runbook_example = new azure.automation.RunBook("example", {
+ *     accountName: azurerm_automation_account_example.name,
+ *     description: "This is an example runbook",
+ *     location: azurerm_resource_group_example.location,
+ *     logProgress: true,
+ *     logVerbose: true,
+ *     name: "Get-AzureVMTutorial",
+ *     publishContentLink: {
+ *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+ *     },
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     runbookType: "PowerShellWorkflow",
+ * });
+ * ```
  */
 export class RunBook extends pulumi.CustomResource {
     /**

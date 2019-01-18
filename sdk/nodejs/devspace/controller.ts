@@ -6,6 +6,48 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DevSpace Controller.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "westeurope",
+ *     name: "acctestRG1",
+ * });
+ * const azurerm_kubernetes_cluster_test = new azure.containerservice.KubernetesCluster("test", {
+ *     agentPoolProfile: {
+ *         count: Number.parseFloat("1"),
+ *         name: "default",
+ *         vmSize: "Standard_DS2_v2",
+ *     },
+ *     dnsPrefix: "acctestaks1",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acctestaks1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     servicePrincipal: {
+ *         clientId: "00000000-0000-0000-0000-000000000000",
+ *         clientSecret: "00000000000000000000000000000000",
+ *     },
+ * });
+ * const azurerm_devspace_controller_test = new azure.devspace.Controller("test", {
+ *     hostSuffix: "suffix",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acctestdsc1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "S1",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         Environment: "Testing",
+ *     },
+ *     targetContainerHostCredentialsBase64: azurerm_kubernetes_cluster_test.kubeConfigRaw.apply(__arg0 => Buffer.from(__arg0).toString("base64")),
+ *     targetContainerHostResourceId: azurerm_kubernetes_cluster_test.id,
+ * });
+ * ```
  */
 export class Controller extends pulumi.CustomResource {
     /**

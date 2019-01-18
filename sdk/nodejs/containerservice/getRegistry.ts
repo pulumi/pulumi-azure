@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Container Registry.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_container_registry_test = pulumi.output(azure.containerservice.getRegistry({
+ *     name: "testacr",
+ *     resourceGroupName: "test",
+ * }));
+ * 
+ * export const loginServer = azurerm_container_registry_test.apply(__arg0 => __arg0.loginServer);
+ * ```
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     return pulumi.runtime.invoke("azure:containerservice/getRegistry:getRegistry", {
@@ -60,6 +74,10 @@ export interface GetRegistryResult {
      * The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.
      */
     readonly storageAccountId: string;
+    /**
+     * A map of tags assigned to the Container Registry.
+     */
+    readonly tags: {[key: string]: any};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

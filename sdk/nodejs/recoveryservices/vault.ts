@@ -6,6 +6,24 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Recovery Services Vault.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_rg = new azure.core.ResourceGroup("rg", {
+ *     location: "West US",
+ *     name: "tfex-recovery_vault",
+ * });
+ * const azurerm_recovery_services_vault_vault = new azure.recoveryservices.Vault("vault", {
+ *     location: azurerm_resource_group_rg.location,
+ *     name: "example_recovery_vault",
+ *     resourceGroupName: azurerm_resource_group_rg.name,
+ *     sku: "Standard",
+ * });
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

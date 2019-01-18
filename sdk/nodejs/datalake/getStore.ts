@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Data Lake Store.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_data_lake_store_test = pulumi.output(azure.datalake.getStore({
+ *     name: "testdatalake",
+ *     resourceGroupName: "testdatalake",
+ * }));
+ * 
+ * export const dataLakeStoreId = azurerm_data_lake_store_test.apply(__arg0 => __arg0.id);
+ * ```
  */
 export function getStore(args: GetStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetStoreResult> {
     return pulumi.runtime.invoke("azure:datalake/getStore:getStore", {

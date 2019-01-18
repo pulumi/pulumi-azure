@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Management Group.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_management_group_test = pulumi.output(azure.managementgroups.getManagementGroup({
+ *     groupId: "00000000-0000-0000-0000-000000000000",
+ * }));
+ * 
+ * export const displayName = azurerm_management_group_test.apply(__arg0 => __arg0.displayName);
+ * ```
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {

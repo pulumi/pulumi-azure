@@ -7,8 +7,240 @@ import * as utilities from "../utilities";
 /**
  * Manage a virtual machine scale set.
  * 
- * ~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage with Managed Disks (Recommended)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US 2",
+ *     name: "acctestRG",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Static",
+ *     domainNameLabel: azurerm_resource_group_test.name,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const azurerm_lb_test = new azure.lb.LoadBalancer("test", {
+ *     frontendIpConfigurations: [{
+ *         name: "PublicIPAddress",
+ *         publicIpAddressId: azurerm_public_ip_test.id,
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_lb_backend_address_pool_bpepool = new azure.lb.BackendAddressPool("bpepool", {
+ *     loadbalancerId: azurerm_lb_test.id,
+ *     name: "BackEndAddressPool",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_lb_nat_pool_lbnatpool: azure.lb.NatPool[] = [];
+ * for (let i = 0; i < 3; i++) {
+ *     azurerm_lb_nat_pool_lbnatpool.push(new azure.lb.NatPool(`lbnatpool-${i}`, {
+ *         backendPort: 22,
+ *         frontendIpConfigurationName: "PublicIPAddress",
+ *         frontendPortEnd: 50119,
+ *         frontendPortStart: 50000,
+ *         loadbalancerId: azurerm_lb_test.id,
+ *         name: "ssh",
+ *         protocol: "Tcp",
+ *         resourceGroupName: azurerm_resource_group_test.name,
+ *     }));
+ * }
+ * const azurerm_lb_probe_test = new azure.lb.Probe("test", {
+ *     loadbalancerId: azurerm_lb_test.id,
+ *     name: "http-probe",
+ *     port: 8080,
+ *     requestPath: "/health",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acctvn",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {
+ *     automaticOsUpgrade: true,
+ *     healthProbeId: azurerm_lb_probe_test.id,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "mytestscaleset-1",
+ *     networkProfiles: [{
+ *         ipConfigurations: [{
+ *             loadBalancerBackendAddressPoolIds: [azurerm_lb_backend_address_pool_bpepool.id],
+ *             loadBalancerInboundNatRulesIds: [pulumi.all(azurerm_lb_nat_pool_lbnatpool.map(v => v.id)).apply(__arg0 => __arg0.map(v => v)[1])],
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: azurerm_subnet_test.id,
+ *         }],
+ *         name: "terraformnetworkprofile",
+ *         primary: true,
+ *     }],
+ *     osProfile: {
+ *         adminUsername: "myadmin",
+ *         computerNamePrefix: "testvm",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: true,
+ *         sshKeys: [{
+ *             keyData: fs.readFileSync("~/.ssh/demo_key.pub", "utf-8"),
+ *             path: "/home/myadmin/.ssh/authorized_keys",
+ *         }],
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     rollingUpgradePolicy: {
+ *         maxBatchInstancePercent: 20,
+ *         maxUnhealthyInstancePercent: 20,
+ *         maxUnhealthyUpgradedInstancePercent: 5,
+ *         pauseTimeBetweenBatches: "PT0S",
+ *     },
+ *     sku: {
+ *         capacity: 2,
+ *         name: "Standard_F2",
+ *         tier: "Standard",
+ *     },
+ *     storageProfileDataDisks: [{
+ *         caching: "ReadWrite",
+ *         createOption: "Empty",
+ *         diskSizeGb: 10,
+ *         lun: 0,
+ *     }],
+ *     storageProfileImageReference: {
+ *         offer: "UbuntuServer",
+ *         publisher: "Canonical",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storageProfileOsDisk: {
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Standard_LRS",
+ *         name: "",
+ *     },
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ *     upgradePolicyMode: "Rolling",
+ * });
+ * ```
+ * 
+ * ## Example Usage with Unmanaged Disks
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acctestRG",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: "westus",
+ *     name: "accsa",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const azurerm_storage_container_test = new azure.storage.Container("test", {
+ *     containerAccessType: "private",
+ *     name: "vhds",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountName: azurerm_storage_account_test.name,
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: "West US",
+ *     name: "acctvn",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {
+ *     location: "West US",
+ *     name: "mytestscaleset-1",
+ *     networkProfiles: [{
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: azurerm_subnet_test.id,
+ *         }],
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *     }],
+ *     osProfile: {
+ *         adminUsername: "myadmin",
+ *         computerNamePrefix: "testvm",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: true,
+ *         sshKeys: [{
+ *             keyData: fs.readFileSync("~/.ssh/demo_key.pub", "utf-8"),
+ *             path: "/home/myadmin/.ssh/authorized_keys",
+ *         }],
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         capacity: 2,
+ *         name: "Standard_F2",
+ *         tier: "Standard",
+ *     },
+ *     storageProfileImageReference: {
+ *         offer: "UbuntuServer",
+ *         publisher: "Canonical",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storageProfileOsDisk: {
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         name: "osDiskProfile",
+ *         vhdContainers: [pulumi.all([azurerm_storage_account_test.primaryBlobEndpoint, azurerm_storage_container_test.name]).apply(([__arg0, __arg1]) => `${__arg0}${__arg1}`)],
+ *     },
+ *     upgradePolicyMode: "Manual",
+ * });
+ * ```
+ * 
+ * ## Example of storage_profile_image_reference with id
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_image_test = new azure.compute.Image("test", {
+ *     name: "test",
+ * });
+ * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {
+ *     name: "test",
+ *     storageProfileImageReference: {
+ *         id: azurerm_image_test.id,
+ *     },
+ * });
+ * ```
  */
 export class ScaleSet extends pulumi.CustomResource {
     /**

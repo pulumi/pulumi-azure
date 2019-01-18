@@ -8,9 +8,102 @@ import * as utilities from "../utilities";
  * Manages a Virtual Machine Extension to provide post deployment configuration
  * and run automated tasks.
  * 
- * ~> **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
+ * > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
  * 
  * -> **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acctestRG",
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acctvn",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: azurerm_subnet_test.id,
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acctni",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "accsa",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const azurerm_storage_container_test = new azure.storage.Container("test", {
+ *     containerAccessType: "private",
+ *     name: "vhds",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountName: azurerm_storage_account_test.name,
+ * });
+ * const azurerm_virtual_machine_test = new azure.compute.VirtualMachine("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acctvm",
+ *     networkInterfaceIds: [azurerm_network_interface_test.id],
+ *     osProfile: {
+ *         adminPassword: "Password1234!",
+ *         adminUsername: "testadmin",
+ *         computerName: "hostname",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageImageReference: {
+ *         offer: "UbuntuServer",
+ *         publisher: "Canonical",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storageOsDisk: {
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         name: "myosdisk1",
+ *         vhdUri: pulumi.all([azurerm_storage_account_test.primaryBlobEndpoint, azurerm_storage_container_test.name]).apply(([__arg0, __arg1]) => `${__arg0}${__arg1}/myosdisk1.vhd`),
+ *     },
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ *     vmSize: "Standard_F2",
+ * });
+ * const azurerm_virtual_machine_extension_test = new azure.compute.Extension("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "hostname",
+ *     publisher: "Microsoft.Azure.Extensions",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     settings: "\t{\n\t\t\"commandToExecute\": \"hostname && uptime\"\n\t}\n",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ *     type: "CustomScript",
+ *     typeHandlerVersion: "2.0",
+ *     virtualMachineName: azurerm_virtual_machine_test.name,
+ * });
+ * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

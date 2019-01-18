@@ -8,6 +8,58 @@ import * as utilities from "../utilities";
  * Manages a PostgreSQL Virtual Network Rule.
  * 
  * -> **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-vnet)
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "example-resources",
+ * });
+ * const azurerm_postgresql_server_test = new azure.postgresql.Server("test", {
+ *     administratorLogin: "psqladminun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "postgresql-server-1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     sslEnforcement: "Enabled",
+ *     storageProfile: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *         storageMb: 5120,
+ *     },
+ *     version: "9.5",
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.7.29.0/29"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-vnet",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_internal = new azure.network.Subnet("internal", {
+ *     addressPrefix: "10.7.29.0/29",
+ *     name: "internal",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serviceEndpoints: ["Microsoft.Sql"],
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_postgresql_virtual_network_rule_test = new azure.postgresql.VirtualNetworkRule("test", {
+ *     ignoreMissingVnetServiceEndpoint: true,
+ *     name: "postgresql-vnet-rule",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serverName: azurerm_postgresql_server_test.name,
+ *     subnetId: azurerm_subnet_internal.id,
+ * });
+ * ```
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

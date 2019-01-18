@@ -5,7 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Configures the specified Policy Definition at the specified Scope.
+ * Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_policy_definition_test = new azure.policy.Definition("test", {
+ *     displayName: "acctestpol-%d",
+ *     mode: "All",
+ *     name: "my-policy-definition",
+ *     parameters: "\t{\n    \"allowedLocations\": {\n      \"type\": \"Array\",\n      \"metadata\": {\n        \"description\": \"The list of allowed locations for resources.\",\n        \"displayName\": \"Allowed locations\",\n        \"strongType\": \"location\"\n      }\n    }\n  }\n",
+ *     policyRule: "\t{\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"in\": \"[parameters('allowedLocations')]\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"audit\"\n    }\n  }\n",
+ *     policyType: "Custom",
+ * });
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "test-resources",
+ * });
+ * const azurerm_policy_assignment_test = new azure.policy.Assignment("test", {
+ *     description: "Policy Assignment created via an Acceptance Test",
+ *     displayName: "Acceptance Test Run %d",
+ *     name: "example-policy-assignment",
+ *     parameters: "{\n  \"allowedLocations\": {\n    \"value\": [ \"West Europe\" ]\n  }\n}\n",
+ *     policyDefinitionId: azurerm_policy_definition_test.id,
+ *     scope: azurerm_resource_group_test.id,
+ * });
+ * ```
  */
 export class Assignment extends pulumi.CustomResource {
     /**
@@ -29,9 +57,21 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly displayName: pulumi.Output<string | undefined>;
     /**
+     * An `identity` block.
+     */
+    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type?: string }>;
+    /**
+     * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+     */
+    public readonly location: pulumi.Output<string | undefined>;
+    /**
      * The name of the Policy Assignment. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+     */
+    public readonly notScopes: pulumi.Output<string[] | undefined>;
     /**
      * Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
      */
@@ -56,7 +96,10 @@ export class Assignment extends pulumi.CustomResource {
             const state: AssignmentState = argsOrState as AssignmentState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
+            inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["notScopes"] = state ? state.notScopes : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
             inputs["scope"] = state ? state.scope : undefined;
@@ -70,7 +113,10 @@ export class Assignment extends pulumi.CustomResource {
             }
             inputs["description"] = args ? args.description : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
+            inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["notScopes"] = args ? args.notScopes : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
@@ -92,9 +138,21 @@ export interface AssignmentState {
      */
     readonly displayName?: pulumi.Input<string>;
     /**
+     * An `identity` block.
+     */
+    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    /**
+     * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+     */
+    readonly location?: pulumi.Input<string>;
+    /**
      * The name of the Policy Assignment. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+     */
+    readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
      */
@@ -119,9 +177,21 @@ export interface AssignmentArgs {
      */
     readonly displayName?: pulumi.Input<string>;
     /**
+     * An `identity` block.
+     */
+    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    /**
+     * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
+     */
+    readonly location?: pulumi.Input<string>;
+    /**
      * The name of the Policy Assignment. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
+     */
+    readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
      */

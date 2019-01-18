@@ -8,6 +8,38 @@ import * as utilities from "../utilities";
  * Manages a MariaDB Server.
  * 
  * -> **NOTE** MariaDB Server is currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-us/updates/mariadb-public-preview/).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const azurerm_mariadb_server_test = new azure.mariadb.Server("test", {
+ *     administratorLogin: "mariadbadmin",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "mariadb-server-1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "B_Gen5_2",
+ *         tier: "Basic",
+ *     },
+ *     sslEnforcement: "Enabled",
+ *     storageProfile: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *         storageMb: 5120,
+ *     },
+ *     version: "10.2",
+ * });
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

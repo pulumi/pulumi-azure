@@ -6,6 +6,41 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS MX Records within Azure DNS.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_dns_mx_record_test = new azure.dns.MxRecord("test", {
+ *     name: "test",
+ *     records: [
+ *         {
+ *             exchange: "mail1.contoso.com",
+ *             preference: "10",
+ *         },
+ *         {
+ *             exchange: "mail2.contoso.com",
+ *             preference: "20",
+ *         },
+ *     ],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ *     ttl: 300,
+ *     zoneName: azurerm_dns_zone_test.name,
+ * });
+ * ```
  */
 export class MxRecord extends pulumi.CustomResource {
     /**

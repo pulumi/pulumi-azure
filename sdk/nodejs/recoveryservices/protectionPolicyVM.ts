@@ -52,6 +52,9 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
      * Configures the policy yearly retention as documented in the `retention_yearly` block below.
      */
     public readonly retentionYearly: pulumi.Output<{ count: number, months: string[], weekdays: string[], weeks: string[] } | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the timezone. Defaults to `UTC`
@@ -142,6 +145,9 @@ export interface ProtectionPolicyVMState {
      * Configures the policy yearly retention as documented in the `retention_yearly` block below.
      */
     readonly retentionYearly?: pulumi.Input<{ count: pulumi.Input<number>, months: pulumi.Input<pulumi.Input<string>[]>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Specifies the timezone. Defaults to `UTC`
@@ -185,6 +191,9 @@ export interface ProtectionPolicyVMArgs {
      * Configures the policy yearly retention as documented in the `retention_yearly` block below.
      */
     readonly retentionYearly?: pulumi.Input<{ count: pulumi.Input<number>, months: pulumi.Input<pulumi.Input<string>[]>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Specifies the timezone. Defaults to `UTC`

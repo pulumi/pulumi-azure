@@ -6,6 +6,70 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Storage Account.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_testrg = new azure.core.ResourceGroup("testrg", {
+ *     location: "westus",
+ *     name: "resourceGroupName",
+ * });
+ * const azurerm_storage_account_testsa = new azure.storage.Account("testsa", {
+ *     accountReplicationType: "GRS",
+ *     accountTier: "Standard",
+ *     location: "westus",
+ *     name: "storageaccountname",
+ *     resourceGroupName: azurerm_resource_group_testrg.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage with Network Rules
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_testrg = new azure.core.ResourceGroup("testrg", {
+ *     location: "westus",
+ *     name: "resourceGroupName",
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_testrg.location,
+ *     name: "virtnetname",
+ *     resourceGroupName: azurerm_resource_group_testrg.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "subnetname",
+ *     resourceGroupName: azurerm_resource_group_testrg.name,
+ *     serviceEndpoints: [
+ *         "Microsoft.Sql",
+ *         "Microsoft.Storage",
+ *     ],
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_storage_account_testsa = new azure.storage.Account("testsa", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_testrg.location,
+ *     name: "storageaccountname",
+ *     networkRules: {
+ *         ipRules: ["127.0.0.1"],
+ *         virtualNetworkSubnetIds: [azurerm_subnet_test.id],
+ *     },
+ *     resourceGroupName: azurerm_resource_group_testrg.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

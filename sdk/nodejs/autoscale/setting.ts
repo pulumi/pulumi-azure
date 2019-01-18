@@ -6,6 +6,238 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "autoscalingTest",
+ * });
+ * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {});
+ * const azurerm_autoscale_setting_test = new azure.autoscale.Setting("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "myAutoscaleSetting",
+ *     notification: {
+ *         email: {
+ *             customEmails: ["admin@contoso.com"],
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *         },
+ *     },
+ *     profiles: [{
+ *         capacity: {
+ *             default: 1,
+ *             maximum: 10,
+ *             minimum: 1,
+ *         },
+ *         name: "defaultProfile",
+ *         rules: [
+ *             {
+ *                 metricTrigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     operator: "GreaterThan",
+ *                     statistic: "Average",
+ *                     threshold: 75,
+ *                     timeAggregation: "Average",
+ *                     timeGrain: "PT1M",
+ *                     timeWindow: "PT5M",
+ *                 },
+ *                 scaleAction: {
+ *                     cooldown: "PT1M",
+ *                     direction: "Increase",
+ *                     type: "ChangeCount",
+ *                     value: Number.parseFloat("1"),
+ *                 },
+ *             },
+ *             {
+ *                 metricTrigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     operator: "LessThan",
+ *                     statistic: "Average",
+ *                     threshold: 25,
+ *                     timeAggregation: "Average",
+ *                     timeGrain: "PT1M",
+ *                     timeWindow: "PT5M",
+ *                 },
+ *                 scaleAction: {
+ *                     cooldown: "PT1M",
+ *                     direction: "Decrease",
+ *                     type: "ChangeCount",
+ *                     value: Number.parseFloat("1"),
+ *                 },
+ *             },
+ *         ],
+ *     }],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     targetResourceId: azurerm_virtual_machine_scale_set_test.id,
+ * });
+ * ```
+ * 
+ * ## Example Usage (repeating on weekends)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "autoscalingTest",
+ * });
+ * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {});
+ * const azurerm_autoscale_setting_test = new azure.autoscale.Setting("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "myAutoscaleSetting",
+ *     notification: {
+ *         email: {
+ *             customEmails: ["admin@contoso.com"],
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *         },
+ *     },
+ *     profiles: [{
+ *         capacity: {
+ *             default: 1,
+ *             maximum: 10,
+ *             minimum: 1,
+ *         },
+ *         name: "Weekends",
+ *         recurrence: {
+ *             days: [
+ *                 "Saturday",
+ *                 "Sunday",
+ *             ],
+ *             frequency: "Week",
+ *             hours: 12,
+ *             minutes: 0,
+ *             timezone: "Pacific Standard Time",
+ *         },
+ *         rules: [
+ *             {
+ *                 metricTrigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     operator: "GreaterThan",
+ *                     statistic: "Average",
+ *                     threshold: 90,
+ *                     timeAggregation: "Average",
+ *                     timeGrain: "PT1M",
+ *                     timeWindow: "PT5M",
+ *                 },
+ *                 scaleAction: {
+ *                     cooldown: "PT1M",
+ *                     direction: "Increase",
+ *                     type: "ChangeCount",
+ *                     value: Number.parseFloat("2"),
+ *                 },
+ *             },
+ *             {
+ *                 metricTrigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     operator: "LessThan",
+ *                     statistic: "Average",
+ *                     threshold: 10,
+ *                     timeAggregation: "Average",
+ *                     timeGrain: "PT1M",
+ *                     timeWindow: "PT5M",
+ *                 },
+ *                 scaleAction: {
+ *                     cooldown: "PT1M",
+ *                     direction: "Decrease",
+ *                     type: "ChangeCount",
+ *                     value: Number.parseFloat("2"),
+ *                 },
+ *             },
+ *         ],
+ *     }],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     targetResourceId: azurerm_virtual_machine_scale_set_test.id,
+ * });
+ * ```
+ * 
+ * ## Example Usage (for fixed dates)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "autoscalingTest",
+ * });
+ * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {});
+ * const azurerm_autoscale_setting_test = new azure.autoscale.Setting("test", {
+ *     enabled: true,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "myAutoscaleSetting",
+ *     notification: {
+ *         email: {
+ *             customEmails: ["admin@contoso.com"],
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *         },
+ *     },
+ *     profiles: [{
+ *         capacity: {
+ *             default: 1,
+ *             maximum: 10,
+ *             minimum: 1,
+ *         },
+ *         fixedDate: {
+ *             end: "2020-07-31T23:59:59Z",
+ *             start: "2020-07-01T00:00:00Z",
+ *             timezone: "Pacific Standard Time",
+ *         },
+ *         name: "forJuly",
+ *         rules: [
+ *             {
+ *                 metricTrigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     operator: "GreaterThan",
+ *                     statistic: "Average",
+ *                     threshold: 90,
+ *                     timeAggregation: "Average",
+ *                     timeGrain: "PT1M",
+ *                     timeWindow: "PT5M",
+ *                 },
+ *                 scaleAction: {
+ *                     cooldown: "PT1M",
+ *                     direction: "Increase",
+ *                     type: "ChangeCount",
+ *                     value: Number.parseFloat("2"),
+ *                 },
+ *             },
+ *             {
+ *                 metricTrigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     operator: "LessThan",
+ *                     statistic: "Average",
+ *                     threshold: 10,
+ *                     timeAggregation: "Average",
+ *                     timeGrain: "PT1M",
+ *                     timeWindow: "PT5M",
+ *                 },
+ *                 scaleAction: {
+ *                     cooldown: "PT1M",
+ *                     direction: "Decrease",
+ *                     type: "ChangeCount",
+ *                     value: Number.parseFloat("2"),
+ *                 },
+ *             },
+ *         ],
+ *     }],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     targetResourceId: azurerm_virtual_machine_scale_set_test.id,
+ * });
+ * ```
  */
 export class Setting extends pulumi.CustomResource {
     /**

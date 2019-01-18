@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Public IP Address.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Static",
+ *     location: "West US",
+ *     name: "acceptanceTestPublicIp1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class PublicIp extends pulumi.CustomResource {
     /**
@@ -20,6 +41,10 @@ export class PublicIp extends pulumi.CustomResource {
         return new PublicIp(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     */
+    public readonly allocationMethod: pulumi.Output<string>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
@@ -49,9 +74,6 @@ export class PublicIp extends pulumi.CustomResource {
      * new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
-    /**
-     * Defines whether the IP address is static or dynamic. Options are Static or Dynamic.
-     */
     public readonly publicIpAddressAllocation: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
@@ -87,6 +109,7 @@ export class PublicIp extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: PublicIpState = argsOrState as PublicIpState | undefined;
+            inputs["allocationMethod"] = state ? state.allocationMethod : undefined;
             inputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["idleTimeoutInMinutes"] = state ? state.idleTimeoutInMinutes : undefined;
@@ -105,12 +128,10 @@ export class PublicIp extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
-            if (!args || args.publicIpAddressAllocation === undefined) {
-                throw new Error("Missing required property 'publicIpAddressAllocation'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allocationMethod"] = args ? args.allocationMethod : undefined;
             inputs["domainNameLabel"] = args ? args.domainNameLabel : undefined;
             inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["ipVersion"] = args ? args.ipVersion : undefined;
@@ -133,6 +154,10 @@ export class PublicIp extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PublicIp resources.
  */
 export interface PublicIpState {
+    /**
+     * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     */
+    readonly allocationMethod?: pulumi.Input<string>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
@@ -162,9 +187,6 @@ export interface PublicIpState {
      * new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Defines whether the IP address is static or dynamic. Options are Static or Dynamic.
-     */
     readonly publicIpAddressAllocation?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
@@ -194,6 +216,10 @@ export interface PublicIpState {
  */
 export interface PublicIpArgs {
     /**
+     * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+     */
+    readonly allocationMethod?: pulumi.Input<string>;
+    /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
     readonly domainNameLabel?: pulumi.Input<string>;
@@ -214,10 +240,7 @@ export interface PublicIpArgs {
      * new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
-    /**
-     * Defines whether the IP address is static or dynamic. Options are Static or Dynamic.
-     */
-    readonly publicIpAddressAllocation: pulumi.Input<string>;
+    readonly publicIpAddressAllocation?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the public ip.

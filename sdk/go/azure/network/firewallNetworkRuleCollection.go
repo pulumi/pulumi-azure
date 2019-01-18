@@ -9,8 +9,6 @@ import (
 )
 
 // Manages a Network Rule Collection within an Azure Firewall.
-// 
-// -> **NOTE** Azure Firewall is currently in Public Preview.
 type FirewallNetworkRuleCollection struct {
 	s *pulumi.ResourceState
 }
@@ -91,7 +89,7 @@ func (r *FirewallNetworkRuleCollection) Action() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["action"])
 }
 
-// Specifies the name of the Firewall in which to the Network Rule Collection should be created. Changing this forces a new resource to be created.
+// Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
 func (r *FirewallNetworkRuleCollection) AzureFirewallName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["azureFirewallName"])
 }
@@ -120,7 +118,7 @@ func (r *FirewallNetworkRuleCollection) Rules() *pulumi.ArrayOutput {
 type FirewallNetworkRuleCollectionState struct {
 	// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
 	Action interface{}
-	// Specifies the name of the Firewall in which to the Network Rule Collection should be created. Changing this forces a new resource to be created.
+	// Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
 	AzureFirewallName interface{}
 	// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
 	Name interface{}
@@ -136,7 +134,7 @@ type FirewallNetworkRuleCollectionState struct {
 type FirewallNetworkRuleCollectionArgs struct {
 	// Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
 	Action interface{}
-	// Specifies the name of the Firewall in which to the Network Rule Collection should be created. Changing this forces a new resource to be created.
+	// Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
 	AzureFirewallName interface{}
 	// Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
 	Name interface{}

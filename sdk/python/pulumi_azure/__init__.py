@@ -4,3 +4,6 @@
 
 # Make subpackages available:
 __all__ = ['ad', 'apimanagement', 'appinsights', 'appservice', 'automation', 'autoscale', 'cdn', 'cognitive', 'compute', 'config', 'containerservice', 'core', 'cosmosdb', 'databricks', 'datalake', 'devspace', 'devtest', 'dns', 'eventhub', 'iot', 'keyvault', 'lb', 'logicapps', 'managementgroups', 'managementresource', 'mariadb', 'monitoring', 'msi', 'mssql', 'mysql', 'network', 'notificationhub', 'operationalinsights', 'policy', 'postgresql', 'recoveryservices', 'redis', 'relay', 'role', 'scheduler', 'search', 'securitycenter', 'servicefabric', 'signalr', 'sql', 'storage', 'trafficmanager']
+
+# Export this package's modules as members:
+from .provider import *

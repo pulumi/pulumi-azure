@@ -6,6 +6,74 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an App Service Plan component.
+ * 
+ * ## Example Usage (Dedicated)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "api-appserviceplan-pro",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "S1",
+ *         tier: "Standard",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage (Shared / Consumption Plan)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     kind: "FunctionApp",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "api-appserviceplan-pro",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "Y1",
+ *         tier: "Dynamic",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage (Linux)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     kind: "Linux",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "api-appserviceplan-pro",
+ *     properties: {
+ *         reserved: true,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "S1",
+ *         tier: "Standard",
+ *     },
+ * });
+ * ```
  */
 export class Plan extends pulumi.CustomResource {
     /**

@@ -6,6 +6,34 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Storage Container.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "westus",
+ *     name: "acctestRG",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: "westus",
+ *     name: "accteststorageaccount",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const azurerm_storage_container_test = new azure.storage.Container("test", {
+ *     containerAccessType: "private",
+ *     name: "vhds",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountName: azurerm_storage_account_test.name,
+ * });
+ * ```
  */
 export class Container extends pulumi.CustomResource {
     /**

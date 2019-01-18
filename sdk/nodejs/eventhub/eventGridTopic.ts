@@ -7,7 +7,27 @@ import * as utilities from "../utilities";
 /**
  * Manages an EventGrid Topic
  * 
- * ~> **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+ * > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US 2",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_eventgrid_topic_test = new azure.eventhub.EventGridTopic("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "my-eventgrid-topic",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class EventGridTopic extends pulumi.CustomResource {
     /**

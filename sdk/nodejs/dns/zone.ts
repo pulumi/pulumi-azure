@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     zoneType: "Public",
+ * });
+ * const azurerm_dns_zone_test_private = new azure.dns.Zone("test_private", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     zoneType: "Private",
+ * });
+ * ```
  */
 export class Zone extends pulumi.CustomResource {
     /**
@@ -23,7 +45,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
      */
-    public /*out*/ readonly maxNumberOfRecordSets: pulumi.Output<string>;
+    public /*out*/ readonly maxNumberOfRecordSets: pulumi.Output<number>;
     /**
      * The name of the DNS Zone. Must be a valid domain name.
      */
@@ -35,7 +57,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * (Optional) The number of records already in the zone.
      */
-    public /*out*/ readonly numberOfRecordSets: pulumi.Output<string>;
+    public /*out*/ readonly numberOfRecordSets: pulumi.Output<number>;
     /**
      * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
      */
@@ -104,7 +126,7 @@ export interface ZoneState {
     /**
      * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
      */
-    readonly maxNumberOfRecordSets?: pulumi.Input<string>;
+    readonly maxNumberOfRecordSets?: pulumi.Input<number>;
     /**
      * The name of the DNS Zone. Must be a valid domain name.
      */
@@ -116,7 +138,7 @@ export interface ZoneState {
     /**
      * (Optional) The number of records already in the zone.
      */
-    readonly numberOfRecordSets?: pulumi.Input<string>;
+    readonly numberOfRecordSets?: pulumi.Input<number>;
     /**
      * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
      */

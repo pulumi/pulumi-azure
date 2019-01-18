@@ -7,8 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a SQL Azure Database Server.
  * 
- * ~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "database-rg",
+ * });
+ * const azurerm_sql_server_test = new azure.sql.SqlServer("test", {
+ *     administratorLogin: "mradministrator",
+ *     administratorLoginPassword: "thisIsDog11",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "mysqlserver",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         environment: "production",
+ *     },
+ *     version: "12.0",
+ * });
+ * ```
  */
 export class SqlServer extends pulumi.CustomResource {
     /**

@@ -40,6 +40,7 @@ func NewCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["addOnFeatures"] = nil
+		inputs["azureActiveDirectory"] = nil
 		inputs["certificate"] = nil
 		inputs["clientCertificateThumbprints"] = nil
 		inputs["clusterCodeVersion"] = nil
@@ -51,11 +52,13 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["nodeTypes"] = nil
 		inputs["reliabilityLevel"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["reverseProxyCertificate"] = nil
 		inputs["tags"] = nil
 		inputs["upgradeMode"] = nil
 		inputs["vmImage"] = nil
 	} else {
 		inputs["addOnFeatures"] = args.AddOnFeatures
+		inputs["azureActiveDirectory"] = args.AzureActiveDirectory
 		inputs["certificate"] = args.Certificate
 		inputs["clientCertificateThumbprints"] = args.ClientCertificateThumbprints
 		inputs["clusterCodeVersion"] = args.ClusterCodeVersion
@@ -67,6 +70,7 @@ func NewCluster(ctx *pulumi.Context,
 		inputs["nodeTypes"] = args.NodeTypes
 		inputs["reliabilityLevel"] = args.ReliabilityLevel
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["reverseProxyCertificate"] = args.ReverseProxyCertificate
 		inputs["tags"] = args.Tags
 		inputs["upgradeMode"] = args.UpgradeMode
 		inputs["vmImage"] = args.VmImage
@@ -86,6 +90,7 @@ func GetCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["addOnFeatures"] = state.AddOnFeatures
+		inputs["azureActiveDirectory"] = state.AzureActiveDirectory
 		inputs["certificate"] = state.Certificate
 		inputs["clientCertificateThumbprints"] = state.ClientCertificateThumbprints
 		inputs["clusterCodeVersion"] = state.ClusterCodeVersion
@@ -98,6 +103,7 @@ func GetCluster(ctx *pulumi.Context,
 		inputs["nodeTypes"] = state.NodeTypes
 		inputs["reliabilityLevel"] = state.ReliabilityLevel
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["reverseProxyCertificate"] = state.ReverseProxyCertificate
 		inputs["tags"] = state.Tags
 		inputs["upgradeMode"] = state.UpgradeMode
 		inputs["vmImage"] = state.VmImage
@@ -122,6 +128,11 @@ func (r *Cluster) ID() *pulumi.IDOutput {
 // A List of one or more features which should be enabled, such as `DnsService`.
 func (r *Cluster) AddOnFeatures() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["addOnFeatures"])
+}
+
+// An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+func (r *Cluster) AzureActiveDirectory() *pulumi.Output {
+	return r.s.State["azureActiveDirectory"]
 }
 
 // A `certificate` block as defined below.
@@ -184,6 +195,11 @@ func (r *Cluster) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// A `reverse_proxy_certificate` block as defined below.
+func (r *Cluster) ReverseProxyCertificate() *pulumi.Output {
+	return r.s.State["reverseProxyCertificate"]
+}
+
 // A mapping of tags to assign to the resource.
 func (r *Cluster) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -203,6 +219,8 @@ func (r *Cluster) VmImage() *pulumi.StringOutput {
 type ClusterState struct {
 	// A List of one or more features which should be enabled, such as `DnsService`.
 	AddOnFeatures interface{}
+	// An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+	AzureActiveDirectory interface{}
 	// A `certificate` block as defined below.
 	Certificate interface{}
 	// One or two `client_certificate_thumbprint` blocks as defined below.
@@ -227,6 +245,8 @@ type ClusterState struct {
 	ReliabilityLevel interface{}
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `reverse_proxy_certificate` block as defined below.
+	ReverseProxyCertificate interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
@@ -239,6 +259,8 @@ type ClusterState struct {
 type ClusterArgs struct {
 	// A List of one or more features which should be enabled, such as `DnsService`.
 	AddOnFeatures interface{}
+	// An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+	AzureActiveDirectory interface{}
 	// A `certificate` block as defined below.
 	Certificate interface{}
 	// One or two `client_certificate_thumbprint` blocks as defined below.
@@ -261,6 +283,8 @@ type ClusterArgs struct {
 	ReliabilityLevel interface{}
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `reverse_proxy_certificate` block as defined below.
+	ReverseProxyCertificate interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.

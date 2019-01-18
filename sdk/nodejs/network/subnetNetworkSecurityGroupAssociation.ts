@@ -8,6 +8,51 @@ import * as utilities from "../utilities";
  * Associates a Network Security Group with a Subnet within a Virtual Network.
  * 
  * -> **NOTE:** Subnet `<->` Network Security Group associations currently need to be configured on both this resource and using the `network_security_group_id` field on the `azurerm_subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `network_security_group_id` field from the `azurerm_subnet` resource such that this resource is used to link resources in future.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_network_security_group_test = new azure.network.NetworkSecurityGroup("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-nsg",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     securityRules: [{
+ *         access: "Allow",
+ *         destinationAddressPrefix: "*",
+ *         destinationPortRange: "*",
+ *         direction: "Inbound",
+ *         name: "test123",
+ *         priority: 100,
+ *         protocol: "Tcp",
+ *         sourceAddressPrefix: "*",
+ *         sourcePortRange: "*",
+ *     }],
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-network",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "frontend",
+ *     networkSecurityGroupId: azurerm_network_security_group_test.id,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_subnet_network_security_group_association_test = new azure.network.SubnetNetworkSecurityGroupAssociation("test", {
+ *     networkSecurityGroupId: azurerm_network_security_group_test.id,
+ *     subnetId: azurerm_subnet_test.id,
+ * });
+ * ```
  */
 export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource {
     /**

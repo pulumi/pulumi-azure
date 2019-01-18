@@ -6,6 +6,61 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IotHub
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "teststa",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_iothub_test = new azure.iot.IoTHub("test", {
+ *     endpoints: [{
+ *         batchFrequencyInSeconds: 60,
+ *         connectionString: azurerm_storage_account_test.primaryBlobConnectionString,
+ *         containerName: "test",
+ *         encoding: "Avro",
+ *         fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+ *         maxChunkSizeInBytes: 10485760,
+ *         name: "export",
+ *         type: "AzureIotHub.StorageContainer",
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     routes: [{
+ *         condition: "true",
+ *         enabled: true,
+ *         endpointNames: ["export"],
+ *         name: "export",
+ *         source: "DeviceMessages",
+ *     }],
+ *     sku: {
+ *         capacity: Number.parseFloat("1"),
+ *         name: "S1",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         purpose: "testing",
+ *     },
+ * });
+ * const azurerm_storage_container_test = new azure.storage.Container("test", {
+ *     containerAccessType: "private",
+ *     name: "test",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountName: azurerm_storage_account_test.name,
+ * });
+ * ```
  */
 export class IoTHub extends pulumi.CustomResource {
     /**

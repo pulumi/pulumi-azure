@@ -7,7 +7,42 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault.
  * 
- * ~> **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+ * > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_key_vault_test = new azure.keyvault.KeyVault("test", {
+ *     accessPolicies: [{
+ *         keyPermissions: ["get"],
+ *         objectId: "d746815a-0433-4a21-b95d-fc437d2d475b",
+ *         secretPermissions: ["get"],
+ *         tenantId: "d6e396d0-5584-41dc-9fc0-268df99bc610",
+ *     }],
+ *     enabledForDiskEncryption: true,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "testvault",
+ *     networkAcls: {
+ *         bypass: "AzureServices",
+ *         defaultAction: "Deny",
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "standard",
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ *     tenantId: "d6e396d0-5584-41dc-9fc0-268df99bc610",
+ * });
+ * ```
  */
 export class KeyVault extends pulumi.CustomResource {
     /**

@@ -6,6 +6,100 @@ import * as utilities from "../utilities";
 
 /**
  * Configures Packet Capturing against a Virtual Machine using a Network Watcher.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "packet-capture-rg",
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "production-network",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "internal",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: azurerm_subnet_test.id,
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "pctest-nic",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_network_watcher_test = new azure.network.NetworkWatcher("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "network-watcher",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "pctestsa",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_virtual_machine_test = new azure.compute.VirtualMachine("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "pctest-vm",
+ *     networkInterfaceIds: [azurerm_network_interface_test.id],
+ *     osProfile: {
+ *         adminPassword: "Password1234!",
+ *         adminUsername: "testadmin",
+ *         computerName: "pctest-vm",
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageImageReference: {
+ *         offer: "UbuntuServer",
+ *         publisher: "Canonical",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storageOsDisk: {
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Standard_LRS",
+ *         name: "osdisk",
+ *     },
+ *     vmSize: "Standard_F2",
+ * });
+ * const azurerm_virtual_machine_extension_test = new azure.compute.Extension("test", {
+ *     autoUpgradeMinorVersion: true,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "network-watcher",
+ *     publisher: "Microsoft.Azure.NetworkWatcher",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     type: "NetworkWatcherAgentLinux",
+ *     typeHandlerVersion: "1.4",
+ *     virtualMachineName: azurerm_virtual_machine_test.name,
+ * });
+ * const azurerm_packet_capture_test = new azure.network.PacketCapture("test", {
+ *     name: "pctestcapture",
+ *     networkWatcherName: azurerm_network_watcher_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageLocation: {
+ *         storageAccountId: azurerm_storage_account_test.id,
+ *     },
+ *     targetResourceId: azurerm_virtual_machine_test.id,
+ * }, {dependsOn: [azurerm_virtual_machine_extension_test]});
+ * ```
+ * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azurerm_virtual_machine_extension` resource.
+ * 
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**
