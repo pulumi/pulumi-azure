@@ -2,11 +2,17 @@
 
 
 [[projects]]
+  name = "contrib.go.opencensus.io/exporter/ocagent"
+  packages = ["."]
+  revision = "0758abcb21781452e3f21b8d7944e0da2a16d736"
+
+[[projects]]
   name = "github.com/Azure/azure-sdk-for-go"
   packages = [
     "profiles/2017-03-09/resources/mgmt/resources",
     "services/appinsights/mgmt/2015-05-01/insights",
     "services/automation/mgmt/2015-10-31/automation",
+    "services/batch/mgmt/2017-09-01/batch",
     "services/cdn/mgmt/2017-10-12/cdn",
     "services/cognitiveservices/mgmt/2017-04-18/cognitiveservices",
     "services/compute/mgmt/2018-06-01/compute",
@@ -27,7 +33,7 @@
     "services/keyvault/mgmt/2018-02-14/keyvault",
     "services/logic/mgmt/2016-06-01/logic",
     "services/mysql/mgmt/2017-12-01/mysql",
-    "services/network/mgmt/2018-04-01/network",
+    "services/network/mgmt/2018-08-01/network",
     "services/notificationhubs/mgmt/2017-04-01/notificationhubs",
     "services/postgresql/mgmt/2017-12-01/postgresql",
     "services/preview/apimanagement/mgmt/2018-06-01-preview/apimanagement",
@@ -39,7 +45,7 @@
     "services/preview/msi/mgmt/2015-08-31-preview/msi",
     "services/preview/operationalinsights/mgmt/2015-11-01-preview/operationalinsights",
     "services/preview/operationsmanagement/mgmt/2015-11-01-preview/operationsmanagement",
-    "services/preview/resources/mgmt/2018-03-01-preview/management",
+    "services/preview/resources/mgmt/2018-03-01-preview/managementgroups",
     "services/preview/security/mgmt/2017-08-01-preview/security",
     "services/preview/signalr/mgmt/2018-03-01-preview/signalr",
     "services/preview/sql/mgmt/2015-05-01-preview/sql",
@@ -52,6 +58,7 @@
     "services/resources/mgmt/2016-06-01/subscriptions",
     "services/resources/mgmt/2016-09-01/locks",
     "services/resources/mgmt/2018-05-01/policy",
+    "services/resources/mgmt/2018-05-01/resources",
     "services/scheduler/mgmt/2016-03-01/scheduler",
     "services/search/mgmt/2015-08-19/search",
     "services/servicebus/mgmt/2017-04-01/servicebus",
@@ -62,8 +69,8 @@
     "storage",
     "version"
   ]
-  revision = "da91af54816b4cf72949c225a2d0980f51fab01b"
-  version = "v21.3.0"
+  revision = "1951233eb944a49aa5f7278cba8e3e32a8c958af"
+  version = "v24.0.0"
 
 [[projects]]
   branch = "master"
@@ -85,10 +92,10 @@
     "autorest/to",
     "autorest/validation",
     "logger",
-    "version"
+    "tracing"
   ]
-  revision = "a88c19ef2016e095f0b6c3b451074b4663f53bed"
-  version = "v10.15.4"
+  revision = "f401b1ccc8eb505927fae7a0c7f6406d37ca1c7e"
+  version = "v11.2.8"
 
 [[projects]]
   name = "github.com/Nvveen/Gotty"
@@ -99,8 +106,8 @@
 [[projects]]
   name = "github.com/Sirupsen/logrus"
   packages = ["."]
-  revision = "bcd833dfe83d3cebad139e4a29ed79cb2318bf95"
-  version = "v1.2.0"
+  revision = "e1e72e9de974bd926e5c56f83753fba2df402ce5"
+  version = "v1.3.0"
 
 [[projects]]
   name = "github.com/agext/levenshtein"
@@ -173,6 +180,18 @@
   revision = "2ee87856327ba09384cabd113bc6b5d174e9ec0f"
 
 [[projects]]
+  name = "github.com/census-instrumentation/opencensus-proto"
+  packages = [
+    "gen-go/agent/common/v1",
+    "gen-go/agent/metrics/v1",
+    "gen-go/agent/trace/v1",
+    "gen-go/metrics/v1",
+    "gen-go/resource/v1",
+    "gen-go/trace/v1"
+  ]
+  revision = "ba49f56771b83cff7bea7f34d1236fc139dbc471"
+
+[[projects]]
   branch = "master"
   name = "github.com/codahale/hdrhistogram"
   packages = ["."]
@@ -196,8 +215,8 @@
 [[projects]]
   name = "github.com/djherbis/times"
   packages = ["."]
-  revision = "faa5b9ca02e9fe5d12023adddc0afa603d489fa8"
-  version = "v1.1.0"
+  revision = "847c5208d8924cea0acea3376ff62aede93afe39"
+  version = "v1.2.0"
 
 [[projects]]
   name = "github.com/docker/docker"
@@ -255,14 +274,19 @@
 [[projects]]
   name = "github.com/golang/protobuf"
   packages = [
+    "jsonpb",
     "proto",
     "protoc-gen-go/descriptor",
+    "protoc-gen-go/generator",
+    "protoc-gen-go/generator/internal/remap",
+    "protoc-gen-go/plugin",
     "ptypes",
     "ptypes/any",
     "ptypes/duration",
     "ptypes/empty",
     "ptypes/struct",
-    "ptypes/timestamp"
+    "ptypes/timestamp",
+    "ptypes/wrappers"
   ]
   revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
   version = "v1.2.0"
@@ -271,6 +295,15 @@
   name = "github.com/google/uuid"
   packages = ["."]
   revision = "7e072fc3a7be179aee6d3359e46015aa8c995314"
+
+[[projects]]
+  name = "github.com/grpc-ecosystem/grpc-gateway"
+  packages = [
+    "runtime",
+    "runtime/internal",
+    "utilities"
+  ]
+  revision = "719aaadb1a4f7b11606d454e266fe5c5f789796f"
 
 [[projects]]
   branch = "master"
@@ -519,8 +552,8 @@
 [[projects]]
   name = "github.com/pkg/errors"
   packages = ["."]
-  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
-  version = "v0.8.0"
+  revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
+  version = "v0.8.1"
 
 [[projects]]
   name = "github.com/pmezard/go-difflib"
@@ -585,7 +618,7 @@
     "sdk/go/pulumi/config",
     "sdk/proto/go"
   ]
-  revision = "7e7544e27ed3008a0b6679ebd5a63ce60f1e9bef"
+  revision = "3cf81c0b4ccdd64fbc07cc8ec7cf5fbb74cd7194"
 
 [[projects]]
   branch = "master"
@@ -594,7 +627,7 @@
     "pkg/tfbridge",
     "pkg/tfgen"
   ]
-  revision = "2c187fb6f5e33adbc3c54c4dff4c86f7c9af7379"
+  revision = "9070bbff358bce84f8f8ba25297513256749db2d"
 
 [[projects]]
   branch = "master"
@@ -650,8 +683,8 @@
 [[projects]]
   name = "github.com/stretchr/testify"
   packages = ["assert"]
-  revision = "f35b8ab0b5a2cef36673838d662e249dd9c94686"
-  version = "v1.2.2"
+  revision = "ffdc059bfe9ce6a4e144ba849dbedead332c6053"
+  version = "v1.3.0"
 
 [[projects]]
   branch = "pulumi-master"
@@ -663,11 +696,12 @@
     "azurerm/helpers/response",
     "azurerm/helpers/set",
     "azurerm/helpers/suppress",
+    "azurerm/helpers/tf",
     "azurerm/helpers/validate",
     "azurerm/utils",
     "version"
   ]
-  revision = "46c31676fae134be16a90198c1ebce321a6cef97"
+  revision = "b99293920c20a79d215c263e026412e8599dc018"
   source = "github.com/pulumi/terraform-provider-azurerm"
 
 [[projects]]
@@ -731,6 +765,28 @@
   revision = "7166230c635fa24bbe613c5a53e75ad15c42c059"
 
 [[projects]]
+  name = "go.opencensus.io"
+  packages = [
+    ".",
+    "exemplar",
+    "internal",
+    "internal/tagencoding",
+    "plugin/ochttp",
+    "plugin/ochttp/propagation/b3",
+    "plugin/ochttp/propagation/tracecontext",
+    "resource",
+    "stats",
+    "stats/internal",
+    "stats/view",
+    "tag",
+    "trace",
+    "trace/internal",
+    "trace/propagation",
+    "trace/tracestate"
+  ]
+  revision = "950a67f393d867cfbe91414063b69e511f42fefb"
+
+[[projects]]
   name = "golang.org/x/crypto"
   packages = [
     "bcrypt",
@@ -774,12 +830,17 @@
   revision = "1c05540f6879653db88113bc4a2b70aec4bd491f"
 
 [[projects]]
+  name = "golang.org/x/sync"
+  packages = ["semaphore"]
+  revision = "37e7f081c4d4c64e13b10787722085407fe5d15f"
+
+[[projects]]
   name = "golang.org/x/sys"
   packages = [
     "unix",
     "windows"
   ]
-  revision = "314a259e304ff91bd6985da2a7149bbf91237993"
+  revision = "b4a75ba826a64a70990f11a225237acd6ef35c9f"
 
 [[projects]]
   name = "golang.org/x/text"
@@ -802,32 +863,56 @@
   revision = "1cbadb444a806fd9430d14ad08967ed91da4fa0a"
 
 [[projects]]
+  name = "google.golang.org/api"
+  packages = ["support/bundler"]
+  revision = "65a46cafb132eff435c7d1e0f439cc73c8eebb85"
+
+[[projects]]
   name = "google.golang.org/genproto"
-  packages = ["googleapis/rpc/status"]
-  revision = "1e559d0a00eef8a9a43151db4665280bd8dd5886"
+  packages = [
+    "googleapis/rpc/status",
+    "protobuf/field_mask"
+  ]
+  revision = "bd9b4fb69e2ffd37621a6caa54dcbead29b546f2"
 
 [[projects]]
   name = "google.golang.org/grpc"
   packages = [
     ".",
+    "balancer",
+    "balancer/base",
+    "balancer/roundrobin",
+    "binarylog/grpc_binarylog_v1",
     "codes",
     "connectivity",
     "credentials",
-    "grpclb/grpc_lb_v1",
+    "credentials/internal",
+    "encoding",
+    "encoding/proto",
     "grpclog",
     "internal",
+    "internal/backoff",
+    "internal/binarylog",
+    "internal/channelz",
+    "internal/envconfig",
+    "internal/grpcrand",
+    "internal/grpcsync",
+    "internal/syscall",
+    "internal/transport",
     "keepalive",
     "metadata",
     "naming",
     "peer",
     "reflection",
     "reflection/grpc_reflection_v1alpha",
+    "resolver",
+    "resolver/dns",
+    "resolver/passthrough",
     "stats",
     "status",
-    "tap",
-    "transport"
+    "tap"
   ]
-  revision = "7657092a1303cc5a6fa3fee988d57c665683a4da"
+  revision = "25de51fc024f642d9ac888257b1485939a1d4a14"
 
 [[projects]]
   name = "gopkg.in/AlecAivazis/survey.v1"
@@ -836,8 +921,8 @@
     "core",
     "terminal"
   ]
-  revision = "e205523512c83e9236698dbe7eb9649ec56e80ca"
-  version = "v1.7.1"
+  revision = "38cdfa1242b19e0eb8b6f33004bf8e89832b8743"
+  version = "v1.8.0"
 
 [[projects]]
   name = "gopkg.in/src-d/go-billy.v4"
@@ -912,6 +997,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "cf2c9e95d9fe36adac3d1e9d3b7f36c2a2ea1c185d56a2a60b7f134762814cad"
+  inputs-digest = "f1d99f19244c3cec9aa211e4156bffa80c7801cfc5b245fdba4f8c7586398adc"
   solver-name = "gps-cdcl"
   solver-version = 1
