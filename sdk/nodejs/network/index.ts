@@ -8,6 +8,7 @@ export * from "./expressRouteCircuit";
 export * from "./expressRouteCircuitAuthorization";
 export * from "./expressRouteCircuitPeering";
 export * from "./firewall";
+export * from "./firewallApplicationRuleCollection";
 export * from "./firewallNetworkRuleCollection";
 export * from "./getApplicationSecurityGroup";
 export * from "./getNetworkInterface";

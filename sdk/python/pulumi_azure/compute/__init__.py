@@ -21,3 +21,4 @@ from .get_shared_image import *
 from .get_shared_image_gallery import *
 from .get_shared_image_version import *
 from .get_snapshot import *
+from .get_virtual_machine import *
