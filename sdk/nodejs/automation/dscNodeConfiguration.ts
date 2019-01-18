@@ -6,6 +6,39 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation DSC Node Configuration.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_automation_account_example = new azure.automation.Account("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "account1",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: {
+ *         name: "Basic",
+ *     },
+ * });
+ * const azurerm_automation_dsc_configuration_example = new azure.automation.DscConfiguration("example", {
+ *     automationAccountName: azurerm_automation_account_example.name,
+ *     contentEmbedded: "configuration test {}",
+ *     location: azurerm_resource_group_example.location,
+ *     name: "test",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_automation_dsc_nodeconfiguration_example = new azure.automation.DscNodeConfiguration("example", {
+ *     automationAccountName: azurerm_automation_account_example.name,
+ *     contentEmbedded: "instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref\n{\n  ResourceID = \"[File]bla\";\n  Ensure = \"Present\";\n  Contents = \"bogus Content\";\n  DestinationPath = \"c:\\\\bogus.txt\";\n  ModuleName = \"PSDesiredStateConfiguration\";\n  SourceInfo = \"::3::9::file\";\n  ModuleVersion = \"1.0\";\n  ConfigurationName = \"bla\";\n};\ninstance of OMI_ConfigurationDocument\n{\n  Version=\"2.0.0\";\n  MinimumCompatibleVersion = \"1.0.0\";\n  CompatibleVersionAdditionalProperties= {\"Omi_BaseResource:ConfigurationName\"};\n  Author=\"bogusAuthor\";\n  GenerationDate=\"06/15/2018 14:06:24\";\n  GenerationHost=\"bogusComputer\";\n  Name=\"test\";\n};\n",
+ *     name: "test.localhost",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * }, {dependsOn: [azurerm_automation_dsc_configuration_example]});
+ * ```
  */
 export class DscNodeConfiguration extends pulumi.CustomResource {
     /**

@@ -6,6 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Logic App Workflow.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "East US",
+ *     name: "workflow-resources",
+ * });
+ * const azurerm_logic_app_workflow_test = new azure.logicapps.Workflow("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "workflow1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * ```
  */
 export class Workflow extends pulumi.CustomResource {
     /**

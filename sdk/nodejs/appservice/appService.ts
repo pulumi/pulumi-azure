@@ -8,6 +8,92 @@ import * as utilities from "../utilities";
  * Manages an App Service (within an App Service Plan).
  * 
  * -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
+ * 
+ * ## Example Usage (.net 4.x)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "some-resource-group",
+ * });
+ * const random_id_server = new random.RandomId("server", {
+ *     byteLength: 8,
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "some-app-service-plan",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "S1",
+ *         tier: "Standard",
+ *     },
+ * });
+ * const azurerm_app_service_test = new azure.appservice.AppService("test", {
+ *     appServicePlanId: azurerm_app_service_plan_test.id,
+ *     appSettings: {
+ *         SOME_KEY: "some-value",
+ *     },
+ *     connectionStrings: [{
+ *         name: "Database",
+ *         type: "SQLServer",
+ *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: random_id_server.hex,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     siteConfig: {
+ *         dotnetFrameworkVersion: "v4.0",
+ *         scmType: "LocalGit",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage (Java 1.8)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "some-resource-group",
+ * });
+ * const random_id_server = new random.RandomId("server", {
+ *     byteLength: 8,
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ * });
+ * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "some-app-service-plan",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         size: "S1",
+ *         tier: "Standard",
+ *     },
+ * });
+ * const azurerm_app_service_test = new azure.appservice.AppService("test", {
+ *     appServicePlanId: azurerm_app_service_plan_test.id,
+ *     location: azurerm_resource_group_test.location,
+ *     name: random_id_server.hex,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     siteConfig: {
+ *         javaContainer: "JETTY",
+ *         javaContainerVersion: "9.3",
+ *         javaVersion: "1.8",
+ *         scmType: "LocalGit",
+ *     },
+ * });
+ * ```
  */
 export class AppService extends pulumi.CustomResource {
     /**
@@ -67,6 +153,10 @@ export class AppService extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
     /**
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     */
+    public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
+    /**
      * The name of the resource group in which to create the App Service.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
@@ -110,6 +200,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
+            inputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
             inputs["siteCredential"] = state ? state.siteCredential : undefined;
@@ -140,6 +231,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["defaultSiteHostname"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
+            inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
             inputs["siteCredential"] = undefined /*out*/;
             inputs["sourceControl"] = undefined /*out*/;
         }
@@ -195,6 +287,10 @@ export interface AppServiceState {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     readonly outboundIpAddresses?: pulumi.Input<string>;
+    /**
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     */
+    readonly possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the App Service.
      */

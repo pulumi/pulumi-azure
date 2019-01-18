@@ -10,7 +10,7 @@ import (
 
 // Manages an EventGrid Topic
 // 
-// ~> **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
+// > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
 type EventGridTopic struct {
 	s *pulumi.ResourceState
 }

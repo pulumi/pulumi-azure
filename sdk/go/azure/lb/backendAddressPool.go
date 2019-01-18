@@ -10,7 +10,7 @@ import (
 
 // Manage a Load Balancer Backend Address Pool.
 // 
-// ~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+// > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type BackendAddressPool struct {
 	s *pulumi.ResourceState
 }
@@ -75,10 +75,12 @@ func (r *BackendAddressPool) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The Backend IP Configurations associated with this Backend Address Pool.
 func (r *BackendAddressPool) BackendIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["backendIpConfigurations"])
 }
 
+// The Load Balancing Rules associated with this Backend Address Pool.
 func (r *BackendAddressPool) LoadBalancingRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["loadBalancingRules"])
 }
@@ -104,7 +106,9 @@ func (r *BackendAddressPool) ResourceGroupName() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering BackendAddressPool resources.
 type BackendAddressPoolState struct {
+	// The Backend IP Configurations associated with this Backend Address Pool.
 	BackendIpConfigurations interface{}
+	// The Load Balancing Rules associated with this Backend Address Pool.
 	LoadBalancingRules interface{}
 	// The ID of the Load Balancer in which to create the Backend Address Pool.
 	LoadbalancerId interface{}

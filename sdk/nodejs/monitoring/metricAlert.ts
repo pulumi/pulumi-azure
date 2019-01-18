@@ -4,6 +4,57 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_main = new azure.core.ResourceGroup("main", {
+ *     location: "West US",
+ *     name: "example-resources",
+ * });
+ * const azurerm_monitor_action_group_main = new azure.monitoring.ActionGroup("main", {
+ *     name: "example-actiongroup",
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     shortName: "exampleact",
+ *     webhookReceivers: [{
+ *         name: "callmyapi",
+ *         serviceUri: "http://example.com/alert",
+ *     }],
+ * });
+ * const azurerm_storage_account_to_monitor = new azure.storage.Account("to_monitor", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_main.location,
+ *     name: "examplestorageaccount",
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ * });
+ * const azurerm_monitor_metric_alert_test = new azure.monitoring.MetricAlert("test", {
+ *     actions: [{
+ *         actionGroupId: azurerm_monitor_action_group_main.id,
+ *     }],
+ *     criterias: [{
+ *         aggregation: "Total",
+ *         dimensions: [{
+ *             name: "ApiName",
+ *             operator: "Include",
+ *             values: ["*"],
+ *         }],
+ *         metricName: "Transactions",
+ *         metricNamespace: "Microsoft.Storage/storageAccounts",
+ *         operator: "GreaterThan",
+ *         threshold: 50,
+ *     }],
+ *     description: "Action will be triggered when Transactions count is greater than 50.",
+ *     name: "example-metricalert",
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     scopes: azurerm_storage_account_to_monitor.id,
+ * });
+ * ```
+ */
 export class MetricAlert extends pulumi.CustomResource {
     /**
      * Get an existing MetricAlert resource's state with the given name, ID, and optional extra

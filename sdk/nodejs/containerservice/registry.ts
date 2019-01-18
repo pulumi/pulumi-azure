@@ -7,8 +7,63 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Container Registry.
  * 
- * ~> **Note:** All arguments including the access key will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the access key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ### Classic (unmanaged) Container Registry
+ * 
+ * When using the `Classic` SKU, you need to provide the Azure storage account.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "GRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "storageaccount1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_container_registry_test = new azure.containerservice.Registry("test", {
+ *     adminEnabled: true,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "containerRegistry1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Classic",
+ *     storageAccountId: azurerm_storage_account_test.id,
+ * });
+ * ```
+ * ### Managed Container Registry
+ * 
+ * When using a SKU other than `Classic`, Azure Container Registry manages the storage account for you.
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_rg = new azure.core.ResourceGroup("rg", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_container_registry_acr = new azure.containerservice.Registry("acr", {
+ *     adminEnabled: false,
+ *     georeplicationLocations: [
+ *         "East US",
+ *         "West Europe",
+ *     ],
+ *     location: azurerm_resource_group_rg.location,
+ *     name: "containerRegistry1",
+ *     resourceGroupName: azurerm_resource_group_rg.name,
+ *     sku: "Premium",
+ * });
+ * ```
  */
 export class Registry extends pulumi.CustomResource {
     /**

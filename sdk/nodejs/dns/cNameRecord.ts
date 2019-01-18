@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS CNAME Records within Azure DNS.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_dns_cname_record_test = new azure.dns.CNameRecord("test", {
+ *     name: "test",
+ *     record: "contoso.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     ttl: 300,
+ *     zoneName: azurerm_dns_zone_test.name,
+ * });
+ * ```
  */
 export class CNameRecord extends pulumi.CustomResource {
     /**

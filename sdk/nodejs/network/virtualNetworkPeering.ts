@@ -7,6 +7,100 @@ import * as utilities from "../utilities";
 /**
  * Manages a virtual network peering which allows resources to access other
  * resources in the linked virtual network.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "peeredvnets-rg",
+ * });
+ * const azurerm_virtual_network_test1 = new azure.network.VirtualNetwork("test1", {
+ *     addressSpaces: ["10.0.1.0/24"],
+ *     location: "West US",
+ *     name: "peternetwork1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_virtual_network_test2 = new azure.network.VirtualNetwork("test2", {
+ *     addressSpaces: ["10.0.2.0/24"],
+ *     location: "West US",
+ *     name: "peternetwork2",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_virtual_network_peering_test1 = new azure.network.VirtualNetworkPeering("test1", {
+ *     name: "peer1to2",
+ *     remoteVirtualNetworkId: azurerm_virtual_network_test2.id,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test1.name,
+ * });
+ * const azurerm_virtual_network_peering_test2 = new azure.network.VirtualNetworkPeering("test2", {
+ *     name: "peer2to1",
+ *     remoteVirtualNetworkId: azurerm_virtual_network_test1.id,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test2.name,
+ * });
+ * ```
+ * 
+ * ## Example Usage (Global virtual network peering)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const config = new pulumi.Config();
+ * const var_location = config.get("location") || [
+ *     "uksouth",
+ *     "southeastasia",
+ * ];
+ * const var_vnet_address_space = config.get("vnetAddressSpace") || [
+ *     "10.0.0.0/16",
+ *     "10.1.0.0/16",
+ * ];
+ * 
+ * const azurerm_resource_group_vnet: azure.core.ResourceGroup[] = [];
+ * for (let i = 0; i < var_location.length; i++) {
+ *     azurerm_resource_group_vnet.push(new azure.core.ResourceGroup(`vnet-${i}`, {
+ *         location: var_location[i],
+ *         name: `rg-global-vnet-peering-${i}`,
+ *     }));
+ * }
+ * const azurerm_virtual_network_vnet: azure.network.VirtualNetwork[] = [];
+ * for (let i = 0; i < var_location.length; i++) {
+ *     azurerm_virtual_network_vnet.push(new azure.network.VirtualNetwork(`vnet-${i}`, {
+ *         addressSpaces: [var_vnet_address_space[i]],
+ *         location: pulumi.all(azurerm_resource_group_vnet.map(v => v.location)).apply(__arg0 => __arg0.map(v => v)[i]),
+ *         name: `vnet-${i}`,
+ *         resourceGroupName: pulumi.all(azurerm_resource_group_vnet.map(v => v.name)).apply(__arg0 => __arg0.map(v => v)[i]),
+ *     }));
+ * }
+ * const azurerm_subnet_nva: azure.network.Subnet[] = [];
+ * for (let i = 0; i < var_location.length; i++) {
+ *     azurerm_subnet_nva.push(new azure.network.Subnet(`nva-${i}`, {
+ *         addressPrefix: pulumi.all(azurerm_virtual_network_vnet.map(v => v.addressSpaces)).apply(__arg0 => (() => {
+ *             throw "tf2pulumi error: NYI: call to cidrsubnet";
+ *             return (() => { throw "NYI: call to cidrsubnet"; })();
+ *         })()),
+ *         name: "nva",
+ *         resourceGroupName: pulumi.all(azurerm_resource_group_vnet.map(v => v.name)).apply(__arg0 => __arg0.map(v => v)[i]),
+ *         virtualNetworkName: pulumi.all(azurerm_virtual_network_vnet.map(v => v.name)).apply(__arg0 => __arg0.map(v => v)[i]),
+ *     }));
+ * }
+ * const azurerm_virtual_network_peering_peering: azure.network.VirtualNetworkPeering[] = [];
+ * for (let i = 0; i < var_location.length; i++) {
+ *     azurerm_virtual_network_peering_peering.push(new azure.network.VirtualNetworkPeering(`peering-${i}`, {
+ *         allowForwardedTraffic: true,
+ *         allowGatewayTransit: false,
+ *         allowVirtualNetworkAccess: true,
+ *         name: pulumi.all(azurerm_virtual_network_vnet.map(v => v.name)).apply(__arg0 => `peering-to-${__arg0.map(v => v)[(1 - i)]}`),
+ *         remoteVirtualNetworkId: pulumi.all(azurerm_virtual_network_vnet.map(v => v.id)).apply(__arg0 => __arg0.map(v => v)[(1 - i)]),
+ *         resourceGroupName: pulumi.all(azurerm_resource_group_vnet.map(v => v.name)).apply(__arg0 => __arg0.map(v => v)[i]),
+ *         virtualNetworkName: pulumi.all(azurerm_virtual_network_vnet.map(v => v.name)).apply(__arg0 => __arg0.map(v => v)[i]),
+ *     }));
+ * }
+ * ```
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**

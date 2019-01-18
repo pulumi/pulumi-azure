@@ -10,7 +10,7 @@ import (
 
 // Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
 // 
-// ~> **NOTE on Virtual Networks and Subnet's:** Terraform currently
+// > **NOTE on Virtual Networks and Subnet's:** Terraform currently
 // provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
 // At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
 type Subnet struct {
@@ -32,6 +32,7 @@ func NewSubnet(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["addressPrefix"] = nil
+		inputs["delegations"] = nil
 		inputs["ipConfigurations"] = nil
 		inputs["name"] = nil
 		inputs["networkSecurityGroupId"] = nil
@@ -41,6 +42,7 @@ func NewSubnet(ctx *pulumi.Context,
 		inputs["virtualNetworkName"] = nil
 	} else {
 		inputs["addressPrefix"] = args.AddressPrefix
+		inputs["delegations"] = args.Delegations
 		inputs["ipConfigurations"] = args.IpConfigurations
 		inputs["name"] = args.Name
 		inputs["networkSecurityGroupId"] = args.NetworkSecurityGroupId
@@ -63,6 +65,7 @@ func GetSubnet(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["addressPrefix"] = state.AddressPrefix
+		inputs["delegations"] = state.Delegations
 		inputs["ipConfigurations"] = state.IpConfigurations
 		inputs["name"] = state.Name
 		inputs["networkSecurityGroupId"] = state.NetworkSecurityGroupId
@@ -91,6 +94,11 @@ func (r *Subnet) ID() *pulumi.IDOutput {
 // The address prefix to use for the subnet.
 func (r *Subnet) AddressPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["addressPrefix"])
+}
+
+// One or more `delegation` blocks as defined below.
+func (r *Subnet) Delegations() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["delegations"])
 }
 
 // The collection of IP Configurations with IPs within this subnet.
@@ -132,6 +140,8 @@ func (r *Subnet) VirtualNetworkName() *pulumi.StringOutput {
 type SubnetState struct {
 	// The address prefix to use for the subnet.
 	AddressPrefix interface{}
+	// One or more `delegation` blocks as defined below.
+	Delegations interface{}
 	// The collection of IP Configurations with IPs within this subnet.
 	IpConfigurations interface{}
 	// The name of the subnet. Changing this forces a new resource to be created.
@@ -152,6 +162,8 @@ type SubnetState struct {
 type SubnetArgs struct {
 	// The address prefix to use for the subnet.
 	AddressPrefix interface{}
+	// One or more `delegation` blocks as defined below.
+	Delegations interface{}
 	// The collection of IP Configurations with IPs within this subnet.
 	IpConfigurations interface{}
 	// The name of the subnet. Changing this forces a new resource to be created.

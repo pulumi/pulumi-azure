@@ -6,6 +6,45 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a MariaDB Database within a MariaDB Server
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "westeurope",
+ *     name: "tfex-mariadb-database-RG",
+ * });
+ * const azurerm_mariadb_server_example = new azure.mariadb.Server("example", {
+ *     administratorLogin: "acctestun",
+ *     administratorLoginPassword: "H@Sh1CoR3!",
+ *     location: azurerm_resource_group_example.location,
+ *     name: "mariadb-svr",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "B_Gen5_2",
+ *         tier: "Basic",
+ *     },
+ *     sslEnforcement: "Enabled",
+ *     storageProfile: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *         storageMb: 51200,
+ *     },
+ *     version: "10.2",
+ * });
+ * const azurerm_mariadb_database_example = new azure.mariadb.Database("example", {
+ *     charset: "utf8",
+ *     collation: "utf8_general_ci",
+ *     name: "mariadb_database",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     serverName: azurerm_mariadb_server_example.name,
+ * });
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

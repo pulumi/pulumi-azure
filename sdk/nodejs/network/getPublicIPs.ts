@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about a set of existing Public IP Addresses.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_public_ips_test = pulumi.output(azure.network.getPublicIPs({
+ *     attached: false,
+ *     resourceGroupName: "pip-test",
+ * }));
+ * ```
  */
 export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> {
     return pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {

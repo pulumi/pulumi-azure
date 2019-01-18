@@ -6,6 +6,42 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Action Group within Azure Monitor.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "monitoring-resources",
+ * });
+ * const azurerm_monitor_action_group_test = new azure.monitoring.ActionGroup("test", {
+ *     emailReceivers: [
+ *         {
+ *             emailAddress: "admin@contoso.com",
+ *             name: "sendtoadmin",
+ *         },
+ *         {
+ *             emailAddress: "devops@contoso.com",
+ *             name: "sendtodevops",
+ *         },
+ *     ],
+ *     name: "CriticalAlertsAction",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     shortName: "p0action",
+ *     smsReceivers: [{
+ *         countryCode: "1",
+ *         name: "oncallmsg",
+ *         phoneNumber: "1231231234",
+ *     }],
+ *     webhookReceivers: [{
+ *         name: "callmyapiaswell",
+ *         serviceUri: "http://example.com/alert",
+ *     }],
+ * });
+ * ```
  */
 export class ActionGroup extends pulumi.CustomResource {
     /**

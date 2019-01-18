@@ -130,6 +130,7 @@ func (r *ProtectionPolicyVM) RetentionYearly() *pulumi.Output {
 	return r.s.State["retentionYearly"]
 }
 
+// A mapping of tags to assign to the resource.
 func (r *ProtectionPolicyVM) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -157,6 +158,7 @@ type ProtectionPolicyVMState struct {
 	RetentionWeekly interface{}
 	// Configures the policy yearly retention as documented in the `retention_yearly` block below.
 	RetentionYearly interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Specifies the timezone. Defaults to `UTC`
 	Timezone interface{}
@@ -180,6 +182,7 @@ type ProtectionPolicyVMArgs struct {
 	RetentionWeekly interface{}
 	// Configures the policy yearly retention as documented in the `retention_yearly` block below.
 	RetentionYearly interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Specifies the timezone. Defaults to `UTC`
 	Timezone interface{}

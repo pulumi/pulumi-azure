@@ -6,6 +6,41 @@ import * as utilities from "../utilities";
 
 /**
  * A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const random_id_server = new random.RandomId("server", {
+ *     byteLength: 8,
+ *     keepers: {
+ *         azi_id: 1,
+ *     },
+ * });
+ * const azurerm_cdn_profile_test = new azure.cdn.Profile("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "exampleCdnProfile",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard_Verizon",
+ * });
+ * const azurerm_cdn_endpoint_test = new azure.cdn.Endpoint("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: random_id_server.hex,
+ *     origins: [{
+ *         hostName: "www.example.com",
+ *         name: "exampleCdnOrigin",
+ *     }],
+ *     profileName: azurerm_cdn_profile_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

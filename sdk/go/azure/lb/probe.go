@@ -10,7 +10,7 @@ import (
 
 // Manages a LoadBalancer Probe Resource.
 // 
-// ~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+// > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 type Probe struct {
 	s *pulumi.ResourceState
 }

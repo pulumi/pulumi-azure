@@ -160,11 +160,12 @@ func (r *NetworkInterface) NetworkSecurityGroupId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["networkSecurityGroupId"])
 }
 
-// The private ip address of the network interface.
+// The first private IP address of the network interface.
 func (r *NetworkInterface) PrivateIpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["privateIpAddress"])
 }
 
+// The private IP addresses of the network interface.
 func (r *NetworkInterface) PrivateIpAddresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
 }
@@ -207,8 +208,9 @@ type NetworkInterfaceState struct {
 	Name interface{}
 	// The ID of the Network Security Group to associate with the network interface.
 	NetworkSecurityGroupId interface{}
-	// The private ip address of the network interface.
+	// The first private IP address of the network interface.
 	PrivateIpAddress interface{}
+	// The private IP addresses of the network interface.
 	PrivateIpAddresses interface{}
 	// The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

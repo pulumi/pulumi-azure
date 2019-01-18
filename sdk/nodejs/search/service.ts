@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure Search Service.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_search_service_test = new azure.search.Service("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acceptanceTestSearchService1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         database: "test",
+ *         environment: "staging",
+ *     },
+ * });
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

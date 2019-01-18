@@ -6,6 +6,37 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS SRV Records within Azure DNS.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_dns_srv_record_test = new azure.dns.SrvRecord("test", {
+ *     name: "test",
+ *     records: [{
+ *         port: 8080,
+ *         priority: 1,
+ *         target: "target1.contoso.com",
+ *         weight: 5,
+ *     }],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ *     ttl: 300,
+ *     zoneName: azurerm_dns_zone_test.name,
+ * });
+ * ```
  */
 export class SrvRecord extends pulumi.CustomResource {
     /**

@@ -21,6 +21,7 @@ func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManag
 		return nil, err
 	}
 	return &GetManagedDiskResult{
+		CreateOption: outputs["createOption"],
 		DiskSizeGb: outputs["diskSizeGb"],
 		OsType: outputs["osType"],
 		SourceResourceId: outputs["sourceResourceId"],
@@ -44,6 +45,7 @@ type GetManagedDiskArgs struct {
 
 // A collection of values returned by getManagedDisk.
 type GetManagedDiskResult struct {
+	CreateOption interface{}
 	// The size of the managed disk in gigabytes.
 	DiskSizeGb interface{}
 	// The operating system for managed disk. Valid values are `Linux` or `Windows`

@@ -3,6 +3,8 @@
 
 // Export members:
 export * from "./backendAddressPool";
+export * from "./getBackendAddressPool";
+export * from "./getLB";
 export * from "./loadBalancer";
 export * from "./natPool";
 export * from "./natRule";

@@ -6,6 +6,41 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ *     name: "tfex-servicebus",
+ * });
+ * const azurerm_servicebus_namespace_example = new azure.eventhub.Namespace("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfex_servicebus_namespace",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "terraform",
+ *     },
+ * });
+ * const azurerm_servicebus_topic_example = new azure.eventhub.Topic("example", {
+ *     name: "tfex_servicebus_topic",
+ *     namespaceName: azurerm_servicebus_namespace_example.name,
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_servicebus_topic_authorization_rule_example = new azure.eventhub.TopicAuthorizationRule("example", {
+ *     listen: true,
+ *     manage: false,
+ *     name: "tfex_servicebus_topic_sasPolicy",
+ *     namespaceName: azurerm_servicebus_namespace_example.name,
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     send: false,
+ *     topicName: azurerm_servicebus_topic_example.name,
+ * });
+ * ```
  */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**

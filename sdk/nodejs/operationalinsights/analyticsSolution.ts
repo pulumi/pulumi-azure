@@ -6,6 +6,42 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Log Analytics (formally Operational Insights) Solution.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "westeurope",
+ *     name: "k8s-log-analytics-test",
+ * });
+ * const random_id_workspace = new random.RandomId("workspace", {
+ *     byteLength: 8,
+ *     keepers: {
+ *         group_name: azurerm_resource_group_test.name,
+ *     },
+ * });
+ * const azurerm_log_analytics_workspace_test = new azure.operationalinsights.AnalyticsWorkspace("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: random_id_workspace.hex.apply(__arg0 => `k8s-workspace-${__arg0}`),
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "PerGB2018",
+ * });
+ * const azurerm_log_analytics_solution_test = new azure.operationalinsights.AnalyticsSolution("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     plan: {
+ *         product: "OMSGallery/ContainerInsights",
+ *         publisher: "Microsoft",
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     solutionName: "ContainerInsights",
+ *     workspaceName: azurerm_log_analytics_workspace_test.name,
+ *     workspaceResourceId: azurerm_log_analytics_workspace_test.id,
+ * });
+ * ```
  */
 export class AnalyticsSolution extends pulumi.CustomResource {
     /**

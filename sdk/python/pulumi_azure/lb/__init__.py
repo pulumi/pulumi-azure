@@ -9,3 +9,5 @@ from .nat_pool import *
 from .nat_rule import *
 from .probe import *
 from .rule import *
+from .get_lb import *
+from .get_backend_address_pool import *

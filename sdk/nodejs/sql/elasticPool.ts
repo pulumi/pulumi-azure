@@ -7,7 +7,40 @@ import * as utilities from "../utilities";
 /**
  * Allows you to manage an Azure SQL Elastic Pool.
  * 
- * ~> **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azurerm_mssql_elasticpool version instead.
+ * > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azurerm_mssql_elasticpool version instead.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "my-resource-group",
+ * });
+ * const azurerm_sql_server_test = new azure.sql.SqlServer("test", {
+ *     administratorLogin: "4dm1n157r470r",
+ *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "my-sql-server",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     version: "12.0",
+ * });
+ * const azurerm_sql_elasticpool_test = new azure.sql.ElasticPool("test", {
+ *     dbDtuMax: 5,
+ *     dbDtuMin: 0,
+ *     dtu: 50,
+ *     edition: "Basic",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test",
+ *     poolSize: 5000,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serverName: azurerm_sql_server_test.name,
+ * });
+ * ```
+ * > **NOTE on `azurerm_sql_elasticpool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
+ * 
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**

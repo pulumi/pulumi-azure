@@ -61,6 +61,10 @@ func GetMsiEndpoint(ctx *pulumi.Context) string {
 	return v
 }
 
+func GetPartnerId(ctx *pulumi.Context) string {
+	return config.Get(ctx, "azure:partnerId")
+}
+
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:skipCredentialsValidation")
 	if err == nil {

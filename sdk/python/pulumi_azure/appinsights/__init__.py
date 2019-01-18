@@ -4,3 +4,5 @@
 
 # Export this package's modules as members:
 from .insights import *
+from .api_key import *
+from .get_insights import *

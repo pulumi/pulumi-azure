@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * Manage a ServiceBus Topic.
  * 
  * **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "tfex-servicebus-topic",
+ * });
+ * const azurerm_servicebus_namespace_example = new azure.eventhub.Namespace("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfex_sevicebus_namespace",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "terraform",
+ *     },
+ * });
+ * const azurerm_servicebus_topic_example = new azure.eventhub.Topic("example", {
+ *     enablePartitioning: true,
+ *     name: "tfex_sevicebus_topic",
+ *     namespaceName: azurerm_servicebus_namespace_example.name,
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

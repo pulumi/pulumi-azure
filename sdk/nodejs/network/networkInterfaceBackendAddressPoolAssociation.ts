@@ -6,6 +6,65 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Static",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-pip",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_lb_test = new azure.lb.LoadBalancer("test", {
+ *     frontendIpConfigurations: [{
+ *         name: "primary",
+ *         publicIpAddressId: azurerm_public_ip_test.id,
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-lb",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_lb_backend_address_pool_test = new azure.lb.BackendAddressPool("test", {
+ *     loadbalancerId: azurerm_lb_test.id,
+ *     name: "acctestpool",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-network",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "internal",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     virtualNetworkName: azurerm_virtual_network_test.name,
+ * });
+ * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: azurerm_subnet_test.id,
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-nic",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_network_interface_backend_address_pool_association_test = new azure.network.NetworkInterfaceBackendAddressPoolAssociation("test", {
+ *     backendAddressPoolId: azurerm_lb_backend_address_pool_test.id,
+ *     ipConfigurationName: "testconfiguration1",
+ *     networkInterfaceId: azurerm_network_interface_test.id,
+ * });
+ * ```
  */
 export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.CustomResource {
     /**

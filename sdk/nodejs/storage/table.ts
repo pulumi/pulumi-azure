@@ -6,6 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Storage Table.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "westus",
+ *     name: "azuretest",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: "westus",
+ *     name: "azureteststorage1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_storage_table_test = new azure.storage.Table("test", {
+ *     name: "mysampletable",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountName: azurerm_storage_account_test.name,
+ * });
+ * ```
  */
 export class Table extends pulumi.CustomResource {
     /**

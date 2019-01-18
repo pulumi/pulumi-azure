@@ -7,7 +7,21 @@ import * as utilities from "../utilities";
 /**
  * Manages the subscription's Security Center Contact.
  * 
- * ~> **NOTE:** Owner access permission is required. 
+ * > **NOTE:** Owner access permission is required. 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_security_center_contact_example = new azure.securitycenter.Contact("example", {
+ *     alertNotifications: true,
+ *     alertsToAdmins: true,
+ *     email: "contact@example.com",
+ *     phone: "+1-555-555-5555",
+ * });
+ * ```
  */
 export class Contact extends pulumi.CustomResource {
     /**

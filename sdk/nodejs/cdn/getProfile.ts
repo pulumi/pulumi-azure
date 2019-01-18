@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing CDN Profile.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_cdn_profile_test = pulumi.output(azure.cdn.getProfile({
+ *     name: "myfirstcdnprofile",
+ *     resourceGroupName: "example-resources",
+ * }));
+ * 
+ * export const cdnProfileId = azurerm_cdn_profile_test.apply(__arg0 => __arg0.id);
+ * ```
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     return pulumi.runtime.invoke("azure:cdn/getProfile:getProfile", {

@@ -6,6 +6,46 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Firewall Rule for a MySQL Server
+ * 
+ * ## Example Usage (Single IP Address)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_mysql_server_test = new azure.mysql.Server("test", {});
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const azurerm_mysql_firewall_rule_test = new azure.mysql.FirewallRule("test", {
+ *     endIpAddress: "40.112.8.12",
+ *     name: "office",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serverName: azurerm_mysql_server_test.name,
+ *     startIpAddress: "40.112.8.12",
+ * });
+ * ```
+ * 
+ * ## Example Usage (IP Range)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_mysql_server_test = new azure.mysql.Server("test", {});
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const azurerm_mysql_firewall_rule_test = new azure.mysql.FirewallRule("test", {
+ *     endIpAddress: "40.112.255.255",
+ *     name: "office",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     serverName: azurerm_mysql_server_test.name,
+ *     startIpAddress: "40.112.0.0",
+ * });
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

@@ -152,6 +152,7 @@ func (r *Group) RestartPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["restartPolicy"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *Group) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -180,6 +181,7 @@ type GroupState struct {
 	ResourceGroupName interface{}
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
 	RestartPolicy interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
@@ -203,5 +205,6 @@ type GroupArgs struct {
 	ResourceGroupName interface{}
 	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
 	RestartPolicy interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

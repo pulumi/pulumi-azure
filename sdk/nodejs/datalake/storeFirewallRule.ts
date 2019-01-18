@@ -6,6 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Azure Data Lake Store Firewall Rule.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "northeurope",
+ *     name: "example",
+ * });
+ * const azurerm_data_lake_store_example = new azure.datalake.Store("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "consumptiondatalake",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_data_lake_store_firewall_rule_example = new azure.datalake.StoreFirewallRule("example", {
+ *     accountName: azurerm_data_lake_store_example.name,
+ *     endIpAddress: "2.3.4.5",
+ *     name: "office-ip-range",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     startIpAddress: "1.2.3.4",
+ * });
+ * ```
  */
 export class StoreFirewallRule extends pulumi.CustomResource {
     /**

@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a CDN Profile to create a collection of CDN Endpoints.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_cdn_profile_test = new azure.cdn.Profile("test", {
+ *     location: "West US",
+ *     name: "exampleCdnProfile",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard_Verizon",
+ *     tags: {
+ *         cost_center: "MSFT",
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class Profile extends pulumi.CustomResource {
     /**

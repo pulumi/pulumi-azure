@@ -6,6 +6,42 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "Australia East",
+ *     name: "notificationhub-resources",
+ * });
+ * const azurerm_notification_hub_namespace_test = new azure.notificationhub.Namespace("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "myappnamespace",
+ *     namespaceType: "NotificationHub",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "Free",
+ *     },
+ * });
+ * const azurerm_notification_hub_test = new azure.notificationhub.Hub("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "mynotificationhub",
+ *     namespaceName: azurerm_notification_hub_namespace_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_notification_hub_authorization_rule_test = new azure.notificationhub.AuthorizationRule("test", {
+ *     listen: true,
+ *     manage: true,
+ *     name: "management-auth-rule",
+ *     namespaceName: azurerm_notification_hub_namespace_test.name,
+ *     notificationHubName: azurerm_notification_hub_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     send: true,
+ * });
+ * ```
  */
 export class AuthorizationRule extends pulumi.CustomResource {
     /**

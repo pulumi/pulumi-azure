@@ -10,7 +10,7 @@ import (
 
 // Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
 // 
-// ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+// > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 type KubernetesCluster struct {
 	s *pulumi.ResourceState
 }
@@ -126,7 +126,7 @@ func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
 	return r.s.State["agentPoolProfile"]
 }
 
-// DNS prefix specified when creating the managed cluster.
+// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) DnsPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsPrefix"])
 }
@@ -212,7 +212,7 @@ type KubernetesClusterState struct {
 	AddonProfile interface{}
 	// One or more `agent_pool_profile` blocks as documented below.
 	AgentPoolProfile interface{}
-	// DNS prefix specified when creating the managed cluster.
+	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
@@ -252,7 +252,7 @@ type KubernetesClusterArgs struct {
 	AddonProfile interface{}
 	// One or more `agent_pool_profile` blocks as documented below.
 	AgentPoolProfile interface{}
-	// DNS prefix specified when creating the managed cluster.
+	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion interface{}

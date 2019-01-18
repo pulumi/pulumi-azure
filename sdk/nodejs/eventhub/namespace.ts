@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a ServiceBus Namespace.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "terraform-servicebus",
+ * });
+ * const azurerm_servicebus_namespace_example = new azure.eventhub.Namespace("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfex_sevicebus_namespace",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "terraform",
+ *     },
+ * });
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

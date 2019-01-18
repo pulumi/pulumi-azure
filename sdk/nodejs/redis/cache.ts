@@ -6,6 +6,109 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Redis Cache.
+ * 
+ * ## Example Usage (Basic)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "redis-resources",
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 0,
+ *     enableNonSslPort: false,
+ *     family: "C",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-redis-basic",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     skuName: "Basic",
+ * });
+ * ```
+ * 
+ * ## Example Usage (Standard)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "redis-resources",
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 2,
+ *     enableNonSslPort: false,
+ *     family: "C",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-redis-standard",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     skuName: "Standard",
+ * });
+ * ```
+ * 
+ * ## Example Usage (Premium with Clustering)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "redis-resources",
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 1,
+ *     enableNonSslPort: false,
+ *     family: "P",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-redis-premium",
+ *     redisConfiguration: {
+ *         maxmemoryDelta: 2,
+ *         maxmemoryPolicy: "allkeys-lru",
+ *         maxmemoryReserved: 2,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     shardCount: 3,
+ *     skuName: "Premium",
+ * });
+ * ```
+ * 
+ * ## Example Usage (Premium with Backup)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "redis-resources",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "GRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "redissa",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ *     capacity: 3,
+ *     enableNonSslPort: false,
+ *     family: "P",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "tf-redis-pbkup",
+ *     redisConfiguration: {
+ *         rdbBackupEnabled: true,
+ *         rdbBackupFrequency: 60,
+ *         rdbBackupMaxSnapshotCount: 1,
+ *         rdbStorageConnectionString: pulumi.all([azurerm_storage_account_test.primaryBlobEndpoint, azurerm_storage_account_test.name, azurerm_storage_account_test.primaryAccessKey]).apply(([__arg0, __arg1, __arg2]) => `DefaultEndpointsProtocol=https;BlobEndpoint=${__arg0};AccountName=${__arg1};AccountKey=${__arg2}`),
+ *     },
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     skuName: "Premium",
+ * });
+ * ```
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -90,7 +193,14 @@ export class Cache extends pulumi.CustomResource {
      * The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
      */
     public readonly subnetId: pulumi.Output<string | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
+    /**
+     * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+     */
+    public readonly zones: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -122,6 +232,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["sslPort"] = state ? state.sslPort : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
             if (!args || args.capacity === undefined) {
@@ -155,6 +266,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zones"] = args ? args.zones : undefined;
             inputs["hostname"] = undefined /*out*/;
             inputs["port"] = undefined /*out*/;
             inputs["primaryAccessKey"] = undefined /*out*/;
@@ -239,7 +351,14 @@ export interface CacheState {
      * The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+     */
+    readonly zones?: pulumi.Input<string>;
 }
 
 /**
@@ -296,5 +415,12 @@ export interface CacheArgs {
      * The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
      */
     readonly subnetId?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+     */
+    readonly zones?: pulumi.Input<string>;
 }

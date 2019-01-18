@@ -26,6 +26,7 @@ func LookupRegistry(ctx *pulumi.Context, args *GetRegistryArgs) (*GetRegistryRes
 		LoginServer: outputs["loginServer"],
 		Sku: outputs["sku"],
 		StorageAccountId: outputs["storageAccountId"],
+		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -54,6 +55,8 @@ type GetRegistryResult struct {
 	Sku interface{}
 	// The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.
 	StorageAccountId interface{}
+	// A map of tags assigned to the Container Registry.
+	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

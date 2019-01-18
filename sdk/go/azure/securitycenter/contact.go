@@ -10,7 +10,7 @@ import (
 
 // Manages the subscription's Security Center Contact.
 // 
-// ~> **NOTE:** Owner access permission is required. 
+// > **NOTE:** Owner access permission is required. 
 type Contact struct {
 	s *pulumi.ResourceState
 }

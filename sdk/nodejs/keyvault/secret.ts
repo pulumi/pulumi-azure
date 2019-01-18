@@ -7,8 +7,62 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault Secret.
  * 
- * ~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
+ * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * import sprintf = require("sprintf-js");
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "my-resource-group",
+ * });
+ * const azurerm_client_config_current = pulumi.output(azure.core.getClientConfig({}));
+ * const random_id_server = new random.RandomId("server", {
+ *     byteLength: 8,
+ *     keepers: {
+ *         ami_id: 1,
+ *     },
+ * });
+ * const azurerm_key_vault_test = new azure.keyvault.KeyVault("test", {
+ *     accessPolicies: [{
+ *         keyPermissions: [
+ *             "create",
+ *             "get",
+ *         ],
+ *         objectId: azurerm_client_config_current.apply(__arg0 => __arg0.servicePrincipalObjectId),
+ *         secretPermissions: [
+ *             "set",
+ *             "get",
+ *             "delete",
+ *         ],
+ *         tenantId: azurerm_client_config_current.apply(__arg0 => __arg0.tenantId),
+ *     }],
+ *     location: azurerm_resource_group_test.location,
+ *     name: random_id_server.hex.apply(__arg0 => sprintf.sprintf("%s%s", "kv", __arg0)),
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "premium",
+ *     },
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ *     tenantId: azurerm_client_config_current.apply(__arg0 => __arg0.tenantId),
+ * });
+ * const azurerm_key_vault_secret_test = new azure.keyvault.Secret("test", {
+ *     name: "secret-sauce",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ *     value: "szechuan",
+ *     vaultUri: azurerm_key_vault_test.vaultUri,
+ * });
+ * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

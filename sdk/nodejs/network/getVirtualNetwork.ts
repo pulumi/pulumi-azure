@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Network.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_virtual_network_test = pulumi.output(azure.network.getVirtualNetwork({
+ *     name: "production",
+ *     resourceGroupName: "networking",
+ * }));
+ * 
+ * export const virtualNetworkId = azurerm_virtual_network_test.apply(__arg0 => __arg0.id);
+ * ```
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
     return pulumi.runtime.invoke("azure:network/getVirtualNetwork:getVirtualNetwork", {

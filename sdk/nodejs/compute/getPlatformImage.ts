@@ -6,6 +6,22 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about a Platform Image.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_platform_image_test = pulumi.output(azure.compute.getPlatformImage({
+ *     location: "West Europe",
+ *     offer: "UbuntuServer",
+ *     publisher: "Canonical",
+ *     sku: "16.04-LTS",
+ * }));
+ * 
+ * export const version = azurerm_platform_image_test.apply(__arg0 => __arg0.version);
+ * ```
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
     return pulumi.runtime.invoke("azure:compute/getPlatformImage:getPlatformImage", {

@@ -78,10 +78,12 @@ func (r *DiagnosticSetting) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 func (r *DiagnosticSetting) EventhubAuthorizationRuleId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eventhubAuthorizationRuleId"])
 }
 
+// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 func (r *DiagnosticSetting) EventhubName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eventhubName"])
 }
@@ -118,7 +120,9 @@ func (r *DiagnosticSetting) TargetResourceId() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering DiagnosticSetting resources.
 type DiagnosticSettingState struct {
+	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	EventhubAuthorizationRuleId interface{}
+	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	EventhubName interface{}
 	// One or more `log` blocks as defined below.
 	Logs interface{}
@@ -136,7 +140,9 @@ type DiagnosticSettingState struct {
 
 // The set of arguments for constructing a DiagnosticSetting resource.
 type DiagnosticSettingArgs struct {
+	// Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
 	EventhubAuthorizationRuleId interface{}
+	// Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	EventhubName interface{}
 	// One or more `log` blocks as defined below.
 	Logs interface{}

@@ -6,6 +6,30 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Storage Queue.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "westus",
+ *     name: "acctestRG-%d",
+ * });
+ * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: "westus",
+ *     name: "acctestacc%s",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_storage_queue_test = new azure.storage.Queue("test", {
+ *     name: "mysamplequeue",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     storageAccountName: azurerm_storage_account_test.name,
+ * });
+ * ```
  */
 export class Queue extends pulumi.CustomResource {
     /**

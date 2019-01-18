@@ -6,6 +6,85 @@ import * as utilities from "../utilities";
 
 /**
  * Manage as an Azure Container Group instance.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_aci_rg = new azure.core.ResourceGroup("aci-rg", {
+ *     location: "west us",
+ *     name: "aci-test",
+ * });
+ * const azurerm_storage_account_aci_sa = new azure.storage.Account("aci-sa", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_aci_rg.location,
+ *     name: "acistorageacct",
+ *     resourceGroupName: azurerm_resource_group_aci_rg.name,
+ * });
+ * const azurerm_storage_share_aci_share = new azure.storage.Share("aci-share", {
+ *     name: "aci-test-share",
+ *     quota: 50,
+ *     resourceGroupName: azurerm_resource_group_aci_rg.name,
+ *     storageAccountName: azurerm_storage_account_aci_sa.name,
+ * });
+ * const azurerm_container_group_aci_helloworld = new azure.containerservice.Group("aci-helloworld", {
+ *     containers: [
+ *         {
+ *             commands: [
+ *                 "/bin/bash",
+ *                 "-c",
+ *                 "'/path to/myscript.sh'",
+ *             ],
+ *             cpu: Number.parseFloat("0.5"),
+ *             environmentVariables: {
+ *                 NODE_ENV: "testing",
+ *             },
+ *             image: "seanmckenna/aci-hellofiles",
+ *             memory: Number.parseFloat("1.5"),
+ *             name: "hw",
+ *             ports: [
+ *                 {
+ *                     port: 80,
+ *                     protocol: "TCP",
+ *                 },
+ *                 {
+ *                     port: 443,
+ *                     protocol: "TCP",
+ *                 },
+ *             ],
+ *             secureEnvironmentVariables: {
+ *                 ACCESS_KEY: "secure_testing",
+ *             },
+ *             volumes: [{
+ *                 mountPath: "/aci/logs",
+ *                 name: "logs",
+ *                 readOnly: false,
+ *                 shareName: azurerm_storage_share_aci_share.name,
+ *                 storageAccountKey: azurerm_storage_account_aci_sa.primaryAccessKey,
+ *                 storageAccountName: azurerm_storage_account_aci_sa.name,
+ *             }],
+ *         },
+ *         {
+ *             cpu: Number.parseFloat("0.5"),
+ *             image: "microsoft/aci-tutorial-sidecar",
+ *             memory: Number.parseFloat("1.5"),
+ *             name: "sidecar",
+ *         },
+ *     ],
+ *     dnsNameLabel: "aci-label",
+ *     ipAddressType: "public",
+ *     location: azurerm_resource_group_aci_rg.location,
+ *     name: "aci-hw",
+ *     osType: "Linux",
+ *     resourceGroupName: azurerm_resource_group_aci_rg.name,
+ *     tags: {
+ *         environment: "testing",
+ *     },
+ * });
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**
@@ -23,7 +102,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    public readonly containers: pulumi.Output<{ command: string, commands: string[], cpu: number, environmentVariables?: {[key: string]: any}, image: string, memory: number, name: string, port?: number, protocol?: string, secureEnvironmentVariables?: {[key: string]: any}, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
+    public readonly containers: pulumi.Output<{ command: string, commands: string[], cpu: number, environmentVariables?: {[key: string]: any}, image: string, memory: number, name: string, port: number, ports: { port: number, protocol: string }[], protocol: string, secureEnvironmentVariables?: {[key: string]: any}, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
     /**
      * The DNS label/name for the container groups IP.
      */
@@ -64,6 +143,9 @@ export class Group extends pulumi.CustomResource {
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
      */
     public readonly restartPolicy: pulumi.Output<string | undefined>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
 
     /**
@@ -128,7 +210,7 @@ export interface GroupState {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, protocol?: pulumi.Input<string>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
+    readonly containers?: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     /**
      * The DNS label/name for the container groups IP.
      */
@@ -169,6 +251,9 @@ export interface GroupState {
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
      */
     readonly restartPolicy?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
@@ -179,7 +264,7 @@ export interface GroupArgs {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    readonly containers: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, protocol?: pulumi.Input<string>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
+    readonly containers: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     /**
      * The DNS label/name for the container groups IP.
      */
@@ -212,5 +297,8 @@ export interface GroupArgs {
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
      */
     readonly restartPolicy?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

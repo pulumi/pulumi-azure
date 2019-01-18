@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Image.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_image_search = pulumi.output(azure.compute.getImage({
+ *     name: "search-api",
+ *     resourceGroupName: "packerimages",
+ * }));
+ * 
+ * export const imageId = azurerm_image_search.apply(__arg0 => __arg0.id);
+ * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
     return pulumi.runtime.invoke("azure:compute/getImage:getImage", {

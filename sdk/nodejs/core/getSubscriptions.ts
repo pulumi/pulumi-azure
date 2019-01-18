@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about all the Subscriptions currently available.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_subscriptions_available = pulumi.output(azure.core.getSubscriptions({}));
+ * 
+ * export const availableSubscriptions = azurerm_subscriptions_available.apply(__arg0 => __arg0.subscriptions);
+ * export const firstAvailableSubscriptionDisplayName = azurerm_subscriptions_available.apply(__arg0 => __arg0.subscriptions[0].displayName);
+ * ```
  */
 export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
     args = args || {};

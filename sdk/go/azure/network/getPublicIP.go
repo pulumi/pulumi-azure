@@ -14,18 +14,24 @@ func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPRes
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
+		inputs["zones"] = args.Zones
 	}
 	outputs, err := ctx.Invoke("azure:network/getPublicIP:getPublicIP", inputs)
 	if err != nil {
 		return nil, err
 	}
 	return &GetPublicIPResult{
+		AllocationMethod: outputs["allocationMethod"],
 		DomainNameLabel: outputs["domainNameLabel"],
 		Fqdn: outputs["fqdn"],
 		IdleTimeoutInMinutes: outputs["idleTimeoutInMinutes"],
 		IpAddress: outputs["ipAddress"],
 		IpVersion: outputs["ipVersion"],
+		Location: outputs["location"],
+		ReverseFqdn: outputs["reverseFqdn"],
+		Sku: outputs["sku"],
 		Tags: outputs["tags"],
+		Zones: outputs["zones"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -37,10 +43,12 @@ type GetPublicIPArgs struct {
 	// Specifies the name of the resource group.
 	ResourceGroupName interface{}
 	Tags interface{}
+	Zones interface{}
 }
 
 // A collection of values returned by getPublicIP.
 type GetPublicIPResult struct {
+	AllocationMethod interface{}
 	// The label for the Domain Name.
 	DomainNameLabel interface{}
 	// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
@@ -51,8 +59,12 @@ type GetPublicIPResult struct {
 	IpAddress interface{}
 	// The IP version being used, for example `IPv4` or `IPv6`.
 	IpVersion interface{}
+	Location interface{}
+	ReverseFqdn interface{}
+	Sku interface{}
 	// A mapping of tags to assigned to the resource.
 	Tags interface{}
+	Zones interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

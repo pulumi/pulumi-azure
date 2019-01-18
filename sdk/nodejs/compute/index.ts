@@ -12,6 +12,7 @@ export * from "./getSharedImage";
 export * from "./getSharedImageGallery";
 export * from "./getSharedImageVersion";
 export * from "./getSnapshot";
+export * from "./getVirtualMachine";
 export * from "./image";
 export * from "./managedDisk";
 export * from "./scaleSet";

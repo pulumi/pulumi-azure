@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Virtual Network Gateway.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_virtual_network_gateway_test = pulumi.output(azure.network.getVirtualNetworkGateway({
+ *     name: "production",
+ *     resourceGroupName: "networking",
+ * }));
+ * 
+ * export const virtualNetworkGatewayId = azurerm_virtual_network_gateway_test.apply(__arg0 => __arg0.id);
+ * ```
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
     return pulumi.runtime.invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", {

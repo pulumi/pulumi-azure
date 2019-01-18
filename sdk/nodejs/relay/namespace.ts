@@ -6,6 +6,29 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Relay Namespace.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_relay_namespace_test = new azure.relay.Namespace("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "example-relay",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         source: "terraform",
+ *     },
+ * });
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

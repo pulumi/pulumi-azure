@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Recovery Services Vault.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_recovery_services_vault_vault = pulumi.output(azure.recoveryservices.getVault({
+ *     name: "tfex-recovery_vault",
+ *     resourceGroupName: "tfex-resource_group",
+ * }));
+ * ```
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
     return pulumi.runtime.invoke("azure:recoveryservices/getVault:getVault", {

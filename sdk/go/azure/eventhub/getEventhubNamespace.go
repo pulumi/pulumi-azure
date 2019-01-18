@@ -25,6 +25,7 @@ func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs
 		DefaultPrimaryKey: outputs["defaultPrimaryKey"],
 		DefaultSecondaryConnectionString: outputs["defaultSecondaryConnectionString"],
 		DefaultSecondaryKey: outputs["defaultSecondaryKey"],
+		KafkaEnabled: outputs["kafkaEnabled"],
 		Location: outputs["location"],
 		MaximumThroughputUnits: outputs["maximumThroughputUnits"],
 		Sku: outputs["sku"],
@@ -57,6 +58,7 @@ type GetEventhubNamespaceResult struct {
 	DefaultSecondaryConnectionString interface{}
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey interface{}
+	KafkaEnabled interface{}
 	// The Azure location where the EventHub Namespace exists
 	Location interface{}
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled.

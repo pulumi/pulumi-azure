@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Notification Hub Namespace.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_notification_hub_namespace_test = pulumi.output(azure.notificationhub.getNamespace({
+ *     name: "my-namespace",
+ *     resourceGroupName: "my-resource-group",
+ * }));
+ * 
+ * export const servicebusEndpoint = azurerm_notification_hub_namespace_test.apply(__arg0 => __arg0.servicebusEndpoint);
+ * ```
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
     return pulumi.runtime.invoke("azure:notificationhub/getNamespace:getNamespace", {

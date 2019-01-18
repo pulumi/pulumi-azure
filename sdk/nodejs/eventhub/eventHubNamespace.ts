@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an EventHub Namespace.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_eventhub_namespace_test = new azure.eventhub.EventHubNamespace("test", {
+ *     capacity: 2,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acceptanceTestEventHubNamespace",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class EventHubNamespace extends pulumi.CustomResource {
     /**
@@ -46,6 +68,10 @@ export class EventHubNamespace extends pulumi.CustomResource {
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
     public /*out*/ readonly defaultSecondaryKey: pulumi.Output<string>;
+    /**
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+     */
+    public readonly kafkaEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -89,6 +115,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;
             inputs["defaultSecondaryConnectionString"] = state ? state.defaultSecondaryConnectionString : undefined;
             inputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
+            inputs["kafkaEnabled"] = state ? state.kafkaEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maximumThroughputUnits"] = state ? state.maximumThroughputUnits : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -108,6 +135,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             }
             inputs["autoInflateEnabled"] = args ? args.autoInflateEnabled : undefined;
             inputs["capacity"] = args ? args.capacity : undefined;
+            inputs["kafkaEnabled"] = args ? args.kafkaEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -154,6 +182,10 @@ export interface EventHubNamespaceState {
      */
     readonly defaultSecondaryKey?: pulumi.Input<string>;
     /**
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+     */
+    readonly kafkaEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -191,6 +223,10 @@ export interface EventHubNamespaceArgs {
      * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
      */
     readonly capacity?: pulumi.Input<number>;
+    /**
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+     */
+    readonly kafkaEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

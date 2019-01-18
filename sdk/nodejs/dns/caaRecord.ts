@@ -6,6 +6,53 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS CAA Records within Azure DNS.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_dns_caa_record_test = new azure.dns.CaaRecord("test", {
+ *     name: "test",
+ *     records: [
+ *         {
+ *             flags: 0,
+ *             tag: "issue",
+ *             value: "example.com",
+ *         },
+ *         {
+ *             flags: 0,
+ *             tag: "issue",
+ *             value: "example.net",
+ *         },
+ *         {
+ *             flags: 0,
+ *             tag: "issuewild",
+ *             value: ";",
+ *         },
+ *         {
+ *             flags: 0,
+ *             tag: "iodef",
+ *             value: "mailto:terraform@nonexisting.tld",
+ *         },
+ *     ],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ *     ttl: 300,
+ *     zoneName: azurerm_dns_zone_test.name,
+ * });
+ * ```
  */
 export class CaaRecord extends pulumi.CustomResource {
     /**

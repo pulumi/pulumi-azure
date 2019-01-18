@@ -7,9 +7,40 @@ import * as utilities from "../utilities";
 /**
  * Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
  * 
- * ~> **NOTE on Network Security Groups and Network Security Rules:** Terraform currently
+ * > **NOTE on Network Security Groups and Network Security Rules:** Terraform currently
  * provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
  * At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_network_security_group_test = new azure.network.NetworkSecurityGroup("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acceptanceTestSecurityGroup1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     securityRules: [{
+ *         access: "Allow",
+ *         destinationAddressPrefix: "*",
+ *         destinationPortRange: "*",
+ *         direction: "Inbound",
+ *         name: "test123",
+ *         priority: 100,
+ *         protocol: "Tcp",
+ *         sourceAddressPrefix: "*",
+ *         sourcePortRange: "*",
+ *     }],
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**

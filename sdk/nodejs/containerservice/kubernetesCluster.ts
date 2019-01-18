@@ -7,7 +7,44 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
  * 
- * ~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * This example provisions a basic Managed Kubernetes Cluster. Other examples of the `azurerm_kubernetes_cluster` resource can be found in [the `./examples/kubernetes` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/kubernetes)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "East US",
+ *     name: "acctestRG1",
+ * });
+ * const azurerm_kubernetes_cluster_test = new azure.containerservice.KubernetesCluster("test", {
+ *     agentPoolProfile: {
+ *         count: 1,
+ *         name: "default",
+ *         osDiskSizeGb: 30,
+ *         osType: "Linux",
+ *         vmSize: "Standard_D1_v2",
+ *     },
+ *     dnsPrefix: "acctestagent1",
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acctestaks1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     servicePrincipal: {
+ *         clientId: "00000000-0000-0000-0000-000000000000",
+ *         clientSecret: "00000000000000000000000000000000",
+ *     },
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * 
+ * export const clientCertificate = azurerm_kubernetes_cluster_test.kubeConfig.apply(__arg0 => __arg0.clientCertificate);
+ * export const kubeConfig = azurerm_kubernetes_cluster_test.kubeConfigRaw;
+ * ```
  */
 export class KubernetesCluster extends pulumi.CustomResource {
     /**
@@ -25,13 +62,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `addon_profile` block.
      */
-    public readonly addonProfile: pulumi.Output<{ httpApplicationRouting?: { enabled: boolean, httpApplicationRoutingZoneName: string }, omsAgent?: { enabled: boolean, logAnalyticsWorkspaceId: string } }>;
+    public readonly addonProfile: pulumi.Output<{ aciConnectorLinux?: { enabled: boolean, subnetName: string }, httpApplicationRouting?: { enabled: boolean, httpApplicationRoutingZoneName: string }, omsAgent?: { enabled: boolean, logAnalyticsWorkspaceId: string } }>;
     /**
      * One or more `agent_pool_profile` blocks as documented below.
      */
     public readonly agentPoolProfile: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb: number, osType?: string, vmSize: string, vnetSubnetId?: string }>;
     /**
-     * DNS prefix specified when creating the managed cluster.
+     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
     public readonly dnsPrefix: pulumi.Output<string>;
     /**
@@ -172,13 +209,13 @@ export interface KubernetesClusterState {
     /**
      * A `addon_profile` block.
      */
-    readonly addonProfile?: pulumi.Input<{ httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
+    readonly addonProfile?: pulumi.Input<{ aciConnectorLinux?: pulumi.Input<{ enabled: pulumi.Input<boolean>, subnetName: pulumi.Input<string> }>, httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
     /**
      * One or more `agent_pool_profile` blocks as documented below.
      */
     readonly agentPoolProfile?: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
     /**
-     * DNS prefix specified when creating the managed cluster.
+     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
     readonly dnsPrefix?: pulumi.Input<string>;
     /**
@@ -250,13 +287,13 @@ export interface KubernetesClusterArgs {
     /**
      * A `addon_profile` block.
      */
-    readonly addonProfile?: pulumi.Input<{ httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
+    readonly addonProfile?: pulumi.Input<{ aciConnectorLinux?: pulumi.Input<{ enabled: pulumi.Input<boolean>, subnetName: pulumi.Input<string> }>, httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
     /**
      * One or more `agent_pool_profile` blocks as documented below.
      */
     readonly agentPoolProfile: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
     /**
-     * DNS prefix specified when creating the managed cluster.
+     * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
     readonly dnsPrefix: pulumi.Input<string>;
     /**

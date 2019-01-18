@@ -6,6 +6,27 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Notification Hub Namespace.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "Australia East",
+ *     name: "notificationhub-resources",
+ * });
+ * const azurerm_notification_hub_namespace_test = new azure.notificationhub.Namespace("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "myappnamespace",
+ *     namespaceType: "NotificationHub",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         name: "Free",
+ *     },
+ * });
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

@@ -6,6 +6,35 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Service Fabric Cluster.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
+ * });
+ * const azurerm_service_fabric_cluster_test = new azure.servicefabric.Cluster("test", {
+ *     clusterCodeVersion: "6.3.176.9494",
+ *     location: azurerm_resource_group_test.location,
+ *     managementEndpoint: "https://example:80",
+ *     name: "example-servicefabric",
+ *     nodeTypes: [{
+ *         clientEndpointPort: 2020,
+ *         httpEndpointPort: 80,
+ *         instanceCount: 3,
+ *         isPrimary: true,
+ *         name: "first",
+ *     }],
+ *     reliabilityLevel: "Bronze",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     upgradeMode: "Manual",
+ *     vmImage: "Windows",
+ * });
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -24,6 +53,10 @@ export class Cluster extends pulumi.CustomResource {
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
     public readonly addOnFeatures: pulumi.Output<string[] | undefined>;
+    /**
+     * An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+     */
+    public readonly azureActiveDirectory: pulumi.Output<{ clientApplicationId: string, clusterApplicationId: string, tenantId: string } | undefined>;
     /**
      * A `certificate` block as defined below.
      */
@@ -63,7 +96,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * One or more `node_type` blocks as defined below.
      */
-    public readonly nodeTypes: pulumi.Output<{ applicationPorts: { endPort: number, startPort: number }, clientEndpointPort: number, durabilityLevel?: string, ephemeralPorts: { endPort: number, startPort: number }, httpEndpointPort: number, instanceCount: number, isPrimary: boolean, name: string }[]>;
+    public readonly nodeTypes: pulumi.Output<{ applicationPorts: { endPort: number, startPort: number }, clientEndpointPort: number, durabilityLevel?: string, ephemeralPorts: { endPort: number, startPort: number }, httpEndpointPort: number, instanceCount: number, isPrimary: boolean, name: string, reverseProxyEndpointPort?: number }[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
@@ -72,6 +105,10 @@ export class Cluster extends pulumi.CustomResource {
      * The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * A `reverse_proxy_certificate` block as defined below.
+     */
+    public readonly reverseProxyCertificate: pulumi.Output<{ thumbprint: string, thumbprintSecondary?: string, x509StoreName: string } | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -98,6 +135,7 @@ export class Cluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["addOnFeatures"] = state ? state.addOnFeatures : undefined;
+            inputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["clientCertificateThumbprints"] = state ? state.clientCertificateThumbprints : undefined;
             inputs["clusterCodeVersion"] = state ? state.clusterCodeVersion : undefined;
@@ -110,6 +148,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["nodeTypes"] = state ? state.nodeTypes : undefined;
             inputs["reliabilityLevel"] = state ? state.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["reverseProxyCertificate"] = state ? state.reverseProxyCertificate : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["upgradeMode"] = state ? state.upgradeMode : undefined;
             inputs["vmImage"] = state ? state.vmImage : undefined;
@@ -137,6 +176,7 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vmImage'");
             }
             inputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
+            inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
             inputs["certificate"] = args ? args.certificate : undefined;
             inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
             inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
@@ -148,6 +188,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["nodeTypes"] = args ? args.nodeTypes : undefined;
             inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
             inputs["vmImage"] = args ? args.vmImage : undefined;
@@ -165,6 +206,10 @@ export interface ClusterState {
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
     readonly addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+     */
+    readonly azureActiveDirectory?: pulumi.Input<{ clientApplicationId: pulumi.Input<string>, clusterApplicationId: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
     /**
      * A `certificate` block as defined below.
      */
@@ -204,7 +249,7 @@ export interface ClusterState {
     /**
      * One or more `node_type` blocks as defined below.
      */
-    readonly nodeTypes?: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string> }>[]>;
+    readonly nodeTypes?: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string>, reverseProxyEndpointPort?: pulumi.Input<number> }>[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
@@ -213,6 +258,10 @@ export interface ClusterState {
      * The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `reverse_proxy_certificate` block as defined below.
+     */
+    readonly reverseProxyCertificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -235,6 +284,10 @@ export interface ClusterArgs {
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
     readonly addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+     */
+    readonly azureActiveDirectory?: pulumi.Input<{ clientApplicationId: pulumi.Input<string>, clusterApplicationId: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
     /**
      * A `certificate` block as defined below.
      */
@@ -270,7 +323,7 @@ export interface ClusterArgs {
     /**
      * One or more `node_type` blocks as defined below.
      */
-    readonly nodeTypes: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string> }>[]>;
+    readonly nodeTypes: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string>, reverseProxyEndpointPort?: pulumi.Input<number> }>[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
@@ -279,6 +332,10 @@ export interface ClusterArgs {
      * The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `reverse_proxy_certificate` block as defined below.
+     */
+    readonly reverseProxyCertificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the resource.
      */

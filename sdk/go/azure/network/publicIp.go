@@ -19,14 +19,12 @@ func NewPublicIp(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
-	if args == nil || args.PublicIpAddressAllocation == nil {
-		return nil, errors.New("missing required argument 'PublicIpAddressAllocation'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["allocationMethod"] = nil
 		inputs["domainNameLabel"] = nil
 		inputs["idleTimeoutInMinutes"] = nil
 		inputs["ipVersion"] = nil
@@ -39,6 +37,7 @@ func NewPublicIp(ctx *pulumi.Context,
 		inputs["tags"] = nil
 		inputs["zones"] = nil
 	} else {
+		inputs["allocationMethod"] = args.AllocationMethod
 		inputs["domainNameLabel"] = args.DomainNameLabel
 		inputs["idleTimeoutInMinutes"] = args.IdleTimeoutInMinutes
 		inputs["ipVersion"] = args.IpVersion
@@ -66,6 +65,7 @@ func GetPublicIp(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *PublicIpState, opts ...pulumi.ResourceOpt) (*PublicIp, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["allocationMethod"] = state.AllocationMethod
 		inputs["domainNameLabel"] = state.DomainNameLabel
 		inputs["fqdn"] = state.Fqdn
 		inputs["idleTimeoutInMinutes"] = state.IdleTimeoutInMinutes
@@ -95,6 +95,11 @@ func (r *PublicIp) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *PublicIp) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+func (r *PublicIp) AllocationMethod() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["allocationMethod"])
 }
 
 // Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -133,7 +138,6 @@ func (r *PublicIp) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Defines whether the IP address is static or dynamic. Options are Static or Dynamic.
 func (r *PublicIp) PublicIpAddressAllocation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publicIpAddressAllocation"])
 }
@@ -166,6 +170,8 @@ func (r *PublicIp) Zones() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering PublicIp resources.
 type PublicIpState struct {
+	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+	AllocationMethod interface{}
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel interface{}
 	// Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone
@@ -181,7 +187,6 @@ type PublicIpState struct {
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
 	Name interface{}
-	// Defines whether the IP address is static or dynamic. Options are Static or Dynamic.
 	PublicIpAddressAllocation interface{}
 	// The name of the resource group in which to
 	// create the public ip.
@@ -198,6 +203,8 @@ type PublicIpState struct {
 
 // The set of arguments for constructing a PublicIp resource.
 type PublicIpArgs struct {
+	// Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
+	AllocationMethod interface{}
 	// Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
 	DomainNameLabel interface{}
 	// Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
@@ -209,7 +216,6 @@ type PublicIpArgs struct {
 	// Specifies the name of the Public IP resource . Changing this forces a
 	// new resource to be created.
 	Name interface{}
-	// Defines whether the IP address is static or dynamic. Options are Static or Dynamic.
 	PublicIpAddressAllocation interface{}
 	// The name of the resource group in which to
 	// create the public ip.

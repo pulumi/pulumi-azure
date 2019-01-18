@@ -134,6 +134,7 @@ func (r *Snapshot) StorageAccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *Snapshot) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -157,6 +158,7 @@ type SnapshotState struct {
 	SourceUri interface{}
 	// Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
 	StorageAccountId interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
@@ -179,5 +181,6 @@ type SnapshotArgs struct {
 	SourceUri interface{}
 	// Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
 	StorageAccountId interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

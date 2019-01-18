@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ *     name: "terraform-signalr",
+ * });
+ * const azurerm_signalr_service_example = new azure.signalr.Service("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfex-signalr",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Free_F1",
+ *     },
+ * });
+ * ```
+ */
 export class Service extends pulumi.CustomResource {
     /**
      * Get an existing Service resource's state with the given name, ID, and optional extra

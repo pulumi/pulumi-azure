@@ -6,6 +6,39 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS TXT Records within Azure DNS.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_dns_txt_record_test = new azure.dns.TxtRecord("test", {
+ *     name: "test",
+ *     records: [
+ *         {
+ *             value: "google-site-authenticator",
+ *         },
+ *         {
+ *             value: "more site information here",
+ *         },
+ *     ],
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ *     ttl: 300,
+ *     zoneName: azurerm_dns_zone_test.name,
+ * });
+ * ```
  */
 export class TxtRecord extends pulumi.CustomResource {
     /**

@@ -6,6 +6,32 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route Table
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const azurerm_route_table_test = new azure.network.RouteTable("test", {
+ *     disableBgpRoutePropagation: false,
+ *     location: azurerm_resource_group_test.location,
+ *     name: "acceptanceTestSecurityGroup1",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     routes: [{
+ *         addressPrefix: "10.1.0.0/16",
+ *         name: "route1",
+ *         nextHopType: "vnetlocal",
+ *     }],
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
  */
 export class RouteTable extends pulumi.CustomResource {
     /**

@@ -7,7 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Scheduler Job Collection.
  * 
- * ~> **NOTE:** Support for Scheduler Job Collections has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
+ * > **NOTE:** Support for Scheduler Job Collections has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_rg = new azure.core.ResourceGroup("rg", {
+ *     location: "West US",
+ *     name: "tfex-job_collection",
+ * });
+ * const azurerm_scheduler_job_collection_jobs = new azure.scheduler.JobCollection("jobs", {
+ *     location: azurerm_resource_group_rg.location,
+ *     name: "example_job_collection",
+ *     quota: {
+ *         maxJobCount: 5,
+ *         maxRecurrenceFrequency: "hour",
+ *         maxRecurrenceInterval: 24,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_rg.name,
+ *     sku: "free",
+ *     state: "enabled",
+ * });
+ * ```
  */
 export class JobCollection extends pulumi.CustomResource {
     /**
