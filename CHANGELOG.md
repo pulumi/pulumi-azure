@@ -1,4 +1,12 @@
-## 0.16.7 (unreleased)
+## 0.16.8 (unreleased)
+
+## 0.16.7 (Released January 19th, 2019)
+
+### Improvements
+
+- Updated to the v1.21.0 version of the AzurerM Terraform Provider.
+
+- Documentation comments for the Node.js SDK now include examples
 
 ## 0.16.6 (Released December 17th, 2018)
 
