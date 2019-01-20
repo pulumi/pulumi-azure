@@ -6,15 +6,6 @@
   name = "github.com/pulumi/pulumi-terraform"
   branch = "master"
 
-# DO NOT REMOVE THESE [pulumi/pulumi-terraform#229]
-# These versions are required by tfbridge - we must build against them even if the provider requests an older version.
-[[override]]
-  name = "github.com/mitchellh/copystructure"
-  revision = "d23ffcb85de31694d6ccaa23ccb4a03e55c1303f"
-[[override]]
-  name = "github.com/mitchellh/reflectwalk"
-  revision = "63d60e9d0dbc60cf9164e6510889b0db6683d98c"
-
 [[constraint]]
   branch = "pulumi-master"
   name = "github.com/terraform-providers/terraform-provider-azurerm"
@@ -22,8 +13,3 @@
 
   [constraint.metadata]
     govendor-override = true
-    govendor-exclude-prefixes = [
-      "github.com/mitchellh/copystructure",
-      "github.com/mitchellh/reflectwalk",
-      "github.com/golang/protobuf",
-    ]
