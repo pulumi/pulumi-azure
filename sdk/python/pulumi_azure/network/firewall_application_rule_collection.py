@@ -36,7 +36,6 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         """
         Manages an Application Rule Collection within an Azure Firewall.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.

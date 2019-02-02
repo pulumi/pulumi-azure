@@ -48,7 +48,6 @@ class SubscriptionRule(pulumi.CustomResource):
         """
         Manage a ServiceBus Subscription Rule.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.

@@ -9,47 +9,101 @@ from .. import utilities, tables
 
 class ApplicationGateway(pulumi.CustomResource):
     authentication_certificates: pulumi.Output[list]
+    """
+    One or more `authentication_certificate` blocks as defined below.
+    """
     backend_address_pools: pulumi.Output[list]
+    """
+    One or more `backend_address_pool` blocks as defined below.
+    """
     backend_http_settings: pulumi.Output[list]
+    """
+    One or more `backend_http_settings` blocks as defined below.
+    """
     disabled_ssl_protocols: pulumi.Output[list]
+    """
+    A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+    """
     frontend_ip_configurations: pulumi.Output[list]
+    """
+    One or more `frontend_ip_configuration` blocks as defined below.
+    """
     frontend_ports: pulumi.Output[list]
+    """
+    One or more `frontend_port` blocks as defined below.
+    """
     gateway_ip_configurations: pulumi.Output[list]
+    """
+    One or more `gateway_ip_configuration` blocks as defined below.
+    """
     http_listeners: pulumi.Output[list]
+    """
+    One or more `http_listener` blocks as defined below.
+    """
     location: pulumi.Output[str]
+    """
+    The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
+    """
     name: pulumi.Output[str]
+    """
+    The name of the Application Gateway. Changing this forces a new resource to be created.
+    """
     probes: pulumi.Output[list]
+    """
+    One or more `probe` blocks as defined below.
+    """
     request_routing_rules: pulumi.Output[list]
+    """
+    One or more `request_routing_rule` blocks as defined below.
+    """
     resource_group_name: pulumi.Output[str]
+    """
+    The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
+    """
     sku: pulumi.Output[dict]
+    """
+    A `sku` block as defined below.
+    """
     ssl_certificates: pulumi.Output[list]
+    """
+    A list of `ssl_certificate` blocks as defined below.
+    """
     tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     url_path_maps: pulumi.Output[list]
+    """
+    One or more `url_path_map` blocks as defined below.
+    """
     waf_configuration: pulumi.Output[dict]
+    """
+    A `waf_configuration` block as defined below.
+    """
     def __init__(__self__, __name__, __opts__=None, authentication_certificates=None, backend_address_pools=None, backend_http_settings=None, disabled_ssl_protocols=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, request_routing_rules=None, resource_group_name=None, sku=None, ssl_certificates=None, tags=None, url_path_maps=None, waf_configuration=None):
         """
-        Create a ApplicationGateway resource with the given unique name, props, and options.
+        Manages an Application Gateway.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
-        :param pulumi.Input[list] authentication_certificates
-        :param pulumi.Input[list] backend_address_pools
-        :param pulumi.Input[list] backend_http_settings
-        :param pulumi.Input[list] disabled_ssl_protocols
-        :param pulumi.Input[list] frontend_ip_configurations
-        :param pulumi.Input[list] frontend_ports
-        :param pulumi.Input[list] gateway_ip_configurations
-        :param pulumi.Input[list] http_listeners
-        :param pulumi.Input[str] location
-        :param pulumi.Input[str] name
-        :param pulumi.Input[list] probes
-        :param pulumi.Input[list] request_routing_rules
-        :param pulumi.Input[str] resource_group_name
-        :param pulumi.Input[dict] sku
-        :param pulumi.Input[list] ssl_certificates
-        :param pulumi.Input[dict] tags
-        :param pulumi.Input[list] url_path_maps
-        :param pulumi.Input[dict] waf_configuration
+        :param pulumi.Input[list] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param pulumi.Input[list] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
+        :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
+        :param pulumi.Input[list] disabled_ssl_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
+        :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
+        :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
+        :param pulumi.Input[list] http_listeners: One or more `http_listener` blocks as defined below.
+        :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] probes: One or more `probe` blocks as defined below.
+        :param pulumi.Input[list] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] sku: A `sku` block as defined below.
+        :param pulumi.Input[list] ssl_certificates: A list of `ssl_certificate` blocks as defined below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] url_path_maps: One or more `url_path_map` blocks as defined below.
+        :param pulumi.Input[dict] waf_configuration: A `waf_configuration` block as defined below.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')

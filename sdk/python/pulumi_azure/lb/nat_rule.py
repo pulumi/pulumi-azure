@@ -49,7 +49,6 @@ class NatRule(pulumi.CustomResource):
         
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.

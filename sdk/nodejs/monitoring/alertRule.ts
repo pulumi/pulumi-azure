@@ -6,6 +6,70 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a [metric-based alert rule](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) in Azure Monitor.
+ * 
+ * ## Example Usage (CPU Percentage of a virtual machine)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_metric_alertrule_test = new azure.monitoring.AlertRule("test", {
+ *     aggregation: "Average",
+ *     description: "An alert rule to watch the metric Percentage CPU",
+ *     emailAction: {
+ *         customEmails: ["some.user@example.com"],
+ *         sendToServiceOwners: false,
+ *     },
+ *     enabled: true,
+ *     location: azurerm_resource_group_test.location,
+ *     metricName: "Percentage CPU",
+ *     name: azurerm_virtual_machine_test.name.apply(__arg0 => `${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}-cpu`),
+ *     operator: "GreaterThan",
+ *     period: "PT5M",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceId: azurerm_virtual_machine_test.id,
+ *     threshold: 75,
+ *     webhookAction: {
+ *         properties: {
+ *             acceptance_test: "true",
+ *             severity: "incredible",
+ *         },
+ *         serviceUri: "https://example.com/some-url",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage (Storage usage of a SQL Database)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_metric_alertrule_test = new azure.monitoring.AlertRule("test", {
+ *     aggregation: "Maximum",
+ *     description: "An alert rule to watch the metric Storage",
+ *     emailAction: {
+ *         customEmails: ["some.user@example.com"],
+ *         sendToServiceOwners: false,
+ *     },
+ *     enabled: true,
+ *     location: azurerm_resource_group_test.location,
+ *     metricName: "storage",
+ *     name: azurerm_sql_database_test.name.apply(__arg0 => `${__arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode)}-storage`),
+ *     operator: "GreaterThan",
+ *     period: "PT10M",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceId: azurerm_sql_database_test.id,
+ *     threshold: 1073741824,
+ *     webhookAction: {
+ *         properties: {
+ *             acceptance_test: "true",
+ *             severity: "incredible",
+ *         },
+ *         serviceUri: "https://example.com/some-url",
+ *     },
+ * });
+ * ```
  */
 export class AlertRule extends pulumi.CustomResource {
     /**

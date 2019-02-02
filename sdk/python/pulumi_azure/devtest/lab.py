@@ -56,7 +56,6 @@ class Lab(pulumi.CustomResource):
         """
         Manages a Dev Test Lab.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.

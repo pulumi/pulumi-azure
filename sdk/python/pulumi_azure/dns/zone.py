@@ -48,7 +48,6 @@ class Zone(pulumi.CustomResource):
         """
         Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS Zone. Must be a valid domain name.

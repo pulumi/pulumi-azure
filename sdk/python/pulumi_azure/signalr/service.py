@@ -9,25 +9,52 @@ from .. import utilities, tables
 
 class Service(pulumi.CustomResource):
     hostname: pulumi.Output[str]
+    """
+    The FQDN of the SignalR service.
+    """
     ip_address: pulumi.Output[str]
+    """
+    The publicly accessible IP of the SignalR service.
+    """
     location: pulumi.Output[str]
+    """
+    Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
+    """
     name: pulumi.Output[str]
+    """
+    The name of the SignalR service. Changing this forces a new resource to be created.
+    """
     public_port: pulumi.Output[int]
+    """
+    The publicly accessible port of the SignalR service which is designed for browser/client use.
+    """
     resource_group_name: pulumi.Output[str]
+    """
+    The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
+    """
     server_port: pulumi.Output[int]
+    """
+    The publicly accessible port of the SignalR service which is designed for customer server side use.
+    """
     sku: pulumi.Output[dict]
+    """
+    A `sku` block as documented below.
+    """
     tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
         """
-        Create a Service resource with the given unique name, props, and options.
+        Manages an Azure SignalR service.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
-        :param pulumi.Input[str] location
-        :param pulumi.Input[str] name
-        :param pulumi.Input[str] resource_group_name
-        :param pulumi.Input[dict] sku
-        :param pulumi.Input[dict] tags
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the SignalR service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] sku: A `sku` block as documented below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')

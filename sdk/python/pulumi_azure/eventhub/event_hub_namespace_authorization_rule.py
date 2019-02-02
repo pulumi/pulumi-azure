@@ -53,7 +53,6 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Manages an Authorization Rule for an Event Hub Namespace.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.

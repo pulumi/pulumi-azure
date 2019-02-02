@@ -33,7 +33,6 @@ class FirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule for a PostgreSQL Server
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] end_ip_address: Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.

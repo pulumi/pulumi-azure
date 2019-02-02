@@ -40,6 +40,7 @@ import * as utilities from "../utilities";
  *     storageAccountId: azurerm_storage_account_test.id,
  * });
  * ```
+ * 
  * ### Managed Container Registry
  * 
  * When using a SKU other than `Classic`, Azure Container Registry manages the storage account for you.

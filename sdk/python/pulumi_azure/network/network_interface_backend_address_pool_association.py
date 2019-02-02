@@ -24,7 +24,6 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         """
         Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.

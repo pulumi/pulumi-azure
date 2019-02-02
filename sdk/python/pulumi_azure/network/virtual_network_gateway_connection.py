@@ -96,7 +96,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         Manages a connection in an existing Virtual Network Gateway.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorization key associated with the

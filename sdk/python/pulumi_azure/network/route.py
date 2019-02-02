@@ -36,7 +36,6 @@ class Route(pulumi.CustomResource):
         """
         Manages a Route within a Route Table.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies, such as `10.1.0.0/16`

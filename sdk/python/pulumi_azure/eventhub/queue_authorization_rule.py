@@ -56,7 +56,6 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.

@@ -36,7 +36,6 @@ class ActionHttp(pulumi.CustomResource):
         """
         Manages an HTTP Action within a Logic App Workflow
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] body: Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a policy set definition. 
  * 
- * -> **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
+ * > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
  * 
  * ## Example Usage
  * 
@@ -18,8 +18,28 @@ import * as utilities from "../utilities";
  * const azurerm_policy_set_definition_test = new azure.policy.PolicySetDefinition("test", {
  *     displayName: "Test Policy Set",
  *     name: "testPolicySet",
- *     parameters: "    {\n        \"allowedLocations\": {\n            \"type\": \"Array\",\n            \"metadata\": {\n                \"description\": \"The list of allowed locations for resources.\",\n                \"displayName\": \"Allowed locations\",\n                \"strongType\": \"location\"\n            }\n        }\n    }\n",
- *     policyDefinitions: "    [\n        {\n            \"parameters\": {\n                \"listOfAllowedLocations\": {\n                    \"value\": \"[parameters('allowedLocations')]\"\n                }\n            },\n            \"policyDefinitionId\": \"/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988\"\n        }\n    ]\n",
+ *     parameters: `    {
+ *         "allowedLocations": {
+ *             "type": "Array",
+ *             "metadata": {
+ *                 "description": "The list of allowed locations for resources.",
+ *                 "displayName": "Allowed locations",
+ *                 "strongType": "location"
+ *             }
+ *         }
+ *     }
+ * `,
+ *     policyDefinitions: `    [
+ *         {
+ *             "parameters": {
+ *                 "listOfAllowedLocations": {
+ *                     "value": "[parameters('allowedLocations')]"
+ *                 }
+ *             },
+ *             "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"
+ *         }
+ *     ]
+ * `,
  *     policyType: "Custom",
  * });
  * ```

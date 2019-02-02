@@ -56,7 +56,6 @@ class Namespace(pulumi.CustomResource):
         """
         Manage a ServiceBus Namespace.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] capacity: Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.

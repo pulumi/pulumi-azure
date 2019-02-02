@@ -6,6 +6,39 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Recovery Protected VM.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_recovery_services_protection_policy_vm_test = new azure.recoveryservices.ProtectionPolicyVM("test", {
+ *     backup: {
+ *         frequency: "Daily",
+ *         time: "23:00",
+ *     },
+ *     name: "tfex-recovery-vault-policy",
+ *     recoveryVaultName: azurerm_recovery_services_vault_test.name,
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ * });
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ *     name: "tfex-recovery_vault",
+ * });
+ * const azurerm_recovery_services_vault_example = new azure.recoveryservices.Vault("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfex-recovery-vault",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sku: "Standard",
+ * });
+ * const azurerm_recovery_services_protected_vm_example = new azure.recoveryservices.ProtectedVM("example", {
+ *     backupPolicyId: azurerm_recovery_services_protection_policy_vm_example.id,
+ *     recoveryVaultName: azurerm_recovery_services_vault_example.name,
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     sourceVmId: azurerm_virtual_machine_example.id,
+ * });
+ * ```
  */
 export class ProtectedVM extends pulumi.CustomResource {
     /**

@@ -44,7 +44,6 @@ class ActionGroup(pulumi.CustomResource):
         """
         Manages an Action Group within Azure Monitor.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] email_receivers: One or more `email_receiver` blocks as defined below.

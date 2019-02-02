@@ -25,7 +25,15 @@ import * as utilities from "../utilities";
  * const azurerm_logic_app_trigger_http_request_test = new azure.logicapps.TriggerHttpRequest("test", {
  *     logicAppId: azurerm_logic_app_workflow_test.id,
  *     name: "some-http-trigger",
- *     schema: "{\n    \"type\": \"object\",\n    \"properties\": {\n        \"hello\": {\n            \"type\": \"string\"\n        }\n    }\n}\n",
+ *     schema: `{
+ *     "type": "object",
+ *     "properties": {
+ *         "hello": {
+ *             "type": "string"
+ *         }
+ *     }
+ * }
+ * `,
  * });
  * ```
  */

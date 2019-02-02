@@ -44,7 +44,6 @@ class DiagnosticSetting(pulumi.CustomResource):
         """
         Manages a Diagnostic Setting for an existing Resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.

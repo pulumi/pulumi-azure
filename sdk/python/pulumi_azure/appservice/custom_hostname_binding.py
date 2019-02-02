@@ -24,7 +24,6 @@ class CustomHostnameBinding(pulumi.CustomResource):
         """
         Manages a Hostname Binding within an App Service.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] app_service_name: The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.

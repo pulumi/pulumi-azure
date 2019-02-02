@@ -28,7 +28,6 @@ class ConsumerGroup(pulumi.CustomResource):
         """
         Manages a Consumer Group within an IotHub
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] eventhub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.

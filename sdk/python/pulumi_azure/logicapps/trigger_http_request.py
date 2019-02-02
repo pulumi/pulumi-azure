@@ -32,7 +32,6 @@ class TriggerHttpRequest(pulumi.CustomResource):
         """
         Manages a HTTP Request Trigger within a Logic App Workflow
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.

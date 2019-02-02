@@ -6,6 +6,37 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Consumer Group within an IotHub
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "resourceGroup1",
+ * });
+ * const azurerm_iothub_test = new azure.iot.IoTHub("test", {
+ *     location: azurerm_resource_group_test.location,
+ *     name: "test",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     sku: {
+ *         capacity: Number.parseFloat("1"),
+ *         name: "S1",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         purpose: "testing",
+ *     },
+ * });
+ * const azurerm_iothub_consumer_group_test = new azure.iot.ConsumerGroup("test", {
+ *     eventhubEndpointName: "events",
+ *     iothubName: azurerm_iothub_test.name,
+ *     name: "terraform",
+ *     resourceGroupName: azurerm_resource_group_foo.name,
+ * });
+ * ```
  */
 export class ConsumerGroup extends pulumi.CustomResource {
     /**

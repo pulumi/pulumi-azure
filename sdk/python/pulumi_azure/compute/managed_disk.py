@@ -70,7 +70,6 @@ class ManagedDisk(pulumi.CustomResource):
         """
         Manage a managed disk.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Possible values include:

@@ -98,8 +98,8 @@ import * as utilities from "../utilities";
  *     targetResourceId: azurerm_virtual_machine_test.id,
  * }, {dependsOn: [azurerm_virtual_machine_extension_test]});
  * ```
- * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azurerm_virtual_machine_extension` resource.
  * 
+ * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azurerm_virtual_machine_extension` resource.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**

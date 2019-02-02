@@ -41,7 +41,6 @@ class EventHub(pulumi.CustomResource):
         """
         Manages a Event Hubs as a nested resource within a Event Hubs namespace.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] capture_description: A `capture_description` block as defined below.

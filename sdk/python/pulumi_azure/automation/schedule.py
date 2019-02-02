@@ -61,7 +61,6 @@ class Schedule(pulumi.CustomResource):
         """
         Manages a Automation Schedule.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] account_name

@@ -6,6 +6,47 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CosmosDB (formally DocumentDB) Account.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const azurerm_resource_group_rg = new azure.core.ResourceGroup("rg", {
+ *     location: var_resource_group_location,
+ *     name: var_resource_group_name,
+ * });
+ * const random_integer_ri = new random.RandomInteger("ri", {
+ *     max: 99999,
+ *     min: 10000,
+ * });
+ * const azurerm_cosmosdb_account_db = new azure.cosmosdb.Account("db", {
+ *     consistencyPolicy: {
+ *         consistencyLevel: "BoundedStaleness",
+ *         maxIntervalInSeconds: 10,
+ *         maxStalenessPrefix: 200,
+ *     },
+ *     enableAutomaticFailover: true,
+ *     geoLocations: [
+ *         {
+ *             failoverPriority: 1,
+ *             location: var_failover_location,
+ *         },
+ *         {
+ *             failoverPriority: 0,
+ *             location: azurerm_resource_group_rg.location,
+ *             prefix: random_integer_ri.result.apply(__arg0 => `tfex-cosmos-db-${__arg0}-customid`),
+ *         },
+ *     ],
+ *     kind: "GlobalDocumentDB",
+ *     location: azurerm_resource_group_rg.location,
+ *     name: random_integer_ri.result.apply(__arg0 => `tfex-cosmos-db-${__arg0}`),
+ *     offerType: "Standard",
+ *     resourceGroupName: azurerm_resource_group_rg.name,
+ * });
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

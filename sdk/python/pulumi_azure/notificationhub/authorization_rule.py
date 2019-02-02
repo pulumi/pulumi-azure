@@ -48,7 +48,6 @@ class AuthorizationRule(pulumi.CustomResource):
         """
         Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] listen: Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.

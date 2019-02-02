@@ -44,7 +44,6 @@ class LoadBalancer(pulumi.CustomResource):
         """
         Manage a Load Balancer Resource.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] frontend_ip_configurations: A `frontend_ip_configuration` block as documented below.

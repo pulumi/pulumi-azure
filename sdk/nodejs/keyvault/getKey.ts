@@ -9,6 +9,20 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_key_vault_key_test = pulumi.output(azure.keyvault.getKey({
+ *     name: "secret-sauce",
+ *     vaultUri: "https://rickslab.vault.azure.net/",
+ * }));
+ * 
+ * export const keyType = azurerm_key_vault_secret_test.keyType.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode));
+ * ```
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     return pulumi.runtime.invoke("azure:keyvault/getKey:getKey", {

@@ -48,7 +48,6 @@ class Certifiate(pulumi.CustomResource):
         """
         Manages a Key Vault Certificate.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below, used to Import an existing certificate.

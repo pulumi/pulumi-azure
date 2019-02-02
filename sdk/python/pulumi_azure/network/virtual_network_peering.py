@@ -59,6 +59,9 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         Manages a virtual network peering which allows resources to access other
         resources in the linked virtual network.
         
+        ## Note
+        
+        Virtual Network peerings cannot be created, updated or deleted concurrently.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

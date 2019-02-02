@@ -28,7 +28,6 @@ class ManagementGroup(pulumi.CustomResource):
         """
         Manages a Management Group.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.

@@ -56,7 +56,6 @@ class Server(pulumi.CustomResource):
         """
         Manage a PostgreSQL Server.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] administrator_login: The Administrator Login for the PostgreSQL Server. Changing this forces a new resource to be created.

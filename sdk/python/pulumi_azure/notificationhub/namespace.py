@@ -40,7 +40,6 @@ class Namespace(pulumi.CustomResource):
         """
         Manages a Notification Hub Namespace.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] enabled: Is this Notification Hub Namespace enabled? Defaults to `true`.

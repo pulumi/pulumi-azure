@@ -218,7 +218,6 @@ import * as utilities from "../utilities";
  *     vaultUri: azurerm_key_vault_test.vaultUri,
  * });
  * ```
- * 
  */
 export class Certifiate extends pulumi.CustomResource {
     /**

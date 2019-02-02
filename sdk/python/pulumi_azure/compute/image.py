@@ -43,7 +43,6 @@ class Image(pulumi.CustomResource):
         """
         Manage a custom virtual machine image that can be used to create virtual machines.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] data_disks: One or more `data_disk` elements as defined below.

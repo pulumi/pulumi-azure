@@ -35,7 +35,6 @@ class BackendAddressPool(pulumi.CustomResource):
         
         > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.

@@ -21,7 +21,8 @@ import * as utilities from "../utilities";
  *     scope: azurerm_subscription_current.apply(__arg0 => __arg0.id),
  * });
  * ```
- * ###  Example Usage (Resource Group Level Lock)
+ * 
+ * ## Example Usage (Resource Group Level Lock)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -64,7 +64,6 @@ class Blob(pulumi.CustomResource):
         """
         Manage an Azure Storage Blob.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] attempts: The number of attempts to make per page or block when uploading. Defaults to `1`.

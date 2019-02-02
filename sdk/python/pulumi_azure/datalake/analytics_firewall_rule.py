@@ -32,7 +32,6 @@ class AnalyticsFirewallRule(pulumi.CustomResource):
         """
         Manage a Azure Data Lake Analytics Firewall Rule.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.

@@ -138,7 +138,6 @@ class Account(pulumi.CustomResource):
         """
         Manage an Azure Storage Account.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.

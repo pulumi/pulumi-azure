@@ -88,7 +88,6 @@ class API(pulumi.CustomResource):
         """
         Manages an API Management Service.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] additional_location: One or more `additional_location` blocks as defined below.

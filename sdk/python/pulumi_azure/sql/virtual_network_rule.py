@@ -32,7 +32,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
         """
         Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.

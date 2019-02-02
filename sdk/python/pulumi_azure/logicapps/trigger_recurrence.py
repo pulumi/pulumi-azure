@@ -28,7 +28,6 @@ class TriggerRecurrence(pulumi.CustomResource):
         """
         Manages a Recurrence Trigger within a Logic App Workflow
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] frequency: Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.

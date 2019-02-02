@@ -32,7 +32,6 @@ class Assignment(pulumi.CustomResource):
         """
         Assigns a given Principal (User or Application) to a given Role.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.

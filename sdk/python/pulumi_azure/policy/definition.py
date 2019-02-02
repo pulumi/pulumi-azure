@@ -60,7 +60,6 @@ class Definition(pulumi.CustomResource):
         
         Policy definitions do not take effect until they are assigned to a scope using a Policy Assignment.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: The description of the policy definition.

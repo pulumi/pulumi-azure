@@ -52,7 +52,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.

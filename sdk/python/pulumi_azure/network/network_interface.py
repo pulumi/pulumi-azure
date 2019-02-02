@@ -73,7 +73,6 @@ class NetworkInterface(pulumi.CustomResource):
         """
         Manages a Network Interface located in a Virtual Network, usually attached to a Virtual Machine.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] applied_dns_servers: If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set

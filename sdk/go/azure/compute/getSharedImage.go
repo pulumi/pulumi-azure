@@ -9,7 +9,7 @@ import (
 
 // Use this data source to access information about an existing Shared Image within a Shared Image Gallery.
 // 
-// -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
+// > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
 func LookupSharedImage(ctx *pulumi.Context, args *GetSharedImageArgs) (*GetSharedImageResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

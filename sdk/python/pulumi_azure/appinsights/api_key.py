@@ -33,7 +33,6 @@ class ApiKey(pulumi.CustomResource):
         """
         Manages an Application Insights API key.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.

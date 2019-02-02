@@ -64,7 +64,6 @@ class Rule(pulumi.CustomResource):
         
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.

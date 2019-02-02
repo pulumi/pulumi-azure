@@ -48,7 +48,6 @@ class Controller(pulumi.CustomResource):
         """
         Manages a DevSpace Controller.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] host_suffix: The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.

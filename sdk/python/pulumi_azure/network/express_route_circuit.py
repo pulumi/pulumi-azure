@@ -56,7 +56,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         """
         Manages an ExpressRoute circuit.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.

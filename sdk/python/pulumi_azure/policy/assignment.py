@@ -45,7 +45,6 @@ class Assignment(pulumi.CustomResource):
         """
         Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: A description to use for this Policy Assignment. Changing this forces a new resource to be created.

@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a user assigned identity.
  * 
  * ## Example Usage
  * 
@@ -36,11 +37,32 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         return new UserAssignedIdentity(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Client ID associated with the user assigned identity.
+     */
     public /*out*/ readonly clientId: pulumi.Output<string>;
+    /**
+     * The location/region where the user assigned identity is
+     * created.
+     */
     public readonly location: pulumi.Output<string>;
+    /**
+     * The name of the user assigned identity. Changing this forces a
+     * new identity to be created.
+     */
     public readonly name: pulumi.Output<string>;
+    /**
+     * Service Principal ID associated with the user assigned identity.
+     */
     public /*out*/ readonly principalId: pulumi.Output<string>;
+    /**
+     * The name of the resource group in which to
+     * create the user assigned identity.
+     */
     public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
 
     /**
@@ -84,11 +106,32 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserAssignedIdentity resources.
  */
 export interface UserAssignedIdentityState {
+    /**
+     * Client ID associated with the user assigned identity.
+     */
     readonly clientId?: pulumi.Input<string>;
+    /**
+     * The location/region where the user assigned identity is
+     * created.
+     */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The name of the user assigned identity. Changing this forces a
+     * new identity to be created.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Service Principal ID associated with the user assigned identity.
+     */
     readonly principalId?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to
+     * create the user assigned identity.
+     */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
@@ -96,8 +139,23 @@ export interface UserAssignedIdentityState {
  * The set of arguments for constructing a UserAssignedIdentity resource.
  */
 export interface UserAssignedIdentityArgs {
+    /**
+     * The location/region where the user assigned identity is
+     * created.
+     */
     readonly location: pulumi.Input<string>;
+    /**
+     * The name of the user assigned identity. Changing this forces a
+     * new identity to be created.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to
+     * create the user assigned identity.
+     */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

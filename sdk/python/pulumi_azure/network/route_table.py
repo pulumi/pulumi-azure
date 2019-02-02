@@ -40,7 +40,6 @@ class RouteTable(pulumi.CustomResource):
         """
         Manages a Route Table
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.

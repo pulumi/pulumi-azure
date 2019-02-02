@@ -84,7 +84,6 @@ class FunctionApp(pulumi.CustomResource):
         """
         Manages a Function App.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.

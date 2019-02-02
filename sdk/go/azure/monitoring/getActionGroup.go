@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Use this data source to access the properties of an Action Group.
 func LookupActionGroup(ctx *pulumi.Context, args *GetActionGroupArgs) (*GetActionGroupResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -29,16 +30,23 @@ func LookupActionGroup(ctx *pulumi.Context, args *GetActionGroupArgs) (*GetActio
 
 // A collection of arguments for invoking getActionGroup.
 type GetActionGroupArgs struct {
+	// Specifies the name of the Action Group.
 	Name interface{}
+	// Specifies the name of the resource group the Action Group is located in.
 	ResourceGroupName interface{}
 }
 
 // A collection of values returned by getActionGroup.
 type GetActionGroupResult struct {
+	// One or more `email_receiver` blocks as defined below.
 	EmailReceivers interface{}
+	// Whether this action group is enabled.
 	Enabled interface{}
+	// The short name of the action group.
 	ShortName interface{}
+	// One or more `sms_receiver ` blocks as defined below.
 	SmsReceivers interface{}
+	// One or more `webhook_receiver ` blocks as defined below.
 	WebhookReceivers interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

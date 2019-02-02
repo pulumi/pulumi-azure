@@ -34,7 +34,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         """
         Manages an ExpressRoute Circuit Authorization.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the Express Route Circuit in which to create the Authorization.

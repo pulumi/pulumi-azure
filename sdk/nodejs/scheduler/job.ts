@@ -8,6 +8,150 @@ import * as utilities from "../utilities";
  * Manages a Scheduler Job.
  * 
  * > **NOTE:** Support for Scheduler Job has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
+ * 
+ * ## Example Usage (single web get now)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_scheduler_job_web_once_now = new azure.scheduler.Job("web-once-now", {
+ *     actionWeb: {
+ *         url: "http://this.url.fails",
+ *     },
+ *     jobCollectionName: azurerm_scheduler_job_collection_example.name,
+ *     name: "tfex-web-once-now",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     state: "enabled",
+ * });
+ * ```
+ * 
+ * ## Example Usage (recurring daily with retry and basic authentication)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_scheduler_job_web_recurring_daily = new azure.scheduler.Job("web-recurring-daily", {
+ *     actionWeb: {
+ *         authenticationBasic: {
+ *             password: "apassword",
+ *             username: "login",
+ *         },
+ *         body: "this is some text",
+ *         headers: {
+ *             "Content-Type": "text",
+ *         },
+ *         method: "put",
+ *         url: "https://this.url.fails",
+ *     },
+ *     jobCollectionName: azurerm_scheduler_job_collection_example.name,
+ *     name: "tfex-web-recurring-daily",
+ *     recurrence: {
+ *         count: 1000,
+ *         frequency: "day",
+ *         hours: [
+ *             0,
+ *             12,
+ *         ],
+ *         minutes: [
+ *             0,
+ *             15,
+ *             30,
+ *             45,
+ *         ],
+ *     },
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     retry: {
+ *         count: 10,
+ *         interval: "00:05:00",
+ *     },
+ *     startTime: "2018-07-07T07:07:07-07:00",
+ * });
+ * ```
+ * 
+ * ## Example Usage (recurring monthly with an error action and client certificate authentication)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
+ * 
+ * const azurerm_scheduler_job_web_recurring_daily = new azure.scheduler.Job("web-recurring-daily", {
+ *     actionWeb: {
+ *         authenticationCertificate: {
+ *             password: "cert_password",
+ *             pfx: Buffer.from(fs.readFileSync("your_cert.pfx", "utf-8")).toString("base64"),
+ *         },
+ *         url: "https://this.url.fails",
+ *     },
+ *     errorActionWeb: {
+ *         authenticationBasic: {
+ *             password: "apassword",
+ *             username: "login",
+ *         },
+ *         body: "The job failed",
+ *         headers: {
+ *             "Content-Type": "text",
+ *         },
+ *         method: "put",
+ *         url: "https://this.url.fails",
+ *     },
+ *     jobCollectionName: azurerm_scheduler_job_collection_example.name,
+ *     name: "tfex-web-recurring-daily",
+ *     recurrence: {
+ *         count: 1000,
+ *         frequency: "monthly",
+ *         monthlyOccurrences: [
+ *             {
+ *                 day: "Sunday",
+ *                 occurrence: 1,
+ *             },
+ *             {
+ *                 day: "Sunday",
+ *                 occurrence: 3,
+ *             },
+ *             {
+ *                 day: "Sunday",
+ *                 occurrence: -1,
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     startTime: "2018-07-07T07:07:07-07:00",
+ * });
+ * ```
+ * 
+ * ## Example Usage (storage queue action)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_storage_account_example = new azure.storage.Account("example", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfexstorageaccount",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_storage_queue_example = new azure.storage.Queue("example", {
+ *     name: "tfex-schedulerjob-storagequeue",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     storageAccountName: azurerm_storage_account_example.name,
+ * });
+ * const azurerm_scheduler_job_storage_once_now = new azure.scheduler.Job("storage-once-now", {
+ *     actionStorageQueue: {
+ *         message: "storage message",
+ *         sasToken: azurerm_storage_account_example.primaryAccessKey,
+ *         storageAccountName: azurerm_storage_account_example.name,
+ *         storageQueueName: azurerm_storage_queue_example.name,
+ *     },
+ *     jobCollectionName: azurerm_scheduler_job_collection_example.name,
+ *     name: "tfex-storage-once-now",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

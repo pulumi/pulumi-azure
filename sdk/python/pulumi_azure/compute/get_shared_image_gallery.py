@@ -44,7 +44,7 @@ async def get_shared_image_gallery(name=None, resource_group_name=None):
     """
     Use this data source to access information about an existing Shared Image Gallery.
     
-    -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
+    > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
     """
     __args__ = dict()
 

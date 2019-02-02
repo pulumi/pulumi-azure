@@ -65,7 +65,6 @@ class IoTHub(pulumi.CustomResource):
         """
         Manages an IotHub
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] endpoints: An `endpoint` block as defined below.

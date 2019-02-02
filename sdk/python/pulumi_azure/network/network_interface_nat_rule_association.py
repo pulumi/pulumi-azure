@@ -24,7 +24,6 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         """
         Manages the association between a Network Interface and a Load Balancer's NAT Rule.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.

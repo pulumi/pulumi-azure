@@ -34,7 +34,6 @@ class Share(pulumi.CustomResource):
         """
         Manage an Azure Storage File Share.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.

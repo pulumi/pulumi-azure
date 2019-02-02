@@ -54,6 +54,9 @@ class Profile(pulumi.CustomResource):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
         
+        ## Notes
+        
+        The Traffic Manager is created with the location `global`.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.

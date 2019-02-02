@@ -40,7 +40,6 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         Manages a Virtual Network within a Dev Test Lab.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] description: A description for the Virtual Network.

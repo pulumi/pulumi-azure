@@ -24,7 +24,6 @@ class TriggerCustom(pulumi.CustomResource):
         """
         Manages a Custom Trigger within a Logic App Workflow
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] body: Specifies the JSON Blob defining the Body of this Custom Trigger.

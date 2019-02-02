@@ -53,7 +53,6 @@ class Plan(pulumi.CustomResource):
         """
         Manage an App Service Plan component.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.

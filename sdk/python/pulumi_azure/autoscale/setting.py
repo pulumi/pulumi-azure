@@ -44,7 +44,6 @@ class Setting(pulumi.CustomResource):
         """
         Manages an AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.

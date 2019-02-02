@@ -66,7 +66,6 @@ class EventHubNamespace(pulumi.CustomResource):
         """
         Manage an EventHub Namespace.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?

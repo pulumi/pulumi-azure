@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_cosmosdb_account_test = pulumi.output(azure.cosmosdb.getAccount({
+ *     name: "tfex-cosmosdb-account",
+ *     resourceGroupName: "tfex-cosmosdb-account-rg",
+ * }));
+ * 
+ * export const cosmosdbAccountEndpoint = azurerm_cosmosdb_account_jobs.endpoint.apply(__arg0 => __arg0%!v(PANIC=interface conversion: il.Node is nil, not *il.ResourceNode));
+ * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     return pulumi.runtime.invoke("azure:cosmosdb/getAccount:getAccount", {

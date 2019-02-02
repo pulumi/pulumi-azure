@@ -49,7 +49,6 @@ class Snapshot(pulumi.CustomResource):
         """
         Manages a Disk Snapshot.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.

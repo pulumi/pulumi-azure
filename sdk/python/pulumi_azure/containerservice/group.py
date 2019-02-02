@@ -60,7 +60,6 @@ class Group(pulumi.CustomResource):
         """
         Manage as an Azure Container Group instance.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.

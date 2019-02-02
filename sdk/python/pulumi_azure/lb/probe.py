@@ -48,7 +48,6 @@ class Probe(pulumi.CustomResource):
         
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.

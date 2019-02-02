@@ -30,7 +30,6 @@ class Contact(pulumi.CustomResource):
         
         > **NOTE:** Owner access permission is required. 
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] alert_notifications: Whether to send security alerts notifications to the security contact.

@@ -85,7 +85,6 @@ class Endpoint(pulumi.CustomResource):
         """
         Manages a Traffic Manager Endpoint.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,

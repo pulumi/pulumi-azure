@@ -56,7 +56,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] listen: Grants listen access to this this Authorization Rule. Defaults to `false`.

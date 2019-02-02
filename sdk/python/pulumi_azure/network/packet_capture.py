@@ -48,7 +48,6 @@ class PacketCapture(pulumi.CustomResource):
         """
         Configures Packet Capturing against a Virtual Machine using a Network Watcher.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.

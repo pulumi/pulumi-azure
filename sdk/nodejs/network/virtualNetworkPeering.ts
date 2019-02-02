@@ -101,6 +101,10 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ * 
+ * ## Note
+ * 
+ * Virtual Network peerings cannot be created, updated or deleted concurrently.
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**

@@ -41,7 +41,6 @@ import * as utilities from "../utilities";
  *     storageConnectionString: azurerm_storage_account_test.primaryConnectionString,
  * });
  * ```
- * 
  * ## Example Usage (in a Consumption Plan)
  * 
  * ```typescript

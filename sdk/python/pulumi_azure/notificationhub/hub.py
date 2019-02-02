@@ -36,7 +36,6 @@ class Hub(pulumi.CustomResource):
         """
         Manages a Notification Hub within a Notification Hub Namespace.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] apns_credential: A `apns_credential` block as defined below.

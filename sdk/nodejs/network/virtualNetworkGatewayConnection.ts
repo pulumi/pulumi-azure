@@ -72,6 +72,7 @@ import * as utilities from "../utilities";
  *     virtualNetworkGatewayId: azurerm_virtual_network_gateway_test.id,
  * });
  * ```
+ * 
  * ### VNet-to-VNet connection
  * 
  * The following example shows a connection between two Azure virtual network

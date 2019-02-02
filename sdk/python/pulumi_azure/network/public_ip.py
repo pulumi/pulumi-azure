@@ -67,7 +67,6 @@ class PublicIp(pulumi.CustomResource):
         """
         Manage a Public IP Address.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.

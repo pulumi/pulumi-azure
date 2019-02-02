@@ -84,7 +84,6 @@ class Cluster(pulumi.CustomResource):
         """
         Manage a Service Fabric Cluster.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] add_on_features: A List of one or more features which should be enabled, such as `DnsService`.

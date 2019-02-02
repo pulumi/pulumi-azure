@@ -27,7 +27,6 @@ class StoreFile(pulumi.CustomResource):
         > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then 
         taint the resource so the `azurerm_data_lake_store_file` gets recreated with the new data.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Store for which the File should created.

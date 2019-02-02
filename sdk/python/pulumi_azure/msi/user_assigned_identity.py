@@ -9,21 +9,45 @@ from .. import utilities, tables
 
 class UserAssignedIdentity(pulumi.CustomResource):
     client_id: pulumi.Output[str]
+    """
+    Client ID associated with the user assigned identity.
+    """
     location: pulumi.Output[str]
+    """
+    The location/region where the user assigned identity is
+    created.
+    """
     name: pulumi.Output[str]
+    """
+    The name of the user assigned identity. Changing this forces a
+    new identity to be created.
+    """
     principal_id: pulumi.Output[str]
+    """
+    Service Principal ID associated with the user assigned identity.
+    """
     resource_group_name: pulumi.Output[str]
+    """
+    The name of the resource group in which to
+    create the user assigned identity.
+    """
     tags: pulumi.Output[dict]
+    """
+    A mapping of tags to assign to the resource.
+    """
     def __init__(__self__, __name__, __opts__=None, location=None, name=None, resource_group_name=None, tags=None):
         """
-        Create a UserAssignedIdentity resource with the given unique name, props, and options.
+        Manages a user assigned identity.
         
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
-        :param pulumi.Input[str] location
-        :param pulumi.Input[str] name
-        :param pulumi.Input[str] resource_group_name
-        :param pulumi.Input[dict] tags
+        :param pulumi.Input[str] location: The location/region where the user assigned identity is
+               created.
+        :param pulumi.Input[str] name: The name of the user assigned identity. Changing this forces a
+               new identity to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the user assigned identity.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if not __name__:
             raise TypeError('Missing resource name argument (for URN creation)')

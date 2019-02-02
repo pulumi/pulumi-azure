@@ -34,7 +34,6 @@ class Container(pulumi.CustomResource):
         """
         Manage an Azure Storage Container.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] container_access_type: The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.

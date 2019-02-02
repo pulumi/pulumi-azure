@@ -36,7 +36,6 @@ class Credential(pulumi.CustomResource):
         """
         Manages a Automation Credential.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.

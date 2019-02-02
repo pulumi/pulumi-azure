@@ -46,7 +46,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         Manages a local network gateway connection over which specific connections can be configured.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] address_spaces: The list of string CIDRs representing the

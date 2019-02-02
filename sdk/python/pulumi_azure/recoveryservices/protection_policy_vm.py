@@ -52,7 +52,6 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         """
         Manages an Recovery Services VM Protection Policy.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] backup: Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 

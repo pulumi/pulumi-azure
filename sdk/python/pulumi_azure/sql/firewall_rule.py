@@ -33,7 +33,6 @@ class FirewallRule(pulumi.CustomResource):
         """
         Allows you to manage an Azure SQL Firewall Rule
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The ending IP address to allow through the firewall for this rule.

@@ -101,7 +101,6 @@ class Account(pulumi.CustomResource):
         """
         Manages a CosmosDB (formally DocumentDB) Account.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[list] capabilities: Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.

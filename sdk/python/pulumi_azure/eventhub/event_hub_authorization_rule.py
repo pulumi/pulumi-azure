@@ -57,7 +57,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the EventHub. Changing this forces a new resource to be created.

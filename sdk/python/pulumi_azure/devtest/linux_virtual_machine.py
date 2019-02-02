@@ -88,7 +88,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         """
         Manages a Linux Virtual Machine within a Dev Test Lab.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.

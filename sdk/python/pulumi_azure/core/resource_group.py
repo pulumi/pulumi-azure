@@ -26,7 +26,6 @@ class ResourceGroup(pulumi.CustomResource):
         """
         Manages a resource group on Azure.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] location: The location where the resource group should be created.

@@ -19,8 +19,29 @@ import * as utilities from "../utilities";
  *     displayName: "acceptance test policy definition",
  *     mode: "Indexed",
  *     name: "accTestPolicy",
- *     parameters: "\t{\n    \"allowedLocations\": {\n      \"type\": \"Array\",\n      \"metadata\": {\n        \"description\": \"The list of allowed locations for resources.\",\n        \"displayName\": \"Allowed locations\",\n        \"strongType\": \"location\"\n      }\n    }\n  }\n",
- *     policyRule: "\t{\n    \"if\": {\n      \"not\": {\n        \"field\": \"location\",\n        \"in\": \"[parameters('allowedLocations')]\"\n      }\n    },\n    \"then\": {\n      \"effect\": \"audit\"\n    }\n  }\n",
+ *     parameters: `	{
+ *     "allowedLocations": {
+ *       "type": "Array",
+ *       "metadata": {
+ *         "description": "The list of allowed locations for resources.",
+ *         "displayName": "Allowed locations",
+ *         "strongType": "location"
+ *       }
+ *     }
+ *   }
+ * `,
+ *     policyRule: `	{
+ *     "if": {
+ *       "not": {
+ *         "field": "location",
+ *         "in": "[parameters('allowedLocations')]"
+ *       }
+ *     },
+ *     "then": {
+ *       "effect": "audit"
+ *     }
+ *   }
+ * `,
  *     policyType: "Custom",
  * });
  * ```

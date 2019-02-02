@@ -43,6 +43,10 @@ import * as utilities from "../utilities";
  *     trafficRoutingMethod: "Weighted",
  * });
  * ```
+ * 
+ * ## Notes
+ * 
+ * The Traffic Manager is created with the location `global`.
  */
 export class Profile extends pulumi.CustomResource {
     /**

@@ -88,7 +88,6 @@ class Topic(pulumi.CustomResource):
         
         **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: The ISO 8601 timespan duration of the idle interval after which the

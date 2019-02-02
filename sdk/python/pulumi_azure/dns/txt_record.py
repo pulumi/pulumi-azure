@@ -36,7 +36,6 @@ class TxtRecord(pulumi.CustomResource):
         """
         Enables you to manage DNS TXT Records within Azure DNS.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS TXT Record.

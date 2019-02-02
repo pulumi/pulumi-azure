@@ -6,6 +6,36 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Azure Data Lake Analytics Firewall Rule.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ *     location: "northeurope",
+ *     name: "tfex_datalake_fw_rule",
+ * });
+ * const azurerm_data_lake_store_example = new azure.datalake.Store("example", {
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfexdatalakestore",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_data_lake_analytics_account_example = new azure.datalake.AnalyticsAccount("example", {
+ *     defaultStoreAccountName: azurerm_data_lake_store_example.name,
+ *     location: azurerm_resource_group_example.location,
+ *     name: "tfexdatalakeaccount",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ * });
+ * const azurerm_data_lake_analytics_firewall_rule_example = new azure.datalake.AnalyticsFirewallRule("example", {
+ *     accountName: azurerm_data_lake_analytics_example.name,
+ *     endIpAddress: "2.3.4.5",
+ *     name: "office-ip-range",
+ *     resourceGroupName: azurerm_resource_group_example.name,
+ *     startIpAddress: "1.2.3.4",
+ * });
+ * ```
  */
 export class AnalyticsFirewallRule extends pulumi.CustomResource {
     /**

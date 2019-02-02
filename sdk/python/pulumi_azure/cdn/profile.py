@@ -34,7 +34,6 @@ class Profile(pulumi.CustomResource):
         """
         Manage a CDN Profile to create a collection of CDN Endpoints.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

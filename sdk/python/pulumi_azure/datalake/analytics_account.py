@@ -36,7 +36,6 @@ class AnalyticsAccount(pulumi.CustomResource):
         """
         Manage an Azure Data Lake Analytics Account.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] default_store_account_name: Specifies the data lake store to use by default. Changing this forces a new resource to be created.

@@ -9,7 +9,86 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
  * 
- * -> **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storage_data_disk` block in the `azurerm_virtual_machine` resource.
+ * > **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storage_data_disk` block in the `azurerm_virtual_machine` resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const config = new pulumi.Config();
+ * const var_prefix = config.get("prefix") || "example";
+ * 
+ * const local_vm_name = `${var_prefix}-vm`;
+ * const azurerm_resource_group_main = new azure.core.ResourceGroup("main", {
+ *     location: "West Europe",
+ *     name: `${var_prefix}-resources`,
+ * });
+ * const azurerm_managed_disk_test = new azure.compute.ManagedDisk("test", {
+ *     createOption: "Empty",
+ *     diskSizeGb: 10,
+ *     location: azurerm_resource_group_main.location,
+ *     name: `${local_vm_name}-disk1`,
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     storageAccountType: "Standard_LRS",
+ * });
+ * const azurerm_virtual_network_main = new azure.network.VirtualNetwork("main", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: azurerm_resource_group_main.location,
+ *     name: `${var_prefix}-network`,
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ * });
+ * const azurerm_subnet_internal = new azure.network.Subnet("internal", {
+ *     addressPrefix: "10.0.2.0/24",
+ *     name: "internal",
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     virtualNetworkName: azurerm_virtual_network_main.name,
+ * });
+ * const azurerm_network_interface_main = new azure.network.NetworkInterface("main", {
+ *     ipConfigurations: [{
+ *         name: "internal",
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: azurerm_subnet_internal.id,
+ *     }],
+ *     location: azurerm_resource_group_main.location,
+ *     name: `${var_prefix}-nic`,
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ * });
+ * const azurerm_virtual_machine_test = new azure.compute.VirtualMachine("test", {
+ *     location: azurerm_resource_group_main.location,
+ *     name: local_vm_name,
+ *     networkInterfaceIds: [azurerm_network_interface_main.id],
+ *     osProfile: {
+ *         adminPassword: "Password1234!",
+ *         adminUsername: "testadmin",
+ *         computerName: local_vm_name,
+ *     },
+ *     osProfileLinuxConfig: {
+ *         disablePasswordAuthentication: false,
+ *     },
+ *     resourceGroupName: azurerm_resource_group_main.name,
+ *     storageImageReference: {
+ *         offer: "UbuntuServer",
+ *         publisher: "Canonical",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ *     storageOsDisk: {
+ *         caching: "ReadWrite",
+ *         createOption: "FromImage",
+ *         managedDiskType: "Standard_LRS",
+ *         name: "myosdisk1",
+ *     },
+ *     vmSize: "Standard_F2",
+ * });
+ * const azurerm_virtual_machine_data_disk_attachment_test = new azure.compute.DataDiskAttachment("test", {
+ *     caching: "ReadWrite",
+ *     lun: Number.parseFloat("10"),
+ *     managedDiskId: azurerm_managed_disk_test.id,
+ *     virtualMachineId: azurerm_virtual_machine_windows.id,
+ * });
+ * ```
  */
 export class DataDiskAttachment extends pulumi.CustomResource {
     /**

@@ -32,7 +32,6 @@ class Firewall(pulumi.CustomResource):
         """
         Manages an Azure Firewall.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[dict] ip_configuration: A `ip_configuration` block as documented below.

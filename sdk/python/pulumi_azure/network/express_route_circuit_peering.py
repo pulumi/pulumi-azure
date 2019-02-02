@@ -61,7 +61,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         """
         Manages an ExpressRoute Circuit Peering.
         
-        
         :param str __name__: The name of the resource.
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering.
