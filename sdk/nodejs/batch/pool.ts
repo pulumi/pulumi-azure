@@ -38,7 +38,12 @@ import * as utilities from "../utilities";
  *     accountName: azurerm_batch_account_test.name,
  *     autoScale: {
  *         evaluationInterval: "PT15M",
- *         formula: "      startingNumberOfVMs = 1;\n      maxNumberofVMs = 25;\n      pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);\n      pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));\n      $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);\n",
+ *         formula: `      startingNumberOfVMs = 1;
+ *       maxNumberofVMs = 25;
+ *       pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+ *       pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
+ *       $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+ * `,
  *     },
  *     displayName: "Test Acc Pool Auto",
  *     name: "testaccpool",
