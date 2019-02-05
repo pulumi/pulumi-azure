@@ -23,7 +23,14 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_test.name,
  * });
  * const azurerm_logic_app_trigger_custom_test = new azure.logicapps.TriggerCustom("test", {
- *     body: "{\n  \"recurrence\": {\n    \"frequency\": \"Day\",\n    \"interval\": 1\n  },\n  \"type\": \"Recurrence\"\n}\n",
+ *     body: `{
+ *   "recurrence": {
+ *     "frequency": "Day",
+ *     "interval": 1
+ *   },
+ *   "type": "Recurrence"
+ * }
+ * `,
  *     logicAppId: azurerm_logic_app_workflow_test.id,
  *     name: "example-trigger",
  * });
