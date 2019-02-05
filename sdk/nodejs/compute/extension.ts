@@ -95,7 +95,10 @@ import * as utilities from "../utilities";
  *     name: "hostname",
  *     publisher: "Microsoft.Azure.Extensions",
  *     resourceGroupName: azurerm_resource_group_test.name,
- *     settings: "\t{\n\t\t\"commandToExecute\": \"hostname && uptime\"\n\t}\n",
+ *     settings: `	{
+ * 		"commandToExecute": "hostname && uptime"
+ * 	}
+ * `,
  *     tags: {
  *         environment: "Production",
  *     },

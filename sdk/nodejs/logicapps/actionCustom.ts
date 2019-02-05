@@ -23,7 +23,21 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_test.name,
  * });
  * const azurerm_logic_app_action_custom_test = new azure.logicapps.ActionCustom("test", {
- *     body: "{\n    \"description\": \"A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).\",\n    \"inputs\": {\n        \"variables\": [\n            {\n                \"name\": \"ExpirationAgeInDays\",\n                \"type\": \"Integer\",\n                \"value\": -30\n            }\n        ]\n    },\n    \"runAfter\": {},\n    \"type\": \"InitializeVariable\"\n}\n",
+ *     body: `{
+ *     "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
+ *     "inputs": {
+ *         "variables": [
+ *             {
+ *                 "name": "ExpirationAgeInDays",
+ *                 "type": "Integer",
+ *                 "value": -30
+ *             }
+ *         ]
+ *     },
+ *     "runAfter": {},
+ *     "type": "InitializeVariable"
+ * }
+ * `,
  *     logicAppId: azurerm_logic_app_workflow_test.id,
  *     name: "example-action",
  * });
