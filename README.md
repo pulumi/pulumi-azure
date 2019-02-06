@@ -41,4 +41,3 @@ including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault'
 
 For detailed reference documentation, please visit [the API docs](
 https://pulumi.io/reference/pkg/nodejs/@pulumi/azure/index.html).
-
