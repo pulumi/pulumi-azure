@@ -14,6 +14,7 @@ from .firewall_network_rule_collection import *
 from .local_network_gateway import *
 from .network_interface import *
 from .network_interface_application_gateway_backend_address_pool_association import *
+from .network_interface_application_security_group_association import *
 from .network_interface_backend_address_pool_association import *
 from .network_interface_nat_rule_association import *
 from .network_security_group import *

@@ -14,32 +14,31 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
- *     name: "k8s-log-analytics-test",
  * });
- * const random_id_workspace = new random.RandomId("workspace", {
+ * const workspace = new random.RandomId("workspace", {
  *     byteLength: 8,
  *     keepers: {
- *         group_name: azurerm_resource_group_test.name,
+ *         // Generate a new id each time we switch to a new resource group
+ *         group_name: testResourceGroup.name,
  *     },
  * });
- * const azurerm_log_analytics_workspace_test = new azure.operationalinsights.AnalyticsWorkspace("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: random_id_workspace.hex.apply(__arg0 => `k8s-workspace-${__arg0}`),
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const azurerm_log_analytics_solution_test = new azure.operationalinsights.AnalyticsSolution("test", {
- *     location: azurerm_resource_group_test.location,
+ * const testAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("test", {
+ *     location: testResourceGroup.location,
  *     plan: {
  *         product: "OMSGallery/ContainerInsights",
  *         publisher: "Microsoft",
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     solutionName: "ContainerInsights",
- *     workspaceName: azurerm_log_analytics_workspace_test.name,
- *     workspaceResourceId: azurerm_log_analytics_workspace_test.id,
+ *     workspaceName: testAnalyticsWorkspace.name,
+ *     workspaceResourceId: testAnalyticsWorkspace.id,
  * });
  * ```
  */

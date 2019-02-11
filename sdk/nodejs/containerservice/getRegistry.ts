@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_container_registry_test = pulumi.output(azure.containerservice.getRegistry({
+ * const test = pulumi.output(azure.containerservice.getRegistry({
  *     name: "testacr",
  *     resourceGroupName: "test",
  * }));
  * 
- * export const loginServer = azurerm_container_registry_test.apply(__arg0 => __arg0.loginServer);
+ * export const loginServer = test.apply(test => test.loginServer);
  * ```
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {

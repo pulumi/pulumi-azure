@@ -13,31 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_test.location,
- *     name: "acceptanceTestVirtualNetwork1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "testsubnet",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: azurerm_subnet_test.id,
+ *         subnetId: testSubnet.id,
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: "acceptanceTestNetworkInterface1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -32,17 +33,16 @@ class DataDiskAttachment(pulumi.CustomResource):
     """
     Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
     """
-    def __init__(__self__, __name__, __opts__=None, caching=None, create_option=None, lun=None, managed_disk_id=None, virtual_machine_id=None, write_accelerator_enabled=None):
+    def __init__(__self__, resource_name, opts=None, caching=None, create_option=None, lun=None, managed_disk_id=None, virtual_machine_id=None, write_accelerator_enabled=None, __name__=None, __opts__=None):
         """
         Manages attaching a Disk to a Virtual Machine.
         
         > **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
         
-        -> **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storage_data_disk` block in the `azurerm_virtual_machine` resource.
+        > **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storage_data_disk` block in the `azurerm_virtual_machine` resource.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] caching: Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] create_option: The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
@@ -50,30 +50,36 @@ class DataDiskAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not caching:
+        if caching is None:
             raise TypeError('Missing required property caching')
         __props__['caching'] = caching
 
         __props__['create_option'] = create_option
 
-        if not lun:
+        if lun is None:
             raise TypeError('Missing required property lun')
         __props__['lun'] = lun
 
-        if not managed_disk_id:
+        if managed_disk_id is None:
             raise TypeError('Missing required property managed_disk_id')
         __props__['managed_disk_id'] = managed_disk_id
 
-        if not virtual_machine_id:
+        if virtual_machine_id is None:
             raise TypeError('Missing required property virtual_machine_id')
         __props__['virtual_machine_id'] = virtual_machine_id
 
@@ -81,9 +87,9 @@ class DataDiskAttachment(pulumi.CustomResource):
 
         super(DataDiskAttachment, __self__).__init__(
             'azure:compute/dataDiskAttachment:DataDiskAttachment',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

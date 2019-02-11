@@ -14,6 +14,7 @@ import (
 func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
+		inputs["keyVaultId"] = args.KeyVaultId
 		inputs["name"] = args.Name
 		inputs["vaultUri"] = args.VaultUri
 	}
@@ -23,8 +24,10 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 	}
 	return &GetSecretResult{
 		ContentType: outputs["contentType"],
+		KeyVaultId: outputs["keyVaultId"],
 		Tags: outputs["tags"],
 		Value: outputs["value"],
+		VaultUri: outputs["vaultUri"],
 		Version: outputs["version"],
 		Id: outputs["id"],
 	}, nil
@@ -32,9 +35,10 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 
 // A collection of arguments for invoking getSecret.
 type GetSecretArgs struct {
+	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Secret.
 	Name interface{}
-	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` Data Source / Resource.
+	// Specifies the ID of the Key Vault Key Vault instance where the Secret resides, available on the `azurerm_key_vault` Data Source / Resource.
 	VaultUri interface{}
 }
 
@@ -42,10 +46,12 @@ type GetSecretArgs struct {
 type GetSecretResult struct {
 	// The content type for the Key Vault Secret.
 	ContentType interface{}
+	KeyVaultId interface{}
 	// Any tags assigned to this resource.
 	Tags interface{}
 	// The value of the Key Vault Secret.
 	Value interface{}
+	VaultUri interface{}
 	// The current version of the Key Vault Secret.
 	Version interface{}
 	// id is the provider-assigned unique ID for this managed resource.

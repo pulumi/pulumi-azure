@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -23,6 +24,10 @@ class Pool(pulumi.CustomResource):
     fixed_scale: pulumi.Output[dict]
     """
     A `fixed_scale` block that describes the scale settings when using fixed scale.
+    """
+    max_tasks_per_node: pulumi.Output[int]
+    """
+    Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
     """
     name: pulumi.Output[str]
     """
@@ -49,17 +54,17 @@ class Pool(pulumi.CustomResource):
     """
     Specifies the size of the VM created in the Batch pool.
     """
-    def __init__(__self__, __name__, __opts__=None, account_name=None, auto_scale=None, display_name=None, fixed_scale=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, auto_scale=None, display_name=None, fixed_scale=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None, __name__=None, __opts__=None):
         """
         Manages an Azure Batch pool.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input[dict] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
+        :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the Sku of the node agents that will be created in the Batch pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
@@ -68,16 +73,22 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not account_name:
+        if account_name is None:
             raise TypeError('Missing required property account_name')
         __props__['account_name'] = account_name
 
@@ -87,13 +98,15 @@ class Pool(pulumi.CustomResource):
 
         __props__['fixed_scale'] = fixed_scale
 
+        __props__['max_tasks_per_node'] = max_tasks_per_node
+
         __props__['name'] = name
 
-        if not node_agent_sku_id:
+        if node_agent_sku_id is None:
             raise TypeError('Missing required property node_agent_sku_id')
         __props__['node_agent_sku_id'] = node_agent_sku_id
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -101,19 +114,19 @@ class Pool(pulumi.CustomResource):
 
         __props__['stop_pending_resize_operation'] = stop_pending_resize_operation
 
-        if not storage_image_reference:
+        if storage_image_reference is None:
             raise TypeError('Missing required property storage_image_reference')
         __props__['storage_image_reference'] = storage_image_reference
 
-        if not vm_size:
+        if vm_size is None:
             raise TypeError('Missing required property vm_size')
         __props__['vm_size'] = vm_size
 
         super(Pool, __self__).__init__(
             'azure:batch/pool:Pool',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

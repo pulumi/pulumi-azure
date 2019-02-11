@@ -13,14 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "example-resources",
  * });
- * const azurerm_dev_test_lab_test = new azure.devtest.Lab("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "example-devtestlab",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testLab = new azure.devtest.Lab("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Sydney: "Australia",
  *     },

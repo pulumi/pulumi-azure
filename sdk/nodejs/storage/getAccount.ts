@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_storage_account_test = pulumi.output(azure.storage.getAccount({
+ * const test = pulumi.output(azure.storage.getAccount({
  *     name: "packerimages",
  *     resourceGroupName: "packer-storage",
  * }));
  * 
- * export const storageAccountTier = azurerm_storage_account_test.apply(__arg0 => __arg0.accountTier);
+ * export const storageAccountTier = test.apply(test => test.accountTier);
  * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {

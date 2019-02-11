@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -49,15 +50,14 @@ class SharedImage(pulumi.CustomResource):
     """
     A mapping of tags to assign to the Shared Image.
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, eula=None, gallery_name=None, identifier=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, description=None, eula=None, gallery_name=None, identifier=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
         """
         Manages a Shared Image within a Shared Image Gallery.
         
-        -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
+        > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
@@ -70,11 +70,17 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Shared Image.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -83,21 +89,21 @@ class SharedImage(pulumi.CustomResource):
 
         __props__['eula'] = eula
 
-        if not gallery_name:
+        if gallery_name is None:
             raise TypeError('Missing required property gallery_name')
         __props__['gallery_name'] = gallery_name
 
-        if not identifier:
+        if identifier is None:
             raise TypeError('Missing required property identifier')
         __props__['identifier'] = identifier
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
         __props__['name'] = name
 
-        if not os_type:
+        if os_type is None:
             raise TypeError('Missing required property os_type')
         __props__['os_type'] = os_type
 
@@ -105,7 +111,7 @@ class SharedImage(pulumi.CustomResource):
 
         __props__['release_note_uri'] = release_note_uri
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -113,9 +119,9 @@ class SharedImage(pulumi.CustomResource):
 
         super(SharedImage, __self__).__init__(
             'azure:compute/sharedImage:SharedImage',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

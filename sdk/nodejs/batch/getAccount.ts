@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_batch_account_test = pulumi.output(azure.batch.getAccount({
+ * const test = pulumi.output(azure.batch.getAccount({
  *     name: "testbatchaccount",
  *     resourceGroupName: "test",
  * }));
  * 
- * export const poolAllocationMode = azurerm_batch_account_test.apply(__arg0 => __arg0.poolAllocationMode);
+ * export const poolAllocationMode = test.apply(test => test.poolAllocationMode);
  * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {

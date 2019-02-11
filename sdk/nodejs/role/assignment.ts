@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_client_config_test = pulumi.output(azure.core.getClientConfig({}));
- * const azurerm_subscription_primary = pulumi.output(azure.core.getSubscription({}));
- * const azurerm_role_assignment_test = new azure.role.Assignment("test", {
- *     principalId: azurerm_client_config_test.apply(__arg0 => __arg0.servicePrincipalObjectId),
+ * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
+ * const primary = pulumi.output(azure.core.getSubscription({}));
+ * const testAssignment = new azure.role.Assignment("test", {
+ *     principalId: testClientConfig.apply(testClientConfig => testClientConfig.servicePrincipalObjectId),
  *     roleDefinitionName: "Reader",
- *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ *     scope: primary.apply(primary => primary.id),
  * });
  * ```
  * 
@@ -28,23 +28,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_client_config_test = pulumi.output(azure.core.getClientConfig({}));
- * const azurerm_subscription_primary = pulumi.output(azure.core.getSubscription({}));
- * const azurerm_role_definition_test = new azure.role.Definition("test", {
- *     assignableScopes: [azurerm_subscription_primary.apply(__arg0 => __arg0.id)],
- *     name: "my-custom-role-definition",
+ * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
+ * const primary = pulumi.output(azure.core.getSubscription({}));
+ * const testDefinition = new azure.role.Definition("test", {
+ *     assignableScopes: [primary.apply(primary => primary.id)],
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
  *     }],
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ *     scope: primary.apply(primary => primary.id),
  * });
- * const azurerm_role_assignment_test = new azure.role.Assignment("test", {
- *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: azurerm_client_config_test.apply(__arg0 => __arg0.servicePrincipalObjectId),
- *     roleDefinitionId: azurerm_role_definition_test.id,
- *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ * const testAssignment = new azure.role.Assignment("test", {
+ *     principalId: testClientConfig.apply(testClientConfig => testClientConfig.servicePrincipalObjectId),
+ *     roleDefinitionId: testDefinition.id,
+ *     scope: primary.apply(primary => primary.id),
  * });
  * ```
  * 
@@ -54,23 +52,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_client_config_test = pulumi.output(azure.core.getClientConfig({}));
- * const azurerm_subscription_primary = pulumi.output(azure.core.getSubscription({}));
- * const azurerm_role_definition_test = new azure.role.Definition("test", {
- *     assignableScopes: [azurerm_subscription_primary.apply(__arg0 => __arg0.id)],
- *     name: "my-custom-role-definition",
+ * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
+ * const primary = pulumi.output(azure.core.getSubscription({}));
+ * const testDefinition = new azure.role.Definition("test", {
+ *     assignableScopes: [primary.apply(primary => primary.id)],
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
  *     }],
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ *     scope: primary.apply(primary => primary.id),
  * });
- * const azurerm_role_assignment_test = new azure.role.Assignment("test", {
- *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: azurerm_client_config_test.apply(__arg0 => __arg0.clientId),
- *     roleDefinitionId: azurerm_role_definition_test.id,
- *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ * const testAssignment = new azure.role.Assignment("test", {
+ *     principalId: testClientConfig.apply(testClientConfig => testClientConfig.clientId),
+ *     roleDefinitionId: testDefinition.id,
+ *     scope: primary.apply(primary => primary.id),
  * });
  * ```
  */

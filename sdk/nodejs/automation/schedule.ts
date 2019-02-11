@@ -13,28 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "tfex-automation-account",
  * });
- * const azurerm_automation_account_example = new azure.automation.Account("example", {
- *     location: azurerm_resource_group_example.location,
- *     name: "tfex-automation-account",
- *     resourceGroupName: azurerm_resource_group_example.name,
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         name: "Basic",
  *     },
  * });
- * const azurerm_automation_schedule_example = new azure.automation.Schedule("example", {
+ * const exampleSchedule = new azure.automation.Schedule("example", {
  *     advancedSchedule: [{
  *         weekDays: ["Friday"],
  *     }],
- *     automationAccountName: azurerm_automation_account_example.name,
+ *     automationAccountName: exampleAccount.name,
  *     description: "This is an example schedule",
  *     frequency: "Week",
  *     interval: 1,
- *     name: "tfex-automation-schedule",
- *     resourceGroupName: azurerm_resource_group_example.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     startTime: "2014-04-15T18:00:15+02:00",
  *     timezone: "Central Europe Standard Time",
  * });

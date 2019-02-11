@@ -17,11 +17,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
- *     name: "acctestRG1",
  * });
- * const azurerm_kubernetes_cluster_test = new azure.containerservice.KubernetesCluster("test", {
+ * const testKubernetesCluster = new azure.containerservice.KubernetesCluster("test", {
  *     agentPoolProfile: {
  *         count: 1,
  *         name: "default",
@@ -30,9 +29,8 @@ import * as utilities from "../utilities";
  *         vmSize: "Standard_D1_v2",
  *     },
  *     dnsPrefix: "acctestagent1",
- *     location: azurerm_resource_group_test.location,
- *     name: "acctestaks1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     servicePrincipal: {
  *         clientId: "00000000-0000-0000-0000-000000000000",
  *         clientSecret: "00000000000000000000000000000000",
@@ -42,8 +40,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * 
- * export const clientCertificate = azurerm_kubernetes_cluster_test.kubeConfig.apply(__arg0 => __arg0.clientCertificate);
- * export const kubeConfig = azurerm_kubernetes_cluster_test.kubeConfigRaw;
+ * export const clientCertificate = testKubernetesCluster.kubeConfig.apply(kubeConfig => kubeConfig.clientCertificate);
+ * export const kubeConfig = testKubernetesCluster.kubeConfigRaw;
  * ```
  */
 export class KubernetesCluster extends pulumi.CustomResource {

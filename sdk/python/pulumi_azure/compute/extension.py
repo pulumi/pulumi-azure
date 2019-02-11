@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -63,18 +64,17 @@ class Extension(pulumi.CustomResource):
     The name of the virtual machine. Changing
     this forces a new resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, auto_upgrade_minor_version=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_name=None):
+    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_name=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Machine Extension to provide post deployment configuration
         and run automated tasks.
         
         > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
         
-        -> **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
+        > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
                the latest minor version update to the `type_handler_version` specified.
         :param pulumi.Input[str] location: The location where the extension is created. Changing
@@ -98,18 +98,24 @@ class Extension(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine. Changing
                this forces a new resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
@@ -117,11 +123,11 @@ class Extension(pulumi.CustomResource):
 
         __props__['protected_settings'] = protected_settings
 
-        if not publisher:
+        if publisher is None:
             raise TypeError('Missing required property publisher')
         __props__['publisher'] = publisher
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -129,23 +135,23 @@ class Extension(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if not type:
+        if type is None:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
-        if not type_handler_version:
+        if type_handler_version is None:
             raise TypeError('Missing required property type_handler_version')
         __props__['type_handler_version'] = type_handler_version
 
-        if not virtual_machine_name:
+        if virtual_machine_name is None:
             raise TypeError('Missing required property virtual_machine_name')
         __props__['virtual_machine_name'] = virtual_machine_name
 
         super(Extension, __self__).__init__(
             'azure:compute/extension:Extension',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -142,7 +142,7 @@ func (r *Server) Sku() *pulumi.Output {
 	return r.s.State["sku"]
 }
 
-// Specifies if SSL should be enforced on connections. Possible values are `Enforced` and `Disabled`.
+// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 func (r *Server) SslEnforcement() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sslEnforcement"])
 }
@@ -178,7 +178,7 @@ type ServerState struct {
 	ResourceGroupName interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
-	// Specifies if SSL should be enforced on connections. Possible values are `Enforced` and `Disabled`.
+	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 	SslEnforcement interface{}
 	// A `storage_profile` block as defined below.
 	StorageProfile interface{}
@@ -202,7 +202,7 @@ type ServerArgs struct {
 	ResourceGroupName interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
-	// Specifies if SSL should be enforced on connections. Possible values are `Enforced` and `Disabled`.
+	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 	SslEnforcement interface{}
 	// A `storage_profile` block as defined below.
 	StorageProfile interface{}

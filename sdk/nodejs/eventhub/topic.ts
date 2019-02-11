@@ -15,24 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
- *     name: "tfex-servicebus-topic",
  * });
- * const azurerm_servicebus_namespace_example = new azure.eventhub.Namespace("example", {
- *     location: azurerm_resource_group_example.location,
- *     name: "tfex_sevicebus_namespace",
- *     resourceGroupName: azurerm_resource_group_example.name,
+ * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
  *         source: "terraform",
  *     },
  * });
- * const azurerm_servicebus_topic_example = new azure.eventhub.Topic("example", {
+ * const exampleTopic = new azure.eventhub.Topic("example", {
  *     enablePartitioning: true,
- *     name: "tfex_sevicebus_topic",
- *     namespaceName: azurerm_servicebus_namespace_example.name,
- *     resourceGroupName: azurerm_resource_group_example.name,
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  */

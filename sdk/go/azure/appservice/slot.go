@@ -10,8 +10,7 @@ import (
 
 // Manages an App Service Slot (within an App Service).
 // 
-// -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
-// 
+// > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
 type Slot struct {
 	s *pulumi.ResourceState
 }

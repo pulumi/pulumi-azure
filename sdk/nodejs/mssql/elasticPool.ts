@@ -13,27 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
- *     name: "my-resource-group",
  * });
- * const azurerm_sql_server_test = new azure.sql.SqlServer("test", {
+ * const testSqlServer = new azure.sql.SqlServer("test", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
- *     location: azurerm_resource_group_test.location,
- *     name: "my-sql-server",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     version: "12.0",
  * });
- * const azurerm_mssql_elasticpool_test = new azure.mssql.ElasticPool("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "test-epool",
+ * const testElasticPool = new azure.mssql.ElasticPool("test", {
+ *     location: testResourceGroup.location,
+ *     maxSizeGb: 756,
  *     perDatabaseSettings: {
  *         maxCapacity: 4,
- *         minCapacity: 0.250000,
+ *         minCapacity: 0.25,
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     serverName: azurerm_sql_server_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     serverName: testSqlServer.name,
  *     sku: {
  *         capacity: 4,
  *         family: "Gen5",
@@ -62,9 +60,13 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The storage limit for the database elastic pool in bytes.
+     * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      */
-    public /*out*/ readonly maxSizeBytes: pulumi.Output<number>;
+    public readonly maxSizeBytes: pulumi.Output<number>;
+    /**
+     * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+     */
+    public readonly maxSizeGb: pulumi.Output<number>;
     /**
      * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
      */
@@ -109,6 +111,7 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["elasticPoolProperties"] = state ? state.elasticPoolProperties : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
+            inputs["maxSizeGb"] = state ? state.maxSizeGb : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["perDatabaseSettings"] = state ? state.perDatabaseSettings : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -134,6 +137,8 @@ export class ElasticPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
+            inputs["maxSizeGb"] = args ? args.maxSizeGb : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -141,7 +146,6 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["elasticPoolProperties"] = undefined /*out*/;
-            inputs["maxSizeBytes"] = undefined /*out*/;
             inputs["zoneRedundant"] = undefined /*out*/;
         }
         super("azure:mssql/elasticPool:ElasticPool", name, inputs, opts);
@@ -158,9 +162,13 @@ export interface ElasticPoolState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The storage limit for the database elastic pool in bytes.
+     * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      */
     readonly maxSizeBytes?: pulumi.Input<number>;
+    /**
+     * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+     */
+    readonly maxSizeGb?: pulumi.Input<number>;
     /**
      * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
      */
@@ -199,6 +207,14 @@ export interface ElasticPoolArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+     */
+    readonly maxSizeBytes?: pulumi.Input<number>;
+    /**
+     * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+     */
+    readonly maxSizeGb?: pulumi.Input<number>;
     /**
      * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
      */

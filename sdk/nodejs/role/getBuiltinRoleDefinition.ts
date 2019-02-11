@@ -7,17 +7,19 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.
  * 
+ * > **NOTE:** The this datasource has been deprecated in favour of `azurerm_role_definition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
+ * 
  * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_builtin_role_definition_contributor = pulumi.output(azure.role.getBuiltinRoleDefinition({
+ * const contributor = pulumi.output(azure.role.getBuiltinRoleDefinition({
  *     name: "Contributor",
  * }));
  * 
- * export const contributorRoleDefinitionId = azurerm_builtin_role_definition_contributor.apply(__arg0 => __arg0.id);
+ * export const contributorRoleDefinitionId = contributor.apply(contributor => contributor.id);
  * ```
  */
 export function getBuiltinRoleDefinition(args: GetBuiltinRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuiltinRoleDefinitionResult> {

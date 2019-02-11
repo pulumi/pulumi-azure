@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -11,7 +12,7 @@ class GetRoleDefinitionResult(object):
     """
     A collection of values returned by getRoleDefinition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, type=None, id=None):
+    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, role_definition_id=None, type=None, id=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError('Expected argument assignable_scopes to be a list')
         __self__.assignable_scopes = assignable_scopes
@@ -33,6 +34,9 @@ class GetRoleDefinitionResult(object):
         """
         a `permissions` block as documented below.
         """
+        if role_definition_id and not isinstance(role_definition_id, str):
+            raise TypeError('Expected argument role_definition_id to be a str')
+        __self__.role_definition_id = role_definition_id
         if type and not isinstance(type, str):
             raise TypeError('Expected argument type to be a str')
         __self__.type = type
@@ -46,12 +50,13 @@ class GetRoleDefinitionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_role_definition(role_definition_id=None, scope=None):
+async def get_role_definition(name=None, role_definition_id=None, scope=None):
     """
-    Use this data source to access information about an existing Custom Role Definition. To access information about a built-in Role Definition, please see the `azurerm_builtin_role_definition` data source instead.
+    Use this data source to access information about an existing Role Definition.
     """
     __args__ = dict()
 
+    __args__['name'] = name
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope
     __ret__ = await pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__)
@@ -61,5 +66,6 @@ async def get_role_definition(role_definition_id=None, scope=None):
         description=__ret__.get('description'),
         name=__ret__.get('name'),
         permissions=__ret__.get('permissions'),
+        role_definition_id=__ret__.get('roleDefinitionId'),
         type=__ret__.get('type'),
         id=__ret__.get('id'))

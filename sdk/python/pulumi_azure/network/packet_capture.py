@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -44,13 +45,12 @@ class PacketCapture(pulumi.CustomResource):
     """
     The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, filters=None, maximum_bytes_per_packet=None, maximum_bytes_per_session=None, maximum_capture_duration=None, name=None, network_watcher_name=None, resource_group_name=None, storage_location=None, target_resource_id=None):
+    def __init__(__self__, resource_name, opts=None, filters=None, maximum_bytes_per_packet=None, maximum_bytes_per_session=None, maximum_capture_duration=None, name=None, network_watcher_name=None, resource_group_name=None, storage_location=None, target_resource_id=None, __name__=None, __opts__=None):
         """
         Configures Packet Capturing against a Virtual Machine using a Network Watcher.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
@@ -61,11 +61,17 @@ class PacketCapture(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -80,27 +86,27 @@ class PacketCapture(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if not network_watcher_name:
+        if network_watcher_name is None:
             raise TypeError('Missing required property network_watcher_name')
         __props__['network_watcher_name'] = network_watcher_name
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
-        if not storage_location:
+        if storage_location is None:
             raise TypeError('Missing required property storage_location')
         __props__['storage_location'] = storage_location
 
-        if not target_resource_id:
+        if target_resource_id is None:
             raise TypeError('Missing required property target_resource_id')
         __props__['target_resource_id'] = target_resource_id
 
         super(PacketCapture, __self__).__init__(
             'azure:network/packetCapture:PacketCapture',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

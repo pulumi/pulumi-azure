@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -96,15 +97,14 @@ class VirtualMachine(pulumi.CustomResource):
     """
     A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
     """
-    def __init__(__self__, __name__, __opts__=None, availability_set_id=None, boot_diagnostics=None, delete_data_disks_on_termination=None, delete_os_disk_on_termination=None, identity=None, license_type=None, location=None, name=None, network_interface_ids=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, plan=None, primary_network_interface_id=None, resource_group_name=None, storage_data_disks=None, storage_image_reference=None, storage_os_disk=None, tags=None, vm_size=None, zones=None):
+    def __init__(__self__, resource_name, opts=None, availability_set_id=None, boot_diagnostics=None, delete_data_disks_on_termination=None, delete_os_disk_on_termination=None, identity=None, license_type=None, location=None, name=None, network_interface_ids=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, plan=None, primary_network_interface_id=None, resource_group_name=None, storage_data_disks=None, storage_image_reference=None, storage_os_disk=None, tags=None, vm_size=None, zones=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Machine.
         
         > **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block.
         :param pulumi.Input[bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
@@ -128,11 +128,17 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -149,13 +155,13 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__['license_type'] = license_type
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
         __props__['name'] = name
 
-        if not network_interface_ids:
+        if network_interface_ids is None:
             raise TypeError('Missing required property network_interface_ids')
         __props__['network_interface_ids'] = network_interface_ids
 
@@ -171,7 +177,7 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__['primary_network_interface_id'] = primary_network_interface_id
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -179,13 +185,13 @@ class VirtualMachine(pulumi.CustomResource):
 
         __props__['storage_image_reference'] = storage_image_reference
 
-        if not storage_os_disk:
+        if storage_os_disk is None:
             raise TypeError('Missing required property storage_os_disk')
         __props__['storage_os_disk'] = storage_os_disk
 
         __props__['tags'] = tags
 
-        if not vm_size:
+        if vm_size is None:
             raise TypeError('Missing required property vm_size')
         __props__['vm_size'] = vm_size
 
@@ -193,9 +199,9 @@ class VirtualMachine(pulumi.CustomResource):
 
         super(VirtualMachine, __self__).__init__(
             'azure:compute/virtualMachine:VirtualMachine',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -13,16 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westeurope",
- *     name: "tfex-mariadb-database-RG",
  * });
- * const azurerm_mariadb_server_example = new azure.mariadb.Server("example", {
+ * const exampleServer = new azure.mariadb.Server("example", {
  *     administratorLogin: "acctestun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: azurerm_resource_group_example.location,
- *     name: "mariadb-svr",
- *     resourceGroupName: azurerm_resource_group_example.name,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         family: "Gen5",
@@ -37,12 +35,11 @@ import * as utilities from "../utilities";
  *     },
  *     version: "10.2",
  * });
- * const azurerm_mariadb_database_example = new azure.mariadb.Database("example", {
+ * const exampleDatabase = new azure.mariadb.Database("example", {
  *     charset: "utf8",
  *     collation: "utf8_general_ci",
- *     name: "mariadb_database",
- *     resourceGroupName: azurerm_resource_group_example.name,
- *     serverName: azurerm_mariadb_server_example.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     serverName: exampleServer.name,
  * });
  * ```
  */

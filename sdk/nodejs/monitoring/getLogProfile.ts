@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_monitor_log_profile_test = pulumi.output(azure.monitoring.getLogProfile({
+ * const test = pulumi.output(azure.monitoring.getLogProfile({
  *     name: "test-logprofile",
  * }));
  * 
- * export const logProfileStorageAccountId = azurerm_monitor_log_profile_test.apply(__arg0 => __arg0.storageAccountId);
+ * export const logProfileStorageAccountId = test.apply(test => test.storageAccountId);
  * ```
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {

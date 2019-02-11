@@ -14,59 +14,14 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage (DCOS)
  * 
- * ```hcl
- * resource "azurerm_resource_group" "test" {
- *   name     = "acctestRG1"
- *   location = "West US"
- * }
- * 
- * resource "azurerm_container_service" "test" {
- *   name                   = "acctestcontservice1"
- *   location               = "${azurerm_resource_group.test.location}"
- *   resource_group_name    = "${azurerm_resource_group.test.name}"
- *   orchestration_platform = "DCOS"
- * 
- *   master_profile {
- *     count      = 1
- *     dns_prefix = "acctestmaster1"
- *   }
- * 
- *   linux_profile {
- *     admin_username = "acctestuser1"
- * 
- *     ssh_key {
- *       key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld"
- *     }
- *   }
- * 
- *   agent_pool_profile {
- *     name       = "default"
- *     count      = 1
- *     dns_prefix = "acctestagent1"
- *     vm_size    = "Standard_F2"
- *   }
- * 
- *   diagnostics_profile {
- *     enabled = false
- *   }
- * 
- *   tags {
- *     Environment = "Production"
- *   }
- * }
- * ```
- * 
- * ## Example Usage (Kubernetes)
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctestRG1",
  * });
- * const azurerm_container_service_test = new azure.containerservice.Service("test", {
+ * const testService = new azure.containerservice.Service("test", {
  *     agentPoolProfile: {
  *         count: 1,
  *         dnsPrefix: "acctestagent1",
@@ -82,14 +37,51 @@ import * as utilities from "../utilities";
  *             keyData: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld",
  *         },
  *     },
- *     location: azurerm_resource_group_test.location,
+ *     location: testResourceGroup.location,
  *     masterProfile: {
  *         count: 1,
  *         dnsPrefix: "acctestmaster1",
  *     },
- *     name: "acctestcontservice1",
+ *     orchestrationPlatform: "DCOS",
+ *     resourceGroupName: testResourceGroup.name,
+ *     tags: {
+ *         Environment: "Production",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage (Kubernetes)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ * });
+ * const testService = new azure.containerservice.Service("test", {
+ *     agentPoolProfile: {
+ *         count: 1,
+ *         dnsPrefix: "acctestagent1",
+ *         name: "default",
+ *         vmSize: "Standard_F2",
+ *     },
+ *     diagnosticsProfile: {
+ *         enabled: false,
+ *     },
+ *     linuxProfile: {
+ *         adminUsername: "acctestuser1",
+ *         sshKey: {
+ *             keyData: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld",
+ *         },
+ *     },
+ *     location: testResourceGroup.location,
+ *     masterProfile: {
+ *         count: 1,
+ *         dnsPrefix: "acctestmaster1",
+ *     },
  *     orchestrationPlatform: "Kubernetes",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     servicePrincipal: {
  *         clientId: "00000000-0000-0000-0000-000000000000",
  *         clientSecret: "00000000000000000000000000000000",
@@ -99,17 +91,17 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ###  Example Usage (Swarm)
+ * 
+ * ## Example Usage (Swarm)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctestRG1",
  * });
- * const azurerm_container_service_test = new azure.containerservice.Service("test", {
+ * const testService = new azure.containerservice.Service("test", {
  *     agentPoolProfile: {
  *         count: 1,
  *         dnsPrefix: "acctestagent1",
@@ -125,14 +117,13 @@ import * as utilities from "../utilities";
  *             keyData: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld",
  *         },
  *     },
- *     location: azurerm_resource_group_test.location,
+ *     location: testResourceGroup.location,
  *     masterProfile: {
  *         count: 1,
  *         dnsPrefix: "acctestmaster1",
  *     },
- *     name: "acctestcontservice1",
  *     orchestrationPlatform: "Swarm",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Environment: "Production",
  *     },

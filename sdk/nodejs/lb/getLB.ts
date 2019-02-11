@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_lb_test = pulumi.output(azure.lb.getLB({
+ * const test = pulumi.output(azure.lb.getLB({
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
  * }));
  * 
- * export const loadbalancerId = azurerm_lb_test.apply(__arg0 => __arg0.id);
+ * export const loadbalancerId = test.apply(test => test.id);
  * ```
  */
 export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<GetLBResult> {

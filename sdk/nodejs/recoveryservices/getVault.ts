@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_recovery_services_vault_vault = pulumi.output(azure.recoveryservices.getVault({
+ * const vault = pulumi.output(azure.recoveryservices.getVault({
  *     name: "tfex-recovery_vault",
  *     resourceGroupName: "tfex-resource_group",
  * }));

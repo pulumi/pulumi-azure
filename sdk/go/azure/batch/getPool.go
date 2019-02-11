@@ -24,6 +24,7 @@ func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) 
 		AutoScales: outputs["autoScales"],
 		DisplayName: outputs["displayName"],
 		FixedScales: outputs["fixedScales"],
+		MaxTasksPerNode: outputs["maxTasksPerNode"],
 		NodeAgentSkuId: outputs["nodeAgentSkuId"],
 		StorageImageReferences: outputs["storageImageReferences"],
 		VmSize: outputs["vmSize"],
@@ -46,6 +47,8 @@ type GetPoolResult struct {
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
 	FixedScales interface{}
+	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
+	MaxTasksPerNode interface{}
 	// The Sku of the node agents in the Batch pool.
 	NodeAgentSkuId interface{}
 	// The reference of the storage image used by the nodes in the Batch pool.

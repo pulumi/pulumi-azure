@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_route_table_test = pulumi.output(azure.network.getRouteTable({
+ * const test = pulumi.output(azure.network.getRouteTable({
  *     name: "myroutetable",
  *     resourceGroupName: "some-resource-group",
  * }));

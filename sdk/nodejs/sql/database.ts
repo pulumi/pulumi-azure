@@ -13,23 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
- * const azurerm_sql_server_test = new azure.sql.SqlServer("test", {
+ * const testSqlServer = new azure.sql.SqlServer("test", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  *     location: "West US",
- *     name: "mysqlserver",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     version: "12.0",
  * });
- * const azurerm_sql_database_test = new azure.sql.Database("test", {
+ * const testDatabase = new azure.sql.Database("test", {
  *     location: "West US",
- *     name: "mysqldatabase",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     serverName: azurerm_sql_server_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     serverName: testSqlServer.name,
  *     tags: {
  *         environment: "production",
  *     },
@@ -92,11 +89,11 @@ export class Database extends pulumi.CustomResource {
     public readonly name: pulumi.Output<string>;
     /**
      * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
-     * Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     public readonly requestedServiceObjectiveId: pulumi.Output<string>;
     /**
-     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     public readonly requestedServiceObjectiveName: pulumi.Output<string>;
     /**
@@ -243,11 +240,11 @@ export interface DatabaseState {
     readonly name?: pulumi.Input<string>;
     /**
      * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
-     * Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
@@ -318,11 +315,11 @@ export interface DatabaseArgs {
     readonly name?: pulumi.Input<string>;
     /**
      * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
-     * Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly requestedServiceObjectiveName?: pulumi.Input<string>;
     /**

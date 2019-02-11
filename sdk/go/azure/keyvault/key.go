@@ -25,14 +25,12 @@ func NewKey(ctx *pulumi.Context,
 	if args == nil || args.KeyType == nil {
 		return nil, errors.New("missing required argument 'KeyType'")
 	}
-	if args == nil || args.VaultUri == nil {
-		return nil, errors.New("missing required argument 'VaultUri'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["keyOpts"] = nil
 		inputs["keySize"] = nil
 		inputs["keyType"] = nil
+		inputs["keyVaultId"] = nil
 		inputs["name"] = nil
 		inputs["tags"] = nil
 		inputs["vaultUri"] = nil
@@ -40,6 +38,7 @@ func NewKey(ctx *pulumi.Context,
 		inputs["keyOpts"] = args.KeyOpts
 		inputs["keySize"] = args.KeySize
 		inputs["keyType"] = args.KeyType
+		inputs["keyVaultId"] = args.KeyVaultId
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
 		inputs["vaultUri"] = args.VaultUri
@@ -64,6 +63,7 @@ func GetKey(ctx *pulumi.Context,
 		inputs["keyOpts"] = state.KeyOpts
 		inputs["keySize"] = state.KeySize
 		inputs["keyType"] = state.KeyType
+		inputs["keyVaultId"] = state.KeyVaultId
 		inputs["n"] = state.N
 		inputs["name"] = state.Name
 		inputs["tags"] = state.Tags
@@ -107,6 +107,11 @@ func (r *Key) KeyType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyType"])
 }
 
+// The ID of the Key Vault where the Key should be created.
+func (r *Key) KeyVaultId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
+}
+
 // The RSA modulus of this Key Vault Key.
 func (r *Key) N() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["n"])
@@ -122,7 +127,6 @@ func (r *Key) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 func (r *Key) VaultUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
 }
@@ -142,13 +146,14 @@ type KeyState struct {
 	KeySize interface{}
 	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType interface{}
+	// The ID of the Key Vault where the Key should be created.
+	KeyVaultId interface{}
 	// The RSA modulus of this Key Vault Key.
 	N interface{}
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 	VaultUri interface{}
 	// The current version of the Key Vault Key.
 	Version interface{}
@@ -162,10 +167,11 @@ type KeyArgs struct {
 	KeySize interface{}
 	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType interface{}
+	// The ID of the Key Vault where the Key should be created.
+	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 	VaultUri interface{}
 }

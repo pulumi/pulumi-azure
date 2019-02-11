@@ -9,9 +9,24 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const test = pulumi.output(azure.keyvault.getKey({
+ *     name: "secret-sauce",
+ *     vaultUri: "https://rickslab.vault.azure.net/",
+ * }));
+ * 
+ * export const keyType = azurerm_key_vault_secret_test.keyType.apply(keyType => keyType);
+ * ```
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
     return pulumi.runtime.invoke("azure:keyvault/getKey:getKey", {
+        "keyVaultId": args.keyVaultId,
         "name": args.name,
         "vaultUri": args.vaultUri,
     }, opts);
@@ -21,14 +36,15 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
  * A collection of arguments for invoking getKey.
  */
 export interface GetKeyArgs {
+    readonly keyVaultId?: string;
     /**
      * Specifies the name of the Key Vault Key.
      */
     readonly name: string;
     /**
-     * Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` Data Source / Resource.
+     * Specifies the ID of the Key Vault Key Vault instance where the Key resides, available on the `azurerm_key_vault` Data Source / Resource.
      */
-    readonly vaultUri: string;
+    readonly vaultUri?: string;
 }
 
 /**
@@ -51,6 +67,7 @@ export interface GetKeyResult {
      * Specifies the Key Type of this Key Vault Key
      */
     readonly keyType: string;
+    readonly keyVaultId: string;
     /**
      * The RSA modulus of this Key Vault Key.
      */
@@ -59,6 +76,7 @@ export interface GetKeyResult {
      * A mapping of tags assigned to this Key Vault Key.
      */
     readonly tags: {[key: string]: any};
+    readonly vaultUri: string;
     /**
      * The current version of the Key Vault Key.
      */

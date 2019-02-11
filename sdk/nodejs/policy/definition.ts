@@ -15,10 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_policy_definition_policy = new azure.policy.Definition("policy", {
+ * const policy = new azure.policy.Definition("policy", {
  *     displayName: "acceptance test policy definition",
  *     mode: "Indexed",
- *     name: "accTestPolicy",
  *     parameters: `	{
  *     "allowedLocations": {
  *       "type": "Array",

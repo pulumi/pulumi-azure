@@ -22,6 +22,7 @@ export * from "./getVirtualNetworkGateway";
 export * from "./localNetworkGateway";
 export * from "./networkInterface";
 export * from "./networkInterfaceApplicationGatewayBackendAddressPoolAssociation";
+export * from "./networkInterfaceApplicationSecurityGroupAssociation";
 export * from "./networkInterfaceBackendAddressPoolAssociation";
 export * from "./networkInterfaceNatRuleAssociation";
 export * from "./networkSecurityGroup";

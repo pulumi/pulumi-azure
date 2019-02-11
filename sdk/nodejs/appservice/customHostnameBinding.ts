@@ -14,35 +14,32 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "some-resource-group",
  * });
- * const random_id_server = new random.RandomId("server", {
+ * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {
  *         azi_id: 1,
  *     },
  * });
- * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "some-app-service-plan",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testPlan = new azure.appservice.Plan("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
  *     },
  * });
- * const azurerm_app_service_test = new azure.appservice.AppService("test", {
- *     appServicePlanId: azurerm_app_service_plan_test.id,
- *     location: azurerm_resource_group_test.location,
- *     name: random_id_server.hex,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testAppService = new azure.appservice.AppService("test", {
+ *     appServicePlanId: testPlan.id,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_app_service_custom_hostname_binding_test = new azure.appservice.CustomHostnameBinding("test", {
- *     appServiceName: azurerm_app_service_test.name,
+ * const testCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("test", {
+ *     appServiceName: testAppService.name,
  *     hostname: "www.mywebsite.com",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * });
  * ```
  */

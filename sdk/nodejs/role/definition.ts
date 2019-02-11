@@ -13,16 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_subscription_primary = pulumi.output(azure.core.getSubscription({}));
- * const azurerm_role_definition_test = new azure.role.Definition("test", {
- *     assignableScopes: [azurerm_subscription_primary.apply(__arg0 => __arg0.id)],
+ * const primary = pulumi.output(azure.core.getSubscription({}));
+ * const test = new azure.role.Definition("test", {
+ *     assignableScopes: [primary.apply(primary => primary.id)],
  *     description: "This is a custom role created via Terraform",
- *     name: "my-custom-role",
  *     permissions: [{
  *         actions: ["*"],
  *         notActions: [],
  *     }],
- *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ *     scope: primary.apply(primary => primary.id),
  * });
  * ```
  */

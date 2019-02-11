@@ -13,32 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
- * const azurerm_eventhub_namespace_test = new azure.eventhub.EventHubNamespace("test", {
+ * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
  *     capacity: 2,
  *     location: "West US",
- *     name: "acceptanceTestEventHubNamespace",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: "Basic",
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const azurerm_eventhub_test = new azure.eventhub.EventHub("test", {
+ * const testEventHub = new azure.eventhub.EventHub("test", {
  *     messageRetention: 2,
- *     name: "acceptanceTestEventHub",
- *     namespaceName: azurerm_eventhub_namespace_test.name,
+ *     namespaceName: testEventHubNamespace.name,
  *     partitionCount: 2,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_eventhub_consumer_group_test = new azure.eventhub.EventHubConsumerGroup("test", {
- *     eventhubName: azurerm_eventhub_test.name,
- *     name: "acceptanceTestEventHubConsumerGroup",
- *     namespaceName: azurerm_eventhub_namespace_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testEventHubConsumerGroup = new azure.eventhub.EventHubConsumerGroup("test", {
+ *     eventhubName: testEventHub.name,
+ *     namespaceName: testEventHubNamespace.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     userMetadata: "some-meta-data",
  * });
  * ```

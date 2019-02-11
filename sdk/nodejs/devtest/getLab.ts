@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_dev_test_lab_test = pulumi.output(azure.devtest.getLab({
+ * const test = pulumi.output(azure.devtest.getLab({
  *     name: "example-lab",
  *     resourceGroupName: "example-resources",
  * }));
  * 
- * export const uniqueIdentifier = azurerm_dev_test_lab_test.apply(__arg0 => __arg0.uniqueIdentifier);
+ * export const uniqueIdentifier = test.apply(test => test.uniqueIdentifier);
  * ```
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {

@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_network_interface_test = pulumi.output(azure.network.getNetworkInterface({
+ * const test = pulumi.output(azure.network.getNetworkInterface({
  *     name: "acctest-nic",
  *     resourceGroupName: "networking",
  * }));
  * 
- * export const networkInterfaceId = azurerm_network_interface_test.apply(__arg0 => __arg0.id);
+ * export const networkInterfaceId = test.apply(test => test.id);
  * ```
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {

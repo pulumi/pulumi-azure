@@ -13,10 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_policy_definition_test = new azure.policy.Definition("test", {
- *     displayName: "acctestpol-%d",
+ * const testDefinition = new azure.policy.Definition("test", {
+ *     displayName: "my-policy-definition",
  *     mode: "All",
- *     name: "my-policy-definition",
  *     parameters: `	{
  *     "allowedLocations": {
  *       "type": "Array",
@@ -42,22 +41,20 @@ import * as utilities from "../utilities";
  * `,
  *     policyType: "Custom",
  * });
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "test-resources",
  * });
- * const azurerm_policy_assignment_test = new azure.policy.Assignment("test", {
+ * const testAssignment = new azure.policy.Assignment("test", {
  *     description: "Policy Assignment created via an Acceptance Test",
- *     displayName: "Acceptance Test Run %d",
- *     name: "example-policy-assignment",
+ *     displayName: "My Example Policy Assignment",
  *     parameters: `{
  *   "allowedLocations": {
  *     "value": [ "West Europe" ]
  *   }
  * }
  * `,
- *     policyDefinitionId: azurerm_policy_definition_test.id,
- *     scope: azurerm_resource_group_test.id,
+ *     policyDefinitionId: testDefinition.id,
+ *     scope: testResourceGroup.id,
  * });
  * ```
  */

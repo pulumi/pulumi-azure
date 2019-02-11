@@ -6,6 +6,36 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Recovery Protected VM.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ * });
+ * const exampleVault = new azure.recoveryservices.Vault("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const exampleProtectionPolicyVM = new azure.recoveryservices.ProtectionPolicyVM("example", {
+ *     backup: {
+ *         frequency: "Daily",
+ *         time: "23:00",
+ *     },
+ *     recoveryVaultName: exampleVault.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const vm1 = new azure.recoveryservices.ProtectedVM("vm1", {
+ *     backupPolicyId: exampleProtectionPolicyVM.id,
+ *     recoveryVaultName: exampleVault.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sourceVmId: azurerm_virtual_machine_example.id,
+ * });
+ * ```
  */
 export class ProtectedVM extends pulumi.CustomResource {
     /**

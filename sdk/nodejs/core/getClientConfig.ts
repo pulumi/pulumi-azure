@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_client_config_current = pulumi.output(azure.core.getClientConfig({}));
+ * const current = pulumi.output(azure.core.getClientConfig({}));
  * 
- * export const accountId = azurerm_client_config_current.apply(__arg0 => __arg0.servicePrincipalApplicationId);
+ * export const accountId = current.apply(current => current.servicePrincipalApplicationId);
  * ```
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {

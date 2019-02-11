@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Version of a Shared Image within a Shared Image Gallery.
  * 
- * -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
+ * > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
  * 
  * ## Example Usage
  * 
@@ -15,25 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_image_existing = pulumi.output(azure.compute.getImage({
+ * const existingImage = pulumi.output(azure.compute.getImage({
  *     name: "search-api",
  *     resourceGroupName: "packerimages",
  * }));
- * const azurerm_shared_image_existing = pulumi.output(azure.compute.getSharedImage({
+ * const existingSharedImage = pulumi.output(azure.compute.getSharedImage({
  *     galleryName: "existing_gallery",
  *     name: "existing-image",
  *     resourceGroupName: "existing-resources",
  * }));
- * const azurerm_shared_image_version_test = new azure.compute.SharedImageVersion("test", {
- *     galleryName: azurerm_shared_image_existing.apply(__arg0 => __arg0.galleryName),
- *     imageName: azurerm_shared_image_existing.apply(__arg0 => __arg0.name),
- *     location: azurerm_shared_image_existing.apply(__arg0 => __arg0.location),
- *     managedImageId: azurerm_image_existing.apply(__arg0 => __arg0.id),
- *     name: "0.0.1",
- *     resourceGroupName: azurerm_shared_image_existing.apply(__arg0 => __arg0.resourceGroupName),
+ * const test = new azure.compute.SharedImageVersion("test", {
+ *     galleryName: existingSharedImage.apply(existingSharedImage => existingSharedImage.galleryName),
+ *     imageName: existingSharedImage.apply(existingSharedImage => existingSharedImage.name),
+ *     location: existingSharedImage.apply(existingSharedImage => existingSharedImage.location),
+ *     managedImageId: existingImage.apply(existingImage => existingImage.id),
+ *     resourceGroupName: existingSharedImage.apply(existingSharedImage => existingSharedImage.resourceGroupName),
  *     targetRegions: [{
- *         name: azurerm_shared_image_existing.apply(__arg0 => __arg0.location),
- *         regionalReplicaCount: Number.parseFloat("5"),
+ *         name: existingSharedImage.apply(existingSharedImage => existingSharedImage.location),
+ *         regionalReplicaCount: 5,
  *     }],
  * });
  * ```

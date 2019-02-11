@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -54,14 +55,17 @@ class VirtualNetworkPeering(pulumi.CustomResource):
     The name of the virtual network. Changing
     this forces a new resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, name=None, remote_virtual_network_id=None, resource_group_name=None, use_remote_gateways=None, virtual_network_name=None):
+    def __init__(__self__, resource_name, opts=None, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, name=None, remote_virtual_network_id=None, resource_group_name=None, use_remote_gateways=None, virtual_network_name=None, __name__=None, __opts__=None):
         """
         Manages a virtual network peering which allows resources to access other
         resources in the linked virtual network.
         
+        ## Note
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        Virtual Network peerings cannot be created, updated or deleted concurrently.
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from  VMs
                in the remote virtual network is allowed. Defaults to false.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the
@@ -85,11 +89,17 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing
                this forces a new resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -102,25 +112,25 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if not remote_virtual_network_id:
+        if remote_virtual_network_id is None:
             raise TypeError('Missing required property remote_virtual_network_id')
         __props__['remote_virtual_network_id'] = remote_virtual_network_id
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
         __props__['use_remote_gateways'] = use_remote_gateways
 
-        if not virtual_network_name:
+        if virtual_network_name is None:
             raise TypeError('Missing required property virtual_network_name')
         __props__['virtual_network_name'] = virtual_network_name
 
         super(VirtualNetworkPeering, __self__).__init__(
             'azure:network/virtualNetworkPeering:VirtualNetworkPeering',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages an Azure SignalR service.
 type Service struct {
 	s *pulumi.ResourceState
 }
@@ -40,7 +41,11 @@ func NewService(ctx *pulumi.Context,
 	}
 	inputs["hostname"] = nil
 	inputs["ipAddress"] = nil
+	inputs["primaryAccessKey"] = nil
+	inputs["primaryConnectionString"] = nil
 	inputs["publicPort"] = nil
+	inputs["secondaryAccessKey"] = nil
+	inputs["secondaryConnectionString"] = nil
 	inputs["serverPort"] = nil
 	s, err := ctx.RegisterResource("azure:signalr/service:Service", name, true, inputs, opts...)
 	if err != nil {
@@ -59,8 +64,12 @@ func GetService(ctx *pulumi.Context,
 		inputs["ipAddress"] = state.IpAddress
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
+		inputs["primaryAccessKey"] = state.PrimaryAccessKey
+		inputs["primaryConnectionString"] = state.PrimaryConnectionString
 		inputs["publicPort"] = state.PublicPort
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
+		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
 		inputs["serverPort"] = state.ServerPort
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
@@ -82,60 +91,111 @@ func (r *Service) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The FQDN of the SignalR service.
 func (r *Service) Hostname() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hostname"])
 }
 
+// The publicly accessible IP of the SignalR service.
 func (r *Service) IpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
+// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 func (r *Service) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
+// The name of the SignalR service. Changing this forces a new resource to be created.
 func (r *Service) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// The primary access key for the SignalR service.
+func (r *Service) PrimaryAccessKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+}
+
+// The primary connection string for the SignalR service.
+func (r *Service) PrimaryConnectionString() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
+}
+
+// The publicly accessible port of the SignalR service which is designed for browser/client use.
 func (r *Service) PublicPort() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["publicPort"])
 }
 
+// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 func (r *Service) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// The secondary access key for the SignalR service.
+func (r *Service) SecondaryAccessKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
+}
+
+// The secondary connection string for the SignalR service.
+func (r *Service) SecondaryConnectionString() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
+}
+
+// The publicly accessible port of the SignalR service which is designed for customer server side use.
 func (r *Service) ServerPort() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["serverPort"])
 }
 
+// A `sku` block as documented below.
 func (r *Service) Sku() *pulumi.Output {
 	return r.s.State["sku"]
 }
 
+// A mapping of tags to assign to the resource.
 func (r *Service) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
+	// The FQDN of the SignalR service.
 	Hostname interface{}
+	// The publicly accessible IP of the SignalR service.
 	IpAddress interface{}
+	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name interface{}
+	// The primary access key for the SignalR service.
+	PrimaryAccessKey interface{}
+	// The primary connection string for the SignalR service.
+	PrimaryConnectionString interface{}
+	// The publicly accessible port of the SignalR service which is designed for browser/client use.
 	PublicPort interface{}
+	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The secondary access key for the SignalR service.
+	SecondaryAccessKey interface{}
+	// The secondary connection string for the SignalR service.
+	SecondaryConnectionString interface{}
+	// The publicly accessible port of the SignalR service which is designed for customer server side use.
 	ServerPort interface{}
+	// A `sku` block as documented below.
 	Sku interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	// Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// The name of the SignalR service. Changing this forces a new resource to be created.
 	Name interface{}
+	// The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `sku` block as documented below.
 	Sku interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

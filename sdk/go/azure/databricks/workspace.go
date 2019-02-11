@@ -105,7 +105,7 @@ func (r *Workspace) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The `sku` to use for the Databricks Workspace. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+// The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
 func (r *Workspace) Sku() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sku"])
 }
@@ -127,7 +127,7 @@ type WorkspaceState struct {
 	Name interface{}
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The `sku` to use for the Databricks Workspace. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+	// The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -143,7 +143,7 @@ type WorkspaceArgs struct {
 	Name interface{}
 	// The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The `sku` to use for the Databricks Workspace. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+	// The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

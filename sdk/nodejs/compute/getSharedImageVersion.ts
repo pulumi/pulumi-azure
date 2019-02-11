@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
  * 
- * -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
+ * > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
  * 
  * ## Example Usage
  * 
@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_shared_image_version_test = pulumi.output(azure.compute.getSharedImageVersion({
+ * const test = pulumi.output(azure.compute.getSharedImageVersion({
  *     galleryName: "my-image-gallery",
  *     imageName: "my-image",
  *     name: "1.0.0",

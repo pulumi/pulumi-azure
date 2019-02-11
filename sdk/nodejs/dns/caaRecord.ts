@@ -13,16 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
- * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
- *     name: "mydomain.com",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testZone = new azure.dns.Zone("test", {
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_dns_caa_record_test = new azure.dns.CaaRecord("test", {
- *     name: "test",
+ * const testCaaRecord = new azure.dns.CaaRecord("test", {
  *     records: [
  *         {
  *             flags: 0,
@@ -45,12 +42,12 @@ import * as utilities from "../utilities";
  *             value: "mailto:terraform@nonexisting.tld",
  *         },
  *     ],
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Environment: "Production",
  *     },
  *     ttl: 300,
- *     zoneName: azurerm_dns_zone_test.name,
+ *     zoneName: testZone.name,
  * });
  * ```
  */

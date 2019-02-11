@@ -13,23 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
- * const azurerm_sql_server_test = new azure.sql.SqlServer("test", {
+ * const testSqlServer = new azure.sql.SqlServer("test", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  *     location: "West US",
- *     name: "mysqlserver",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     version: "12.0",
  * });
- * const azurerm_sql_firewall_rule_test = new azure.sql.FirewallRule("test", {
+ * const testFirewallRule = new azure.sql.FirewallRule("test", {
  *     endIpAddress: "10.0.17.62",
- *     name: "FirewallRule1",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     serverName: azurerm_sql_server_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     serverName: testSqlServer.name,
  *     startIpAddress: "10.0.17.62",
  * });
  * ```

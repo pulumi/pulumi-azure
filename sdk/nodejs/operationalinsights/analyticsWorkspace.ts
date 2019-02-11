@@ -13,14 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
- *     name: "acctestRG-01",
  * });
- * const azurerm_log_analytics_workspace_test = new azure.operationalinsights.AnalyticsWorkspace("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "acctest-01",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     retentionInDays: 30,
  *     sku: "PerGB2018",
  * });

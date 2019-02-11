@@ -13,19 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
- *     name: "workflow-resources",
  * });
- * const azurerm_logic_app_workflow_test = new azure.logicapps.Workflow("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "workflow1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testWorkflow = new azure.logicapps.Workflow("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_logic_app_action_http_test = new azure.logicapps.ActionHttp("test", {
- *     logicAppId: azurerm_logic_app_workflow_test.id,
+ * const testActionHttp = new azure.logicapps.ActionHttp("test", {
+ *     logicAppId: testWorkflow.id,
  *     method: "GET",
- *     name: "webhook",
  *     uri: "http://example.com/some-webhook",
  * });
  * ```

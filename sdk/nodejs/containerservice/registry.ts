@@ -20,26 +20,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_test.location,
- *     name: "storageaccount1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_container_registry_test = new azure.containerservice.Registry("test", {
+ * const testRegistry = new azure.containerservice.Registry("test", {
  *     adminEnabled: true,
- *     location: azurerm_resource_group_test.location,
- *     name: "containerRegistry1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: "Classic",
- *     storageAccountId: azurerm_storage_account_test.id,
+ *     storageAccountId: testAccount.id,
  * });
  * ```
+ * 
  * ### Managed Container Registry
  * 
  * When using a SKU other than `Classic`, Azure Container Registry manages the storage account for you.
@@ -48,19 +46,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_rg = new azure.core.ResourceGroup("rg", {
+ * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
- * const azurerm_container_registry_acr = new azure.containerservice.Registry("acr", {
+ * const acr = new azure.containerservice.Registry("acr", {
  *     adminEnabled: false,
  *     georeplicationLocations: [
  *         "East US",
  *         "West Europe",
  *     ],
- *     location: azurerm_resource_group_rg.location,
- *     name: "containerRegistry1",
- *     resourceGroupName: azurerm_resource_group_rg.name,
+ *     location: rg.location,
+ *     resourceGroupName: rg.name,
  *     sku: "Premium",
  * });
  * ```

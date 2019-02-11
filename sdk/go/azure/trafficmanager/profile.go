@@ -9,6 +9,10 @@ import (
 )
 
 // Manages a Traffic Manager Profile to which multiple endpoints can be attached.
+// 
+// ## Notes
+// 
+// The Traffic Manager is created with the location `global`.
 type Profile struct {
 	s *pulumi.ResourceState
 }

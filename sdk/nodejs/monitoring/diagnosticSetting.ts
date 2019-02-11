@@ -13,19 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
- * const azurerm_key_vault_test = pulumi.output(azure.keyvault.getKeyVault({
+ * const testKeyVault = pulumi.output(azure.keyvault.getKeyVault({
  *     name: "example-vault",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * }));
- * const azurerm_storage_account_test = pulumi.output(azure.storage.getAccount({
+ * const testAccount = pulumi.output(azure.storage.getAccount({
  *     name: "examplestoracc",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * }));
- * const azurerm_monitor_diagnostic_setting_test = new azure.monitoring.DiagnosticSetting("test", {
+ * const testDiagnosticSetting = new azure.monitoring.DiagnosticSetting("test", {
  *     logs: [{
  *         category: "AuditEvent",
  *         enabled: false,
@@ -39,9 +38,8 @@ import * as utilities from "../utilities";
  *             enabled: false,
  *         },
  *     }],
- *     name: "example",
- *     storageAccountId: azurerm_storage_account_test.apply(__arg0 => __arg0.id),
- *     targetResourceId: azurerm_key_vault_test.apply(__arg0 => __arg0.id),
+ *     storageAccountId: testAccount.apply(testAccount => testAccount.id),
+ *     targetResourceId: testKeyVault.apply(testKeyVault => testKeyVault.id),
  * });
  * ```
  */

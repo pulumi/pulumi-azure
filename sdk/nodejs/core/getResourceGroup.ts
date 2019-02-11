@@ -13,15 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = pulumi.output(azure.core.getResourceGroup({
+ * const testResourceGroup = pulumi.output(azure.core.getResourceGroup({
  *     name: "dsrg_test",
  * }));
- * const azurerm_managed_disk_test = new azure.compute.ManagedDisk("test", {
+ * const testManagedDisk = new azure.compute.ManagedDisk("test", {
  *     createOption: "Empty",
- *     diskSizeGb: Number.parseFloat("1"),
- *     location: azurerm_resource_group_test.apply(__arg0 => __arg0.location),
- *     name: "managed_disk_name",
- *     resourceGroupName: azurerm_resource_group_test.apply(__arg0 => __arg0.name),
+ *     diskSizeGb: 1,
+ *     location: testResourceGroup.apply(testResourceGroup => testResourceGroup.location),
+ *     resourceGroupName: testResourceGroup.apply(testResourceGroup => testResourceGroup.name),
  *     storageAccountType: "Standard_LRS",
  * });
  * ```

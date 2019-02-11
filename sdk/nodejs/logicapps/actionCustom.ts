@@ -13,16 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
- *     name: "workflow-resources",
  * });
- * const azurerm_logic_app_workflow_test = new azure.logicapps.Workflow("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "workflow1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testWorkflow = new azure.logicapps.Workflow("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_logic_app_action_custom_test = new azure.logicapps.ActionCustom("test", {
+ * const testActionCustom = new azure.logicapps.ActionCustom("test", {
  *     body: `{
  *     "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
  *     "inputs": {
@@ -38,8 +36,7 @@ import * as utilities from "../utilities";
  *     "type": "InitializeVariable"
  * }
  * `,
- *     logicAppId: azurerm_logic_app_workflow_test.id,
- *     name: "example-action",
+ *     logicAppId: testWorkflow.id,
  * });
  * ```
  */

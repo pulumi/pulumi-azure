@@ -13,15 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
- * const azurerm_cognitive_account_test = new azure.cognitive.Account("test", {
+ * const testAccount = new azure.cognitive.Account("test", {
  *     kind: "Face",
- *     location: azurerm_resource_group_test.location,
- *     name: "example-account",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "S0",
  *         tier: "Standard",
@@ -62,9 +60,17 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
+     * A primary access key which can be used to connect to the Cognitive Service Account.
+     */
+    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    /**
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * The secondary access key which can be used to connect to the Cognitive Service Account.
+     */
+    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
@@ -90,7 +96,9 @@ export class Account extends pulumi.CustomResource {
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -114,6 +122,8 @@ export class Account extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["endpoint"] = undefined /*out*/;
+            inputs["primaryAccessKey"] = undefined /*out*/;
+            inputs["secondaryAccessKey"] = undefined /*out*/;
         }
         super("azure:cognitive/account:Account", name, inputs, opts);
     }
@@ -140,9 +150,17 @@ export interface AccountState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A primary access key which can be used to connect to the Cognitive Service Account.
+     */
+    readonly primaryAccessKey?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The secondary access key which can be used to connect to the Cognitive Service Account.
+     */
+    readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
      * A `sku` block as defined below.
      */

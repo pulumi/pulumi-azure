@@ -6,6 +6,101 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const backendAddressPoolName = testVirtualNetwork.name.apply(name => `${name}-beap`);
+ * const frontendIpConfigurationName = testVirtualNetwork.name.apply(name => `${name}-feip`);
+ * const frontendPortName = testVirtualNetwork.name.apply(name => `${name}-feport`);
+ * const httpSettingName = testVirtualNetwork.name.apply(name => `${name}-be-htst`);
+ * const listenerName = testVirtualNetwork.name.apply(name => `${name}-httplstn`);
+ * const requestRoutingRuleName = testVirtualNetwork.name.apply(name => `${name}-rqrt`);
+ * const testPublicIp = new azure.network.PublicIp("test", {
+ *     allocationMethod: "Dynamic",
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const frontend = new azure.network.Subnet("frontend", {
+ *     addressPrefix: "10.254.0.0/24",
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ * });
+ * const network = new azure.network.ApplicationGateway("network", {
+ *     backendAddressPools: [{
+ *         name: backendAddressPoolName,
+ *     }],
+ *     backendHttpSettings: [{
+ *         cookieBasedAffinity: "Disabled",
+ *         name: httpSettingName,
+ *         port: 80,
+ *         protocol: "Http",
+ *         requestTimeout: 1,
+ *     }],
+ *     frontendIpConfigurations: [{
+ *         name: frontendIpConfigurationName,
+ *         publicIpAddressId: testPublicIp.id,
+ *     }],
+ *     frontendPorts: [{
+ *         name: frontendPortName,
+ *         port: 80,
+ *     }],
+ *     gatewayIpConfigurations: [{
+ *         name: "my-gateway-ip-configuration",
+ *         subnetId: frontend.id,
+ *     }],
+ *     httpListeners: [{
+ *         frontendIpConfigurationName: frontendIpConfigurationName,
+ *         frontendPortName: frontendPortName,
+ *         name: listenerName,
+ *         protocol: "Http",
+ *     }],
+ *     location: testResourceGroup.location,
+ *     requestRoutingRules: [{
+ *         backendAddressPoolName: backendAddressPoolName,
+ *         backendHttpSettingsName: httpSettingName,
+ *         httpListenerName: listenerName,
+ *         name: requestRoutingRuleName,
+ *         ruleType: "Basic",
+ *     }],
+ *     resourceGroupName: testResourceGroup.name,
+ *     sku: {
+ *         capacity: 2,
+ *         name: "Standard_Small",
+ *         tier: "Standard",
+ *     },
+ * });
+ * const testNetworkInterface = new azure.network.NetworkInterface("test", {
+ *     ipConfigurations: [{
+ *         name: "testconfiguration1",
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: frontend.id,
+ *     }],
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("test", {
+ *     backendAddressPoolId: azurerm_application_gateway_test.backendAddressPool.apply(backendAddressPool => backendAddressPool.0.id),
+ *     ipConfigurationName: "testconfiguration1",
+ *     networkInterfaceId: testNetworkInterface.id,
+ * });
+ * const backend = new azure.network.Subnet("backend", {
+ *     addressPrefix: "10.254.2.0/24",
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ * });
+ * ```
  */
 export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation extends pulumi.CustomResource {
     /**

@@ -13,10 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_subscriptions_available = pulumi.output(azure.core.getSubscriptions({}));
+ * const available = pulumi.output(azure.core.getSubscriptions({}));
  * 
- * export const availableSubscriptions = azurerm_subscriptions_available.apply(__arg0 => __arg0.subscriptions);
- * export const firstAvailableSubscriptionDisplayName = azurerm_subscriptions_available.apply(__arg0 => __arg0.subscriptions[0].displayName);
+ * export const availableSubscriptions = available.apply(available => available.subscriptions);
+ * export const firstAvailableSubscriptionDisplayName = available.apply(available => available.subscriptions[0].displayName);
  * ```
  */
 export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {

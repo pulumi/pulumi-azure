@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.
  * 
- * -> **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
+ * > **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
  * 
  * ## Example Usage
  * 
@@ -18,52 +18,45 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctestRG",
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_test.location,
- *     name: "acctvn",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "acctsub",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: azurerm_subnet_test.id,
+ *         subnetId: testSubnet.id,
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: "acctni",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_test.location,
- *     name: "accsa",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const azurerm_storage_container_test = new azure.storage.Container("test", {
+ * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
- *     name: "vhds",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     storageAccountName: azurerm_storage_account_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     storageAccountName: testAccount.name,
  * });
- * const azurerm_virtual_machine_test = new azure.compute.VirtualMachine("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "acctvm",
- *     networkInterfaceIds: [azurerm_network_interface_test.id],
+ * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
+ *     location: testResourceGroup.location,
+ *     networkInterfaceIds: [testNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
  *         adminUsername: "testadmin",
@@ -72,7 +65,7 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     storageImageReference: {
  *         offer: "UbuntuServer",
  *         publisher: "Canonical",
@@ -83,18 +76,17 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         name: "myosdisk1",
- *         vhdUri: pulumi.all([azurerm_storage_account_test.primaryBlobEndpoint, azurerm_storage_container_test.name]).apply(([__arg0, __arg1]) => `${__arg0}${__arg1}/myosdisk1.vhd`),
+ *         vhdUri: pulumi.all([testAccount.primaryBlobEndpoint, testContainer.name]).apply(([primaryBlobEndpoint, name]) => `${primaryBlobEndpoint}${name}/myosdisk1.vhd`),
  *     },
  *     tags: {
  *         environment: "staging",
  *     },
  *     vmSize: "Standard_F2",
  * });
- * const azurerm_virtual_machine_extension_test = new azure.compute.Extension("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "hostname",
+ * const testExtension = new azure.compute.Extension("test", {
+ *     location: testResourceGroup.location,
  *     publisher: "Microsoft.Azure.Extensions",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     settings: `	{
  * 		"commandToExecute": "hostname && uptime"
  * 	}
@@ -104,7 +96,7 @@ import * as utilities from "../utilities";
  *     },
  *     type: "CustomScript",
  *     typeHandlerVersion: "2.0",
- *     virtualMachineName: azurerm_virtual_machine_test.name,
+ *     virtualMachineName: testVirtualMachine.name,
  * });
  * ```
  */

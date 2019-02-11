@@ -13,20 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
- * const azurerm_dns_zone_test = new azure.dns.Zone("test", {
- *     name: "mydomain.com",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testZone = new azure.dns.Zone("test", {
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_dns_ptr_record_test = new azure.dns.PtrRecord("test", {
- *     name: "test",
+ * const testPtrRecord = new azure.dns.PtrRecord("test", {
  *     records: ["yourdomain.com"],
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     ttl: 300,
- *     zoneName: azurerm_dns_zone_test.name,
+ *     zoneName: testZone.name,
  * });
  * ```
  */

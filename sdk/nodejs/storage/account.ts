@@ -13,16 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_testrg = new azure.core.ResourceGroup("testrg", {
+ * const testrg = new azure.core.ResourceGroup("testrg", {
  *     location: "westus",
- *     name: "resourceGroupName",
  * });
- * const azurerm_storage_account_testsa = new azure.storage.Account("testsa", {
+ * const testsa = new azure.storage.Account("testsa", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: "westus",
- *     name: "storageaccountname",
- *     resourceGroupName: azurerm_resource_group_testrg.name,
+ *     resourceGroupName: testrg.name,
  *     tags: {
  *         environment: "staging",
  *     },
@@ -35,36 +33,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_testrg = new azure.core.ResourceGroup("testrg", {
+ * const testrg = new azure.core.ResourceGroup("testrg", {
  *     location: "westus",
- *     name: "resourceGroupName",
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_testrg.location,
- *     name: "virtnetname",
- *     resourceGroupName: azurerm_resource_group_testrg.name,
+ *     location: testrg.location,
+ *     resourceGroupName: testrg.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "subnetname",
- *     resourceGroupName: azurerm_resource_group_testrg.name,
+ *     resourceGroupName: testrg.name,
  *     serviceEndpoints: [
  *         "Microsoft.Sql",
  *         "Microsoft.Storage",
  *     ],
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_storage_account_testsa = new azure.storage.Account("testsa", {
+ * const testsa = new azure.storage.Account("testsa", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_testrg.location,
- *     name: "storageaccountname",
+ *     location: testrg.location,
  *     networkRules: {
  *         ipRules: ["127.0.0.1"],
- *         virtualNetworkSubnetIds: [azurerm_subnet_test.id],
+ *         virtualNetworkSubnetIds: [testSubnet.id],
  *     },
- *     resourceGroupName: azurerm_resource_group_testrg.name,
+ *     resourceGroupName: testrg.name,
  *     tags: {
  *         environment: "staging",
  *     },

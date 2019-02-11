@@ -13,16 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
- * const azurerm_postgresql_server_test = new azure.postgresql.Server("test", {
+ * const testServer = new azure.postgresql.Server("test", {
  *     administratorLogin: "psqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: azurerm_resource_group_test.location,
- *     name: "postgresql-server-1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         family: "Gen4",
@@ -93,7 +91,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, and `10.0`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `10.2`. Changing this forces a new resource to be created.
      */
     public readonly version: pulumi.Output<string>;
 
@@ -207,7 +205,7 @@ export interface ServerState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, and `10.0`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `10.2`. Changing this forces a new resource to be created.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -253,7 +251,7 @@ export interface ServerArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, and `10.0`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `10.2`. Changing this forces a new resource to be created.
      */
     readonly version: pulumi.Input<string>;
 }

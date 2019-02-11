@@ -172,12 +172,12 @@ func (r *Database) Name() *pulumi.StringOutput {
 }
 
 // Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
-// Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 func (r *Database) RequestedServiceObjectiveId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["requestedServiceObjectiveId"])
 }
 
-// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 func (r *Database) RequestedServiceObjectiveName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["requestedServiceObjectiveName"])
 }
@@ -241,9 +241,9 @@ type DatabaseState struct {
 	// The name of the database.
 	Name interface{}
 	// Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
-	// Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveId interface{}
-	// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveName interface{}
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName interface{}
@@ -280,9 +280,9 @@ type DatabaseArgs struct {
 	// The name of the database.
 	Name interface{}
 	// Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
-	// Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveId interface{}
-	// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveName interface{}
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName interface{}

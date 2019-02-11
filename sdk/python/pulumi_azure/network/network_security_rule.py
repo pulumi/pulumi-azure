@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -80,7 +81,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
     """
     List of source ports or port ranges. This is required if `source_port_range` is not specified.
     """
-    def __init__(__self__, __name__, __opts__=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_group_ids=None, destination_port_range=None, destination_port_ranges=None, direction=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_group_ids=None, source_port_range=None, source_port_ranges=None):
+    def __init__(__self__, resource_name, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_group_ids=None, destination_port_range=None, destination_port_ranges=None, direction=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_group_ids=None, source_port_range=None, source_port_ranges=None, __name__=None, __opts__=None):
         """
         Manages a Network Security Rule.
         
@@ -88,9 +89,8 @@ class NetworkSecurityRule(pulumi.CustomResource):
         provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
         At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] description: A description for this rule. Restricted to 140 characters.
         :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
@@ -110,16 +110,22 @@ class NetworkSecurityRule(pulumi.CustomResource):
         :param pulumi.Input[str] source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
         :param pulumi.Input[list] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not access:
+        if access is None:
             raise TypeError('Missing required property access')
         __props__['access'] = access
 
@@ -135,25 +141,25 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
         __props__['destination_port_ranges'] = destination_port_ranges
 
-        if not direction:
+        if direction is None:
             raise TypeError('Missing required property direction')
         __props__['direction'] = direction
 
         __props__['name'] = name
 
-        if not network_security_group_name:
+        if network_security_group_name is None:
             raise TypeError('Missing required property network_security_group_name')
         __props__['network_security_group_name'] = network_security_group_name
 
-        if not priority:
+        if priority is None:
             raise TypeError('Missing required property priority')
         __props__['priority'] = priority
 
-        if not protocol:
+        if protocol is None:
             raise TypeError('Missing required property protocol')
         __props__['protocol'] = protocol
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -169,9 +175,9 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
         super(NetworkSecurityRule, __self__).__init__(
             'azure:network/networkSecurityRule:NetworkSecurityRule',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

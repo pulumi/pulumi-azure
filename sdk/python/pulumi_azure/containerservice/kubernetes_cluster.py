@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -80,15 +81,14 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, __name__=None, __opts__=None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
         
         > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] addon_profile: A `addon_profile` block.
         :param pulumi.Input[dict] agent_pool_profile: One or more `agent_pool_profile` blocks as documented below.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -102,22 +102,28 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['addon_profile'] = addon_profile
 
-        if not agent_pool_profile:
+        if agent_pool_profile is None:
             raise TypeError('Missing required property agent_pool_profile')
         __props__['agent_pool_profile'] = agent_pool_profile
 
-        if not dns_prefix:
+        if dns_prefix is None:
             raise TypeError('Missing required property dns_prefix')
         __props__['dns_prefix'] = dns_prefix
 
@@ -125,7 +131,7 @@ class KubernetesCluster(pulumi.CustomResource):
 
         __props__['linux_profile'] = linux_profile
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
@@ -133,13 +139,13 @@ class KubernetesCluster(pulumi.CustomResource):
 
         __props__['network_profile'] = network_profile
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
         __props__['role_based_access_control'] = role_based_access_control
 
-        if not service_principal:
+        if service_principal is None:
             raise TypeError('Missing required property service_principal')
         __props__['service_principal'] = service_principal
 
@@ -154,9 +160,9 @@ class KubernetesCluster(pulumi.CustomResource):
 
         super(KubernetesCluster, __self__).__init__(
             'azure:containerservice/kubernetesCluster:KubernetesCluster',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

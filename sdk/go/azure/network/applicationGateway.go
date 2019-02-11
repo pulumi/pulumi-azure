@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// Manages an Application Gateway.
 type ApplicationGateway struct {
 	s *pulumi.ResourceState
 }
@@ -50,7 +51,9 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["authenticationCertificates"] = nil
 		inputs["backendAddressPools"] = nil
 		inputs["backendHttpSettings"] = nil
+		inputs["customErrorConfigurations"] = nil
 		inputs["disabledSslProtocols"] = nil
+		inputs["enableHttp2"] = nil
 		inputs["frontendIpConfigurations"] = nil
 		inputs["frontendPorts"] = nil
 		inputs["gatewayIpConfigurations"] = nil
@@ -69,7 +72,9 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["authenticationCertificates"] = args.AuthenticationCertificates
 		inputs["backendAddressPools"] = args.BackendAddressPools
 		inputs["backendHttpSettings"] = args.BackendHttpSettings
+		inputs["customErrorConfigurations"] = args.CustomErrorConfigurations
 		inputs["disabledSslProtocols"] = args.DisabledSslProtocols
+		inputs["enableHttp2"] = args.EnableHttp2
 		inputs["frontendIpConfigurations"] = args.FrontendIpConfigurations
 		inputs["frontendPorts"] = args.FrontendPorts
 		inputs["gatewayIpConfigurations"] = args.GatewayIpConfigurations
@@ -101,7 +106,9 @@ func GetApplicationGateway(ctx *pulumi.Context,
 		inputs["authenticationCertificates"] = state.AuthenticationCertificates
 		inputs["backendAddressPools"] = state.BackendAddressPools
 		inputs["backendHttpSettings"] = state.BackendHttpSettings
+		inputs["customErrorConfigurations"] = state.CustomErrorConfigurations
 		inputs["disabledSslProtocols"] = state.DisabledSslProtocols
+		inputs["enableHttp2"] = state.EnableHttp2
 		inputs["frontendIpConfigurations"] = state.FrontendIpConfigurations
 		inputs["frontendPorts"] = state.FrontendPorts
 		inputs["gatewayIpConfigurations"] = state.GatewayIpConfigurations
@@ -134,118 +141,187 @@ func (r *ApplicationGateway) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// One or more `authentication_certificate` blocks as defined below.
 func (r *ApplicationGateway) AuthenticationCertificates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["authenticationCertificates"])
 }
 
+// One or more `backend_address_pool` blocks as defined below.
 func (r *ApplicationGateway) BackendAddressPools() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["backendAddressPools"])
 }
 
+// One or more `backend_http_settings` blocks as defined below.
 func (r *ApplicationGateway) BackendHttpSettings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["backendHttpSettings"])
 }
 
+// One or more `custom_error_configuration` blocks as defined below.
+func (r *ApplicationGateway) CustomErrorConfigurations() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["customErrorConfigurations"])
+}
+
+// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 func (r *ApplicationGateway) DisabledSslProtocols() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["disabledSslProtocols"])
 }
 
+func (r *ApplicationGateway) EnableHttp2() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enableHttp2"])
+}
+
+// One or more `frontend_ip_configuration` blocks as defined below.
 func (r *ApplicationGateway) FrontendIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
 
+// One or more `frontend_port` blocks as defined below.
 func (r *ApplicationGateway) FrontendPorts() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["frontendPorts"])
 }
 
+// One or more `gateway_ip_configuration` blocks as defined below.
 func (r *ApplicationGateway) GatewayIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["gatewayIpConfigurations"])
 }
 
+// One or more `http_listener` blocks as defined below.
 func (r *ApplicationGateway) HttpListeners() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["httpListeners"])
 }
 
+// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 func (r *ApplicationGateway) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
+// The name of the Application Gateway. Changing this forces a new resource to be created.
 func (r *ApplicationGateway) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// One or more `probe` blocks as defined below.
 func (r *ApplicationGateway) Probes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["probes"])
 }
 
+// One or more `request_routing_rule` blocks as defined below.
 func (r *ApplicationGateway) RequestRoutingRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["requestRoutingRules"])
 }
 
+// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 func (r *ApplicationGateway) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// A `sku` block as defined below.
 func (r *ApplicationGateway) Sku() *pulumi.Output {
 	return r.s.State["sku"]
 }
 
+// One or more `ssl_certificate` blocks as defined below.
 func (r *ApplicationGateway) SslCertificates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sslCertificates"])
 }
 
+// A mapping of tags to assign to the resource.
 func (r *ApplicationGateway) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// One or more `url_path_map` blocks as defined below.
 func (r *ApplicationGateway) UrlPathMaps() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["urlPathMaps"])
 }
 
+// A `waf_configuration` block as defined below.
 func (r *ApplicationGateway) WafConfiguration() *pulumi.Output {
 	return r.s.State["wafConfiguration"]
 }
 
 // Input properties used for looking up and filtering ApplicationGateway resources.
 type ApplicationGatewayState struct {
+	// One or more `authentication_certificate` blocks as defined below.
 	AuthenticationCertificates interface{}
+	// One or more `backend_address_pool` blocks as defined below.
 	BackendAddressPools interface{}
+	// One or more `backend_http_settings` blocks as defined below.
 	BackendHttpSettings interface{}
+	// One or more `custom_error_configuration` blocks as defined below.
+	CustomErrorConfigurations interface{}
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	DisabledSslProtocols interface{}
+	EnableHttp2 interface{}
+	// One or more `frontend_ip_configuration` blocks as defined below.
 	FrontendIpConfigurations interface{}
+	// One or more `frontend_port` blocks as defined below.
 	FrontendPorts interface{}
+	// One or more `gateway_ip_configuration` blocks as defined below.
 	GatewayIpConfigurations interface{}
+	// One or more `http_listener` blocks as defined below.
 	HttpListeners interface{}
+	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location interface{}
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name interface{}
+	// One or more `probe` blocks as defined below.
 	Probes interface{}
+	// One or more `request_routing_rule` blocks as defined below.
 	RequestRoutingRules interface{}
+	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `sku` block as defined below.
 	Sku interface{}
+	// One or more `ssl_certificate` blocks as defined below.
 	SslCertificates interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// One or more `url_path_map` blocks as defined below.
 	UrlPathMaps interface{}
+	// A `waf_configuration` block as defined below.
 	WafConfiguration interface{}
 }
 
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
+	// One or more `authentication_certificate` blocks as defined below.
 	AuthenticationCertificates interface{}
+	// One or more `backend_address_pool` blocks as defined below.
 	BackendAddressPools interface{}
+	// One or more `backend_http_settings` blocks as defined below.
 	BackendHttpSettings interface{}
+	// One or more `custom_error_configuration` blocks as defined below.
+	CustomErrorConfigurations interface{}
+	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	DisabledSslProtocols interface{}
+	EnableHttp2 interface{}
+	// One or more `frontend_ip_configuration` blocks as defined below.
 	FrontendIpConfigurations interface{}
+	// One or more `frontend_port` blocks as defined below.
 	FrontendPorts interface{}
+	// One or more `gateway_ip_configuration` blocks as defined below.
 	GatewayIpConfigurations interface{}
+	// One or more `http_listener` blocks as defined below.
 	HttpListeners interface{}
+	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location interface{}
+	// The name of the Application Gateway. Changing this forces a new resource to be created.
 	Name interface{}
+	// One or more `probe` blocks as defined below.
 	Probes interface{}
+	// One or more `request_routing_rule` blocks as defined below.
 	RequestRoutingRules interface{}
+	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// A `sku` block as defined below.
 	Sku interface{}
+	// One or more `ssl_certificate` blocks as defined below.
 	SslCertificates interface{}
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// One or more `url_path_map` blocks as defined below.
 	UrlPathMaps interface{}
+	// A `waf_configuration` block as defined below.
 	WafConfiguration interface{}
 }

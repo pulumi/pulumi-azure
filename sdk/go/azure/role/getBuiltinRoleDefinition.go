@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.
+// 
+// > **NOTE:** The this datasource has been deprecated in favour of `azurerm_role_definition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
 func LookupBuiltinRoleDefinition(ctx *pulumi.Context, args *GetBuiltinRoleDefinitionArgs) (*GetBuiltinRoleDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

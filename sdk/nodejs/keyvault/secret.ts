@@ -16,51 +16,47 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * import sprintf = require("sprintf-js");
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "my-resource-group",
  * });
- * const azurerm_client_config_current = pulumi.output(azure.core.getClientConfig({}));
- * const random_id_server = new random.RandomId("server", {
+ * const current = pulumi.output(azure.core.getClientConfig({}));
+ * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {
  *         ami_id: 1,
  *     },
  * });
- * const azurerm_key_vault_test = new azure.keyvault.KeyVault("test", {
+ * const testKeyVault = new azure.keyvault.KeyVault("test", {
  *     accessPolicies: [{
  *         keyPermissions: [
  *             "create",
  *             "get",
  *         ],
- *         objectId: azurerm_client_config_current.apply(__arg0 => __arg0.servicePrincipalObjectId),
+ *         objectId: current.apply(current => current.servicePrincipalObjectId),
  *         secretPermissions: [
  *             "set",
  *             "get",
  *             "delete",
  *         ],
- *         tenantId: azurerm_client_config_current.apply(__arg0 => __arg0.tenantId),
+ *         tenantId: current.apply(current => current.tenantId),
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: random_id_server.hex.apply(__arg0 => sprintf.sprintf("%s%s", "kv", __arg0)),
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "premium",
  *     },
  *     tags: {
  *         environment: "Production",
  *     },
- *     tenantId: azurerm_client_config_current.apply(__arg0 => __arg0.tenantId),
+ *     tenantId: current.apply(current => current.tenantId),
  * });
- * const azurerm_key_vault_secret_test = new azure.keyvault.Secret("test", {
- *     name: "secret-sauce",
+ * const testSecret = new azure.keyvault.Secret("test", {
+ *     keyVaultId: testKeyVault.id,
  *     tags: {
  *         environment: "Production",
  *     },
  *     value: "szechuan",
- *     vaultUri: azurerm_key_vault_test.vaultUri,
  * });
  * ```
  */
@@ -82,6 +78,10 @@ export class Secret extends pulumi.CustomResource {
      */
     public readonly contentType: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Key Vault where the Secret should be created.
+     */
+    public readonly keyVaultId: pulumi.Output<string>;
+    /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
@@ -93,9 +93,6 @@ export class Secret extends pulumi.CustomResource {
      * Specifies the value of the Key Vault Secret.
      */
     public readonly value: pulumi.Output<string>;
-    /**
-     * Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
-     */
     public readonly vaultUri: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Secret.
@@ -115,6 +112,7 @@ export class Secret extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: SecretState = argsOrState as SecretState | undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
+            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["value"] = state ? state.value : undefined;
@@ -125,10 +123,8 @@ export class Secret extends pulumi.CustomResource {
             if (!args || args.value === undefined) {
                 throw new Error("Missing required property 'value'");
             }
-            if (!args || args.vaultUri === undefined) {
-                throw new Error("Missing required property 'vaultUri'");
-            }
             inputs["contentType"] = args ? args.contentType : undefined;
+            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
@@ -148,6 +144,10 @@ export interface SecretState {
      */
     readonly contentType?: pulumi.Input<string>;
     /**
+     * The ID of the Key Vault where the Secret should be created.
+     */
+    readonly keyVaultId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -159,9 +159,6 @@ export interface SecretState {
      * Specifies the value of the Key Vault Secret.
      */
     readonly value?: pulumi.Input<string>;
-    /**
-     * Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
-     */
     readonly vaultUri?: pulumi.Input<string>;
     /**
      * The current version of the Key Vault Secret.
@@ -178,6 +175,10 @@ export interface SecretArgs {
      */
     readonly contentType?: pulumi.Input<string>;
     /**
+     * The ID of the Key Vault where the Secret should be created.
+     */
+    readonly keyVaultId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
@@ -189,8 +190,5 @@ export interface SecretArgs {
      * Specifies the value of the Key Vault Secret.
      */
     readonly value: pulumi.Input<string>;
-    /**
-     * Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
-     */
-    readonly vaultUri: pulumi.Input<string>;
+    readonly vaultUri?: pulumi.Input<string>;
 }

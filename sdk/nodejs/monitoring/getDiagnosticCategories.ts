@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testKeyVault = pulumi.output(azure.keyvault.getKeyVault({
+ *     name: azurerm_key_vault_test.name,
+ *     resourceGroupName: azurerm_key_vault_test.resourceGroupName,
+ * }));
+ * const testDiagnosticCategories = pulumi.output(azure.monitoring.getDiagnosticCategories({
+ *     resourceId: azurerm_key_vault_test.id,
+ * }));
+ * ```
  */
 export function getDiagnosticCategories(args: GetDiagnosticCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticCategoriesResult> {
     return pulumi.runtime.invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", {

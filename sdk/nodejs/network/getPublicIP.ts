@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_public_ip_test = pulumi.output(azure.network.getPublicIP({
+ * const test = pulumi.output(azure.network.getPublicIP({
  *     name: "name_of_public_ip",
  *     resourceGroupName: "name_of_resource_group",
  * }));
  * 
- * export const domainNameLabel = azurerm_public_ip_test.apply(__arg0 => __arg0.domainNameLabel);
- * export const publicIpAddress = azurerm_public_ip_test.apply(__arg0 => __arg0.ipAddress);
+ * export const domainNameLabel = test.apply(test => test.domainNameLabel);
+ * export const publicIpAddress = test.apply(test => test.ipAddress);
  * ```
  * 
  * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
@@ -28,56 +28,50 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
- *     name: "test-resources",
  * });
- * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Dynamic",
  *     idleTimeoutInMinutes: 30,
- *     location: azurerm_resource_group_test.location,
- *     name: "test-pip",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "test",
  *     },
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_test.location,
- *     name: "test-network",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "acctsub",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddress: "10.0.2.5",
  *         privateIpAddressAllocation: "Static",
- *         publicIpAddressId: azurerm_public_ip_test.id,
- *         subnetId: azurerm_subnet_test.id,
+ *         publicIpAddressId: testPublicIp.id,
+ *         subnetId: testSubnet.id,
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: "test-nic",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_virtual_machine_test = new azure.compute.VirtualMachine("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "test-vm",
- *     networkInterfaceIds: [azurerm_network_interface_test.id],
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
+ *     location: testResourceGroup.location,
+ *     networkInterfaceIds: [testNetworkInterface.id],
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_public_ip_test = pulumi.output(azure.network.getPublicIP({
- *     name: azurerm_public_ip_test.name,
- *     resourceGroupName: azurerm_virtual_machine_test.resourceGroupName,
+ * const testPublicIP = pulumi.output(azure.network.getPublicIP({
+ *     name: testPublicIp.name,
+ *     resourceGroupName: testVirtualMachine.resourceGroupName,
  * }));
  * 
- * export const publicIpAddress = azurerm_public_ip_test.apply(__arg0 => __arg0.ipAddress);
+ * export const publicIpAddress = testPublicIP.apply(testPublicIP => testPublicIP.ipAddress);
  * ```
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {

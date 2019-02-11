@@ -12,7 +12,7 @@ import (
 // 
 // > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 // 
-// -> **NOTE:** Azure permits a maximum of 16 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
+// > **NOTE:** Azure permits a maximum of 16 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
 type AccessPolicy struct {
 	s *pulumi.ResourceState
 }
@@ -23,20 +23,15 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	if args == nil || args.ObjectId == nil {
 		return nil, errors.New("missing required argument 'ObjectId'")
 	}
-	if args == nil || args.ResourceGroupName == nil {
-		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
 	if args == nil || args.TenantId == nil {
 		return nil, errors.New("missing required argument 'TenantId'")
-	}
-	if args == nil || args.VaultName == nil {
-		return nil, errors.New("missing required argument 'VaultName'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["applicationId"] = nil
 		inputs["certificatePermissions"] = nil
 		inputs["keyPermissions"] = nil
+		inputs["keyVaultId"] = nil
 		inputs["objectId"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["secretPermissions"] = nil
@@ -46,6 +41,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 		inputs["applicationId"] = args.ApplicationId
 		inputs["certificatePermissions"] = args.CertificatePermissions
 		inputs["keyPermissions"] = args.KeyPermissions
+		inputs["keyVaultId"] = args.KeyVaultId
 		inputs["objectId"] = args.ObjectId
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["secretPermissions"] = args.SecretPermissions
@@ -68,6 +64,7 @@ func GetAccessPolicy(ctx *pulumi.Context,
 		inputs["applicationId"] = state.ApplicationId
 		inputs["certificatePermissions"] = state.CertificatePermissions
 		inputs["keyPermissions"] = state.KeyPermissions
+		inputs["keyVaultId"] = state.KeyVaultId
 		inputs["objectId"] = state.ObjectId
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["secretPermissions"] = state.SecretPermissions
@@ -97,8 +94,8 @@ func (r *AccessPolicy) ApplicationId() *pulumi.StringOutput {
 }
 
 // List of certificate permissions, must be one or more from
-// the following: `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-// `managecontacts`, `manageissuers`, `purge`, `recover`, `setissuers` and `update`.
+// the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+// `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
 func (r *AccessPolicy) CertificatePermissions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["certificatePermissions"])
 }
@@ -108,6 +105,10 @@ func (r *AccessPolicy) CertificatePermissions() *pulumi.ArrayOutput {
 // `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
 func (r *AccessPolicy) KeyPermissions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["keyPermissions"])
+}
+
+func (r *AccessPolicy) KeyVaultId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
 
 // The object ID of a user, service principal or security
@@ -148,13 +149,14 @@ type AccessPolicyState struct {
 	// The object ID of an Application in Azure Active Directory.
 	ApplicationId interface{}
 	// List of certificate permissions, must be one or more from
-	// the following: `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-	// `managecontacts`, `manageissuers`, `purge`, `recover`, `setissuers` and `update`.
+	// the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+	// `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
 	CertificatePermissions interface{}
 	// List of key permissions, must be one or more from
 	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
 	KeyPermissions interface{}
+	KeyVaultId interface{}
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must
 	// be unique for the list of access policies. Changing this forces a new resource
@@ -180,13 +182,14 @@ type AccessPolicyArgs struct {
 	// The object ID of an Application in Azure Active Directory.
 	ApplicationId interface{}
 	// List of certificate permissions, must be one or more from
-	// the following: `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-	// `managecontacts`, `manageissuers`, `purge`, `recover`, `setissuers` and `update`.
+	// the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+	// `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
 	CertificatePermissions interface{}
 	// List of key permissions, must be one or more from
 	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
 	KeyPermissions interface{}
+	KeyVaultId interface{}
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must
 	// be unique for the list of access policies. Changing this forces a new resource

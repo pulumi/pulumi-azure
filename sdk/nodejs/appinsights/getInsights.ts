@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_application_insights_test = pulumi.output(azure.appinsights.getInsights({
+ * const test = pulumi.output(azure.appinsights.getInsights({
  *     name: "production",
  *     resourceGroupName: "networking",
  * }));
  * 
- * export const applicationInsightsInstrumentationKey = azurerm_application_insights_test.apply(__arg0 => __arg0.instrumentationKey);
+ * export const applicationInsightsInstrumentationKey = test.apply(test => test.instrumentationKey);
  * ```
  */
 export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> {

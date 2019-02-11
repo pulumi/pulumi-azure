@@ -22,18 +22,17 @@ func NewSecret(ctx *pulumi.Context,
 	if args == nil || args.Value == nil {
 		return nil, errors.New("missing required argument 'Value'")
 	}
-	if args == nil || args.VaultUri == nil {
-		return nil, errors.New("missing required argument 'VaultUri'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["contentType"] = nil
+		inputs["keyVaultId"] = nil
 		inputs["name"] = nil
 		inputs["tags"] = nil
 		inputs["value"] = nil
 		inputs["vaultUri"] = nil
 	} else {
 		inputs["contentType"] = args.ContentType
+		inputs["keyVaultId"] = args.KeyVaultId
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
 		inputs["value"] = args.Value
@@ -54,6 +53,7 @@ func GetSecret(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["contentType"] = state.ContentType
+		inputs["keyVaultId"] = state.KeyVaultId
 		inputs["name"] = state.Name
 		inputs["tags"] = state.Tags
 		inputs["value"] = state.Value
@@ -82,6 +82,11 @@ func (r *Secret) ContentType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["contentType"])
 }
 
+// The ID of the Key Vault where the Secret should be created.
+func (r *Secret) KeyVaultId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
+}
+
 // Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 func (r *Secret) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -97,7 +102,6 @@ func (r *Secret) Value() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["value"])
 }
 
-// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 func (r *Secret) VaultUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
 }
@@ -111,13 +115,14 @@ func (r *Secret) Version() *pulumi.StringOutput {
 type SecretState struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType interface{}
+	// The ID of the Key Vault where the Secret should be created.
+	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Specifies the value of the Key Vault Secret.
 	Value interface{}
-	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 	VaultUri interface{}
 	// The current version of the Key Vault Secret.
 	Version interface{}
@@ -127,12 +132,13 @@ type SecretState struct {
 type SecretArgs struct {
 	// Specifies the content type for the Key Vault Secret.
 	ContentType interface{}
+	// The ID of the Key Vault where the Secret should be created.
+	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// Specifies the value of the Key Vault Secret.
 	Value interface{}
-	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 	VaultUri interface{}
 }

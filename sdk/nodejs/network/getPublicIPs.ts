@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_public_ips_test = pulumi.output(azure.network.getPublicIPs({
+ * const test = pulumi.output(azure.network.getPublicIPs({
  *     attached: false,
  *     resourceGroupName: "pip-test",
  * }));

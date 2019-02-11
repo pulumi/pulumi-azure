@@ -12,4 +12,9 @@
   source = "github.com/pulumi/terraform-provider-azurerm"
 
   [constraint.metadata]
-    govendor-override = true
+    gomod-override = true
+    gomod-exclude-prefixes = [
+      "golang.org/x/crypto",
+      "github.com/aws/aws-sdk-go",
+      "contrib.go.opencensus.io/exporter/ocagent"
+    ]

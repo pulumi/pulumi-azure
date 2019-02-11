@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -11,7 +12,7 @@ class GetPoolResult(object):
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, auto_scales=None, display_name=None, fixed_scales=None, node_agent_sku_id=None, storage_image_references=None, vm_size=None, id=None):
+    def __init__(__self__, auto_scales=None, display_name=None, fixed_scales=None, max_tasks_per_node=None, node_agent_sku_id=None, storage_image_references=None, vm_size=None, id=None):
         if auto_scales and not isinstance(auto_scales, list):
             raise TypeError('Expected argument auto_scales to be a list')
         __self__.auto_scales = auto_scales
@@ -26,6 +27,12 @@ class GetPoolResult(object):
         __self__.fixed_scales = fixed_scales
         """
         A `fixed_scale` block that describes the scale settings when using fixed scale.
+        """
+        if max_tasks_per_node and not isinstance(max_tasks_per_node, int):
+            raise TypeError('Expected argument max_tasks_per_node to be a int')
+        __self__.max_tasks_per_node = max_tasks_per_node
+        """
+        The maximum number of tasks that can run concurrently on a single compute node in the pool.
         """
         if node_agent_sku_id and not isinstance(node_agent_sku_id, str):
             raise TypeError('Expected argument node_agent_sku_id to be a str')
@@ -68,6 +75,7 @@ async def get_pool(account_name=None, name=None, resource_group_name=None, start
         auto_scales=__ret__.get('autoScales'),
         display_name=__ret__.get('displayName'),
         fixed_scales=__ret__.get('fixedScales'),
+        max_tasks_per_node=__ret__.get('maxTasksPerNode'),
         node_agent_sku_id=__ret__.get('nodeAgentSkuId'),
         storage_image_references=__ret__.get('storageImageReferences'),
         vm_size=__ret__.get('vmSize'),

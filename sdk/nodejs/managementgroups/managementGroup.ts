@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_subscription_current = pulumi.output(azure.core.getSubscription({}));
- * const azurerm_management_group_test = new azure.managementgroups.ManagementGroup("test", {
- *     subscriptionIds: [azurerm_subscription_current.apply(__arg0 => __arg0.id)],
+ * const current = pulumi.output(azure.core.getSubscription({}));
+ * const test = new azure.managementgroups.ManagementGroup("test", {
+ *     subscriptionIds: [current.apply(current => current.id)],
  * });
  * ```
  */

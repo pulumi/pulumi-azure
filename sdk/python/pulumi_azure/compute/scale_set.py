@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -113,16 +114,15 @@ class ScaleSet(pulumi.CustomResource):
     """
     A collection of availability zones to spread the Virtual Machines over.
     """
-    def __init__(__self__, __name__, __opts__=None, automatic_os_upgrade=None, boot_diagnostics=None, eviction_policy=None, extensions=None, health_probe_id=None, identity=None, license_type=None, location=None, name=None, network_profiles=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, overprovision=None, plan=None, priority=None, resource_group_name=None, rolling_upgrade_policy=None, single_placement_group=None, sku=None, storage_profile_data_disks=None, storage_profile_image_reference=None, storage_profile_os_disk=None, tags=None, upgrade_policy_mode=None, zones=None):
+    def __init__(__self__, resource_name, opts=None, automatic_os_upgrade=None, boot_diagnostics=None, eviction_policy=None, extensions=None, health_probe_id=None, identity=None, license_type=None, location=None, name=None, network_profiles=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, overprovision=None, plan=None, priority=None, resource_group_name=None, rolling_upgrade_policy=None, single_placement_group=None, sku=None, storage_profile_data_disks=None, storage_profile_image_reference=None, storage_profile_os_disk=None, tags=None, upgrade_policy_mode=None, zones=None, __name__=None, __opts__=None):
         """
         Manage a virtual machine scale set.
         
         > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
         [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] automatic_os_upgrade: Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
         :param pulumi.Input[dict] boot_diagnostics: A boot diagnostics profile block as referenced below.
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
@@ -151,11 +151,17 @@ class ScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] upgrade_policy_mode: Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
         :param pulumi.Input[list] zones: A collection of availability zones to spread the Virtual Machines over.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -174,17 +180,17 @@ class ScaleSet(pulumi.CustomResource):
 
         __props__['license_type'] = license_type
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
         __props__['name'] = name
 
-        if not network_profiles:
+        if network_profiles is None:
             raise TypeError('Missing required property network_profiles')
         __props__['network_profiles'] = network_profiles
 
-        if not os_profile:
+        if os_profile is None:
             raise TypeError('Missing required property os_profile')
         __props__['os_profile'] = os_profile
 
@@ -200,7 +206,7 @@ class ScaleSet(pulumi.CustomResource):
 
         __props__['priority'] = priority
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -208,7 +214,7 @@ class ScaleSet(pulumi.CustomResource):
 
         __props__['single_placement_group'] = single_placement_group
 
-        if not sku:
+        if sku is None:
             raise TypeError('Missing required property sku')
         __props__['sku'] = sku
 
@@ -216,13 +222,13 @@ class ScaleSet(pulumi.CustomResource):
 
         __props__['storage_profile_image_reference'] = storage_profile_image_reference
 
-        if not storage_profile_os_disk:
+        if storage_profile_os_disk is None:
             raise TypeError('Missing required property storage_profile_os_disk')
         __props__['storage_profile_os_disk'] = storage_profile_os_disk
 
         __props__['tags'] = tags
 
-        if not upgrade_policy_mode:
+        if upgrade_policy_mode is None:
             raise TypeError('Missing required property upgrade_policy_mode')
         __props__['upgrade_policy_mode'] = upgrade_policy_mode
 
@@ -230,9 +236,9 @@ class ScaleSet(pulumi.CustomResource):
 
         super(ScaleSet, __self__).__init__(
             'azure:compute/scaleSet:ScaleSet',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

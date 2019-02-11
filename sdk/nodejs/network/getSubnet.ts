@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_subnet_test = pulumi.output(azure.network.getSubnet({
+ * const test = pulumi.output(azure.network.getSubnet({
  *     name: "backend",
  *     resourceGroupName: "networking",
  *     virtualNetworkName: "production",
  * }));
  * 
- * export const subnetId = azurerm_subnet_test.apply(__arg0 => __arg0.id);
+ * export const subnetId = test.apply(test => test.id);
  * ```
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {

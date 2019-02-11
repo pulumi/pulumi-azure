@@ -6,6 +6,70 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a [metric-based alert rule](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) in Azure Monitor.
+ * 
+ * > **NOTE:** This resource has been deprecated in favour of the `azurerm_monitor_metric_alertrule` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+ * 
+ * ## Example Usage (CPU Percentage of a virtual machine)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const test = new azure.monitoring.AlertRule("test", {
+ *     aggregation: "Average",
+ *     description: "An alert rule to watch the metric Percentage CPU",
+ *     emailAction: {
+ *         customEmails: ["some.user@example.com"],
+ *         sendToServiceOwners: false,
+ *     },
+ *     enabled: true,
+ *     location: azurerm_resource_group_test.location,
+ *     metricName: "Percentage CPU",
+ *     operator: "GreaterThan",
+ *     period: "PT5M",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceId: azurerm_virtual_machine_test.id,
+ *     threshold: 75,
+ *     webhookAction: {
+ *         properties: {
+ *             acceptance_test: "true",
+ *             severity: "incredible",
+ *         },
+ *         serviceUri: "https://example.com/some-url",
+ *     },
+ * });
+ * ```
+ * 
+ * ## Example Usage (Storage usage of a SQL Database)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const test = new azure.monitoring.AlertRule("test", {
+ *     aggregation: "Maximum",
+ *     description: "An alert rule to watch the metric Storage",
+ *     emailAction: {
+ *         customEmails: ["some.user@example.com"],
+ *         sendToServiceOwners: false,
+ *     },
+ *     enabled: true,
+ *     location: azurerm_resource_group_test.location,
+ *     metricName: "storage",
+ *     operator: "GreaterThan",
+ *     period: "PT10M",
+ *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceId: azurerm_sql_database_test.id,
+ *     threshold: 1073741824,
+ *     webhookAction: {
+ *         properties: {
+ *             acceptance_test: "true",
+ *             severity: "incredible",
+ *         },
+ *         serviceUri: "https://example.com/some-url",
+ *     },
+ * });
+ * ```
  */
 export class AlertRule extends pulumi.CustomResource {
     /**

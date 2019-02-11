@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a PostgreSQL Virtual Network Rule.
  * 
- * -> **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-vnet)
+ * > **NOTE:** PostgreSQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/en-us/azure/postgresql/concepts-data-access-and-security-vnet)
  * 
  * ## Example Usage
  * 
@@ -15,16 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "example-resources",
  * });
- * const azurerm_postgresql_server_test = new azure.postgresql.Server("test", {
+ * const testServer = new azure.postgresql.Server("test", {
  *     administratorLogin: "psqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: azurerm_resource_group_test.location,
- *     name: "postgresql-server-1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         family: "Gen5",
@@ -39,25 +37,22 @@ import * as utilities from "../utilities";
  *     },
  *     version: "9.5",
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.7.29.0/29"],
- *     location: azurerm_resource_group_test.location,
- *     name: "example-vnet",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_internal = new azure.network.Subnet("internal", {
+ * const internal = new azure.network.Subnet("internal", {
  *     addressPrefix: "10.7.29.0/29",
- *     name: "internal",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     serviceEndpoints: ["Microsoft.Sql"],
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_postgresql_virtual_network_rule_test = new azure.postgresql.VirtualNetworkRule("test", {
+ * const testVirtualNetworkRule = new azure.postgresql.VirtualNetworkRule("test", {
  *     ignoreMissingVnetServiceEndpoint: true,
- *     name: "postgresql-vnet-rule",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     serverName: azurerm_postgresql_server_test.name,
- *     subnetId: azurerm_subnet_internal.id,
+ *     resourceGroupName: testResourceGroup.name,
+ *     serverName: testServer.name,
+ *     subnetId: internal.id,
  * });
  * ```
  */

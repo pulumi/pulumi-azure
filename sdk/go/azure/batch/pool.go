@@ -37,6 +37,7 @@ func NewPool(ctx *pulumi.Context,
 		inputs["autoScale"] = nil
 		inputs["displayName"] = nil
 		inputs["fixedScale"] = nil
+		inputs["maxTasksPerNode"] = nil
 		inputs["name"] = nil
 		inputs["nodeAgentSkuId"] = nil
 		inputs["resourceGroupName"] = nil
@@ -49,6 +50,7 @@ func NewPool(ctx *pulumi.Context,
 		inputs["autoScale"] = args.AutoScale
 		inputs["displayName"] = args.DisplayName
 		inputs["fixedScale"] = args.FixedScale
+		inputs["maxTasksPerNode"] = args.MaxTasksPerNode
 		inputs["name"] = args.Name
 		inputs["nodeAgentSkuId"] = args.NodeAgentSkuId
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -74,6 +76,7 @@ func GetPool(ctx *pulumi.Context,
 		inputs["autoScale"] = state.AutoScale
 		inputs["displayName"] = state.DisplayName
 		inputs["fixedScale"] = state.FixedScale
+		inputs["maxTasksPerNode"] = state.MaxTasksPerNode
 		inputs["name"] = state.Name
 		inputs["nodeAgentSkuId"] = state.NodeAgentSkuId
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -117,6 +120,11 @@ func (r *Pool) DisplayName() *pulumi.StringOutput {
 // A `fixed_scale` block that describes the scale settings when using fixed scale.
 func (r *Pool) FixedScale() *pulumi.Output {
 	return r.s.State["fixedScale"]
+}
+
+// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+func (r *Pool) MaxTasksPerNode() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["maxTasksPerNode"])
 }
 
 // Specifies the name of the Batch pool. Changing this forces a new resource to be created.
@@ -163,6 +171,8 @@ type PoolState struct {
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
 	FixedScale interface{}
+	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+	MaxTasksPerNode interface{}
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the Sku of the node agents that will be created in the Batch pool.
@@ -188,6 +198,8 @@ type PoolArgs struct {
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
 	FixedScale interface{}
+	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+	MaxTasksPerNode interface{}
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the Sku of the node agents that will be created in the Batch pool.

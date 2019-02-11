@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_kubernetes_cluster_test = pulumi.output(azure.containerservice.getKubernetesCluster({
+ * const test = pulumi.output(azure.containerservice.getKubernetesCluster({
  *     name: "myakscluster",
  *     resourceGroupName: "my-example-resource-group",
  * }));

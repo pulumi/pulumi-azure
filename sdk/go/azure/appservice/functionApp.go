@@ -63,6 +63,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 		inputs["version"] = args.Version
 	}
 	inputs["defaultHostname"] = nil
+	inputs["kind"] = nil
 	inputs["outboundIpAddresses"] = nil
 	inputs["siteCredential"] = nil
 	s, err := ctx.RegisterResource("azure:appservice/functionApp:FunctionApp", name, true, inputs, opts...)
@@ -87,6 +88,7 @@ func GetFunctionApp(ctx *pulumi.Context,
 		inputs["enabled"] = state.Enabled
 		inputs["httpsOnly"] = state.HttpsOnly
 		inputs["identity"] = state.Identity
+		inputs["kind"] = state.Kind
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["outboundIpAddresses"] = state.OutboundIpAddresses
@@ -159,6 +161,11 @@ func (r *FunctionApp) Identity() *pulumi.Output {
 	return r.s.State["identity"]
 }
 
+// The Function App kind - such as `functionapp,linux,container`
+func (r *FunctionApp) Kind() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["kind"])
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *FunctionApp) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
@@ -224,6 +231,8 @@ type FunctionAppState struct {
 	HttpsOnly interface{}
 	// An `identity` block as defined below.
 	Identity interface{}
+	// The Function App kind - such as `functionapp,linux,container`
+	Kind interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Connection String.

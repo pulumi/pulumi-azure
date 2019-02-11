@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -11,7 +12,7 @@ class GetAppServiceResult(object):
     """
     A collection of values returned by getAppService.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, location=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, site_config=None, site_credentials=None, source_controls=None, tags=None, id=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, location=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, site_config=None, site_credentials=None, source_controls=None, tags=None, id=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError('Expected argument app_service_plan_id to be a str')
         __self__.app_service_plan_id = app_service_plan_id
@@ -29,6 +30,12 @@ class GetAppServiceResult(object):
         __self__.client_affinity_enabled = client_affinity_enabled
         """
         Does the App Service send session affinity cookies, which route client requests in the same session to the same instance?
+        """
+        if client_cert_enabled and not isinstance(client_cert_enabled, bool):
+            raise TypeError('Expected argument client_cert_enabled to be a bool')
+        __self__.client_cert_enabled = client_cert_enabled
+        """
+        Does the App Service require client certificates for incoming requests?
         """
         if connection_strings and not isinstance(connection_strings, list):
             raise TypeError('Expected argument connection_strings to be a list')
@@ -109,6 +116,7 @@ async def get_app_service(name=None, resource_group_name=None, site_config=None)
         app_service_plan_id=__ret__.get('appServicePlanId'),
         app_settings=__ret__.get('appSettings'),
         client_affinity_enabled=__ret__.get('clientAffinityEnabled'),
+        client_cert_enabled=__ret__.get('clientCertEnabled'),
         connection_strings=__ret__.get('connectionStrings'),
         default_site_hostname=__ret__.get('defaultSiteHostname'),
         enabled=__ret__.get('enabled'),

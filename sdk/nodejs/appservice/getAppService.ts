@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_app_service_test = pulumi.output(azure.appservice.getAppService({
+ * const test = pulumi.output(azure.appservice.getAppService({
  *     name: "search-app-service",
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const appServiceId = azurerm_app_service_test.apply(__arg0 => __arg0.id);
+ * export const appServiceId = test.apply(test => test.id);
  * ```
  */
 export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {
@@ -60,6 +60,10 @@ export interface GetAppServiceResult {
      * Does the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
     readonly clientAffinityEnabled: boolean;
+    /**
+     * Does the App Service require client certificates for incoming requests?
+     */
+    readonly clientCertEnabled: boolean;
     /**
      * An `connection_string` block as defined below.
      */

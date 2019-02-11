@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -92,13 +93,12 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     in which the connection will be created. Changing the gateway forces a new
     resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, authorization_key=None, enable_bgp=None, express_route_circuit_id=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
+    def __init__(__self__, resource_name, opts=None, authorization_key=None, enable_bgp=None, express_route_circuit_id=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None, __name__=None, __opts__=None):
         """
         Manages a connection in an existing Virtual Network Gateway.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorization key associated with the
                Express Route Circuit. This field is required only if the type is an
                ExpressRoute connection.
@@ -139,11 +139,17 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                in which the connection will be created. Changing the gateway forces a new
                resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -158,7 +164,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         __props__['local_network_gateway_id'] = local_network_gateway_id
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
@@ -166,7 +172,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         __props__['peer_virtual_network_gateway_id'] = peer_virtual_network_gateway_id
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -176,21 +182,21 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if not type:
+        if type is None:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
         __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
 
-        if not virtual_network_gateway_id:
+        if virtual_network_gateway_id is None:
             raise TypeError('Missing required property virtual_network_gateway_id')
         __props__['virtual_network_gateway_id'] = virtual_network_gateway_id
 
         super(VirtualNetworkGatewayConnection, __self__).__init__(
             'azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -13,16 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
- * const azurerm_mysql_server_test = new azure.mysql.Server("test", {
+ * const testServer = new azure.mysql.Server("test", {
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: azurerm_resource_group_test.location,
- *     name: "mysql-server-1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         family: "Gen4",
@@ -81,7 +79,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly sku: pulumi.Output<{ capacity: number, family: string, name: string, tier: string }>;
     /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enforced` and `Disabled`.
+     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
      */
     public readonly sslEnforcement: pulumi.Output<string>;
     /**
@@ -195,7 +193,7 @@ export interface ServerState {
      */
     readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, family: pulumi.Input<string>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
     /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enforced` and `Disabled`.
+     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
      */
     readonly sslEnforcement?: pulumi.Input<string>;
     /**
@@ -241,7 +239,7 @@ export interface ServerArgs {
      */
     readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, family: pulumi.Input<string>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
     /**
-     * Specifies if SSL should be enforced on connections. Possible values are `Enforced` and `Disabled`.
+     * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
      */
     readonly sslEnforcement: pulumi.Input<string>;
     /**

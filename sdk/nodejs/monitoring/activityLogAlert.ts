@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an Activity Log Alert within Azure Monitor.
  * 
  * ## Example Usage
  * 
@@ -12,29 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_main = new azure.core.ResourceGroup("main", {
+ * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West US",
- *     name: "example-resources",
  * });
- * const azurerm_monitor_action_group_main = new azure.monitoring.ActionGroup("main", {
- *     name: "example-actiongroup",
- *     resourceGroupName: azurerm_resource_group_main.name,
+ * const mainActionGroup = new azure.monitoring.ActionGroup("main", {
+ *     resourceGroupName: mainResourceGroup.name,
  *     shortName: "p0action",
  *     webhookReceivers: [{
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
  * });
- * const azurerm_storage_account_to_monitor = new azure.storage.Account("to_monitor", {
+ * const toMonitor = new azure.storage.Account("to_monitor", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_main.location,
- *     name: "examplesa",
- *     resourceGroupName: azurerm_resource_group_main.name,
+ *     location: mainResourceGroup.location,
+ *     resourceGroupName: mainResourceGroup.name,
  * });
- * const azurerm_monitor_activity_log_alert_main = new azure.monitoring.ActivityLogAlert("main", {
+ * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("main", {
  *     actions: [{
- *         actionGroupId: azurerm_monitor_action_group_main.id,
+ *         actionGroupId: mainActionGroup.id,
  *         webhookProperties: {
  *             from: "terraform",
  *         },
@@ -42,12 +40,11 @@ import * as utilities from "../utilities";
  *     criteria: {
  *         category: "Recommendation",
  *         operationName: "Microsoft.Storage/storageAccounts/write",
- *         resourceId: azurerm_storage_account_to_monitor.id,
+ *         resourceId: toMonitor.id,
  *     },
  *     description: "This alert will monitor a specific storage account updates.",
- *     name: "example-activitylogalert",
- *     resourceGroupName: azurerm_resource_group_main.name,
- *     scopes: [azurerm_resource_group_main.id],
+ *     resourceGroupName: mainResourceGroup.name,
+ *     scopes: [mainResourceGroup.id],
  * });
  * ```
  */
@@ -64,13 +61,37 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         return new ActivityLogAlert(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * One or more `action` blocks as defined below.
+     */
     public readonly actions: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;
+    /**
+     * A `criteria` block as defined below.
+     */
     public readonly criteria: pulumi.Output<{ caller?: string, category: string, level?: string, operationName?: string, resourceGroup?: string, resourceId?: string, resourceProvider?: string, resourceType?: string, status?: string, subStatus?: string }>;
+    /**
+     * The description of this activity log alert.
+     */
     public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Should this Activity Log Alert be enabled? Defaults to `true`.
+     */
     public readonly enabled: pulumi.Output<boolean | undefined>;
+    /**
+     * The name of the activity log alert. Changing this forces a new resource to be created.
+     */
     public readonly name: pulumi.Output<string>;
+    /**
+     * The name of the resource group in which to create the activity log alert instance.
+     */
     public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+     */
     public readonly scopes: pulumi.Output<string[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
 
     /**
@@ -121,13 +142,37 @@ export class ActivityLogAlert extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ActivityLogAlert resources.
  */
 export interface ActivityLogAlertState {
+    /**
+     * One or more `action` blocks as defined below.
+     */
     readonly actions?: pulumi.Input<pulumi.Input<{ actionGroupId: pulumi.Input<string>, webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>[]>;
+    /**
+     * A `criteria` block as defined below.
+     */
     readonly criteria?: pulumi.Input<{ caller?: pulumi.Input<string>, category: pulumi.Input<string>, level?: pulumi.Input<string>, operationName?: pulumi.Input<string>, resourceGroup?: pulumi.Input<string>, resourceId?: pulumi.Input<string>, resourceProvider?: pulumi.Input<string>, resourceType?: pulumi.Input<string>, status?: pulumi.Input<string>, subStatus?: pulumi.Input<string> }>;
+    /**
+     * The description of this activity log alert.
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Should this Activity Log Alert be enabled? Defaults to `true`.
+     */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the activity log alert. Changing this forces a new resource to be created.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to create the activity log alert instance.
+     */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+     */
     readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
 
@@ -135,12 +180,36 @@ export interface ActivityLogAlertState {
  * The set of arguments for constructing a ActivityLogAlert resource.
  */
 export interface ActivityLogAlertArgs {
+    /**
+     * One or more `action` blocks as defined below.
+     */
     readonly actions?: pulumi.Input<pulumi.Input<{ actionGroupId: pulumi.Input<string>, webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>[]>;
+    /**
+     * A `criteria` block as defined below.
+     */
     readonly criteria: pulumi.Input<{ caller?: pulumi.Input<string>, category: pulumi.Input<string>, level?: pulumi.Input<string>, operationName?: pulumi.Input<string>, resourceGroup?: pulumi.Input<string>, resourceId?: pulumi.Input<string>, resourceProvider?: pulumi.Input<string>, resourceType?: pulumi.Input<string>, status?: pulumi.Input<string>, subStatus?: pulumi.Input<string> }>;
+    /**
+     * The description of this activity log alert.
+     */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Should this Activity Log Alert be enabled? Defaults to `true`.
+     */
     readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * The name of the activity log alert. Changing this forces a new resource to be created.
+     */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The name of the resource group in which to create the activity log alert instance.
+     */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
+     */
     readonly scopes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A mapping of tags to assign to the resource.
+     */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

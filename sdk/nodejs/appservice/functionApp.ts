@@ -13,68 +13,59 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus2",
- *     name: "azure-functions-test-rg",
  * });
- * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "azure-functions-test-service-plan",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testPlan = new azure.appservice.Plan("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
  *     },
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_test.location,
- *     name: "functionsapptestsa",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_function_app_test = new azure.appservice.FunctionApp("test", {
- *     appServicePlanId: azurerm_app_service_plan_test.id,
- *     location: azurerm_resource_group_test.location,
- *     name: "test-azure-functions",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     storageConnectionString: azurerm_storage_account_test.primaryConnectionString,
+ * const testFunctionApp = new azure.appservice.FunctionApp("test", {
+ *     appServicePlanId: testPlan.id,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ *     storageConnectionString: testAccount.primaryConnectionString,
  * });
  * ```
- * 
  * ## Example Usage (in a Consumption Plan)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus2",
- *     name: "azure-functions-cptest-rg",
  * });
- * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "FunctionApp",
- *     location: azurerm_resource_group_test.location,
- *     name: "azure-functions-test-service-plan",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "Y1",
  *         tier: "Dynamic",
  *     },
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_test.location,
- *     name: "functionsapptestsa",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_function_app_test = new azure.appservice.FunctionApp("test", {
- *     appServicePlanId: azurerm_app_service_plan_test.id,
- *     location: azurerm_resource_group_test.location,
- *     name: "test-azure-functions",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     storageConnectionString: azurerm_storage_account_test.primaryConnectionString,
+ * const testFunctionApp = new azure.appservice.FunctionApp("test", {
+ *     appServicePlanId: testPlan.id,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ *     storageConnectionString: testAccount.primaryConnectionString,
  * });
  * ```
  */
@@ -128,6 +119,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
     /**
+     * The Function App kind - such as `functionapp,linux,container`
+     */
+    public /*out*/ readonly kind: pulumi.Output<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -146,7 +141,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * A `site_config` object as defined below.
      */
-    public readonly siteConfig: pulumi.Output<{ alwaysOn?: boolean, use32BitWorkerProcess?: boolean, websocketsEnabled?: boolean }>;
+    public readonly siteConfig: pulumi.Output<{ alwaysOn?: boolean, linuxFxVersion: string, use32BitWorkerProcess?: boolean, websocketsEnabled?: boolean }>;
     /**
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
@@ -185,6 +180,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
@@ -224,6 +220,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["version"] = args ? args.version : undefined;
             inputs["defaultHostname"] = undefined /*out*/;
+            inputs["kind"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
             inputs["siteCredential"] = undefined /*out*/;
         }
@@ -272,6 +269,10 @@ export interface FunctionAppState {
      */
     readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
+     * The Function App kind - such as `functionapp,linux,container`
+     */
+    readonly kind?: pulumi.Input<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -290,7 +291,7 @@ export interface FunctionAppState {
     /**
      * A `site_config` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
     /**
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
@@ -360,7 +361,7 @@ export interface FunctionAppArgs {
     /**
      * A `site_config` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */

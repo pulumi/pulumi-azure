@@ -13,24 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_aci_rg = new azure.core.ResourceGroup("aci-rg", {
+ * const aci_rg = new azure.core.ResourceGroup("aci-rg", {
  *     location: "west us",
- *     name: "aci-test",
  * });
- * const azurerm_storage_account_aci_sa = new azure.storage.Account("aci-sa", {
+ * const aci_sa = new azure.storage.Account("aci-sa", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_aci_rg.location,
- *     name: "acistorageacct",
- *     resourceGroupName: azurerm_resource_group_aci_rg.name,
+ *     location: aci_rg.location,
+ *     resourceGroupName: aci_rg.name,
  * });
- * const azurerm_storage_share_aci_share = new azure.storage.Share("aci-share", {
- *     name: "aci-test-share",
+ * const aci_share = new azure.storage.Share("aci-share", {
  *     quota: 50,
- *     resourceGroupName: azurerm_resource_group_aci_rg.name,
- *     storageAccountName: azurerm_storage_account_aci_sa.name,
+ *     resourceGroupName: aci_rg.name,
+ *     storageAccountName: aci_sa.name,
  * });
- * const azurerm_container_group_aci_helloworld = new azure.containerservice.Group("aci-helloworld", {
+ * const aci_helloworld = new azure.containerservice.Group("aci-helloworld", {
  *     containers: [
  *         {
  *             commands: [
@@ -38,12 +35,12 @@ import * as utilities from "../utilities";
  *                 "-c",
  *                 "'/path to/myscript.sh'",
  *             ],
- *             cpu: Number.parseFloat("0.5"),
+ *             cpu: 0.5,
  *             environmentVariables: {
  *                 NODE_ENV: "testing",
  *             },
  *             image: "seanmckenna/aci-hellofiles",
- *             memory: Number.parseFloat("1.5"),
+ *             memory: 1.5,
  *             name: "hw",
  *             ports: [
  *                 {
@@ -62,24 +59,23 @@ import * as utilities from "../utilities";
  *                 mountPath: "/aci/logs",
  *                 name: "logs",
  *                 readOnly: false,
- *                 shareName: azurerm_storage_share_aci_share.name,
- *                 storageAccountKey: azurerm_storage_account_aci_sa.primaryAccessKey,
- *                 storageAccountName: azurerm_storage_account_aci_sa.name,
+ *                 shareName: aci_share.name,
+ *                 storageAccountKey: aci_sa.primaryAccessKey,
+ *                 storageAccountName: aci_sa.name,
  *             }],
  *         },
  *         {
- *             cpu: Number.parseFloat("0.5"),
+ *             cpu: 0.5,
  *             image: "microsoft/aci-tutorial-sidecar",
- *             memory: Number.parseFloat("1.5"),
+ *             memory: 1.5,
  *             name: "sidecar",
  *         },
  *     ],
  *     dnsNameLabel: "aci-label",
  *     ipAddressType: "public",
- *     location: azurerm_resource_group_aci_rg.location,
- *     name: "aci-hw",
+ *     location: aci_rg.location,
  *     osType: "Linux",
- *     resourceGroupName: azurerm_resource_group_aci_rg.name,
+ *     resourceGroupName: aci_rg.name,
  *     tags: {
  *         environment: "testing",
  *     },

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Shared Image Gallery.
  * 
- * -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
+ * > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
  * 
  * ## Example Usage
  * 
@@ -15,15 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
- * const azurerm_shared_image_gallery_test = new azure.compute.SharedImageGallery("test", {
+ * const testSharedImageGallery = new azure.compute.SharedImageGallery("test", {
  *     description: "Shared images and things.",
- *     location: azurerm_resource_group_test.location,
- *     name: "example_image_gallery",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Hello: "There",
  *         World: "Example",

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -13,6 +14,10 @@ class VirtualNetwork(pulumi.CustomResource):
     The address space that is used the virtual
     network. You can supply more than one address space. Changing this forces
     a new resource to be created.
+    """
+    ddos_protection_plan: pulumi.Output[dict]
+    """
+    A `ddos_protection_plan` block as documented below.
     """
     dns_servers: pulumi.Output[list]
     """
@@ -42,7 +47,7 @@ class VirtualNetwork(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, address_spaces=None, dns_servers=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, address_spaces=None, ddos_protection_plan=None, dns_servers=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None, __name__=None, __opts__=None):
         """
         Manages a virtual network including any configured subnets. Each subnet can
         optionally be configured with a security group to be associated with the subnet.
@@ -51,12 +56,12 @@ class VirtualNetwork(pulumi.CustomResource):
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] address_spaces: The address space that is used the virtual
                network. You can supply more than one address space. Changing this forces
                a new resource to be created.
+        :param pulumi.Input[dict] ddos_protection_plan: A `ddos_protection_plan` block as documented below.
         :param pulumi.Input[list] dns_servers: List of IP addresses of DNS servers
         :param pulumi.Input[str] location: The location/region where the virtual network is
                created. Changing this forces a new resource to be created.
@@ -68,28 +73,36 @@ class VirtualNetwork(pulumi.CustomResource):
                subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not address_spaces:
+        if address_spaces is None:
             raise TypeError('Missing required property address_spaces')
         __props__['address_spaces'] = address_spaces
 
+        __props__['ddos_protection_plan'] = ddos_protection_plan
+
         __props__['dns_servers'] = dns_servers
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
         __props__['name'] = name
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -99,9 +112,9 @@ class VirtualNetwork(pulumi.CustomResource):
 
         super(VirtualNetwork, __self__).__init__(
             'azure:network/virtualNetwork:VirtualNetwork',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

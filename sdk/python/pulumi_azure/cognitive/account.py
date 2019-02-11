@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -24,9 +25,17 @@ class Account(pulumi.CustomResource):
     """
     Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
     """
+    primary_access_key: pulumi.Output[str]
+    """
+    A primary access key which can be used to connect to the Cognitive Service Account.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
+    """
+    secondary_access_key: pulumi.Output[str]
+    """
+    The secondary access key which can be used to connect to the Cognitive Service Account.
     """
     sku: pulumi.Output[dict]
     """
@@ -36,13 +45,12 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, kind=None, location=None, name=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __name__=None, __opts__=None):
         """
         Manages a Cognitive Services Account.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `Emotion`, `Face`, `LUIS`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
@@ -50,42 +58,50 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not kind:
+        if kind is None:
             raise TypeError('Missing required property kind')
         __props__['kind'] = kind
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
         __props__['name'] = name
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
-        if not sku:
+        if sku is None:
             raise TypeError('Missing required property sku')
         __props__['sku'] = sku
 
         __props__['tags'] = tags
 
         __props__['endpoint'] = None
+        __props__['primary_access_key'] = None
+        __props__['secondary_access_key'] = None
 
         super(Account, __self__).__init__(
             'azure:cognitive/account:Account',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):
