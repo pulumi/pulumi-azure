@@ -1,10 +1,10 @@
 [[constraint]]
-  branch = "master"
   name = "github.com/pulumi/pulumi"
+  branch = "master"
 
 [[constraint]]
-  branch = "master"
   name = "github.com/pulumi/pulumi-terraform"
+  branch = "master"
 
 [[constraint]]
   branch = "pulumi-master"
@@ -12,396 +12,365 @@
   source = "github.com/pulumi/terraform-provider-azurerm"
 
   [constraint.metadata]
-    govendor-override = true
+    gomod-override = true
+    gomod-exclude-prefixes = [
+      "golang.org/x/crypto",
+      "github.com/aws/aws-sdk-go",
+      "contrib.go.opencensus.io/exporter/ocagent"
+    ]
 
-# NOTE: the following overrides were injected by govendor-override. It may be necessary to
-# remove some of these overrides in order to produce a buildable vendor tree.
+# NOTE: this Gopkg.toml file was constructed using gomod-override
+
 [[override]]
-  name = "contrib.go.opencensus.io/exporter/ocagent"
-  revision = "0758abcb21781452e3f21b8d7944e0da2a16d736"
+  name = "cloud.google.com/go"
+  version = "=v0.34.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
+
+[[override]]
+  name = "git.apache.org/thrift.git"
+  revision = "9b75e4fe745a9b08e6ccdc0998ec7a69272f5b4c"
+  [override.metadata]
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/Azure/azure-sdk-for-go"
   version = "=v24.0.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/Azure/go-autorest"
-  version = "=v11.2.8"
+  version = "=v11.3.2"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/agext/levenshtein"
-  revision = "5f10fee965225ac1eecdc234c09daf5cd9e7f7b6"
+  version = "=v1.2.1"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/apparentlymart/go-cidr"
   revision = "7e4b007599d4e2076d9a81be723b3912852dda2c"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/apparentlymart/go-rundeck-api"
   revision = "f6af74d34d1ef69a511c59173876fc1174c11f0d"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/apparentlymart/go-textseg"
   revision = "b836f5c4d331d1945a2fead7188db25432d73b69"
   [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/armon/go-radix"
-  revision = "1fca145dffbcaa8fe914309b1ec0cfc67500fe61"
-  [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/aws/aws-sdk-go"
-  version = "=v1.8.34"
-  [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/bgentry/go-netrc"
   revision = "9fd32a8b3d3d3f9d43c341bfe098430e07609480"
   [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/bgentry/speakeasy"
-  revision = "4aabc24848ce5fd31929f7d1e4ea74d3709c14cd"
-  [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/blang/semver"
-  revision = "2ee87856327ba09384cabd113bc6b5d174e9ec0f"
+  version = "=v3.5.1"
   [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/census-instrumentation/opencensus-proto"
-  revision = "ba49f56771b83cff7bea7f34d1236fc139dbc471"
-  [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/davecgh/go-spew"
-  revision = "346938d642f2ec3594ed81d874461961cd0faa76"
+  version = "=v1.1.0"
   [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/dgrijalva/jwt-go"
-  revision = "f0777076321ab64f6efc15a82d9d23b98539b943"
-  [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/dimchansky/utfbom"
-  revision = "6c6132ff69f0f6c088739067407b5d32c52e1d0f"
-  [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/fatih/color"
-  revision = "3f9d52f7176a6927daacff70a3e8d1dc2025c53e"
-  [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/fsouza/go-dockerclient"
   revision = "1d4f4ae73768d3ca16a6fb964694f58dc5eba601"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/go-ini/ini"
-  revision = "766e555c68dc8bda90d197ee8946c37519c19409"
+  version = "=v1.23.1"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
-  name = "github.com/golang/protobuf"
-  revision = "1d3f30b51784bec5aad268e59fd3c2fc1c2fe73f"
+  name = "github.com/golang/mock"
+  version = "=v1.2.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/google/uuid"
   revision = "7e072fc3a7be179aee6d3359e46015aa8c995314"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/grpc-ecosystem/grpc-gateway"
-  revision = "719aaadb1a4f7b11606d454e266fe5c5f789796f"
+  version = "=v1.6.3"
   [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/hashicorp/errwrap"
-  revision = "d6c0cd88035724dd42e0f335ae30161c20575ecc"
-  [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-azure-helpers"
-  version = "=0.3.1"
+  revision = "38db96513363e6bd8832cae8918dbdf27b8af21d"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-cleanhttp"
   revision = "3573b8b52aa7b37b9358d966a898feb387f62437"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-getter"
   revision = "64040d90d4ab861e7e833d689dc76a0f176d8dec"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-hclog"
   revision = "8105cc0a3736cc153a2025f5d0d91b80045fc9ff"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-multierror"
-  revision = "d30f09973e19c1dfcd120b2d9c4f168e68d6b5d5"
+  version = "=v1.0.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-plugin"
   revision = "a5174f84d7f8ff00fb07ab4ef1f380d32eee0e63"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-uuid"
   revision = "36289988d83ca270bc07c234c36f364b0dd9c9a7"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/go-version"
   revision = "e96d3840402619007766590ecea8dd7af1292276"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/hcl"
   revision = "a4b07c25de5ff55ad3b8936cea69a79a3d95a855"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/hcl2"
   revision = "998a3053e207853cf21b90e451772fbecfd1d1bc"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/hil"
   revision = "fac2259da677551de1fb92b844c4d020a38d8468"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/logutils"
   revision = "0dc08b1671f34c4250ce212759ebd880f743d883"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/terraform"
   version = "=v0.11.9"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/hashicorp/yamux"
   revision = "d1caa6c97c9fc1cc9e83bbe34d0603f9ff0ce8bd"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/jmespath/go-jmespath"
   revision = "bd40a432e4c76585ef6b72d3fd96fb9b6dc7b68d"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/marstr/guid"
   revision = "8bdf7d1a087ccc975cf37dd6507da50698fd19ca"
   [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/mattn/go-colorable"
-  revision = "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
-  [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/mattn/go-isatty"
-  revision = "a5cdd64afdee435007ee3e9f6ed4684af949d568"
-  [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/mitchellh/cli"
-  revision = "3d22a244be8aa6fb16ac24af0e195c08b7d973aa"
+  version = "=v1.0.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/mitchellh/copystructure"
-  revision = "9a1b6f44e8da0e0e374624fb0a825a231b00c537"
+  version = "=v1.0.0"
   [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "github.com/mitchellh/go-homedir"
-  revision = "ae18d6b8b3205b561c79e8e5f69bff09736185f4"
-  [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/mitchellh/go-testing-interface"
-  revision = "6d0b8010fcc857872e42fc6c931227569016843c"
+  version = "=v1.0.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/mitchellh/go-wordwrap"
-  revision = "9e67c67572bc5dd02aef930e2b0ae3c02a4b5a5c"
+  version = "=v1.0.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/mitchellh/hashstructure"
-  revision = "a38c50148365edc8df43c1580c48fb2b3a1e9cd7"
+  version = "=v1.0.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/mitchellh/mapstructure"
-  revision = "3536a929edddb9a5b34bd6861dc4a9647cb459fe"
+  version = "=v1.1.2"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
-  name = "github.com/mitchellh/reflectwalk"
-  revision = "eecee6c969c02c8cc2ae48e1e269843ae8590796"
+  name = "github.com/openzipkin/zipkin-go"
+  version = "=v0.1.3"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
-  name = "github.com/posener/complete"
-  revision = "88e59760adaddb8276c9b15511302890690e2dae"
+  name = "github.com/prometheus/client_golang"
+  version = "=v0.9.2"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/prometheus/common"
+  revision = "67670fe90761d7ff18ec1d640135e53b9198328f"
+  [override.metadata]
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/satori/go.uuid"
   revision = "b061729afc07e77a8aa4fad0a2fd840958f1942a"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/satori/uuid"
   revision = "b061729afc07e77a8aa4fad0a2fd840958f1942a"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/ulikunitz/xz"
-  revision = "0c6b41e72360850ca4f98dc341fd999726ea007f"
+  version = "=v0.5.4"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "github.com/zclconf/go-cty"
   revision = "7166230c635fa24bbe613c5a53e75ad15c42c059"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
-  name = "go.opencensus.io"
-  revision = "950a67f393d867cfbe91414063b69e511f42fefb"
+  name = "golang.org/x/lint"
+  revision = "8f45f776aaf18cebc8d65861cc70c33c60471952"
   [override.metadata]
-    govendor-overridden=true
-
-[[override]]
-  name = "golang.org/x/crypto"
-  revision = "4d3f4d9ffa16a13f451c3b2999e9c49e9750bf06"
-  [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "golang.org/x/net"
-  revision = "1c05540f6879653db88113bc4a2b70aec4bd491f"
+  revision = "e147a9138326bc0e9d4e179541ffd8af41cff8a9"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
+
+[[override]]
+  name = "golang.org/x/oauth2"
+  revision = "d668ce993890a79bda886613ee587a69dd5da7a6"
+  [override.metadata]
+    gomod-overridden=true
 
 [[override]]
   name = "golang.org/x/sync"
   revision = "37e7f081c4d4c64e13b10787722085407fe5d15f"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "golang.org/x/sys"
   revision = "b4a75ba826a64a70990f11a225237acd6ef35c9f"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
-  name = "golang.org/x/text"
-  revision = "1cbadb444a806fd9430d14ad08967ed91da4fa0a"
+  name = "golang.org/x/tools"
+  revision = "6e267b5cc78e9baebc0af24b760802105d843647"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "google.golang.org/api"
   revision = "65a46cafb132eff435c7d1e0f439cc73c8eebb85"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
+
+[[override]]
+  name = "google.golang.org/appengine"
+  version = "=v1.3.0"
+  [override.metadata]
+    gomod-overridden=true
 
 [[override]]
   name = "google.golang.org/genproto"
   revision = "bd9b4fb69e2ffd37621a6caa54dcbead29b546f2"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
 
 [[override]]
   name = "google.golang.org/grpc"
-  revision = "25de51fc024f642d9ac888257b1485939a1d4a14"
+  version = "=v1.17.0"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
+
+[[override]]
+  name = "gopkg.in/check.v1"
+  revision = "788fd78401277ebd861206a03c884797c6ec5541"
+  [override.metadata]
+    gomod-overridden=true
 
 [[override]]
   name = "gopkg.in/yaml.v2"
-  revision = "7f97868eec74b32b0982dd158a51a446d1da7eb5"
+  version = "=v2.2.2"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
+
+[[override]]
+  name = "honnef.co/go/tools"
+  revision = "e3ad64cb4ed3e25a30bf42def711f9cb5b004f72"
+  [override.metadata]
+    gomod-overridden=true
 
 [[override]]
   name = "k8s.io/kubernetes"
   version = "=v1.6.1"
   [override.metadata]
-    govendor-overridden=true
+    gomod-overridden=true
