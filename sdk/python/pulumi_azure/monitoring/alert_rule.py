@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -64,13 +65,14 @@ class AlertRule(pulumi.CustomResource):
     """
     A `webhook_action` block as defined below.
     """
-    def __init__(__self__, __name__, __opts__=None, aggregation=None, description=None, email_action=None, enabled=None, location=None, metric_name=None, name=None, operator=None, period=None, resource_group_name=None, resource_id=None, tags=None, threshold=None, webhook_action=None):
+    def __init__(__self__, resource_name, opts=None, aggregation=None, description=None, email_action=None, enabled=None, location=None, metric_name=None, name=None, operator=None, period=None, resource_group_name=None, resource_id=None, tags=None, threshold=None, webhook_action=None, __name__=None, __opts__=None):
         """
         Manages a [metric-based alert rule](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) in Azure Monitor.
         
+        > **NOTE:** This resource has been deprecated in favour of the `azurerm_monitor_metric_alertrule` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aggregation: Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
         :param pulumi.Input[str] description: A verbose description of the alert rule that will be included in the alert email.
         :param pulumi.Input[dict] email_action: A `email_action` block as defined below.
@@ -86,16 +88,22 @@ class AlertRule(pulumi.CustomResource):
         :param pulumi.Input[float] threshold: The threshold value that activates the alert.
         :param pulumi.Input[dict] webhook_action: A `webhook_action` block as defined below.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not aggregation:
+        if aggregation is None:
             raise TypeError('Missing required property aggregation')
         __props__['aggregation'] = aggregation
 
@@ -105,35 +113,35 @@ class AlertRule(pulumi.CustomResource):
 
         __props__['enabled'] = enabled
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
-        if not metric_name:
+        if metric_name is None:
             raise TypeError('Missing required property metric_name')
         __props__['metric_name'] = metric_name
 
         __props__['name'] = name
 
-        if not operator:
+        if operator is None:
             raise TypeError('Missing required property operator')
         __props__['operator'] = operator
 
-        if not period:
+        if period is None:
             raise TypeError('Missing required property period')
         __props__['period'] = period
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
-        if not resource_id:
+        if resource_id is None:
             raise TypeError('Missing required property resource_id')
         __props__['resource_id'] = resource_id
 
         __props__['tags'] = tags
 
-        if not threshold:
+        if threshold is None:
             raise TypeError('Missing required property threshold')
         __props__['threshold'] = threshold
 
@@ -141,9 +149,9 @@ class AlertRule(pulumi.CustomResource):
 
         super(AlertRule, __self__).__init__(
             'azure:monitoring/alertRule:AlertRule',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

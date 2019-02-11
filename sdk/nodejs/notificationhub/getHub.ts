@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_notification_hub_test = pulumi.output(azure.notificationhub.getHub({
+ * const test = pulumi.output(azure.notificationhub.getHub({
  *     name: "notification-hub",
  *     namespaceName: "namespace-name",
  *     resourceGroupName: "resource-group-name",
  * }));
  * 
- * export const id = azurerm_notification_hub_test.apply(__arg0 => __arg0.id);
+ * export const id = test.apply(test => test.id);
  * ```
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {

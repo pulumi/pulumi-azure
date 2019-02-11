@@ -9,6 +9,28 @@ import (
 )
 
 // Manages a Redis Cache.
+// 
+// ## Default Redis Configuration Values
+// 
+// | Redis Value        | Basic        | Standard     | Premium      |
+// | ------------------ | ------------ | ------------ | ------------ |
+// | maxmemory_reserved | 2            | 50           | 200          |
+// | maxmemory_delta    | 2            | 50           | 200          |
+// | maxmemory_policy   | volatile-lru | volatile-lru | volatile-lru |
+// 
+// _*Important*: The `maxmemory_reserved` and `maxmemory_delta` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+// 
+// * `patch_schedule` supports the following:
+// 
+// * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+// * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+// 
+// > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+// 
+// ## Relevant Links
+// 
+//  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
+//  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
 type Cache struct {
 	s *pulumi.ResourceState
 }

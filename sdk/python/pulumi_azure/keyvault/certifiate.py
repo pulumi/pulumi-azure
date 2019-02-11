@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -19,6 +20,10 @@ class Certifiate(pulumi.CustomResource):
     certificate_policy: pulumi.Output[dict]
     """
     A `certificate_policy` block as defined below.
+    """
+    key_vault_id: pulumi.Output[str]
+    """
+    The ID of the Key Vault where the Certificate should be created.
     """
     name: pulumi.Output[str]
     """
@@ -37,47 +42,50 @@ class Certifiate(pulumi.CustomResource):
     The X509 Thumbprint of the Key Vault Certificate returned as hex string.
     """
     vault_uri: pulumi.Output[str]
-    """
-    Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
-    """
     version: pulumi.Output[str]
     """
     The current version of the Key Vault Certificate.
     """
-    def __init__(__self__, __name__, __opts__=None, certificate=None, certificate_policy=None, name=None, tags=None, vault_uri=None):
+    def __init__(__self__, resource_name, opts=None, certificate=None, certificate_policy=None, key_vault_id=None, name=None, tags=None, vault_uri=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Certificate.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below, used to Import an existing certificate.
         :param pulumi.Input[dict] certificate_policy: A `certificate_policy` block as defined below.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] vault_uri: Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
+        :param pulumi.Input[str] vault_uri
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['certificate'] = certificate
 
-        if not certificate_policy:
+        if certificate_policy is None:
             raise TypeError('Missing required property certificate_policy')
         __props__['certificate_policy'] = certificate_policy
+
+        __props__['key_vault_id'] = key_vault_id
 
         __props__['name'] = name
 
         __props__['tags'] = tags
 
-        if not vault_uri:
-            raise TypeError('Missing required property vault_uri')
         __props__['vault_uri'] = vault_uri
 
         __props__['certificate_data'] = None
@@ -87,9 +95,9 @@ class Certifiate(pulumi.CustomResource):
 
         super(Certifiate, __self__).__init__(
             'azure:keyvault/certifiate:Certifiate',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -40,7 +41,7 @@ class TemplateDeployment(pulumi.CustomResource):
     """
     Specifies the JSON definition for the template.
     """
-    def __init__(__self__, __name__, __opts__=None, deployment_mode=None, name=None, parameters=None, parameters_body=None, resource_group_name=None, template_body=None):
+    def __init__(__self__, resource_name, opts=None, deployment_mode=None, name=None, parameters=None, parameters_body=None, resource_group_name=None, template_body=None, __name__=None, __opts__=None):
         """
         Manage a template deployment of resources
         
@@ -48,9 +49,12 @@ class TemplateDeployment(pulumi.CustomResource):
         This means that when deleting the `azurerm_template_deployment` resource, Terraform will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
         One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
         
+        ## Note
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        Terraform does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_mode: Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
                Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
                specified within the template, and Terraform will not be aware of this.
@@ -62,16 +66,22 @@ class TemplateDeployment(pulumi.CustomResource):
                create the template deployment.
         :param pulumi.Input[str] template_body: Specifies the JSON definition for the template.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not deployment_mode:
+        if deployment_mode is None:
             raise TypeError('Missing required property deployment_mode')
         __props__['deployment_mode'] = deployment_mode
 
@@ -81,7 +91,7 @@ class TemplateDeployment(pulumi.CustomResource):
 
         __props__['parameters_body'] = parameters_body
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -91,9 +101,9 @@ class TemplateDeployment(pulumi.CustomResource):
 
         super(TemplateDeployment, __self__).__init__(
             'azure:core/templateDeployment:TemplateDeployment',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -12,7 +13,7 @@ class AnalyticsWorkspaceLinkedService(pulumi.CustomResource):
     """
     Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
     """
-    linked_service_properties: pulumi.Output[dict]
+    linked_service_properties: pulumi.Output[list]
     """
     A `linked_service_properties` block as defined below.
     """
@@ -24,6 +25,10 @@ class AnalyticsWorkspaceLinkedService(pulumi.CustomResource):
     """
     The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
     """
+    resource_id: pulumi.Output[str]
+    """
+    The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -32,41 +37,49 @@ class AnalyticsWorkspaceLinkedService(pulumi.CustomResource):
     """
     Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, linked_service_name=None, linked_service_properties=None, resource_group_name=None, tags=None, workspace_name=None):
+    def __init__(__self__, resource_name, opts=None, linked_service_name=None, linked_service_properties=None, resource_group_name=None, resource_id=None, tags=None, workspace_name=None, __name__=None, __opts__=None):
         """
         Links a Log Analytics (formally Operational Insights) Workspace to another resource. The (currently) only linkable service is an Azure Automation Account.
         
+        > **NOTE:** This resource has been deprecated in favour of the `azurerm_log_analytics_linked_service` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] linked_service_properties: A `linked_service_properties` block as defined below.
+        :param pulumi.Input[list] linked_service_properties: A `linked_service_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['linked_service_name'] = linked_service_name
 
-        if not linked_service_properties:
-            raise TypeError('Missing required property linked_service_properties')
         __props__['linked_service_properties'] = linked_service_properties
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
+        __props__['resource_id'] = resource_id
+
         __props__['tags'] = tags
 
-        if not workspace_name:
+        if workspace_name is None:
             raise TypeError('Missing required property workspace_name')
         __props__['workspace_name'] = workspace_name
 
@@ -74,9 +87,9 @@ class AnalyticsWorkspaceLinkedService(pulumi.CustomResource):
 
         super(AnalyticsWorkspaceLinkedService, __self__).__init__(
             'azure:operationalinsights/analyticsWorkspaceLinkedService:AnalyticsWorkspaceLinkedService',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

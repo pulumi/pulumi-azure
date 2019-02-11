@@ -16,16 +16,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_key_vault_secret_test = pulumi.output(azure.keyvault.getSecret({
+ * const test = pulumi.output(azure.keyvault.getSecret({
  *     name: "secret-sauce",
  *     vaultUri: "https://rickslab.vault.azure.net/",
  * }));
  * 
- * export const secretValue = azurerm_key_vault_secret_test.apply(__arg0 => __arg0.value);
+ * export const secretValue = test.apply(test => test.value);
  * ```
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     return pulumi.runtime.invoke("azure:keyvault/getSecret:getSecret", {
+        "keyVaultId": args.keyVaultId,
         "name": args.name,
         "vaultUri": args.vaultUri,
     }, opts);
@@ -35,14 +36,15 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretArgs {
+    readonly keyVaultId?: string;
     /**
      * Specifies the name of the Key Vault Secret.
      */
     readonly name: string;
     /**
-     * Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` Data Source / Resource.
+     * Specifies the ID of the Key Vault Key Vault instance where the Secret resides, available on the `azurerm_key_vault` Data Source / Resource.
      */
-    readonly vaultUri: string;
+    readonly vaultUri?: string;
 }
 
 /**
@@ -53,6 +55,7 @@ export interface GetSecretResult {
      * The content type for the Key Vault Secret.
      */
     readonly contentType: string;
+    readonly keyVaultId: string;
     /**
      * Any tags assigned to this resource.
      */
@@ -61,6 +64,7 @@ export interface GetSecretResult {
      * The value of the Key Vault Secret.
      */
     readonly value: string;
+    readonly vaultUri: string;
     /**
      * The current version of the Key Vault Secret.
      */

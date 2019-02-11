@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -58,15 +59,14 @@ class Rule(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, backend_address_pool_id=None, backend_port=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None):
+    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer Rule.
         
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         :param pulumi.Input[bool] enable_floating_ip: Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
@@ -81,28 +81,34 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['backend_address_pool_id'] = backend_address_pool_id
 
-        if not backend_port:
+        if backend_port is None:
             raise TypeError('Missing required property backend_port')
         __props__['backend_port'] = backend_port
 
         __props__['enable_floating_ip'] = enable_floating_ip
 
-        if not frontend_ip_configuration_name:
+        if frontend_ip_configuration_name is None:
             raise TypeError('Missing required property frontend_ip_configuration_name')
         __props__['frontend_ip_configuration_name'] = frontend_ip_configuration_name
 
-        if not frontend_port:
+        if frontend_port is None:
             raise TypeError('Missing required property frontend_port')
         __props__['frontend_port'] = frontend_port
 
@@ -110,7 +116,7 @@ class Rule(pulumi.CustomResource):
 
         __props__['load_distribution'] = load_distribution
 
-        if not loadbalancer_id:
+        if loadbalancer_id is None:
             raise TypeError('Missing required property loadbalancer_id')
         __props__['loadbalancer_id'] = loadbalancer_id
 
@@ -120,11 +126,11 @@ class Rule(pulumi.CustomResource):
 
         __props__['probe_id'] = probe_id
 
-        if not protocol:
+        if protocol is None:
             raise TypeError('Missing required property protocol')
         __props__['protocol'] = protocol
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -132,9 +138,9 @@ class Rule(pulumi.CustomResource):
 
         super(Rule, __self__).__init__(
             'azure:lb/rule:Rule',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

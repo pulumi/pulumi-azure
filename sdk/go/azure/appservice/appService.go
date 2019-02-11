@@ -10,7 +10,7 @@ import (
 
 // Manages an App Service (within an App Service Plan).
 // 
-// -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
+// > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
 type AppService struct {
 	s *pulumi.ResourceState
 }
@@ -32,6 +32,7 @@ func NewAppService(ctx *pulumi.Context,
 		inputs["appServicePlanId"] = nil
 		inputs["appSettings"] = nil
 		inputs["clientAffinityEnabled"] = nil
+		inputs["clientCertEnabled"] = nil
 		inputs["connectionStrings"] = nil
 		inputs["enabled"] = nil
 		inputs["httpsOnly"] = nil
@@ -45,6 +46,7 @@ func NewAppService(ctx *pulumi.Context,
 		inputs["appServicePlanId"] = args.AppServicePlanId
 		inputs["appSettings"] = args.AppSettings
 		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
+		inputs["clientCertEnabled"] = args.ClientCertEnabled
 		inputs["connectionStrings"] = args.ConnectionStrings
 		inputs["enabled"] = args.Enabled
 		inputs["httpsOnly"] = args.HttpsOnly
@@ -76,6 +78,7 @@ func GetAppService(ctx *pulumi.Context,
 		inputs["appServicePlanId"] = state.AppServicePlanId
 		inputs["appSettings"] = state.AppSettings
 		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
+		inputs["clientCertEnabled"] = state.ClientCertEnabled
 		inputs["connectionStrings"] = state.ConnectionStrings
 		inputs["defaultSiteHostname"] = state.DefaultSiteHostname
 		inputs["enabled"] = state.Enabled
@@ -121,6 +124,11 @@ func (r *AppService) AppSettings() *pulumi.MapOutput {
 // Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 func (r *AppService) ClientAffinityEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
+}
+
+// Does the App Service require client certificates for incoming requests? Defaults to `false`.
+func (r *AppService) ClientCertEnabled() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["clientCertEnabled"])
 }
 
 // An `connection_string` block as defined below.
@@ -201,6 +209,8 @@ type AppServiceState struct {
 	AppSettings interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
+	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
+	ClientCertEnabled interface{}
 	// An `connection_string` block as defined below.
 	ConnectionStrings interface{}
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
@@ -239,6 +249,8 @@ type AppServiceArgs struct {
 	AppSettings interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
+	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
+	ClientCertEnabled interface{}
 	// An `connection_string` block as defined below.
 	ConnectionStrings interface{}
 	// Is the App Service Enabled? Changing this forces a new resource to be created.

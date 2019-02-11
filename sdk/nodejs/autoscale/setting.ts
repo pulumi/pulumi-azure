@@ -7,20 +7,20 @@ import * as utilities from "../utilities";
 /**
  * Manages an AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
  * 
+ * > **NOTE:** This resource has been deprecated in favour of the `azurerm_monitor_autoscale_setting` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+ * 
  * ## Example Usage
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "autoscalingTest",
  * });
- * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {});
- * const azurerm_autoscale_setting_test = new azure.autoscale.Setting("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "myAutoscaleSetting",
+ * const testScaleSet = new azure.compute.ScaleSet("test", {});
+ * const testSetting = new azure.autoscale.Setting("test", {
+ *     location: testResourceGroup.location,
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     metricResourceId: testScaleSet.id,
  *                     operator: "GreaterThan",
  *                     statistic: "Average",
  *                     threshold: 75,
@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  *                     cooldown: "PT1M",
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: Number.parseFloat("1"),
+ *                     value: 1,
  *                 },
  *             },
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     metricResourceId: testScaleSet.id,
  *                     operator: "LessThan",
  *                     statistic: "Average",
  *                     threshold: 25,
@@ -69,13 +69,13 @@ import * as utilities from "../utilities";
  *                     cooldown: "PT1M",
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: Number.parseFloat("1"),
+ *                     value: 1,
  *                 },
  *             },
  *         ],
  *     }],
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     targetResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *     resourceGroupName: testResourceGroup.name,
+ *     targetResourceId: testScaleSet.id,
  * });
  * ```
  * 
@@ -85,14 +85,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "autoscalingTest",
  * });
- * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {});
- * const azurerm_autoscale_setting_test = new azure.autoscale.Setting("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "myAutoscaleSetting",
+ * const testScaleSet = new azure.compute.ScaleSet("test", {});
+ * const testSetting = new azure.autoscale.Setting("test", {
+ *     location: testResourceGroup.location,
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],
@@ -121,7 +119,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     metricResourceId: testScaleSet.id,
  *                     operator: "GreaterThan",
  *                     statistic: "Average",
  *                     threshold: 90,
@@ -133,13 +131,13 @@ import * as utilities from "../utilities";
  *                     cooldown: "PT1M",
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: Number.parseFloat("2"),
+ *                     value: 2,
  *                 },
  *             },
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     metricResourceId: testScaleSet.id,
  *                     operator: "LessThan",
  *                     statistic: "Average",
  *                     threshold: 10,
@@ -151,13 +149,13 @@ import * as utilities from "../utilities";
  *                     cooldown: "PT1M",
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: Number.parseFloat("2"),
+ *                     value: 2,
  *                 },
  *             },
  *         ],
  *     }],
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     targetResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *     resourceGroupName: testResourceGroup.name,
+ *     targetResourceId: testScaleSet.id,
  * });
  * ```
  * 
@@ -167,15 +165,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "autoscalingTest",
  * });
- * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {});
- * const azurerm_autoscale_setting_test = new azure.autoscale.Setting("test", {
+ * const testScaleSet = new azure.compute.ScaleSet("test", {});
+ * const testSetting = new azure.autoscale.Setting("test", {
  *     enabled: true,
- *     location: azurerm_resource_group_test.location,
- *     name: "myAutoscaleSetting",
+ *     location: testResourceGroup.location,
  *     notification: {
  *         email: {
  *             customEmails: ["admin@contoso.com"],
@@ -199,7 +195,7 @@ import * as utilities from "../utilities";
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     metricResourceId: testScaleSet.id,
  *                     operator: "GreaterThan",
  *                     statistic: "Average",
  *                     threshold: 90,
@@ -211,13 +207,13 @@ import * as utilities from "../utilities";
  *                     cooldown: "PT1M",
  *                     direction: "Increase",
  *                     type: "ChangeCount",
- *                     value: Number.parseFloat("2"),
+ *                     value: 2,
  *                 },
  *             },
  *             {
  *                 metricTrigger: {
  *                     metricName: "Percentage CPU",
- *                     metricResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *                     metricResourceId: testScaleSet.id,
  *                     operator: "LessThan",
  *                     statistic: "Average",
  *                     threshold: 10,
@@ -229,13 +225,13 @@ import * as utilities from "../utilities";
  *                     cooldown: "PT1M",
  *                     direction: "Decrease",
  *                     type: "ChangeCount",
- *                     value: Number.parseFloat("2"),
+ *                     value: 2,
  *                 },
  *             },
  *         ],
  *     }],
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     targetResourceId: azurerm_virtual_machine_scale_set_test.id,
+ *     resourceGroupName: testResourceGroup.name,
+ *     targetResourceId: testScaleSet.id,
  * });
  * ```
  */

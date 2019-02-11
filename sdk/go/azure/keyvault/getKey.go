@@ -14,6 +14,7 @@ import (
 func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
+		inputs["keyVaultId"] = args.KeyVaultId
 		inputs["name"] = args.Name
 		inputs["vaultUri"] = args.VaultUri
 	}
@@ -26,8 +27,10 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 		KeyOpts: outputs["keyOpts"],
 		KeySize: outputs["keySize"],
 		KeyType: outputs["keyType"],
+		KeyVaultId: outputs["keyVaultId"],
 		N: outputs["n"],
 		Tags: outputs["tags"],
+		VaultUri: outputs["vaultUri"],
 		Version: outputs["version"],
 		Id: outputs["id"],
 	}, nil
@@ -35,9 +38,10 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 
 // A collection of arguments for invoking getKey.
 type GetKeyArgs struct {
+	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Key.
 	Name interface{}
-	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` Data Source / Resource.
+	// Specifies the ID of the Key Vault Key Vault instance where the Key resides, available on the `azurerm_key_vault` Data Source / Resource.
 	VaultUri interface{}
 }
 
@@ -51,10 +55,12 @@ type GetKeyResult struct {
 	KeySize interface{}
 	// Specifies the Key Type of this Key Vault Key
 	KeyType interface{}
+	KeyVaultId interface{}
 	// The RSA modulus of this Key Vault Key.
 	N interface{}
 	// A mapping of tags assigned to this Key Vault Key.
 	Tags interface{}
+	VaultUri interface{}
 	// The current version of the Key Vault Key.
 	Version interface{}
 	// id is the provider-assigned unique ID for this managed resource.

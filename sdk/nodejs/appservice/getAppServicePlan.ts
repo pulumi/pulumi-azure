@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_app_service_plan_test = pulumi.output(azure.appservice.getAppServicePlan({
+ * const test = pulumi.output(azure.appservice.getAppServicePlan({
  *     name: "search-app-service-plan",
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const appServicePlanId = azurerm_app_service_plan_test.apply(__arg0 => __arg0.id);
+ * export const appServicePlanId = test.apply(test => test.id);
  * ```
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {

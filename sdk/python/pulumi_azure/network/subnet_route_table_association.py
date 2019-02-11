@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -16,40 +17,45 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
     """
     The ID of the Subnet. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, route_table_id=None, subnet_id=None):
+    def __init__(__self__, resource_name, opts=None, route_table_id=None, subnet_id=None, __name__=None, __opts__=None):
         """
         Associates a Route Table with a Subnet within a Virtual Network.
         
-        -> **NOTE:** Subnet `<->` Route Table associations currently need to be configured on both this resource and using the `route_table_id` field on the `azurerm_subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `route_table_id` field from the `azurerm_subnet` resource such that this resource is used to link resources in future.
+        > **NOTE:** Subnet `<->` Route Table associations currently need to be configured on both this resource and using the `route_table_id` field on the `azurerm_subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `route_table_id` field from the `azurerm_subnet` resource such that this resource is used to link resources in future.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] route_table_id: The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not route_table_id:
+        if route_table_id is None:
             raise TypeError('Missing required property route_table_id')
         __props__['route_table_id'] = route_table_id
 
-        if not subnet_id:
+        if subnet_id is None:
             raise TypeError('Missing required property subnet_id')
         __props__['subnet_id'] = subnet_id
 
         super(SubnetRouteTableAssociation, __self__).__init__(
             'azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

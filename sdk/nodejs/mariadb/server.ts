@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a MariaDB Server.
  * 
- * -> **NOTE** MariaDB Server is currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-us/updates/mariadb-public-preview/).
+ * > **NOTE** MariaDB Server is currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-us/updates/mariadb-public-preview/).
  * 
  * ## Example Usage
  * 
@@ -15,16 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
- * const azurerm_mariadb_server_test = new azure.mariadb.Server("test", {
+ * const testServer = new azure.mariadb.Server("test", {
  *     administratorLogin: "mariadbadmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
- *     location: azurerm_resource_group_test.location,
- *     name: "mariadb-server-1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         family: "Gen5",

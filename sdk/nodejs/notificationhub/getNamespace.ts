@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_notification_hub_namespace_test = pulumi.output(azure.notificationhub.getNamespace({
+ * const test = pulumi.output(azure.notificationhub.getNamespace({
  *     name: "my-namespace",
  *     resourceGroupName: "my-resource-group",
  * }));
  * 
- * export const servicebusEndpoint = azurerm_notification_hub_namespace_test.apply(__arg0 => __arg0.servicebusEndpoint);
+ * export const servicebusEndpoint = test.apply(test => test.servicebusEndpoint);
  * ```
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {

@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_logic_app_workflow_test = pulumi.output(azure.logicapps.getWorkflow({
+ * const test = pulumi.output(azure.logicapps.getWorkflow({
  *     name: "workflow1",
  *     resourceGroupName: "my-resource-group",
  * }));
  * 
- * export const accessEndpoint = azurerm_logic_app_workflow_test.apply(__arg0 => __arg0.accessEndpoint);
+ * export const accessEndpoint = test.apply(test => test.accessEndpoint);
  * ```
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {

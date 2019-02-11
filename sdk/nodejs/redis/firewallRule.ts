@@ -14,36 +14,33 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "redis-resourcegroup",
  * });
- * const random_id_server = new random.RandomId("server", {
+ * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {
  *         azi_id: 1,
  *     },
  * });
- * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ * const testCache = new azure.redis.Cache("test", {
  *     capacity: 1,
  *     enableNonSslPort: false,
  *     family: "P",
- *     location: azurerm_resource_group_test.location,
- *     name: random_id_server.hex.apply(__arg0 => `redis${__arg0}`),
+ *     location: testResourceGroup.location,
  *     redisConfiguration: {
  *         maxclients: 256,
  *         maxmemoryDelta: 2,
  *         maxmemoryPolicy: "allkeys-lru",
  *         maxmemoryReserved: 2,
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Premium",
  * });
- * const azurerm_redis_firewall_rule_test = new azure.redis.FirewallRule("test", {
+ * const testFirewallRule = new azure.redis.FirewallRule("test", {
  *     endIp: "2.3.4.5",
- *     name: "someIPrange",
- *     redisCacheName: azurerm_redis_cache_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     redisCacheName: testCache.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     startIp: "1.2.3.4",
  * });
  * ```

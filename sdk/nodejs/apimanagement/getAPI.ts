@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_api_management_test = pulumi.output(azure.apimanagement.getAPI({
+ * const test = pulumi.output(azure.apimanagement.getAPI({
  *     name: "search-api",
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const apiManagementId = azurerm_api_management_test.apply(__arg0 => __arg0.id);
+ * export const apiManagementId = test.apply(test => test.id);
  * ```
  */
 export function getAPI(args: GetAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetAPIResult> {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a policy set definition. 
  * 
- * -> **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
+ * > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
  * 
  * ## Example Usage
  * 
@@ -15,9 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_policy_set_definition_test = new azure.policy.PolicySetDefinition("test", {
+ * const test = new azure.policy.PolicySetDefinition("test", {
  *     displayName: "Test Policy Set",
- *     name: "testPolicySet",
  *     parameters: `    {
  *         "allowedLocations": {
  *             "type": "Array",

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -40,13 +41,12 @@ class ActionGroup(pulumi.CustomResource):
     """
     One or more `webhook_receiver ` blocks as defined below.
     """
-    def __init__(__self__, __name__, __opts__=None, email_receivers=None, enabled=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, tags=None, webhook_receivers=None):
+    def __init__(__self__, resource_name, opts=None, email_receivers=None, enabled=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, tags=None, webhook_receivers=None, __name__=None, __opts__=None):
         """
         Manages an Action Group within Azure Monitor.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] email_receivers: One or more `email_receiver` blocks as defined below.
         :param pulumi.Input[bool] enabled: Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
@@ -56,11 +56,17 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] webhook_receivers: One or more `webhook_receiver ` blocks as defined below.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -71,11 +77,11 @@ class ActionGroup(pulumi.CustomResource):
 
         __props__['name'] = name
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
-        if not short_name:
+        if short_name is None:
             raise TypeError('Missing required property short_name')
         __props__['short_name'] = short_name
 
@@ -87,9 +93,9 @@ class ActionGroup(pulumi.CustomResource):
 
         super(ActionGroup, __self__).__init__(
             'azure:monitoring/actionGroup:ActionGroup',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

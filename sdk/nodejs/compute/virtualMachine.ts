@@ -18,38 +18,33 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const config = new pulumi.Config();
- * const var_prefix = config.get("prefix") || "tfvmex";
+ * const prefix = config.get("prefix") || "tfvmex";
  * 
- * const azurerm_resource_group_main = new azure.core.ResourceGroup("main", {
+ * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West US 2",
- *     name: `${var_prefix}-resources`,
  * });
- * const azurerm_virtual_network_main = new azure.network.VirtualNetwork("main", {
+ * const mainVirtualNetwork = new azure.network.VirtualNetwork("main", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_main.location,
- *     name: `${var_prefix}-network`,
- *     resourceGroupName: azurerm_resource_group_main.name,
+ *     location: mainResourceGroup.location,
+ *     resourceGroupName: mainResourceGroup.name,
  * });
- * const azurerm_subnet_internal = new azure.network.Subnet("internal", {
+ * const internal = new azure.network.Subnet("internal", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "internal",
- *     resourceGroupName: azurerm_resource_group_main.name,
- *     virtualNetworkName: azurerm_virtual_network_main.name,
+ *     resourceGroupName: mainResourceGroup.name,
+ *     virtualNetworkName: mainVirtualNetwork.name,
  * });
- * const azurerm_network_interface_main = new azure.network.NetworkInterface("main", {
+ * const mainNetworkInterface = new azure.network.NetworkInterface("main", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: azurerm_subnet_internal.id,
+ *         subnetId: internal.id,
  *     }],
- *     location: azurerm_resource_group_main.location,
- *     name: `${var_prefix}-nic`,
- *     resourceGroupName: azurerm_resource_group_main.name,
+ *     location: mainResourceGroup.location,
+ *     resourceGroupName: mainResourceGroup.name,
  * });
- * const azurerm_virtual_machine_main = new azure.compute.VirtualMachine("main", {
- *     location: azurerm_resource_group_main.location,
- *     name: `${var_prefix}-vm`,
- *     networkInterfaceIds: [azurerm_network_interface_main.id],
+ * const mainVirtualMachine = new azure.compute.VirtualMachine("main", {
+ *     location: mainResourceGroup.location,
+ *     networkInterfaceIds: [mainNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
  *         adminUsername: "testadmin",
@@ -58,7 +53,7 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
- *     resourceGroupName: azurerm_resource_group_main.name,
+ *     resourceGroupName: mainResourceGroup.name,
  *     storageImageReference: {
  *         offer: "UbuntuServer",
  *         publisher: "Canonical",

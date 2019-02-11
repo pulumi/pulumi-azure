@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
  * 
- * -> **NOTE:** Azure permits a maximum of 16 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
+ * > **NOTE:** Azure permits a maximum of 16 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**
@@ -30,8 +30,8 @@ export class AccessPolicy extends pulumi.CustomResource {
     public readonly applicationId: pulumi.Output<string | undefined>;
     /**
      * List of certificate permissions, must be one or more from
-     * the following: `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-     * `managecontacts`, `manageissuers`, `purge`, `recover`, `setissuers` and `update`.
+     * the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+     * `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
      */
     public readonly certificatePermissions: pulumi.Output<string[] | undefined>;
     /**
@@ -40,6 +40,7 @@ export class AccessPolicy extends pulumi.CustomResource {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     public readonly keyPermissions: pulumi.Output<string[] | undefined>;
+    public readonly keyVaultId: pulumi.Output<string>;
     /**
      * The object ID of a user, service principal or security
      * group in the Azure Active Directory tenant for the vault. The object ID must
@@ -84,6 +85,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["certificatePermissions"] = state ? state.certificatePermissions : undefined;
             inputs["keyPermissions"] = state ? state.keyPermissions : undefined;
+            inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["objectId"] = state ? state.objectId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secretPermissions"] = state ? state.secretPermissions : undefined;
@@ -94,18 +96,13 @@ export class AccessPolicy extends pulumi.CustomResource {
             if (!args || args.objectId === undefined) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if (!args || args.resourceGroupName === undefined) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             if (!args || args.tenantId === undefined) {
                 throw new Error("Missing required property 'tenantId'");
-            }
-            if (!args || args.vaultName === undefined) {
-                throw new Error("Missing required property 'vaultName'");
             }
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["certificatePermissions"] = args ? args.certificatePermissions : undefined;
             inputs["keyPermissions"] = args ? args.keyPermissions : undefined;
+            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
             inputs["objectId"] = args ? args.objectId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secretPermissions"] = args ? args.secretPermissions : undefined;
@@ -126,8 +123,8 @@ export interface AccessPolicyState {
     readonly applicationId?: pulumi.Input<string>;
     /**
      * List of certificate permissions, must be one or more from
-     * the following: `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-     * `managecontacts`, `manageissuers`, `purge`, `recover`, `setissuers` and `update`.
+     * the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+     * `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
      */
     readonly certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -136,6 +133,7 @@ export interface AccessPolicyState {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     readonly keyPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly keyVaultId?: pulumi.Input<string>;
     /**
      * The object ID of a user, service principal or security
      * group in the Azure Active Directory tenant for the vault. The object ID must
@@ -176,8 +174,8 @@ export interface AccessPolicyArgs {
     readonly applicationId?: pulumi.Input<string>;
     /**
      * List of certificate permissions, must be one or more from
-     * the following: `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-     * `managecontacts`, `manageissuers`, `purge`, `recover`, `setissuers` and `update`.
+     * the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+     * `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
      */
     readonly certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -186,6 +184,7 @@ export interface AccessPolicyArgs {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     readonly keyPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly keyVaultId?: pulumi.Input<string>;
     /**
      * The object ID of a user, service principal or security
      * group in the Azure Active Directory tenant for the vault. The object ID must
@@ -197,7 +196,7 @@ export interface AccessPolicyArgs {
      * The name of the resource group in which to
      * create the namespace. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * List of secret permissions, must be one or more
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
@@ -213,5 +212,5 @@ export interface AccessPolicyArgs {
      * Specifies the name of the Key Vault resource. Changing this
      * forces a new resource to be created.
      */
-    readonly vaultName: pulumi.Input<string>;
+    readonly vaultName?: pulumi.Input<string>;
 }

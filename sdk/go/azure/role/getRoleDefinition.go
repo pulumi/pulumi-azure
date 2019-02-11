@@ -7,10 +7,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Use this data source to access information about an existing Custom Role Definition. To access information about a built-in Role Definition, please see the `azurerm_builtin_role_definition` data source instead.
+// Use this data source to access information about an existing Role Definition.
 func LookupRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*GetRoleDefinitionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
+		inputs["name"] = args.Name
 		inputs["roleDefinitionId"] = args.RoleDefinitionId
 		inputs["scope"] = args.Scope
 	}
@@ -23,6 +24,7 @@ func LookupRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*Ge
 		Description: outputs["description"],
 		Name: outputs["name"],
 		Permissions: outputs["permissions"],
+		RoleDefinitionId: outputs["roleDefinitionId"],
 		Type: outputs["type"],
 		Id: outputs["id"],
 	}, nil
@@ -30,6 +32,8 @@ func LookupRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*Ge
 
 // A collection of arguments for invoking getRoleDefinition.
 type GetRoleDefinitionArgs struct {
+	// Specifies the Name of either a built-in or custom Role Definition.
+	Name interface{}
 	// Specifies the ID of the Role Definition as a UUID/GUID.
 	RoleDefinitionId interface{}
 	// Specifies the Scope at which the Custom Role Definition exists.
@@ -45,6 +49,7 @@ type GetRoleDefinitionResult struct {
 	Name interface{}
 	// a `permissions` block as documented below.
 	Permissions interface{}
+	RoleDefinitionId interface{}
 	// the Type of the Role.
 	Type interface{}
 	// id is the provider-assigned unique ID for this managed resource.

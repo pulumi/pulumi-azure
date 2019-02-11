@@ -17,19 +17,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_example = new azure.core.ResourceGroup("example", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westus",
- *     name: "tfex-security-workspace",
  * });
- * const azurerm_log_analytics_workspace_example = new azure.operationalinsights.AnalyticsWorkspace("example", {
- *     location: azurerm_resource_group_example.location,
- *     name: "tfex-security-workspace",
- *     resourceGroupName: azurerm_resource_group_example.name,
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const azurerm_security_center_workspace_example = new azure.securitycenter.Workspace("example", {
+ * const exampleWorkspace = new azure.securitycenter.Workspace("example", {
  *     scope: "/subscriptions/00000000-0000-0000-0000-000000000000",
- *     workspaceId: azurerm_log_analytics_workspace_example.id,
+ *     workspaceId: exampleAnalyticsWorkspace.id,
  * });
  * ```
  */

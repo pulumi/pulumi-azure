@@ -10,7 +10,7 @@ import (
 
 // Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
 // 
-// -> **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
+// > **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
 type VirtualNetworkGateway struct {
 	s *pulumi.ResourceState
 }

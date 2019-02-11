@@ -34,6 +34,8 @@ func NewElasticPool(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["location"] = nil
+		inputs["maxSizeBytes"] = nil
+		inputs["maxSizeGb"] = nil
 		inputs["name"] = nil
 		inputs["perDatabaseSettings"] = nil
 		inputs["resourceGroupName"] = nil
@@ -42,6 +44,8 @@ func NewElasticPool(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["location"] = args.Location
+		inputs["maxSizeBytes"] = args.MaxSizeBytes
+		inputs["maxSizeGb"] = args.MaxSizeGb
 		inputs["name"] = args.Name
 		inputs["perDatabaseSettings"] = args.PerDatabaseSettings
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -50,7 +54,6 @@ func NewElasticPool(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["elasticPoolProperties"] = nil
-	inputs["maxSizeBytes"] = nil
 	inputs["zoneRedundant"] = nil
 	s, err := ctx.RegisterResource("azure:mssql/elasticPool:ElasticPool", name, true, inputs, opts...)
 	if err != nil {
@@ -68,6 +71,7 @@ func GetElasticPool(ctx *pulumi.Context,
 		inputs["elasticPoolProperties"] = state.ElasticPoolProperties
 		inputs["location"] = state.Location
 		inputs["maxSizeBytes"] = state.MaxSizeBytes
+		inputs["maxSizeGb"] = state.MaxSizeGb
 		inputs["name"] = state.Name
 		inputs["perDatabaseSettings"] = state.PerDatabaseSettings
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -102,9 +106,14 @@ func (r *ElasticPool) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The storage limit for the database elastic pool in bytes.
+// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
 func (r *ElasticPool) MaxSizeBytes() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maxSizeBytes"])
+}
+
+// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+func (r *ElasticPool) MaxSizeGb() *pulumi.Float64Output {
+	return (*pulumi.Float64Output)(r.s.State["maxSizeGb"])
 }
 
 // Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
@@ -147,8 +156,10 @@ type ElasticPoolState struct {
 	ElasticPoolProperties interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The storage limit for the database elastic pool in bytes.
+	// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
 	MaxSizeBytes interface{}
+	// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+	MaxSizeGb interface{}
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
 	Name interface{}
 	// A `per_database_settings` block as defined below.
@@ -169,6 +180,10 @@ type ElasticPoolState struct {
 type ElasticPoolArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+	MaxSizeBytes interface{}
+	// The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+	MaxSizeGb interface{}
 	// Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
 	Name interface{}
 	// A `per_database_settings` block as defined below.

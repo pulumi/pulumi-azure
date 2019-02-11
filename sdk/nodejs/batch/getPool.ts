@@ -40,6 +40,10 @@ export interface GetPoolResult {
      */
     readonly fixedScales: { resizeTimeout: string, targetDedicatedNodes: number, targetLowPriorityNodes: number }[];
     /**
+     * The maximum number of tasks that can run concurrently on a single compute node in the pool.
+     */
+    readonly maxTasksPerNode: number;
+    /**
      * The Sku of the node agents in the Batch pool.
      */
     readonly nodeAgentSkuId: string;

@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_dns_zone_test = pulumi.output(azure.dns.getZone({
+ * const test = pulumi.output(azure.dns.getZone({
  *     name: "search-eventhubns",
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const dnsZoneId = azurerm_dns_zone_test.apply(__arg0 => __arg0.id);
+ * export const dnsZoneId = test.apply(test => test.id);
  * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {

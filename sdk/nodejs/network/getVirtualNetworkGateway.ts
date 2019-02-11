@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_virtual_network_gateway_test = pulumi.output(azure.network.getVirtualNetworkGateway({
+ * const test = pulumi.output(azure.network.getVirtualNetworkGateway({
  *     name: "production",
  *     resourceGroupName: "networking",
  * }));
  * 
- * export const virtualNetworkGatewayId = azurerm_virtual_network_gateway_test.apply(__arg0 => __arg0.id);
+ * export const virtualNetworkGatewayId = test.apply(test => test.id);
  * ```
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {

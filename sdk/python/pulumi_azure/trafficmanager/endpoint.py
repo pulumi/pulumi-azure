@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -81,13 +82,12 @@ class Endpoint(pulumi.CustomResource):
     endpoint, this must be specified for Profiles using the  `Weighted` traffic
     routing method. Supports values between 1 and 1000.
     """
-    def __init__(__self__, __name__, __opts__=None, endpoint_location=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, target=None, target_resource_id=None, type=None, weight=None):
+    def __init__(__self__, resource_name, opts=None, endpoint_location=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, target=None, target_resource_id=None, type=None, weight=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Endpoint.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method
                if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
@@ -125,11 +125,17 @@ class Endpoint(pulumi.CustomResource):
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -146,11 +152,11 @@ class Endpoint(pulumi.CustomResource):
 
         __props__['priority'] = priority
 
-        if not profile_name:
+        if profile_name is None:
             raise TypeError('Missing required property profile_name')
         __props__['profile_name'] = profile_name
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -158,7 +164,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__['target_resource_id'] = target_resource_id
 
-        if not type:
+        if type is None:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
@@ -168,9 +174,9 @@ class Endpoint(pulumi.CustomResource):
 
         super(Endpoint, __self__).__init__(
             'azure:trafficmanager/endpoint:Endpoint',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

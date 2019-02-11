@@ -13,45 +13,39 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "North Europe",
- *     name: "example-resources",
  * });
- * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
- *     location: azurerm_resource_group_test.location,
- *     name: "testpip",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard",
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_test.location,
- *     name: "testvnet",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.1.0/24",
- *     name: "AzureFirewallSubnet",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_firewall_test = new azure.network.Firewall("test", {
+ * const testFirewall = new azure.network.Firewall("test", {
  *     ipConfiguration: {
  *         name: "configuration",
- *         publicIpAddressId: azurerm_public_ip_test.id,
- *         subnetId: azurerm_subnet_test.id,
+ *         publicIpAddressId: testPublicIp.id,
+ *         subnetId: testSubnet.id,
  *     },
- *     location: azurerm_resource_group_test.location,
- *     name: "testfirewall",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_firewall_network_rule_collection_test = new azure.network.FirewallNetworkRuleCollection("test", {
+ * const testFirewallNetworkRuleCollection = new azure.network.FirewallNetworkRuleCollection("test", {
  *     action: "Allow",
- *     azureFirewallName: azurerm_firewall_test.name,
- *     name: "testcollection",
+ *     azureFirewallName: testFirewall.name,
  *     priority: 100,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     rules: [{
  *         destinationAddresses: [
  *             "8.8.8.8",

@@ -13,29 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "%s",
- *     name: "testaccbatch",
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testStorageAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_test.location,
- *     name: "testaccsa",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_batch_account_test = new azure.batch.Account("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "testaccbatch",
+ * const testAccount = new azure.batch.Account("test", {
+ *     location: testResourceGroup.location,
  *     poolAllocationMode: "BatchService",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     storageAccountId: azurerm_storage_account_test.id,
+ *     resourceGroupName: testResourceGroup.name,
+ *     storageAccountId: testStorageAccount.id,
  *     tags: {
  *         env: "test",
  *     },
  * });
- * const azurerm_batch_pool_test = new azure.batch.Pool("test", {
- *     accountName: azurerm_batch_account_test.name,
+ * const testPool = new azure.batch.Pool("test", {
+ *     accountName: testAccount.name,
  *     autoScale: {
  *         evaluationInterval: "PT15M",
  *         formula: `      startingNumberOfVMs = 1;
@@ -46,9 +43,8 @@ import * as utilities from "../utilities";
  * `,
  *     },
  *     displayName: "Test Acc Pool Auto",
- *     name: "testaccpool",
  *     nodeAgentSkuId: "batch.node.ubuntu 16.04",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     startTask: {
  *         commandLine: "echo 'Hello World from $env'",
  *         environment: {
@@ -103,6 +99,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly fixedScale: pulumi.Output<{ resizeTimeout?: string, targetDedicatedNodes?: number, targetLowPriorityNodes?: number } | undefined>;
     /**
+     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+     */
+    public readonly maxTasksPerNode: pulumi.Output<number | undefined>;
+    /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
@@ -144,6 +144,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["autoScale"] = state ? state.autoScale : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["fixedScale"] = state ? state.fixedScale : undefined;
+            inputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nodeAgentSkuId"] = state ? state.nodeAgentSkuId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -172,6 +173,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["autoScale"] = args ? args.autoScale : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["fixedScale"] = args ? args.fixedScale : undefined;
+            inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["nodeAgentSkuId"] = args ? args.nodeAgentSkuId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -204,6 +206,10 @@ export interface PoolState {
      * A `fixed_scale` block that describes the scale settings when using fixed scale.
      */
     readonly fixedScale?: pulumi.Input<{ resizeTimeout?: pulumi.Input<string>, targetDedicatedNodes?: pulumi.Input<number>, targetLowPriorityNodes?: pulumi.Input<number> }>;
+    /**
+     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+     */
+    readonly maxTasksPerNode?: pulumi.Input<number>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
@@ -251,6 +257,10 @@ export interface PoolArgs {
      * A `fixed_scale` block that describes the scale settings when using fixed scale.
      */
     readonly fixedScale?: pulumi.Input<{ resizeTimeout?: pulumi.Input<string>, targetDedicatedNodes?: pulumi.Input<number>, targetLowPriorityNodes?: pulumi.Input<number> }>;
+    /**
+     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+     */
+    readonly maxTasksPerNode?: pulumi.Input<number>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */

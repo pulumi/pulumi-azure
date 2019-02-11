@@ -33,6 +33,7 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["addressSpaces"] = nil
+		inputs["ddosProtectionPlan"] = nil
 		inputs["dnsServers"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
@@ -41,6 +42,7 @@ func NewVirtualNetwork(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["addressSpaces"] = args.AddressSpaces
+		inputs["ddosProtectionPlan"] = args.DdosProtectionPlan
 		inputs["dnsServers"] = args.DnsServers
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
@@ -62,6 +64,7 @@ func GetVirtualNetwork(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["addressSpaces"] = state.AddressSpaces
+		inputs["ddosProtectionPlan"] = state.DdosProtectionPlan
 		inputs["dnsServers"] = state.DnsServers
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
@@ -91,6 +94,11 @@ func (r *VirtualNetwork) ID() *pulumi.IDOutput {
 // a new resource to be created.
 func (r *VirtualNetwork) AddressSpaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["addressSpaces"])
+}
+
+// A `ddos_protection_plan` block as documented below.
+func (r *VirtualNetwork) DdosProtectionPlan() *pulumi.Output {
+	return r.s.State["ddosProtectionPlan"]
 }
 
 // List of IP addresses of DNS servers
@@ -133,6 +141,8 @@ type VirtualNetworkState struct {
 	// network. You can supply more than one address space. Changing this forces
 	// a new resource to be created.
 	AddressSpaces interface{}
+	// A `ddos_protection_plan` block as documented below.
+	DdosProtectionPlan interface{}
 	// List of IP addresses of DNS servers
 	DnsServers interface{}
 	// The location/region where the virtual network is
@@ -157,6 +167,8 @@ type VirtualNetworkArgs struct {
 	// network. You can supply more than one address space. Changing this forces
 	// a new resource to be created.
 	AddressSpaces interface{}
+	// A `ddos_protection_plan` block as documented below.
+	DdosProtectionPlan interface{}
 	// List of IP addresses of DNS servers
 	DnsServers interface{}
 	// The location/region where the virtual network is

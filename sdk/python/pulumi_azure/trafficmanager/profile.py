@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -50,13 +51,16 @@ class Profile(pulumi.CustomResource):
     - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
     - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
     """
-    def __init__(__self__, __name__, __opts__=None, dns_configs=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None):
+    def __init__(__self__, resource_name, opts=None, dns_configs=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
         
+        ## Notes
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        The Traffic Manager is created with the location `global`.
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] dns_configs: This block specifies the DNS configuration of the
                Profile, it supports the fields documented below.
         :param pulumi.Input[list] monitor_configs: This block specifies the Endpoint monitoring
@@ -75,20 +79,26 @@ class Profile(pulumi.CustomResource):
                - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
                - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not dns_configs:
+        if dns_configs is None:
             raise TypeError('Missing required property dns_configs')
         __props__['dns_configs'] = dns_configs
 
-        if not monitor_configs:
+        if monitor_configs is None:
             raise TypeError('Missing required property monitor_configs')
         __props__['monitor_configs'] = monitor_configs
 
@@ -96,13 +106,13 @@ class Profile(pulumi.CustomResource):
 
         __props__['profile_status'] = profile_status
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
-        if not traffic_routing_method:
+        if traffic_routing_method is None:
             raise TypeError('Missing required property traffic_routing_method')
         __props__['traffic_routing_method'] = traffic_routing_method
 
@@ -110,9 +120,9 @@ class Profile(pulumi.CustomResource):
 
         super(Profile, __self__).__init__(
             'azure:trafficmanager/profile:Profile',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

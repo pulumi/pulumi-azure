@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -15,18 +16,33 @@ class GetActionGroupResult(object):
         if email_receivers and not isinstance(email_receivers, list):
             raise TypeError('Expected argument email_receivers to be a list')
         __self__.email_receivers = email_receivers
+        """
+        One or more `email_receiver` blocks as defined below.
+        """
         if enabled and not isinstance(enabled, bool):
             raise TypeError('Expected argument enabled to be a bool')
         __self__.enabled = enabled
+        """
+        Whether this action group is enabled.
+        """
         if short_name and not isinstance(short_name, str):
             raise TypeError('Expected argument short_name to be a str')
         __self__.short_name = short_name
+        """
+        The short name of the action group.
+        """
         if sms_receivers and not isinstance(sms_receivers, list):
             raise TypeError('Expected argument sms_receivers to be a list')
         __self__.sms_receivers = sms_receivers
+        """
+        One or more `sms_receiver ` blocks as defined below.
+        """
         if webhook_receivers and not isinstance(webhook_receivers, list):
             raise TypeError('Expected argument webhook_receivers to be a list')
         __self__.webhook_receivers = webhook_receivers
+        """
+        One or more `webhook_receiver ` blocks as defined below.
+        """
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
         __self__.id = id
@@ -35,6 +51,9 @@ class GetActionGroupResult(object):
         """
 
 async def get_action_group(name=None, resource_group_name=None):
+    """
+    Use this data source to access the properties of an Action Group.
+    """
     __args__ = dict()
 
     __args__['name'] = name

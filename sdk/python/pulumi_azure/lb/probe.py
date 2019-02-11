@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -42,15 +43,14 @@ class Probe(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, interval_in_seconds=None, loadbalancer_id=None, location=None, name=None, number_of_probes=None, port=None, protocol=None, request_path=None, resource_group_name=None):
+    def __init__(__self__, resource_name, opts=None, interval_in_seconds=None, loadbalancer_id=None, location=None, name=None, number_of_probes=None, port=None, protocol=None, request_path=None, resource_group_name=None, __name__=None, __opts__=None):
         """
         Manages a LoadBalancer Probe Resource.
         
         > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
         :param pulumi.Input[str] location
@@ -61,18 +61,24 @@ class Probe(pulumi.CustomResource):
         :param pulumi.Input[str] request_path: The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['interval_in_seconds'] = interval_in_seconds
 
-        if not loadbalancer_id:
+        if loadbalancer_id is None:
             raise TypeError('Missing required property loadbalancer_id')
         __props__['loadbalancer_id'] = loadbalancer_id
 
@@ -82,7 +88,7 @@ class Probe(pulumi.CustomResource):
 
         __props__['number_of_probes'] = number_of_probes
 
-        if not port:
+        if port is None:
             raise TypeError('Missing required property port')
         __props__['port'] = port
 
@@ -90,7 +96,7 @@ class Probe(pulumi.CustomResource):
 
         __props__['request_path'] = request_path
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -98,9 +104,9 @@ class Probe(pulumi.CustomResource):
 
         super(Probe, __self__).__init__(
             'azure:lb/probe:Probe',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE:** The Azure Active Directory resources have been split out into [a new AzureAD Provider](http://terraform.io/docs/providers/azuread/index.html) - as such the AzureAD resources within the AzureRM Provider are deprecated and will be removed in the next major version (2.0). Information on how to migrate from the existing resources to the new AzureAD Provider can be found here.
  * 
- * -> **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
+ * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
  * 
  * ## Example Usage (by Application Display Name)
  * 
@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_azuread_service_principal_test = pulumi.output(azure.ad.getServicePrincipal({
+ * const test = pulumi.output(azure.ad.getServicePrincipal({
  *     displayName: "my-awesome-application",
  * }));
  * ```
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_azuread_service_principal_test = pulumi.output(azure.ad.getServicePrincipal({
+ * const test = pulumi.output(azure.ad.getServicePrincipal({
  *     applicationId: "00000000-0000-0000-0000-000000000000",
  * }));
  * ```
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_azuread_service_principal_test = pulumi.output(azure.ad.getServicePrincipal({
+ * const test = pulumi.output(azure.ad.getServicePrincipal({
  *     objectId: "00000000-0000-0000-0000-000000000000",
  * }));
  * ```

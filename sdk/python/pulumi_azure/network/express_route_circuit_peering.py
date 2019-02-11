@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -57,13 +58,12 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     """
     A valid VLAN ID to establish this peering on.
     """
-    def __init__(__self__, __name__, __opts__=None, express_route_circuit_name=None, microsoft_peering_config=None, peer_asn=None, peering_type=None, primary_peer_address_prefix=None, resource_group_name=None, secondary_peer_address_prefix=None, shared_key=None, vlan_id=None):
+    def __init__(__self__, resource_name, opts=None, express_route_circuit_name=None, microsoft_peering_config=None, peer_asn=None, peering_type=None, primary_peer_address_prefix=None, resource_group_name=None, secondary_peer_address_prefix=None, shared_key=None, vlan_id=None, __name__=None, __opts__=None):
         """
         Manages an ExpressRoute Circuit Peering.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering.
         :param pulumi.Input[dict] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
         :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private..
@@ -75,16 +75,22 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
         :param pulumi.Input[int] vlan_id: A valid VLAN ID to establish this peering on.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not express_route_circuit_name:
+        if express_route_circuit_name is None:
             raise TypeError('Missing required property express_route_circuit_name')
         __props__['express_route_circuit_name'] = express_route_circuit_name
 
@@ -92,25 +98,25 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         __props__['peer_asn'] = peer_asn
 
-        if not peering_type:
+        if peering_type is None:
             raise TypeError('Missing required property peering_type')
         __props__['peering_type'] = peering_type
 
-        if not primary_peer_address_prefix:
+        if primary_peer_address_prefix is None:
             raise TypeError('Missing required property primary_peer_address_prefix')
         __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
-        if not secondary_peer_address_prefix:
+        if secondary_peer_address_prefix is None:
             raise TypeError('Missing required property secondary_peer_address_prefix')
         __props__['secondary_peer_address_prefix'] = secondary_peer_address_prefix
 
         __props__['shared_key'] = shared_key
 
-        if not vlan_id:
+        if vlan_id is None:
             raise TypeError('Missing required property vlan_id')
         __props__['vlan_id'] = vlan_id
 
@@ -120,9 +126,9 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
 
         super(ExpressRouteCircuitPeering, __self__).__init__(
             'azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

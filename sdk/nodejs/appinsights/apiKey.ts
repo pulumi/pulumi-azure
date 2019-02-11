@@ -13,24 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "tf-test",
  * });
- * const azurerm_application_insights_test = new azure.appinsights.Insights("test", {
+ * const testInsights = new azure.appinsights.Insights("test", {
  *     applicationType: "Web",
  *     location: "West Europe",
- *     name: "tf-test-appinsights",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_application_insights_api_key_authenticate_sdk_control_channel = new azure.appinsights.ApiKey("authenticate_sdk_control_channel", {
- *     applicationInsightsId: azurerm_application_insights_test.id,
- *     name: "tf-test-appinsights-authenticate-sdk-control-channel-api-key",
+ * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticate_sdk_control_channel", {
+ *     applicationInsightsId: testInsights.id,
  *     readPermissions: ["agentconfig"],
  * });
- * const azurerm_application_insights_api_key_full_permissions = new azure.appinsights.ApiKey("full_permissions", {
- *     applicationInsightsId: azurerm_application_insights_test.id,
- *     name: "tf-test-appinsights-full-permissions-api-key",
+ * const fullPermissions = new azure.appinsights.ApiKey("full_permissions", {
+ *     applicationInsightsId: testInsights.id,
  *     readPermissions: [
  *         "agentconfig",
  *         "aggregate",
@@ -41,9 +37,8 @@ import * as utilities from "../utilities";
  *     ],
  *     writePermissions: ["annotations"],
  * });
- * const azurerm_application_insights_api_key_read_telemetry = new azure.appinsights.ApiKey("read_telemetry", {
- *     applicationInsightsId: azurerm_application_insights_test.id,
- *     name: "tf-test-appinsights-read-telemetry-api-key",
+ * const readTelemetry = new azure.appinsights.ApiKey("read_telemetry", {
+ *     applicationInsightsId: testInsights.id,
  *     readPermissions: [
  *         "aggregate",
  *         "api",
@@ -52,16 +47,15 @@ import * as utilities from "../utilities";
  *         "search",
  *     ],
  * });
- * const azurerm_application_insights_api_key_write_annotations = new azure.appinsights.ApiKey("write_annotations", {
- *     applicationInsightsId: azurerm_application_insights_test.id,
- *     name: "tf-test-appinsights-write-annotations-api-key",
+ * const writeAnnotations = new azure.appinsights.ApiKey("write_annotations", {
+ *     applicationInsightsId: testInsights.id,
  *     writePermissions: ["annotations"],
  * });
  * 
- * export const authenticateSdkControlChannel = azurerm_application_insights_api_key_authenticate_sdk_control_channel.apiKey;
- * export const fullPermissionsApiKey = azurerm_application_insights_api_key_full_permissions.apiKey;
- * export const readTelemetryApiKey = azurerm_application_insights_api_key_read_telemetry.apiKey;
- * export const writeAnnotationsApiKey = azurerm_application_insights_api_key_write_annotations.apiKey;
+ * export const authenticateSdkControlChannel = authenticateSdkControlChannelApiKey.apiKey;
+ * export const fullPermissionsApiKey = fullPermissions.apiKey;
+ * export const readTelemetryApiKey = readTelemetry.apiKey;
+ * export const writeAnnotationsApiKey = writeAnnotations.apiKey;
  * ```
  */
 export class ApiKey extends pulumi.CustomResource {

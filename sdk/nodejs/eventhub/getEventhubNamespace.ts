@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_eventhub_namespace_test = pulumi.output(azure.eventhub.getEventhubNamespace({
+ * const test = pulumi.output(azure.eventhub.getEventhubNamespace({
  *     name: "search-eventhubns",
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const eventhubNamespaceId = azurerm_eventhub_namespace_test.apply(__arg0 => __arg0.id);
+ * export const eventhubNamespaceId = test.apply(test => test.id);
  * ```
  */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {

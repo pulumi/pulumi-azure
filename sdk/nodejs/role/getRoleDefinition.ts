@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Custom Role Definition. To access information about a built-in Role Definition, please see the `azurerm_builtin_role_definition` data source instead.
+ * Use this data source to access information about an existing Role Definition.
  * 
  * ## Example Usage
  * 
@@ -13,17 +13,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_subscription_primary = pulumi.output(azure.core.getSubscription({}));
- * const azurerm_role_definition_custom = pulumi.output(azure.role.getRoleDefinition({
+ * const builtin = pulumi.output(azure.role.getBuiltinRoleDefinition({
+ *     name: "Contributor",
+ * }));
+ * const primary = pulumi.output(azure.core.getSubscription({}));
+ * const customDefinition = new azure.role.Definition("custom", {
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: azurerm_subscription_primary.apply(__arg0 => __arg0.id),
+ *     scope: primary.apply(primary => primary.id),
+ * });
+ * const customRoleDefinition = pulumi.output(azure.role.getRoleDefinition({
+ *     roleDefinitionId: customDefinition.roleDefinitionId,
+ *     scope: primary.apply(primary => primary.id),
+ * }));
+ * const custom_byname = pulumi.output(azure.role.getRoleDefinition({
+ *     name: customDefinition.name,
+ *     scope: primary.apply(primary => primary.id),
  * }));
  * 
- * export const customRoleDefinitionId = azurerm_role_definition_custom.apply(__arg0 => __arg0.id);
+ * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id.apply(id => id);
+ * export const customRoleDefinitionId = customRoleDefinition.apply(customRoleDefinition => customRoleDefinition.id);
  * ```
  */
-export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
+export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
+    args = args || {};
     return pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
+        "name": args.name,
         "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,
     }, opts);
@@ -34,13 +48,17 @@ export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.Inv
  */
 export interface GetRoleDefinitionArgs {
     /**
+     * Specifies the Name of either a built-in or custom Role Definition.
+     */
+    readonly name?: string;
+    /**
      * Specifies the ID of the Role Definition as a UUID/GUID.
      */
-    readonly roleDefinitionId: string;
+    readonly roleDefinitionId?: string;
     /**
      * Specifies the Scope at which the Custom Role Definition exists.
      */
-    readonly scope: string;
+    readonly scope?: string;
 }
 
 /**
@@ -60,6 +78,7 @@ export interface GetRoleDefinitionResult {
      * a `permissions` block as documented below.
      */
     readonly permissions: { actions: string[], dataActions?: string[], notActions: string[], notDataActions?: string[] }[];
+    readonly roleDefinitionId: string;
     /**
      * the Type of the Role.
      */

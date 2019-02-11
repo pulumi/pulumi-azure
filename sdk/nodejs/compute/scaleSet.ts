@@ -17,78 +17,71 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as fs from "fs";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
- *     name: "acctestRG",
  * });
- * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
- *     domainNameLabel: azurerm_resource_group_test.name,
- *     location: azurerm_resource_group_test.location,
- *     name: "test",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     domainNameLabel: testResourceGroup.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const azurerm_lb_test = new azure.lb.LoadBalancer("test", {
+ * const testLoadBalancer = new azure.lb.LoadBalancer("test", {
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
- *         publicIpAddressId: azurerm_public_ip_test.id,
+ *         publicIpAddressId: testPublicIp.id,
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: "test",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_lb_backend_address_pool_bpepool = new azure.lb.BackendAddressPool("bpepool", {
- *     loadbalancerId: azurerm_lb_test.id,
- *     name: "BackEndAddressPool",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const bpepool = new azure.lb.BackendAddressPool("bpepool", {
+ *     loadbalancerId: testLoadBalancer.id,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_lb_nat_pool_lbnatpool: azure.lb.NatPool[] = [];
+ * const lbnatpool: azure.lb.NatPool[] = [];
  * for (let i = 0; i < 3; i++) {
- *     azurerm_lb_nat_pool_lbnatpool.push(new azure.lb.NatPool(`lbnatpool-${i}`, {
+ *     lbnatpool.push(new azure.lb.NatPool(`lbnatpool-${i}`, {
  *         backendPort: 22,
  *         frontendIpConfigurationName: "PublicIPAddress",
  *         frontendPortEnd: 50119,
  *         frontendPortStart: 50000,
- *         loadbalancerId: azurerm_lb_test.id,
- *         name: "ssh",
+ *         loadbalancerId: testLoadBalancer.id,
  *         protocol: "Tcp",
- *         resourceGroupName: azurerm_resource_group_test.name,
+ *         resourceGroupName: testResourceGroup.name,
  *     }));
  * }
- * const azurerm_lb_probe_test = new azure.lb.Probe("test", {
- *     loadbalancerId: azurerm_lb_test.id,
- *     name: "http-probe",
+ * const testProbe = new azure.lb.Probe("test", {
+ *     loadbalancerId: testLoadBalancer.id,
  *     port: 8080,
  *     requestPath: "/health",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_test.location,
- *     name: "acctvn",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "acctsub",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {
+ * const testScaleSet = new azure.compute.ScaleSet("test", {
+ *     // automatic rolling upgrade
  *     automaticOsUpgrade: true,
- *     healthProbeId: azurerm_lb_probe_test.id,
- *     location: azurerm_resource_group_test.location,
- *     name: "mytestscaleset-1",
+ *     // required when using rolling upgrade policy
+ *     healthProbeId: testProbe.id,
+ *     location: testResourceGroup.location,
  *     networkProfiles: [{
  *         ipConfigurations: [{
- *             loadBalancerBackendAddressPoolIds: [azurerm_lb_backend_address_pool_bpepool.id],
- *             loadBalancerInboundNatRulesIds: [pulumi.all(azurerm_lb_nat_pool_lbnatpool.map(v => v.id)).apply(__arg0 => __arg0.map(v => v)[1])],
+ *             loadBalancerBackendAddressPoolIds: [bpepool.id],
+ *             loadBalancerInboundNatRulesIds: [pulumi.all(lbnatpool.map(v => v.id)).apply(id => id.map(v => v)[1])],
  *             name: "TestIPConfiguration",
  *             primary: true,
- *             subnetId: azurerm_subnet_test.id,
+ *             subnetId: testSubnet.id,
  *         }],
  *         name: "terraformnetworkprofile",
  *         primary: true,
@@ -104,7 +97,7 @@ import * as utilities from "../utilities";
  *             path: "/home/myadmin/.ssh/authorized_keys",
  *         }],
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     rollingUpgradePolicy: {
  *         maxBatchInstancePercent: 20,
  *         maxUnhealthyInstancePercent: 20,
@@ -148,46 +141,40 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as fs from "fs";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctestRG",
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: "westus",
- *     name: "accsa",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const azurerm_storage_container_test = new azure.storage.Container("test", {
+ * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
- *     name: "vhds",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     storageAccountName: azurerm_storage_account_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     storageAccountName: testAccount.name,
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: "West US",
- *     name: "acctvn",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "acctsub",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {
+ * const testScaleSet = new azure.compute.ScaleSet("test", {
  *     location: "West US",
- *     name: "mytestscaleset-1",
  *     networkProfiles: [{
  *         ipConfigurations: [{
  *             name: "TestIPConfiguration",
  *             primary: true,
- *             subnetId: azurerm_subnet_test.id,
+ *             subnetId: testSubnet.id,
  *         }],
  *         name: "TestNetworkProfile",
  *         primary: true,
@@ -203,7 +190,7 @@ import * as utilities from "../utilities";
  *             path: "/home/myadmin/.ssh/authorized_keys",
  *         }],
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 2,
  *         name: "Standard_F2",
@@ -219,7 +206,7 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         name: "osDiskProfile",
- *         vhdContainers: [pulumi.all([azurerm_storage_account_test.primaryBlobEndpoint, azurerm_storage_container_test.name]).apply(([__arg0, __arg1]) => `${__arg0}${__arg1}`)],
+ *         vhdContainers: [pulumi.all([testAccount.primaryBlobEndpoint, testContainer.name]).apply(([primaryBlobEndpoint, name]) => `${primaryBlobEndpoint}${name}`)],
  *     },
  *     upgradePolicyMode: "Manual",
  * });
@@ -231,13 +218,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_image_test = new azure.compute.Image("test", {
- *     name: "test",
- * });
- * const azurerm_virtual_machine_scale_set_test = new azure.compute.ScaleSet("test", {
- *     name: "test",
+ * const testImage = new azure.compute.Image("test", {});
+ * const testScaleSet = new azure.compute.ScaleSet("test", {
  *     storageProfileImageReference: {
- *         id: azurerm_image_test.id,
+ *         id: testImage.id,
  *     },
  * });
  * ```

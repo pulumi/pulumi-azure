@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_data_lake_store_test = pulumi.output(azure.datalake.getStore({
+ * const test = pulumi.output(azure.datalake.getStore({
  *     name: "testdatalake",
  *     resourceGroupName: "testdatalake",
  * }));
  * 
- * export const dataLakeStoreId = azurerm_data_lake_store_test.apply(__arg0 => __arg0.id);
+ * export const dataLakeStoreId = test.apply(test => test.id);
  * ```
  */
 export function getStore(args: GetStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetStoreResult> {

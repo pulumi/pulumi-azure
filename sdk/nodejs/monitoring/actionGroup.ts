@@ -13,11 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "monitoring-resources",
  * });
- * const azurerm_monitor_action_group_test = new azure.monitoring.ActionGroup("test", {
+ * const testActionGroup = new azure.monitoring.ActionGroup("test", {
  *     emailReceivers: [
  *         {
  *             emailAddress: "admin@contoso.com",
@@ -28,8 +27,7 @@ import * as utilities from "../utilities";
  *             name: "sendtodevops",
  *         },
  *     ],
- *     name: "CriticalAlertsAction",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     shortName: "p0action",
  *     smsReceivers: [{
  *         countryCode: "1",

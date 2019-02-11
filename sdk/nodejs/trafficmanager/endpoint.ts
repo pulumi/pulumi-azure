@@ -14,19 +14,18 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "trafficmanagerendpointTest",
  * });
- * const random_id_server = new random.RandomId("server", {
+ * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {
  *         azi_id: 1,
  *     },
  * });
- * const azurerm_traffic_manager_profile_test = new azure.trafficmanager.Profile("test", {
+ * const testProfile = new azure.trafficmanager.Profile("test", {
  *     dnsConfigs: [{
- *         relativeName: random_id_server.hex,
+ *         relativeName: server.hex,
  *         ttl: 100,
  *     }],
  *     monitorConfigs: [{
@@ -34,17 +33,15 @@ import * as utilities from "../utilities";
  *         port: 80,
  *         protocol: "http",
  *     }],
- *     name: random_id_server.hex,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "Production",
  *     },
  *     trafficRoutingMethod: "Weighted",
  * });
- * const azurerm_traffic_manager_endpoint_test = new azure.trafficmanager.Endpoint("test", {
- *     name: random_id_server.hex,
- *     profileName: azurerm_traffic_manager_profile_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testEndpoint = new azure.trafficmanager.Endpoint("test", {
+ *     profileName: testProfile.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     target: "terraform.io",
  *     type: "externalEndpoints",
  *     weight: 100,

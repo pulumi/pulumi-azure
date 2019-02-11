@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -48,7 +49,7 @@ class Service(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, agent_pool_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestration_platform=None, resource_group_name=None, service_principal=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, agent_pool_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestration_platform=None, resource_group_name=None, service_principal=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an Azure Container Service Instance
         
@@ -59,51 +60,8 @@ class Service(pulumi.CustomResource):
         
         ## Example Usage (DCOS)
         
-        ```hcl
-        resource "azurerm_resource_group" "test" {
-          name     = "acctestRG1"
-          location = "West US"
-        }
-        
-        resource "azurerm_container_service" "test" {
-          name                   = "acctestcontservice1"
-          location               = "${azurerm_resource_group.test.location}"
-          resource_group_name    = "${azurerm_resource_group.test.name}"
-          orchestration_platform = "DCOS"
-        
-          master_profile {
-            count      = 1
-            dns_prefix = "acctestmaster1"
-          }
-        
-          linux_profile {
-            admin_username = "acctestuser1"
-        
-            ssh_key {
-              key_data = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqaZoyiz1qbdOQ8xEf6uEu1cCwYowo5FHtsBhqLoDnnp7KUTEBN+L2NxRIfQ781rxV6Iq5jSav6b2Q8z5KiseOlvKA/RF2wqU0UPYqQviQhLmW6THTpmrv/YkUCuzxDpsH7DUDhZcwySLKVVe0Qm3+5N2Ta6UYH3lsDf9R9wTP2K/+vAnflKebuypNlmocIvakFWoZda18FOmsOoIVXQ8HWFNCuw9ZCunMSN62QGamCe3dL5cXlkgHYv7ekJE15IA9aOJcM7e90oeTqo+7HTcWfdu0qQqPWY5ujyMw/llas8tsXY85LFqRnr3gJ02bAscjc477+X+j/gkpFoN1QEmt terraform@demo.tld"
-            }
-          }
-        
-          agent_pool_profile {
-            name       = "default"
-            count      = 1
-            dns_prefix = "acctestagent1"
-            vm_size    = "Standard_F2"
-          }
-        
-          diagnostics_profile {
-            enabled = false
-          }
-        
-          tags {
-            Environment = "Production"
-          }
-        }
-        ```
-        
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] agent_pool_profile: A Agent Pool Profile's block as documented below.
         :param pulumi.Input[dict] diagnostics_profile: A VM Diagnostics Profile block as documented below.
         :param pulumi.Input[dict] linux_profile: A Linux Profile block as documented below.
@@ -115,42 +73,48 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] service_principal: A Service Principal block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not agent_pool_profile:
+        if agent_pool_profile is None:
             raise TypeError('Missing required property agent_pool_profile')
         __props__['agent_pool_profile'] = agent_pool_profile
 
-        if not diagnostics_profile:
+        if diagnostics_profile is None:
             raise TypeError('Missing required property diagnostics_profile')
         __props__['diagnostics_profile'] = diagnostics_profile
 
-        if not linux_profile:
+        if linux_profile is None:
             raise TypeError('Missing required property linux_profile')
         __props__['linux_profile'] = linux_profile
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
-        if not master_profile:
+        if master_profile is None:
             raise TypeError('Missing required property master_profile')
         __props__['master_profile'] = master_profile
 
         __props__['name'] = name
 
-        if not orchestration_platform:
+        if orchestration_platform is None:
             raise TypeError('Missing required property orchestration_platform')
         __props__['orchestration_platform'] = orchestration_platform
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -160,9 +124,9 @@ class Service(pulumi.CustomResource):
 
         super(Service, __self__).__init__(
             'azure:containerservice/service:Service',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

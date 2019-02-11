@@ -19,17 +19,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctestRG-01",
  * });
- * const azurerm_template_deployment_test = new azure.core.TemplateDeployment("test", {
+ * const testTemplateDeployment = new azure.core.TemplateDeployment("test", {
  *     deploymentMode: "Incremental",
- *     name: "acctesttemplate-01",
+ *     // these key-value pairs are passed into the ARM Template's `parameters` block
  *     parameters: {
  *         storageAccountType: "Standard_GRS",
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     templateBody: `{
  *   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
  *   "contentVersion": "1.0.0.0",
@@ -88,8 +87,12 @@ import * as utilities from "../utilities";
  * `,
  * });
  * 
- * export const storageAccountName = azurerm_template_deployment_test.outputs.apply(__arg0 => (<any>__arg0)["storageAccountName"]);
+ * export const storageAccountName = testTemplateDeployment.outputs.apply(outputs => (<any>outputs)["storageAccountName"]);
  * ```
+ * 
+ * ## Note
+ * 
+ * Terraform does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
  */
 export class TemplateDeployment extends pulumi.CustomResource {
     /**

@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_virtual_machine_test = pulumi.output(azure.compute.getVirtualMachine({
+ * const test = pulumi.output(azure.compute.getVirtualMachine({
  *     name: "production",
  *     resourceGroupName: "networking",
  * }));
  * 
- * export const virtualMachineId = azurerm_virtual_machine_test.apply(__arg0 => __arg0.id);
+ * export const virtualMachineId = test.apply(test => test.id);
  * ```
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {

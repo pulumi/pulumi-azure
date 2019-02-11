@@ -13,42 +13,38 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "example-resources",
  * });
- * const azurerm_dev_test_lab_test = new azure.devtest.Lab("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "example-devtestlab",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testLab = new azure.devtest.Lab("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Sydney: "Australia",
  *     },
  * });
- * const azurerm_dev_test_virtual_network_test = new azure.devtest.VirtualNetwork("test", {
- *     labName: azurerm_dev_test_lab_test.name,
- *     name: "example-network",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testVirtualNetwork = new azure.devtest.VirtualNetwork("test", {
+ *     labName: testLab.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     subnet: {
  *         useInVirtualMachineCreation: "Allow",
  *         usePublicIpAddress: "Allow",
  *     },
  * });
- * const azurerm_dev_test_windows_virtual_machine_test = new azure.devtest.WindowsVirtualMachine("test", {
+ * const testWindowsVirtualMachine = new azure.devtest.WindowsVirtualMachine("test", {
  *     galleryImageReference: {
  *         offer: "UbuntuServer",
  *         publisher: "Canonical",
  *         sku: "18.04-LTS",
  *         version: "latest",
  *     },
- *     labName: azurerm_dev_test_lab_test.name,
- *     labSubnetName: azurerm_dev_test_virtual_network_test.subnet.apply(__arg0 => __arg0.name),
- *     labVirtualNetworkId: azurerm_dev_test_virtual_network_test.id,
- *     location: azurerm_resource_group_test.location,
- *     name: "example-vm03",
+ *     labName: testLab.name,
+ *     labSubnetName: testVirtualNetwork.subnet.apply(subnet => subnet.name),
+ *     labVirtualNetworkId: testVirtualNetwork.id,
+ *     location: testResourceGroup.location,
  *     notes: "Some notes about this Virtual Machine.",
  *     password: "Pa$w0rd1234!",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     size: "Standard_DS2",
  *     storageType: "Premium",
  *     username: "exampleuser99",

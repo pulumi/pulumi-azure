@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages an App Service Slot (within an App Service).
  * 
- * -> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
+ * > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
  * 
  * 
  * ## Example Usage (.net 4.x)
@@ -17,27 +17,25 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "some-resource-group",
  * });
- * const random_id_server = new random.RandomId("server", {
+ * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {
  *         azi_id: 1,
  *     },
  * });
- * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "some-app-service-plan",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testPlan = new azure.appservice.Plan("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
  *     },
  * });
- * const azurerm_app_service_test = new azure.appservice.AppService("test", {
- *     appServicePlanId: azurerm_app_service_plan_test.id,
+ * const testAppService = new azure.appservice.AppService("test", {
+ *     appServicePlanId: testPlan.id,
  *     appSettings: {
  *         SOME_KEY: "some-value",
  *     },
@@ -46,16 +44,15 @@ import * as utilities from "../utilities";
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: random_id_server.hex,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
  *     },
  * });
- * const azurerm_app_service_slot_test = new azure.appservice.Slot("test", {
- *     appServiceName: azurerm_app_service_test.name,
- *     appServicePlanId: azurerm_app_service_plan_test.id,
+ * const testSlot = new azure.appservice.Slot("test", {
+ *     appServiceName: testAppService.name,
+ *     appServicePlanId: testPlan.id,
  *     appSettings: {
  *         SOME_KEY: "some-value",
  *     },
@@ -64,9 +61,8 @@ import * as utilities from "../utilities";
  *         type: "SQLServer",
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: random_id_server.hex,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
  *     },
@@ -80,42 +76,38 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "some-resource-group",
  * });
- * const random_id_server = new random.RandomId("server", {
+ * const server = new random.RandomId("server", {
  *     byteLength: 8,
  *     keepers: {
  *         azi_id: 1,
  *     },
  * });
- * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "some-app-service-plan",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testPlan = new azure.appservice.Plan("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
  *     },
  * });
- * const azurerm_app_service_test = new azure.appservice.AppService("test", {
- *     appServicePlanId: azurerm_app_service_plan_test.id,
- *     location: azurerm_resource_group_test.location,
- *     name: random_id_server.hex,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testAppService = new azure.appservice.AppService("test", {
+ *     appServicePlanId: testPlan.id,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         javaContainer: "JETTY",
  *         javaContainerVersion: "9.3",
  *         javaVersion: "1.8",
  *     },
  * });
- * const azurerm_app_service_slot_test = new azure.appservice.Slot("test", {
- *     appServiceName: azurerm_app_service_test.name,
- *     appServicePlanId: azurerm_app_service_plan_test.id,
- *     location: azurerm_resource_group_test.location,
- *     name: random_id_server.hex,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testSlot = new azure.appservice.Slot("test", {
+ *     appServiceName: testAppService.name,
+ *     appServicePlanId: testPlan.id,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         javaContainer: "JETTY",
  *         javaContainerVersion: "9.3",

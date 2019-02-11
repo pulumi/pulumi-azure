@@ -13,60 +13,53 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "example-resources",
  * });
- * const azurerm_public_ip_test = new azure.network.PublicIp("test", {
+ * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
- *     location: azurerm_resource_group_test.location,
- *     name: "example-pip",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_lb_test = new azure.lb.LoadBalancer("test", {
+ * const testLoadBalancer = new azure.lb.LoadBalancer("test", {
  *     frontendIpConfigurations: [{
  *         name: "primary",
- *         publicIpAddressId: azurerm_public_ip_test.id,
+ *         publicIpAddressId: testPublicIp.id,
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: "example-lb",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_lb_nat_rule_test = new azure.lb.NatRule("test", {
+ * const testNatRule = new azure.lb.NatRule("test", {
  *     backendPort: 3389,
  *     frontendIpConfigurationName: "primary",
  *     frontendPort: 3389,
- *     loadbalancerId: azurerm_lb_test.id,
- *     name: "RDPAccess",
+ *     loadbalancerId: testLoadBalancer.id,
  *     protocol: "Tcp",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_test.location,
- *     name: "example-network",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "internal",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: azurerm_subnet_test.id,
+ *         subnetId: testSubnet.id,
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: "example-nic",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_network_interface_nat_rule_association_test = new azure.network.NetworkInterfaceNatRuleAssociation("test", {
+ * const testNetworkInterfaceNatRuleAssociation = new azure.network.NetworkInterfaceNatRuleAssociation("test", {
  *     ipConfigurationName: "testconfiguration1",
- *     natRuleId: azurerm_lb_nat_rule_test.id,
- *     networkInterfaceId: azurerm_network_interface_test.id,
+ *     natRuleId: testNatRule.id,
+ *     networkInterfaceId: testNetworkInterface.id,
  * });
  * ```
  */

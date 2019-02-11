@@ -13,48 +13,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "packet-capture-rg",
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: azurerm_resource_group_test.location,
- *     name: "production-network",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "internal",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: azurerm_subnet_test.id,
+ *         subnetId: testSubnet.id,
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: "pctest-nic",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_network_watcher_test = new azure.network.NetworkWatcher("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "network-watcher",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_test.location,
- *     name: "pctestsa",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_virtual_machine_test = new azure.compute.VirtualMachine("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "pctest-vm",
- *     networkInterfaceIds: [azurerm_network_interface_test.id],
+ * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
+ *     location: testResourceGroup.location,
+ *     networkInterfaceIds: [testNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
  *         adminUsername: "testadmin",
@@ -63,7 +56,7 @@ import * as utilities from "../utilities";
  *     osProfileLinuxConfig: {
  *         disablePasswordAuthentication: false,
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     storageImageReference: {
  *         offer: "UbuntuServer",
  *         publisher: "Canonical",
@@ -78,28 +71,26 @@ import * as utilities from "../utilities";
  *     },
  *     vmSize: "Standard_F2",
  * });
- * const azurerm_virtual_machine_extension_test = new azure.compute.Extension("test", {
+ * const testExtension = new azure.compute.Extension("test", {
  *     autoUpgradeMinorVersion: true,
- *     location: azurerm_resource_group_test.location,
- *     name: "network-watcher",
+ *     location: testResourceGroup.location,
  *     publisher: "Microsoft.Azure.NetworkWatcher",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     type: "NetworkWatcherAgentLinux",
  *     typeHandlerVersion: "1.4",
- *     virtualMachineName: azurerm_virtual_machine_test.name,
+ *     virtualMachineName: testVirtualMachine.name,
  * });
- * const azurerm_packet_capture_test = new azure.network.PacketCapture("test", {
- *     name: "pctestcapture",
- *     networkWatcherName: azurerm_network_watcher_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testPacketCapture = new azure.network.PacketCapture("test", {
+ *     networkWatcherName: testNetworkWatcher.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     storageLocation: {
- *         storageAccountId: azurerm_storage_account_test.id,
+ *         storageAccountId: testAccount.id,
  *     },
- *     targetResourceId: azurerm_virtual_machine_test.id,
- * }, {dependsOn: [azurerm_virtual_machine_extension_test]});
+ *     targetResourceId: testVirtualMachine.id,
+ * }, {dependsOn: [testExtension]});
  * ```
- * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azurerm_virtual_machine_extension` resource.
  * 
+ * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azurerm_virtual_machine_extension` resource.
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**

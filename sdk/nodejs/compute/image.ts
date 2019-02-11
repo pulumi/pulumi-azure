@@ -13,20 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctest",
  * });
- * const azurerm_image_test = new azure.compute.Image("test", {
+ * const testImage = new azure.compute.Image("test", {
  *     location: "West US",
- *     name: "acctest",
  *     osDisk: {
  *         blobUri: "{blob_uri}",
  *         osState: "Generalized",
  *         osType: "Linux",
  *         sizeGb: 30,
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  * });
  * ```
  * 
@@ -36,14 +34,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acctest",
  * });
- * const azurerm_image_test = new azure.compute.Image("test", {
+ * const testImage = new azure.compute.Image("test", {
  *     location: "West US",
- *     name: "acctest",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     sourceVirtualMachineId: "{vm_id}",
  * });
  * ```

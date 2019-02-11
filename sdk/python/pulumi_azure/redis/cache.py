@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -86,13 +87,34 @@ class Cache(pulumi.CustomResource):
     """
     A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
     """
-    def __init__(__self__, __name__, __opts__=None, capacity=None, enable_non_ssl_port=None, family=None, location=None, name=None, patch_schedules=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, shard_count=None, sku_name=None, subnet_id=None, tags=None, zones=None):
+    def __init__(__self__, resource_name, opts=None, capacity=None, enable_non_ssl_port=None, family=None, location=None, name=None, patch_schedules=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, shard_count=None, sku_name=None, subnet_id=None, tags=None, zones=None, __name__=None, __opts__=None):
         """
         Manages a Redis Cache.
         
+        ## Default Redis Configuration Values
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        | Redis Value        | Basic        | Standard     | Premium      |
+        | ------------------ | ------------ | ------------ | ------------ |
+        | maxmemory_reserved | 2            | 50           | 200          |
+        | maxmemory_delta    | 2            | 50           | 200          |
+        | maxmemory_policy   | volatile-lru | volatile-lru | volatile-lru |
+        
+        _*Important*: The `maxmemory_reserved` and `maxmemory_delta` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+        
+        * `patch_schedule` supports the following:
+        
+        * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+        * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+        
+        > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+        
+        ## Relevant Links
+        
+         - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
+         - [Redis: Available Configuration Settings](http://redis.io/topics/config)
+        
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6789) - disabled by default.
         :param pulumi.Input[str] family: The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
@@ -110,26 +132,32 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not capacity:
+        if capacity is None:
             raise TypeError('Missing required property capacity')
         __props__['capacity'] = capacity
 
         __props__['enable_non_ssl_port'] = enable_non_ssl_port
 
-        if not family:
+        if family is None:
             raise TypeError('Missing required property family')
         __props__['family'] = family
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
@@ -139,17 +167,17 @@ class Cache(pulumi.CustomResource):
 
         __props__['private_static_ip_address'] = private_static_ip_address
 
-        if not redis_configuration:
+        if redis_configuration is None:
             raise TypeError('Missing required property redis_configuration')
         __props__['redis_configuration'] = redis_configuration
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
         __props__['shard_count'] = shard_count
 
-        if not sku_name:
+        if sku_name is None:
             raise TypeError('Missing required property sku_name')
         __props__['sku_name'] = sku_name
 
@@ -167,9 +195,9 @@ class Cache(pulumi.CustomResource):
 
         super(Cache, __self__).__init__(
             'azure:redis/cache:Cache',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

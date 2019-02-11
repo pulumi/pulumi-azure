@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -48,13 +49,12 @@ class ProtectionPolicyVM(pulumi.CustomResource):
     """
     Specifies the timezone. Defaults to `UTC`
     """
-    def __init__(__self__, __name__, __opts__=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, retention_monthly=None, retention_weekly=None, retention_yearly=None, tags=None, timezone=None):
+    def __init__(__self__, resource_name, opts=None, backup=None, name=None, recovery_vault_name=None, resource_group_name=None, retention_daily=None, retention_monthly=None, retention_weekly=None, retention_yearly=None, tags=None, timezone=None, __name__=None, __opts__=None):
         """
         Manages an Recovery Services VM Protection Policy.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] backup: Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
         :param pulumi.Input[str] name: Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
@@ -66,26 +66,32 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not backup:
+        if backup is None:
             raise TypeError('Missing required property backup')
         __props__['backup'] = backup
 
         __props__['name'] = name
 
-        if not recovery_vault_name:
+        if recovery_vault_name is None:
             raise TypeError('Missing required property recovery_vault_name')
         __props__['recovery_vault_name'] = recovery_vault_name
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -103,9 +109,9 @@ class ProtectionPolicyVM(pulumi.CustomResource):
 
         super(ProtectionPolicyVM, __self__).__init__(
             'azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

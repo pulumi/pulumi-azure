@@ -6,6 +6,45 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a CosmosDB (formally DocumentDB) Account.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ * 
+ * const rg = new azure.core.ResourceGroup("rg", {
+ *     location: var_resource_group_location,
+ * });
+ * const ri = new random.RandomInteger("ri", {
+ *     max: 99999,
+ *     min: 10000,
+ * });
+ * const db = new azure.cosmosdb.Account("db", {
+ *     consistencyPolicy: {
+ *         consistencyLevel: "BoundedStaleness",
+ *         maxIntervalInSeconds: 10,
+ *         maxStalenessPrefix: 200,
+ *     },
+ *     enableAutomaticFailover: true,
+ *     geoLocations: [
+ *         {
+ *             failoverPriority: 1,
+ *             location: var_failover_location,
+ *         },
+ *         {
+ *             failoverPriority: 0,
+ *             location: rg.location,
+ *             prefix: ri.result.apply(result => `tfex-cosmos-db-${result}-customid`),
+ *         },
+ *     ],
+ *     kind: "GlobalDocumentDB",
+ *     location: rg.location,
+ *     offerType: "Standard",
+ *     resourceGroupName: rg.name,
+ * });
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -21,7 +60,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+     * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     public readonly capabilities: pulumi.Output<{ name: string }[] | undefined>;
     /**
@@ -66,7 +105,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+     * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -192,7 +231,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
-     * Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+     * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>;
     /**
@@ -237,7 +276,7 @@ export interface AccountState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+     * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -287,7 +326,7 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
-     * Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+     * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>;
     /**
@@ -324,7 +363,7 @@ export interface AccountArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+     * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
      */
     readonly name?: pulumi.Input<string>;
     /**

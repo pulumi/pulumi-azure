@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
- *     name: "workflow-resources",
  * });
- * const azurerm_logic_app_workflow_test = new azure.logicapps.Workflow("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "workflow1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testWorkflow = new azure.logicapps.Workflow("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_logic_app_trigger_http_request_test = new azure.logicapps.TriggerHttpRequest("test", {
- *     logicAppId: azurerm_logic_app_workflow_test.id,
- *     name: "some-http-trigger",
+ * const testTriggerHttpRequest = new azure.logicapps.TriggerHttpRequest("test", {
+ *     logicAppId: testWorkflow.id,
  *     schema: `{
  *     "type": "object",
  *     "properties": {

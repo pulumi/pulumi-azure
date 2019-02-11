@@ -13,15 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "Australia East",
- *     name: "notificationhub-resources",
  * });
- * const azurerm_notification_hub_namespace_test = new azure.notificationhub.Namespace("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "myappnamespace",
+ * const testNamespace = new azure.notificationhub.Namespace("test", {
+ *     location: testResourceGroup.location,
  *     namespaceType: "NotificationHub",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "Free",
  *     },

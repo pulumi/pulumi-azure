@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -80,13 +81,12 @@ class Cluster(pulumi.CustomResource):
     """
     Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, add_on_features=None, azure_active_directory=None, certificate=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None):
+    def __init__(__self__, resource_name, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None, __name__=None, __opts__=None):
         """
         Manage a Service Fabric Cluster.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] add_on_features: A List of one or more features which should be enabled, such as `DnsService`.
         :param pulumi.Input[dict] azure_active_directory: An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] certificate: A `certificate` block as defined below.
@@ -105,11 +105,17 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -128,25 +134,25 @@ class Cluster(pulumi.CustomResource):
 
         __props__['fabric_settings'] = fabric_settings
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
-        if not management_endpoint:
+        if management_endpoint is None:
             raise TypeError('Missing required property management_endpoint')
         __props__['management_endpoint'] = management_endpoint
 
         __props__['name'] = name
 
-        if not node_types:
+        if node_types is None:
             raise TypeError('Missing required property node_types')
         __props__['node_types'] = node_types
 
-        if not reliability_level:
+        if reliability_level is None:
             raise TypeError('Missing required property reliability_level')
         __props__['reliability_level'] = reliability_level
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -154,11 +160,11 @@ class Cluster(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if not upgrade_mode:
+        if upgrade_mode is None:
             raise TypeError('Missing required property upgrade_mode')
         __props__['upgrade_mode'] = upgrade_mode
 
-        if not vm_image:
+        if vm_image is None:
             raise TypeError('Missing required property vm_image')
         __props__['vm_image'] = vm_image
 
@@ -166,9 +172,9 @@ class Cluster(pulumi.CustomResource):
 
         super(Cluster, __self__).__init__(
             'azure:servicefabric/cluster:Cluster',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

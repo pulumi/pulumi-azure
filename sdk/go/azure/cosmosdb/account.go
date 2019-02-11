@@ -124,7 +124,7 @@ func (r *Account) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 func (r *Account) Capabilities() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["capabilities"])
 }
@@ -183,7 +183,7 @@ func (r *Account) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+// The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
 func (r *Account) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -240,7 +240,7 @@ func (r *Account) WriteEndpoints() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
-	// Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 	Capabilities interface{}
 	// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
 	ConnectionStrings interface{}
@@ -263,7 +263,7 @@ type AccountState struct {
 	Kind interface{}
 	// The name of the Azure region to host replicated data.
 	Location interface{}
-	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+	// The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
 	Name interface{}
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType interface{}
@@ -289,7 +289,7 @@ type AccountState struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Enable capabilities for this Cosmos DB account. Possible values are `EnableTable` and `EnableGremlin`.
+	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 	Capabilities interface{}
 	// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy interface{}
@@ -308,7 +308,7 @@ type AccountArgs struct {
 	Kind interface{}
 	// The name of the Azure region to host replicated data.
 	Location interface{}
-	// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
+	// The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
 	Name interface{}
 	// Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
 	OfferType interface{}

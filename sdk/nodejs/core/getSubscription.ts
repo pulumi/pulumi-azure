@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_subscription_current = pulumi.output(azure.core.getSubscription({}));
+ * const current = pulumi.output(azure.core.getSubscription({}));
  * 
- * export const currentSubscriptionDisplayName = azurerm_subscription_current.apply(__arg0 => __arg0.displayName);
+ * export const currentSubscriptionDisplayName = current.apply(current => current.displayName);
  * ```
  */
 export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {

@@ -13,36 +13,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: "West US 2",
- *     name: "acctvn",
  *     resourceGroupName: "acctestRG",
  * });
- * const azurerm_managed_disk_datasourcemd = pulumi.output(azure.compute.getManagedDisk({
+ * const datasourcemd = pulumi.output(azure.compute.getManagedDisk({
  *     name: "testManagedDisk",
  *     resourceGroupName: "acctestRG",
  * }));
- * const azurerm_subnet_test = new azure.network.Subnet("test", {
+ * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
- *     name: "acctsub",
  *     resourceGroupName: "acctestRG",
- *     virtualNetworkName: azurerm_virtual_network_test.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
  * });
- * const azurerm_network_interface_test = new azure.network.NetworkInterface("test", {
+ * const testNetworkInterface = new azure.network.NetworkInterface("test", {
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
- *         subnetId: azurerm_subnet_test.id,
+ *         subnetId: testSubnet.id,
  *     }],
  *     location: "West US 2",
- *     name: "acctni",
  *     resourceGroupName: "acctestRG",
  * });
- * const azurerm_virtual_machine_test = new azure.compute.VirtualMachine("test", {
+ * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
  *     location: "West US 2",
- *     name: "acctvm",
- *     networkInterfaceIds: [azurerm_network_interface_test.id],
+ *     networkInterfaceIds: [testNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
  *         adminUsername: "testadmin",
@@ -55,17 +51,17 @@ import * as utilities from "../utilities";
  *     storageDataDisks: [
  *         {
  *             createOption: "Empty",
- *             diskSizeGb: Number.parseFloat("1023"),
+ *             diskSizeGb: 1023,
  *             lun: 0,
  *             managedDiskType: "Standard_LRS",
  *             name: "datadisk_new",
  *         },
  *         {
  *             createOption: "Attach",
- *             diskSizeGb: azurerm_managed_disk_datasourcemd.apply(__arg0 => __arg0.diskSizeGb),
+ *             diskSizeGb: datasourcemd.apply(datasourcemd => datasourcemd.diskSizeGb),
  *             lun: 1,
- *             managedDiskId: azurerm_managed_disk_datasourcemd.apply(__arg0 => __arg0.id),
- *             name: azurerm_managed_disk_datasourcemd.apply(__arg0 => __arg0.name),
+ *             managedDiskId: datasourcemd.apply(datasourcemd => datasourcemd.id),
+ *             name: datasourcemd.apply(datasourcemd => datasourcemd.name),
  *         },
  *     ],
  *     storageImageReference: {

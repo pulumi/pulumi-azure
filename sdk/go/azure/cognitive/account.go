@@ -45,6 +45,8 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["endpoint"] = nil
+	inputs["primaryAccessKey"] = nil
+	inputs["secondaryAccessKey"] = nil
 	s, err := ctx.RegisterResource("azure:cognitive/account:Account", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -62,7 +64,9 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["kind"] = state.Kind
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
+		inputs["primaryAccessKey"] = state.PrimaryAccessKey
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
 	}
@@ -103,9 +107,19 @@ func (r *Account) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// A primary access key which can be used to connect to the Cognitive Service Account.
+func (r *Account) PrimaryAccessKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+}
+
 // The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 func (r *Account) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+}
+
+// The secondary access key which can be used to connect to the Cognitive Service Account.
+func (r *Account) SecondaryAccessKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // A `sku` block as defined below.
@@ -128,8 +142,12 @@ type AccountState struct {
 	Location interface{}
 	// Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
 	Name interface{}
+	// A primary access key which can be used to connect to the Cognitive Service Account.
+	PrimaryAccessKey interface{}
 	// The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The secondary access key which can be used to connect to the Cognitive Service Account.
+	SecondaryAccessKey interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
 	// A mapping of tags to assign to the resource.

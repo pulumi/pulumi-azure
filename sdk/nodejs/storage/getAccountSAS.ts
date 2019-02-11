@@ -18,22 +18,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_testrg = new azure.core.ResourceGroup("testrg", {
+ * const testrg = new azure.core.ResourceGroup("testrg", {
  *     location: "westus",
- *     name: "resourceGroupName",
  * });
- * const azurerm_storage_account_testsa = new azure.storage.Account("testsa", {
+ * const testsa = new azure.storage.Account("testsa", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: "westus",
- *     name: "storageaccountname",
- *     resourceGroupName: azurerm_resource_group_testrg.name,
+ *     resourceGroupName: testrg.name,
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const azurerm_storage_account_sas_test = pulumi.output(azure.storage.getAccountSAS({
- *     connectionString: azurerm_storage_account_testsa.primaryConnectionString,
+ * const test = pulumi.output(azure.storage.getAccountSAS({
+ *     connectionString: testsa.primaryConnectionString,
  *     expiry: "2020-03-21",
  *     httpsOnly: true,
  *     permissions: {
@@ -60,7 +58,7 @@ import * as utilities from "../utilities";
  *     start: "2018-03-21",
  * }));
  * 
- * export const sasUrlQueryString = azurerm_storage_account_sas_test.apply(__arg0 => __arg0.sas);
+ * export const sasUrlQueryString = test.apply(test => test.sas);
  * ```
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {

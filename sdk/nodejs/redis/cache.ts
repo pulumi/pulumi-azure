@@ -13,17 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "redis-resources",
  * });
- * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ * // NOTE: the Name used for Redis needs to be globally unique
+ * const testCache = new azure.redis.Cache("test", {
  *     capacity: 0,
  *     enableNonSslPort: false,
  *     family: "C",
- *     location: azurerm_resource_group_test.location,
- *     name: "tf-redis-basic",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Basic",
  * });
  * ```
@@ -34,17 +33,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "redis-resources",
  * });
- * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ * // NOTE: the Name used for Redis needs to be globally unique
+ * const testCache = new azure.redis.Cache("test", {
  *     capacity: 2,
  *     enableNonSslPort: false,
  *     family: "C",
- *     location: azurerm_resource_group_test.location,
- *     name: "tf-redis-standard",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Standard",
  * });
  * ```
@@ -55,22 +53,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "redis-resources",
  * });
- * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ * // NOTE: the Name used for Redis needs to be globally unique
+ * const testCache = new azure.redis.Cache("test", {
  *     capacity: 1,
  *     enableNonSslPort: false,
  *     family: "P",
- *     location: azurerm_resource_group_test.location,
- *     name: "tf-redis-premium",
+ *     location: testResourceGroup.location,
  *     redisConfiguration: {
  *         maxmemoryDelta: 2,
  *         maxmemoryPolicy: "allkeys-lru",
  *         maxmemoryReserved: 2,
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     shardCount: 3,
  *     skuName: "Premium",
  * });
@@ -82,33 +79,53 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "redis-resources",
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_test.location,
- *     name: "redissa",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_redis_cache_test = new azure.redis.Cache("test", {
+ * // NOTE: the Name used for Redis needs to be globally unique
+ * const testCache = new azure.redis.Cache("test", {
  *     capacity: 3,
  *     enableNonSslPort: false,
  *     family: "P",
- *     location: azurerm_resource_group_test.location,
- *     name: "tf-redis-pbkup",
+ *     location: testResourceGroup.location,
  *     redisConfiguration: {
  *         rdbBackupEnabled: true,
  *         rdbBackupFrequency: 60,
  *         rdbBackupMaxSnapshotCount: 1,
- *         rdbStorageConnectionString: pulumi.all([azurerm_storage_account_test.primaryBlobEndpoint, azurerm_storage_account_test.name, azurerm_storage_account_test.primaryAccessKey]).apply(([__arg0, __arg1, __arg2]) => `DefaultEndpointsProtocol=https;BlobEndpoint=${__arg0};AccountName=${__arg1};AccountKey=${__arg2}`),
+ *         rdbStorageConnectionString: pulumi.all([testAccount.primaryBlobEndpoint, testAccount.name, testAccount.primaryAccessKey]).apply(([primaryBlobEndpoint, name, primaryAccessKey]) => `DefaultEndpointsProtocol=https;BlobEndpoint=${primaryBlobEndpoint};AccountName=${name};AccountKey=${primaryAccessKey}`),
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Premium",
  * });
  * ```
+ * 
+ * ## Default Redis Configuration Values
+ * 
+ * | Redis Value        | Basic        | Standard     | Premium      |
+ * | ------------------ | ------------ | ------------ | ------------ |
+ * | maxmemory_reserved | 2            | 50           | 200          |
+ * | maxmemory_delta    | 2            | 50           | 200          |
+ * | maxmemory_policy   | volatile-lru | volatile-lru | volatile-lru |
+ * 
+ * _*Important*: The `maxmemory_reserved` and `maxmemory_delta` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+ * 
+ * * `patch_schedule` supports the following:
+ * 
+ * * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+ * * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+ * 
+ * > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+ * 
+ * ## Relevant Links
+ * 
+ *  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
+ *  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
  */
 export class Cache extends pulumi.CustomResource {
     /**

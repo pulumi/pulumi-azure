@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -11,7 +12,7 @@ class GetKeyResult(object):
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, e=None, key_opts=None, key_size=None, key_type=None, n=None, tags=None, version=None, id=None):
+    def __init__(__self__, e=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, tags=None, vault_uri=None, version=None, id=None):
         if e and not isinstance(e, str):
             raise TypeError('Expected argument e to be a str')
         __self__.e = e
@@ -36,6 +37,9 @@ class GetKeyResult(object):
         """
         Specifies the Key Type of this Key Vault Key
         """
+        if key_vault_id and not isinstance(key_vault_id, str):
+            raise TypeError('Expected argument key_vault_id to be a str')
+        __self__.key_vault_id = key_vault_id
         if n and not isinstance(n, str):
             raise TypeError('Expected argument n to be a str')
         __self__.n = n
@@ -48,6 +52,9 @@ class GetKeyResult(object):
         """
         A mapping of tags assigned to this Key Vault Key.
         """
+        if vault_uri and not isinstance(vault_uri, str):
+            raise TypeError('Expected argument vault_uri to be a str')
+        __self__.vault_uri = vault_uri
         if version and not isinstance(version, str):
             raise TypeError('Expected argument version to be a str')
         __self__.version = version
@@ -61,7 +68,7 @@ class GetKeyResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_key(name=None, vault_uri=None):
+async def get_key(key_vault_id=None, name=None, vault_uri=None):
     """
     Use this data source to access information about an existing Key Vault Key.
     
@@ -70,6 +77,7 @@ async def get_key(name=None, vault_uri=None):
     """
     __args__ = dict()
 
+    __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
     __args__['vaultUri'] = vault_uri
     __ret__ = await pulumi.runtime.invoke('azure:keyvault/getKey:getKey', __args__)
@@ -79,7 +87,9 @@ async def get_key(name=None, vault_uri=None):
         key_opts=__ret__.get('keyOpts'),
         key_size=__ret__.get('keySize'),
         key_type=__ret__.get('keyType'),
+        key_vault_id=__ret__.get('keyVaultId'),
         n=__ret__.get('n'),
         tags=__ret__.get('tags'),
+        vault_uri=__ret__.get('vaultUri'),
         version=__ret__.get('version'),
         id=__ret__.get('id'))

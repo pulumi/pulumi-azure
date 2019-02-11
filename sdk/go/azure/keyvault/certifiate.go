@@ -19,19 +19,18 @@ func NewCertifiate(ctx *pulumi.Context,
 	if args == nil || args.CertificatePolicy == nil {
 		return nil, errors.New("missing required argument 'CertificatePolicy'")
 	}
-	if args == nil || args.VaultUri == nil {
-		return nil, errors.New("missing required argument 'VaultUri'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["certificate"] = nil
 		inputs["certificatePolicy"] = nil
+		inputs["keyVaultId"] = nil
 		inputs["name"] = nil
 		inputs["tags"] = nil
 		inputs["vaultUri"] = nil
 	} else {
 		inputs["certificate"] = args.Certificate
 		inputs["certificatePolicy"] = args.CertificatePolicy
+		inputs["keyVaultId"] = args.KeyVaultId
 		inputs["name"] = args.Name
 		inputs["tags"] = args.Tags
 		inputs["vaultUri"] = args.VaultUri
@@ -56,6 +55,7 @@ func GetCertifiate(ctx *pulumi.Context,
 		inputs["certificate"] = state.Certificate
 		inputs["certificateData"] = state.CertificateData
 		inputs["certificatePolicy"] = state.CertificatePolicy
+		inputs["keyVaultId"] = state.KeyVaultId
 		inputs["name"] = state.Name
 		inputs["secretId"] = state.SecretId
 		inputs["tags"] = state.Tags
@@ -95,6 +95,11 @@ func (r *Certifiate) CertificatePolicy() *pulumi.Output {
 	return r.s.State["certificatePolicy"]
 }
 
+// The ID of the Key Vault where the Certificate should be created.
+func (r *Certifiate) KeyVaultId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
+}
+
 // The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
 func (r *Certifiate) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -115,7 +120,6 @@ func (r *Certifiate) Thumbprint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
 }
 
-// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 func (r *Certifiate) VaultUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
 }
@@ -133,6 +137,8 @@ type CertifiateState struct {
 	CertificateData interface{}
 	// A `certificate_policy` block as defined below.
 	CertificatePolicy interface{}
+	// The ID of the Key Vault where the Certificate should be created.
+	KeyVaultId interface{}
 	// The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
 	Name interface{}
 	// The ID of the associated Key Vault Secret.
@@ -141,7 +147,6 @@ type CertifiateState struct {
 	Tags interface{}
 	// The X509 Thumbprint of the Key Vault Certificate returned as hex string.
 	Thumbprint interface{}
-	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 	VaultUri interface{}
 	// The current version of the Key Vault Certificate.
 	Version interface{}
@@ -153,10 +158,11 @@ type CertifiateArgs struct {
 	Certificate interface{}
 	// A `certificate_policy` block as defined below.
 	CertificatePolicy interface{}
+	// The ID of the Key Vault where the Certificate should be created.
+	KeyVaultId interface{}
 	// The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
 	Name interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the URI used to access the Key Vault instance, available on the `azurerm_key_vault` resource.
 	VaultUri interface{}
 }

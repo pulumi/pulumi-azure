@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_log_analytics_workspace_test = pulumi.output(azure.operationalinsights.getAnalyticsWorkspace({
+ * const test = pulumi.output(azure.operationalinsights.getAnalyticsWorkspace({
  *     name: "acctest-01",
  *     resourceGroupName: "acctest",
  * }));
  * 
- * export const logAnalyticsWorkspaceId = azurerm_log_analytics_workspace_test.apply(__arg0 => __arg0.workspaceId);
+ * export const logAnalyticsWorkspaceId = test.apply(test => test.workspaceId);
  * ```
  */
 export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> {

@@ -13,21 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "resourceGroup1",
  * });
- * const azurerm_storage_account_test = new azure.storage.Account("test", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: azurerm_resource_group_test.location,
- *     name: "teststa",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_iothub_test = new azure.iot.IoTHub("test", {
+ * const testIoTHub = new azure.iot.IoTHub("test", {
  *     endpoints: [{
  *         batchFrequencyInSeconds: 60,
- *         connectionString: azurerm_storage_account_test.primaryBlobConnectionString,
+ *         connectionString: testAccount.primaryBlobConnectionString,
  *         containerName: "test",
  *         encoding: "Avro",
  *         fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
@@ -35,9 +33,8 @@ import * as utilities from "../utilities";
  *         name: "export",
  *         type: "AzureIotHub.StorageContainer",
  *     }],
- *     location: azurerm_resource_group_test.location,
- *     name: "test",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     routes: [{
  *         condition: "true",
  *         enabled: true,
@@ -46,7 +43,7 @@ import * as utilities from "../utilities";
  *         source: "DeviceMessages",
  *     }],
  *     sku: {
- *         capacity: Number.parseFloat("1"),
+ *         capacity: 1,
  *         name: "S1",
  *         tier: "Standard",
  *     },
@@ -54,11 +51,10 @@ import * as utilities from "../utilities";
  *         purpose: "testing",
  *     },
  * });
- * const azurerm_storage_container_test = new azure.storage.Container("test", {
+ * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
- *     name: "test",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     storageAccountName: azurerm_storage_account_test.name,
+ *     resourceGroupName: testResourceGroup.name,
+ *     storageAccountName: testAccount.name,
  * });
  * ```
  */

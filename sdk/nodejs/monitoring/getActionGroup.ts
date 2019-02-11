@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Use this data source to access the properties of an Action Group.
  * 
  * ## Example Usage
  * 
@@ -12,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_monitor_action_group_example = pulumi.output(azure.monitoring.getActionGroup({
+ * const example = pulumi.output(azure.monitoring.getActionGroup({
  *     name: "tfex-actiongroup",
  *     resourceGroupName: "terraform-example-rg",
  * }));
  * 
- * export const actionGroupId = azurerm_monitor_action_group_example.apply(__arg0 => __arg0.id);
+ * export const actionGroupId = example.apply(example => example.id);
  * ```
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
@@ -31,7 +32,13 @@ export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getActionGroup.
  */
 export interface GetActionGroupArgs {
+    /**
+     * Specifies the name of the Action Group.
+     */
     readonly name: string;
+    /**
+     * Specifies the name of the resource group the Action Group is located in.
+     */
     readonly resourceGroupName: string;
 }
 
@@ -39,10 +46,25 @@ export interface GetActionGroupArgs {
  * A collection of values returned by getActionGroup.
  */
 export interface GetActionGroupResult {
+    /**
+     * One or more `email_receiver` blocks as defined below.
+     */
     readonly emailReceivers: { emailAddress: string, name: string }[];
+    /**
+     * Whether this action group is enabled.
+     */
     readonly enabled: boolean;
+    /**
+     * The short name of the action group.
+     */
     readonly shortName: string;
+    /**
+     * One or more `sms_receiver ` blocks as defined below.
+     */
     readonly smsReceivers: { countryCode: string, name: string, phoneNumber: string }[];
+    /**
+     * One or more `webhook_receiver ` blocks as defined below.
+     */
     readonly webhookReceivers: { name: string, serviceUri: string }[];
     /**
      * id is the provider-assigned unique ID for this managed resource.

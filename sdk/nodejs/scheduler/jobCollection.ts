@@ -15,19 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_rg = new azure.core.ResourceGroup("rg", {
+ * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
- *     name: "tfex-job_collection",
  * });
- * const azurerm_scheduler_job_collection_jobs = new azure.scheduler.JobCollection("jobs", {
- *     location: azurerm_resource_group_rg.location,
- *     name: "example_job_collection",
+ * const jobs = new azure.scheduler.JobCollection("jobs", {
+ *     location: rg.location,
  *     quota: {
  *         maxJobCount: 5,
  *         maxRecurrenceFrequency: "hour",
  *         maxRecurrenceInterval: 24,
  *     },
- *     resourceGroupName: azurerm_resource_group_rg.name,
+ *     resourceGroupName: rg.name,
  *     sku: "free",
  *     state: "enabled",
  * });

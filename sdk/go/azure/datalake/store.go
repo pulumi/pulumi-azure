@@ -91,7 +91,7 @@ func (r *Store) EncryptionState() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptionState"])
 }
 
-// The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+// The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
 func (r *Store) EncryptionType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryptionType"])
 }
@@ -140,7 +140,7 @@ func (r *Store) Tier() *pulumi.StringOutput {
 type StoreState struct {
 	// Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
 	EncryptionState interface{}
-	// The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+	// The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
 	EncryptionType interface{}
 	// The Endpoint for the Data Lake Store.
 	Endpoint interface{}
@@ -164,7 +164,7 @@ type StoreState struct {
 type StoreArgs struct {
 	// Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
 	EncryptionState interface{}
-	// The Encryption Type used for this Data Lake Store Account. Currently can be set to `SystemManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+	// The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
 	EncryptionType interface{}
 	// are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
 	FirewallAllowAzureIps interface{}

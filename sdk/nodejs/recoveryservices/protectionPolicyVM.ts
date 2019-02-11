@@ -6,6 +6,60 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Recovery Services VM Protection Policy.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ * });
+ * const exampleVault = new azure.recoveryservices.Vault("example", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ * });
+ * const test = new azure.recoveryservices.ProtectionPolicyVM("test", {
+ *     backup: {
+ *         frequency: "Daily",
+ *         time: "23:00",
+ *     },
+ *     recoveryVaultName: exampleVault.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     retentionDaily: {
+ *         count: 10,
+ *     },
+ *     retentionMonthly: {
+ *         count: 7,
+ *         weekdays: [
+ *             "Sunday",
+ *             "Wednesday",
+ *         ],
+ *         weeks: [
+ *             "First",
+ *             "Last",
+ *         ],
+ *     },
+ *     retentionWeekly: {
+ *         count: 42,
+ *         weekdays: [
+ *             "Sunday",
+ *             "Wednesday",
+ *             "Friday",
+ *             "Saturday",
+ *         ],
+ *     },
+ *     retentionYearly: {
+ *         count: 77,
+ *         months: ["January"],
+ *         weekdays: ["Sunday"],
+ *         weeks: ["Last"],
+ *     },
+ *     timezone: "UTC",
+ * });
+ * ```
  */
 export class ProtectionPolicyVM extends pulumi.CustomResource {
     /**

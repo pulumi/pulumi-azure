@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -80,15 +81,14 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     The routing type of the Virtual Network Gateway. Valid
     options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
     """
-    def __init__(__self__, __name__, __opts__=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None):
+    def __init__(__self__, resource_name, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
         
-        -> **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
+        > **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
@@ -126,11 +126,17 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
                options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -143,27 +149,27 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         __props__['enable_bgp'] = enable_bgp
 
-        if not ip_configurations:
+        if ip_configurations is None:
             raise TypeError('Missing required property ip_configurations')
         __props__['ip_configurations'] = ip_configurations
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
         __props__['name'] = name
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
-        if not sku:
+        if sku is None:
             raise TypeError('Missing required property sku')
         __props__['sku'] = sku
 
         __props__['tags'] = tags
 
-        if not type:
+        if type is None:
             raise TypeError('Missing required property type')
         __props__['type'] = type
 
@@ -173,9 +179,9 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         super(VirtualNetworkGateway, __self__).__init__(
             'azure:network/virtualNetworkGateway:VirtualNetworkGateway',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -44,7 +45,7 @@ class Subnet(pulumi.CustomResource):
     """
     The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, address_prefix=None, delegations=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None):
+    def __init__(__self__, resource_name, opts=None, address_prefix=None, delegations=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, __name__=None, __opts__=None):
         """
         Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
         
@@ -52,9 +53,8 @@ class Subnet(pulumi.CustomResource):
         provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
         At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix to use for the subnet.
         :param pulumi.Input[list] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[list] ip_configurations: The collection of IP Configurations with IPs within this subnet.
@@ -65,16 +65,22 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[list] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql` and `Microsoft.Storage`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not address_prefix:
+        if address_prefix is None:
             raise TypeError('Missing required property address_prefix')
         __props__['address_prefix'] = address_prefix
 
@@ -86,7 +92,7 @@ class Subnet(pulumi.CustomResource):
 
         __props__['network_security_group_id'] = network_security_group_id
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -94,15 +100,15 @@ class Subnet(pulumi.CustomResource):
 
         __props__['service_endpoints'] = service_endpoints
 
-        if not virtual_network_name:
+        if virtual_network_name is None:
             raise TypeError('Missing required property virtual_network_name')
         __props__['virtual_network_name'] = virtual_network_name
 
         super(Subnet, __self__).__init__(
             'azure:network/subnet:Subnet',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

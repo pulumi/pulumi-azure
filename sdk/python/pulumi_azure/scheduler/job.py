@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -52,15 +53,14 @@ class Job(pulumi.CustomResource):
     """
     The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
     """
-    def __init__(__self__, __name__, __opts__=None, action_storage_queue=None, action_web=None, error_action_storage_queue=None, error_action_web=None, job_collection_name=None, name=None, recurrence=None, resource_group_name=None, retry=None, start_time=None, state=None):
+    def __init__(__self__, resource_name, opts=None, action_storage_queue=None, action_web=None, error_action_storage_queue=None, error_action_web=None, job_collection_name=None, name=None, recurrence=None, resource_group_name=None, retry=None, start_time=None, state=None, __name__=None, __opts__=None):
         """
         Manages a Scheduler Job.
         
         > **NOTE:** Support for Scheduler Job has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] action_storage_queue: A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
         :param pulumi.Input[dict] action_web: A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
         :param pulumi.Input[dict] error_action_storage_queue: A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
@@ -73,11 +73,17 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: The time the first instance of the job is to start running at.
         :param pulumi.Input[str] state: The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -90,7 +96,7 @@ class Job(pulumi.CustomResource):
 
         __props__['error_action_web'] = error_action_web
 
-        if not job_collection_name:
+        if job_collection_name is None:
             raise TypeError('Missing required property job_collection_name')
         __props__['job_collection_name'] = job_collection_name
 
@@ -98,7 +104,7 @@ class Job(pulumi.CustomResource):
 
         __props__['recurrence'] = recurrence
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
@@ -110,9 +116,9 @@ class Job(pulumi.CustomResource):
 
         super(Job, __self__).__init__(
             'azure:scheduler/job:Job',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

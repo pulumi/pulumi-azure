@@ -13,11 +13,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_traffic_manager_geographical_location_test = pulumi.output(azure.trafficmanager.getGeographicalLocation({
+ * const test = pulumi.output(azure.trafficmanager.getGeographicalLocation({
  *     name: "World",
  * }));
  * 
- * export const locationCode = azurerm_traffic_manager_geographical_location_test.apply(__arg0 => __arg0.id);
+ * export const locationCode = test.apply(test => test.id);
  * ```
  */
 export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetGeographicalLocationResult> {

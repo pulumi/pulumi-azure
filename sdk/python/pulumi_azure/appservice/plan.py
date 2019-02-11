@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -49,13 +50,12 @@ class Plan(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, __name__, __opts__=None, app_service_environment_id=None, kind=None, location=None, name=None, per_site_scaling=None, properties=None, reserved=None, resource_group_name=None, sku=None, tags=None):
+    def __init__(__self__, resource_name, opts=None, app_service_environment_id=None, kind=None, location=None, name=None, per_site_scaling=None, properties=None, reserved=None, resource_group_name=None, sku=None, tags=None, __name__=None, __opts__=None):
         """
         Manage an App Service Plan component.
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
         :param pulumi.Input[str] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -67,11 +67,17 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -80,7 +86,7 @@ class Plan(pulumi.CustomResource):
 
         __props__['kind'] = kind
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
@@ -92,11 +98,11 @@ class Plan(pulumi.CustomResource):
 
         __props__['reserved'] = reserved
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
-        if not sku:
+        if sku is None:
             raise TypeError('Missing required property sku')
         __props__['sku'] = sku
 
@@ -106,9 +112,9 @@ class Plan(pulumi.CustomResource):
 
         super(Plan, __self__).__init__(
             'azure:appservice/plan:Plan',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

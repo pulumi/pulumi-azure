@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -15,8 +16,8 @@ class AccessPolicy(pulumi.CustomResource):
     certificate_permissions: pulumi.Output[list]
     """
     List of certificate permissions, must be one or more from
-    the following: `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-    `managecontacts`, `manageissuers`, `purge`, `recover`, `setissuers` and `update`.
+    the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+    `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
     """
     key_permissions: pulumi.Output[list]
     """
@@ -24,6 +25,7 @@ class AccessPolicy(pulumi.CustomResource):
     the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
     `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
     """
+    key_vault_id: pulumi.Output[str]
     object_id: pulumi.Output[str]
     """
     The object ID of a user, service principal or security
@@ -52,24 +54,24 @@ class AccessPolicy(pulumi.CustomResource):
     Specifies the name of the Key Vault resource. Changing this
     forces a new resource to be created.
     """
-    def __init__(__self__, __name__, __opts__=None, application_id=None, certificate_permissions=None, key_permissions=None, object_id=None, resource_group_name=None, secret_permissions=None, tenant_id=None, vault_name=None):
+    def __init__(__self__, resource_name, opts=None, application_id=None, certificate_permissions=None, key_permissions=None, key_vault_id=None, object_id=None, resource_group_name=None, secret_permissions=None, tenant_id=None, vault_name=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Access Policy.
         
         > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
         
-        -> **NOTE:** Azure permits a maximum of 16 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
+        > **NOTE:** Azure permits a maximum of 16 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The object ID of an Application in Azure Active Directory.
         :param pulumi.Input[list] certificate_permissions: List of certificate permissions, must be one or more from
-               the following: `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
-               `managecontacts`, `manageissuers`, `purge`, `recover`, `setissuers` and `update`.
+               the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
+               `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
         :param pulumi.Input[list] key_permissions: List of key permissions, must be one or more from
                the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
                `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+        :param pulumi.Input[str] key_vault_id
         :param pulumi.Input[str] object_id: The object ID of a user, service principal or security
                group in the Azure Active Directory tenant for the vault. The object ID must
                be unique for the list of access policies. Changing this forces a new resource
@@ -84,11 +86,17 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] vault_name: Specifies the name of the Key Vault resource. Changing this
                forces a new resource to be created.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -99,29 +107,27 @@ class AccessPolicy(pulumi.CustomResource):
 
         __props__['key_permissions'] = key_permissions
 
-        if not object_id:
+        __props__['key_vault_id'] = key_vault_id
+
+        if object_id is None:
             raise TypeError('Missing required property object_id')
         __props__['object_id'] = object_id
 
-        if not resource_group_name:
-            raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
         __props__['secret_permissions'] = secret_permissions
 
-        if not tenant_id:
+        if tenant_id is None:
             raise TypeError('Missing required property tenant_id')
         __props__['tenant_id'] = tenant_id
 
-        if not vault_name:
-            raise TypeError('Missing required property vault_name')
         __props__['vault_name'] = vault_name
 
         super(AccessPolicy, __self__).__init__(
             'azure:keyvault/accessPolicy:AccessPolicy',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

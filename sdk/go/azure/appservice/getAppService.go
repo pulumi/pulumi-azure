@@ -23,6 +23,7 @@ func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServ
 		AppServicePlanId: outputs["appServicePlanId"],
 		AppSettings: outputs["appSettings"],
 		ClientAffinityEnabled: outputs["clientAffinityEnabled"],
+		ClientCertEnabled: outputs["clientCertEnabled"],
 		ConnectionStrings: outputs["connectionStrings"],
 		DefaultSiteHostname: outputs["defaultSiteHostname"],
 		Enabled: outputs["enabled"],
@@ -55,6 +56,8 @@ type GetAppServiceResult struct {
 	AppSettings interface{}
 	// Does the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
+	// Does the App Service require client certificates for incoming requests?
+	ClientCertEnabled interface{}
 	// An `connection_string` block as defined below.
 	ConnectionStrings interface{}
 	DefaultSiteHostname interface{}

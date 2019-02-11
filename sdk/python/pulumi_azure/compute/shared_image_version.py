@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -44,15 +45,14 @@ class SharedImageVersion(pulumi.CustomResource):
     """
     One or more `target_region` blocks as documented below.
     """
-    def __init__(__self__, __name__, __opts__=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None):
+    def __init__(__self__, resource_name, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None, __name__=None, __opts__=None):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
         
-        -> **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
+        > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
         
-        
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] exclude_from_latest: Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
@@ -63,50 +63,56 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[list] target_regions: One or more `target_region` blocks as documented below.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['exclude_from_latest'] = exclude_from_latest
 
-        if not gallery_name:
+        if gallery_name is None:
             raise TypeError('Missing required property gallery_name')
         __props__['gallery_name'] = gallery_name
 
-        if not image_name:
+        if image_name is None:
             raise TypeError('Missing required property image_name')
         __props__['image_name'] = image_name
 
-        if not location:
+        if location is None:
             raise TypeError('Missing required property location')
         __props__['location'] = location
 
-        if not managed_image_id:
+        if managed_image_id is None:
             raise TypeError('Missing required property managed_image_id')
         __props__['managed_image_id'] = managed_image_id
 
         __props__['name'] = name
 
-        if not resource_group_name:
+        if resource_group_name is None:
             raise TypeError('Missing required property resource_group_name')
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
-        if not target_regions:
+        if target_regions is None:
             raise TypeError('Missing required property target_regions')
         __props__['target_regions'] = target_regions
 
         super(SharedImageVersion, __self__).__init__(
             'azure:compute/sharedImageVersion:SharedImageVersion',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -18,24 +18,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
  * });
- * const azurerm_network_security_group_test = new azure.network.NetworkSecurityGroup("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "acceptanceTestSecurityGroup1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testDdosProtectionPlan = new azure.DdosProtectionPlan("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  * });
- * const azurerm_virtual_network_test = new azure.network.VirtualNetwork("test", {
+ * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
+ *     ddosProtectionPlan: {
+ *         enable: true,
+ *         id: testDdosProtectionPlan.id,
+ *     },
  *     dnsServers: [
  *         "10.0.0.4",
  *         "10.0.0.5",
  *     ],
- *     location: azurerm_resource_group_test.location,
- *     name: "virtualNetwork1",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     subnets: [
  *         {
  *             addressPrefix: "10.0.1.0/24",
@@ -48,7 +53,7 @@ import * as utilities from "../utilities";
  *         {
  *             addressPrefix: "10.0.3.0/24",
  *             name: "subnet3",
- *             securityGroup: azurerm_network_security_group_test.id,
+ *             securityGroup: testNetworkSecurityGroup.id,
  *         },
  *     ],
  *     tags: {
@@ -76,6 +81,10 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * a new resource to be created.
      */
     public readonly addressSpaces: pulumi.Output<string[]>;
+    /**
+     * A `ddos_protection_plan` block as documented below.
+     */
+    public readonly ddosProtectionPlan: pulumi.Output<{ enable: boolean, id: string } | undefined>;
     /**
      * List of IP addresses of DNS servers
      */
@@ -118,6 +127,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: VirtualNetworkState = argsOrState as VirtualNetworkState | undefined;
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
+            inputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -136,6 +146,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["addressSpaces"] = args ? args.addressSpaces : undefined;
+            inputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -157,6 +168,10 @@ export interface VirtualNetworkState {
      * a new resource to be created.
      */
     readonly addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `ddos_protection_plan` block as documented below.
+     */
+    readonly ddosProtectionPlan?: pulumi.Input<{ enable: pulumi.Input<boolean>, id: pulumi.Input<string> }>;
     /**
      * List of IP addresses of DNS servers
      */
@@ -197,6 +212,10 @@ export interface VirtualNetworkArgs {
      * a new resource to be created.
      */
     readonly addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A `ddos_protection_plan` block as documented below.
+     */
+    readonly ddosProtectionPlan?: pulumi.Input<{ enable: pulumi.Input<boolean>, id: pulumi.Input<string> }>;
     /**
      * List of IP addresses of DNS servers
      */

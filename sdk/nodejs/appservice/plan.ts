@@ -13,14 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
- * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
- *     location: azurerm_resource_group_test.location,
- *     name: "api-appserviceplan-pro",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const testPlan = new azure.appservice.Plan("test", {
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",
@@ -34,15 +32,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
- * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "FunctionApp",
- *     location: azurerm_resource_group_test.location,
- *     name: "api-appserviceplan-pro",
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     location: testResourceGroup.location,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "Y1",
  *         tier: "Dynamic",
@@ -56,18 +52,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_resource_group_test = new azure.core.ResourceGroup("test", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- *     name: "api-rg-pro",
  * });
- * const azurerm_app_service_plan_test = new azure.appservice.Plan("test", {
+ * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "Linux",
- *     location: azurerm_resource_group_test.location,
- *     name: "api-appserviceplan-pro",
+ *     location: testResourceGroup.location,
  *     properties: {
  *         reserved: true,
  *     },
- *     resourceGroupName: azurerm_resource_group_test.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
  *         tier: "Standard",

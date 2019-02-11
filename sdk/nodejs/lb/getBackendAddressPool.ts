@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const azurerm_lb_test = pulumi.output(azure.lb.getLB({
+ * const testLB = pulumi.output(azure.lb.getLB({
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
  * }));
- * const azurerm_lb_backend_address_pool_test = pulumi.output(azure.lb.getBackendAddressPool({
- *     loadbalancerId: azurerm_lb_test.apply(__arg0 => __arg0.id),
+ * const testBackendAddressPool = pulumi.output(azure.lb.getBackendAddressPool({
+ *     loadbalancerId: testLB.apply(testLB => testLB.id),
  *     name: "first",
  * }));
  * 
- * export const backendAddressPoolId = azurerm_lb_backend_address_pool_test.apply(__arg0 => __arg0.id);
+ * export const backendAddressPoolId = testBackendAddressPool.apply(testBackendAddressPool => testBackendAddressPool.id);
  * ```
  */
 export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {
