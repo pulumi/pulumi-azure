@@ -9,6 +9,7 @@ export * from "./eventHubConsumerGroup";
 export * from "./eventHubNamespace";
 export * from "./eventHubNamespaceAuthorizationRule";
 export * from "./getEventhubNamespace";
+export * from "./getServiceBusNamespace";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./queue";

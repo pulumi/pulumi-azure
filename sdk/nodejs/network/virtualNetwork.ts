@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  * });
- * const testDdosProtectionPlan = new azure.DdosProtectionPlan("test", {
+ * const testPlan = new azure.ddosprotection.Plan("test", {
  *     location: testResourceGroup.location,
  *     resourceGroupName: testResourceGroup.name,
  * });
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     addressSpaces: ["10.0.0.0/16"],
  *     ddosProtectionPlan: {
  *         enable: true,
- *         id: testDdosProtectionPlan.id,
+ *         id: testPlan.id,
  *     },
  *     dnsServers: [
  *         "10.0.0.4",

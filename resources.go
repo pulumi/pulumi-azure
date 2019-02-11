@@ -47,11 +47,13 @@ const (
 	azureCosmosDB            = "cosmosdb"            // Cosmos DB
 	azureDatalake            = "datalake"            // Data Lake
 	azureDataBricks          = "databricks"          // DataBricks
+	azureDdosProtection      = "ddosprotection"      // DDOS Protection
 	azureDevSpace            = "devspace"            // DevSpace
 	azureDevTest             = "devtest"             // Dev Test Labs
 	azureDNS                 = "dns"                 // DNS
 	azureIot                 = "iot"                 // IoT resource
 	azureKeyVault            = "keyvault"            // Key Vault
+	azureLogAnalytics        = "loganalytics"        // Log Analytics
 	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
 	azureMariaDB             = "mariadb"             // MariaDB
@@ -300,6 +302,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_lake_store_file":              {Tok: azureResource(azureDatalake, "StoreFile")},
 			"azurerm_data_lake_store_firewall_rule":     {Tok: azureResource(azureDatalake, "StoreFirewallRule")},
 
+			// DDOS Protection
+			"azurerm_ddos_protection_plan": {Tok: azureResource(azureDdosProtection, "Plan")},
+
 			// DevSpace
 			"azurerm_devspace_controller": {Tok: azureResource(azureDevSpace, "Controller")},
 
@@ -416,6 +421,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 
+			// Log Analytics
+			"azurerm_log_analytics_linked_service": {Tok: azureResource(azureLogAnalytics, "LinkedService")},
+
 			// Logic Apps
 			"azurerm_logic_app_action_custom":        {Tok: azureResource(azureLogicApps, "ActionCustom")},
 			"azurerm_logic_app_action_http":          {Tok: azureResource(azureLogicApps, "ActionHttp")},
@@ -459,9 +467,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_metric_alertrule":           {Tok: azureResource(azureMonitoring, "AlertRule")},
 			"azurerm_monitor_action_group":       {Tok: azureResource(azureMonitoring, "ActionGroup")},
 			"azurerm_monitor_activity_log_alert": {Tok: azureResource(azureMonitoring, "ActivityLogAlert")},
+			"azurerm_monitor_autoscale_setting":  {Tok: azureResource(azureMonitoring, "AutoscaleSetting")},
 			"azurerm_monitor_diagnostic_setting": {Tok: azureResource(azureMonitoring, "DiagnosticSetting")},
 			"azurerm_monitor_log_profile":        {Tok: azureResource(azureMonitoring, "LogProfile")},
 			"azurerm_monitor_metric_alert":       {Tok: azureResource(azureMonitoring, "MetricAlert")},
+			"azurerm_monitor_metric_alertrule":   {Tok: azureResource(azureMonitoring, "MetricAlertRule")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -510,6 +520,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_firewall_network_rule_collection":                                       {Tok: azureResource(azureNetwork, "FirewallNetworkRuleCollection")},
 			"azurerm_network_interface":                                                      {Tok: azureResource(azureNetwork, "NetworkInterface")},
 			"azurerm_network_interface_application_gateway_backend_address_pool_association": {Tok: azureResource(azureNetwork, "NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation")},
+			"azurerm_network_interface_application_security_group_association":               {Tok: azureResource(azureNetwork, "NetworkInterfaceApplicationSecurityGroupAssociation")},
 			"azurerm_network_interface_backend_address_pool_association":                     {Tok: azureResource(azureNetwork, "NetworkInterfaceBackendAddressPoolAssociation")},
 			"azurerm_network_interface_nat_rule_association":                                 {Tok: azureResource(azureNetwork, "NetworkInterfaceNatRuleAssociation")},
 			"azurerm_network_security_group":                                                 {Tok: azureResource(azureNetwork, "NetworkSecurityGroup")},
@@ -630,6 +641,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dev_test_lab":         {Tok: azureDataSource(azureDevTest, "getLab")},
 			"azurerm_eventhub_namespace":   {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
 			"azurerm_image":                {Tok: azureDataSource(azureCompute, "getImage")},
+			"azurerm_servicebus_namespace": {Tok: azureDataSource(azureMessaging, "getServiceBusNamespace")},
 			"azurerm_shared_image":         {Tok: azureDataSource(azureCompute, "getSharedImage")},
 			"azurerm_shared_image_gallery": {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
 			"azurerm_shared_image_version": {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
@@ -685,6 +697,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_subnet":                                {Tok: azureDataSource(azureNetwork, "getSubnet")},
 			"azurerm_route_table":                           {Tok: azureDataSource(azureNetwork, "getRouteTable")},
 			"azurerm_subscription":                          {Tok: azureDataSource(azureCore, "getSubscription")},
+			"azurerm_policy_definition":                     {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
 			"azurerm_platform_image":                        {Tok: azureDataSource(azureCompute, "getPlatformImage")},
 			"azurerm_managed_disk":                          {Tok: azureDataSource(azureCompute, "getManagedDisk")},
 			"azurerm_role_definition":                       {Tok: azureDataSource(azureRole, "getRoleDefinition")},
@@ -709,7 +722,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=0.16.4,<0.17.0",
+				"pulumi": ">=0.16.14,<0.17.0",
 			},
 		},
 	}
