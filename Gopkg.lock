@@ -153,7 +153,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:0bd77fb1c1885c6a1ee33f8c9b10aa90f17469a1916ad62cc6f912fc14ff6392"
+  digest = "1:9fcad015e9c645a7cea7b9b0a5ed6b80fe440f02ce6db7a3a15a46017b96e53b"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -195,8 +195,8 @@
     "service/sts",
   ]
   pruneopts = ""
-  revision = "a86c8123483bed64c20a08cddc5155e8e8c89dcb"
-  version = "v1.16.31"
+  revision = "24d2586ee6c7aa6a6efec818c2b8709db125ee4c"
+  version = "v1.16.34"
 
 [[projects]]
   digest = "1:98e84060475ed245c3b355042afd43a74aa7d32efe50658f4f995977916f9fc3"
@@ -312,12 +312,12 @@
   version = "v1.12.0"
 
 [[projects]]
-  digest = "1:e988ed0ca0d81f4d28772760c02ee95084961311291bdfefc1b04617c178b722"
+  digest = "1:c9bebdae4ac52d0c3bbe5876de3d72f3bb05b4986865cdb3f15e305e1dc4fbca"
   name = "github.com/fatih/color"
   packages = ["."]
   pruneopts = ""
-  revision = "5b77d2a35fb0ede96d138fc9a99f5c9b6aef11b4"
-  version = "v1.7.0"
+  revision = "570b54cabe6b8eb0bc2dfce68d964677d63b5260"
+  version = "v1.5.0"
 
 [[projects]]
   branch = "master"
@@ -577,12 +577,12 @@
   revision = "8bdf7d1a087ccc975cf37dd6507da50698fd19ca"
 
 [[projects]]
-  digest = "1:9ea83adf8e96d6304f394d40436f2eb44c1dc3250d223b74088cc253a6cd0a1c"
+  digest = "1:0f79867e9aac8a4e20bc1b0956d81f340da9ade9bcc00a4bfb1ebd738c152f7a"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
   pruneopts = ""
-  revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
-  version = "v0.0.9"
+  revision = "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
+  version = "v0.1.0"
 
 [[projects]]
   digest = "1:3140e04675a6a91d2a20ea9d10bdadf6072085502e6def6768361260aee4b967"
@@ -723,7 +723,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3cd2ee0fc4d4c21d8a6373ce710e73125ebd7512fa44faef76fad971644eb4d0"
+  digest = "1:8660493ea1e06ff1542ec095c5d160817c962ff7047e1df618f6b9f367995629"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -770,18 +770,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "4229f85fdaabcfc7bc866379b271b730c2384b6c"
+  revision = "406c8ea16d077a6a9a0a758d47cec5e41f3ae6dc"
 
 [[projects]]
   branch = "master"
-  digest = "1:ee977962b3fd8565483e1114262993016dcec9f170447a86b690b08ad5ab5bde"
+  digest = "1:b4514ceee7c3249a5a6bd7c7b17058c33c055a451c15128b84325e5fc3df4349"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "50c3039457f71c1bbc62f0acd86e0f8ed72e2cea"
+  revision = "13fc8ad0d1dcc1d73aa294c71a447de579fb4a63"
 
 [[projects]]
   branch = "master"
@@ -860,7 +860,7 @@
 
 [[projects]]
   branch = "pulumi-master"
-  digest = "1:373c47df43e1f87bfd0303a222dd775a07c2fe21862258b53e64c2ed606bb69b"
+  digest = "1:f66311022c2e9f5efde6e0224627fef3557b38c93e2cea57dac8b4287219a2ae"
   name = "github.com/terraform-providers/terraform-provider-azurerm"
   packages = [
     "azurerm",
@@ -875,7 +875,7 @@
     "version",
   ]
   pruneopts = ""
-  revision = "20533ba1209ce527f5309ec6e309d56c4b2a2fc7"
+  revision = "0b6ed600c11957d77daef7c438b8c437a267b4a5"
   source = "github.com/pulumi/terraform-provider-azurerm"
 
 [[projects]]
@@ -1146,12 +1146,13 @@
   version = "v4.3.0"
 
 [[projects]]
-  digest = "1:a72d911e18578e34367f4b849340501c7e6a2787a3a05651b3d53c6cb96990f4"
+  digest = "1:8b8c3a2fa9908caa5d9e1c8a7f57e527758522bbde64e2bafd59f86293c23da1"
   name = "gopkg.in/src-d/go-git.v4"
   packages = [
     ".",
     "config",
     "internal/revision",
+    "internal/url",
     "plumbing",
     "plumbing/cache",
     "plumbing/filemode",
@@ -1191,8 +1192,8 @@
     "utils/merkletrie/noder",
   ]
   pruneopts = ""
-  revision = "a1f6ef44dfed1253ef7f3bc049f66b15f8fc2ab2"
-  version = "v4.9.1"
+  revision = "db6c41c156481962abf9a55a324858674c25ab08"
+  version = "v4.10.0"
 
 [[projects]]
   digest = "1:ceec7e96590fb8168f36df4795fefe17051d4b0c2acc7ec4e260d8138c4dafac"
