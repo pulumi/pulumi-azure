@@ -1,5 +1,9 @@
 ## 0.16.9 (Unreleased)
 
+### Improvements
+
+- Updated to v1.22.1 of the AzureRM Terraform Provider.
+
 ## 0.16.8 (Released February 11th, 2019)
 
 ### Improvements
