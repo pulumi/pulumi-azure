@@ -37,6 +37,12 @@ The `@pulumi/azure` package provides a strongly-typed means to build cloud appli
 and interact closely with Azure resources.  Resources are exposed for the entire Azure surface area,
 including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault', and more.
 
+## Configuring credentials
+
+There are a variety of ways credentials may be configured for the Azure provider, appropriate for
+different use cases. They are enumerated [in the quickstart guide)(
+https://pulumi.io/quickstart/azure/setup.html).
+
 ## Reference
 
 For detailed reference documentation, please visit [the API docs](
