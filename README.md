@@ -40,7 +40,7 @@ including (but not limited to), 'appinsights', 'compute', 'cosmosdb', 'keyvault'
 ## Configuring credentials
 
 There are a variety of ways credentials may be configured for the Azure provider, appropriate for
-different use cases. They are enumerated [in the quickstart guide)(
+different use cases. They are enumerated [in the quickstart guide](
 https://pulumi.io/quickstart/azure/setup.html).
 
 ## Reference
