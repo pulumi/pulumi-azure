@@ -32,19 +32,23 @@ func TestExamples(t *testing.T) {
 		},
 	}
 
-	examples := []integration.ProgramTestOptions{
+	shortTests := []integration.ProgramTestOptions{
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 	}
-	if !testing.Short() {
-		examples = append(examples, []integration.ProgramTestOptions{
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-multi")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-volume-mount")}),
-			base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "loadbalancer")}),
-		}...)
+
+	longTests := []integration.ProgramTestOptions{
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-multi")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-volume-mount")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "loadbalancer")}),
 	}
 
-	for _, ex := range examples {
+	tests := shortTests
+	if !testing.Short() {
+		tests = append(tests, longTests...)
+	}
+
+	for _, ex := range tests {
 		example := ex.With(integration.ProgramTestOptions{
 			// TODO[pulumi/pulumi#1900]: This should be the default value, every test we have causes some sort of
 			// change during a `pulumi refresh` for reasons outside our control.
