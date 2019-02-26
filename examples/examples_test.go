@@ -34,10 +34,10 @@ func TestExamples(t *testing.T) {
 
 	shortTests := []integration.ProgramTestOptions{
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
 	}
 
 	longTests := []integration.ProgramTestOptions{
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-multi")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-volume-mount")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "loadbalancer")}),
