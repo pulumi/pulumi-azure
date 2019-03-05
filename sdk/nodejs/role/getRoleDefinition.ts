@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.apply(primary => primary.id),
  * });
- * const customRoleDefinition = pulumi.output(azure.role.getRoleDefinition({
- *     roleDefinitionId: customDefinition.roleDefinitionId,
- *     scope: primary.apply(primary => primary.id),
+ * const customRoleDefinition = pulumi.all([customDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.role.getRoleDefinition({
+ *     roleDefinitionId: roleDefinitionId,
+ *     scope: primary.id,
  * }));
- * const custom_byname = pulumi.output(azure.role.getRoleDefinition({
- *     name: customDefinition.name,
- *     scope: primary.apply(primary => primary.id),
+ * const custom_byname = pulumi.all([customDefinition.name, primary]).apply(([name, primary]) => azure.role.getRoleDefinition({
+ *     name: name,
+ *     scope: primary.id,
  * }));
  * 
  * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id.apply(id => id);

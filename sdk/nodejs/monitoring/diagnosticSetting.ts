@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  * });
- * const testKeyVault = pulumi.output(azure.keyvault.getKeyVault({
+ * const testKeyVault = testResourceGroup.name.apply(name => azure.keyvault.getKeyVault({
  *     name: "example-vault",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: name,
  * }));
- * const testAccount = pulumi.output(azure.storage.getAccount({
+ * const testAccount = testResourceGroup.name.apply(name => azure.storage.getAccount({
  *     name: "examplestoracc",
- *     resourceGroupName: testResourceGroup.name,
+ *     resourceGroupName: name,
  * }));
  * const testDiagnosticSetting = new azure.monitoring.DiagnosticSetting("test", {
  *     logs: [{

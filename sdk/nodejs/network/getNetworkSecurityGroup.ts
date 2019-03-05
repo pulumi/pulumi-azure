@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.network.getNetworkSecurityGroup({
- *     name: azurerm_network_security_group_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name,
+ * const test = pulumi.all([azurerm_network_security_group_test.name, azurerm_resource_group_test.name]).apply(([azurerm_network_security_group_testName, azurerm_resource_group_testName]) => azure.network.getNetworkSecurityGroup({
+ *     name: azurerm_network_security_group_testName,
+ *     resourceGroupName: azurerm_resource_group_testName,
  * }));
  * 
  * export const location = test.apply(test => test.location);

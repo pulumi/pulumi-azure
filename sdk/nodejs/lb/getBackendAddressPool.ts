@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
  * }));
- * const testBackendAddressPool = pulumi.output(azure.lb.getBackendAddressPool({
- *     loadbalancerId: testLB.apply(testLB => testLB.id),
+ * const testBackendAddressPool = testLB.apply(testLB => azure.lb.getBackendAddressPool({
+ *     loadbalancerId: testLB.id,
  *     name: "first",
  * }));
  * 

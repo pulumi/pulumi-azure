@@ -66,9 +66,9 @@ import * as utilities from "../utilities";
  *     networkInterfaceIds: [testNetworkInterface.id],
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const testPublicIP = pulumi.output(azure.network.getPublicIP({
- *     name: testPublicIp.name,
- *     resourceGroupName: testVirtualMachine.resourceGroupName,
+ * const testPublicIP = pulumi.all([testPublicIp.name, testVirtualMachine.resourceGroupName]).apply(([name, resourceGroupName]) => azure.network.getPublicIP({
+ *     name: name,
+ *     resourceGroupName: resourceGroupName,
  * }));
  * 
  * export const publicIpAddress = testPublicIP.apply(testPublicIP => testPublicIP.ipAddress);
