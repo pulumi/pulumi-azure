@@ -30,8 +30,8 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const test = pulumi.output(azure.storage.getAccountSAS({
- *     connectionString: testsa.primaryConnectionString,
+ * const test = testsa.primaryConnectionString.apply(primaryConnectionString => azure.storage.getAccountSAS({
+ *     connectionString: primaryConnectionString,
  *     expiry: "2020-03-21",
  *     httpsOnly: true,
  *     permissions: {

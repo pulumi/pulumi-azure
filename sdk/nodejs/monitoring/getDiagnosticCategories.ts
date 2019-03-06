@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testKeyVault = pulumi.output(azure.keyvault.getKeyVault({
- *     name: azurerm_key_vault_test.name,
- *     resourceGroupName: azurerm_key_vault_test.resourceGroupName,
+ * const testKeyVault = pulumi.all([azurerm_key_vault_test.name, azurerm_key_vault_test.resourceGroupName]).apply(([name, resourceGroupName]) => azure.keyvault.getKeyVault({
+ *     name: name,
+ *     resourceGroupName: resourceGroupName,
  * }));
- * const testDiagnosticCategories = pulumi.output(azure.monitoring.getDiagnosticCategories({
- *     resourceId: azurerm_key_vault_test.id,
+ * const testDiagnosticCategories = azurerm_key_vault_test.id.apply(id => azure.monitoring.getDiagnosticCategories({
+ *     resourceId: id,
  * }));
  * ```
  */
