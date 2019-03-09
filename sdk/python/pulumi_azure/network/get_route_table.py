@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetRouteTableResult(object):
+class GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
@@ -44,7 +44,7 @@ class GetRouteTableResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_route_table(name=None, resource_group_name=None):
+async def get_route_table(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Route Table.
     """
@@ -52,7 +52,7 @@ async def get_route_table(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:network/getRouteTable:getRouteTable', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:network/getRouteTable:getRouteTable', __args__, opts=opts)
 
     return GetRouteTableResult(
         location=__ret__.get('location'),

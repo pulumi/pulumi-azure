@@ -16,23 +16,28 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "peeredvnets-rg",
  * });
  * const test1VirtualNetwork = new azure.network.VirtualNetwork("test1", {
  *     addressSpaces: ["10.0.1.0/24"],
  *     location: "West US",
+ *     name: "peternetwork1",
  *     resourceGroupName: test.name,
  * });
  * const test2VirtualNetwork = new azure.network.VirtualNetwork("test2", {
  *     addressSpaces: ["10.0.2.0/24"],
  *     location: "West US",
+ *     name: "peternetwork2",
  *     resourceGroupName: test.name,
  * });
  * const test1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("test1", {
+ *     name: "peer1to2",
  *     remoteVirtualNetworkId: test2VirtualNetwork.id,
  *     resourceGroupName: test.name,
  *     virtualNetworkName: test1VirtualNetwork.name,
  * });
  * const test2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("test2", {
+ *     name: "peer2to1",
  *     remoteVirtualNetworkId: test1VirtualNetwork.id,
  *     resourceGroupName: test.name,
  *     virtualNetworkName: test2VirtualNetwork.name,
@@ -59,6 +64,7 @@ import * as utilities from "../utilities";
  * for (let i = 0; i < location.length; i++) {
  *     vnetResourceGroup.push(new azure.core.ResourceGroup(`vnet-${i}`, {
  *         location: location[i],
+ *         name: `rg-global-vnet-peering-${i}`,
  *     }));
  * }
  * const vnetVirtualNetwork: azure.network.VirtualNetwork[] = [];
@@ -66,6 +72,7 @@ import * as utilities from "../utilities";
  *     vnetVirtualNetwork.push(new azure.network.VirtualNetwork(`vnet-${i}`, {
  *         addressSpaces: [vnetAddressSpace[i]],
  *         location: pulumi.all(vnetResourceGroup.map(v => v.location)).apply(location => location.map(v => v)[i]),
+ *         name: `vnet-${i}`,
  *         resourceGroupName: pulumi.all(vnetResourceGroup.map(v => v.name)).apply(name => name.map(v => v)[i]),
  *     }));
  * }
@@ -76,6 +83,7 @@ import * as utilities from "../utilities";
  *             throw "tf2pulumi error: NYI: call to cidrsubnet";
  *             return (() => { throw "NYI: call to cidrsubnet"; })();
  *         })()),
+ *         name: "nva",
  *         resourceGroupName: pulumi.all(vnetResourceGroup.map(v => v.name)).apply(name => name.map(v => v)[i]),
  *         virtualNetworkName: pulumi.all(vnetVirtualNetwork.map(v => v.name)).apply(name => name.map(v => v)[i]),
  *     }));
@@ -88,6 +96,7 @@ import * as utilities from "../utilities";
  *         // `allow_gateway_transit` must be set to false for vnet Global Peering
  *         allowGatewayTransit: false,
  *         allowVirtualNetworkAccess: true,
+ *         name: pulumi.all(vnetVirtualNetwork.map(v => v.name)).apply(name => `peering-to-${name.map(v => v)[(1 - i)]}`),
  *         remoteVirtualNetworkId: pulumi.all(vnetVirtualNetwork.map(v => v.id)).apply(id => id.map(v => v)[(1 - i)]),
  *         resourceGroupName: pulumi.all(vnetResourceGroup.map(v => v.name)).apply(name => name.map(v => v)[i]),
  *         virtualNetworkName: pulumi.all(vnetVirtualNetwork.map(v => v.name)).apply(name => name.map(v => v)[i]),

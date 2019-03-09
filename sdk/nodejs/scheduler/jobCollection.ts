@@ -17,9 +17,11 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
+ *     name: "tfex-job_collection",
  * });
  * const jobs = new azure.scheduler.JobCollection("jobs", {
  *     location: rg.location,
+ *     name: "example_job_collection",
  *     quota: {
  *         maxJobCount: 5,
  *         maxRecurrenceFrequency: "hour",

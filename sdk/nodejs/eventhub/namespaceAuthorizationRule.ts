@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
+ *     name: "terraform-servicebus",
  * });
  * const exampleNamespace = new azure.eventhub.Namespace("example", {
  *     location: exampleResourceGroup.location,
+ *     name: "tfex_sevicebus_namespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -27,6 +29,7 @@ import * as utilities from "../utilities";
  * const exampleNamespaceAuthorizationRule = new azure.eventhub.NamespaceAuthorizationRule("example", {
  *     listen: true,
  *     manage: false,
+ *     name: "examplerule",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     send: true,

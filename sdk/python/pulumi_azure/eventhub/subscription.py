@@ -87,7 +87,6 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] auto_delete_on_idle: The idle interval after which the
                Subscription is automatically deleted, minimum of 5 minutes. Provided in the
                TimeSpan format.
-        :param pulumi.Input[bool] dead_lettering_on_filter_evaluation_exceptions
         :param pulumi.Input[bool] dead_lettering_on_message_expiration: Boolean flag which controls
                whether the Subscription has dead letter support when a message expires. Defaults
                to false.

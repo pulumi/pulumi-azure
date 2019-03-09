@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetApplicationSecurityGroupResult(object):
+class GetApplicationSecurityGroupResult:
     """
     A collection of values returned by getApplicationSecurityGroup.
     """
@@ -32,7 +32,7 @@ class GetApplicationSecurityGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_application_security_group(name=None, resource_group_name=None):
+async def get_application_security_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Application Security Group.
     """
@@ -40,7 +40,7 @@ async def get_application_security_group(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup', __args__, opts=opts)
 
     return GetApplicationSecurityGroupResult(
         location=__ret__.get('location'),

@@ -15,19 +15,23 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus",
+ *     name: "acctestRG-d",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: "westus",
+ *     name: "acctestaccs",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
+ *     name: "vhds",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });
  * const testsb = new azure.storage.Blob("testsb", {
+ *     name: "sample.vhd",
  *     resourceGroupName: testResourceGroup.name,
  *     size: 5120,
  *     storageAccountName: testAccount.name,

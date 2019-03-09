@@ -32,18 +32,25 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		PrimaryAccessKey: outputs["primaryAccessKey"],
 		PrimaryBlobConnectionString: outputs["primaryBlobConnectionString"],
 		PrimaryBlobEndpoint: outputs["primaryBlobEndpoint"],
+		PrimaryBlobHost: outputs["primaryBlobHost"],
 		PrimaryConnectionString: outputs["primaryConnectionString"],
 		PrimaryFileEndpoint: outputs["primaryFileEndpoint"],
+		PrimaryFileHost: outputs["primaryFileHost"],
 		PrimaryLocation: outputs["primaryLocation"],
 		PrimaryQueueEndpoint: outputs["primaryQueueEndpoint"],
+		PrimaryQueueHost: outputs["primaryQueueHost"],
 		PrimaryTableEndpoint: outputs["primaryTableEndpoint"],
+		PrimaryTableHost: outputs["primaryTableHost"],
 		SecondaryAccessKey: outputs["secondaryAccessKey"],
 		SecondaryBlobConnectionString: outputs["secondaryBlobConnectionString"],
 		SecondaryBlobEndpoint: outputs["secondaryBlobEndpoint"],
+		SecondaryBlobHost: outputs["secondaryBlobHost"],
 		SecondaryConnectionString: outputs["secondaryConnectionString"],
 		SecondaryLocation: outputs["secondaryLocation"],
 		SecondaryQueueEndpoint: outputs["secondaryQueueEndpoint"],
+		SecondaryQueueHost: outputs["secondaryQueueHost"],
 		SecondaryTableEndpoint: outputs["secondaryTableEndpoint"],
+		SecondaryTableHost: outputs["secondaryTableHost"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -88,30 +95,44 @@ type GetAccountResult struct {
 	PrimaryBlobConnectionString interface{}
 	// The endpoint URL for blob storage in the primary location.
 	PrimaryBlobEndpoint interface{}
+	// The hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobHost interface{}
 	// The connection string associated with the primary location
 	PrimaryConnectionString interface{}
 	// The endpoint URL for file storage in the primary location.
 	PrimaryFileEndpoint interface{}
+	// The hostname with port if applicable for file storage in the primary location.
+	PrimaryFileHost interface{}
 	// The primary location of the Storage Account.
 	PrimaryLocation interface{}
 	// The endpoint URL for queue storage in the primary location.
 	PrimaryQueueEndpoint interface{}
+	// The hostname with port if applicable for queue storage in the primary location.
+	PrimaryQueueHost interface{}
 	// The endpoint URL for table storage in the primary location.
 	PrimaryTableEndpoint interface{}
+	// The hostname with port if applicable for table storage in the primary location.
+	PrimaryTableHost interface{}
 	// The secondary access key for the Storage Account.
 	SecondaryAccessKey interface{}
 	// The connection string associated with the secondary blob location
 	SecondaryBlobConnectionString interface{}
 	// The endpoint URL for blob storage in the secondary location.
 	SecondaryBlobEndpoint interface{}
+	// The hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobHost interface{}
 	// The connection string associated with the secondary location
 	SecondaryConnectionString interface{}
 	// The secondary location of the Storage Account.
 	SecondaryLocation interface{}
 	// The endpoint URL for queue storage in the secondary location.
 	SecondaryQueueEndpoint interface{}
+	// The hostname with port if applicable for queue storage in the secondary location.
+	SecondaryQueueHost interface{}
 	// The endpoint URL for table storage in the secondary location.
 	SecondaryTableEndpoint interface{}
+	// The hostname with port if applicable for table storage in the secondary location.
+	SecondaryTableHost interface{}
 	// A mapping of tags to assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

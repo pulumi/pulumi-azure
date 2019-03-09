@@ -68,23 +68,31 @@ class Account(pulumi.CustomResource):
     """
     primary_access_key: pulumi.Output[str]
     """
-    The primary access key for the storage account
+    The primary access key for the storage account.
     """
     primary_blob_connection_string: pulumi.Output[str]
     """
-    The connection string associated with the primary blob location
+    The connection string associated with the primary blob location.
     """
     primary_blob_endpoint: pulumi.Output[str]
     """
     The endpoint URL for blob storage in the primary location.
     """
+    primary_blob_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for blob storage in the primary location.
+    """
     primary_connection_string: pulumi.Output[str]
     """
-    The connection string associated with the primary location
+    The connection string associated with the primary location.
     """
     primary_file_endpoint: pulumi.Output[str]
     """
     The endpoint URL for file storage in the primary location.
+    """
+    primary_file_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for file storage in the primary location.
     """
     primary_location: pulumi.Output[str]
     """
@@ -94,9 +102,17 @@ class Account(pulumi.CustomResource):
     """
     The endpoint URL for queue storage in the primary location.
     """
+    primary_queue_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for queue storage in the primary location.
+    """
     primary_table_endpoint: pulumi.Output[str]
     """
     The endpoint URL for table storage in the primary location.
+    """
+    primary_table_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for table storage in the primary location.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -105,19 +121,23 @@ class Account(pulumi.CustomResource):
     """
     secondary_access_key: pulumi.Output[str]
     """
-    The secondary access key for the storage account
+    The secondary access key for the storage account.
     """
     secondary_blob_connection_string: pulumi.Output[str]
     """
-    The connection string associated with the secondary blob location
+    The connection string associated with the secondary blob location.
     """
     secondary_blob_endpoint: pulumi.Output[str]
     """
     The endpoint URL for blob storage in the secondary location.
     """
+    secondary_blob_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for blob storage in the secondary location.
+    """
     secondary_connection_string: pulumi.Output[str]
     """
-    The connection string associated with the secondary location
+    The connection string associated with the secondary location.
     """
     secondary_location: pulumi.Output[str]
     """
@@ -127,9 +147,17 @@ class Account(pulumi.CustomResource):
     """
     The endpoint URL for queue storage in the secondary location.
     """
+    secondary_queue_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for queue storage in the secondary location.
+    """
     secondary_table_endpoint: pulumi.Output[str]
     """
     The endpoint URL for table storage in the secondary location.
+    """
+    secondary_table_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for table storage in the secondary location.
     """
     tags: pulumi.Output[dict]
     """
@@ -137,6 +165,18 @@ class Account(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, location=None, name=None, network_rules=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
         """
+        ## 
+        
+        ---
+        layout: "azurerm"
+        page_title: "Azure Resource Manager: azurerm_storage_account"
+        sidebar_current: "docs-azurerm-resource-storage-account"
+        description: |-
+          Manages a Azure Storage Account.
+        ---
+        
+        # azurerm_storage_account
+        
         Manage an Azure Storage Account.
         
         :param str resource_name: The name of the resource.
@@ -148,7 +188,6 @@ class Account(pulumi.CustomResource):
                Defaults to `Storage`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
         :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
-        :param pulumi.Input[str] account_type
         :param pulumi.Input[dict] custom_domain: A `custom_domain` block as documented below.
         :param pulumi.Input[bool] enable_blob_encryption: Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
         :param pulumi.Input[bool] enable_file_encryption: Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
@@ -221,18 +260,25 @@ class Account(pulumi.CustomResource):
         __props__['primary_access_key'] = None
         __props__['primary_blob_connection_string'] = None
         __props__['primary_blob_endpoint'] = None
+        __props__['primary_blob_host'] = None
         __props__['primary_connection_string'] = None
         __props__['primary_file_endpoint'] = None
+        __props__['primary_file_host'] = None
         __props__['primary_location'] = None
         __props__['primary_queue_endpoint'] = None
+        __props__['primary_queue_host'] = None
         __props__['primary_table_endpoint'] = None
+        __props__['primary_table_host'] = None
         __props__['secondary_access_key'] = None
         __props__['secondary_blob_connection_string'] = None
         __props__['secondary_blob_endpoint'] = None
+        __props__['secondary_blob_host'] = None
         __props__['secondary_connection_string'] = None
         __props__['secondary_location'] = None
         __props__['secondary_queue_endpoint'] = None
+        __props__['secondary_queue_host'] = None
         __props__['secondary_table_endpoint'] = None
+        __props__['secondary_table_host'] = None
 
         super(Account, __self__).__init__(
             'azure:storage/account:Account',

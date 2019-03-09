@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
+ *     name: "tfex-servicebus-subscription",
  * });
  * const exampleNamespace = new azure.eventhub.Namespace("example", {
  *     location: exampleResourceGroup.location,
+ *     name: "tfex_sevicebus_namespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -26,11 +28,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleTopic = new azure.eventhub.Topic("example", {
  *     enablePartitioning: true,
+ *     name: "tfex_sevicebus_topic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubscription = new azure.eventhub.Subscription("example", {
  *     maxDeliveryCount: 1,
+ *     name: "tfex_sevicebus_subscription",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     topicName: exampleTopic.name,

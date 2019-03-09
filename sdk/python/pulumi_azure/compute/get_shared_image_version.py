@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSharedImageVersionResult(object):
+class GetSharedImageVersionResult:
     """
     A collection of values returned by getSharedImageVersion.
     """
@@ -50,7 +50,7 @@ class GetSharedImageVersionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_shared_image_version(gallery_name=None, image_name=None, name=None, resource_group_name=None):
+async def get_shared_image_version(gallery_name=None,image_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Version of a Shared Image within a Shared Image Gallery.
     
@@ -62,7 +62,7 @@ async def get_shared_image_version(gallery_name=None, image_name=None, name=None
     __args__['imageName'] = image_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts)
 
     return GetSharedImageVersionResult(
         exclude_from_latest=__ret__.get('excludeFromLatest'),

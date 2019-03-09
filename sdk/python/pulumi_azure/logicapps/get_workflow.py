@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetWorkflowResult(object):
+class GetWorkflowResult:
     """
     A collection of values returned by getWorkflow.
     """
@@ -56,7 +56,7 @@ class GetWorkflowResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_workflow(name=None, resource_group_name=None):
+async def get_workflow(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Logic App Workflow.
     """
@@ -64,7 +64,7 @@ async def get_workflow(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:logicapps/getWorkflow:getWorkflow', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:logicapps/getWorkflow:getWorkflow', __args__, opts=opts)
 
     return GetWorkflowResult(
         access_endpoint=__ret__.get('accessEndpoint'),

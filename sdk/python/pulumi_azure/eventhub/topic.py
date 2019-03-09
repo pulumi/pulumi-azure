@@ -102,7 +102,6 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
                are enabled. An express topic holds a message in memory temporarily before writing
                it to persistent storage. Defaults to false.
-        :param pulumi.Input[bool] enable_filtering_messages_before_publishing
         :param pulumi.Input[bool] enable_partitioning: Boolean flag which controls whether to enable
                the topic to be partitioned across multiple message brokers. Defaults to false.
                Changing this forces a new resource to be created.

@@ -15,15 +15,18 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
+ *     name: "testbatch",
  * });
  * const testStorageAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
+ *     name: "teststorage",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testAccount = new azure.batch.Account("test", {
  *     location: testResourceGroup.location,
+ *     name: "testbatchaccount",
  *     poolAllocationMode: "BatchService",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountId: testStorageAccount.id,

@@ -28,6 +28,7 @@ func NewIoTHub(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["endpoints"] = nil
+		inputs["fallbackRoute"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
@@ -36,6 +37,7 @@ func NewIoTHub(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["endpoints"] = args.Endpoints
+		inputs["fallbackRoute"] = args.FallbackRoute
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -68,6 +70,7 @@ func GetIoTHub(ctx *pulumi.Context,
 		inputs["eventHubEventsPath"] = state.EventHubEventsPath
 		inputs["eventHubOperationsEndpoint"] = state.EventHubOperationsEndpoint
 		inputs["eventHubOperationsPath"] = state.EventHubOperationsPath
+		inputs["fallbackRoute"] = state.FallbackRoute
 		inputs["hostname"] = state.Hostname
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
@@ -118,6 +121,11 @@ func (r *IoTHub) EventHubOperationsEndpoint() *pulumi.StringOutput {
 // The EventHub compatible path for operational data
 func (r *IoTHub) EventHubOperationsPath() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eventHubOperationsPath"])
+}
+
+// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+func (r *IoTHub) FallbackRoute() *pulumi.Output {
+	return r.s.State["fallbackRoute"]
 }
 
 // The hostname of the IotHub Resource.
@@ -176,6 +184,8 @@ type IoTHubState struct {
 	EventHubOperationsEndpoint interface{}
 	// The EventHub compatible path for operational data
 	EventHubOperationsPath interface{}
+	// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	FallbackRoute interface{}
 	// The hostname of the IotHub Resource.
 	Hostname interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
@@ -199,6 +209,8 @@ type IoTHubState struct {
 type IoTHubArgs struct {
 	// An `endpoint` block as defined below.
 	Endpoints interface{}
+	// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	FallbackRoute interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.

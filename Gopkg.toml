@@ -35,13 +35,13 @@
 
 [[override]]
   name = "github.com/Azure/azure-sdk-for-go"
-  version = "=v24.0.0"
+  version = "=v25.1.0"
   [override.metadata]
     gomod-overridden=true
 
 [[override]]
   name = "github.com/Azure/go-autorest"
-  version = "=v11.3.2"
+  version = "=v11.4.0"
   [override.metadata]
     gomod-overridden=true
 
@@ -70,8 +70,26 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/armon/go-radix"
+  revision = "7fddfc383310abc091d79a27f116d30cf0424032"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/beorn7/perks"
+  revision = "3a771d992973f24aa725d07868b467d1ddfceafb"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/bgentry/go-netrc"
   revision = "9fd32a8b3d3d3f9d43c341bfe098430e07609480"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/bgentry/speakeasy"
+  version = "=v0.1.0"
   [override.metadata]
     gomod-overridden=true
 
@@ -82,8 +100,38 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/census-instrumentation/opencensus-proto"
+  version = "=v0.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/client9/misspell"
+  version = "=v0.3.4"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/davecgh/go-spew"
   version = "=v1.1.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/dgrijalva/jwt-go"
+  version = "=v3.2.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/dimchansky/utfbom"
+  version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/fatih/color"
+  version = "=v1.7.0"
   [override.metadata]
     gomod-overridden=true
 
@@ -94,14 +142,44 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/ghodss/yaml"
+  version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/globalsign/mgo"
+  revision = "eeefdecb41b842af6dc652aaea4026e8403e62df"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/go-ini/ini"
   version = "=v1.23.1"
   [override.metadata]
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/golang/glog"
+  revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/golang/mock"
   version = "=v1.2.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/golang/protobuf"
+  version = "=v1.2.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/google/go-cmp"
+  version = "=v0.2.0"
   [override.metadata]
     gomod-overridden=true
 
@@ -114,6 +192,12 @@
 [[override]]
   name = "github.com/grpc-ecosystem/grpc-gateway"
   version = "=v1.6.3"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/hashicorp/errwrap"
+  version = "=v1.0.0"
   [override.metadata]
     gomod-overridden=true
 
@@ -208,8 +292,38 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/kisielk/gotool"
+  version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/marstr/collection"
+  version = "=v1.0.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/marstr/guid"
   revision = "8bdf7d1a087ccc975cf37dd6507da50698fd19ca"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/mattn/go-colorable"
+  version = "=v0.0.9"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/mattn/go-isatty"
+  version = "=v0.0.3"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/matttproud/golang_protobuf_extensions"
+  version = "=v1.0.1"
   [override.metadata]
     gomod-overridden=true
 
@@ -221,6 +335,12 @@
 
 [[override]]
   name = "github.com/mitchellh/copystructure"
+  version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/mitchellh/go-homedir"
   version = "=v1.0.0"
   [override.metadata]
     gomod-overridden=true
@@ -250,8 +370,26 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/mitchellh/reflectwalk"
+  version = "=v1.0.0"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/openzipkin/zipkin-go"
   version = "=v0.1.3"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/pkg/errors"
+  version = "=v0.8.1"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/posener/complete"
+  version = "=v1.1.1"
   [override.metadata]
     gomod-overridden=true
 
@@ -262,8 +400,20 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/prometheus/client_model"
+  revision = "5c3871d89910bfb32f5fcab2aa4b9ec68e65a99f"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/prometheus/common"
   revision = "67670fe90761d7ff18ec1d640135e53b9198328f"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/prometheus/procfs"
+  revision = "1dc9a6cbc91aacc3e8b2d63db4d2e957a5394ac4"
   [override.metadata]
     gomod-overridden=true
 
@@ -280,6 +430,24 @@
     gomod-overridden=true
 
 [[override]]
+  name = "github.com/shopspring/decimal"
+  revision = "cd690d0c9e2447b1ef2a129a6b7b49077da89b8e"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/spf13/cobra"
+  version = "=v0.0.3"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "github.com/spf13/pflag"
+  version = "=v1.0.3"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
   name = "github.com/ulikunitz/xz"
   version = "=v0.5.4"
   [override.metadata]
@@ -288,6 +456,12 @@
 [[override]]
   name = "github.com/zclconf/go-cty"
   revision = "7166230c635fa24bbe613c5a53e75ad15c42c059"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "go.opencensus.io"
+  revision = "aab39bd6a98b853ab66c8a564f5d6cfcad59ce8a"
   [override.metadata]
     gomod-overridden=true
 
@@ -318,6 +492,12 @@
 [[override]]
   name = "golang.org/x/sys"
   revision = "b4a75ba826a64a70990f11a225237acd6ef35c9f"
+  [override.metadata]
+    gomod-overridden=true
+
+[[override]]
+  name = "golang.org/x/text"
+  version = "=v0.3.0"
   [override.metadata]
     gomod-overridden=true
 

@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testAPI = new azure.apimanagement.API("test", {
  *     location: testResourceGroup.location,
+ *     name: "example-apim",
  *     publisherEmail: "company@terraform.io",
  *     publisherName: "My Company",
  *     resourceGroupName: testResourceGroup.name,

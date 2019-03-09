@@ -5,6 +5,7 @@
 export * from "./availabilitySet";
 export * from "./dataDiskAttachment";
 export * from "./extension";
+export * from "./getAvailabilitySet";
 export * from "./getImage";
 export * from "./getManagedDisk";
 export * from "./getPlatformImage";

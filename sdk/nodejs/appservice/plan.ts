@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "api-rg-pro",
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     location: testResourceGroup.location,
+ *     name: "api-appserviceplan-pro",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
@@ -34,10 +36,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "api-rg-pro",
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "FunctionApp",
  *     location: testResourceGroup.location,
+ *     name: "api-appserviceplan-pro",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "Y1",
@@ -54,10 +58,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "api-rg-pro",
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     kind: "Linux",
  *     location: testResourceGroup.location,
+ *     name: "api-appserviceplan-pro",
  *     properties: {
  *         reserved: true,
  *     },

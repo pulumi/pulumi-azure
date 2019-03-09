@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./eventGridDomain";
+export * from "./eventGridEventSubscription";
 export * from "./eventGridTopic";
 export * from "./eventHub";
 export * from "./eventHubAuthorizationRule";

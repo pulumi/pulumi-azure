@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     availableToOtherTenants: false,
  *     homepage: "http://homepage",
  *     identifierUris: ["http://uri"],
+ *     name: "example",
  *     oauth2AllowImplicitFlow: true,
  *     replyUrls: ["http://replyurl"],
  * });

@@ -6,4 +6,5 @@
 from .protected_vm import *
 from .protection_policy_vm import *
 from .vault import *
+from .get_vm_protection_policy import *
 from .get_vault import *

@@ -15,14 +15,17 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus",
+ *     name: "example-resources",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
+ *     name: "examplestorageacc",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testQueue = new azure.storage.Queue("test", {
+ *     name: "mysamplequeue",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });

@@ -4,3 +4,12 @@
 // Export members:
 export * from "./aPI";
 export * from "./getAPI";
+export * from "./getGroup";
+export * from "./getProduct";
+export * from "./getUser";
+export * from "./group";
+export * from "./groupUser";
+export * from "./product";
+export * from "./productGroup";
+export * from "./property";
+export * from "./user";

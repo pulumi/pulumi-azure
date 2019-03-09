@@ -40,7 +40,6 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.Input[list] records: List of IPv4 Addresses.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] ttl
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if __name__ is not None:

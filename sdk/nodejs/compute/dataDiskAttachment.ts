@@ -23,21 +23,25 @@ import * as utilities from "../utilities";
  * const vmName = `${prefix}-vm`;
  * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West Europe",
+ *     name: `${prefix}-resources`,
  * });
  * const testManagedDisk = new azure.compute.ManagedDisk("test", {
  *     createOption: "Empty",
  *     diskSizeGb: 10,
  *     location: mainResourceGroup.location,
+ *     name: `${vmName}-disk1`,
  *     resourceGroupName: mainResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  * });
  * const mainVirtualNetwork = new azure.network.VirtualNetwork("main", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: mainResourceGroup.location,
+ *     name: `${prefix}-network`,
  *     resourceGroupName: mainResourceGroup.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
  *     addressPrefix: "10.0.2.0/24",
+ *     name: "internal",
  *     resourceGroupName: mainResourceGroup.name,
  *     virtualNetworkName: mainVirtualNetwork.name,
  * });
@@ -48,10 +52,12 @@ import * as utilities from "../utilities";
  *         subnetId: internal.id,
  *     }],
  *     location: mainResourceGroup.location,
+ *     name: `${prefix}-nic`,
  *     resourceGroupName: mainResourceGroup.name,
  * });
  * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
  *     location: mainResourceGroup.location,
+ *     name: vmName,
  *     networkInterfaceIds: [mainNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
@@ -80,7 +86,7 @@ import * as utilities from "../utilities";
  *     caching: "ReadWrite",
  *     lun: 10,
  *     managedDiskId: testManagedDisk.id,
- *     virtualMachineId: azurerm_virtual_machine_windows.id,
+ *     virtualMachineId: testVirtualMachine.id,
  * });
  * ```
  */

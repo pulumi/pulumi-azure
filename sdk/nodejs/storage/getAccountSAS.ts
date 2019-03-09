@@ -20,11 +20,13 @@ import * as utilities from "../utilities";
  * 
  * const testrg = new azure.core.ResourceGroup("testrg", {
  *     location: "westus",
+ *     name: "resourceGroupName",
  * });
  * const testsa = new azure.storage.Account("testsa", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: "westus",
+ *     name: "storageaccountname",
  *     resourceGroupName: testrg.name,
  *     tags: {
  *         environment: "staging",

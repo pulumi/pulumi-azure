@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
+ *     name: "tfex-recovery_vault",
  * });
  * const exampleVault = new azure.recoveryservices.Vault("example", {
  *     location: exampleResourceGroup.location,
+ *     name: "tfex-recovery-vault",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
@@ -26,6 +28,7 @@ import * as utilities from "../utilities";
  *         frequency: "Daily",
  *         time: "23:00",
  *     },
+ *     name: "tfex-recovery-vault-policy",
  *     recoveryVaultName: exampleVault.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     retentionDaily: {

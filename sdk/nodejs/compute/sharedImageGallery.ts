@@ -17,10 +17,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testSharedImageGallery = new azure.compute.SharedImageGallery("test", {
  *     description: "Shared images and things.",
  *     location: testResourceGroup.location,
+ *     name: "example_image_gallery",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Hello: "There",
@@ -62,6 +64,9 @@ export class SharedImageGallery extends pulumi.CustomResource {
      * A mapping of tags to assign to the Shared Image Gallery.
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
+    /**
+     * The Unique Name for this Shared Image Gallery.
+     */
     public /*out*/ readonly uniqueName: pulumi.Output<string>;
 
     /**
@@ -125,6 +130,9 @@ export interface SharedImageGalleryState {
      * A mapping of tags to assign to the Shared Image Gallery.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The Unique Name for this Shared Image Gallery.
+     */
     readonly uniqueName?: pulumi.Input<string>;
 }
 

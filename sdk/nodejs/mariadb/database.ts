@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westeurope",
+ *     name: "tfex-mariadb-database-RG",
  * });
  * const exampleServer = new azure.mariadb.Server("example", {
  *     administratorLogin: "acctestun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     location: exampleResourceGroup.location,
+ *     name: "mariadb-svr",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
  *         capacity: 2,
@@ -38,6 +40,7 @@ import * as utilities from "../utilities";
  * const exampleDatabase = new azure.mariadb.Database("example", {
  *     charset: "utf8",
  *     collation: "utf8_general_ci",
+ *     name: "mariadb_database",
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
  * });

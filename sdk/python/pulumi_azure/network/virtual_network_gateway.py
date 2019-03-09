@@ -93,7 +93,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                will be created. An active-active gateway requires a `HighPerformance` or an
                `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
                Defaults to `false`.
-        :param pulumi.Input[dict] bgp_settings
         :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
                through which outbound Internet traffic from the virtual network in which the
                gateway is created will be routed (*forced tunneling*). Refer to the

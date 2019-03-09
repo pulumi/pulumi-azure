@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "api-rg-pro",
  * });
  * const testServer = new azure.postgresql.Server("test", {
  *     administratorLogin: "psqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     location: testResourceGroup.location,
+ *     name: "postgresql-server-1",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 2,
@@ -38,6 +40,7 @@ import * as utilities from "../utilities";
  * const testDatabase = new azure.postgresql.Database("test", {
  *     charset: "UTF8",
  *     collation: "English_United States.1252",
+ *     name: "exampledb",
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testServer.name,
  * });

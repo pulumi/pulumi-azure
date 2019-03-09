@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetPoolResult(object):
+class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
@@ -59,7 +59,7 @@ class GetPoolResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_pool(account_name=None, name=None, resource_group_name=None, start_task=None):
+async def get_pool(account_name=None,name=None,resource_group_name=None,start_task=None,opts=None):
     """
     Use this data source to access information about an existing Batch pool
     """
@@ -69,7 +69,7 @@ async def get_pool(account_name=None, name=None, resource_group_name=None, start
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTask'] = start_task
-    __ret__ = await pulumi.runtime.invoke('azure:batch/getPool:getPool', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:batch/getPool:getPool', __args__, opts=opts)
 
     return GetPoolResult(
         auto_scales=__ret__.get('autoScales'),

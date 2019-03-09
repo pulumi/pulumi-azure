@@ -14,6 +14,7 @@ from .virtual_machine import *
 from .data_disk_attachment import *
 from .extension import *
 from .scale_set import *
+from .get_availability_set import *
 from .get_image import *
 from .get_managed_disk import *
 from .get_platform_image import *

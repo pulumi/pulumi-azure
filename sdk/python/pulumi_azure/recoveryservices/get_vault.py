@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVaultResult(object):
+class GetVaultResult:
     """
     A collection of values returned by getVault.
     """
@@ -38,7 +38,7 @@ class GetVaultResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_vault(name=None, resource_group_name=None):
+async def get_vault(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Recovery Services Vault.
     """
@@ -46,7 +46,7 @@ async def get_vault(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:recoveryservices/getVault:getVault', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:recoveryservices/getVault:getVault', __args__, opts=opts)
 
     return GetVaultResult(
         location=__ret__.get('location'),

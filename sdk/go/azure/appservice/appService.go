@@ -131,7 +131,7 @@ func (r *AppService) ClientCertEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["clientCertEnabled"])
 }
 
-// An `connection_string` block as defined below.
+// One or more `connection_string` blocks as defined below.
 func (r *AppService) ConnectionStrings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["connectionStrings"])
 }
@@ -161,7 +161,7 @@ func (r *AppService) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the Connection String.
+// Specifies the name of the App Service. Changing this forces a new resource to be created.
 func (r *AppService) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -211,7 +211,7 @@ type AppServiceState struct {
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled interface{}
-	// An `connection_string` block as defined below.
+	// One or more `connection_string` blocks as defined below.
 	ConnectionStrings interface{}
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname interface{}
@@ -223,7 +223,7 @@ type AppServiceState struct {
 	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the Connection String.
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses interface{}
@@ -251,7 +251,7 @@ type AppServiceArgs struct {
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled interface{}
-	// An `connection_string` block as defined below.
+	// One or more `connection_string` blocks as defined below.
 	ConnectionStrings interface{}
 	// Is the App Service Enabled? Changing this forces a new resource to be created.
 	Enabled interface{}
@@ -261,7 +261,7 @@ type AppServiceArgs struct {
 	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the Connection String.
+	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to create the App Service.
 	ResourceGroupName interface{}

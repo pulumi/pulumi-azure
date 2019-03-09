@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *     createOption: "Empty",
  *     diskSizeGb: 1,
  *     location: testResourceGroup.apply(testResourceGroup => testResourceGroup.location),
+ *     name: "managed_disk_name",
  *     resourceGroupName: testResourceGroup.apply(testResourceGroup => testResourceGroup.name),
  *     storageAccountType: "Standard_LRS",
  * });

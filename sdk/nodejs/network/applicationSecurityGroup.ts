@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "tf-test",
  * });
  * const testApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("test", {
  *     location: testResourceGroup.location,
+ *     name: "tf-appsecuritygroup",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Hello: "World",

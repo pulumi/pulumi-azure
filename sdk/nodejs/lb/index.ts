@@ -8,5 +8,6 @@ export * from "./getLB";
 export * from "./loadBalancer";
 export * from "./natPool";
 export * from "./natRule";
+export * from "./outboundRule";
 export * from "./probe";
 export * from "./rule";

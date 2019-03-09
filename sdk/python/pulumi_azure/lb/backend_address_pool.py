@@ -39,7 +39,6 @@ class BackendAddressPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool.
-        :param pulumi.Input[str] location
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
         """

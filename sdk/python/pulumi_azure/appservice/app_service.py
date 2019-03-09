@@ -27,7 +27,7 @@ class AppService(pulumi.CustomResource):
     """
     connection_strings: pulumi.Output[list]
     """
-    An `connection_string` block as defined below.
+    One or more `connection_string` blocks as defined below.
     """
     default_site_hostname: pulumi.Output[str]
     """
@@ -51,7 +51,7 @@ class AppService(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    The name of the Connection String.
+    Specifies the name of the App Service. Changing this forces a new resource to be created.
     """
     outbound_ip_addresses: pulumi.Output[str]
     """
@@ -93,12 +93,12 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
-        :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[list] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the App Service Enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[dict] identity: A Managed Service Identity block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the Connection String.
+        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
         :param pulumi.Input[dict] site_config: A `site_config` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

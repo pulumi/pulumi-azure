@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetServiceBusNamespaceResult(object):
+class GetServiceBusNamespaceResult:
     """
     A collection of values returned by getServiceBusNamespace.
     """
@@ -70,7 +70,7 @@ class GetServiceBusNamespaceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_service_bus_namespace(name=None, resource_group_name=None):
+async def get_service_bus_namespace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing ServiceBus Namespace.
     """
@@ -78,7 +78,7 @@ async def get_service_bus_namespace(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:eventhub/getServiceBusNamespace:getServiceBusNamespace', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:eventhub/getServiceBusNamespace:getServiceBusNamespace', __args__, opts=opts)
 
     return GetServiceBusNamespaceResult(
         capacity=__ret__.get('capacity'),

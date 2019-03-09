@@ -13,6 +13,10 @@ class Group(pulumi.CustomResource):
     """
     The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
     """
+    diagnostics: pulumi.Output[dict]
+    """
+    A `diagnostics` block as documented below.
+    """
     dns_name_label: pulumi.Output[str]
     """
     The DNS label/name for the container groups IP.
@@ -23,7 +27,7 @@ class Group(pulumi.CustomResource):
     """
     image_registry_credentials: pulumi.Output[list]
     """
-    Set image registry credentials for the group as documented in the `image_registry_credential` block below
+    A `image_registry_credential` block as documented below.
     """
     ip_address: pulumi.Output[str]
     """
@@ -57,15 +61,16 @@ class Group(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, containers=None, dns_name_label=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __name__=None, __opts__=None):
         """
         Manage as an Azure Container Group instance.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP.
-        :param pulumi.Input[list] image_registry_credentials: Set image registry credentials for the group as documented in the `image_registry_credential` block below
+        :param pulumi.Input[list] image_registry_credentials: A `image_registry_credential` block as documented below.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
@@ -92,6 +97,8 @@ class Group(pulumi.CustomResource):
         if containers is None:
             raise TypeError('Missing required property containers')
         __props__['containers'] = containers
+
+        __props__['diagnostics'] = diagnostics
 
         __props__['dns_name_label'] = dns_name_label
 

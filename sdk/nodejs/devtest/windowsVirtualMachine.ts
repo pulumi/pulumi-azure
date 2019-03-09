@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "example-resources",
  * });
  * const testLab = new azure.devtest.Lab("test", {
  *     location: testResourceGroup.location,
+ *     name: "example-devtestlab",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Sydney: "Australia",
@@ -25,6 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const testVirtualNetwork = new azure.devtest.VirtualNetwork("test", {
  *     labName: testLab.name,
+ *     name: "example-network",
  *     resourceGroupName: testResourceGroup.name,
  *     subnet: {
  *         useInVirtualMachineCreation: "Allow",
@@ -42,6 +45,7 @@ import * as utilities from "../utilities";
  *     labSubnetName: testVirtualNetwork.subnet.apply(subnet => subnet.name),
  *     labVirtualNetworkId: testVirtualNetwork.id,
  *     location: testResourceGroup.location,
+ *     name: "example-vm03",
  *     notes: "Some notes about this Virtual Machine.",
  *     password: "Pa$w0rd1234!",
  *     resourceGroupName: testResourceGroup.name,

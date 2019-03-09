@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: var_resource_group_location,
+ *     name: var_resource_group_name,
  * });
  * const ri = new random.RandomInteger("ri", {
  *     max: 99999,
@@ -41,6 +42,7 @@ import * as utilities from "../utilities";
  *     ],
  *     kind: "GlobalDocumentDB",
  *     location: rg.location,
+ *     name: ri.result.apply(result => `tfex-cosmos-db-${result}`),
  *     offerType: "Standard",
  *     resourceGroupName: rg.name,
  * });

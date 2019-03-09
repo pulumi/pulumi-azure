@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * }));
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const customDefinition = new azure.role.Definition("custom", {
+ *     name: "CustomRoleDef",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.apply(primary => primary.id),
  * });

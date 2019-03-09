@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus",
+ *     name: "acctestRG",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: "westus",
+ *     name: "accteststorageaccount",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
@@ -27,6 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
+ *     name: "vhds",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });

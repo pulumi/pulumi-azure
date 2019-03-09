@@ -27,17 +27,6 @@ class ZipBlob(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] attempts
-        :param pulumi.Input[str] content_type
-        :param pulumi.Input[str] name
-        :param pulumi.Input[int] parallelism
-        :param pulumi.Input[str] resource_group_name
-        :param pulumi.Input[int] size
-        :param pulumi.Input[pulumi.Archive] content
-        :param pulumi.Input[str] source_uri
-        :param pulumi.Input[str] storage_account_name
-        :param pulumi.Input[str] storage_container_name
-        :param pulumi.Input[str] type
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

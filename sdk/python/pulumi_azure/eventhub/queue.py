@@ -104,7 +104,6 @@ class Queue(pulumi.CustomResource):
                queue. This is the default value used when TTL is not set on message itself.
         :param pulumi.Input[str] duplicate_detection_history_time_window: The ISO 8601 timespan duration during which
                duplicates can be detected. Default value is 10 minutes. (`PT10M`)
-        :param pulumi.Input[bool] enable_batched_operations
         :param pulumi.Input[bool] enable_express: Boolean flag which controls whether Express Entities
                are enabled. An express queue holds a message in memory temporarily before writing
                it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
@@ -133,7 +132,6 @@ class Queue(pulumi.CustomResource):
                Changing this forces a new resource to be created. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[bool] support_ordering
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

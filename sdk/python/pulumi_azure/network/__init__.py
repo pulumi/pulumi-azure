@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .application_gateway import *
 from .application_security_group import *
+from .connection_monitor import *
 from .express_route_circuit import *
 from .express_route_circuit_authorization import *
 from .express_route_circuit_peering import *
@@ -34,6 +35,7 @@ from .virtual_network_peering import *
 from .get_application_security_group import *
 from .get_network_interface import *
 from .get_network_security_group import *
+from .get_network_watcher import *
 from .get_public_ip import *
 from .get_public_i_ps import *
 from .get_route_table import *

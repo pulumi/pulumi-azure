@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "some-resource-group",
  * });
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
@@ -28,6 +29,7 @@ import * as utilities from "../utilities";
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     location: testResourceGroup.location,
+ *     name: "some-app-service-plan",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
@@ -45,6 +47,7 @@ import * as utilities from "../utilities";
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
  *     location: testResourceGroup.location,
+ *     name: server.hex,
  *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
@@ -62,6 +65,7 @@ import * as utilities from "../utilities";
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
  *     location: testResourceGroup.location,
+ *     name: server.hex,
  *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
@@ -78,6 +82,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "some-resource-group",
  * });
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
@@ -87,6 +92,7 @@ import * as utilities from "../utilities";
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     location: testResourceGroup.location,
+ *     name: "some-app-service-plan",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
@@ -96,6 +102,7 @@ import * as utilities from "../utilities";
  * const testAppService = new azure.appservice.AppService("test", {
  *     appServicePlanId: testPlan.id,
  *     location: testResourceGroup.location,
+ *     name: server.hex,
  *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         javaContainer: "JETTY",
@@ -107,6 +114,7 @@ import * as utilities from "../utilities";
  *     appServiceName: testAppService.name,
  *     appServicePlanId: testPlan.id,
  *     location: testResourceGroup.location,
+ *     name: server.hex,
  *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         javaContainer: "JETTY",

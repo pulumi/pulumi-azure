@@ -7,6 +7,7 @@ from .load_balancer import *
 from .backend_address_pool import *
 from .nat_pool import *
 from .nat_rule import *
+from .outbound_rule import *
 from .probe import *
 from .rule import *
 from .get_lb import *

@@ -30,6 +30,9 @@ class SharedImageGallery(pulumi.CustomResource):
     A mapping of tags to assign to the Shared Image Gallery.
     """
     unique_name: pulumi.Output[str]
+    """
+    The Unique Name for this Shared Image Gallery.
+    """
     def __init__(__self__, resource_name, opts=None, description=None, location=None, name=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
         """
         Manages a Shared Image Gallery.

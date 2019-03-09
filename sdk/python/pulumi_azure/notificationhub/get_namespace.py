@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetNamespaceResult(object):
+class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
@@ -47,7 +47,7 @@ class GetNamespaceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_namespace(name=None, resource_group_name=None):
+async def get_namespace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Notification Hub Namespace.
     """
@@ -55,7 +55,7 @@ async def get_namespace(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:notificationhub/getNamespace:getNamespace', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:notificationhub/getNamespace:getNamespace', __args__, opts=opts)
 
     return GetNamespaceResult(
         enabled=__ret__.get('enabled'),

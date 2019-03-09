@@ -3,6 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .event_grid_domain import *
+from .event_grid_event_subscription import *
 from .event_grid_topic import *
 from .event_hub import *
 from .event_hub_authorization_rule import *

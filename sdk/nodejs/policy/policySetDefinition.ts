@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.policy.PolicySetDefinition("test", {
  *     displayName: "Test Policy Set",
+ *     name: "testPolicySet",
  *     parameters: `    {
  *         "allowedLocations": {
  *             "type": "Array",

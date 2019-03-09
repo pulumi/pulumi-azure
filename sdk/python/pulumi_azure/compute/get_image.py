@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetImageResult(object):
+class GetImageResult:
     """
     A collection of values returned by getImage.
     """
@@ -44,7 +44,7 @@ class GetImageResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_image(name=None, name_regex=None, resource_group_name=None, sort_descending=None):
+async def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending=None,opts=None):
     """
     Use this data source to access information about an existing Image.
     """
@@ -54,7 +54,7 @@ async def get_image(name=None, name_regex=None, resource_group_name=None, sort_d
     __args__['nameRegex'] = name_regex
     __args__['resourceGroupName'] = resource_group_name
     __args__['sortDescending'] = sort_descending
-    __ret__ = await pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts)
 
     return GetImageResult(
         data_disks=__ret__.get('dataDisks'),

@@ -15,20 +15,24 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "North Europe",
+ *     name: "example-resources",
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     location: testResourceGroup.location,
+ *     name: "testpip",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
+ *     name: "testvnet",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.1.0/24",
+ *     name: "AzureFirewallSubnet",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -39,25 +43,23 @@ import * as utilities from "../utilities";
  *         subnetId: testSubnet.id,
  *     },
  *     location: testResourceGroup.location,
+ *     name: "testfirewall",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testFirewallApplicationRuleCollection = new azure.network.FirewallApplicationRuleCollection("test", {
  *     action: "Allow",
  *     azureFirewallName: testFirewall.name,
+ *     name: "testcollection",
  *     priority: 100,
  *     resourceGroupName: testResourceGroup.name,
  *     rules: [{
- *         destinationAddresses: [
- *             "8.8.8.8",
- *             "8.8.4.4",
- *         ],
- *         destinationPorts: ["53"],
  *         name: "testrule",
- *         protocols: [
- *             "TCP",
- *             "UDP",
- *         ],
+ *         protocols: [{
+ *             port: 443,
+ *             type: "Https",
+ *         }],
  *         sourceAddresses: ["10.0.0.0/16"],
+ *         targetFqdns: ["*.google.com"],
  *     }],
  * });
  * ```

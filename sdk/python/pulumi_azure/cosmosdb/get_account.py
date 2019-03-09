@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetAccountResult(object):
+class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
@@ -128,7 +128,7 @@ class GetAccountResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_account(name=None, resource_group_name=None):
+async def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
     """
@@ -136,7 +136,7 @@ async def get_account(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__, opts=opts)
 
     return GetAccountResult(
         capabilities=__ret__.get('capabilities'),

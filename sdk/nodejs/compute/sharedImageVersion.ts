@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  *     imageName: existingSharedImage.apply(existingSharedImage => existingSharedImage.name),
  *     location: existingSharedImage.apply(existingSharedImage => existingSharedImage.location),
  *     managedImageId: existingImage.apply(existingImage => existingImage.id),
+ *     name: "0.0.1",
  *     resourceGroupName: existingSharedImage.apply(existingSharedImage => existingSharedImage.resourceGroupName),
  *     targetRegions: [{
  *         name: existingSharedImage.apply(existingSharedImage => existingSharedImage.location),

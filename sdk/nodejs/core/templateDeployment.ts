@@ -21,9 +21,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acctestRG-01",
  * });
  * const testTemplateDeployment = new azure.core.TemplateDeployment("test", {
  *     deploymentMode: "Incremental",
+ *     name: "acctesttemplate-01",
  *     // these key-value pairs are passed into the ARM Template's `parameters` block
  *     parameters: {
  *         storageAccountType: "Standard_GRS",

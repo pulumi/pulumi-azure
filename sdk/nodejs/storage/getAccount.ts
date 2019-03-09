@@ -102,6 +102,10 @@ export interface GetAccountResult {
      */
     readonly primaryBlobEndpoint: string;
     /**
+     * The hostname with port if applicable for blob storage in the primary location.
+     */
+    readonly primaryBlobHost: string;
+    /**
      * The connection string associated with the primary location
      */
     readonly primaryConnectionString: string;
@@ -109,6 +113,10 @@ export interface GetAccountResult {
      * The endpoint URL for file storage in the primary location.
      */
     readonly primaryFileEndpoint: string;
+    /**
+     * The hostname with port if applicable for file storage in the primary location.
+     */
+    readonly primaryFileHost: string;
     /**
      * The primary location of the Storage Account.
      */
@@ -118,9 +126,17 @@ export interface GetAccountResult {
      */
     readonly primaryQueueEndpoint: string;
     /**
+     * The hostname with port if applicable for queue storage in the primary location.
+     */
+    readonly primaryQueueHost: string;
+    /**
      * The endpoint URL for table storage in the primary location.
      */
     readonly primaryTableEndpoint: string;
+    /**
+     * The hostname with port if applicable for table storage in the primary location.
+     */
+    readonly primaryTableHost: string;
     /**
      * The secondary access key for the Storage Account.
      */
@@ -134,6 +150,10 @@ export interface GetAccountResult {
      */
     readonly secondaryBlobEndpoint: string;
     /**
+     * The hostname with port if applicable for blob storage in the secondary location.
+     */
+    readonly secondaryBlobHost: string;
+    /**
      * The connection string associated with the secondary location
      */
     readonly secondaryConnectionString: string;
@@ -146,9 +166,17 @@ export interface GetAccountResult {
      */
     readonly secondaryQueueEndpoint: string;
     /**
+     * The hostname with port if applicable for queue storage in the secondary location.
+     */
+    readonly secondaryQueueHost: string;
+    /**
      * The endpoint URL for table storage in the secondary location.
      */
     readonly secondaryTableEndpoint: string;
+    /**
+     * The hostname with port if applicable for table storage in the secondary location.
+     */
+    readonly secondaryTableHost: string;
     /**
      * A mapping of tags to assigned to the resource.
      */

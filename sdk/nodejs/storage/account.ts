@@ -5,6 +5,18 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * ## 
+ * 
+ * ---
+ * layout: "azurerm"
+ * page_title: "Azure Resource Manager: azurerm_storage_account"
+ * sidebar_current: "docs-azurerm-resource-storage-account"
+ * description: |-
+ *   Manages a Azure Storage Account.
+ * ---
+ * 
+ * # azurerm_storage_account
+ * 
  * Manage an Azure Storage Account.
  * 
  * ## Example Usage
@@ -15,11 +27,13 @@ import * as utilities from "../utilities";
  * 
  * const testrg = new azure.core.ResourceGroup("testrg", {
  *     location: "westus",
+ *     name: "resourceGroupName",
  * });
  * const testsa = new azure.storage.Account("testsa", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: "westus",
+ *     name: "storageaccountname",
  *     resourceGroupName: testrg.name,
  *     tags: {
  *         environment: "staging",
@@ -35,14 +49,17 @@ import * as utilities from "../utilities";
  * 
  * const testrg = new azure.core.ResourceGroup("testrg", {
  *     location: "westus",
+ *     name: "resourceGroupName",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testrg.location,
+ *     name: "virtnetname",
  *     resourceGroupName: testrg.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
+ *     name: "subnetname",
  *     resourceGroupName: testrg.name,
  *     serviceEndpoints: [
  *         "Microsoft.Sql",
@@ -54,6 +71,7 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testrg.location,
+ *     name: "storageaccountname",
  *     networkRules: {
  *         ipRules: ["127.0.0.1"],
  *         virtualNetworkSubnetIds: [testSubnet.id],
@@ -136,11 +154,11 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly networkRules: pulumi.Output<{ bypasses: string[], ipRules?: string[], virtualNetworkSubnetIds?: string[] } | undefined>;
     /**
-     * The primary access key for the storage account
+     * The primary access key for the storage account.
      */
     public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
     /**
-     * The connection string associated with the primary blob location
+     * The connection string associated with the primary blob location.
      */
     public /*out*/ readonly primaryBlobConnectionString: pulumi.Output<string>;
     /**
@@ -148,13 +166,21 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryBlobEndpoint: pulumi.Output<string>;
     /**
-     * The connection string associated with the primary location
+     * The hostname with port if applicable for blob storage in the primary location.
+     */
+    public /*out*/ readonly primaryBlobHost: pulumi.Output<string>;
+    /**
+     * The connection string associated with the primary location.
      */
     public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
      * The endpoint URL for file storage in the primary location.
      */
     public /*out*/ readonly primaryFileEndpoint: pulumi.Output<string>;
+    /**
+     * The hostname with port if applicable for file storage in the primary location.
+     */
+    public /*out*/ readonly primaryFileHost: pulumi.Output<string>;
     /**
      * The primary location of the storage account.
      */
@@ -164,20 +190,28 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryQueueEndpoint: pulumi.Output<string>;
     /**
+     * The hostname with port if applicable for queue storage in the primary location.
+     */
+    public /*out*/ readonly primaryQueueHost: pulumi.Output<string>;
+    /**
      * The endpoint URL for table storage in the primary location.
      */
     public /*out*/ readonly primaryTableEndpoint: pulumi.Output<string>;
+    /**
+     * The hostname with port if applicable for table storage in the primary location.
+     */
+    public /*out*/ readonly primaryTableHost: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the storage account. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The secondary access key for the storage account
+     * The secondary access key for the storage account.
      */
     public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
-     * The connection string associated with the secondary blob location
+     * The connection string associated with the secondary blob location.
      */
     public /*out*/ readonly secondaryBlobConnectionString: pulumi.Output<string>;
     /**
@@ -185,7 +219,11 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryBlobEndpoint: pulumi.Output<string>;
     /**
-     * The connection string associated with the secondary location
+     * The hostname with port if applicable for blob storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryBlobHost: pulumi.Output<string>;
+    /**
+     * The connection string associated with the secondary location.
      */
     public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
@@ -197,9 +235,17 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryQueueEndpoint: pulumi.Output<string>;
     /**
+     * The hostname with port if applicable for queue storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryQueueHost: pulumi.Output<string>;
+    /**
      * The endpoint URL for table storage in the secondary location.
      */
     public /*out*/ readonly secondaryTableEndpoint: pulumi.Output<string>;
+    /**
+     * The hostname with port if applicable for table storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryTableHost: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -234,19 +280,26 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["primaryBlobConnectionString"] = state ? state.primaryBlobConnectionString : undefined;
             inputs["primaryBlobEndpoint"] = state ? state.primaryBlobEndpoint : undefined;
+            inputs["primaryBlobHost"] = state ? state.primaryBlobHost : undefined;
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
             inputs["primaryFileEndpoint"] = state ? state.primaryFileEndpoint : undefined;
+            inputs["primaryFileHost"] = state ? state.primaryFileHost : undefined;
             inputs["primaryLocation"] = state ? state.primaryLocation : undefined;
             inputs["primaryQueueEndpoint"] = state ? state.primaryQueueEndpoint : undefined;
+            inputs["primaryQueueHost"] = state ? state.primaryQueueHost : undefined;
             inputs["primaryTableEndpoint"] = state ? state.primaryTableEndpoint : undefined;
+            inputs["primaryTableHost"] = state ? state.primaryTableHost : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["secondaryBlobConnectionString"] = state ? state.secondaryBlobConnectionString : undefined;
             inputs["secondaryBlobEndpoint"] = state ? state.secondaryBlobEndpoint : undefined;
+            inputs["secondaryBlobHost"] = state ? state.secondaryBlobHost : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             inputs["secondaryLocation"] = state ? state.secondaryLocation : undefined;
             inputs["secondaryQueueEndpoint"] = state ? state.secondaryQueueEndpoint : undefined;
+            inputs["secondaryQueueHost"] = state ? state.secondaryQueueHost : undefined;
             inputs["secondaryTableEndpoint"] = state ? state.secondaryTableEndpoint : undefined;
+            inputs["secondaryTableHost"] = state ? state.secondaryTableHost : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
@@ -281,18 +334,25 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["primaryBlobConnectionString"] = undefined /*out*/;
             inputs["primaryBlobEndpoint"] = undefined /*out*/;
+            inputs["primaryBlobHost"] = undefined /*out*/;
             inputs["primaryConnectionString"] = undefined /*out*/;
             inputs["primaryFileEndpoint"] = undefined /*out*/;
+            inputs["primaryFileHost"] = undefined /*out*/;
             inputs["primaryLocation"] = undefined /*out*/;
             inputs["primaryQueueEndpoint"] = undefined /*out*/;
+            inputs["primaryQueueHost"] = undefined /*out*/;
             inputs["primaryTableEndpoint"] = undefined /*out*/;
+            inputs["primaryTableHost"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
             inputs["secondaryBlobConnectionString"] = undefined /*out*/;
             inputs["secondaryBlobEndpoint"] = undefined /*out*/;
+            inputs["secondaryBlobHost"] = undefined /*out*/;
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryLocation"] = undefined /*out*/;
             inputs["secondaryQueueEndpoint"] = undefined /*out*/;
+            inputs["secondaryQueueHost"] = undefined /*out*/;
             inputs["secondaryTableEndpoint"] = undefined /*out*/;
+            inputs["secondaryTableHost"] = undefined /*out*/;
         }
         super("azure:storage/account:Account", name, inputs, opts);
     }
@@ -360,11 +420,11 @@ export interface AccountState {
      */
     readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * The primary access key for the storage account
+     * The primary access key for the storage account.
      */
     readonly primaryAccessKey?: pulumi.Input<string>;
     /**
-     * The connection string associated with the primary blob location
+     * The connection string associated with the primary blob location.
      */
     readonly primaryBlobConnectionString?: pulumi.Input<string>;
     /**
@@ -372,13 +432,21 @@ export interface AccountState {
      */
     readonly primaryBlobEndpoint?: pulumi.Input<string>;
     /**
-     * The connection string associated with the primary location
+     * The hostname with port if applicable for blob storage in the primary location.
+     */
+    readonly primaryBlobHost?: pulumi.Input<string>;
+    /**
+     * The connection string associated with the primary location.
      */
     readonly primaryConnectionString?: pulumi.Input<string>;
     /**
      * The endpoint URL for file storage in the primary location.
      */
     readonly primaryFileEndpoint?: pulumi.Input<string>;
+    /**
+     * The hostname with port if applicable for file storage in the primary location.
+     */
+    readonly primaryFileHost?: pulumi.Input<string>;
     /**
      * The primary location of the storage account.
      */
@@ -388,20 +456,28 @@ export interface AccountState {
      */
     readonly primaryQueueEndpoint?: pulumi.Input<string>;
     /**
+     * The hostname with port if applicable for queue storage in the primary location.
+     */
+    readonly primaryQueueHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for table storage in the primary location.
      */
     readonly primaryTableEndpoint?: pulumi.Input<string>;
+    /**
+     * The hostname with port if applicable for table storage in the primary location.
+     */
+    readonly primaryTableHost?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the storage account. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The secondary access key for the storage account
+     * The secondary access key for the storage account.
      */
     readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
-     * The connection string associated with the secondary blob location
+     * The connection string associated with the secondary blob location.
      */
     readonly secondaryBlobConnectionString?: pulumi.Input<string>;
     /**
@@ -409,7 +485,11 @@ export interface AccountState {
      */
     readonly secondaryBlobEndpoint?: pulumi.Input<string>;
     /**
-     * The connection string associated with the secondary location
+     * The hostname with port if applicable for blob storage in the secondary location.
+     */
+    readonly secondaryBlobHost?: pulumi.Input<string>;
+    /**
+     * The connection string associated with the secondary location.
      */
     readonly secondaryConnectionString?: pulumi.Input<string>;
     /**
@@ -421,9 +501,17 @@ export interface AccountState {
      */
     readonly secondaryQueueEndpoint?: pulumi.Input<string>;
     /**
+     * The hostname with port if applicable for queue storage in the secondary location.
+     */
+    readonly secondaryQueueHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for table storage in the secondary location.
      */
     readonly secondaryTableEndpoint?: pulumi.Input<string>;
+    /**
+     * The hostname with port if applicable for table storage in the secondary location.
+     */
+    readonly secondaryTableHost?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

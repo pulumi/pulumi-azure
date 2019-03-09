@@ -22,16 +22,19 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "resourceGroup1",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
+ *     name: "storageaccount1",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testRegistry = new azure.containerservice.Registry("test", {
  *     adminEnabled: true,
  *     location: testResourceGroup.location,
+ *     name: "containerRegistry1",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Classic",
  *     storageAccountId: testAccount.id,
@@ -48,6 +51,7 @@ import * as utilities from "../utilities";
  * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
+ *     name: "resourceGroup1",
  * });
  * const acr = new azure.containerservice.Registry("acr", {
  *     adminEnabled: false,
@@ -56,6 +60,7 @@ import * as utilities from "../utilities";
  *         "West Europe",
  *     ],
  *     location: rg.location,
+ *     name: "containerRegistry1",
  *     resourceGroupName: rg.name,
  *     sku: "Premium",
  * });

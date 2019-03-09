@@ -27,7 +27,7 @@ class Pool(pulumi.CustomResource):
     """
     max_tasks_per_node: pulumi.Output[int]
     """
-    Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+    Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
     """
     name: pulumi.Output[str]
     """
@@ -64,12 +64,11 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[dict] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input[dict] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
-        :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+        :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the Sku of the node agents that will be created in the Batch pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] start_task: A `start_task` block that describes the start task settings for the Batch pool.
-        :param pulumi.Input[bool] stop_pending_resize_operation
         :param pulumi.Input[dict] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
         """

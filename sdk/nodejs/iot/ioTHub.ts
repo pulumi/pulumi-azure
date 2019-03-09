@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "resourceGroup1",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
+ *     name: "teststa",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testIoTHub = new azure.iot.IoTHub("test", {
@@ -33,7 +35,11 @@ import * as utilities from "../utilities";
  *         name: "export",
  *         type: "AzureIotHub.StorageContainer",
  *     }],
+ *     fallbackRoute: {
+ *         enabled: true,
+ *     },
  *     location: testResourceGroup.location,
+ *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  *     routes: [{
  *         condition: "true",
@@ -53,6 +59,7 @@ import * as utilities from "../utilities";
  * });
  * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
+ *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });
@@ -91,6 +98,10 @@ export class IoTHub extends pulumi.CustomResource {
      * The EventHub compatible path for operational data
      */
     public /*out*/ readonly eventHubOperationsPath: pulumi.Output<string>;
+    /**
+     * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     */
+    public readonly fallbackRoute: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], source?: string }>;
     /**
      * The hostname of the IotHub Resource.
      */
@@ -142,6 +153,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;
             inputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
             inputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
+            inputs["fallbackRoute"] = state ? state.fallbackRoute : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -163,6 +175,7 @@ export class IoTHub extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["endpoints"] = args ? args.endpoints : undefined;
+            inputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -206,6 +219,10 @@ export interface IoTHubState {
      */
     readonly eventHubOperationsPath?: pulumi.Input<string>;
     /**
+     * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     */
+    readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
+    /**
      * The hostname of the IotHub Resource.
      */
     readonly hostname?: pulumi.Input<string>;
@@ -248,6 +265,10 @@ export interface IoTHubArgs {
      * An `endpoint` block as defined below.
      */
     readonly endpoints?: pulumi.Input<pulumi.Input<{ batchFrequencyInSeconds?: pulumi.Input<number>, connectionString: pulumi.Input<string>, containerName?: pulumi.Input<string>, encoding?: pulumi.Input<string>, fileNameFormat?: pulumi.Input<string>, maxChunkSizeInBytes?: pulumi.Input<number>, name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    /**
+     * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     */
+    readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */

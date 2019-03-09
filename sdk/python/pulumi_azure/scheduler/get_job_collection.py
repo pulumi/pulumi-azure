@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetJobCollectionResult(object):
+class GetJobCollectionResult:
     """
     A collection of values returned by getJobCollection.
     """
@@ -50,7 +50,7 @@ class GetJobCollectionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_job_collection(name=None, resource_group_name=None):
+async def get_job_collection(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Scheduler Job Collection.
     
@@ -60,7 +60,7 @@ async def get_job_collection(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:scheduler/getJobCollection:getJobCollection', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:scheduler/getJobCollection:getJobCollection', __args__, opts=opts)
 
     return GetJobCollectionResult(
         location=__ret__.get('location'),

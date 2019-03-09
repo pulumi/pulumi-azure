@@ -15,10 +15,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testAccount = new azure.cognitive.Account("test", {
  *     kind: "Face",
  *     location: testResourceGroup.location,
+ *     name: "example-account",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "S0",

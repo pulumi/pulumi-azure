@@ -101,6 +101,7 @@ func (r *SharedImageGallery) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// The Unique Name for this Shared Image Gallery.
 func (r *SharedImageGallery) UniqueName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["uniqueName"])
 }
@@ -117,6 +118,7 @@ type SharedImageGalleryState struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the Shared Image Gallery.
 	Tags interface{}
+	// The Unique Name for this Shared Image Gallery.
 	UniqueName interface{}
 }
 

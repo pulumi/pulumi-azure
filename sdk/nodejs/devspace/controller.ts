@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
+ *     name: "acctestRG1",
  * });
  * const testKubernetesCluster = new azure.containerservice.KubernetesCluster("test", {
  *     agentPoolProfile: {
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     },
  *     dnsPrefix: "acctestaks1",
  *     location: testResourceGroup.location,
+ *     name: "acctestaks1",
  *     resourceGroupName: testResourceGroup.name,
  *     servicePrincipal: {
  *         clientId: "00000000-0000-0000-0000-000000000000",
@@ -33,6 +35,7 @@ import * as utilities from "../utilities";
  * const testController = new azure.devspace.Controller("test", {
  *     hostSuffix: "suffix",
  *     location: testResourceGroup.location,
+ *     name: "acctestdsc1",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "S1",

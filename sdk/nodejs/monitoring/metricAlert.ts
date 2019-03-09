@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * 
  * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West US",
+ *     name: "example-resources",
  * });
  * const mainActionGroup = new azure.monitoring.ActionGroup("main", {
+ *     name: "example-actiongroup",
  *     resourceGroupName: mainResourceGroup.name,
  *     shortName: "exampleact",
  *     webhookReceivers: [{
@@ -28,6 +30,7 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: mainResourceGroup.location,
+ *     name: "examplestorageaccount",
  *     resourceGroupName: mainResourceGroup.name,
  * });
  * const test = new azure.monitoring.MetricAlert("test", {
@@ -47,6 +50,7 @@ import * as utilities from "../utilities";
  *         threshold: 50,
  *     }],
  *     description: "Action will be triggered when Transactions count is greater than 50.",
+ *     name: "example-metricalert",
  *     resourceGroupName: mainResourceGroup.name,
  *     scopes: toMonitor.id,
  * });

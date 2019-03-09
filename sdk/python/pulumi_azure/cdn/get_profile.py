@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetProfileResult(object):
+class GetProfileResult:
     """
     A collection of values returned by getProfile.
     """
@@ -38,7 +38,7 @@ class GetProfileResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_profile(name=None, resource_group_name=None):
+async def get_profile(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing CDN Profile.
     """
@@ -46,7 +46,7 @@ async def get_profile(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:cdn/getProfile:getProfile', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:cdn/getProfile:getProfile', __args__, opts=opts)
 
     return GetProfileResult(
         location=__ret__.get('location'),

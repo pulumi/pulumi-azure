@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
+ *     name: "acctestRG",
  * });
  * const testManagedDisk = new azure.compute.ManagedDisk("test", {
  *     createOption: "Empty",
  *     diskSizeGb: 1,
  *     location: "West US 2",
+ *     name: "acctestmd",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  *     tags: {
@@ -36,11 +38,13 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
+ *     name: "acctestRG",
  * });
  * const source = new azure.compute.ManagedDisk("source", {
  *     createOption: "Empty",
  *     diskSizeGb: 1,
  *     location: "West US 2",
+ *     name: "acctestmd1",
  *     resourceGroupName: test.name,
  *     storageAccountType: "Standard_LRS",
  *     tags: {
@@ -51,6 +55,7 @@ import * as utilities from "../utilities";
  *     createOption: "Copy",
  *     diskSizeGb: 1,
  *     location: "West US 2",
+ *     name: "acctestmd2",
  *     resourceGroupName: test.name,
  *     sourceResourceId: source.id,
  *     storageAccountType: "Standard_LRS",

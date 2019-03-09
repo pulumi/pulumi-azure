@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetBackendAddressPoolResult(object):
+class GetBackendAddressPoolResult:
     """
     A collection of values returned by getBackendAddressPool.
     """
@@ -20,7 +20,7 @@ class GetBackendAddressPoolResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_backend_address_pool(loadbalancer_id=None, name=None):
+async def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Load Balancer Backend Address Pool.
     """
@@ -28,7 +28,7 @@ async def get_backend_address_pool(loadbalancer_id=None, name=None):
 
     __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts)
 
     return GetBackendAddressPoolResult(
         id=__ret__.get('id'))

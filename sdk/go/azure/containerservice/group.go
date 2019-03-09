@@ -31,6 +31,7 @@ func NewGroup(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["containers"] = nil
+		inputs["diagnostics"] = nil
 		inputs["dnsNameLabel"] = nil
 		inputs["imageRegistryCredentials"] = nil
 		inputs["ipAddressType"] = nil
@@ -42,6 +43,7 @@ func NewGroup(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["containers"] = args.Containers
+		inputs["diagnostics"] = args.Diagnostics
 		inputs["dnsNameLabel"] = args.DnsNameLabel
 		inputs["imageRegistryCredentials"] = args.ImageRegistryCredentials
 		inputs["ipAddressType"] = args.IpAddressType
@@ -68,6 +70,7 @@ func GetGroup(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["containers"] = state.Containers
+		inputs["diagnostics"] = state.Diagnostics
 		inputs["dnsNameLabel"] = state.DnsNameLabel
 		inputs["fqdn"] = state.Fqdn
 		inputs["imageRegistryCredentials"] = state.ImageRegistryCredentials
@@ -102,6 +105,11 @@ func (r *Group) Containers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["containers"])
 }
 
+// A `diagnostics` block as documented below.
+func (r *Group) Diagnostics() *pulumi.Output {
+	return r.s.State["diagnostics"]
+}
+
 // The DNS label/name for the container groups IP.
 func (r *Group) DnsNameLabel() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsNameLabel"])
@@ -112,7 +120,7 @@ func (r *Group) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
-// Set image registry credentials for the group as documented in the `image_registry_credential` block below
+// A `image_registry_credential` block as documented below.
 func (r *Group) ImageRegistryCredentials() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["imageRegistryCredentials"])
 }
@@ -161,11 +169,13 @@ func (r *Group) Tags() *pulumi.MapOutput {
 type GroupState struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers interface{}
+	// A `diagnostics` block as documented below.
+	Diagnostics interface{}
 	// The DNS label/name for the container groups IP.
 	DnsNameLabel interface{}
 	// The FQDN of the container group derived from `dns_name_label`.
 	Fqdn interface{}
-	// Set image registry credentials for the group as documented in the `image_registry_credential` block below
+	// A `image_registry_credential` block as documented below.
 	ImageRegistryCredentials interface{}
 	// The IP address allocated to the container group.
 	IpAddress interface{}
@@ -189,9 +199,11 @@ type GroupState struct {
 type GroupArgs struct {
 	// The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
 	Containers interface{}
+	// A `diagnostics` block as documented below.
+	Diagnostics interface{}
 	// The DNS label/name for the container groups IP.
 	DnsNameLabel interface{}
-	// Set image registry credentials for the group as documented in the `image_registry_credential` block below
+	// A `image_registry_credential` block as documented below.
 	ImageRegistryCredentials interface{}
 	// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
 	IpAddressType interface{}

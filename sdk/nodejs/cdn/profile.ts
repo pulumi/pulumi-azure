@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "resourceGroup1",
  * });
  * const testProfile = new azure.cdn.Profile("test", {
  *     location: "West US",
+ *     name: "exampleCdnProfile",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard_Verizon",
  *     tags: {

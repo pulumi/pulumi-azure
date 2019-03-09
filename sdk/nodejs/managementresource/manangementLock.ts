@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * const current = pulumi.output(azure.core.getSubscription({}));
  * const subscription_level = new azure.managementresource.ManangementLock("subscription-level", {
  *     lockLevel: "CanNotDelete",
+ *     name: "subscription-level",
  *     notes: "Items can't be deleted in this subscription!",
  *     scope: current.apply(current => current.id),
  * });
@@ -29,9 +30,11 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "locked-resource-group",
  * });
  * const resource_group_level = new azure.managementresource.ManangementLock("resource-group-level", {
  *     lockLevel: "ReadOnly",
+ *     name: "resource-group-level",
  *     notes: "This Resource Group is Read-Only",
  *     scope: test.id,
  * });
@@ -45,15 +48,18 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "locked-resource-group",
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     idleTimeoutInMinutes: 30,
  *     location: testResourceGroup.location,
+ *     name: "locked-publicip",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const public_ip = new azure.managementresource.ManangementLock("public-ip", {
  *     lockLevel: "CanNotDelete",
+ *     name: "resource-ip",
  *     notes: "Locked because it's needed by a third-party",
  *     scope: testPublicIp.id,
  * });

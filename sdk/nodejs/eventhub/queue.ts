@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
+ *     name: "terraform-servicebus",
  * });
  * const exampleNamespace = new azure.eventhub.Namespace("example", {
  *     location: exampleResourceGroup.location,
+ *     name: "tfex_sevicebus_namespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -26,6 +28,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleQueue = new azure.eventhub.Queue("example", {
  *     enablePartitioning: true,
+ *     name: "tfex_servicebus_queue",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });

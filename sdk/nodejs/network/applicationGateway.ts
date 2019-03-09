@@ -15,10 +15,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "example-resources",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.254.0.0/16"],
  *     location: testResourceGroup.location,
+ *     name: "example-network",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const backendAddressPoolName = testVirtualNetwork.name.apply(name => `${name}-beap`);
@@ -30,10 +32,12 @@ import * as utilities from "../utilities";
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Dynamic",
  *     location: testResourceGroup.location,
+ *     name: "example-pip",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const frontend = new azure.network.Subnet("frontend", {
  *     addressPrefix: "10.254.0.0/24",
+ *     name: "frontend",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -44,6 +48,7 @@ import * as utilities from "../utilities";
  *     backendHttpSettings: [{
  *         cookieBasedAffinity: "Disabled",
  *         name: httpSettingName,
+ *         path: "/path1/",
  *         port: 80,
  *         protocol: "Http",
  *         requestTimeout: 1,
@@ -67,6 +72,7 @@ import * as utilities from "../utilities";
  *         protocol: "Http",
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "example-appgateway",
  *     requestRoutingRules: [{
  *         backendAddressPoolName: backendAddressPoolName,
  *         backendHttpSettingsName: httpSettingName,
@@ -83,6 +89,7 @@ import * as utilities from "../utilities";
  * });
  * const backend = new azure.network.Subnet("backend", {
  *     addressPrefix: "10.254.2.0/24",
+ *     name: "backend",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -112,7 +119,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * One or more `backend_http_settings` blocks as defined below.
      */
-    public readonly backendHttpSettings: pulumi.Output<{ authenticationCertificates?: { id: string, name: string }[], cookieBasedAffinity: string, id: string, name: string, pickHostNameFromBackendAddress?: boolean, port: number, probeId: string, probeName?: string, protocol: string, requestTimeout?: number }[]>;
+    public readonly backendHttpSettings: pulumi.Output<{ authenticationCertificates?: { id: string, name: string }[], connectionDraining?: { drainTimeoutSec: number, enabled: boolean }, cookieBasedAffinity: string, id: string, name: string, path?: string, pickHostNameFromBackendAddress?: boolean, port: number, probeId: string, probeName?: string, protocol: string, requestTimeout?: number }[]>;
     /**
      * One or more `custom_error_configuration` blocks as defined below.
      */
@@ -283,7 +290,7 @@ export interface ApplicationGatewayState {
     /**
      * One or more `backend_http_settings` blocks as defined below.
      */
-    readonly backendHttpSettings?: pulumi.Input<pulumi.Input<{ authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, cookieBasedAffinity: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
+    readonly backendHttpSettings?: pulumi.Input<pulumi.Input<{ authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, connectionDraining?: pulumi.Input<{ drainTimeoutSec: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>, cookieBasedAffinity: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, path?: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
     /**
      * One or more `custom_error_configuration` blocks as defined below.
      */
@@ -366,7 +373,7 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `backend_http_settings` blocks as defined below.
      */
-    readonly backendHttpSettings: pulumi.Input<pulumi.Input<{ authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, cookieBasedAffinity: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
+    readonly backendHttpSettings: pulumi.Input<pulumi.Input<{ authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, connectionDraining?: pulumi.Input<{ drainTimeoutSec: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>, cookieBasedAffinity: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, path?: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
     /**
      * One or more `custom_error_configuration` blocks as defined below.
      */

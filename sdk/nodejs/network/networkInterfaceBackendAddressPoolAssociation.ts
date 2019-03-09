@@ -15,10 +15,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     location: testResourceGroup.location,
+ *     name: "example-pip",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testLoadBalancer = new azure.lb.LoadBalancer("test", {
@@ -27,19 +29,23 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: testPublicIp.id,
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "example-lb",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testBackendAddressPool = new azure.lb.BackendAddressPool("test", {
  *     loadbalancerId: testLoadBalancer.id,
+ *     name: "acctestpool",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
+ *     name: "example-network",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
+ *     name: "internal",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -50,6 +56,7 @@ import * as utilities from "../utilities";
  *         subnetId: testSubnet.id,
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "example-nic",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testNetworkInterfaceBackendAddressPoolAssociation = new azure.network.NetworkInterfaceBackendAddressPoolAssociation("test", {
