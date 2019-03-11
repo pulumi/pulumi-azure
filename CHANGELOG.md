@@ -1,16 +1,16 @@
-## 0.17.2 (Unreleased)
+## 0.17.2 (Released March 11th, 2019)
 
 - Updated to v1.23.0 of the AzureRM Terraform Provider.
 
 - Fixed a bug where AppService or FunctionApp could not be created with `use32BitWorkerProcess` set to `true`.
 
-## 0.17.1 (Released March 6, 2019)
+## 0.17.1 (Released March 6th, 2019)
 
 ## Improvements
 
 - Fix an issue where the Python `pulumi_azure` package was depending on an older `pulumi` package.
 
-## 0.17.0 (Released March 5, 2019)
+## 0.17.0 (Released March 5th, 2019)
 
 ### Important
 
