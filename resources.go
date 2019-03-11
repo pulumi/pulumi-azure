@@ -205,7 +205,20 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_application_insights_api_key": {Tok: azureResource(azureAppInsights, "ApiKey")},
 
 			// App Service
-			"azurerm_app_service":                         {Tok: azureResource(azureAppService, "AppService")},
+			"azurerm_app_service": {
+				Tok: azureResource(azureAppService, "AppService"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"site_config": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"use_32_bit_worker_process": {
+									Name: "use32BitWorkerProcess",
+								},
+							},
+						},
+					},
+				},
+			},
 			"azurerm_app_service_custom_hostname_binding": {Tok: azureResource(azureAppService, "CustomHostnameBinding")},
 			"azurerm_app_service_plan": {
 				Tok: azureResource(azureAppService, "Plan"),
