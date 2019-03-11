@@ -1,8 +1,8 @@
 ## 0.17.2 (Unreleased)
 
-### Improvements
-
 - Updated to v1.23.0 of the AzureRM Terraform Provider.
+
+- Fixed a bug where AppService or FunctionApp could not be created with `use32BitWorkerProcess` set to `true`.
 
 ## 0.17.1 (Released March 6, 2019)
 
