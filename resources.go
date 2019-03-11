@@ -235,6 +235,15 @@ func Provider() tfbridge.ProviderInfo {
 					// Max length of a functionapp name is 60.
 					// This was discovered directly through the portal.
 					azureName: AutoNameWithMaxLength(azureName, 60),
+					"site_config": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"use_32_bit_worker_process": {
+									Name: "use32BitWorkerProcess",
+								},
+							},
+						},
+					},
 				}},
 			// Automation
 			"azurerm_automation_account":               {Tok: azureResource(azureAutomation, "Account")},
