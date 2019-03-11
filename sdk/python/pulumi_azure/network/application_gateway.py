@@ -97,7 +97,6 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[list] disabled_ssl_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-        :param pulumi.Input[bool] enable_http2
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.

@@ -29,6 +29,10 @@ class IoTHub(pulumi.CustomResource):
     """
     The EventHub compatible path for operational data
     """
+    fallback_route: pulumi.Output[dict]
+    """
+    A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+    """
     hostname: pulumi.Output[str]
     """
     The hostname of the IotHub Resource.
@@ -62,13 +66,14 @@ class IoTHub(pulumi.CustomResource):
     A mapping of tags to assign to the resource.
     """
     type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, endpoints=None, location=None, name=None, resource_group_name=None, routes=None, sku=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, endpoints=None, fallback_route=None, location=None, name=None, resource_group_name=None, routes=None, sku=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an IotHub
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[dict] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -92,6 +97,8 @@ class IoTHub(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['endpoints'] = endpoints
+
+        __props__['fallback_route'] = fallback_route
 
         if location is None:
             raise TypeError('Missing required property location')

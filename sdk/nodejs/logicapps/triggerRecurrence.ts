@@ -15,15 +15,18 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
+ *     name: "workflow-resources",
  * });
  * const testWorkflow = new azure.logicapps.Workflow("test", {
  *     location: testResourceGroup.location,
+ *     name: "workflow1",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testTriggerRecurrence = new azure.logicapps.TriggerRecurrence("test", {
  *     frequency: "Day",
  *     interval: 1,
  *     logicAppId: testWorkflow.id,
+ *     name: "run-every-day",
  * });
  * ```
  */

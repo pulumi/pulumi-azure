@@ -15,11 +15,14 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
  * });
  * const testZone = new azure.dns.Zone("test", {
+ *     name: "mydomain.com",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testPtrRecord = new azure.dns.PtrRecord("test", {
+ *     name: "test",
  *     records: ["yourdomain.com"],
  *     resourceGroupName: testResourceGroup.name,
  *     ttl: 300,

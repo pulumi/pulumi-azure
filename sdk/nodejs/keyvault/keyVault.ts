@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "resourceGroup1",
  * });
  * const testKeyVault = new azure.keyvault.KeyVault("test", {
  *     accessPolicies: [{
@@ -27,6 +28,7 @@ import * as utilities from "../utilities";
  *     }],
  *     enabledForDiskEncryption: true,
  *     location: testResourceGroup.location,
+ *     name: "testvault",
  *     networkAcls: {
  *         bypass: "AzureServices",
  *         defaultAction: "Deny",

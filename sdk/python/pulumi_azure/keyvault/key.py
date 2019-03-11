@@ -58,7 +58,6 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] vault_uri
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

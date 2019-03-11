@@ -57,7 +57,6 @@ class NatRule(pulumi.CustomResource):
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
         :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT Rule.
-        :param pulumi.Input[str] location
         :param pulumi.Input[str] name: Specifies the name of the NAT Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.

@@ -4,6 +4,7 @@
 // Export members:
 export * from "./applicationGateway";
 export * from "./applicationSecurityGroup";
+export * from "./connectionMonitor";
 export * from "./expressRouteCircuit";
 export * from "./expressRouteCircuitAuthorization";
 export * from "./expressRouteCircuitPeering";
@@ -13,6 +14,7 @@ export * from "./firewallNetworkRuleCollection";
 export * from "./getApplicationSecurityGroup";
 export * from "./getNetworkInterface";
 export * from "./getNetworkSecurityGroup";
+export * from "./getNetworkWatcher";
 export * from "./getPublicIP";
 export * from "./getPublicIPs";
 export * from "./getRouteTable";

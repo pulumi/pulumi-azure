@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * const policy = new azure.policy.Definition("policy", {
  *     displayName: "acceptance test policy definition",
  *     mode: "Indexed",
+ *     name: "accTestPolicy",
  *     parameters: `	{
  *     "allowedLocations": {
  *       "type": "Array",
@@ -75,7 +76,7 @@ export class Definition extends pulumi.CustomResource {
      * is a json object representing additional metadata that should be stored
      * with the policy definition.
      */
-    public readonly metadata: pulumi.Output<string | undefined>;
+    public readonly metadata: pulumi.Output<string>;
     /**
      * The policy mode that allows you to specify which resource
      * types will be evaluated.  The value can be "All", "Indexed" or

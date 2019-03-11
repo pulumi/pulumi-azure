@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVirtualNetworkGatewayResult(object):
+class GetVirtualNetworkGatewayResult:
     """
     A collection of values returned by getVirtualNetworkGateway.
     """
@@ -87,7 +87,7 @@ class GetVirtualNetworkGatewayResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_virtual_network_gateway(name=None, resource_group_name=None):
+async def get_virtual_network_gateway(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Network Gateway.
     """
@@ -95,7 +95,7 @@ async def get_virtual_network_gateway(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway', __args__, opts=opts)
 
     return GetVirtualNetworkGatewayResult(
         active_active=__ret__.get('activeActive'),

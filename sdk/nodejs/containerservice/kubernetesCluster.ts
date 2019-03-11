@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
+ *     name: "acctestRG1",
  * });
  * const testKubernetesCluster = new azure.containerservice.KubernetesCluster("test", {
  *     agentPoolProfile: {
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  *     },
  *     dnsPrefix: "acctestagent1",
  *     location: testResourceGroup.location,
+ *     name: "acctestaks1",
  *     resourceGroupName: testResourceGroup.name,
  *     servicePrincipal: {
  *         clientId: "00000000-0000-0000-0000-000000000000",

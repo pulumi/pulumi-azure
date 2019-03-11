@@ -8,6 +8,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// ## 
+// 
+// ---
+// layout: "azurerm"
+// page_title: "Azure Resource Manager: azurerm_storage_account"
+// sidebar_current: "docs-azurerm-resource-storage-account"
+// description: |-
+//   Manages a Azure Storage Account.
+// ---
+// 
+// # azurerm_storage_account
+// 
 // Manage an Azure Storage Account.
 type Account struct {
 	s *pulumi.ResourceState
@@ -67,18 +79,25 @@ func NewAccount(ctx *pulumi.Context,
 	inputs["primaryAccessKey"] = nil
 	inputs["primaryBlobConnectionString"] = nil
 	inputs["primaryBlobEndpoint"] = nil
+	inputs["primaryBlobHost"] = nil
 	inputs["primaryConnectionString"] = nil
 	inputs["primaryFileEndpoint"] = nil
+	inputs["primaryFileHost"] = nil
 	inputs["primaryLocation"] = nil
 	inputs["primaryQueueEndpoint"] = nil
+	inputs["primaryQueueHost"] = nil
 	inputs["primaryTableEndpoint"] = nil
+	inputs["primaryTableHost"] = nil
 	inputs["secondaryAccessKey"] = nil
 	inputs["secondaryBlobConnectionString"] = nil
 	inputs["secondaryBlobEndpoint"] = nil
+	inputs["secondaryBlobHost"] = nil
 	inputs["secondaryConnectionString"] = nil
 	inputs["secondaryLocation"] = nil
 	inputs["secondaryQueueEndpoint"] = nil
+	inputs["secondaryQueueHost"] = nil
 	inputs["secondaryTableEndpoint"] = nil
+	inputs["secondaryTableHost"] = nil
 	s, err := ctx.RegisterResource("azure:storage/account:Account", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -109,19 +128,26 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["primaryAccessKey"] = state.PrimaryAccessKey
 		inputs["primaryBlobConnectionString"] = state.PrimaryBlobConnectionString
 		inputs["primaryBlobEndpoint"] = state.PrimaryBlobEndpoint
+		inputs["primaryBlobHost"] = state.PrimaryBlobHost
 		inputs["primaryConnectionString"] = state.PrimaryConnectionString
 		inputs["primaryFileEndpoint"] = state.PrimaryFileEndpoint
+		inputs["primaryFileHost"] = state.PrimaryFileHost
 		inputs["primaryLocation"] = state.PrimaryLocation
 		inputs["primaryQueueEndpoint"] = state.PrimaryQueueEndpoint
+		inputs["primaryQueueHost"] = state.PrimaryQueueHost
 		inputs["primaryTableEndpoint"] = state.PrimaryTableEndpoint
+		inputs["primaryTableHost"] = state.PrimaryTableHost
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
 		inputs["secondaryBlobConnectionString"] = state.SecondaryBlobConnectionString
 		inputs["secondaryBlobEndpoint"] = state.SecondaryBlobEndpoint
+		inputs["secondaryBlobHost"] = state.SecondaryBlobHost
 		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
 		inputs["secondaryLocation"] = state.SecondaryLocation
 		inputs["secondaryQueueEndpoint"] = state.SecondaryQueueEndpoint
+		inputs["secondaryQueueHost"] = state.SecondaryQueueHost
 		inputs["secondaryTableEndpoint"] = state.SecondaryTableEndpoint
+		inputs["secondaryTableHost"] = state.SecondaryTableHost
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:storage/account:Account", name, id, inputs, opts...)
@@ -214,12 +240,12 @@ func (r *Account) NetworkRules() *pulumi.Output {
 	return r.s.State["networkRules"]
 }
 
-// The primary access key for the storage account
+// The primary access key for the storage account.
 func (r *Account) PrimaryAccessKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
 }
 
-// The connection string associated with the primary blob location
+// The connection string associated with the primary blob location.
 func (r *Account) PrimaryBlobConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryBlobConnectionString"])
 }
@@ -229,7 +255,12 @@ func (r *Account) PrimaryBlobEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryBlobEndpoint"])
 }
 
-// The connection string associated with the primary location
+// The hostname with port if applicable for blob storage in the primary location.
+func (r *Account) PrimaryBlobHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryBlobHost"])
+}
+
+// The connection string associated with the primary location.
 func (r *Account) PrimaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
@@ -237,6 +268,11 @@ func (r *Account) PrimaryConnectionString() *pulumi.StringOutput {
 // The endpoint URL for file storage in the primary location.
 func (r *Account) PrimaryFileEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryFileEndpoint"])
+}
+
+// The hostname with port if applicable for file storage in the primary location.
+func (r *Account) PrimaryFileHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryFileHost"])
 }
 
 // The primary location of the storage account.
@@ -249,9 +285,19 @@ func (r *Account) PrimaryQueueEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryQueueEndpoint"])
 }
 
+// The hostname with port if applicable for queue storage in the primary location.
+func (r *Account) PrimaryQueueHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryQueueHost"])
+}
+
 // The endpoint URL for table storage in the primary location.
 func (r *Account) PrimaryTableEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryTableEndpoint"])
+}
+
+// The hostname with port if applicable for table storage in the primary location.
+func (r *Account) PrimaryTableHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryTableHost"])
 }
 
 // The name of the resource group in which to
@@ -260,12 +306,12 @@ func (r *Account) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The secondary access key for the storage account
+// The secondary access key for the storage account.
 func (r *Account) SecondaryAccessKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
-// The connection string associated with the secondary blob location
+// The connection string associated with the secondary blob location.
 func (r *Account) SecondaryBlobConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryBlobConnectionString"])
 }
@@ -275,7 +321,12 @@ func (r *Account) SecondaryBlobEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryBlobEndpoint"])
 }
 
-// The connection string associated with the secondary location
+// The hostname with port if applicable for blob storage in the secondary location.
+func (r *Account) SecondaryBlobHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryBlobHost"])
+}
+
+// The connection string associated with the secondary location.
 func (r *Account) SecondaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
@@ -290,9 +341,19 @@ func (r *Account) SecondaryQueueEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryQueueEndpoint"])
 }
 
+// The hostname with port if applicable for queue storage in the secondary location.
+func (r *Account) SecondaryQueueHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryQueueHost"])
+}
+
 // The endpoint URL for table storage in the secondary location.
 func (r *Account) SecondaryTableEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryTableEndpoint"])
+}
+
+// The hostname with port if applicable for table storage in the secondary location.
+func (r *Account) SecondaryTableHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryTableHost"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -333,39 +394,53 @@ type AccountState struct {
 	Name interface{}
 	// A `network_rules` block as documented below.
 	NetworkRules interface{}
-	// The primary access key for the storage account
+	// The primary access key for the storage account.
 	PrimaryAccessKey interface{}
-	// The connection string associated with the primary blob location
+	// The connection string associated with the primary blob location.
 	PrimaryBlobConnectionString interface{}
 	// The endpoint URL for blob storage in the primary location.
 	PrimaryBlobEndpoint interface{}
-	// The connection string associated with the primary location
+	// The hostname with port if applicable for blob storage in the primary location.
+	PrimaryBlobHost interface{}
+	// The connection string associated with the primary location.
 	PrimaryConnectionString interface{}
 	// The endpoint URL for file storage in the primary location.
 	PrimaryFileEndpoint interface{}
+	// The hostname with port if applicable for file storage in the primary location.
+	PrimaryFileHost interface{}
 	// The primary location of the storage account.
 	PrimaryLocation interface{}
 	// The endpoint URL for queue storage in the primary location.
 	PrimaryQueueEndpoint interface{}
+	// The hostname with port if applicable for queue storage in the primary location.
+	PrimaryQueueHost interface{}
 	// The endpoint URL for table storage in the primary location.
 	PrimaryTableEndpoint interface{}
+	// The hostname with port if applicable for table storage in the primary location.
+	PrimaryTableHost interface{}
 	// The name of the resource group in which to
 	// create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The secondary access key for the storage account
+	// The secondary access key for the storage account.
 	SecondaryAccessKey interface{}
-	// The connection string associated with the secondary blob location
+	// The connection string associated with the secondary blob location.
 	SecondaryBlobConnectionString interface{}
 	// The endpoint URL for blob storage in the secondary location.
 	SecondaryBlobEndpoint interface{}
-	// The connection string associated with the secondary location
+	// The hostname with port if applicable for blob storage in the secondary location.
+	SecondaryBlobHost interface{}
+	// The connection string associated with the secondary location.
 	SecondaryConnectionString interface{}
 	// The secondary location of the storage account.
 	SecondaryLocation interface{}
 	// The endpoint URL for queue storage in the secondary location.
 	SecondaryQueueEndpoint interface{}
+	// The hostname with port if applicable for queue storage in the secondary location.
+	SecondaryQueueHost interface{}
 	// The endpoint URL for table storage in the secondary location.
 	SecondaryTableEndpoint interface{}
+	// The hostname with port if applicable for table storage in the secondary location.
+	SecondaryTableHost interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

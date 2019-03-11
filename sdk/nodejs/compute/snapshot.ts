@@ -15,17 +15,20 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "snapshot-rg",
  * });
  * const testManagedDisk = new azure.compute.ManagedDisk("test", {
  *     createOption: "Empty",
  *     diskSizeGb: 10,
  *     location: testResourceGroup.location,
+ *     name: "managed-disk",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  * });
  * const testSnapshot = new azure.compute.Snapshot("test", {
  *     createOption: "Copy",
  *     location: testResourceGroup.location,
+ *     name: "snapshot",
  *     resourceGroupName: testResourceGroup.name,
  *     sourceUri: testManagedDisk.id,
  * });

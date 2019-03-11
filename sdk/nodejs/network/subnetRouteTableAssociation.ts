@@ -17,9 +17,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testRouteTable = new azure.network.RouteTable("test", {
  *     location: testResourceGroup.location,
+ *     name: "example-routetable",
  *     resourceGroupName: testResourceGroup.name,
  *     routes: [{
  *         addressPrefix: "10.100.0.0/14",
@@ -31,10 +33,12 @@ import * as utilities from "../utilities";
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
+ *     name: "example-network",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
+ *     name: "frontend",
  *     resourceGroupName: testResourceGroup.name,
  *     routeTableId: testRouteTable.id,
  *     virtualNetworkName: testVirtualNetwork.name,

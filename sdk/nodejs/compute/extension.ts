@@ -20,14 +20,17 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acctestRG",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
+ *     name: "acctvn",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -38,12 +41,14 @@ import * as utilities from "../utilities";
  *         subnetId: testSubnet.id,
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "acctni",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
+ *     name: "accsa",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
@@ -51,11 +56,13 @@ import * as utilities from "../utilities";
  * });
  * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
+ *     name: "vhds",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });
  * const testVirtualMachine = new azure.compute.VirtualMachine("test", {
  *     location: testResourceGroup.location,
+ *     name: "acctvm",
  *     networkInterfaceIds: [testNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",
@@ -85,6 +92,7 @@ import * as utilities from "../utilities";
  * });
  * const testExtension = new azure.compute.Extension("test", {
  *     location: testResourceGroup.location,
+ *     name: "hostname",
  *     publisher: "Microsoft.Azure.Extensions",
  *     resourceGroupName: testResourceGroup.name,
  *     settings: `	{

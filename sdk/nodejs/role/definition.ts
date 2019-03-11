@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * const test = new azure.role.Definition("test", {
  *     assignableScopes: [primary.apply(primary => primary.id)],
  *     description: "This is a custom role created via Terraform",
+ *     name: "my-custom-role",
  *     permissions: [{
  *         actions: ["*"],
  *         notActions: [],

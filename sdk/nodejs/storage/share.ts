@@ -15,14 +15,17 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus",
+ *     name: "azuretest",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: "westus",
+ *     name: "azureteststorage",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testshare = new azure.storage.Share("testshare", {
+ *     name: "sharename",
  *     quota: 50,
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,

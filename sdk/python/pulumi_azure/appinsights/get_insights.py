@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetInsightsResult(object):
+class GetInsightsResult:
     """
     A collection of values returned by getInsights.
     """
@@ -50,7 +50,7 @@ class GetInsightsResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_insights(name=None, resource_group_name=None):
+async def get_insights(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Application Insights component.
     """
@@ -58,7 +58,7 @@ async def get_insights(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:appinsights/getInsights:getInsights', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:appinsights/getInsights:getInsights', __args__, opts=opts)
 
     return GetInsightsResult(
         app_id=__ret__.get('appId'),

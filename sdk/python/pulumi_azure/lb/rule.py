@@ -75,7 +75,6 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
         :param pulumi.Input[str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
-        :param pulumi.Input[str] location
         :param pulumi.Input[str] name: Specifies the name of the LB Rule.
         :param pulumi.Input[str] probe_id: A reference to a Probe used by this Load Balancing Rule.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.

@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "redis-resourcegroup",
  * });
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
@@ -28,6 +29,7 @@ import * as utilities from "../utilities";
  *     enableNonSslPort: false,
  *     family: "P",
  *     location: testResourceGroup.location,
+ *     name: server.hex.apply(hex => `redis${hex}`),
  *     redisConfiguration: {
  *         maxclients: 256,
  *         maxmemoryDelta: 2,
@@ -39,6 +41,7 @@ import * as utilities from "../utilities";
  * });
  * const testFirewallRule = new azure.redis.FirewallRule("test", {
  *     endIp: "2.3.4.5",
+ *     name: "someIPrange",
  *     redisCacheName: testCache.name,
  *     resourceGroupName: testResourceGroup.name,
  *     startIp: "1.2.3.4",

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetAppServiceResult(object):
+class GetAppServiceResult:
     """
     A collection of values returned by getAppService.
     """
@@ -101,7 +101,7 @@ class GetAppServiceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_app_service(name=None, resource_group_name=None, site_config=None):
+async def get_app_service(name=None,resource_group_name=None,site_config=None,opts=None):
     """
     Use this data source to access information about an existing App Service.
     """
@@ -110,7 +110,7 @@ async def get_app_service(name=None, resource_group_name=None, site_config=None)
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['siteConfig'] = site_config
-    __ret__ = await pulumi.runtime.invoke('azure:appservice/getAppService:getAppService', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:appservice/getAppService:getAppService', __args__, opts=opts)
 
     return GetAppServiceResult(
         app_service_plan_id=__ret__.get('appServicePlanId'),

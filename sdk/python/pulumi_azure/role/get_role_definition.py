@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetRoleDefinitionResult(object):
+class GetRoleDefinitionResult:
     """
     A collection of values returned by getRoleDefinition.
     """
@@ -50,7 +50,7 @@ class GetRoleDefinitionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_role_definition(name=None, role_definition_id=None, scope=None):
+async def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     """
     Use this data source to access information about an existing Role Definition.
     """
@@ -59,7 +59,7 @@ async def get_role_definition(name=None, role_definition_id=None, scope=None):
     __args__['name'] = name
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope
-    __ret__ = await pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__, opts=opts)
 
     return GetRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),

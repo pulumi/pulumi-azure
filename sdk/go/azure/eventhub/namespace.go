@@ -86,7 +86,7 @@ func (r *Namespace) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+// Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
 func (r *Namespace) Capacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["capacity"])
 }
@@ -142,7 +142,7 @@ func (r *Namespace) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Namespace resources.
 type NamespaceState struct {
-	// Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+	// Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
 	Capacity interface{}
 	// The primary connection string for the authorization
 	// rule `RootManageSharedAccessKey`.
@@ -170,7 +170,7 @@ type NamespaceState struct {
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
-	// Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+	// Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
 	Capacity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

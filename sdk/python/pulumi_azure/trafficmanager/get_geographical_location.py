@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetGeographicalLocationResult(object):
+class GetGeographicalLocationResult:
     """
     A collection of values returned by getGeographicalLocation.
     """
@@ -20,14 +20,14 @@ class GetGeographicalLocationResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_geographical_location(name=None):
+async def get_geographical_location(name=None,opts=None):
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('azure:trafficmanager/getGeographicalLocation:getGeographicalLocation', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:trafficmanager/getGeographicalLocation:getGeographicalLocation', __args__, opts=opts)
 
     return GetGeographicalLocationResult(
         id=__ret__.get('id'))

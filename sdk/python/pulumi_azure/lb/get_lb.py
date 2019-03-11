@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetLBResult(object):
+class GetLBResult:
     """
     A collection of values returned by getLB.
     """
@@ -56,7 +56,7 @@ class GetLBResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_lb(name=None, resource_group_name=None):
+async def get_lb(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Load Balancer
     """
@@ -64,7 +64,7 @@ async def get_lb(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:lb/getLB:getLB', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:lb/getLB:getLB', __args__, opts=opts)
 
     return GetLBResult(
         frontend_ip_configurations=__ret__.get('frontendIpConfigurations'),

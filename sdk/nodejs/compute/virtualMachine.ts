@@ -22,14 +22,17 @@ import * as utilities from "../utilities";
  * 
  * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West US 2",
+ *     name: `${prefix}-resources`,
  * });
  * const mainVirtualNetwork = new azure.network.VirtualNetwork("main", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: mainResourceGroup.location,
+ *     name: `${prefix}-network`,
  *     resourceGroupName: mainResourceGroup.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
  *     addressPrefix: "10.0.2.0/24",
+ *     name: "internal",
  *     resourceGroupName: mainResourceGroup.name,
  *     virtualNetworkName: mainVirtualNetwork.name,
  * });
@@ -40,10 +43,12 @@ import * as utilities from "../utilities";
  *         subnetId: internal.id,
  *     }],
  *     location: mainResourceGroup.location,
+ *     name: `${prefix}-nic`,
  *     resourceGroupName: mainResourceGroup.name,
  * });
  * const mainVirtualMachine = new azure.compute.VirtualMachine("main", {
  *     location: mainResourceGroup.location,
+ *     name: `${prefix}-vm`,
  *     networkInterfaceIds: [mainNetworkInterface.id],
  *     osProfile: {
  *         adminPassword: "Password1234!",

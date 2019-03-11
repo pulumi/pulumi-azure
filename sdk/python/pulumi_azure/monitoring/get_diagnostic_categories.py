@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetDiagnosticCategoriesResult(object):
+class GetDiagnosticCategoriesResult:
     """
     A collection of values returned by getDiagnosticCategories.
     """
@@ -32,14 +32,14 @@ class GetDiagnosticCategoriesResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_diagnostic_categories(resource_id=None):
+async def get_diagnostic_categories(resource_id=None,opts=None):
     """
     Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
     """
     __args__ = dict()
 
     __args__['resourceId'] = resource_id
-    __ret__ = await pulumi.runtime.invoke('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts)
 
     return GetDiagnosticCategoriesResult(
         logs=__ret__.get('logs'),

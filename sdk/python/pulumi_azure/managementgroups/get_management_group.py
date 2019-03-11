@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetManagementGroupResult(object):
+class GetManagementGroupResult:
     """
     A collection of values returned by getManagementGroup.
     """
@@ -38,14 +38,14 @@ class GetManagementGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_management_group(group_id=None):
+async def get_management_group(group_id=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
     """
     __args__ = dict()
 
     __args__['groupId'] = group_id
-    __ret__ = await pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__, opts=opts)
 
     return GetManagementGroupResult(
         display_name=__ret__.get('displayName'),

@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
+ *     name: "terraform-servicebus",
  * });
  * const exampleNamespace = new azure.eventhub.Namespace("example", {
  *     location: exampleResourceGroup.location,
+ *     name: "tfex_sevicebus_namespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -40,7 +42,7 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+     * Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
      */
     public readonly capacity: pulumi.Output<number | undefined>;
     /**
@@ -137,7 +139,7 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceState {
     /**
-     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+     * Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
      */
     readonly capacity?: pulumi.Input<number>;
     /**
@@ -187,7 +189,7 @@ export interface NamespaceState {
  */
 export interface NamespaceArgs {
     /**
-     * Specifies the capacity, can only be set when `sku` is `Premium` namespace. Can be `1`, `2` or `4`.
+     * Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
      */
     readonly capacity?: pulumi.Input<number>;
     /**

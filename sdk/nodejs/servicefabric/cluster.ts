@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testCluster = new azure.servicefabric.Cluster("test", {
  *     clusterCodeVersion: "6.3.176.9494",
  *     location: testResourceGroup.location,
  *     managementEndpoint: "https://example:80",
+ *     name: "example-servicefabric",
  *     nodeTypes: [{
  *         clientEndpointPort: 2020,
  *         httpEndpointPort: 80,
@@ -94,7 +96,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * One or more `node_type` blocks as defined below.
      */
-    public readonly nodeTypes: pulumi.Output<{ applicationPorts: { endPort: number, startPort: number }, clientEndpointPort: number, durabilityLevel?: string, ephemeralPorts: { endPort: number, startPort: number }, httpEndpointPort: number, instanceCount: number, isPrimary: boolean, name: string, reverseProxyEndpointPort?: number }[]>;
+    public readonly nodeTypes: pulumi.Output<{ applicationPorts: { endPort: number, startPort: number }, capacities?: {[key: string]: any}, clientEndpointPort: number, durabilityLevel?: string, ephemeralPorts: { endPort: number, startPort: number }, httpEndpointPort: number, instanceCount: number, isPrimary: boolean, name: string, placementProperties?: {[key: string]: any}, reverseProxyEndpointPort?: number }[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
@@ -247,7 +249,7 @@ export interface ClusterState {
     /**
      * One or more `node_type` blocks as defined below.
      */
-    readonly nodeTypes?: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string>, reverseProxyEndpointPort?: pulumi.Input<number> }>[]>;
+    readonly nodeTypes?: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, capacities?: pulumi.Input<{[key: string]: any}>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string>, placementProperties?: pulumi.Input<{[key: string]: any}>, reverseProxyEndpointPort?: pulumi.Input<number> }>[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
@@ -321,7 +323,7 @@ export interface ClusterArgs {
     /**
      * One or more `node_type` blocks as defined below.
      */
-    readonly nodeTypes: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string>, reverseProxyEndpointPort?: pulumi.Input<number> }>[]>;
+    readonly nodeTypes: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, capacities?: pulumi.Input<{[key: string]: any}>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string>, placementProperties?: pulumi.Input<{[key: string]: any}>, reverseProxyEndpointPort?: pulumi.Input<number> }>[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */

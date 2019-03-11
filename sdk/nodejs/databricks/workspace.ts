@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "example-resources",
  * });
  * const testWorkspace = new azure.databricks.Workspace("test", {
  *     location: testResourceGroup.location,
+ *     name: "databricks-test",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "standard",
  *     tags: {

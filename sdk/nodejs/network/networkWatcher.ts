@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "production-nwwatcher",
  * });
  * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
  *     location: testResourceGroup.location,
+ *     name: "production-nwwatcher",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```

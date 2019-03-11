@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetVirtualNetworkResult(object):
+class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
@@ -44,7 +44,7 @@ class GetVirtualNetworkResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_virtual_network(name=None, resource_group_name=None):
+async def get_virtual_network(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Network.
     """
@@ -52,7 +52,7 @@ async def get_virtual_network(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:network/getVirtualNetwork:getVirtualNetwork', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:network/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts)
 
     return GetVirtualNetworkResult(
         address_spaces=__ret__.get('addressSpaces'),

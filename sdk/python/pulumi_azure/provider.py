@@ -18,18 +18,6 @@ class Provider(pulumi.ProviderResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_certificate_password
-        :param pulumi.Input[str] client_certificate_path
-        :param pulumi.Input[str] client_id
-        :param pulumi.Input[str] client_secret
-        :param pulumi.Input[str] environment
-        :param pulumi.Input[str] msi_endpoint
-        :param pulumi.Input[str] partner_id
-        :param pulumi.Input[bool] skip_credentials_validation
-        :param pulumi.Input[bool] skip_provider_registration
-        :param pulumi.Input[str] subscription_id
-        :param pulumi.Input[str] tenant_id
-        :param pulumi.Input[bool] use_msi
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

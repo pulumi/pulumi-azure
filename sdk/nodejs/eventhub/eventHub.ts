@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "resourceGroup1",
  * });
  * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
  *     capacity: 1,
  *     kafkaEnabled: false,
  *     location: testResourceGroup.location,
+ *     name: "acceptanceTestEventHubNamespace",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -28,6 +30,7 @@ import * as utilities from "../utilities";
  * });
  * const testEventHub = new azure.eventhub.EventHub("test", {
  *     messageRetention: 1,
+ *     name: "acceptanceTestEventHub",
  *     namespaceName: testEventHubNamespace.name,
  *     partitionCount: 2,
  *     resourceGroupName: testResourceGroup.name,

@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetLabResult(object):
+class GetLabResult:
     """
     A collection of values returned by getLab.
     """
@@ -74,7 +74,7 @@ class GetLabResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_lab(name=None, resource_group_name=None):
+async def get_lab(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Dev Test Lab.
     """
@@ -82,7 +82,7 @@ async def get_lab(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:devtest/getLab:getLab', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:devtest/getLab:getLab', __args__, opts=opts)
 
     return GetLabResult(
         artifacts_storage_account_id=__ret__.get('artifactsStorageAccountId'),

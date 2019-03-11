@@ -15,15 +15,18 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "%s",
+ *     name: "testaccbatch",
  * });
  * const testStorageAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
+ *     name: "testaccsa",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testAccount = new azure.batch.Account("test", {
  *     location: testResourceGroup.location,
+ *     name: "testaccbatch",
  *     poolAllocationMode: "BatchService",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountId: testStorageAccount.id,
@@ -43,6 +46,7 @@ import * as utilities from "../utilities";
  * `,
  *     },
  *     displayName: "Test Acc Pool Auto",
+ *     name: "testaccpool",
  *     nodeAgentSkuId: "batch.node.ubuntu 16.04",
  *     resourceGroupName: testResourceGroup.name,
  *     startTask: {
@@ -99,7 +103,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly fixedScale: pulumi.Output<{ resizeTimeout?: string, targetDedicatedNodes?: number, targetLowPriorityNodes?: number } | undefined>;
     /**
-     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
     public readonly maxTasksPerNode: pulumi.Output<number | undefined>;
     /**
@@ -207,7 +211,7 @@ export interface PoolState {
      */
     readonly fixedScale?: pulumi.Input<{ resizeTimeout?: pulumi.Input<string>, targetDedicatedNodes?: pulumi.Input<number>, targetLowPriorityNodes?: pulumi.Input<number> }>;
     /**
-     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
     readonly maxTasksPerNode?: pulumi.Input<number>;
     /**
@@ -258,7 +262,7 @@ export interface PoolArgs {
      */
     readonly fixedScale?: pulumi.Input<{ resizeTimeout?: pulumi.Input<string>, targetDedicatedNodes?: pulumi.Input<number>, targetLowPriorityNodes?: pulumi.Input<number> }>;
     /**
-     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+     * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
     readonly maxTasksPerNode?: pulumi.Input<number>;
     /**

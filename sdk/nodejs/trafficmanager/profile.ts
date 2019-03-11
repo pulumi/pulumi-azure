@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "trafficmanagerProfile",
  * });
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
@@ -34,6 +35,7 @@ import * as utilities from "../utilities";
  *         port: 80,
  *         protocol: "http",
  *     }],
+ *     name: server.hex,
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "Production",

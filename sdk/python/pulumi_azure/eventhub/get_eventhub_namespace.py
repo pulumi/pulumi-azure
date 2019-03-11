@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetEventhubNamespaceResult(object):
+class GetEventhubNamespaceResult:
     """
     A collection of values returned by getEventhubNamespace.
     """
@@ -85,7 +85,7 @@ class GetEventhubNamespaceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_eventhub_namespace(name=None, resource_group_name=None):
+async def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing EventHub Namespace.
     """
@@ -93,7 +93,7 @@ async def get_eventhub_namespace(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:eventhub/getEventhubNamespace:getEventhubNamespace', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:eventhub/getEventhubNamespace:getEventhubNamespace', __args__, opts=opts)
 
     return GetEventhubNamespaceResult(
         auto_inflate_enabled=__ret__.get('autoInflateEnabled'),

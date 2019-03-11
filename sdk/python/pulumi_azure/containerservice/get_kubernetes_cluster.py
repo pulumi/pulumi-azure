@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetKubernetesClusterResult(object):
+class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
@@ -116,7 +116,7 @@ class GetKubernetesClusterResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_kubernetes_cluster(name=None, resource_group_name=None):
+async def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Managed Kubernetes Cluster (AKS).
     
@@ -127,7 +127,7 @@ async def get_kubernetes_cluster(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:containerservice/getKubernetesCluster:getKubernetesCluster', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:containerservice/getKubernetesCluster:getKubernetesCluster', __args__, opts=opts)
 
     return GetKubernetesClusterResult(
         addon_profiles=__ret__.get('addonProfiles'),

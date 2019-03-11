@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
  * });
  * const server = new random.RandomId("server", {
  *     byteLength: 8,
@@ -25,11 +26,13 @@ import * as utilities from "../utilities";
  * });
  * const testProfile = new azure.cdn.Profile("test", {
  *     location: testResourceGroup.location,
+ *     name: "exampleCdnProfile",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard_Verizon",
  * });
  * const testEndpoint = new azure.cdn.Endpoint("test", {
  *     location: testResourceGroup.location,
+ *     name: server.hex,
  *     origins: [{
  *         hostName: "www.example.com",
  *         name: "exampleCdnOrigin",

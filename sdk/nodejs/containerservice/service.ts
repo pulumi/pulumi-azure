@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acctestRG1",
  * });
  * const testService = new azure.containerservice.Service("test", {
  *     agentPoolProfile: {
@@ -42,6 +43,7 @@ import * as utilities from "../utilities";
  *         count: 1,
  *         dnsPrefix: "acctestmaster1",
  *     },
+ *     name: "acctestcontservice1",
  *     orchestrationPlatform: "DCOS",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
@@ -58,6 +60,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acctestRG1",
  * });
  * const testService = new azure.containerservice.Service("test", {
  *     agentPoolProfile: {
@@ -80,6 +83,7 @@ import * as utilities from "../utilities";
  *         count: 1,
  *         dnsPrefix: "acctestmaster1",
  *     },
+ *     name: "acctestcontservice1",
  *     orchestrationPlatform: "Kubernetes",
  *     resourceGroupName: testResourceGroup.name,
  *     servicePrincipal: {
@@ -100,6 +104,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acctestRG1",
  * });
  * const testService = new azure.containerservice.Service("test", {
  *     agentPoolProfile: {
@@ -122,6 +127,7 @@ import * as utilities from "../utilities";
  *         count: 1,
  *         dnsPrefix: "acctestmaster1",
  *     },
+ *     name: "acctestcontservice1",
  *     orchestrationPlatform: "Swarm",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {

@@ -15,10 +15,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "resourceGroup1",
  * });
  * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
  *     capacity: 2,
  *     location: testResourceGroup.location,
+ *     name: "acceptanceTestEventHubNamespace",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Basic",
  *     tags: {
@@ -28,6 +30,7 @@ import * as utilities from "../utilities";
  * const testEventHubNamespaceAuthorizationRule = new azure.eventhub.EventHubNamespaceAuthorizationRule("test", {
  *     listen: true,
  *     manage: false,
+ *     name: "navi",
  *     namespaceName: testEventHubNamespace.name,
  *     resourceGroupName: testResourceGroup.name,
  *     send: false,

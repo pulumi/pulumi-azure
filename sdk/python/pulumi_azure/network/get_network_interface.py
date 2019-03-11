@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetNetworkInterfaceResult(object):
+class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
@@ -101,7 +101,7 @@ class GetNetworkInterfaceResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_network_interface(name=None, resource_group_name=None):
+async def get_network_interface(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Network Interface.
     """
@@ -109,7 +109,7 @@ async def get_network_interface(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:network/getNetworkInterface:getNetworkInterface', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:network/getNetworkInterface:getNetworkInterface', __args__, opts=opts)
 
     return GetNetworkInterfaceResult(
         applied_dns_servers=__ret__.get('appliedDnsServers'),

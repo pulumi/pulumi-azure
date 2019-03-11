@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "key-vault-certificate-example",
  * });
  * const current = pulumi.output(azure.core.getClientConfig({}));
  * const testKeyVault = new azure.keyvault.KeyVault("test", {
@@ -68,6 +69,7 @@ import * as utilities from "../utilities";
  *         tenantId: current.apply(current => current.tenantId),
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "keyvaultcertexample",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "standard",
@@ -97,6 +99,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     keyVaultId: testKeyVault.id,
+ *     name: "imported-cert",
  * });
  * ```
  * 
@@ -108,6 +111,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "key-vault-certificate-example",
  * });
  * const current = pulumi.output(azure.core.getClientConfig({}));
  * const testKeyVault = new azure.keyvault.KeyVault("test", {
@@ -158,6 +162,7 @@ import * as utilities from "../utilities";
  *         tenantId: current.apply(current => current.tenantId),
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "keyvaultcertexample",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "standard",
@@ -212,6 +217,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     keyVaultId: testKeyVault.id,
+ *     name: "generated-cert",
  * });
  * ```
  */

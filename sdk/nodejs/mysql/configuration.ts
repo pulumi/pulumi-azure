@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "api-rg-pro",
  * });
  * const testServer = new azure.mysql.Server("test", {
  *     administratorLogin: "psqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     location: testResourceGroup.location,
+ *     name: "mysql-server-1",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         capacity: 2,
@@ -36,6 +38,7 @@ import * as utilities from "../utilities";
  *     version: "5.7",
  * });
  * const testConfiguration = new azure.mysql.Configuration("test", {
+ *     name: "interactive_timeout",
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testServer.name,
  *     value: "600",

@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * 
  * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West US",
+ *     name: "example-resources",
  * });
  * const mainActionGroup = new azure.monitoring.ActionGroup("main", {
+ *     name: "example-actiongroup",
  *     resourceGroupName: mainResourceGroup.name,
  *     shortName: "p0action",
  *     webhookReceivers: [{
@@ -28,6 +30,7 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: mainResourceGroup.location,
+ *     name: "examplesa",
  *     resourceGroupName: mainResourceGroup.name,
  * });
  * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("main", {
@@ -43,6 +46,7 @@ import * as utilities from "../utilities";
  *         resourceId: toMonitor.id,
  *     },
  *     description: "This alert will monitor a specific storage account updates.",
+ *     name: "example-activitylogalert",
  *     resourceGroupName: mainResourceGroup.name,
  *     scopes: [mainResourceGroup.id],
  * });

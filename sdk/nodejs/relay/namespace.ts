@@ -15,9 +15,11 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testNamespace = new azure.relay.Namespace("test", {
  *     location: testResourceGroup.location,
+ *     name: "example-relay",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "Standard",

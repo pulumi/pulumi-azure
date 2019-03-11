@@ -15,14 +15,17 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
+ *     name: "example",
  * });
  * const exampleStore = new azure.datalake.Store("example", {
  *     location: exampleResourceGroup.location,
+ *     name: "consumptiondatalake",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleStoreFirewallRule = new azure.datalake.StoreFirewallRule("example", {
  *     accountName: exampleStore.name,
  *     endIpAddress: "2.3.4.5",
+ *     name: "office-ip-range",
  *     resourceGroupName: exampleResourceGroup.name,
  *     startIpAddress: "1.2.3.4",
  * });

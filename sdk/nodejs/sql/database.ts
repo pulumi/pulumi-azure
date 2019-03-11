@@ -15,16 +15,19 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
  * });
  * const testSqlServer = new azure.sql.SqlServer("test", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  *     location: "West US",
+ *     name: "mysqlserver",
  *     resourceGroupName: testResourceGroup.name,
  *     version: "12.0",
  * });
  * const testDatabase = new azure.sql.Database("test", {
  *     location: "West US",
+ *     name: "mysqldatabase",
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testSqlServer.name,
  *     tags: {

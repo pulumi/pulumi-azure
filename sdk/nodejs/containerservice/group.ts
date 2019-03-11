@@ -15,14 +15,17 @@ import * as utilities from "../utilities";
  * 
  * const aci_rg = new azure.core.ResourceGroup("aci-rg", {
  *     location: "west us",
+ *     name: "aci-test",
  * });
  * const aci_sa = new azure.storage.Account("aci-sa", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: aci_rg.location,
+ *     name: "acistorageacct",
  *     resourceGroupName: aci_rg.name,
  * });
  * const aci_share = new azure.storage.Share("aci-share", {
+ *     name: "aci-test-share",
  *     quota: 50,
  *     resourceGroupName: aci_rg.name,
  *     storageAccountName: aci_sa.name,
@@ -74,6 +77,7 @@ import * as utilities from "../utilities";
  *     dnsNameLabel: "aci-label",
  *     ipAddressType: "public",
  *     location: aci_rg.location,
+ *     name: "aci-hw",
  *     osType: "Linux",
  *     resourceGroupName: aci_rg.name,
  *     tags: {
@@ -100,6 +104,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly containers: pulumi.Output<{ command: string, commands: string[], cpu: number, environmentVariables?: {[key: string]: any}, image: string, memory: number, name: string, port: number, ports: { port: number, protocol: string }[], protocol: string, secureEnvironmentVariables?: {[key: string]: any}, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
     /**
+     * A `diagnostics` block as documented below.
+     */
+    public readonly diagnostics: pulumi.Output<{ logAnalytics: { logType: string, metadata?: {[key: string]: string}, workspaceId: string, workspaceKey: string } } | undefined>;
+    /**
      * The DNS label/name for the container groups IP.
      */
     public readonly dnsNameLabel: pulumi.Output<string | undefined>;
@@ -108,7 +116,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
-     * Set image registry credentials for the group as documented in the `image_registry_credential` block below
+     * A `image_registry_credential` block as documented below.
      */
     public readonly imageRegistryCredentials: pulumi.Output<{ password: string, server: string, username: string }[] | undefined>;
     /**
@@ -157,6 +165,7 @@ export class Group extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state: GroupState = argsOrState as GroupState | undefined;
             inputs["containers"] = state ? state.containers : undefined;
+            inputs["diagnostics"] = state ? state.diagnostics : undefined;
             inputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["imageRegistryCredentials"] = state ? state.imageRegistryCredentials : undefined;
@@ -183,6 +192,7 @@ export class Group extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["containers"] = args ? args.containers : undefined;
+            inputs["diagnostics"] = args ? args.diagnostics : undefined;
             inputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
             inputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
@@ -208,6 +218,10 @@ export interface GroupState {
      */
     readonly containers?: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     /**
+     * A `diagnostics` block as documented below.
+     */
+    readonly diagnostics?: pulumi.Input<{ logAnalytics: pulumi.Input<{ logType: pulumi.Input<string>, metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, workspaceId: pulumi.Input<string>, workspaceKey: pulumi.Input<string> }> }>;
+    /**
      * The DNS label/name for the container groups IP.
      */
     readonly dnsNameLabel?: pulumi.Input<string>;
@@ -216,7 +230,7 @@ export interface GroupState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * Set image registry credentials for the group as documented in the `image_registry_credential` block below
+     * A `image_registry_credential` block as documented below.
      */
     readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
     /**
@@ -262,11 +276,15 @@ export interface GroupArgs {
      */
     readonly containers: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     /**
+     * A `diagnostics` block as documented below.
+     */
+    readonly diagnostics?: pulumi.Input<{ logAnalytics: pulumi.Input<{ logType: pulumi.Input<string>, metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, workspaceId: pulumi.Input<string>, workspaceKey: pulumi.Input<string> }> }>;
+    /**
      * The DNS label/name for the container groups IP.
      */
     readonly dnsNameLabel?: pulumi.Input<string>;
     /**
-     * Set image registry credentials for the group as documented in the `image_registry_credential` block below
+     * A `image_registry_credential` block as documented below.
      */
     readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
     /**

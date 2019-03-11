@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetResourceGroupResult(object):
+class GetResourceGroupResult:
     """
     A collection of values returned by getResourceGroup.
     """
@@ -32,14 +32,14 @@ class GetResourceGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_resource_group(name=None):
+async def get_resource_group(name=None,opts=None):
     """
     Use this data source to access information about an existing Resource Group.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('azure:core/getResourceGroup:getResourceGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:core/getResourceGroup:getResourceGroup', __args__, opts=opts)
 
     return GetResourceGroupResult(
         location=__ret__.get('location'),

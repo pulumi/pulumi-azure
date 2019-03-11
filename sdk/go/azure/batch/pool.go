@@ -122,7 +122,7 @@ func (r *Pool) FixedScale() *pulumi.Output {
 	return r.s.State["fixedScale"]
 }
 
-// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 func (r *Pool) MaxTasksPerNode() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maxTasksPerNode"])
 }
@@ -171,7 +171,7 @@ type PoolState struct {
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
 	FixedScale interface{}
-	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode interface{}
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name interface{}
@@ -198,7 +198,7 @@ type PoolArgs struct {
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
 	FixedScale interface{}
-	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`.
+	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode interface{}
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name interface{}

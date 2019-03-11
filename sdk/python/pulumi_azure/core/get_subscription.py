@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetSubscriptionResult(object):
+class GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
     """
@@ -53,14 +53,14 @@ class GetSubscriptionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_subscription(subscription_id=None):
+async def get_subscription(subscription_id=None,opts=None):
     """
     Use this data source to access information about an existing Subscription.
     """
     __args__ = dict()
 
     __args__['subscriptionId'] = subscription_id
-    __ret__ = await pulumi.runtime.invoke('azure:core/getSubscription:getSubscription', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:core/getSubscription:getSubscription', __args__, opts=opts)
 
     return GetSubscriptionResult(
         display_name=__ret__.get('displayName'),

@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "my-resource-group",
  * });
  * const current = pulumi.output(azure.core.getClientConfig({}));
  * const server = new random.RandomId("server", {
@@ -35,6 +36,7 @@ import * as utilities from "../utilities";
  *         tenantId: current.apply(current => current.tenantId),
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "keyvaultkeyexample",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         name: "premium",
@@ -56,6 +58,7 @@ import * as utilities from "../utilities";
  *     keySize: 2048,
  *     keyType: "RSA",
  *     keyVaultId: testKeyVault.id,
+ *     name: "generated-certificate",
  * });
  * ```
  */

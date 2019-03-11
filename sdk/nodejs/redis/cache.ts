@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "redis-resources",
  * });
  * // NOTE: the Name used for Redis needs to be globally unique
  * const testCache = new azure.redis.Cache("test", {
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  *     enableNonSslPort: false,
  *     family: "C",
  *     location: testResourceGroup.location,
+ *     name: "tf-redis-basic",
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Basic",
  * });
@@ -35,6 +37,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "redis-resources",
  * });
  * // NOTE: the Name used for Redis needs to be globally unique
  * const testCache = new azure.redis.Cache("test", {
@@ -42,6 +45,7 @@ import * as utilities from "../utilities";
  *     enableNonSslPort: false,
  *     family: "C",
  *     location: testResourceGroup.location,
+ *     name: "tf-redis-standard",
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Standard",
  * });
@@ -55,6 +59,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "redis-resources",
  * });
  * // NOTE: the Name used for Redis needs to be globally unique
  * const testCache = new azure.redis.Cache("test", {
@@ -62,6 +67,7 @@ import * as utilities from "../utilities";
  *     enableNonSslPort: false,
  *     family: "P",
  *     location: testResourceGroup.location,
+ *     name: "tf-redis-premium",
  *     redisConfiguration: {
  *         maxmemoryDelta: 2,
  *         maxmemoryPolicy: "allkeys-lru",
@@ -81,11 +87,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "redis-resources",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
  *     location: testResourceGroup.location,
+ *     name: "redissa",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * // NOTE: the Name used for Redis needs to be globally unique
@@ -94,6 +102,7 @@ import * as utilities from "../utilities";
  *     enableNonSslPort: false,
  *     family: "P",
  *     location: testResourceGroup.location,
+ *     name: "tf-redis-pbkup",
  *     redisConfiguration: {
  *         rdbBackupEnabled: true,
  *         rdbBackupFrequency: 60,
@@ -107,13 +116,14 @@ import * as utilities from "../utilities";
  * 
  * ## Default Redis Configuration Values
  * 
- * | Redis Value        | Basic        | Standard     | Premium      |
- * | ------------------ | ------------ | ------------ | ------------ |
- * | maxmemory_reserved | 2            | 50           | 200          |
- * | maxmemory_delta    | 2            | 50           | 200          |
- * | maxmemory_policy   | volatile-lru | volatile-lru | volatile-lru |
+ * | Redis Value                     | Basic        | Standard     | Premium      |
+ * | ------------------------------- | ------------ | ------------ | ------------ |
+ * | maxmemory_reserved              | 2            | 50           | 200          |
+ * | maxfragmentationmemory_reserved | 2            | 50           | 200          |
+ * | maxmemory_delta                 | 2            | 50           | 200          |
+ * | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
  * 
- * _*Important*: The `maxmemory_reserved` and `maxmemory_delta` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+ * _*Important*: The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
  * 
  * * `patch_schedule` supports the following:
  * 
@@ -184,7 +194,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    public readonly redisConfiguration: pulumi.Output<{ maxclients: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
+    public readonly redisConfiguration: pulumi.Output<{ maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -342,7 +352,7 @@ export interface CacheState {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    readonly redisConfiguration?: pulumi.Input<{ maxclients?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
+    readonly redisConfiguration?: pulumi.Input<{ maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -414,7 +424,7 @@ export interface CacheArgs {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    readonly redisConfiguration: pulumi.Input<{ maxclients?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
+    readonly redisConfiguration: pulumi.Input<{ maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.

@@ -81,7 +81,6 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_accelerated_networking: Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
         :param pulumi.Input[bool] enable_ip_forwarding: Enables IP Forwarding on the NIC. Defaults to `false`.
         :param pulumi.Input[str] internal_dns_name_label: Relative DNS name for this NIC used for internal communications between VMs in the same VNet
-        :param pulumi.Input[str] internal_fqdn
         :param pulumi.Input[list] ip_configurations: One or more `ip_configuration` associated with this NIC as documented below.
         :param pulumi.Input[str] location: The location/region where the network interface is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mac_address: The media access control (MAC) address of the network interface.

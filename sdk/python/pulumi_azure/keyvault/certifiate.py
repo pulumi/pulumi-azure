@@ -57,7 +57,6 @@ class Certifiate(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] vault_uri
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

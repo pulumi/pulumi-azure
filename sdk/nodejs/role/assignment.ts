@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const testDefinition = new azure.role.Definition("test", {
  *     assignableScopes: [primary.apply(primary => primary.id)],
+ *     name: "my-custom-role-definition",
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
@@ -40,6 +41,7 @@ import * as utilities from "../utilities";
  *     scope: primary.apply(primary => primary.id),
  * });
  * const testAssignment = new azure.role.Assignment("test", {
+ *     name: "00000000-0000-0000-0000-000000000000",
  *     principalId: testClientConfig.apply(testClientConfig => testClientConfig.servicePrincipalObjectId),
  *     roleDefinitionId: testDefinition.id,
  *     scope: primary.apply(primary => primary.id),
@@ -56,6 +58,7 @@ import * as utilities from "../utilities";
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const testDefinition = new azure.role.Definition("test", {
  *     assignableScopes: [primary.apply(primary => primary.id)],
+ *     name: "my-custom-role-definition",
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
@@ -64,6 +67,7 @@ import * as utilities from "../utilities";
  *     scope: primary.apply(primary => primary.id),
  * });
  * const testAssignment = new azure.role.Assignment("test", {
+ *     name: "00000000-0000-0000-0000-000000000000",
  *     principalId: testClientConfig.apply(testClientConfig => testClientConfig.clientId),
  *     roleDefinitionId: testDefinition.id,
  *     scope: primary.apply(primary => primary.id),

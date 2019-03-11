@@ -93,13 +93,14 @@ class Cache(pulumi.CustomResource):
         
         ## Default Redis Configuration Values
         
-        | Redis Value        | Basic        | Standard     | Premium      |
-        | ------------------ | ------------ | ------------ | ------------ |
-        | maxmemory_reserved | 2            | 50           | 200          |
-        | maxmemory_delta    | 2            | 50           | 200          |
-        | maxmemory_policy   | volatile-lru | volatile-lru | volatile-lru |
+        | Redis Value                     | Basic        | Standard     | Premium      |
+        | ------------------------------- | ------------ | ------------ | ------------ |
+        | maxmemory_reserved              | 2            | 50           | 200          |
+        | maxfragmentationmemory_reserved | 2            | 50           | 200          |
+        | maxmemory_delta                 | 2            | 50           | 200          |
+        | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
         
-        _*Important*: The `maxmemory_reserved` and `maxmemory_delta` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+        _*Important*: The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
         
         * `patch_schedule` supports the following:
         

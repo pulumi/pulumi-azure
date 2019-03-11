@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetBuiltinRoleDefinitionResult(object):
+class GetBuiltinRoleDefinitionResult:
     """
     A collection of values returned by getBuiltinRoleDefinition.
     """
@@ -44,7 +44,7 @@ class GetBuiltinRoleDefinitionResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_builtin_role_definition(name=None):
+async def get_builtin_role_definition(name=None,opts=None):
     """
     Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.
     
@@ -53,7 +53,7 @@ async def get_builtin_role_definition(name=None):
     __args__ = dict()
 
     __args__['name'] = name
-    __ret__ = await pulumi.runtime.invoke('azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition', __args__, opts=opts)
 
     return GetBuiltinRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),

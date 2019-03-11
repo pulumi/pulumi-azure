@@ -77,7 +77,6 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
                new resource to be created.
-        :param pulumi.Input[str] public_ip_address_allocation
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the public ip.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.

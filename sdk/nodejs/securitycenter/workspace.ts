@@ -19,9 +19,11 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westus",
+ *     name: "tfex-security-workspace",
  * });
  * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
  *     location: exampleResourceGroup.location,
+ *     name: "tfex-security-workspace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });

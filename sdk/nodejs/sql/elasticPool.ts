@@ -17,11 +17,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "my-resource-group",
  * });
  * const testSqlServer = new azure.sql.SqlServer("test", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  *     location: testResourceGroup.location,
+ *     name: "my-sql-server", // NOTE: needs to be globally unique
  *     resourceGroupName: testResourceGroup.name,
  *     version: "12.0",
  * });
@@ -31,6 +33,7 @@ import * as utilities from "../utilities";
  *     dtu: 50,
  *     edition: "Basic",
  *     location: testResourceGroup.location,
+ *     name: "test",
  *     poolSize: 5000,
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testSqlServer.name,

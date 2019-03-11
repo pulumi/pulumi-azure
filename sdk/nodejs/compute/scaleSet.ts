@@ -19,11 +19,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
+ *     name: "acctestRG",
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     domainNameLabel: testResourceGroup.name,
  *     location: testResourceGroup.location,
+ *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
@@ -35,10 +37,12 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: testPublicIp.id,
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const bpepool = new azure.lb.BackendAddressPool("bpepool", {
  *     loadbalancerId: testLoadBalancer.id,
+ *     name: "BackEndAddressPool",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const lbnatpool: azure.lb.NatPool[] = [];
@@ -49,12 +53,14 @@ import * as utilities from "../utilities";
  *         frontendPortEnd: 50119,
  *         frontendPortStart: 50000,
  *         loadbalancerId: testLoadBalancer.id,
+ *         name: "ssh",
  *         protocol: "Tcp",
  *         resourceGroupName: testResourceGroup.name,
  *     }));
  * }
  * const testProbe = new azure.lb.Probe("test", {
  *     loadbalancerId: testLoadBalancer.id,
+ *     name: "http-probe",
  *     port: 8080,
  *     requestPath: "/health",
  *     resourceGroupName: testResourceGroup.name,
@@ -62,10 +68,12 @@ import * as utilities from "../utilities";
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
+ *     name: "acctvn",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -75,6 +83,7 @@ import * as utilities from "../utilities";
  *     // required when using rolling upgrade policy
  *     healthProbeId: testProbe.id,
  *     location: testResourceGroup.location,
+ *     name: "mytestscaleset-1",
  *     networkProfiles: [{
  *         ipConfigurations: [{
  *             loadBalancerBackendAddressPoolIds: [bpepool.id],
@@ -143,11 +152,13 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acctestRG",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: "westus",
+ *     name: "accsa",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
@@ -155,21 +166,25 @@ import * as utilities from "../utilities";
  * });
  * const testContainer = new azure.storage.Container("test", {
  *     containerAccessType: "private",
+ *     name: "vhds",
  *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: "West US",
+ *     name: "acctvn",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
+ *     name: "acctsub",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
  * const testScaleSet = new azure.compute.ScaleSet("test", {
  *     location: "West US",
+ *     name: "mytestscaleset-1",
  *     networkProfiles: [{
  *         ipConfigurations: [{
  *             name: "TestIPConfiguration",
@@ -218,8 +233,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testImage = new azure.compute.Image("test", {});
+ * const testImage = new azure.compute.Image("test", {
+ *     name: "test",
+ * });
  * const testScaleSet = new azure.compute.ScaleSet("test", {
+ *     name: "test",
  *     storageProfileImageReference: {
  *         id: testImage.id,
  *     },

@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "localNetworkGWTest",
  * });
  * const home = new azure.network.LocalNetworkGateway("home", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     gatewayAddress: "12.13.14.15",
  *     location: test.location,
+ *     name: "backHome",
  *     resourceGroupName: test.name,
  * });
  * ```

@@ -17,19 +17,23 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "test",
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Dynamic",
  *     location: testResourceGroup.location,
+ *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: testResourceGroup.location,
+ *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.1.0/24",
+ *     name: "GatewaySubnet",
  *     resourceGroupName: testResourceGroup.name,
  *     virtualNetworkName: testVirtualNetwork.name,
  * });
@@ -43,6 +47,7 @@ import * as utilities from "../utilities";
  *         subnetId: testSubnet.id,
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "test",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Basic",
  *     type: "Vpn",

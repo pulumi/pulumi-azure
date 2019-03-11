@@ -15,10 +15,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
  * });
  * const testRouteTable = new azure.network.RouteTable("test", {
  *     disableBgpRoutePropagation: false,
  *     location: testResourceGroup.location,
+ *     name: "acceptanceTestSecurityGroup1",
  *     resourceGroupName: testResourceGroup.name,
  *     routes: [{
  *         addressPrefix: "10.1.0.0/16",

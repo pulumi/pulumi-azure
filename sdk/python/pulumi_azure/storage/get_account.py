@@ -8,11 +8,11 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetAccountResult(object):
+class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, location=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_connection_string=None, primary_file_endpoint=None, primary_location=None, primary_queue_endpoint=None, primary_table_endpoint=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_connection_string=None, secondary_location=None, secondary_queue_endpoint=None, secondary_table_endpoint=None, tags=None, id=None):
+    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, location=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, tags=None, id=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError('Expected argument access_tier to be a str')
         __self__.access_tier = access_tier
@@ -94,6 +94,12 @@ class GetAccountResult(object):
         """
         The endpoint URL for blob storage in the primary location.
         """
+        if primary_blob_host and not isinstance(primary_blob_host, str):
+            raise TypeError('Expected argument primary_blob_host to be a str')
+        __self__.primary_blob_host = primary_blob_host
+        """
+        The hostname with port if applicable for blob storage in the primary location.
+        """
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError('Expected argument primary_connection_string to be a str')
         __self__.primary_connection_string = primary_connection_string
@@ -105,6 +111,12 @@ class GetAccountResult(object):
         __self__.primary_file_endpoint = primary_file_endpoint
         """
         The endpoint URL for file storage in the primary location.
+        """
+        if primary_file_host and not isinstance(primary_file_host, str):
+            raise TypeError('Expected argument primary_file_host to be a str')
+        __self__.primary_file_host = primary_file_host
+        """
+        The hostname with port if applicable for file storage in the primary location.
         """
         if primary_location and not isinstance(primary_location, str):
             raise TypeError('Expected argument primary_location to be a str')
@@ -118,11 +130,23 @@ class GetAccountResult(object):
         """
         The endpoint URL for queue storage in the primary location.
         """
+        if primary_queue_host and not isinstance(primary_queue_host, str):
+            raise TypeError('Expected argument primary_queue_host to be a str')
+        __self__.primary_queue_host = primary_queue_host
+        """
+        The hostname with port if applicable for queue storage in the primary location.
+        """
         if primary_table_endpoint and not isinstance(primary_table_endpoint, str):
             raise TypeError('Expected argument primary_table_endpoint to be a str')
         __self__.primary_table_endpoint = primary_table_endpoint
         """
         The endpoint URL for table storage in the primary location.
+        """
+        if primary_table_host and not isinstance(primary_table_host, str):
+            raise TypeError('Expected argument primary_table_host to be a str')
+        __self__.primary_table_host = primary_table_host
+        """
+        The hostname with port if applicable for table storage in the primary location.
         """
         if secondary_access_key and not isinstance(secondary_access_key, str):
             raise TypeError('Expected argument secondary_access_key to be a str')
@@ -142,6 +166,12 @@ class GetAccountResult(object):
         """
         The endpoint URL for blob storage in the secondary location.
         """
+        if secondary_blob_host and not isinstance(secondary_blob_host, str):
+            raise TypeError('Expected argument secondary_blob_host to be a str')
+        __self__.secondary_blob_host = secondary_blob_host
+        """
+        The hostname with port if applicable for blob storage in the secondary location.
+        """
         if secondary_connection_string and not isinstance(secondary_connection_string, str):
             raise TypeError('Expected argument secondary_connection_string to be a str')
         __self__.secondary_connection_string = secondary_connection_string
@@ -160,11 +190,23 @@ class GetAccountResult(object):
         """
         The endpoint URL for queue storage in the secondary location.
         """
+        if secondary_queue_host and not isinstance(secondary_queue_host, str):
+            raise TypeError('Expected argument secondary_queue_host to be a str')
+        __self__.secondary_queue_host = secondary_queue_host
+        """
+        The hostname with port if applicable for queue storage in the secondary location.
+        """
         if secondary_table_endpoint and not isinstance(secondary_table_endpoint, str):
             raise TypeError('Expected argument secondary_table_endpoint to be a str')
         __self__.secondary_table_endpoint = secondary_table_endpoint
         """
         The endpoint URL for table storage in the secondary location.
+        """
+        if secondary_table_host and not isinstance(secondary_table_host, str):
+            raise TypeError('Expected argument secondary_table_host to be a str')
+        __self__.secondary_table_host = secondary_table_host
+        """
+        The hostname with port if applicable for table storage in the secondary location.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
@@ -179,7 +221,7 @@ class GetAccountResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_account(name=None, resource_group_name=None):
+async def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Storage Account.
     """
@@ -187,7 +229,7 @@ async def get_account(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:storage/getAccount:getAccount', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:storage/getAccount:getAccount', __args__, opts=opts)
 
     return GetAccountResult(
         access_tier=__ret__.get('accessTier'),
@@ -203,17 +245,24 @@ async def get_account(name=None, resource_group_name=None):
         primary_access_key=__ret__.get('primaryAccessKey'),
         primary_blob_connection_string=__ret__.get('primaryBlobConnectionString'),
         primary_blob_endpoint=__ret__.get('primaryBlobEndpoint'),
+        primary_blob_host=__ret__.get('primaryBlobHost'),
         primary_connection_string=__ret__.get('primaryConnectionString'),
         primary_file_endpoint=__ret__.get('primaryFileEndpoint'),
+        primary_file_host=__ret__.get('primaryFileHost'),
         primary_location=__ret__.get('primaryLocation'),
         primary_queue_endpoint=__ret__.get('primaryQueueEndpoint'),
+        primary_queue_host=__ret__.get('primaryQueueHost'),
         primary_table_endpoint=__ret__.get('primaryTableEndpoint'),
+        primary_table_host=__ret__.get('primaryTableHost'),
         secondary_access_key=__ret__.get('secondaryAccessKey'),
         secondary_blob_connection_string=__ret__.get('secondaryBlobConnectionString'),
         secondary_blob_endpoint=__ret__.get('secondaryBlobEndpoint'),
+        secondary_blob_host=__ret__.get('secondaryBlobHost'),
         secondary_connection_string=__ret__.get('secondaryConnectionString'),
         secondary_location=__ret__.get('secondaryLocation'),
         secondary_queue_endpoint=__ret__.get('secondaryQueueEndpoint'),
+        secondary_queue_host=__ret__.get('secondaryQueueHost'),
         secondary_table_endpoint=__ret__.get('secondaryTableEndpoint'),
+        secondary_table_host=__ret__.get('secondaryTableHost'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

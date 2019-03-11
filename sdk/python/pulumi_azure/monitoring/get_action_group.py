@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetActionGroupResult(object):
+class GetActionGroupResult:
     """
     A collection of values returned by getActionGroup.
     """
@@ -50,7 +50,7 @@ class GetActionGroupResult(object):
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_action_group(name=None, resource_group_name=None):
+async def get_action_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access the properties of an Action Group.
     """
@@ -58,7 +58,7 @@ async def get_action_group(name=None, resource_group_name=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:monitoring/getActionGroup:getActionGroup', __args__)
+    __ret__ = await pulumi.runtime.invoke('azure:monitoring/getActionGroup:getActionGroup', __args__, opts=opts)
 
     return GetActionGroupResult(
         email_receivers=__ret__.get('emailReceivers'),

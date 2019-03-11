@@ -61,7 +61,6 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
-        :param pulumi.Input[dict] properties
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.

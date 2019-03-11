@@ -9,24 +9,21 @@ import * as utilities from "../utilities";
  * 
  * > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
  * 
- * ## Example Usage (.net 4.x)
+ * ## Example Usage
+ * 
+ * This example provisions a Windows App Service. Other examples of the `azurerm_app_service` resource can be found in [the `./examples/app-service` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/app-service)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
- * });
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         azi_id: 1,
- *     },
+ *     name: "example-resources",
  * });
  * const testPlan = new azure.appservice.Plan("test", {
  *     location: testResourceGroup.location,
+ *     name: "example-appserviceplan",
  *     resourceGroupName: testResourceGroup.name,
  *     sku: {
  *         size: "S1",
@@ -44,46 +41,10 @@ import * as utilities from "../utilities";
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
  *     location: testResourceGroup.location,
+ *     name: "example-app-service",
  *     resourceGroupName: testResourceGroup.name,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
- *         scmType: "LocalGit",
- *     },
- * });
- * ```
- * 
- * ## Example Usage (Java 1.8)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West Europe",
- * });
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         azi_id: 1,
- *     },
- * });
- * const testPlan = new azure.appservice.Plan("test", {
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         size: "S1",
- *         tier: "Standard",
- *     },
- * });
- * const testAppService = new azure.appservice.AppService("test", {
- *     appServicePlanId: testPlan.id,
- *     location: testResourceGroup.location,
- *     resourceGroupName: testResourceGroup.name,
- *     siteConfig: {
- *         javaContainer: "JETTY",
- *         javaContainerVersion: "9.3",
- *         javaVersion: "1.8",
  *         scmType: "LocalGit",
  *     },
  * });
@@ -119,7 +80,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly clientCertEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * An `connection_string` block as defined below.
+     * One or more `connection_string` blocks as defined below.
      */
     public readonly connectionStrings: pulumi.Output<{ name: string, type: string, value: string }[]>;
     /**
@@ -143,7 +104,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -260,7 +221,7 @@ export interface AppServiceState {
      */
     readonly clientCertEnabled?: pulumi.Input<boolean>;
     /**
-     * An `connection_string` block as defined below.
+     * One or more `connection_string` blocks as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
@@ -284,7 +245,7 @@ export interface AppServiceState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -338,7 +299,7 @@ export interface AppServiceArgs {
      */
     readonly clientCertEnabled?: pulumi.Input<boolean>;
     /**
-     * An `connection_string` block as defined below.
+     * One or more `connection_string` blocks as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
@@ -358,7 +319,7 @@ export interface AppServiceArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * The name of the Connection String.
+     * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
     /**

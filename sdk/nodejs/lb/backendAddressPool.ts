@@ -17,10 +17,12 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "LoadBalancerRG",
  * });
  * const testPublicIp = new azure.network.PublicIp("test", {
  *     allocationMethod: "Static",
  *     location: "West US",
+ *     name: "PublicIPForLB",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testLoadBalancer = new azure.lb.LoadBalancer("test", {
@@ -29,10 +31,12 @@ import * as utilities from "../utilities";
  *         publicIpAddressId: testPublicIp.id,
  *     }],
  *     location: "West US",
+ *     name: "TestLoadBalancer",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testBackendAddressPool = new azure.lb.BackendAddressPool("test", {
  *     loadbalancerId: testLoadBalancer.id,
+ *     name: "BackEndAddressPool",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
+ *     name: "monitoring-resources",
  * });
  * const testActionGroup = new azure.monitoring.ActionGroup("test", {
  *     emailReceivers: [
@@ -27,6 +28,7 @@ import * as utilities from "../utilities";
  *             name: "sendtodevops",
  *         },
  *     ],
+ *     name: "CriticalAlertsAction",
  *     resourceGroupName: testResourceGroup.name,
  *     shortName: "p0action",
  *     smsReceivers: [{

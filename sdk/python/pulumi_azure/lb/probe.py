@@ -53,7 +53,6 @@ class Probe(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] interval_in_seconds: The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
         :param pulumi.Input[str] loadbalancer_id: The ID of the LoadBalancer in which to create the NAT Rule.
-        :param pulumi.Input[str] location
         :param pulumi.Input[str] name: Specifies the name of the Probe.
         :param pulumi.Input[int] number_of_probes: The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
         :param pulumi.Input[int] port: Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
