@@ -1,4 +1,12 @@
+## 0.17.3 (Unreleased)
+
+## Improvements
+
+- Fix a bug where setting a property value back to the default results in no change
+
 ## 0.17.2 (Released March 11th, 2019)
+
+## Improvements
 
 - Updated to v1.23.0 of the AzureRM Terraform Provider.
 
