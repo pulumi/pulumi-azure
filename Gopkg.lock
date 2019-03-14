@@ -116,12 +116,12 @@
   source = "https://github.com/ijc25/Gotty"
 
 [[projects]]
-  digest = "1:9a3c631555e0351fdc4e696577bb63afd90c399d782a8462dba9d100d7021db3"
+  digest = "1:b73fe282e350b3ef2c71d8ff08e929e0b9670b1bb5b7fde1d3c1b4cd6e6dc8b1"
   name = "github.com/Sirupsen/logrus"
   packages = ["."]
   pruneopts = ""
-  revision = "e1e72e9de974bd926e5c56f83753fba2df402ce5"
-  version = "v1.3.0"
+  revision = "dae0fa8d5b0c810a8ab733fbd5510c7cae84eca4"
+  version = "v1.4.0"
 
 [[projects]]
   digest = "1:61c24bdb660a326b420d5422c4fd124041b4aac88e212c6ac75f3a57b0b9cada"
@@ -153,7 +153,7 @@
   revision = "7fddfc383310abc091d79a27f116d30cf0424032"
 
 [[projects]]
-  digest = "1:718dd81b0dcfc49323360bcc7b4f940c9d5f27106d17eddb25a714e9b2563d24"
+  digest = "1:c8ae3d244ffa2cfa3f75edb324d7babfbcaed808d4ff0659289860ad5db6219d"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -195,8 +195,8 @@
     "service/sts",
   ]
   pruneopts = ""
-  revision = "8b705a6dec722bcda3a9309c0924d4eca24f7c72"
-  version = "v1.17.14"
+  revision = "80f3b4ca3bb7db4e4f6084e92073cb91534d5d1a"
+  version = "v1.18.1"
 
 [[projects]]
   digest = "1:98e84060475ed245c3b355042afd43a74aa7d32efe50658f4f995977916f9fc3"
@@ -722,7 +722,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:9758be02eb76a0099604588e147573b1236e01659681c787da5a3f5bec1d1ae5"
+  digest = "1:78e17c4c52074544a82b36ca26efae8080126ce126e2fda1de8d0a9ad21798fe"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -769,18 +769,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "680f7bf84e9e0343a579ed4ddf0055695dfda785"
+  revision = "9e48fe3126a2ceab07be8d8edac00c452504b258"
 
 [[projects]]
   branch = "master"
-  digest = "1:46841b839dc0f4b17ba41a4362c243c468c3dc080c4d62a9db2777806a5f8041"
+  digest = "1:ecabe8ffdbc5ae1572bf70a3ae16dc100bb1cef038faba9f1374cf792df3ea5d"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "5eeb7b8513a3639e061c76b285feaa3fb1289dcc"
+  revision = "c9dff1e9e36e782314825e04152619579148aa90"
 
 [[projects]]
   branch = "master"
@@ -975,7 +975,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:f1282b7b8f47533e585be65217b076a5fa31c8b78aa2a3bd353e2bf5dcd8ce2e"
+  digest = "1:ab3e9a81a5ec54c5d1ed41d0d6898ba88c6799fa401b784b06bdee8e432d872b"
   name = "golang.org/x/crypto"
   packages = [
     "bcrypt",
@@ -1002,7 +1002,7 @@
     "ssh/terminal",
   ]
   pruneopts = ""
-  revision = "c2843e01d9a2bc60bb26ad24e09734fdc2d9ec58"
+  revision = "a1f597ede03a7bef967a422b5b3a5bd08805a01e"
 
 [[projects]]
   digest = "1:3b4532388bb9dfcc98530527160974cf5ec03120002887777516a98092725ba0"
