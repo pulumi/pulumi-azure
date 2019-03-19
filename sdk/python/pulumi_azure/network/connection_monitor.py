@@ -17,7 +17,7 @@ class ConnectionMonitor(pulumi.CustomResource):
     """
     A `destination` block as defined below.
     """
-    interval_in_seconds: pulumi.Output[int]
+    interval_in_seconds: pulumi.Output[float]
     """
     Monitoring interval in seconds. Defaults to `60`.
     """
@@ -53,7 +53,7 @@ class ConnectionMonitor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] destination: A `destination` block as defined below.
-        :param pulumi.Input[int] interval_in_seconds: Monitoring interval in seconds. Defaults to `60`.
+        :param pulumi.Input[float] interval_in_seconds: Monitoring interval in seconds. Defaults to `60`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Connection Monitor. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher. Changing this forces a new resource to be created.

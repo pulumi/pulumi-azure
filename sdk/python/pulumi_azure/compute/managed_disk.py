@@ -13,7 +13,7 @@ class ManagedDisk(pulumi.CustomResource):
     """
     The method to use when creating the managed disk. Possible values include:
     """
-    disk_size_gb: pulumi.Output[int]
+    disk_size_gb: pulumi.Output[float]
     """
     Specifies the size of the managed disk to create in gigabytes.
     If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
@@ -74,7 +74,7 @@ class ManagedDisk(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: The method to use when creating the managed disk. Possible values include:
-        :param pulumi.Input[int] disk_size_gb: Specifies the size of the managed disk to create in gigabytes.
+        :param pulumi.Input[float] disk_size_gb: Specifies the size of the managed disk to create in gigabytes.
                If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
         :param pulumi.Input[dict] encryption_settings: an `encryption_settings` block as defined below.
         :param pulumi.Input[str] image_reference_id: ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.

@@ -28,8 +28,8 @@ class GetPoolResult:
         """
         A `fixed_scale` block that describes the scale settings when using fixed scale.
         """
-        if max_tasks_per_node and not isinstance(max_tasks_per_node, int):
-            raise TypeError('Expected argument max_tasks_per_node to be a int')
+        if max_tasks_per_node and not isinstance(max_tasks_per_node, float):
+            raise TypeError('Expected argument max_tasks_per_node to be a float')
         __self__.max_tasks_per_node = max_tasks_per_node
         """
         The maximum number of tasks that can run concurrently on a single compute node in the pool.

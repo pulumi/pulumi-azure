@@ -21,11 +21,11 @@ class AvailabilitySet(pulumi.CustomResource):
     """
     Specifies the name of the availability set. Changing this forces a new resource to be created.
     """
-    platform_fault_domain_count: pulumi.Output[int]
+    platform_fault_domain_count: pulumi.Output[float]
     """
     Specifies the number of fault domains that are used. Defaults to 3.
     """
-    platform_update_domain_count: pulumi.Output[int]
+    platform_update_domain_count: pulumi.Output[float]
     """
     Specifies the number of update domains that are used. Defaults to 5.
     """
@@ -46,8 +46,8 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] managed: Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
         :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to 3.
-        :param pulumi.Input[int] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to 5.
+        :param pulumi.Input[float] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to 3.
+        :param pulumi.Input[float] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to 5.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """

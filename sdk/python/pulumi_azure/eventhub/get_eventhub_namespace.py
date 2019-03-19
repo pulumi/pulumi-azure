@@ -19,8 +19,8 @@ class GetEventhubNamespaceResult:
         """
         Is Auto Inflate enabled for the EventHub Namespace?
         """
-        if capacity and not isinstance(capacity, int):
-            raise TypeError('Expected argument capacity to be a int')
+        if capacity and not isinstance(capacity, float):
+            raise TypeError('Expected argument capacity to be a float')
         __self__.capacity = capacity
         """
         The Capacity / Throughput Units for a `Standard` SKU namespace.
@@ -60,8 +60,8 @@ class GetEventhubNamespaceResult:
         """
         The Azure location where the EventHub Namespace exists
         """
-        if maximum_throughput_units and not isinstance(maximum_throughput_units, int):
-            raise TypeError('Expected argument maximum_throughput_units to be a int')
+        if maximum_throughput_units and not isinstance(maximum_throughput_units, float):
+            raise TypeError('Expected argument maximum_throughput_units to be a float')
         __self__.maximum_throughput_units = maximum_throughput_units
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled.

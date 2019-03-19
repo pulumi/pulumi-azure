@@ -52,11 +52,11 @@ class Queue(pulumi.CustomResource):
     """
     The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
     """
-    max_delivery_count: pulumi.Output[int]
+    max_delivery_count: pulumi.Output[float]
     """
     Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
     """
-    max_size_in_megabytes: pulumi.Output[int]
+    max_size_in_megabytes: pulumi.Output[float]
     """
     Integer value which controls the size of
     memory allocated for the queue. For supported values see the "Queue/topic size"
@@ -115,8 +115,8 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_duration: The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
-        :param pulumi.Input[int] max_delivery_count: Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
+        :param pulumi.Input[float] max_delivery_count: Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
+        :param pulumi.Input[float] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the queue. For supported values see the "Queue/topic size"
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Queue resource. Changing this forces a

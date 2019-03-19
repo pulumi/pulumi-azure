@@ -25,7 +25,7 @@ class AaaaRecord(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    ttl: pulumi.Output[int]
+    ttl: pulumi.Output[float]
     zone_name: pulumi.Output[str]
     """
     Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.

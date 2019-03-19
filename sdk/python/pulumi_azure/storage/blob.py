@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Blob(pulumi.CustomResource):
-    attempts: pulumi.Output[int]
+    attempts: pulumi.Output[float]
     """
     The number of attempts to make per page or block when uploading. Defaults to `1`.
     """
@@ -21,7 +21,7 @@ class Blob(pulumi.CustomResource):
     """
     The name of the storage blob. Must be unique within the storage container the blob is located.
     """
-    parallelism: pulumi.Output[int]
+    parallelism: pulumi.Output[float]
     """
     The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
     """
@@ -30,7 +30,7 @@ class Blob(pulumi.CustomResource):
     The name of the resource group in which to
     create the storage container. Changing this forces a new resource to be created.
     """
-    size: pulumi.Output[int]
+    size: pulumi.Output[float]
     """
     Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
     """
@@ -67,13 +67,13 @@ class Blob(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] attempts: The number of attempts to make per page or block when uploading. Defaults to `1`.
+        :param pulumi.Input[float] attempts: The number of attempts to make per page or block when uploading. Defaults to `1`.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
-        :param pulumi.Input[int] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
+        :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the storage container. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
+        :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
         :param pulumi.Input[str] source: An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
                for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.

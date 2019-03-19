@@ -9,12 +9,12 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class ZipBlob(pulumi.CustomResource):
-    attempts: pulumi.Output[int]
+    attempts: pulumi.Output[float]
     content_type: pulumi.Output[str]
     name: pulumi.Output[str]
-    parallelism: pulumi.Output[int]
+    parallelism: pulumi.Output[float]
     resource_group_name: pulumi.Output[str]
-    size: pulumi.Output[int]
+    size: pulumi.Output[float]
     content: pulumi.Output[pulumi.Archive]
     source_uri: pulumi.Output[str]
     storage_account_name: pulumi.Output[str]

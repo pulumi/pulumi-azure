@@ -43,8 +43,8 @@ class GetProductResult:
         """
         Is a Subscription required to access API's included in this Product?
         """
-        if subscriptions_limit and not isinstance(subscriptions_limit, int):
-            raise TypeError('Expected argument subscriptions_limit to be a int')
+        if subscriptions_limit and not isinstance(subscriptions_limit, float):
+            raise TypeError('Expected argument subscriptions_limit to be a float')
         __self__.subscriptions_limit = subscriptions_limit
         """
         The number of subscriptions a user can have to this Product at the same time.

@@ -13,7 +13,7 @@ class Snapshot(pulumi.CustomResource):
     """
     Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
     """
-    disk_size_gb: pulumi.Output[int]
+    disk_size_gb: pulumi.Output[float]
     """
     The size of the Snapshotted Disk in GB.
     """
@@ -53,7 +53,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
+        :param pulumi.Input[float] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.

@@ -13,7 +13,7 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     Is Auto Inflate enabled for the EventHub Namespace?
     """
-    capacity: pulumi.Output[int]
+    capacity: pulumi.Output[float]
     """
     Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
     """
@@ -43,7 +43,7 @@ class EventHubNamespace(pulumi.CustomResource):
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
-    maximum_throughput_units: pulumi.Output[int]
+    maximum_throughput_units: pulumi.Output[float]
     """
     Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
     """
@@ -70,10 +70,10 @@ class EventHubNamespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
-        :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
+        :param pulumi.Input[float] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
         :param pulumi.Input[bool] kafka_enabled: Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
+        :param pulumi.Input[float] maximum_throughput_units: Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic` and `Standard`.

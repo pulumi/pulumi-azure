@@ -17,7 +17,7 @@ class DataDiskAttachment(pulumi.CustomResource):
     """
     The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
     """
-    lun: pulumi.Output[int]
+    lun: pulumi.Output[float]
     """
     The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
     """
@@ -45,7 +45,7 @@ class DataDiskAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] caching: Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] create_option: The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] lun: The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.

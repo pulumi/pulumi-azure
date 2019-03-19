@@ -21,7 +21,7 @@ class PublicIp(pulumi.CustomResource):
     """
     Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone
     """
-    idle_timeout_in_minutes: pulumi.Output[int]
+    idle_timeout_in_minutes: pulumi.Output[float]
     """
     Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
     """
@@ -72,7 +72,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allocation_method: Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
         :param pulumi.Input[str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
+        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
         :param pulumi.Input[str] ip_version: The IP Version to use, IPv6 or IPv4.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a

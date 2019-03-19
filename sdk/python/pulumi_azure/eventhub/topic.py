@@ -47,7 +47,7 @@ class Topic(pulumi.CustomResource):
     Specifies the supported Azure location where the resource exists.
     Changing this forces a new resource to be created.
     """
-    max_size_in_megabytes: pulumi.Output[int]
+    max_size_in_megabytes: pulumi.Output[float]
     """
     Integer value which controls the size of
     memory allocated for the topic. For supported values see the "Queue/topic size"
@@ -107,7 +107,7 @@ class Topic(pulumi.CustomResource):
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_size_in_megabytes: Integer value which controls the size of
+        :param pulumi.Input[float] max_size_in_megabytes: Integer value which controls the size of
                memory allocated for the topic. For supported values see the "Queue/topic size"
                section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic resource. Changing this forces a

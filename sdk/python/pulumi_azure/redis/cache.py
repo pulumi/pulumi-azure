@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Cache(pulumi.CustomResource):
-    capacity: pulumi.Output[int]
+    capacity: pulumi.Output[float]
     """
     The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
     """
@@ -38,7 +38,7 @@ class Cache(pulumi.CustomResource):
     """
     A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     The non-SSL Port of the Redis Instance
     """
@@ -63,7 +63,7 @@ class Cache(pulumi.CustomResource):
     """
     The Secondary Access Key for the Redis Instance
     """
-    shard_count: pulumi.Output[int]
+    shard_count: pulumi.Output[float]
     """
     *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
     """
@@ -71,7 +71,7 @@ class Cache(pulumi.CustomResource):
     """
     The SKU of Redis to use - can be either Basic, Standard or Premium.
     """
-    ssl_port: pulumi.Output[int]
+    ssl_port: pulumi.Output[float]
     """
     The SSL Port of the Redis Instance
     """
@@ -116,7 +116,7 @@ class Cache(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6789) - disabled by default.
         :param pulumi.Input[str] family: The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
         :param pulumi.Input[str] location: The location of the resource group.
@@ -127,7 +127,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[dict] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
-        :param pulumi.Input[int] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
+        :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
         :param pulumi.Input[str] sku_name: The SKU of Redis to use - can be either Basic, Standard or Premium.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.

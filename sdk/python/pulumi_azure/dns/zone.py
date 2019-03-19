@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Zone(pulumi.CustomResource):
-    max_number_of_record_sets: pulumi.Output[int]
+    max_number_of_record_sets: pulumi.Output[float]
     """
     (Optional) Maximum number of Records in the zone. Defaults to `1000`.
     """
@@ -21,7 +21,7 @@ class Zone(pulumi.CustomResource):
     """
     (Optional) A list of values that make up the NS record for the zone.
     """
-    number_of_record_sets: pulumi.Output[int]
+    number_of_record_sets: pulumi.Output[float]
     """
     (Optional) The number of records already in the zone.
     """

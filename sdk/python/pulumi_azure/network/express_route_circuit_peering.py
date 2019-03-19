@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
-    azure_asn: pulumi.Output[int]
+    azure_asn: pulumi.Output[float]
     """
     The ASN used by Azure.
     """
@@ -21,7 +21,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     """
     A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
     """
-    peer_asn: pulumi.Output[int]
+    peer_asn: pulumi.Output[float]
     """
     The Either a 16-bit or a 32-bit ASN. Can either be public or private..
     """
@@ -54,7 +54,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     """
     The shared key. Can be a maximum of 25 characters.
     """
-    vlan_id: pulumi.Output[int]
+    vlan_id: pulumi.Output[float]
     """
     A valid VLAN ID to establish this peering on.
     """
@@ -66,14 +66,14 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering.
         :param pulumi.Input[dict] microsoft_peering_config: A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
-        :param pulumi.Input[int] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private..
+        :param pulumi.Input[float] peer_asn: The Either a 16-bit or a 32-bit ASN. Can either be public or private..
         :param pulumi.Input[str] peering_type: The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_peer_address_prefix: A `/30` subnet for the primary link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Express Route Circuit Peering. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_peer_address_prefix: A `/30` subnet for the secondary link.
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
-        :param pulumi.Input[int] vlan_id: A valid VLAN ID to establish this peering on.
+        :param pulumi.Input[float] vlan_id: A valid VLAN ID to establish this peering on.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
