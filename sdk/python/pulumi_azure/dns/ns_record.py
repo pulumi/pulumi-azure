@@ -29,7 +29,7 @@ class NsRecord(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    ttl: pulumi.Output[int]
+    ttl: pulumi.Output[float]
     """
     The Time To Live (TTL) of the DNS record in seconds.
     """
@@ -48,7 +48,7 @@ class NsRecord(pulumi.CustomResource):
         :param pulumi.Input[list] records: A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
+        :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if __name__ is not None:

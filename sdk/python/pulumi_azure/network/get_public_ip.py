@@ -28,8 +28,8 @@ class GetPublicIPResult:
         """
         Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         """
-        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, int):
-            raise TypeError('Expected argument idle_timeout_in_minutes to be a int')
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
+            raise TypeError('Expected argument idle_timeout_in_minutes to be a float')
         __self__.idle_timeout_in_minutes = idle_timeout_in_minutes
         """
         Specifies the timeout for the TCP idle connection.

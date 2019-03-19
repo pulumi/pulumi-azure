@@ -41,7 +41,7 @@ class Product(pulumi.CustomResource):
     """
     Is a Subscription required to access API's included in this Product?
     """
-    subscriptions_limit: pulumi.Output[int]
+    subscriptions_limit: pulumi.Output[float]
     """
     The number of subscriptions a user can have to this Product at the same time.
     """
@@ -63,7 +63,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] published: Is this Product Published?
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
-        :param pulumi.Input[int] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
+        :param pulumi.Input[float] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
         """
         if __name__ is not None:

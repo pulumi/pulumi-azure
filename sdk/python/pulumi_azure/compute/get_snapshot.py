@@ -16,8 +16,8 @@ class GetSnapshotResult:
         if creation_option and not isinstance(creation_option, str):
             raise TypeError('Expected argument creation_option to be a str')
         __self__.creation_option = creation_option
-        if disk_size_gb and not isinstance(disk_size_gb, int):
-            raise TypeError('Expected argument disk_size_gb to be a int')
+        if disk_size_gb and not isinstance(disk_size_gb, float):
+            raise TypeError('Expected argument disk_size_gb to be a float')
         __self__.disk_size_gb = disk_size_gb
         """
         The size of the Snapshotted Disk in GB.

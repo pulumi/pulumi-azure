@@ -13,8 +13,8 @@ class GetServiceBusNamespaceResult:
     A collection of values returned by getServiceBusNamespace.
     """
     def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, sku=None, tags=None, id=None):
-        if capacity and not isinstance(capacity, int):
-            raise TypeError('Expected argument capacity to be a int')
+        if capacity and not isinstance(capacity, float):
+            raise TypeError('Expected argument capacity to be a float')
         __self__.capacity = capacity
         """
         The capacity of the ServiceBus Namespace.

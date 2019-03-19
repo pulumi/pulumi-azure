@@ -25,7 +25,7 @@ class Pool(pulumi.CustomResource):
     """
     A `fixed_scale` block that describes the scale settings when using fixed scale.
     """
-    max_tasks_per_node: pulumi.Output[int]
+    max_tasks_per_node: pulumi.Output[float]
     """
     Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
     """
@@ -64,7 +64,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[dict] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input[dict] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
-        :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the Sku of the node agents that will be created in the Batch pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.

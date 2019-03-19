@@ -25,8 +25,8 @@ class GetKeyResult:
         """
         A list of JSON web key operations assigned to this Key Vault Key
         """
-        if key_size and not isinstance(key_size, int):
-            raise TypeError('Expected argument key_size to be a int')
+        if key_size and not isinstance(key_size, float):
+            raise TypeError('Expected argument key_size to be a float')
         __self__.key_size = key_size
         """
         Specifies the Size of this Key Vault Key.

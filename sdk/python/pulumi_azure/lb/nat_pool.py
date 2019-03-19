@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class NatPool(pulumi.CustomResource):
-    backend_port: pulumi.Output[int]
+    backend_port: pulumi.Output[float]
     """
     The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
     """
@@ -18,11 +18,11 @@ class NatPool(pulumi.CustomResource):
     """
     The name of the frontend IP configuration exposing this rule.
     """
-    frontend_port_end: pulumi.Output[int]
+    frontend_port_end: pulumi.Output[float]
     """
     The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
     """
-    frontend_port_start: pulumi.Output[int]
+    frontend_port_start: pulumi.Output[float]
     """
     The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
     """
@@ -51,10 +51,10 @@ class NatPool(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
+        :param pulumi.Input[float] backend_port: The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration exposing this rule.
-        :param pulumi.Input[int] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
-        :param pulumi.Input[int] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        :param pulumi.Input[float] frontend_port_end: The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
+        :param pulumi.Input[float] frontend_port_start: The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the NAT pool.
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.

@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class OutboundRule(pulumi.CustomResource):
-    allocated_outbound_ports: pulumi.Output[int]
+    allocated_outbound_ports: pulumi.Output[float]
     """
     The number of outbound ports to be used for NAT.
     """
@@ -25,7 +25,7 @@ class OutboundRule(pulumi.CustomResource):
     """
     One or more `frontend_ip_configuration` blocks as defined below.
     """
-    idle_timeout_in_minutes: pulumi.Output[int]
+    idle_timeout_in_minutes: pulumi.Output[float]
     """
     The timeout for the TCP idle connection
     """
@@ -53,11 +53,11 @@ class OutboundRule(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] allocated_outbound_ports: The number of outbound ports to be used for NAT.
+        :param pulumi.Input[float] allocated_outbound_ports: The number of outbound ports to be used for NAT.
         :param pulumi.Input[str] backend_address_pool_id: The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
         :param pulumi.Input[bool] enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
-        :param pulumi.Input[int] idle_timeout_in_minutes: The timeout for the TCP idle connection
+        :param pulumi.Input[float] idle_timeout_in_minutes: The timeout for the TCP idle connection
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.

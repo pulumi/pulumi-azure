@@ -17,7 +17,7 @@ class Service(pulumi.CustomResource):
     """
     The name of the Search Service. Changing this forces a new resource to be created.
     """
-    partition_count: pulumi.Output[int]
+    partition_count: pulumi.Output[float]
     """
     Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
     """
@@ -25,7 +25,7 @@ class Service(pulumi.CustomResource):
     """
     The Search Service Administration primary key.
     """
-    replica_count: pulumi.Output[int]
+    replica_count: pulumi.Output[float]
     """
     Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
     """
@@ -53,8 +53,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Search Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_count: Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] replica_count: Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] partition_count: Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] replica_count: Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.

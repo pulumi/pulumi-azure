@@ -48,7 +48,7 @@ class Subscription(pulumi.CustomResource):
     The lock duration for the subscription, maximum
     supported value is 5 minutes. Defaults to 1 minute.
     """
-    max_delivery_count: pulumi.Output[int]
+    max_delivery_count: pulumi.Output[float]
     """
     The maximum number of deliveries.
     """
@@ -101,7 +101,7 @@ class Subscription(pulumi.CustomResource):
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] lock_duration: The lock duration for the subscription, maximum
                supported value is 5 minutes. Defaults to 1 minute.
-        :param pulumi.Input[int] max_delivery_count: The maximum number of deliveries.
+        :param pulumi.Input[float] max_delivery_count: The maximum number of deliveries.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription resource.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the ServiceBus Namespace to create

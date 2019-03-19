@@ -13,7 +13,7 @@ class Share(pulumi.CustomResource):
     """
     The name of the share. Must be unique within the storage account where the share is located.
     """
-    quota: pulumi.Output[int]
+    quota: pulumi.Output[float]
     """
     The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
     """
@@ -38,7 +38,7 @@ class Share(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
-        :param pulumi.Input[int] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
+        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.

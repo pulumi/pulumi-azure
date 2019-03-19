@@ -33,7 +33,7 @@ class Service(pulumi.CustomResource):
     """
     The primary connection string for the SignalR service.
     """
-    public_port: pulumi.Output[int]
+    public_port: pulumi.Output[float]
     """
     The publicly accessible port of the SignalR service which is designed for browser/client use.
     """
@@ -49,7 +49,7 @@ class Service(pulumi.CustomResource):
     """
     The secondary connection string for the SignalR service.
     """
-    server_port: pulumi.Output[int]
+    server_port: pulumi.Output[float]
     """
     The publicly accessible port of the SignalR service which is designed for customer server side use.
     """

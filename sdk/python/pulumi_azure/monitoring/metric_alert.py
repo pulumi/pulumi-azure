@@ -45,7 +45,7 @@ class MetricAlert(pulumi.CustomResource):
     """
     The resource ID at which the metric criteria should be applied.
     """
-    severity: pulumi.Output[int]
+    severity: pulumi.Output[float]
     """
     The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
     """
@@ -72,7 +72,7 @@ class MetricAlert(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Metric Alert. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance.
         :param pulumi.Input[str] scopes: The resource ID at which the metric criteria should be applied.
-        :param pulumi.Input[int] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
+        :param pulumi.Input[float] severity: The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] window_size: The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
         """

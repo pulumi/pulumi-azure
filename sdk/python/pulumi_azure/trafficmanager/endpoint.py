@@ -27,7 +27,7 @@ class Endpoint(pulumi.CustomResource):
     """
     A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
     """
-    min_child_endpoints: pulumi.Output[int]
+    min_child_endpoints: pulumi.Output[float]
     """
     This argument specifies the minimum number
     of endpoints that must be ‘online’ in the child profile in order for the
@@ -40,7 +40,7 @@ class Endpoint(pulumi.CustomResource):
     The name of the Traffic Manager endpoint. Changing this forces a
     new resource to be created.
     """
-    priority: pulumi.Output[int]
+    priority: pulumi.Output[float]
     """
     Specifies the priority of this Endpoint, this must be
     specified for Profiles using the `Priority` traffic routing method. Supports
@@ -76,7 +76,7 @@ class Endpoint(pulumi.CustomResource):
     - `externalEndpoints`
     - `nestedEndpoints`
     """
-    weight: pulumi.Output[int]
+    weight: pulumi.Output[float]
     """
     Specifies how much traffic should be distributed to this
     endpoint, this must be specified for Profiles using the  `Weighted` traffic
@@ -96,14 +96,14 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_status: The status of the Endpoint, can be set to
                either `Enabled` or `Disabled`. Defaults to `Enabled`.
         :param pulumi.Input[list] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
-        :param pulumi.Input[int] min_child_endpoints: This argument specifies the minimum number
+        :param pulumi.Input[float] min_child_endpoints: This argument specifies the minimum number
                of endpoints that must be ‘online’ in the child profile in order for the
                parent profile to direct traffic to any of the endpoints in that child
                profile. This argument only applies to Endpoints of type `nestedEndpoints`
                and defaults to `1`.
         :param pulumi.Input[str] name: The name of the Traffic Manager endpoint. Changing this forces a
                new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of this Endpoint, this must be
+        :param pulumi.Input[float] priority: Specifies the priority of this Endpoint, this must be
                specified for Profiles using the `Priority` traffic routing method. Supports
                values between 1 and 1000, with no Endpoints sharing the same value. If
                omitted the value will be computed in order of creation.
@@ -121,7 +121,7 @@ class Endpoint(pulumi.CustomResource):
                - `azureEndpoints`
                - `externalEndpoints`
                - `nestedEndpoints`
-        :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this
+        :param pulumi.Input[float] weight: Specifies how much traffic should be distributed to this
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
         """

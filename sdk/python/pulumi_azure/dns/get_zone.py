@@ -13,8 +13,8 @@ class GetZoneResult:
     A collection of values returned by getZone.
     """
     def __init__(__self__, max_number_of_record_sets=None, name_servers=None, number_of_record_sets=None, registration_virtual_network_ids=None, resolution_virtual_network_ids=None, resource_group_name=None, tags=None, zone_type=None, id=None):
-        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, int):
-            raise TypeError('Expected argument max_number_of_record_sets to be a int')
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
+            raise TypeError('Expected argument max_number_of_record_sets to be a float')
         __self__.max_number_of_record_sets = max_number_of_record_sets
         """
         Maximum number of Records in the zone.
@@ -25,8 +25,8 @@ class GetZoneResult:
         """
         A list of values that make up the NS record for the zone.
         """
-        if number_of_record_sets and not isinstance(number_of_record_sets, int):
-            raise TypeError('Expected argument number_of_record_sets to be a int')
+        if number_of_record_sets and not isinstance(number_of_record_sets, float):
+            raise TypeError('Expected argument number_of_record_sets to be a float')
         __self__.number_of_record_sets = number_of_record_sets
         """
         The number of records already in the zone.

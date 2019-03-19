@@ -25,8 +25,8 @@ class GetAppServicePlanResult:
         """
         The Azure location where the App Service Plan exists
         """
-        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, int):
-            raise TypeError('Expected argument maximum_number_of_workers to be a int')
+        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
+            raise TypeError('Expected argument maximum_number_of_workers to be a float')
         __self__.maximum_number_of_workers = maximum_number_of_workers
         """
         Maximum number of instances that can be assigned to this App Service plan.

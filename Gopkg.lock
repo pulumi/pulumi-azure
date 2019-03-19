@@ -153,7 +153,7 @@
   revision = "7fddfc383310abc091d79a27f116d30cf0424032"
 
 [[projects]]
-  digest = "1:c8ae3d244ffa2cfa3f75edb324d7babfbcaed808d4ff0659289860ad5db6219d"
+  digest = "1:ebb59d601e14b40b1ad9fc67f8732df91734335a4e5c4d231f7b7134070b1433"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -195,8 +195,8 @@
     "service/sts",
   ]
   pruneopts = ""
-  revision = "80f3b4ca3bb7db4e4f6084e92073cb91534d5d1a"
-  version = "v1.18.1"
+  revision = "f9b35e02297c8fcca7a55dd30ed8d4e9dc64f5a3"
+  version = "v1.18.5"
 
 [[projects]]
   digest = "1:98e84060475ed245c3b355042afd43a74aa7d32efe50658f4f995977916f9fc3"
@@ -722,7 +722,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:78e17c4c52074544a82b36ca26efae8080126ce126e2fda1de8d0a9ad21798fe"
+  digest = "1:4de24d3dd2b3f41fd551a4d75a1d8a47366dc4fdfa4ececfa9944d57a0e133c0"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -739,6 +739,7 @@
     "pkg/resource/config",
     "pkg/resource/deploy",
     "pkg/resource/deploy/providers",
+    "pkg/resource/edit",
     "pkg/resource/graph",
     "pkg/resource/plugin",
     "pkg/resource/provider",
@@ -769,18 +770,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "9e48fe3126a2ceab07be8d8edac00c452504b258"
+  revision = "ecb50b9b85db370ac58bc914bc4aa4ba3aeeb6d0"
 
 [[projects]]
   branch = "master"
-  digest = "1:ecabe8ffdbc5ae1572bf70a3ae16dc100bb1cef038faba9f1374cf792df3ea5d"
+  digest = "1:0013fa04c4fef0969d8de96303da07015e409fecdf54ae865bd2735165d44f1b"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "c9dff1e9e36e782314825e04152619579148aa90"
+  revision = "ac9bdb2d464bc6d64b9a97fadbb8c6b57f2a4fb0"
 
 [[projects]]
   branch = "master"
@@ -859,7 +860,7 @@
 
 [[projects]]
   branch = "pulumi-master"
-  digest = "1:8e94591761ead2fc8b737dc4219d4c7c88286ae297b0752669e87ed30b06aa67"
+  digest = "1:005aa602ec6125606dc1c4841cbd432c85a88f8ee45710ae8415ff1a215eb9bb"
   name = "github.com/terraform-providers/terraform-provider-azurerm"
   packages = [
     "azurerm",
@@ -874,7 +875,7 @@
     "version",
   ]
   pruneopts = ""
-  revision = "2ebeb749348c8cf278ed464cccfc87e95395f809"
+  revision = "892efd70d9d7bd321942fe080a755acc4e7a2d22"
   source = "github.com/pulumi/terraform-provider-azurerm"
 
 [[projects]]
@@ -1024,7 +1025,10 @@
 [[projects]]
   digest = "1:814474ab808c5e04b9334d046f8a0060fc1724c2c02acfd00a7cc0008d675455"
   name = "golang.org/x/sync"
-  packages = ["semaphore"]
+  packages = [
+    "errgroup",
+    "semaphore",
+  ]
   pruneopts = ""
   revision = "37e7f081c4d4c64e13b10787722085407fe5d15f"
 

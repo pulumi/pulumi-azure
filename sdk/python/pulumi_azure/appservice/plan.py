@@ -21,7 +21,7 @@ class Plan(pulumi.CustomResource):
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
-    maximum_number_of_workers: pulumi.Output[int]
+    maximum_number_of_workers: pulumi.Output[float]
     """
     The maximum number of workers supported with the App Service Plan's sku.
     """

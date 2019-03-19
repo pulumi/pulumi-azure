@@ -28,8 +28,8 @@ class GetAnalyticsWorkspaceResult:
         """
         The Primary shared key for the Log Analytics Workspace.
         """
-        if retention_in_days and not isinstance(retention_in_days, int):
-            raise TypeError('Expected argument retention_in_days to be a int')
+        if retention_in_days and not isinstance(retention_in_days, float):
+            raise TypeError('Expected argument retention_in_days to be a float')
         __self__.retention_in_days = retention_in_days
         """
         The workspace data retention in days.

@@ -13,7 +13,7 @@ class Rule(pulumi.CustomResource):
     """
     A reference to a Backend Address Pool over which this Load Balancing Rule operates.
     """
-    backend_port: pulumi.Output[int]
+    backend_port: pulumi.Output[float]
     """
     The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
     """
@@ -26,11 +26,11 @@ class Rule(pulumi.CustomResource):
     """
     The name of the frontend IP configuration to which the rule is associated.
     """
-    frontend_port: pulumi.Output[int]
+    frontend_port: pulumi.Output[float]
     """
     The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
     """
-    idle_timeout_in_minutes: pulumi.Output[int]
+    idle_timeout_in_minutes: pulumi.Output[float]
     """
     Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
     """
@@ -68,11 +68,11 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
-        :param pulumi.Input[int] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        :param pulumi.Input[float] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
         :param pulumi.Input[bool] enable_floating_ip: Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
-        :param pulumi.Input[int] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
-        :param pulumi.Input[int] idle_timeout_in_minutes: Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
+        :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+        :param pulumi.Input[float] idle_timeout_in_minutes: Specifies the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp.
         :param pulumi.Input[str] load_distribution: Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where  the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Rule.
         :param pulumi.Input[str] name: Specifies the name of the LB Rule.

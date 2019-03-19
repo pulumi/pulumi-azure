@@ -14,7 +14,7 @@ class EventHub(pulumi.CustomResource):
     A `capture_description` block as defined below.
     """
     location: pulumi.Output[str]
-    message_retention: pulumi.Output[int]
+    message_retention: pulumi.Output[float]
     """
     Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
     """
@@ -26,7 +26,7 @@ class EventHub(pulumi.CustomResource):
     """
     Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
     """
-    partition_count: pulumi.Output[int]
+    partition_count: pulumi.Output[float]
     """
     Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
     """
@@ -45,10 +45,10 @@ class EventHub(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] capture_description: A `capture_description` block as defined below.
-        :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
+        :param pulumi.Input[float] message_retention: Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
         :param pulumi.Input[str] name: Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
         """
         if __name__ is not None:

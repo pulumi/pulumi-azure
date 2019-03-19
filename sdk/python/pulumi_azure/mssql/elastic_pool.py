@@ -14,7 +14,7 @@ class ElasticPool(pulumi.CustomResource):
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
-    max_size_bytes: pulumi.Output[int]
+    max_size_bytes: pulumi.Output[float]
     """
     The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
     """
@@ -57,7 +57,7 @@ class ElasticPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+        :param pulumi.Input[float] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
         :param pulumi.Input[str] name: Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
         :param pulumi.Input[dict] per_database_settings: A `per_database_settings` block as defined below.

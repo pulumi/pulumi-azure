@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Namespace(pulumi.CustomResource):
-    capacity: pulumi.Output[int]
+    capacity: pulumi.Output[float]
     """
     Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
     """
@@ -59,7 +59,7 @@ class Namespace(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] capacity: Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
+        :param pulumi.Input[float] capacity: Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.

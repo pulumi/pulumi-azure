@@ -16,8 +16,8 @@ class GetManagedDiskResult:
         if create_option and not isinstance(create_option, str):
             raise TypeError('Expected argument create_option to be a str')
         __self__.create_option = create_option
-        if disk_size_gb and not isinstance(disk_size_gb, int):
-            raise TypeError('Expected argument disk_size_gb to be a int')
+        if disk_size_gb and not isinstance(disk_size_gb, float):
+            raise TypeError('Expected argument disk_size_gb to be a float')
         __self__.disk_size_gb = disk_size_gb
         """
         The size of the managed disk in gigabytes.

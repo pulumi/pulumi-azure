@@ -21,7 +21,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
     """
     Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
     """
-    priority: pulumi.Output[int]
+    priority: pulumi.Output[float]
     """
     Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
     """
@@ -42,7 +42,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[str] azure_firewall_name: Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
-        :param pulumi.Input[int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
+        :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] rules: One or more `rule` blocks as defined below.
         """
