@@ -1,9 +1,13 @@
-## 0.17.3 (Unreleased)
+## 0.17.4 (Unreleased)
+
+## 0.17.3 (Released March 19th, 2019)
 
 ## Improvements
 
 - Fix a bug where setting a property value back to the default results in no change
+
 - Resources can no longer be "adopted" by accident during creation if another resources with the same ID already exists. This is akin to using `ARM_PROVIDER_STRICT` with the AzureRM Terraform Provider.
+
 - Numeric types in Python are now projected as `float` instead of `int`, fixing some crashes.
 
 ## 0.17.2 (Released March 11th, 2019)
