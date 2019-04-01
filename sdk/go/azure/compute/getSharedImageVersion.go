@@ -24,8 +24,12 @@ func LookupSharedImageVersion(ctx *pulumi.Context, args *GetSharedImageVersionAr
 	}
 	return &GetSharedImageVersionResult{
 		ExcludeFromLatest: outputs["excludeFromLatest"],
+		GalleryName: outputs["galleryName"],
+		ImageName: outputs["imageName"],
 		Location: outputs["location"],
 		ManagedImageId: outputs["managedImageId"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		TargetRegions: outputs["targetRegions"],
 		Id: outputs["id"],
@@ -48,10 +52,15 @@ type GetSharedImageVersionArgs struct {
 type GetSharedImageVersionResult struct {
 	// Is this Image Version excluded from the `latest` filter?
 	ExcludeFromLatest interface{}
+	GalleryName interface{}
+	ImageName interface{}
 	// The supported Azure location where the Shared Image Gallery exists.
 	Location interface{}
 	// The ID of the Managed Image which was the source of this Shared Image Version.
 	ManagedImageId interface{}
+	// The Azure Region in which this Image Version exists.
+	Name interface{}
+	ResourceGroupName interface{}
 	// A mapping of tags assigned to the Shared Image.
 	Tags interface{}
 	// One or more `target_region` blocks as documented below.

@@ -12,7 +12,13 @@ class GetBackendAddressPoolResult:
     """
     A collection of values returned by getBackendAddressPool.
     """
-    def __init__(__self__, id=None):
+    def __init__(__self__, loadbalancer_id=None, name=None, id=None):
+        if loadbalancer_id and not isinstance(loadbalancer_id, str):
+            raise TypeError('Expected argument loadbalancer_id to be a str')
+        __self__.loadbalancer_id = loadbalancer_id
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
         __self__.id = id
@@ -31,4 +37,6 @@ async def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts)
 
     return GetBackendAddressPoolResult(
+        loadbalancer_id=__ret__.get('loadbalancerId'),
+        name=__ret__.get('name'),
         id=__ret__.get('id'))

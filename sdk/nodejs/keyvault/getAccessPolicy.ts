@@ -37,6 +37,7 @@ export interface GetAccessPolicyResult {
      * the key permissions for the access policy
      */
     readonly keyPermissions: string[];
+    readonly name: string;
     /**
      * the secret permissions for the access policy
      */

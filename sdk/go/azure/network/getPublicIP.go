@@ -28,6 +28,8 @@ func LookupPublicIP(ctx *pulumi.Context, args *GetPublicIPArgs) (*GetPublicIPRes
 		IpAddress: outputs["ipAddress"],
 		IpVersion: outputs["ipVersion"],
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		ReverseFqdn: outputs["reverseFqdn"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
@@ -60,6 +62,8 @@ type GetPublicIPResult struct {
 	// The IP version being used, for example `IPv4` or `IPv6`.
 	IpVersion interface{}
 	Location interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	ReverseFqdn interface{}
 	Sku interface{}
 	// A mapping of tags to assigned to the resource.

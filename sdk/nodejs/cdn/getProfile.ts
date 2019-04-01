@@ -50,6 +50,8 @@ export interface GetProfileResult {
      * The Azure Region where the resource exists.
      */
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * The pricing related information of current CDN profile.
      */

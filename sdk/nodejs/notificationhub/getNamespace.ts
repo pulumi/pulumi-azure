@@ -55,9 +55,14 @@ export interface GetNamespaceResult {
      */
     readonly location: string;
     /**
+     * (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
+     */
+    readonly name: string;
+    /**
      * The Type of Namespace, such as `Messaging` or `NotificationHub`.
      */
     readonly namespaceType: string;
+    readonly resourceGroupName: string;
     readonly servicebusEndpoint: string;
     /**
      * A `sku` block as defined below.

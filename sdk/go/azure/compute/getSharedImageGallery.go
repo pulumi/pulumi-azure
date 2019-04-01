@@ -23,6 +23,8 @@ func LookupSharedImageGallery(ctx *pulumi.Context, args *GetSharedImageGalleryAr
 	return &GetSharedImageGalleryResult{
 		Description: outputs["description"],
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		UniqueName: outputs["uniqueName"],
 		Id: outputs["id"],
@@ -42,6 +44,8 @@ type GetSharedImageGalleryResult struct {
 	// A description for the Shared Image Gallery.
 	Description interface{}
 	Location interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// A mapping of tags which are assigned to the Shared Image Gallery.
 	Tags interface{}
 	// The unique name assigned to the Shared Image Gallery.

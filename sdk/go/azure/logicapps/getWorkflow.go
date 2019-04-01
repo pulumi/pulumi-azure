@@ -21,7 +21,9 @@ func LookupWorkflow(ctx *pulumi.Context, args *GetWorkflowArgs) (*GetWorkflowRes
 	return &GetWorkflowResult{
 		AccessEndpoint: outputs["accessEndpoint"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		Parameters: outputs["parameters"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		WorkflowSchema: outputs["workflowSchema"],
 		WorkflowVersion: outputs["workflowVersion"],
@@ -43,8 +45,10 @@ type GetWorkflowResult struct {
 	AccessEndpoint interface{}
 	// The Azure location where the Logic App Workflow exists.
 	Location interface{}
+	Name interface{}
 	// A map of Key-Value pairs.
 	Parameters interface{}
+	ResourceGroupName interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
 	// The Schema used for this Logic App Workflow.

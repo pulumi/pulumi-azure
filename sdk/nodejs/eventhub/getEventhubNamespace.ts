@@ -81,6 +81,8 @@ export interface GetEventhubNamespaceResult {
      * Specifies the maximum number of throughput units when Auto Inflate is Enabled.
      */
     readonly maximumThroughputUnits: number;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * Defines which tier to use.
      */

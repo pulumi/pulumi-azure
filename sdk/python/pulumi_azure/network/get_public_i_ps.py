@@ -12,13 +12,25 @@ class GetPublicIPsResult:
     """
     A collection of values returned by getPublicIPs.
     """
-    def __init__(__self__, public_ips=None, id=None):
+    def __init__(__self__, allocation_type=None, attached=None, name_prefix=None, public_ips=None, resource_group_name=None, id=None):
+        if allocation_type and not isinstance(allocation_type, str):
+            raise TypeError('Expected argument allocation_type to be a str')
+        __self__.allocation_type = allocation_type
+        if attached and not isinstance(attached, bool):
+            raise TypeError('Expected argument attached to be a bool')
+        __self__.attached = attached
+        if name_prefix and not isinstance(name_prefix, str):
+            raise TypeError('Expected argument name_prefix to be a str')
+        __self__.name_prefix = name_prefix
         if public_ips and not isinstance(public_ips, list):
             raise TypeError('Expected argument public_ips to be a list')
         __self__.public_ips = public_ips
         """
         A List of `public_ips` blocks as defined below filtered by the criteria above.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
         __self__.id = id
@@ -39,5 +51,9 @@ async def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,re
     __ret__ = await pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts)
 
     return GetPublicIPsResult(
+        allocation_type=__ret__.get('allocationType'),
+        attached=__ret__.get('attached'),
+        name_prefix=__ret__.get('namePrefix'),
         public_ips=__ret__.get('publicIps'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         id=__ret__.get('id'))

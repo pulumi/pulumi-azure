@@ -22,7 +22,9 @@ func LookupSnapshot(ctx *pulumi.Context, args *GetSnapshotArgs) (*GetSnapshotRes
 		CreationOption: outputs["creationOption"],
 		DiskSizeGb: outputs["diskSizeGb"],
 		EncryptionSettings: outputs["encryptionSettings"],
+		Name: outputs["name"],
 		OsType: outputs["osType"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		SourceResourceId: outputs["sourceResourceId"],
 		SourceUri: outputs["sourceUri"],
 		StorageAccountId: outputs["storageAccountId"],
@@ -45,7 +47,9 @@ type GetSnapshotResult struct {
 	// The size of the Snapshotted Disk in GB.
 	DiskSizeGb interface{}
 	EncryptionSettings interface{}
+	Name interface{}
 	OsType interface{}
+	ResourceGroupName interface{}
 	// The reference to an existing snapshot.
 	SourceResourceId interface{}
 	// The URI to a Managed or Unmanaged Disk.

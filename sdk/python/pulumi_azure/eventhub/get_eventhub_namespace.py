@@ -12,7 +12,7 @@ class GetEventhubNamespaceResult:
     """
     A collection of values returned by getEventhubNamespace.
     """
-    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, kafka_enabled=None, location=None, maximum_throughput_units=None, sku=None, tags=None, id=None):
+    def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, id=None):
         if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
             raise TypeError('Expected argument auto_inflate_enabled to be a bool')
         __self__.auto_inflate_enabled = auto_inflate_enabled
@@ -66,6 +66,12 @@ class GetEventhubNamespaceResult:
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, str):
             raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
@@ -105,6 +111,8 @@ async def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
         kafka_enabled=__ret__.get('kafkaEnabled'),
         location=__ret__.get('location'),
         maximum_throughput_units=__ret__.get('maximumThroughputUnits'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

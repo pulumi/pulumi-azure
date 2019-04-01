@@ -12,7 +12,7 @@ class GetSharedImageResult:
     """
     A collection of values returned by getSharedImage.
     """
-    def __init__(__self__, description=None, eula=None, identifiers=None, location=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, tags=None, id=None):
+    def __init__(__self__, description=None, eula=None, gallery_name=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, tags=None, id=None):
         if description and not isinstance(description, str):
             raise TypeError('Expected argument description to be a str')
         __self__.description = description
@@ -25,6 +25,9 @@ class GetSharedImageResult:
         """
         The End User Licence Agreement for the Shared Image.
         """
+        if gallery_name and not isinstance(gallery_name, str):
+            raise TypeError('Expected argument gallery_name to be a str')
+        __self__.gallery_name = gallery_name
         if identifiers and not isinstance(identifiers, list):
             raise TypeError('Expected argument identifiers to be a list')
         __self__.identifiers = identifiers
@@ -34,6 +37,9 @@ class GetSharedImageResult:
         """
         The supported Azure location where the Shared Image Gallery exists.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if os_type and not isinstance(os_type, str):
             raise TypeError('Expected argument os_type to be a str')
         __self__.os_type = os_type
@@ -52,6 +58,9 @@ class GetSharedImageResult:
         """
         The URI containing the Release Notes for this Shared Image.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -81,10 +90,13 @@ async def get_shared_image(gallery_name=None,name=None,resource_group_name=None,
     return GetSharedImageResult(
         description=__ret__.get('description'),
         eula=__ret__.get('eula'),
+        gallery_name=__ret__.get('galleryName'),
         identifiers=__ret__.get('identifiers'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         os_type=__ret__.get('osType'),
         privacy_statement_uri=__ret__.get('privacyStatementUri'),
         release_note_uri=__ret__.get('releaseNoteUri'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

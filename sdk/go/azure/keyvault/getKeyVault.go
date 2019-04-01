@@ -24,7 +24,9 @@ func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultRes
 		EnabledForDiskEncryption: outputs["enabledForDiskEncryption"],
 		EnabledForTemplateDeployment: outputs["enabledForTemplateDeployment"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		NetworkAcls: outputs["networkAcls"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		TenantId: outputs["tenantId"],
@@ -53,7 +55,10 @@ type GetKeyVaultResult struct {
 	EnabledForTemplateDeployment interface{}
 	// The Azure Region in which the Key Vault exists.
 	Location interface{}
+	// The name of the SKU used for this Key Vault.
+	Name interface{}
 	NetworkAcls interface{}
+	ResourceGroupName interface{}
 	// A `sku` block as described below.
 	Sku interface{}
 	// A mapping of tags assigned to the Key Vault.

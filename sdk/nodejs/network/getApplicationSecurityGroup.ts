@@ -50,6 +50,8 @@ export interface GetApplicationSecurityGroupResult {
      * The supported Azure location where the Application Security Group exists.
      */
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the resource.
      */

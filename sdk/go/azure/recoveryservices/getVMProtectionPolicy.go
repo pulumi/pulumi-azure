@@ -20,6 +20,9 @@ func LookupVMProtectionPolicy(ctx *pulumi.Context, args *GetVMProtectionPolicyAr
 		return nil, err
 	}
 	return &GetVMProtectionPolicyResult{
+		Name: outputs["name"],
+		RecoveryVaultName: outputs["recoveryVaultName"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -37,6 +40,9 @@ type GetVMProtectionPolicyArgs struct {
 
 // A collection of values returned by getVMProtectionPolicy.
 type GetVMProtectionPolicyResult struct {
+	Name interface{}
+	RecoveryVaultName interface{}
+	ResourceGroupName interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

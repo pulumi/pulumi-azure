@@ -33,8 +33,10 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 		KubernetesVersion: outputs["kubernetesVersion"],
 		LinuxProfiles: outputs["linuxProfiles"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		NetworkProfiles: outputs["networkProfiles"],
 		NodeResourceGroup: outputs["nodeResourceGroup"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		RoleBasedAccessControls: outputs["roleBasedAccessControls"],
 		ServicePrincipals: outputs["servicePrincipals"],
 		Tags: outputs["tags"],
@@ -74,10 +76,13 @@ type GetKubernetesClusterResult struct {
 	LinuxProfiles interface{}
 	// The Azure Region in which the managed Kubernetes Cluster exists.
 	Location interface{}
+	// The name assigned to this pool of agents.
+	Name interface{}
 	// A `network_profile` block as documented below.
 	NetworkProfiles interface{}
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup interface{}
+	ResourceGroupName interface{}
 	// A `role_based_access_control` block as documented below.
 	RoleBasedAccessControls interface{}
 	// A `service_principal` block as documented below.

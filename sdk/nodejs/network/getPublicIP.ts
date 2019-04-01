@@ -131,6 +131,8 @@ export interface GetPublicIPResult {
      */
     readonly ipVersion: string;
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     readonly reverseFqdn: string;
     readonly sku: string;
     /**

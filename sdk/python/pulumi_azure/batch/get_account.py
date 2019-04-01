@@ -12,12 +12,18 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, location=None, pool_allocation_mode=None, storage_account_id=None, tags=None, id=None):
+    def __init__(__self__, location=None, name=None, pool_allocation_mode=None, resource_group_name=None, storage_account_id=None, tags=None, id=None):
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure Region in which this Batch account exists.
+        """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The Batch account name.
         """
         if pool_allocation_mode and not isinstance(pool_allocation_mode, str):
             raise TypeError('Expected argument pool_allocation_mode to be a str')
@@ -25,6 +31,9 @@ class GetAccountResult:
         """
         The pool allocation mode configured for this Batch account.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if storage_account_id and not isinstance(storage_account_id, str):
             raise TypeError('Expected argument storage_account_id to be a str')
         __self__.storage_account_id = storage_account_id
@@ -56,7 +65,9 @@ async def get_account(name=None,resource_group_name=None,opts=None):
 
     return GetAccountResult(
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         pool_allocation_mode=__ret__.get('poolAllocationMode'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         storage_account_id=__ret__.get('storageAccountId'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

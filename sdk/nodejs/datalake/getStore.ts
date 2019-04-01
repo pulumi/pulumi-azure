@@ -63,6 +63,8 @@ export interface GetStoreResult {
      */
     readonly firewallState: string;
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags to assign to the Data Lake Store.
      */

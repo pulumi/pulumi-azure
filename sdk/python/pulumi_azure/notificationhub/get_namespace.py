@@ -12,7 +12,7 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, enabled=None, location=None, namespace_type=None, servicebus_endpoint=None, sku=None, id=None):
+    def __init__(__self__, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku=None, id=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError('Expected argument enabled to be a bool')
         __self__.enabled = enabled
@@ -25,12 +25,21 @@ class GetNamespaceResult:
         """
         The Azure Region in which this Notification Hub Namespace exists.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
+        """
         if namespace_type and not isinstance(namespace_type, str):
             raise TypeError('Expected argument namespace_type to be a str')
         __self__.namespace_type = namespace_type
         """
         The Type of Namespace, such as `Messaging` or `NotificationHub`.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if servicebus_endpoint and not isinstance(servicebus_endpoint, str):
             raise TypeError('Expected argument servicebus_endpoint to be a str')
         __self__.servicebus_endpoint = servicebus_endpoint
@@ -60,7 +69,9 @@ async def get_namespace(name=None,resource_group_name=None,opts=None):
     return GetNamespaceResult(
         enabled=__ret__.get('enabled'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         namespace_type=__ret__.get('namespaceType'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         servicebus_endpoint=__ret__.get('servicebusEndpoint'),
         sku=__ret__.get('sku'),
         id=__ret__.get('id'))

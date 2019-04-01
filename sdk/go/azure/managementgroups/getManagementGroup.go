@@ -19,6 +19,7 @@ func LookupManagementGroup(ctx *pulumi.Context, args *GetManagementGroupArgs) (*
 	}
 	return &GetManagementGroupResult{
 		DisplayName: outputs["displayName"],
+		GroupId: outputs["groupId"],
 		ParentManagementGroupId: outputs["parentManagementGroupId"],
 		SubscriptionIds: outputs["subscriptionIds"],
 		Id: outputs["id"],
@@ -35,6 +36,7 @@ type GetManagementGroupArgs struct {
 type GetManagementGroupResult struct {
 	// A friendly name for the Management Group.
 	DisplayName interface{}
+	GroupId interface{}
 	// The ID of any Parent Management Group.
 	ParentManagementGroupId interface{}
 	// A list of Subscription ID's which are assigned to the Management Group.

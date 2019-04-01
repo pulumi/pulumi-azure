@@ -25,6 +25,7 @@ func LookupRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs) (*Ge
 		Name: outputs["name"],
 		Permissions: outputs["permissions"],
 		RoleDefinitionId: outputs["roleDefinitionId"],
+		Scope: outputs["scope"],
 		Type: outputs["type"],
 		Id: outputs["id"],
 	}, nil
@@ -50,6 +51,7 @@ type GetRoleDefinitionResult struct {
 	// a `permissions` block as documented below.
 	Permissions interface{}
 	RoleDefinitionId interface{}
+	Scope interface{}
 	// the Type of the Role.
 	Type interface{}
 	// id is the provider-assigned unique ID for this managed resource.

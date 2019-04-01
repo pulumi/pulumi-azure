@@ -12,7 +12,7 @@ class GetBuiltinRoleDefinitionResult:
     """
     A collection of values returned by getBuiltinRoleDefinition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, permissions=None, type=None, id=None):
+    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, type=None, id=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError('Expected argument assignable_scopes to be a list')
         __self__.assignable_scopes = assignable_scopes
@@ -25,6 +25,9 @@ class GetBuiltinRoleDefinitionResult:
         """
         the Description of the built-in Role.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if permissions and not isinstance(permissions, list):
             raise TypeError('Expected argument permissions to be a list')
         __self__.permissions = permissions
@@ -58,6 +61,7 @@ async def get_builtin_role_definition(name=None,opts=None):
     return GetBuiltinRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),
         description=__ret__.get('description'),
+        name=__ret__.get('name'),
         permissions=__ret__.get('permissions'),
         type=__ret__.get('type'),
         id=__ret__.get('id'))

@@ -80,6 +80,7 @@ export interface GetRoleDefinitionResult {
      */
     readonly permissions: { actions: string[], dataActions?: string[], notActions: string[], notDataActions?: string[] }[];
     readonly roleDefinitionId: string;
+    readonly scope?: string;
     /**
      * the Type of the Role.
      */

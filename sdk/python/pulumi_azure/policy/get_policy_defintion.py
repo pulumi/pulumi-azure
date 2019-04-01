@@ -12,13 +12,19 @@ class GetPolicyDefintionResult:
     """
     A collection of values returned by getPolicyDefintion.
     """
-    def __init__(__self__, description=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None, id=None):
+    def __init__(__self__, description=None, display_name=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None, id=None):
         if description and not isinstance(description, str):
             raise TypeError('Expected argument description to be a str')
         __self__.description = description
         """
         The Description of the Policy.
         """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError('Expected argument display_name to be a str')
+        __self__.display_name = display_name
+        if management_group_id and not isinstance(management_group_id, str):
+            raise TypeError('Expected argument management_group_id to be a str')
+        __self__.management_group_id = management_group_id
         if metadata and not isinstance(metadata, str):
             raise TypeError('Expected argument metadata to be a str')
         __self__.metadata = metadata
@@ -74,6 +80,8 @@ async def get_policy_defintion(display_name=None,management_group_id=None,opts=N
 
     return GetPolicyDefintionResult(
         description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        management_group_id=__ret__.get('managementGroupId'),
         metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
         parameters=__ret__.get('parameters'),

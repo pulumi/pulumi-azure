@@ -22,6 +22,7 @@ func LookupBuiltinRoleDefinition(ctx *pulumi.Context, args *GetBuiltinRoleDefini
 	return &GetBuiltinRoleDefinitionResult{
 		AssignableScopes: outputs["assignableScopes"],
 		Description: outputs["description"],
+		Name: outputs["name"],
 		Permissions: outputs["permissions"],
 		Type: outputs["type"],
 		Id: outputs["id"],
@@ -40,6 +41,7 @@ type GetBuiltinRoleDefinitionResult struct {
 	AssignableScopes interface{}
 	// the Description of the built-in Role.
 	Description interface{}
+	Name interface{}
 	// a `permissions` block as documented below.
 	Permissions interface{}
 	// the Type of the Role.

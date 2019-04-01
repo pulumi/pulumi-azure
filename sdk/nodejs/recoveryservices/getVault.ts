@@ -48,6 +48,8 @@ export interface GetVaultResult {
      * The Azure location where the resource resides.
      */
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * The vault's current SKU.
      */

@@ -21,6 +21,8 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*Ge
 	return &GetVirtualNetworkResult{
 		AddressSpaces: outputs["addressSpaces"],
 		DnsServers: outputs["dnsServers"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Subnets: outputs["subnets"],
 		VnetPeerings: outputs["vnetPeerings"],
 		Id: outputs["id"],
@@ -41,6 +43,8 @@ type GetVirtualNetworkResult struct {
 	AddressSpaces interface{}
 	// The list of DNS servers used by the virtual network.
 	DnsServers interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// The list of name of the subnets that are attached to this virtual network.
 	Subnets interface{}
 	// A mapping of name - virtual network id of the virtual network peerings.

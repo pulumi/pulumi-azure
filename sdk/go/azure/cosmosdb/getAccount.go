@@ -29,10 +29,12 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		IsVirtualNetworkFilterEnabled: outputs["isVirtualNetworkFilterEnabled"],
 		Kind: outputs["kind"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		OfferType: outputs["offerType"],
 		PrimaryMasterKey: outputs["primaryMasterKey"],
 		PrimaryReadonlyMasterKey: outputs["primaryReadonlyMasterKey"],
 		ReadEndpoints: outputs["readEndpoints"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		SecondaryMasterKey: outputs["secondaryMasterKey"],
 		SecondaryReadonlyMasterKey: outputs["secondaryReadonlyMasterKey"],
 		Tags: outputs["tags"],
@@ -70,6 +72,7 @@ type GetAccountResult struct {
 	Kind interface{}
 	// The name of the Azure region hosting replicated data.
 	Location interface{}
+	Name interface{}
 	// The Offer Type to used by this CosmosDB Account.
 	OfferType interface{}
 	// The Primary master key for the CosmosDB Account.
@@ -78,6 +81,7 @@ type GetAccountResult struct {
 	PrimaryReadonlyMasterKey interface{}
 	// A list of read endpoints available for this CosmosDB account.
 	ReadEndpoints interface{}
+	ResourceGroupName interface{}
 	// The Secondary master key for the CosmosDB Account.
 	SecondaryMasterKey interface{}
 	// The Secondary read-only master key for the CosmosDB Account.

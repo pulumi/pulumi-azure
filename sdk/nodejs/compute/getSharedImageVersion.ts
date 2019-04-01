@@ -62,6 +62,8 @@ export interface GetSharedImageVersionResult {
      * Is this Image Version excluded from the `latest` filter?
      */
     readonly excludeFromLatest: boolean;
+    readonly galleryName: string;
+    readonly imageName: string;
     /**
      * The supported Azure location where the Shared Image Gallery exists.
      */
@@ -70,6 +72,11 @@ export interface GetSharedImageVersionResult {
      * The ID of the Managed Image which was the source of this Shared Image Version.
      */
     readonly managedImageId: string;
+    /**
+     * The Azure Region in which this Image Version exists.
+     */
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the Shared Image.
      */

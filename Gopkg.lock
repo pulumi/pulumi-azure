@@ -153,7 +153,7 @@
   revision = "7fddfc383310abc091d79a27f116d30cf0424032"
 
 [[projects]]
-  digest = "1:ebb59d601e14b40b1ad9fc67f8732df91734335a4e5c4d231f7b7134070b1433"
+  digest = "1:b27e94267c30bafbc24dac121b1542fb2a852a9b37329efd10ba8a9b506a42b5"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -195,8 +195,8 @@
     "service/sts",
   ]
   pruneopts = ""
-  revision = "f9b35e02297c8fcca7a55dd30ed8d4e9dc64f5a3"
-  version = "v1.18.5"
+  revision = "d56356f29f4878db5a31b68eb8bb8c5383f6ff48"
+  version = "v1.19.6"
 
 [[projects]]
   digest = "1:98e84060475ed245c3b355042afd43a74aa7d32efe50658f4f995977916f9fc3"
@@ -233,14 +233,6 @@
   pruneopts = ""
   revision = "7f2434bc10da710debe5c4315ed6d4df454b4024"
   version = "v0.1.0"
-
-[[projects]]
-  branch = "master"
-  digest = "1:c46fd324e7902268373e1b337436a6377c196e2dbd7b35624c6256d29d494e78"
-  name = "github.com/codahale/hdrhistogram"
-  packages = ["."]
-  pruneopts = ""
-  revision = "3a0bb77429bd3a61596f5e8a3172445844342120"
 
 [[projects]]
   digest = "1:56c130d885a4aacae1dd9c7b71cfe39912c7ebc1ff7d2b46083c8812996dc43b"
@@ -672,7 +664,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:78fb99d6011c2ae6c72f3293a83951311147b12b06a5ffa43abf750c4fab6ac5"
+  digest = "1:1fc4897d3cc482d070651563c16a51489296cd9150e6d53fb7ff4d59a24334bc"
   name = "github.com/opentracing/opentracing-go"
   packages = [
     ".",
@@ -680,8 +672,8 @@
     "log",
   ]
   pruneopts = ""
-  revision = "1949ddbfd147afd4d964a9f00b24eb291e0e7c38"
-  version = "v1.0.2"
+  revision = "659c90643e714681897ec2521c60567dd21da733"
+  version = "v1.1.0"
 
 [[projects]]
   digest = "1:049b5bee78dfdc9628ee0e557219c41f683e5b06c5a5f20eaba0105ccc586689"
@@ -722,7 +714,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:4de24d3dd2b3f41fd551a4d75a1d8a47366dc4fdfa4ececfa9944d57a0e133c0"
+  digest = "1:607f17119db2da50eaed945c14544416ca24554d297e1418fc2e0b1e70439e32"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/apitype",
@@ -770,18 +762,18 @@
     "sdk/proto/go",
   ]
   pruneopts = ""
-  revision = "ecb50b9b85db370ac58bc914bc4aa4ba3aeeb6d0"
+  revision = "26b7bc7d261c219969fcccf85f7320a768e40ed5"
 
 [[projects]]
   branch = "master"
-  digest = "1:0013fa04c4fef0969d8de96303da07015e409fecdf54ae865bd2735165d44f1b"
+  digest = "1:a54fbe9e68836b07bc9f7be4541f6336fac91e55dc32a4f9af21ad605510a174"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = ""
-  revision = "ac9bdb2d464bc6d64b9a97fadbb8c6b57f2a4fb0"
+  revision = "220e7f4717c96430df859bbe41c5a7933493bd45"
 
 [[projects]]
   branch = "master"
@@ -887,7 +879,7 @@
   revision = "d188e65d659ef53fcdb0691c12f1bba64928b649"
 
 [[projects]]
-  digest = "1:941ab4973b3218a9a6d02d31734f5c762239eb538c0d702fff62d4037af8ab0a"
+  digest = "1:92c0006b9a06518452bad6275babc396a0b9afcdfe870d5494fe67a2beb6c2be"
   name = "github.com/uber/jaeger-client-go"
   packages = [
     ".",
@@ -904,16 +896,16 @@
     "utils",
   ]
   pruneopts = ""
-  revision = "1a782e2da844727691fef1757c72eb190c2909f0"
-  version = "v2.15.0"
+  revision = "2f47546e3facd43297739439600bcf43f44cce5d"
+  version = "v2.16.0"
 
 [[projects]]
-  digest = "1:aa1598d34009b45ce74fdabdd25e4258d7923d1e1b418d4c98482e79607cb9b0"
+  digest = "1:2e2e1bf63381476d203354c0c3c4692d103e8d02ea2bfafe8e3f80a04c925b87"
   name = "github.com/uber/jaeger-lib"
   packages = ["metrics"]
   pruneopts = ""
-  revision = "ed3a127ec5fef7ae9ea95b01b542c47fbd999ce5"
-  version = "v1.5.0"
+  revision = "0e30338a695636fe5bcf7301e8030ce8dd2a8530"
+  version = "v2.0.0"
 
 [[projects]]
   digest = "1:ee723e6a1962a196eeba1b24f82af61a4f60f8821d7aa96d48e787f8337bcffc"
@@ -976,7 +968,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:ab3e9a81a5ec54c5d1ed41d0d6898ba88c6799fa401b784b06bdee8e432d872b"
+  digest = "1:36ef1d8645934b1744cc7d8726e00d3dd9d8d84c18617bf7367a3a6d532f3370"
   name = "golang.org/x/crypto"
   packages = [
     "bcrypt",
@@ -1003,7 +995,7 @@
     "ssh/terminal",
   ]
   pruneopts = ""
-  revision = "a1f597ede03a7bef967a422b5b3a5bd08805a01e"
+  revision = "a5d413f7728c81fb97d96a2b722368945f651e78"
 
 [[projects]]
   digest = "1:3b4532388bb9dfcc98530527160974cf5ec03120002887777516a98092725ba0"

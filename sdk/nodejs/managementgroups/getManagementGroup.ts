@@ -44,6 +44,7 @@ export interface GetManagementGroupResult {
      * A friendly name for the Management Group.
      */
     readonly displayName: string;
+    readonly groupId: string;
     /**
      * The ID of any Parent Management Group.
      */

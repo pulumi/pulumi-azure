@@ -20,6 +20,8 @@ func LookupProfile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult
 	}
 	return &GetProfileResult{
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -38,6 +40,8 @@ type GetProfileArgs struct {
 type GetProfileResult struct {
 	// The Azure Region where the resource exists.
 	Location interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// The pricing related information of current CDN profile.
 	Sku interface{}
 	// A mapping of tags assigned to the resource.

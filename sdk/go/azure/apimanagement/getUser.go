@@ -20,11 +20,14 @@ func LookupUser(ctx *pulumi.Context, args *GetUserArgs) (*GetUserResult, error) 
 		return nil, err
 	}
 	return &GetUserResult{
+		ApiManagementName: outputs["apiManagementName"],
 		Email: outputs["email"],
 		FirstName: outputs["firstName"],
 		LastName: outputs["lastName"],
 		Note: outputs["note"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		State: outputs["state"],
+		UserId: outputs["userId"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -41,6 +44,7 @@ type GetUserArgs struct {
 
 // A collection of values returned by getUser.
 type GetUserResult struct {
+	ApiManagementName interface{}
 	// The Email Address used for this User.
 	Email interface{}
 	// The First Name for the User.
@@ -49,8 +53,10 @@ type GetUserResult struct {
 	LastName interface{}
 	// Any notes about this User.
 	Note interface{}
+	ResourceGroupName interface{}
 	// The current state of this User, for example `active`, `blocked` or `pending`.
 	State interface{}
+	UserId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

@@ -71,6 +71,10 @@ export interface GetAPIResult {
      */
     readonly managementApiUrl: string;
     /**
+     * Specifies the plan's pricing tier.
+     */
+    readonly name: string;
+    /**
      * The email address from which the notification will be sent.
      */
     readonly notificationSenderEmail: string;
@@ -90,6 +94,7 @@ export interface GetAPIResult {
      * The name of the Publisher/Company of the API Management Service.
      */
     readonly publisherName: string;
+    readonly resourceGroupName: string;
     /**
      * The SCM (Source Code Management) endpoint.
      */

@@ -12,19 +12,25 @@ class GetJobCollectionResult:
     """
     A collection of values returned by getJobCollection.
     """
-    def __init__(__self__, location=None, quotas=None, sku=None, state=None, tags=None, id=None):
+    def __init__(__self__, location=None, name=None, quotas=None, resource_group_name=None, sku=None, state=None, tags=None, id=None):
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure location where the resource exists.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if quotas and not isinstance(quotas, list):
             raise TypeError('Expected argument quotas to be a list')
         __self__.quotas = quotas
         """
         The Job collection quotas as documented in the `quota` block below.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, str):
             raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
@@ -64,7 +70,9 @@ async def get_job_collection(name=None,resource_group_name=None,opts=None):
 
     return GetJobCollectionResult(
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         quotas=__ret__.get('quotas'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         state=__ret__.get('state'),
         tags=__ret__.get('tags'),

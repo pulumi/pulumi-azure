@@ -12,7 +12,7 @@ class GetDiagnosticCategoriesResult:
     """
     A collection of values returned by getDiagnosticCategories.
     """
-    def __init__(__self__, logs=None, metrics=None, id=None):
+    def __init__(__self__, logs=None, metrics=None, resource_id=None, id=None):
         if logs and not isinstance(logs, list):
             raise TypeError('Expected argument logs to be a list')
         __self__.logs = logs
@@ -25,6 +25,9 @@ class GetDiagnosticCategoriesResult:
         """
         A list of the Metric Categories supported for this Resource.
         """
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError('Expected argument resource_id to be a str')
+        __self__.resource_id = resource_id
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
         __self__.id = id
@@ -44,4 +47,5 @@ async def get_diagnostic_categories(resource_id=None,opts=None):
     return GetDiagnosticCategoriesResult(
         logs=__ret__.get('logs'),
         metrics=__ret__.get('metrics'),
+        resource_id=__ret__.get('resourceId'),
         id=__ret__.get('id'))

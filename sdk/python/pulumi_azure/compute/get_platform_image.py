@@ -12,7 +12,19 @@ class GetPlatformImageResult:
     """
     A collection of values returned by getPlatformImage.
     """
-    def __init__(__self__, version=None, id=None):
+    def __init__(__self__, location=None, offer=None, publisher=None, sku=None, version=None, id=None):
+        if location and not isinstance(location, str):
+            raise TypeError('Expected argument location to be a str')
+        __self__.location = location
+        if offer and not isinstance(offer, str):
+            raise TypeError('Expected argument offer to be a str')
+        __self__.offer = offer
+        if publisher and not isinstance(publisher, str):
+            raise TypeError('Expected argument publisher to be a str')
+        __self__.publisher = publisher
+        if sku and not isinstance(sku, str):
+            raise TypeError('Expected argument sku to be a str')
+        __self__.sku = sku
         if version and not isinstance(version, str):
             raise TypeError('Expected argument version to be a str')
         __self__.version = version
@@ -39,5 +51,9 @@ async def get_platform_image(location=None,offer=None,publisher=None,sku=None,op
     __ret__ = await pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts)
 
     return GetPlatformImageResult(
+        location=__ret__.get('location'),
+        offer=__ret__.get('offer'),
+        publisher=__ret__.get('publisher'),
+        sku=__ret__.get('sku'),
         version=__ret__.get('version'),
         id=__ret__.get('id'))

@@ -12,7 +12,10 @@ class GetProductResult:
     """
     A collection of values returned by getProduct.
     """
-    def __init__(__self__, approval_required=None, description=None, display_name=None, published=None, subscription_required=None, subscriptions_limit=None, terms=None, id=None):
+    def __init__(__self__, api_management_name=None, approval_required=None, description=None, display_name=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None, id=None):
+        if api_management_name and not isinstance(api_management_name, str):
+            raise TypeError('Expected argument api_management_name to be a str')
+        __self__.api_management_name = api_management_name
         if approval_required and not isinstance(approval_required, bool):
             raise TypeError('Expected argument approval_required to be a bool')
         __self__.approval_required = approval_required
@@ -31,12 +34,18 @@ class GetProductResult:
         """
         The Display Name for this API Management Product.
         """
+        if product_id and not isinstance(product_id, str):
+            raise TypeError('Expected argument product_id to be a str')
+        __self__.product_id = product_id
         if published and not isinstance(published, bool):
             raise TypeError('Expected argument published to be a bool')
         __self__.published = published
         """
         Is this Product Published?
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if subscription_required and not isinstance(subscription_required, bool):
             raise TypeError('Expected argument subscription_required to be a bool')
         __self__.subscription_required = subscription_required
@@ -74,10 +83,13 @@ async def get_product(api_management_name=None,product_id=None,resource_group_na
     __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getProduct:getProduct', __args__, opts=opts)
 
     return GetProductResult(
+        api_management_name=__ret__.get('apiManagementName'),
         approval_required=__ret__.get('approvalRequired'),
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),
+        product_id=__ret__.get('productId'),
         published=__ret__.get('published'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         subscription_required=__ret__.get('subscriptionRequired'),
         subscriptions_limit=__ret__.get('subscriptionsLimit'),
         terms=__ret__.get('terms'),

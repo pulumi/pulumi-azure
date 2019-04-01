@@ -20,6 +20,7 @@ func LookupDiagnosticCategories(ctx *pulumi.Context, args *GetDiagnosticCategori
 	return &GetDiagnosticCategoriesResult{
 		Logs: outputs["logs"],
 		Metrics: outputs["metrics"],
+		ResourceId: outputs["resourceId"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -36,6 +37,7 @@ type GetDiagnosticCategoriesResult struct {
 	Logs interface{}
 	// A list of the Metric Categories supported for this Resource.
 	Metrics interface{}
+	ResourceId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

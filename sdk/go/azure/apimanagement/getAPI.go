@@ -25,11 +25,13 @@ func LookupAPI(ctx *pulumi.Context, args *GetAPIArgs) (*GetAPIResult, error) {
 		HostnameConfigurations: outputs["hostnameConfigurations"],
 		Location: outputs["location"],
 		ManagementApiUrl: outputs["managementApiUrl"],
+		Name: outputs["name"],
 		NotificationSenderEmail: outputs["notificationSenderEmail"],
 		PortalUrl: outputs["portalUrl"],
 		PublicIpAddresses: outputs["publicIpAddresses"],
 		PublisherEmail: outputs["publisherEmail"],
 		PublisherName: outputs["publisherName"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		ScmUrl: outputs["scmUrl"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
@@ -59,6 +61,8 @@ type GetAPIResult struct {
 	Location interface{}
 	// The URL for the Management API.
 	ManagementApiUrl interface{}
+	// Specifies the plan's pricing tier.
+	Name interface{}
 	// The email address from which the notification will be sent.
 	NotificationSenderEmail interface{}
 	// The URL of the Publisher Portal.
@@ -69,6 +73,7 @@ type GetAPIResult struct {
 	PublisherEmail interface{}
 	// The name of the Publisher/Company of the API Management Service.
 	PublisherName interface{}
+	ResourceGroupName interface{}
 	// The SCM (Source Code Management) endpoint.
 	ScmUrl interface{}
 	// A `sku` block as documented below.

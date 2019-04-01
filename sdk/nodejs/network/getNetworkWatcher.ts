@@ -50,6 +50,8 @@ export interface GetNetworkWatcherResult {
      * The supported Azure location where the resource exists.
      */
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the resource.
      */

@@ -72,6 +72,7 @@ export interface GetKeyResult {
      * The RSA modulus of this Key Vault Key.
      */
     readonly n: string;
+    readonly name: string;
     /**
      * A mapping of tags assigned to this Key Vault Key.
      */

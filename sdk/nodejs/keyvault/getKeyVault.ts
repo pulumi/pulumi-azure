@@ -66,7 +66,12 @@ export interface GetKeyVaultResult {
      * The Azure Region in which the Key Vault exists.
      */
     readonly location: string;
+    /**
+     * The name of the SKU used for this Key Vault.
+     */
+    readonly name: string;
     readonly networkAcls: { bypass: string, defaultAction: string, ipRules: string[], virtualNetworkSubnetIds: string[] }[];
+    readonly resourceGroupName: string;
     /**
      * A `sku` block as described below.
      */

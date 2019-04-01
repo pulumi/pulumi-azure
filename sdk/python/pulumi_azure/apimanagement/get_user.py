@@ -12,7 +12,10 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, email=None, first_name=None, last_name=None, note=None, state=None, id=None):
+    def __init__(__self__, api_management_name=None, email=None, first_name=None, last_name=None, note=None, resource_group_name=None, state=None, user_id=None, id=None):
+        if api_management_name and not isinstance(api_management_name, str):
+            raise TypeError('Expected argument api_management_name to be a str')
+        __self__.api_management_name = api_management_name
         if email and not isinstance(email, str):
             raise TypeError('Expected argument email to be a str')
         __self__.email = email
@@ -37,12 +40,18 @@ class GetUserResult:
         """
         Any notes about this User.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if state and not isinstance(state, str):
             raise TypeError('Expected argument state to be a str')
         __self__.state = state
         """
         The current state of this User, for example `active`, `blocked` or `pending`.
         """
+        if user_id and not isinstance(user_id, str):
+            raise TypeError('Expected argument user_id to be a str')
+        __self__.user_id = user_id
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
         __self__.id = id
@@ -62,9 +71,12 @@ async def get_user(api_management_name=None,resource_group_name=None,user_id=Non
     __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getUser:getUser', __args__, opts=opts)
 
     return GetUserResult(
+        api_management_name=__ret__.get('apiManagementName'),
         email=__ret__.get('email'),
         first_name=__ret__.get('firstName'),
         last_name=__ret__.get('lastName'),
         note=__ret__.get('note'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         state=__ret__.get('state'),
+        user_id=__ret__.get('userId'),
         id=__ret__.get('id'))

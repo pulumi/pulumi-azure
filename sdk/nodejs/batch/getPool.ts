@@ -31,6 +31,10 @@ export interface GetPoolArgs {
  */
 export interface GetPoolResult {
     /**
+     * The name of the Batch account.
+     */
+    readonly accountName: string;
+    /**
      * A `auto_scale` block that describes the scale settings when using auto scale.
      */
     readonly autoScales: { evaluationInterval: string, formula: string }[];
@@ -44,9 +48,18 @@ export interface GetPoolResult {
      */
     readonly maxTasksPerNode: number;
     /**
+     * The name of the Batch pool.
+     */
+    readonly name: string;
+    /**
      * The Sku of the node agents in the Batch pool.
      */
     readonly nodeAgentSkuId: string;
+    readonly resourceGroupName: string;
+    /**
+     * A `start_task` block that describes the start task settings for the Batch pool.
+     */
+    readonly startTask?: { commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, userIdentities: { autoUsers: { elevationLevel: string, scope: string }[], userName: string }[], waitForSuccess?: boolean };
     /**
      * The reference of the storage image used by the nodes in the Batch pool.
      */

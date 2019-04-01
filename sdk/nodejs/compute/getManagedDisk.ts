@@ -121,10 +121,12 @@ export interface GetManagedDiskResult {
      * The size of the managed disk in gigabytes.
      */
     readonly diskSizeGb: number;
+    readonly name: string;
     /**
      * The operating system for managed disk. Valid values are `Linux` or `Windows`
      */
     readonly osType: string;
+    readonly resourceGroupName: string;
     /**
      * ID of an existing managed disk that the current resource was created from.
      */

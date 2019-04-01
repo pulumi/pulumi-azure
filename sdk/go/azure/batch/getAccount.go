@@ -20,7 +20,9 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 	}
 	return &GetAccountResult{
 		Location: outputs["location"],
+		Name: outputs["name"],
 		PoolAllocationMode: outputs["poolAllocationMode"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		StorageAccountId: outputs["storageAccountId"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -39,8 +41,11 @@ type GetAccountArgs struct {
 type GetAccountResult struct {
 	// The Azure Region in which this Batch account exists.
 	Location interface{}
+	// The Batch account name.
+	Name interface{}
 	// The pool allocation mode configured for this Batch account.
 	PoolAllocationMode interface{}
+	ResourceGroupName interface{}
 	// The ID of the Storage Account used for this Batch account.
 	StorageAccountId interface{}
 	// A map of tags assigned to the Batch account.

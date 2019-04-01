@@ -50,6 +50,9 @@ export interface GetVMProtectionPolicyArgs {
  * A collection of values returned by getVMProtectionPolicy.
  */
 export interface GetVMProtectionPolicyResult {
+    readonly name: string;
+    readonly recoveryVaultName: string;
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the resource.
      */

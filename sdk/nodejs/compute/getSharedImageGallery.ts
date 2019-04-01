@@ -51,6 +51,8 @@ export interface GetSharedImageGalleryResult {
      */
     readonly description: string;
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags which are assigned to the Shared Image Gallery.
      */

@@ -22,7 +22,9 @@ func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJ
 	}
 	return &GetJobCollectionResult{
 		Location: outputs["location"],
+		Name: outputs["name"],
 		Quotas: outputs["quotas"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		State: outputs["state"],
 		Tags: outputs["tags"],
@@ -42,8 +44,10 @@ type GetJobCollectionArgs struct {
 type GetJobCollectionResult struct {
 	// The Azure location where the resource exists.
 	Location interface{}
+	Name interface{}
 	// The Job collection quotas as documented in the `quota` block below.
 	Quotas interface{}
+	ResourceGroupName interface{}
 	// The Job Collection's pricing level's SKU.
 	Sku interface{}
 	// The Job Collection's state.

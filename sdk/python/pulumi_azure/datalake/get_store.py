@@ -12,7 +12,7 @@ class GetStoreResult:
     """
     A collection of values returned by getStore.
     """
-    def __init__(__self__, encryption_state=None, encryption_type=None, firewall_allow_azure_ips=None, firewall_state=None, location=None, tags=None, tier=None, id=None):
+    def __init__(__self__, encryption_state=None, encryption_type=None, firewall_allow_azure_ips=None, firewall_state=None, location=None, name=None, resource_group_name=None, tags=None, tier=None, id=None):
         if encryption_state and not isinstance(encryption_state, str):
             raise TypeError('Expected argument encryption_state to be a str')
         __self__.encryption_state = encryption_state
@@ -40,6 +40,12 @@ class GetStoreResult:
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -75,6 +81,8 @@ async def get_store(name=None,resource_group_name=None,opts=None):
         firewall_allow_azure_ips=__ret__.get('firewallAllowAzureIps'),
         firewall_state=__ret__.get('firewallState'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         tier=__ret__.get('tier'),
         id=__ret__.get('id'))

@@ -64,6 +64,9 @@ export interface GetHubResult {
      * The Azure Region in which this Notification Hub exists.
      */
     readonly location: string;
+    readonly name: string;
+    readonly namespaceName: string;
+    readonly resourceGroupName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

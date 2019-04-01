@@ -28,6 +28,8 @@ func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs
 		KafkaEnabled: outputs["kafkaEnabled"],
 		Location: outputs["location"],
 		MaximumThroughputUnits: outputs["maximumThroughputUnits"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -63,6 +65,8 @@ type GetEventhubNamespaceResult struct {
 	Location interface{}
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled.
 	MaximumThroughputUnits interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// Defines which tier to use.
 	Sku interface{}
 	// A mapping of tags to assign to the EventHub Namespace.

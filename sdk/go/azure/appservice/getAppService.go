@@ -29,8 +29,10 @@ func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServ
 		Enabled: outputs["enabled"],
 		HttpsOnly: outputs["httpsOnly"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		OutboundIpAddresses: outputs["outboundIpAddresses"],
 		PossibleOutboundIpAddresses: outputs["possibleOutboundIpAddresses"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		SiteConfig: outputs["siteConfig"],
 		SiteCredentials: outputs["siteCredentials"],
 		SourceControls: outputs["sourceControls"],
@@ -67,10 +69,13 @@ type GetAppServiceResult struct {
 	HttpsOnly interface{}
 	// The Azure location where the App Service exists.
 	Location interface{}
+	// The name of the Connection String.
+	Name interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
 	PossibleOutboundIpAddresses interface{}
+	ResourceGroupName interface{}
 	// A `site_config` block as defined below.
 	SiteConfig interface{}
 	SiteCredentials interface{}

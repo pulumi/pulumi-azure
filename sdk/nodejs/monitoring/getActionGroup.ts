@@ -55,6 +55,11 @@ export interface GetActionGroupResult {
      */
     readonly enabled: boolean;
     /**
+     * The name of the webhook receiver. 
+     */
+    readonly name: string;
+    readonly resourceGroupName: string;
+    /**
      * The short name of the action group.
      */
     readonly shortName: string;

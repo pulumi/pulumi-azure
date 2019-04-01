@@ -12,7 +12,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, e=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, tags=None, vault_uri=None, version=None, id=None):
+    def __init__(__self__, e=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, vault_uri=None, version=None, id=None):
         if e and not isinstance(e, str):
             raise TypeError('Expected argument e to be a str')
         __self__.e = e
@@ -46,6 +46,9 @@ class GetKeyResult:
         """
         The RSA modulus of this Key Vault Key.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -89,6 +92,7 @@ async def get_key(key_vault_id=None,name=None,vault_uri=None,opts=None):
         key_type=__ret__.get('keyType'),
         key_vault_id=__ret__.get('keyVaultId'),
         n=__ret__.get('n'),
+        name=__ret__.get('name'),
         tags=__ret__.get('tags'),
         vault_uri=__ret__.get('vaultUri'),
         version=__ret__.get('version'),

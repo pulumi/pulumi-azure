@@ -12,7 +12,13 @@ class GetSubscriptionsResult:
     """
     A collection of values returned by getSubscriptions.
     """
-    def __init__(__self__, subscriptions=None, id=None):
+    def __init__(__self__, display_name_contains=None, display_name_prefix=None, subscriptions=None, id=None):
+        if display_name_contains and not isinstance(display_name_contains, str):
+            raise TypeError('Expected argument display_name_contains to be a str')
+        __self__.display_name_contains = display_name_contains
+        if display_name_prefix and not isinstance(display_name_prefix, str):
+            raise TypeError('Expected argument display_name_prefix to be a str')
+        __self__.display_name_prefix = display_name_prefix
         if subscriptions and not isinstance(subscriptions, list):
             raise TypeError('Expected argument subscriptions to be a list')
         __self__.subscriptions = subscriptions
@@ -37,5 +43,7 @@ async def get_subscriptions(display_name_contains=None,display_name_prefix=None,
     __ret__ = await pulumi.runtime.invoke('azure:core/getSubscriptions:getSubscriptions', __args__, opts=opts)
 
     return GetSubscriptionsResult(
+        display_name_contains=__ret__.get('displayNameContains'),
+        display_name_prefix=__ret__.get('displayNamePrefix'),
         subscriptions=__ret__.get('subscriptions'),
         id=__ret__.get('id'))

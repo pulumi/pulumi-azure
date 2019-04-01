@@ -50,6 +50,7 @@ export interface GetBuiltinRoleDefinitionResult {
      * the Description of the built-in Role.
      */
     readonly description: string;
+    readonly name: string;
     /**
      * a `permissions` block as documented below.
      */

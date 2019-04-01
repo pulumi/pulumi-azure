@@ -12,7 +12,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None, id=None):
+    def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None, id=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError('Expected argument capabilities to be a list')
         __self__.capabilities = capabilities
@@ -67,6 +67,9 @@ class GetAccountResult:
         """
         The name of the Azure region hosting replicated data.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if offer_type and not isinstance(offer_type, str):
             raise TypeError('Expected argument offer_type to be a str')
         __self__.offer_type = offer_type
@@ -91,6 +94,9 @@ class GetAccountResult:
         """
         A list of read endpoints available for this CosmosDB account.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if secondary_master_key and not isinstance(secondary_master_key, str):
             raise TypeError('Expected argument secondary_master_key to be a str')
         __self__.secondary_master_key = secondary_master_key
@@ -149,10 +155,12 @@ async def get_account(name=None,resource_group_name=None,opts=None):
         is_virtual_network_filter_enabled=__ret__.get('isVirtualNetworkFilterEnabled'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         offer_type=__ret__.get('offerType'),
         primary_master_key=__ret__.get('primaryMasterKey'),
         primary_readonly_master_key=__ret__.get('primaryReadonlyMasterKey'),
         read_endpoints=__ret__.get('readEndpoints'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         secondary_master_key=__ret__.get('secondaryMasterKey'),
         secondary_readonly_master_key=__ret__.get('secondaryReadonlyMasterKey'),
         tags=__ret__.get('tags'),

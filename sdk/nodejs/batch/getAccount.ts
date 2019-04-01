@@ -51,9 +51,14 @@ export interface GetAccountResult {
      */
     readonly location: string;
     /**
+     * The Batch account name.
+     */
+    readonly name: string;
+    /**
      * The pool allocation mode configured for this Batch account.
      */
     readonly poolAllocationMode: string;
+    readonly resourceGroupName: string;
     /**
      * The ID of the Storage Account used for this Batch account.
      */

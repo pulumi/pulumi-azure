@@ -25,6 +25,8 @@ func LookupVirtualNetworkGateway(ctx *pulumi.Context, args *GetVirtualNetworkGat
 		EnableBgp: outputs["enableBgp"],
 		IpConfigurations: outputs["ipConfigurations"],
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		Type: outputs["type"],
@@ -59,6 +61,9 @@ type GetVirtualNetworkGatewayResult struct {
 	IpConfigurations interface{}
 	// The location/region where the Virtual Network Gateway is located.
 	Location interface{}
+	// The user-defined name of the revoked certificate.
+	Name interface{}
+	ResourceGroupName interface{}
 	// Configuration of the size and capacity of the Virtual Network Gateway.
 	Sku interface{}
 	// A mapping of tags assigned to the resource.

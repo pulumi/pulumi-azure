@@ -92,6 +92,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly location: string;
     /**
+     * The name assigned to this pool of agents.
+     */
+    readonly name: string;
+    /**
      * A `network_profile` block as documented below.
      */
     readonly networkProfiles: { dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, podCidr: string, serviceCidr: string }[];
@@ -99,6 +103,7 @@ export interface GetKubernetesClusterResult {
      * Auto-generated Resource Group containing AKS Cluster resources.
      */
     readonly nodeResourceGroup: string;
+    readonly resourceGroupName: string;
     /**
      * A `role_based_access_control` block as documented below.
      */

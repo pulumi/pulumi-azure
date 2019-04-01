@@ -12,7 +12,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, location=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, tags=None, id=None):
+    def __init__(__self__, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, location=None, name=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, tags=None, id=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError('Expected argument access_tier to be a str')
         __self__.access_tier = access_tier
@@ -75,6 +75,12 @@ class GetAccountResult:
         __self__.location = location
         """
         The Azure location where the Storage Account exists
+        """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The Custom Domain Name used for the Storage Account.
         """
         if primary_access_key and not isinstance(primary_access_key, str):
             raise TypeError('Expected argument primary_access_key to be a str')
@@ -148,6 +154,9 @@ class GetAccountResult:
         """
         The hostname with port if applicable for table storage in the primary location.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if secondary_access_key and not isinstance(secondary_access_key, str):
             raise TypeError('Expected argument secondary_access_key to be a str')
         __self__.secondary_access_key = secondary_access_key
@@ -242,6 +251,7 @@ async def get_account(name=None,resource_group_name=None,opts=None):
         enable_file_encryption=__ret__.get('enableFileEncryption'),
         enable_https_traffic_only=__ret__.get('enableHttpsTrafficOnly'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         primary_access_key=__ret__.get('primaryAccessKey'),
         primary_blob_connection_string=__ret__.get('primaryBlobConnectionString'),
         primary_blob_endpoint=__ret__.get('primaryBlobEndpoint'),
@@ -254,6 +264,7 @@ async def get_account(name=None,resource_group_name=None,opts=None):
         primary_queue_host=__ret__.get('primaryQueueHost'),
         primary_table_endpoint=__ret__.get('primaryTableEndpoint'),
         primary_table_host=__ret__.get('primaryTableHost'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         secondary_access_key=__ret__.get('secondaryAccessKey'),
         secondary_blob_connection_string=__ret__.get('secondaryBlobConnectionString'),
         secondary_blob_endpoint=__ret__.get('secondaryBlobEndpoint'),

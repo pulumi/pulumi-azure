@@ -19,6 +19,8 @@ func LookupBackendAddressPool(ctx *pulumi.Context, args *GetBackendAddressPoolAr
 		return nil, err
 	}
 	return &GetBackendAddressPoolResult{
+		LoadbalancerId: outputs["loadbalancerId"],
+		Name: outputs["name"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -33,6 +35,8 @@ type GetBackendAddressPoolArgs struct {
 
 // A collection of values returned by getBackendAddressPool.
 type GetBackendAddressPoolResult struct {
+	LoadbalancerId interface{}
+	Name interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

@@ -12,7 +12,7 @@ class GetRegistryResult:
     """
     A collection of values returned by getRegistry.
     """
-    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, location=None, login_server=None, sku=None, storage_account_id=None, tags=None, id=None):
+    def __init__(__self__, admin_enabled=None, admin_password=None, admin_username=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, storage_account_id=None, tags=None, id=None):
         if admin_enabled and not isinstance(admin_enabled, bool):
             raise TypeError('Expected argument admin_enabled to be a bool')
         __self__.admin_enabled = admin_enabled
@@ -43,6 +43,12 @@ class GetRegistryResult:
         """
         The URL that can be used to log into the container registry.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, str):
             raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
@@ -84,6 +90,8 @@ async def get_registry(name=None,resource_group_name=None,opts=None):
         admin_username=__ret__.get('adminUsername'),
         location=__ret__.get('location'),
         login_server=__ret__.get('loginServer'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         storage_account_id=__ret__.get('storageAccountId'),
         tags=__ret__.get('tags'),

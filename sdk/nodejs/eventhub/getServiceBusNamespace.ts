@@ -72,6 +72,8 @@ export interface GetServiceBusNamespaceResult {
      * The location of the Resource Group in which the ServiceBus Namespace exists.
      */
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * The Tier used for the ServiceBus Namespace.
      */

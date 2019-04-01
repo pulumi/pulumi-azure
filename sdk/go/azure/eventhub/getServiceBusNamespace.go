@@ -25,6 +25,8 @@ func LookupServiceBusNamespace(ctx *pulumi.Context, args *GetServiceBusNamespace
 		DefaultSecondaryConnectionString: outputs["defaultSecondaryConnectionString"],
 		DefaultSecondaryKey: outputs["defaultSecondaryKey"],
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -55,6 +57,8 @@ type GetServiceBusNamespaceResult struct {
 	DefaultSecondaryKey interface{}
 	// The location of the Resource Group in which the ServiceBus Namespace exists.
 	Location interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// The Tier used for the ServiceBus Namespace.
 	Sku interface{}
 	// A mapping of tags assigned to the resource.

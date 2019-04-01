@@ -12,7 +12,7 @@ class GetVirtualNetworkGatewayResult:
     """
     A collection of values returned by getVirtualNetworkGateway.
     """
-    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None, id=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None, id=None):
         if active_active and not isinstance(active_active, bool):
             raise TypeError('Expected argument active_active to be a bool')
         __self__.active_active = active_active
@@ -50,6 +50,15 @@ class GetVirtualNetworkGatewayResult:
         """
         The location/region where the Virtual Network Gateway is located.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The user-defined name of the revoked certificate.
+        """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, str):
             raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
@@ -104,6 +113,8 @@ async def get_virtual_network_gateway(name=None,resource_group_name=None,opts=No
         enable_bgp=__ret__.get('enableBgp'),
         ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),

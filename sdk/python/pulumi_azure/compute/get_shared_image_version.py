@@ -12,13 +12,19 @@ class GetSharedImageVersionResult:
     """
     A collection of values returned by getSharedImageVersion.
     """
-    def __init__(__self__, exclude_from_latest=None, location=None, managed_image_id=None, tags=None, target_regions=None, id=None):
+    def __init__(__self__, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None, id=None):
         if exclude_from_latest and not isinstance(exclude_from_latest, bool):
             raise TypeError('Expected argument exclude_from_latest to be a bool')
         __self__.exclude_from_latest = exclude_from_latest
         """
         Is this Image Version excluded from the `latest` filter?
         """
+        if gallery_name and not isinstance(gallery_name, str):
+            raise TypeError('Expected argument gallery_name to be a str')
+        __self__.gallery_name = gallery_name
+        if image_name and not isinstance(image_name, str):
+            raise TypeError('Expected argument image_name to be a str')
+        __self__.image_name = image_name
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
@@ -31,6 +37,15 @@ class GetSharedImageVersionResult:
         """
         The ID of the Managed Image which was the source of this Shared Image Version.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The Azure Region in which this Image Version exists.
+        """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -66,8 +81,12 @@ async def get_shared_image_version(gallery_name=None,image_name=None,name=None,r
 
     return GetSharedImageVersionResult(
         exclude_from_latest=__ret__.get('excludeFromLatest'),
+        gallery_name=__ret__.get('galleryName'),
+        image_name=__ret__.get('imageName'),
         location=__ret__.get('location'),
         managed_image_id=__ret__.get('managedImageId'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         target_regions=__ret__.get('targetRegions'),
         id=__ret__.get('id'))

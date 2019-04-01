@@ -12,7 +12,7 @@ class GetActionGroupResult:
     """
     A collection of values returned by getActionGroup.
     """
-    def __init__(__self__, email_receivers=None, enabled=None, short_name=None, sms_receivers=None, webhook_receivers=None, id=None):
+    def __init__(__self__, email_receivers=None, enabled=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, webhook_receivers=None, id=None):
         if email_receivers and not isinstance(email_receivers, list):
             raise TypeError('Expected argument email_receivers to be a list')
         __self__.email_receivers = email_receivers
@@ -25,6 +25,15 @@ class GetActionGroupResult:
         """
         Whether this action group is enabled.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The name of the webhook receiver. 
+        """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if short_name and not isinstance(short_name, str):
             raise TypeError('Expected argument short_name to be a str')
         __self__.short_name = short_name
@@ -63,6 +72,8 @@ async def get_action_group(name=None,resource_group_name=None,opts=None):
     return GetActionGroupResult(
         email_receivers=__ret__.get('emailReceivers'),
         enabled=__ret__.get('enabled'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         short_name=__ret__.get('shortName'),
         sms_receivers=__ret__.get('smsReceivers'),
         webhook_receivers=__ret__.get('webhookReceivers'),

@@ -12,7 +12,7 @@ class GetAppServicePlanResult:
     """
     A collection of values returned by getAppServicePlan.
     """
-    def __init__(__self__, kind=None, location=None, maximum_number_of_workers=None, properties=None, sku=None, tags=None, id=None):
+    def __init__(__self__, kind=None, location=None, maximum_number_of_workers=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, id=None):
         if kind and not isinstance(kind, str):
             raise TypeError('Expected argument kind to be a str')
         __self__.kind = kind
@@ -31,12 +31,18 @@ class GetAppServicePlanResult:
         """
         Maximum number of instances that can be assigned to this App Service plan.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if properties and not isinstance(properties, list):
             raise TypeError('Expected argument properties to be a list')
         __self__.properties = properties
         """
         A `properties` block as documented below.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, dict):
             raise TypeError('Expected argument sku to be a dict')
         __self__.sku = sku
@@ -70,7 +76,9 @@ async def get_app_service_plan(name=None,resource_group_name=None,opts=None):
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         maximum_number_of_workers=__ret__.get('maximumNumberOfWorkers'),
+        name=__ret__.get('name'),
         properties=__ret__.get('properties'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

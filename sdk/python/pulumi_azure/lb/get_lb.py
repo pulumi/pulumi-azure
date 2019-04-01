@@ -12,7 +12,7 @@ class GetLBResult:
     """
     A collection of values returned by getLB.
     """
-    def __init__(__self__, frontend_ip_configurations=None, location=None, private_ip_address=None, private_ip_addresses=None, sku=None, tags=None, id=None):
+    def __init__(__self__, frontend_ip_configurations=None, location=None, name=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, sku=None, tags=None, id=None):
         if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
             raise TypeError('Expected argument frontend_ip_configurations to be a list')
         __self__.frontend_ip_configurations = frontend_ip_configurations
@@ -24,6 +24,12 @@ class GetLBResult:
         __self__.location = location
         """
         The Azure location where the Load Balancer exists.
+        """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The name of the Frontend IP Configuration.
         """
         if private_ip_address and not isinstance(private_ip_address, str):
             raise TypeError('Expected argument private_ip_address to be a str')
@@ -37,6 +43,9 @@ class GetLBResult:
         """
         The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, str):
             raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
@@ -69,8 +78,10 @@ async def get_lb(name=None,resource_group_name=None,opts=None):
     return GetLBResult(
         frontend_ip_configurations=__ret__.get('frontendIpConfigurations'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         private_ip_address=__ret__.get('privateIpAddress'),
         private_ip_addresses=__ret__.get('privateIpAddresses'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

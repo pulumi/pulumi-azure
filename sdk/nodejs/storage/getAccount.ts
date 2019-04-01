@@ -90,6 +90,10 @@ export interface GetAccountResult {
      */
     readonly location: string;
     /**
+     * The Custom Domain Name used for the Storage Account.
+     */
+    readonly name: string;
+    /**
      * The primary access key for the Storage Account.
      */
     readonly primaryAccessKey: string;
@@ -137,6 +141,7 @@ export interface GetAccountResult {
      * The hostname with port if applicable for table storage in the primary location.
      */
     readonly primaryTableHost: string;
+    readonly resourceGroupName: string;
     /**
      * The secondary access key for the Storage Account.
      */

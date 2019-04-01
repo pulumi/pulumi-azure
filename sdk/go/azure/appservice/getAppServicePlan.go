@@ -22,7 +22,9 @@ func LookupAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs) (*Ge
 		Kind: outputs["kind"],
 		Location: outputs["location"],
 		MaximumNumberOfWorkers: outputs["maximumNumberOfWorkers"],
+		Name: outputs["name"],
 		Properties: outputs["properties"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -45,8 +47,10 @@ type GetAppServicePlanResult struct {
 	Location interface{}
 	// Maximum number of instances that can be assigned to this App Service plan.
 	MaximumNumberOfWorkers interface{}
+	Name interface{}
 	// A `properties` block as documented below.
 	Properties interface{}
+	ResourceGroupName interface{}
 	// A `sku` block as documented below.
 	Sku interface{}
 	// A mapping of tags assigned to the resource.

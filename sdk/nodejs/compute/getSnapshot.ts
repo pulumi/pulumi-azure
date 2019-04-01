@@ -50,7 +50,9 @@ export interface GetSnapshotResult {
      */
     readonly diskSizeGb: number;
     readonly encryptionSettings: { diskEncryptionKeys: { secretUrl: string, sourceVaultId: string }[], enabled: boolean, keyEncryptionKeys: { keyUrl: string, sourceVaultId: string }[] }[];
+    readonly name: string;
     readonly osType: string;
+    readonly resourceGroupName: string;
     /**
      * The reference to an existing snapshot.
      */

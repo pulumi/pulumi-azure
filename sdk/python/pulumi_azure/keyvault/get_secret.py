@@ -12,7 +12,7 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, content_type=None, key_vault_id=None, tags=None, value=None, vault_uri=None, version=None, id=None):
+    def __init__(__self__, content_type=None, key_vault_id=None, name=None, tags=None, value=None, vault_uri=None, version=None, id=None):
         if content_type and not isinstance(content_type, str):
             raise TypeError('Expected argument content_type to be a str')
         __self__.content_type = content_type
@@ -22,6 +22,9 @@ class GetSecretResult:
         if key_vault_id and not isinstance(key_vault_id, str):
             raise TypeError('Expected argument key_vault_id to be a str')
         __self__.key_vault_id = key_vault_id
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -67,6 +70,7 @@ async def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
     return GetSecretResult(
         content_type=__ret__.get('contentType'),
         key_vault_id=__ret__.get('keyVaultId'),
+        name=__ret__.get('name'),
         tags=__ret__.get('tags'),
         value=__ret__.get('value'),
         vault_uri=__ret__.get('vaultUri'),

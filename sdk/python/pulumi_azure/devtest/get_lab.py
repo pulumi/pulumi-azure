@@ -12,7 +12,7 @@ class GetLabResult:
     """
     A collection of values returned by getLab.
     """
-    def __init__(__self__, artifacts_storage_account_id=None, default_premium_storage_account_id=None, default_storage_account_id=None, key_vault_id=None, location=None, premium_data_disk_storage_account_id=None, storage_type=None, tags=None, unique_identifier=None, id=None):
+    def __init__(__self__, artifacts_storage_account_id=None, default_premium_storage_account_id=None, default_storage_account_id=None, key_vault_id=None, location=None, name=None, premium_data_disk_storage_account_id=None, resource_group_name=None, storage_type=None, tags=None, unique_identifier=None, id=None):
         if artifacts_storage_account_id and not isinstance(artifacts_storage_account_id, str):
             raise TypeError('Expected argument artifacts_storage_account_id to be a str')
         __self__.artifacts_storage_account_id = artifacts_storage_account_id
@@ -43,12 +43,18 @@ class GetLabResult:
         """
         The Azure location where the Dev Test Lab exists.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if premium_data_disk_storage_account_id and not isinstance(premium_data_disk_storage_account_id, str):
             raise TypeError('Expected argument premium_data_disk_storage_account_id to be a str')
         __self__.premium_data_disk_storage_account_id = premium_data_disk_storage_account_id
         """
         The ID of the Storage Account used for Storage of Premium Data Disk.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if storage_type and not isinstance(storage_type, str):
             raise TypeError('Expected argument storage_type to be a str')
         __self__.storage_type = storage_type
@@ -90,7 +96,9 @@ async def get_lab(name=None,resource_group_name=None,opts=None):
         default_storage_account_id=__ret__.get('defaultStorageAccountId'),
         key_vault_id=__ret__.get('keyVaultId'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         premium_data_disk_storage_account_id=__ret__.get('premiumDataDiskStorageAccountId'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         storage_type=__ret__.get('storageType'),
         tags=__ret__.get('tags'),
         unique_identifier=__ret__.get('uniqueIdentifier'),

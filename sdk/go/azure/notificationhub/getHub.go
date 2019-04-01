@@ -23,6 +23,9 @@ func LookupHub(ctx *pulumi.Context, args *GetHubArgs) (*GetHubResult, error) {
 		ApnsCredentials: outputs["apnsCredentials"],
 		GcmCredentials: outputs["gcmCredentials"],
 		Location: outputs["location"],
+		Name: outputs["name"],
+		NamespaceName: outputs["namespaceName"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -45,6 +48,9 @@ type GetHubResult struct {
 	GcmCredentials interface{}
 	// The Azure Region in which this Notification Hub exists.
 	Location interface{}
+	Name interface{}
+	NamespaceName interface{}
+	ResourceGroupName interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

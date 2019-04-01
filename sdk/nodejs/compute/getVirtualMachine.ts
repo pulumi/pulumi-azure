@@ -46,6 +46,8 @@ export interface GetVirtualMachineArgs {
  * A collection of values returned by getVirtualMachine.
  */
 export interface GetVirtualMachineResult {
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -49,6 +49,8 @@ export interface GetPolicyDefintionResult {
      * The Description of the Policy.
      */
     readonly description: string;
+    readonly displayName: string;
+    readonly managementGroupId?: string;
     /**
      * Any Metadata defined in the Policy.
      */

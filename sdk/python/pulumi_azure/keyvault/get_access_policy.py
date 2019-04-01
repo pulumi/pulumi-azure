@@ -12,7 +12,7 @@ class GetAccessPolicyResult:
     """
     A collection of values returned by getAccessPolicy.
     """
-    def __init__(__self__, certificate_permissions=None, key_permissions=None, secret_permissions=None, id=None):
+    def __init__(__self__, certificate_permissions=None, key_permissions=None, name=None, secret_permissions=None, id=None):
         if certificate_permissions and not isinstance(certificate_permissions, list):
             raise TypeError('Expected argument certificate_permissions to be a list')
         __self__.certificate_permissions = certificate_permissions
@@ -25,6 +25,9 @@ class GetAccessPolicyResult:
         """
         the key permissions for the access policy
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if secret_permissions and not isinstance(secret_permissions, list):
             raise TypeError('Expected argument secret_permissions to be a list')
         __self__.secret_permissions = secret_permissions
@@ -50,5 +53,6 @@ async def get_access_policy(name=None,opts=None):
     return GetAccessPolicyResult(
         certificate_permissions=__ret__.get('certificatePermissions'),
         key_permissions=__ret__.get('keyPermissions'),
+        name=__ret__.get('name'),
         secret_permissions=__ret__.get('secretPermissions'),
         id=__ret__.get('id'))

@@ -12,7 +12,7 @@ class GetAPIResult:
     """
     A collection of values returned by getAPI.
     """
-    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, location=None, management_api_url=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, scm_url=None, sku=None, tags=None, id=None):
+    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku=None, tags=None, id=None):
         if additional_locations and not isinstance(additional_locations, list):
             raise TypeError('Expected argument additional_locations to be a list')
         __self__.additional_locations = additional_locations
@@ -49,6 +49,12 @@ class GetAPIResult:
         """
         The URL for the Management API.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        Specifies the plan's pricing tier.
+        """
         if notification_sender_email and not isinstance(notification_sender_email, str):
             raise TypeError('Expected argument notification_sender_email to be a str')
         __self__.notification_sender_email = notification_sender_email
@@ -79,6 +85,9 @@ class GetAPIResult:
         """
         The name of the Publisher/Company of the API Management Service.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if scm_url and not isinstance(scm_url, str):
             raise TypeError('Expected argument scm_url to be a str')
         __self__.scm_url = scm_url
@@ -121,11 +130,13 @@ async def get_api(name=None,resource_group_name=None,opts=None):
         hostname_configurations=__ret__.get('hostnameConfigurations'),
         location=__ret__.get('location'),
         management_api_url=__ret__.get('managementApiUrl'),
+        name=__ret__.get('name'),
         notification_sender_email=__ret__.get('notificationSenderEmail'),
         portal_url=__ret__.get('portalUrl'),
         public_ip_addresses=__ret__.get('publicIpAddresses'),
         publisher_email=__ret__.get('publisherEmail'),
         publisher_name=__ret__.get('publisherName'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         scm_url=__ret__.get('scmUrl'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),

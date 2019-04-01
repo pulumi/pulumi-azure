@@ -58,6 +58,10 @@ export interface GetPlatformImageArgs {
  * A collection of values returned by getPlatformImage.
  */
 export interface GetPlatformImageResult {
+    readonly location: string;
+    readonly offer: string;
+    readonly publisher: string;
+    readonly sku: string;
     /**
      * The latest version of the Platform Image.
      */

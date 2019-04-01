@@ -51,6 +51,11 @@ export interface GetNetworkSecurityGroupResult {
      */
     readonly location: string;
     /**
+     * The name of the security rule.
+     */
+    readonly name: string;
+    readonly resourceGroupName: string;
+    /**
      * One or more `security_rule` blocks as defined below.
      */
     readonly securityRules: { access: string, description: string, destinationAddressPrefix: string, destinationAddressPrefixes: string[], destinationApplicationSecurityGroupIds?: string[], destinationPortRange: string, destinationPortRanges: string[], direction: string, name: string, priority: number, protocol: string, sourceAddressPrefix: string, sourceAddressPrefixes: string[], sourceApplicationSecurityGroupIds?: string[], sourcePortRange: string, sourcePortRanges: string[] }[];

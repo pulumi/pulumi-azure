@@ -45,6 +45,8 @@ export interface GetSubscriptionsArgs {
  * A collection of values returned by getSubscriptions.
  */
 export interface GetSubscriptionsResult {
+    readonly displayNameContains?: string;
+    readonly displayNamePrefix?: string;
     /**
      * One or more `subscription` blocks as defined below.
      */

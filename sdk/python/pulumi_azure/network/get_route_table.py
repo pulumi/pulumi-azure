@@ -12,13 +12,22 @@ class GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, location=None, routes=None, subnets=None, tags=None, id=None):
+    def __init__(__self__, location=None, name=None, resource_group_name=None, routes=None, subnets=None, tags=None, id=None):
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The Azure Region in which the Route Table exists.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The name of the Route.
+        """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if routes and not isinstance(routes, list):
             raise TypeError('Expected argument routes to be a list')
         __self__.routes = routes
@@ -56,6 +65,8 @@ async def get_route_table(name=None,resource_group_name=None,opts=None):
 
     return GetRouteTableResult(
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         routes=__ret__.get('routes'),
         subnets=__ret__.get('subnets'),
         tags=__ret__.get('tags'),
