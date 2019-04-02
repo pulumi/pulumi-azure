@@ -12,7 +12,7 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, internal_fqdn=None, ip_configurations=None, location=None, mac_address=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, tags=None, virtual_machine_id=None, id=None):
+    def __init__(__self__, applied_dns_servers=None, dns_servers=None, enable_accelerated_networking=None, enable_ip_forwarding=None, internal_dns_name_label=None, internal_fqdn=None, ip_configurations=None, location=None, mac_address=None, name=None, network_security_group_id=None, private_ip_address=None, private_ip_addresses=None, resource_group_name=None, tags=None, virtual_machine_id=None, id=None):
         if applied_dns_servers and not isinstance(applied_dns_servers, list):
             raise TypeError('Expected argument applied_dns_servers to be a list')
         __self__.applied_dns_servers = applied_dns_servers
@@ -64,6 +64,12 @@ class GetNetworkInterfaceResult:
         """
         The MAC address used by the specified Network Interface.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The name of the IP Configuration.
+        """
         if network_security_group_id and not isinstance(network_security_group_id, str):
             raise TypeError('Expected argument network_security_group_id to be a str')
         __self__.network_security_group_id = network_security_group_id
@@ -82,6 +88,9 @@ class GetNetworkInterfaceResult:
         """
         The list of private ip addresses associates to the specified Network Interface.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -121,9 +130,11 @@ async def get_network_interface(name=None,resource_group_name=None,opts=None):
         ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
         mac_address=__ret__.get('macAddress'),
+        name=__ret__.get('name'),
         network_security_group_id=__ret__.get('networkSecurityGroupId'),
         private_ip_address=__ret__.get('privateIpAddress'),
         private_ip_addresses=__ret__.get('privateIpAddresses'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         virtual_machine_id=__ret__.get('virtualMachineId'),
         id=__ret__.get('id'))

@@ -12,7 +12,10 @@ class GetGeographicalLocationResult:
     """
     A collection of values returned by getGeographicalLocation.
     """
-    def __init__(__self__, id=None):
+    def __init__(__self__, name=None, id=None):
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
         __self__.id = id
@@ -30,4 +33,5 @@ async def get_geographical_location(name=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('azure:trafficmanager/getGeographicalLocation:getGeographicalLocation', __args__, opts=opts)
 
     return GetGeographicalLocationResult(
+        name=__ret__.get('name'),
         id=__ret__.get('id'))

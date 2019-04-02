@@ -23,7 +23,11 @@ func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, erro
 	return &GetImageResult{
 		DataDisks: outputs["dataDisks"],
 		Location: outputs["location"],
+		Name: outputs["name"],
+		NameRegex: outputs["nameRegex"],
 		OsDisks: outputs["osDisks"],
+		ResourceGroupName: outputs["resourceGroupName"],
+		SortDescending: outputs["sortDescending"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -47,8 +51,13 @@ type GetImageResult struct {
 	DataDisks interface{}
 	// the Azure Location where this Image exists.
 	Location interface{}
+	// the name of the Image.
+	Name interface{}
+	NameRegex interface{}
 	// a `os_disk` block as defined below.
 	OsDisks interface{}
+	ResourceGroupName interface{}
+	SortDescending interface{}
 	// a mapping of tags to assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

@@ -20,6 +20,7 @@ func LookupLogProfile(ctx *pulumi.Context, args *GetLogProfileArgs) (*GetLogProf
 	return &GetLogProfileResult{
 		Categories: outputs["categories"],
 		Locations: outputs["locations"],
+		Name: outputs["name"],
 		RetentionPolicy: outputs["retentionPolicy"],
 		ServicebusRuleId: outputs["servicebusRuleId"],
 		StorageAccountId: outputs["storageAccountId"],
@@ -39,6 +40,7 @@ type GetLogProfileResult struct {
 	Categories interface{}
 	// List of regions for which Activity Log events are stored or streamed.
 	Locations interface{}
+	Name interface{}
 	RetentionPolicy interface{}
 	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
 	ServicebusRuleId interface{}

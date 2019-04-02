@@ -12,7 +12,10 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, description=None, display_name=None, external_id=None, type=None, id=None):
+    def __init__(__self__, api_management_name=None, description=None, display_name=None, external_id=None, name=None, resource_group_name=None, type=None, id=None):
+        if api_management_name and not isinstance(api_management_name, str):
+            raise TypeError('Expected argument api_management_name to be a str')
+        __self__.api_management_name = api_management_name
         if description and not isinstance(description, str):
             raise TypeError('Expected argument description to be a str')
         __self__.description = description
@@ -31,6 +34,12 @@ class GetGroupResult:
         """
         The identifier of the external Group.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if type and not isinstance(type, str):
             raise TypeError('Expected argument type to be a str')
         __self__.type = type
@@ -56,8 +65,11 @@ async def get_group(api_management_name=None,name=None,resource_group_name=None,
     __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getGroup:getGroup', __args__, opts=opts)
 
     return GetGroupResult(
+        api_management_name=__ret__.get('apiManagementName'),
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),
         external_id=__ret__.get('externalId'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         type=__ret__.get('type'),
         id=__ret__.get('id'))

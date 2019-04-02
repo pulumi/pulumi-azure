@@ -12,7 +12,16 @@ class GetVMProtectionPolicyResult:
     """
     A collection of values returned by getVMProtectionPolicy.
     """
-    def __init__(__self__, tags=None, id=None):
+    def __init__(__self__, name=None, recovery_vault_name=None, resource_group_name=None, tags=None, id=None):
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        if recovery_vault_name and not isinstance(recovery_vault_name, str):
+            raise TypeError('Expected argument recovery_vault_name to be a str')
+        __self__.recovery_vault_name = recovery_vault_name
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -38,5 +47,8 @@ async def get_vm_protection_policy(name=None,recovery_vault_name=None,resource_g
     __ret__ = await pulumi.runtime.invoke('azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy', __args__, opts=opts)
 
     return GetVMProtectionPolicyResult(
+        name=__ret__.get('name'),
+        recovery_vault_name=__ret__.get('recoveryVaultName'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

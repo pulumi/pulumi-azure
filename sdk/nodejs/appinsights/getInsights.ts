@@ -62,6 +62,8 @@ export interface GetInsightsResult {
      * The Azure location where the component exists.
      */
     readonly location: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * Tags applied to the component.
      */

@@ -54,10 +54,14 @@ export interface GetPublicIPsArgs {
  * A collection of values returned by getPublicIPs.
  */
 export interface GetPublicIPsResult {
+    readonly allocationType?: string;
+    readonly attached?: boolean;
+    readonly namePrefix?: string;
     /**
      * A List of `public_ips` blocks as defined below filtered by the criteria above.
      */
     readonly publicIps: { domainNameLabel: string, fqdn: string, id: string, ipAddress: string, name: string }[];
+    readonly resourceGroupName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

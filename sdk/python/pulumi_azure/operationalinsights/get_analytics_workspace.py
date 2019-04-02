@@ -12,10 +12,13 @@ class GetAnalyticsWorkspaceResult:
     """
     A collection of values returned by getAnalyticsWorkspace.
     """
-    def __init__(__self__, location=None, portal_url=None, primary_shared_key=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None, id=None):
+    def __init__(__self__, location=None, name=None, portal_url=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None, id=None):
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if portal_url and not isinstance(portal_url, str):
             raise TypeError('Expected argument portal_url to be a str')
         __self__.portal_url = portal_url
@@ -28,6 +31,9 @@ class GetAnalyticsWorkspaceResult:
         """
         The Primary shared key for the Log Analytics Workspace.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if retention_in_days and not isinstance(retention_in_days, float):
             raise TypeError('Expected argument retention_in_days to be a float')
         __self__.retention_in_days = retention_in_days
@@ -77,8 +83,10 @@ async def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
 
     return GetAnalyticsWorkspaceResult(
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         portal_url=__ret__.get('portalUrl'),
         primary_shared_key=__ret__.get('primarySharedKey'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         retention_in_days=__ret__.get('retentionInDays'),
         secondary_shared_key=__ret__.get('secondarySharedKey'),
         sku=__ret__.get('sku'),

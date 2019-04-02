@@ -24,7 +24,9 @@ func LookupLab(ctx *pulumi.Context, args *GetLabArgs) (*GetLabResult, error) {
 		DefaultStorageAccountId: outputs["defaultStorageAccountId"],
 		KeyVaultId: outputs["keyVaultId"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		PremiumDataDiskStorageAccountId: outputs["premiumDataDiskStorageAccountId"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		StorageType: outputs["storageType"],
 		Tags: outputs["tags"],
 		UniqueIdentifier: outputs["uniqueIdentifier"],
@@ -52,8 +54,10 @@ type GetLabResult struct {
 	KeyVaultId interface{}
 	// The Azure location where the Dev Test Lab exists.
 	Location interface{}
+	Name interface{}
 	// The ID of the Storage Account used for Storage of Premium Data Disk.
 	PremiumDataDiskStorageAccountId interface{}
+	ResourceGroupName interface{}
 	// The type of storage used by the Dev Test Lab.
 	StorageType interface{}
 	// A mapping of tags to assign to the resource.

@@ -54,6 +54,8 @@ export interface GetVirtualNetworkResult {
      * The list of DNS servers used by the virtual network.
      */
     readonly dnsServers: string[];
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * The list of name of the subnets that are attached to this virtual network.
      */

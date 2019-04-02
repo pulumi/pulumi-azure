@@ -54,10 +54,12 @@ export interface GetWorkflowResult {
      * The Azure location where the Logic App Workflow exists.
      */
     readonly location: string;
+    readonly name: string;
     /**
      * A map of Key-Value pairs.
      */
     readonly parameters: {[key: string]: any};
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the resource.
      */

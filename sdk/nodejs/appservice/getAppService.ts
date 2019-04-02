@@ -82,6 +82,10 @@ export interface GetAppServiceResult {
      */
     readonly location: string;
     /**
+     * The name of the Connection String.
+     */
+    readonly name: string;
+    /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     readonly outboundIpAddresses: string;
@@ -89,6 +93,7 @@ export interface GetAppServiceResult {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      */
     readonly possibleOutboundIpAddresses: string;
+    readonly resourceGroupName: string;
     /**
      * A `site_config` block as defined below.
      */

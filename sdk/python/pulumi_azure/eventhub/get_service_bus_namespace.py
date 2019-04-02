@@ -12,7 +12,7 @@ class GetServiceBusNamespaceResult:
     """
     A collection of values returned by getServiceBusNamespace.
     """
-    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, sku=None, tags=None, id=None):
+    def __init__(__self__, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, id=None):
         if capacity and not isinstance(capacity, float):
             raise TypeError('Expected argument capacity to be a float')
         __self__.capacity = capacity
@@ -51,6 +51,12 @@ class GetServiceBusNamespaceResult:
         """
         The location of the Resource Group in which the ServiceBus Namespace exists.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, str):
             raise TypeError('Expected argument sku to be a str')
         __self__.sku = sku
@@ -87,6 +93,8 @@ async def get_service_bus_namespace(name=None,resource_group_name=None,opts=None
         default_secondary_connection_string=__ret__.get('defaultSecondaryConnectionString'),
         default_secondary_key=__ret__.get('defaultSecondaryKey'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

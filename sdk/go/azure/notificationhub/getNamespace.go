@@ -21,7 +21,9 @@ func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs) (*GetNamespace
 	return &GetNamespaceResult{
 		Enabled: outputs["enabled"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		NamespaceType: outputs["namespaceType"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		ServicebusEndpoint: outputs["servicebusEndpoint"],
 		Sku: outputs["sku"],
 		Id: outputs["id"],
@@ -42,8 +44,11 @@ type GetNamespaceResult struct {
 	Enabled interface{}
 	// The Azure Region in which this Notification Hub Namespace exists.
 	Location interface{}
+	// (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
+	Name interface{}
 	// The Type of Namespace, such as `Messaging` or `NotificationHub`.
 	NamespaceType interface{}
+	ResourceGroupName interface{}
 	ServicebusEndpoint interface{}
 	// A `sku` block as defined below.
 	Sku interface{}

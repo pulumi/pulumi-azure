@@ -60,11 +60,13 @@ export interface GetSharedImageResult {
      * The End User Licence Agreement for the Shared Image.
      */
     readonly eula: string;
+    readonly galleryName: string;
     readonly identifiers: { offer: string, publisher: string, sku: string }[];
     /**
      * The supported Azure location where the Shared Image Gallery exists.
      */
     readonly location: string;
+    readonly name: string;
     /**
      * The type of Operating System present in this Shared Image.
      */
@@ -77,6 +79,7 @@ export interface GetSharedImageResult {
      * The URI containing the Release Notes for this Shared Image.
      */
     readonly releaseNoteUri: string;
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the Shared Image.
      */

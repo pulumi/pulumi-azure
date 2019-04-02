@@ -12,7 +12,7 @@ class GetAppServiceResult:
     """
     A collection of values returned by getAppService.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, location=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, site_config=None, site_credentials=None, source_controls=None, tags=None, id=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, source_controls=None, tags=None, id=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError('Expected argument app_service_plan_id to be a str')
         __self__.app_service_plan_id = app_service_plan_id
@@ -64,6 +64,12 @@ class GetAppServiceResult:
         """
         The Azure location where the App Service exists.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The name of the Connection String.
+        """
         if outbound_ip_addresses and not isinstance(outbound_ip_addresses, str):
             raise TypeError('Expected argument outbound_ip_addresses to be a str')
         __self__.outbound_ip_addresses = outbound_ip_addresses
@@ -76,6 +82,9 @@ class GetAppServiceResult:
         """
         A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if site_config and not isinstance(site_config, dict):
             raise TypeError('Expected argument site_config to be a dict')
         __self__.site_config = site_config
@@ -122,8 +131,10 @@ async def get_app_service(name=None,resource_group_name=None,site_config=None,op
         enabled=__ret__.get('enabled'),
         https_only=__ret__.get('httpsOnly'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         outbound_ip_addresses=__ret__.get('outboundIpAddresses'),
         possible_outbound_ip_addresses=__ret__.get('possibleOutboundIpAddresses'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         site_config=__ret__.get('siteConfig'),
         site_credentials=__ret__.get('siteCredentials'),
         source_controls=__ret__.get('sourceControls'),

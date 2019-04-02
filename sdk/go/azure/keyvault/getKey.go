@@ -29,6 +29,7 @@ func LookupKey(ctx *pulumi.Context, args *GetKeyArgs) (*GetKeyResult, error) {
 		KeyType: outputs["keyType"],
 		KeyVaultId: outputs["keyVaultId"],
 		N: outputs["n"],
+		Name: outputs["name"],
 		Tags: outputs["tags"],
 		VaultUri: outputs["vaultUri"],
 		Version: outputs["version"],
@@ -58,6 +59,7 @@ type GetKeyResult struct {
 	KeyVaultId interface{}
 	// The RSA modulus of this Key Vault Key.
 	N interface{}
+	Name interface{}
 	// A mapping of tags assigned to this Key Vault Key.
 	Tags interface{}
 	VaultUri interface{}

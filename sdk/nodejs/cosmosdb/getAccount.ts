@@ -80,6 +80,7 @@ export interface GetAccountResult {
      * The name of the Azure region hosting replicated data.
      */
     readonly location: string;
+    readonly name: string;
     /**
      * The Offer Type to used by this CosmosDB Account.
      */
@@ -96,6 +97,7 @@ export interface GetAccountResult {
      * A list of read endpoints available for this CosmosDB account.
      */
     readonly readEndpoints: string[];
+    readonly resourceGroupName: string;
     /**
      * The Secondary master key for the CosmosDB Account.
      */

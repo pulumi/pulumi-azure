@@ -48,6 +48,7 @@ export interface GetLogProfileResult {
      * List of regions for which Activity Log events are stored or streamed.
      */
     readonly locations: string[];
+    readonly name: string;
     readonly retentionPolicy: { days: number, enabled: boolean };
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.

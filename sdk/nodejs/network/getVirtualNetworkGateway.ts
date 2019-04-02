@@ -72,6 +72,11 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly location: string;
     /**
+     * The user-defined name of the revoked certificate.
+     */
+    readonly name: string;
+    readonly resourceGroupName: string;
+    /**
      * Configuration of the size and capacity of the Virtual Network Gateway.
      */
     readonly sku: string;

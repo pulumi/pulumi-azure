@@ -12,7 +12,13 @@ class GetVirtualMachineResult:
     """
     A collection of values returned by getVirtualMachine.
     """
-    def __init__(__self__, id=None):
+    def __init__(__self__, name=None, resource_group_name=None, id=None):
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if id and not isinstance(id, str):
             raise TypeError('Expected argument id to be a str')
         __self__.id = id
@@ -31,4 +37,6 @@ async def get_virtual_machine(name=None,resource_group_name=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('azure:compute/getVirtualMachine:getVirtualMachine', __args__, opts=opts)
 
     return GetVirtualMachineResult(
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         id=__ret__.get('id'))

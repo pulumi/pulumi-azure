@@ -24,11 +24,14 @@ func LookupSharedImage(ctx *pulumi.Context, args *GetSharedImageArgs) (*GetShare
 	return &GetSharedImageResult{
 		Description: outputs["description"],
 		Eula: outputs["eula"],
+		GalleryName: outputs["galleryName"],
 		Identifiers: outputs["identifiers"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		OsType: outputs["osType"],
 		PrivacyStatementUri: outputs["privacyStatementUri"],
 		ReleaseNoteUri: outputs["releaseNoteUri"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -50,15 +53,18 @@ type GetSharedImageResult struct {
 	Description interface{}
 	// The End User Licence Agreement for the Shared Image.
 	Eula interface{}
+	GalleryName interface{}
 	Identifiers interface{}
 	// The supported Azure location where the Shared Image Gallery exists.
 	Location interface{}
+	Name interface{}
 	// The type of Operating System present in this Shared Image.
 	OsType interface{}
 	// The URI containing the Privacy Statement for this Shared Image.
 	PrivacyStatementUri interface{}
 	// The URI containing the Release Notes for this Shared Image.
 	ReleaseNoteUri interface{}
+	ResourceGroupName interface{}
 	// A mapping of tags assigned to the Shared Image.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

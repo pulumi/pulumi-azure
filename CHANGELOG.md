@@ -1,5 +1,9 @@
 ## 0.17.4 (Unreleased)
 
+## Improvements
+
+- Objects returned by `getX()` functions now have output properties corresponding to their input arguments.
+
 ## 0.17.3 (Released March 19th, 2019)
 
 ## Improvements

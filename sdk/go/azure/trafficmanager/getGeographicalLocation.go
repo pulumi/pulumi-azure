@@ -18,6 +18,7 @@ func LookupGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocati
 		return nil, err
 	}
 	return &GetGeographicalLocationResult{
+		Name: outputs["name"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -30,6 +31,7 @@ type GetGeographicalLocationArgs struct {
 
 // A collection of values returned by getGeographicalLocation.
 type GetGeographicalLocationResult struct {
+	Name interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

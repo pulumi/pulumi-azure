@@ -52,6 +52,7 @@ export interface GetUserArgs {
  * A collection of values returned by getUser.
  */
 export interface GetUserResult {
+    readonly apiManagementName: string;
     /**
      * The Email Address used for this User.
      */
@@ -68,10 +69,12 @@ export interface GetUserResult {
      * Any notes about this User.
      */
     readonly note: string;
+    readonly resourceGroupName: string;
     /**
      * The current state of this User, for example `active`, `blocked` or `pending`.
      */
     readonly state: string;
+    readonly userId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -58,10 +58,12 @@ export interface GetAppServicePlanResult {
      * Maximum number of instances that can be assigned to this App Service plan.
      */
     readonly maximumNumberOfWorkers: number;
+    readonly name: string;
     /**
      * A `properties` block as documented below.
      */
     readonly properties: { appServiceEnvironmentId: string, perSiteScaling: boolean, reserved: boolean }[];
+    readonly resourceGroupName: string;
     /**
      * A `sku` block as documented below.
      */

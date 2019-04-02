@@ -56,6 +56,7 @@ export interface GetSecretResult {
      */
     readonly contentType: string;
     readonly keyVaultId: string;
+    readonly name: string;
     /**
      * Any tags assigned to this resource.
      */

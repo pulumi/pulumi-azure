@@ -20,6 +20,8 @@ func LookupVault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, erro
 	}
 	return &GetVaultResult{
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -38,6 +40,8 @@ type GetVaultArgs struct {
 type GetVaultResult struct {
 	// The Azure location where the resource resides.
 	Location interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// The vault's current SKU.
 	Sku interface{}
 	// A mapping of tags assigned to the resource.

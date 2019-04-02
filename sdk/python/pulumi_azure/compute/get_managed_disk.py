@@ -12,7 +12,7 @@ class GetManagedDiskResult:
     """
     A collection of values returned by getManagedDisk.
     """
-    def __init__(__self__, create_option=None, disk_size_gb=None, os_type=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None, id=None):
+    def __init__(__self__, create_option=None, disk_size_gb=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None, id=None):
         if create_option and not isinstance(create_option, str):
             raise TypeError('Expected argument create_option to be a str')
         __self__.create_option = create_option
@@ -22,12 +22,18 @@ class GetManagedDiskResult:
         """
         The size of the managed disk in gigabytes.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if os_type and not isinstance(os_type, str):
             raise TypeError('Expected argument os_type to be a str')
         __self__.os_type = os_type
         """
         The operating system for managed disk. Valid values are `Linux` or `Windows`
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if source_resource_id and not isinstance(source_resource_id, str):
             raise TypeError('Expected argument source_resource_id to be a str')
         __self__.source_resource_id = source_resource_id
@@ -80,7 +86,9 @@ async def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=No
     return GetManagedDiskResult(
         create_option=__ret__.get('createOption'),
         disk_size_gb=__ret__.get('diskSizeGb'),
+        name=__ret__.get('name'),
         os_type=__ret__.get('osType'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         source_resource_id=__ret__.get('sourceResourceId'),
         source_uri=__ret__.get('sourceUri'),
         storage_account_type=__ret__.get('storageAccountType'),

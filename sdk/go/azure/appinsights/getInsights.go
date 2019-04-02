@@ -23,6 +23,8 @@ func LookupInsights(ctx *pulumi.Context, args *GetInsightsArgs) (*GetInsightsRes
 		ApplicationType: outputs["applicationType"],
 		InstrumentationKey: outputs["instrumentationKey"],
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -46,6 +48,8 @@ type GetInsightsResult struct {
 	InstrumentationKey interface{}
 	// The Azure location where the component exists.
 	Location interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// Tags applied to the component.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

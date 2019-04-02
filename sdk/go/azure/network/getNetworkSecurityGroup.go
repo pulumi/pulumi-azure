@@ -20,6 +20,8 @@ func LookupNetworkSecurityGroup(ctx *pulumi.Context, args *GetNetworkSecurityGro
 	}
 	return &GetNetworkSecurityGroupResult{
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		SecurityRules: outputs["securityRules"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -38,6 +40,9 @@ type GetNetworkSecurityGroupArgs struct {
 type GetNetworkSecurityGroupResult struct {
 	// The supported Azure location where the resource exists.
 	Location interface{}
+	// The name of the security rule.
+	Name interface{}
+	ResourceGroupName interface{}
 	// One or more `security_rule` blocks as defined below.
 	SecurityRules interface{}
 	// A mapping of tags assigned to the resource.

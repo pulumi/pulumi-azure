@@ -12,7 +12,7 @@ class GetPublicIPResult:
     """
     A collection of values returned by getPublicIP.
     """
-    def __init__(__self__, allocation_method=None, domain_name_label=None, fqdn=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, location=None, reverse_fqdn=None, sku=None, tags=None, zones=None, id=None):
+    def __init__(__self__, allocation_method=None, domain_name_label=None, fqdn=None, idle_timeout_in_minutes=None, ip_address=None, ip_version=None, location=None, name=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None, id=None):
         if allocation_method and not isinstance(allocation_method, str):
             raise TypeError('Expected argument allocation_method to be a str')
         __self__.allocation_method = allocation_method
@@ -49,6 +49,12 @@ class GetPublicIPResult:
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if reverse_fqdn and not isinstance(reverse_fqdn, str):
             raise TypeError('Expected argument reverse_fqdn to be a str')
         __self__.reverse_fqdn = reverse_fqdn
@@ -91,6 +97,8 @@ async def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,
         ip_address=__ret__.get('ipAddress'),
         ip_version=__ret__.get('ipVersion'),
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         reverse_fqdn=__ret__.get('reverseFqdn'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),

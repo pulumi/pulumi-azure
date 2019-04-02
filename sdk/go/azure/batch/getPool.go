@@ -21,11 +21,15 @@ func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) 
 		return nil, err
 	}
 	return &GetPoolResult{
+		AccountName: outputs["accountName"],
 		AutoScales: outputs["autoScales"],
 		DisplayName: outputs["displayName"],
 		FixedScales: outputs["fixedScales"],
 		MaxTasksPerNode: outputs["maxTasksPerNode"],
+		Name: outputs["name"],
 		NodeAgentSkuId: outputs["nodeAgentSkuId"],
+		ResourceGroupName: outputs["resourceGroupName"],
+		StartTask: outputs["startTask"],
 		StorageImageReferences: outputs["storageImageReferences"],
 		VmSize: outputs["vmSize"],
 		Id: outputs["id"],
@@ -42,6 +46,8 @@ type GetPoolArgs struct {
 
 // A collection of values returned by getPool.
 type GetPoolResult struct {
+	// The name of the Batch account.
+	AccountName interface{}
 	// A `auto_scale` block that describes the scale settings when using auto scale.
 	AutoScales interface{}
 	DisplayName interface{}
@@ -49,8 +55,13 @@ type GetPoolResult struct {
 	FixedScales interface{}
 	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
 	MaxTasksPerNode interface{}
+	// The name of the Batch pool.
+	Name interface{}
 	// The Sku of the node agents in the Batch pool.
 	NodeAgentSkuId interface{}
+	ResourceGroupName interface{}
+	// A `start_task` block that describes the start task settings for the Batch pool.
+	StartTask interface{}
 	// The reference of the storage image used by the nodes in the Batch pool.
 	StorageImageReferences interface{}
 	// The size of the VM created in the Batch pool.

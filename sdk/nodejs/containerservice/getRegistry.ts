@@ -66,6 +66,8 @@ export interface GetRegistryResult {
      * The URL that can be used to log into the container registry.
      */
     readonly loginServer: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * The SKU of this Container Registry, such as `Basic`.
      */

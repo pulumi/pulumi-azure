@@ -24,6 +24,8 @@ func LookupRegistry(ctx *pulumi.Context, args *GetRegistryArgs) (*GetRegistryRes
 		AdminUsername: outputs["adminUsername"],
 		Location: outputs["location"],
 		LoginServer: outputs["loginServer"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		StorageAccountId: outputs["storageAccountId"],
 		Tags: outputs["tags"],
@@ -51,6 +53,8 @@ type GetRegistryResult struct {
 	Location interface{}
 	// The URL that can be used to log into the container registry.
 	LoginServer interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// The SKU of this Container Registry, such as `Basic`.
 	Sku interface{}
 	// The ID of the Storage Account used for this Container Registry. This is only returned for `Classic` SKU's.

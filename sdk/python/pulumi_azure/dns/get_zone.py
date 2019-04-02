@@ -12,13 +12,16 @@ class GetZoneResult:
     """
     A collection of values returned by getZone.
     """
-    def __init__(__self__, max_number_of_record_sets=None, name_servers=None, number_of_record_sets=None, registration_virtual_network_ids=None, resolution_virtual_network_ids=None, resource_group_name=None, tags=None, zone_type=None, id=None):
+    def __init__(__self__, max_number_of_record_sets=None, name=None, name_servers=None, number_of_record_sets=None, registration_virtual_network_ids=None, resolution_virtual_network_ids=None, resource_group_name=None, tags=None, zone_type=None, id=None):
         if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
             raise TypeError('Expected argument max_number_of_record_sets to be a float')
         __self__.max_number_of_record_sets = max_number_of_record_sets
         """
         Maximum number of Records in the zone.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if name_servers and not isinstance(name_servers, list):
             raise TypeError('Expected argument name_servers to be a list')
         __self__.name_servers = name_servers
@@ -77,6 +80,7 @@ async def get_zone(name=None,resource_group_name=None,opts=None):
 
     return GetZoneResult(
         max_number_of_record_sets=__ret__.get('maxNumberOfRecordSets'),
+        name=__ret__.get('name'),
         name_servers=__ret__.get('nameServers'),
         number_of_record_sets=__ret__.get('numberOfRecordSets'),
         registration_virtual_network_ids=__ret__.get('registrationVirtualNetworkIds'),

@@ -19,6 +19,8 @@ func LookupVirtualMachine(ctx *pulumi.Context, args *GetVirtualMachineArgs) (*Ge
 		return nil, err
 	}
 	return &GetVirtualMachineResult{
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -33,6 +35,8 @@ type GetVirtualMachineArgs struct {
 
 // A collection of values returned by getVirtualMachine.
 type GetVirtualMachineResult struct {
+	Name interface{}
+	ResourceGroupName interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

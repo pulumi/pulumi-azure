@@ -21,8 +21,10 @@ func LookupAvailabilitySet(ctx *pulumi.Context, args *GetAvailabilitySetArgs) (*
 	return &GetAvailabilitySetResult{
 		Location: outputs["location"],
 		Managed: outputs["managed"],
+		Name: outputs["name"],
 		PlatformFaultDomainCount: outputs["platformFaultDomainCount"],
 		PlatformUpdateDomainCount: outputs["platformUpdateDomainCount"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -42,10 +44,12 @@ type GetAvailabilitySetResult struct {
 	Location interface{}
 	// Whether the availability set is managed or not.
 	Managed interface{}
+	Name interface{}
 	// The number of fault domains that are used.
 	PlatformFaultDomainCount interface{}
 	// The number of update domains that are used.
 	PlatformUpdateDomainCount interface{}
+	ResourceGroupName interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

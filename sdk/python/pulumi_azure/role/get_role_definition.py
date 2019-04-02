@@ -12,7 +12,7 @@ class GetRoleDefinitionResult:
     """
     A collection of values returned by getRoleDefinition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, role_definition_id=None, type=None, id=None):
+    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, role_definition_id=None, scope=None, type=None, id=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError('Expected argument assignable_scopes to be a list')
         __self__.assignable_scopes = assignable_scopes
@@ -37,6 +37,9 @@ class GetRoleDefinitionResult:
         if role_definition_id and not isinstance(role_definition_id, str):
             raise TypeError('Expected argument role_definition_id to be a str')
         __self__.role_definition_id = role_definition_id
+        if scope and not isinstance(scope, str):
+            raise TypeError('Expected argument scope to be a str')
+        __self__.scope = scope
         if type and not isinstance(type, str):
             raise TypeError('Expected argument type to be a str')
         __self__.type = type
@@ -67,5 +70,6 @@ async def get_role_definition(name=None,role_definition_id=None,scope=None,opts=
         name=__ret__.get('name'),
         permissions=__ret__.get('permissions'),
         role_definition_id=__ret__.get('roleDefinitionId'),
+        scope=__ret__.get('scope'),
         type=__ret__.get('type'),
         id=__ret__.get('id'))

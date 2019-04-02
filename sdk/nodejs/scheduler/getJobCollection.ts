@@ -52,10 +52,12 @@ export interface GetJobCollectionResult {
      * The Azure location where the resource exists.
      */
     readonly location: string;
+    readonly name: string;
     /**
      * The Job collection quotas as documented in the `quota` block below.
      */
     readonly quotas: { maxJobCount: number, maxRecurrenceFrequency: string, maxRecurrenceInterval: number, maxRetryInterval: number }[];
+    readonly resourceGroupName: string;
     /**
      * The Job Collection's pricing level's SKU.
      */

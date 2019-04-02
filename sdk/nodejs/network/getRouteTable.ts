@@ -49,6 +49,11 @@ export interface GetRouteTableResult {
      */
     readonly location: string;
     /**
+     * The name of the Route.
+     */
+    readonly name: string;
+    readonly resourceGroupName: string;
+    /**
      * One or more `route` blocks as documented below.
      */
     readonly routes: { addressPrefix: string, name: string, nextHopInIpAddress: string, nextHopType: string }[];

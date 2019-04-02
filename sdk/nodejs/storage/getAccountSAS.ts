@@ -113,10 +113,17 @@ export interface GetAccountSASArgs {
  * A collection of values returned by getAccountSAS.
  */
 export interface GetAccountSASResult {
+    readonly connectionString: string;
+    readonly expiry: string;
+    readonly httpsOnly?: boolean;
+    readonly permissions: { add: boolean, create: boolean, delete: boolean, list: boolean, process: boolean, read: boolean, update: boolean, write: boolean };
+    readonly resourceTypes: { container: boolean, object: boolean, service: boolean };
     /**
      * The computed Account Shared Access Signature (SAS).
      */
     readonly sas: string;
+    readonly services: { blob: boolean, file: boolean, queue: boolean, table: boolean };
+    readonly start: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

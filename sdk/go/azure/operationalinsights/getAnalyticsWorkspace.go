@@ -20,8 +20,10 @@ func LookupAnalyticsWorkspace(ctx *pulumi.Context, args *GetAnalyticsWorkspaceAr
 	}
 	return &GetAnalyticsWorkspaceResult{
 		Location: outputs["location"],
+		Name: outputs["name"],
 		PortalUrl: outputs["portalUrl"],
 		PrimarySharedKey: outputs["primarySharedKey"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		RetentionInDays: outputs["retentionInDays"],
 		SecondarySharedKey: outputs["secondarySharedKey"],
 		Sku: outputs["sku"],
@@ -42,10 +44,12 @@ type GetAnalyticsWorkspaceArgs struct {
 // A collection of values returned by getAnalyticsWorkspace.
 type GetAnalyticsWorkspaceResult struct {
 	Location interface{}
+	Name interface{}
 	// The Portal URL for the Log Analytics Workspace.
 	PortalUrl interface{}
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey interface{}
+	ResourceGroupName interface{}
 	// The workspace data retention in days.
 	RetentionInDays interface{}
 	// The Secondary shared key for the Log Analytics Workspace.

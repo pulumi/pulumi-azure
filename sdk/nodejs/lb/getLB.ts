@@ -55,6 +55,10 @@ export interface GetLBResult {
      */
     readonly location: string;
     /**
+     * The name of the Frontend IP Configuration.
+     */
+    readonly name: string;
+    /**
      * Private IP Address to assign to the Load Balancer.
      */
     readonly privateIpAddress: string;
@@ -62,6 +66,7 @@ export interface GetLBResult {
      * The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
      */
     readonly privateIpAddresses: string[];
+    readonly resourceGroupName: string;
     /**
      * The SKU of the Load Balancer.
      */

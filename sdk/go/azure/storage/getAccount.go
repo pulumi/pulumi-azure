@@ -29,6 +29,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		EnableFileEncryption: outputs["enableFileEncryption"],
 		EnableHttpsTrafficOnly: outputs["enableHttpsTrafficOnly"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		PrimaryAccessKey: outputs["primaryAccessKey"],
 		PrimaryBlobConnectionString: outputs["primaryBlobConnectionString"],
 		PrimaryBlobEndpoint: outputs["primaryBlobEndpoint"],
@@ -41,6 +42,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		PrimaryQueueHost: outputs["primaryQueueHost"],
 		PrimaryTableEndpoint: outputs["primaryTableEndpoint"],
 		PrimaryTableHost: outputs["primaryTableHost"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		SecondaryAccessKey: outputs["secondaryAccessKey"],
 		SecondaryBlobConnectionString: outputs["secondaryBlobConnectionString"],
 		SecondaryBlobEndpoint: outputs["secondaryBlobEndpoint"],
@@ -89,6 +91,8 @@ type GetAccountResult struct {
 	EnableHttpsTrafficOnly interface{}
 	// The Azure location where the Storage Account exists
 	Location interface{}
+	// The Custom Domain Name used for the Storage Account.
+	Name interface{}
 	// The primary access key for the Storage Account.
 	PrimaryAccessKey interface{}
 	// The connection string associated with the primary blob location
@@ -113,6 +117,7 @@ type GetAccountResult struct {
 	PrimaryTableEndpoint interface{}
 	// The hostname with port if applicable for table storage in the primary location.
 	PrimaryTableHost interface{}
+	ResourceGroupName interface{}
 	// The secondary access key for the Storage Account.
 	SecondaryAccessKey interface{}
 	// The connection string associated with the secondary blob location

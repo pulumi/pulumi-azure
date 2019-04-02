@@ -50,6 +50,8 @@ export interface GetBackendAddressPoolArgs {
  * A collection of values returned by getBackendAddressPool.
  */
 export interface GetBackendAddressPoolResult {
+    readonly loadbalancerId: string;
+    readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

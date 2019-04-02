@@ -52,6 +52,7 @@ export interface GetGroupArgs {
  * A collection of values returned by getGroup.
  */
 export interface GetGroupResult {
+    readonly apiManagementName: string;
     /**
      * The description of this API Management Group.
      */
@@ -64,6 +65,8 @@ export interface GetGroupResult {
      * The identifier of the external Group.
      */
     readonly externalId: string;
+    readonly name: string;
+    readonly resourceGroupName: string;
     /**
      * The type of this API Management Group, such as `custom` or `external`.
      */

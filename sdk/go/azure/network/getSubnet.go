@@ -22,8 +22,11 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 	return &GetSubnetResult{
 		AddressPrefix: outputs["addressPrefix"],
 		IpConfigurations: outputs["ipConfigurations"],
+		Name: outputs["name"],
 		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		RouteTableId: outputs["routeTableId"],
+		VirtualNetworkName: outputs["virtualNetworkName"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -44,10 +47,13 @@ type GetSubnetResult struct {
 	AddressPrefix interface{}
 	// The collection of IP Configurations with IPs within this subnet.
 	IpConfigurations interface{}
+	Name interface{}
 	// The ID of the Network Security Group associated with the subnet.
 	NetworkSecurityGroupId interface{}
+	ResourceGroupName interface{}
 	// The ID of the Route Table associated with this subnet.
 	RouteTableId interface{}
+	VirtualNetworkName interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

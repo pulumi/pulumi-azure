@@ -20,6 +20,8 @@ func LookupRouteTable(ctx *pulumi.Context, args *GetRouteTableArgs) (*GetRouteTa
 	}
 	return &GetRouteTableResult{
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Routes: outputs["routes"],
 		Subnets: outputs["subnets"],
 		Tags: outputs["tags"],
@@ -39,6 +41,9 @@ type GetRouteTableArgs struct {
 type GetRouteTableResult struct {
 	// The Azure Region in which the Route Table exists.
 	Location interface{}
+	// The name of the Route.
+	Name interface{}
+	ResourceGroupName interface{}
 	// One or more `route` blocks as documented below.
 	Routes interface{}
 	// The collection of Subnets associated with this route table.

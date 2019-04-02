@@ -12,7 +12,7 @@ class GetAvailabilitySetResult:
     """
     A collection of values returned by getAvailabilitySet.
     """
-    def __init__(__self__, location=None, managed=None, platform_fault_domain_count=None, platform_update_domain_count=None, tags=None, id=None):
+    def __init__(__self__, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None, id=None):
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
@@ -25,6 +25,9 @@ class GetAvailabilitySetResult:
         """
         Whether the availability set is managed or not.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if platform_fault_domain_count and not isinstance(platform_fault_domain_count, str):
             raise TypeError('Expected argument platform_fault_domain_count to be a str')
         __self__.platform_fault_domain_count = platform_fault_domain_count
@@ -37,6 +40,9 @@ class GetAvailabilitySetResult:
         """
         The number of update domains that are used.
         """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -63,7 +69,9 @@ async def get_availability_set(name=None,resource_group_name=None,opts=None):
     return GetAvailabilitySetResult(
         location=__ret__.get('location'),
         managed=__ret__.get('managed'),
+        name=__ret__.get('name'),
         platform_fault_domain_count=__ret__.get('platformFaultDomainCount'),
         platform_update_domain_count=__ret__.get('platformUpdateDomainCount'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

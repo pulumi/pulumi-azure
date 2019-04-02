@@ -20,6 +20,8 @@ func LookupPolicyDefintion(ctx *pulumi.Context, args *GetPolicyDefintionArgs) (*
 	}
 	return &GetPolicyDefintionResult{
 		Description: outputs["description"],
+		DisplayName: outputs["displayName"],
+		ManagementGroupId: outputs["managementGroupId"],
 		Metadata: outputs["metadata"],
 		Name: outputs["name"],
 		Parameters: outputs["parameters"],
@@ -42,6 +44,8 @@ type GetPolicyDefintionArgs struct {
 type GetPolicyDefintionResult struct {
 	// The Description of the Policy.
 	Description interface{}
+	DisplayName interface{}
+	ManagementGroupId interface{}
 	// Any Metadata defined in the Policy.
 	Metadata interface{}
 	// The Name of the Policy Definition.

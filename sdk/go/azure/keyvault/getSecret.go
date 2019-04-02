@@ -25,6 +25,7 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 	return &GetSecretResult{
 		ContentType: outputs["contentType"],
 		KeyVaultId: outputs["keyVaultId"],
+		Name: outputs["name"],
 		Tags: outputs["tags"],
 		Value: outputs["value"],
 		VaultUri: outputs["vaultUri"],
@@ -47,6 +48,7 @@ type GetSecretResult struct {
 	// The content type for the Key Vault Secret.
 	ContentType interface{}
 	KeyVaultId interface{}
+	Name interface{}
 	// Any tags assigned to this resource.
 	Tags interface{}
 	// The value of the Key Vault Secret.

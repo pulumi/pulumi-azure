@@ -50,6 +50,7 @@ export interface GetDiagnosticCategoriesResult {
      * A list of the Metric Categories supported for this Resource.
      */
     readonly metrics: string[];
+    readonly resourceId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

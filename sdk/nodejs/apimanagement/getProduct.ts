@@ -52,6 +52,7 @@ export interface GetProductArgs {
  * A collection of values returned by getProduct.
  */
 export interface GetProductResult {
+    readonly apiManagementName: string;
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
      */
@@ -64,10 +65,12 @@ export interface GetProductResult {
      * The Display Name for this API Management Product.
      */
     readonly displayName: string;
+    readonly productId: string;
     /**
      * Is this Product Published?
      */
     readonly published: boolean;
+    readonly resourceGroupName: string;
     /**
      * Is a Subscription required to access API's included in this Product?
      */

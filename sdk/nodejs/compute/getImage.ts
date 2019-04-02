@@ -65,9 +65,16 @@ export interface GetImageResult {
      */
     readonly location: string;
     /**
+     * the name of the Image.
+     */
+    readonly name?: string;
+    readonly nameRegex?: string;
+    /**
      * a `os_disk` block as defined below.
      */
     readonly osDisks: { blobUri: string, caching: string, managedDiskId: string, osState: string, osType: string, sizeGb: number }[];
+    readonly resourceGroupName: string;
+    readonly sortDescending?: boolean;
     /**
      * a mapping of tags to assigned to the resource.
      */

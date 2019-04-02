@@ -28,9 +28,11 @@ func LookupNetworkInterface(ctx *pulumi.Context, args *GetNetworkInterfaceArgs) 
 		IpConfigurations: outputs["ipConfigurations"],
 		Location: outputs["location"],
 		MacAddress: outputs["macAddress"],
+		Name: outputs["name"],
 		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
 		PrivateIpAddress: outputs["privateIpAddress"],
 		PrivateIpAddresses: outputs["privateIpAddresses"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		VirtualMachineId: outputs["virtualMachineId"],
 		Id: outputs["id"],
@@ -64,12 +66,15 @@ type GetNetworkInterfaceResult struct {
 	Location interface{}
 	// The MAC address used by the specified Network Interface.
 	MacAddress interface{}
+	// The name of the IP Configuration.
+	Name interface{}
 	// The ID of the network security group associated to the specified Network Interface.
 	NetworkSecurityGroupId interface{}
 	// The Private IP Address assigned to this Network Interface.
 	PrivateIpAddress interface{}
 	// The list of private ip addresses associates to the specified Network Interface.
 	PrivateIpAddresses interface{}
+	ResourceGroupName interface{}
 	// List the tags associated to the specified Network Interface.
 	Tags interface{}
 	// The ID of the virtual machine that the specified Network Interface is attached to.

@@ -80,6 +80,10 @@ export interface GetNetworkInterfaceResult {
      */
     readonly macAddress: string;
     /**
+     * The name of the IP Configuration.
+     */
+    readonly name: string;
+    /**
      * The ID of the network security group associated to the specified Network Interface.
      */
     readonly networkSecurityGroupId: string;
@@ -91,6 +95,7 @@ export interface GetNetworkInterfaceResult {
      * The list of private ip addresses associates to the specified Network Interface.
      */
     readonly privateIpAddresses: string[];
+    readonly resourceGroupName: string;
     /**
      * List the tags associated to the specified Network Interface.
      */

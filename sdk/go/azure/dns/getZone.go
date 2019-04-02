@@ -20,6 +20,7 @@ func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) 
 	}
 	return &GetZoneResult{
 		MaxNumberOfRecordSets: outputs["maxNumberOfRecordSets"],
+		Name: outputs["name"],
 		NameServers: outputs["nameServers"],
 		NumberOfRecordSets: outputs["numberOfRecordSets"],
 		RegistrationVirtualNetworkIds: outputs["registrationVirtualNetworkIds"],
@@ -45,6 +46,7 @@ type GetZoneArgs struct {
 type GetZoneResult struct {
 	// Maximum number of Records in the zone.
 	MaxNumberOfRecordSets interface{}
+	Name interface{}
 	// A list of values that make up the NS record for the zone.
 	NameServers interface{}
 	// The number of records already in the zone.

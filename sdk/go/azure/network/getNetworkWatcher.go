@@ -20,6 +20,8 @@ func LookupNetworkWatcher(ctx *pulumi.Context, args *GetNetworkWatcherArgs) (*Ge
 	}
 	return &GetNetworkWatcherResult{
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -37,6 +39,8 @@ type GetNetworkWatcherArgs struct {
 type GetNetworkWatcherResult struct {
 	// The supported Azure location where the resource exists.
 	Location interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

@@ -47,6 +47,7 @@ export interface GetAnalyticsWorkspaceArgs {
  */
 export interface GetAnalyticsWorkspaceResult {
     readonly location: string;
+    readonly name: string;
     /**
      * The Portal URL for the Log Analytics Workspace.
      */
@@ -55,6 +56,7 @@ export interface GetAnalyticsWorkspaceResult {
      * The Primary shared key for the Log Analytics Workspace.
      */
     readonly primarySharedKey: string;
+    readonly resourceGroupName: string;
     /**
      * The workspace data retention in days.
      */

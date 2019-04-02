@@ -12,13 +12,22 @@ class GetNetworkSecurityGroupResult:
     """
     A collection of values returned by getNetworkSecurityGroup.
     """
-    def __init__(__self__, location=None, security_rules=None, tags=None, id=None):
+    def __init__(__self__, location=None, name=None, resource_group_name=None, security_rules=None, tags=None, id=None):
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The supported Azure location where the resource exists.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
+        """
+        The name of the security rule.
+        """
+        if resource_group_name and not isinstance(resource_group_name, str):
+            raise TypeError('Expected argument resource_group_name to be a str')
+        __self__.resource_group_name = resource_group_name
         if security_rules and not isinstance(security_rules, list):
             raise TypeError('Expected argument security_rules to be a list')
         __self__.security_rules = security_rules
@@ -50,6 +59,8 @@ async def get_network_security_group(name=None,resource_group_name=None,opts=Non
 
     return GetNetworkSecurityGroupResult(
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
+        resource_group_name=__ret__.get('resourceGroupName'),
         security_rules=__ret__.get('securityRules'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

@@ -54,6 +54,7 @@ export interface GetAvailabilitySetResult {
      * Whether the availability set is managed or not.
      */
     readonly managed: boolean;
+    readonly name: string;
     /**
      * The number of fault domains that are used.
      */
@@ -62,6 +63,7 @@ export interface GetAvailabilitySetResult {
      * The number of update domains that are used.
      */
     readonly platformUpdateDomainCount: string;
+    readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the resource.
      */

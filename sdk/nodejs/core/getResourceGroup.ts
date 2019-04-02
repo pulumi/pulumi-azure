@@ -50,6 +50,7 @@ export interface GetResourceGroupResult {
      * The location of the resource group.
      */
     readonly location: string;
+    readonly name: string;
     /**
      * A mapping of tags assigned to the resource group.
      */

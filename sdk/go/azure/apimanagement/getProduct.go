@@ -20,10 +20,13 @@ func LookupProduct(ctx *pulumi.Context, args *GetProductArgs) (*GetProductResult
 		return nil, err
 	}
 	return &GetProductResult{
+		ApiManagementName: outputs["apiManagementName"],
 		ApprovalRequired: outputs["approvalRequired"],
 		Description: outputs["description"],
 		DisplayName: outputs["displayName"],
+		ProductId: outputs["productId"],
 		Published: outputs["published"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		SubscriptionRequired: outputs["subscriptionRequired"],
 		SubscriptionsLimit: outputs["subscriptionsLimit"],
 		Terms: outputs["terms"],
@@ -43,14 +46,17 @@ type GetProductArgs struct {
 
 // A collection of values returned by getProduct.
 type GetProductResult struct {
+	ApiManagementName interface{}
 	// Do subscribers need to be approved prior to being able to use the Product?
 	ApprovalRequired interface{}
 	// The description of this Product, which may include HTML formatting tags.
 	Description interface{}
 	// The Display Name for this API Management Product.
 	DisplayName interface{}
+	ProductId interface{}
 	// Is this Product Published?
 	Published interface{}
+	ResourceGroupName interface{}
 	// Is a Subscription required to access API's included in this Product?
 	SubscriptionRequired interface{}
 	// The number of subscriptions a user can have to this Product at the same time.

@@ -12,13 +12,16 @@ class GetResourceGroupResult:
     """
     A collection of values returned by getResourceGroup.
     """
-    def __init__(__self__, location=None, tags=None, id=None):
+    def __init__(__self__, location=None, name=None, tags=None, id=None):
         if location and not isinstance(location, str):
             raise TypeError('Expected argument location to be a str')
         __self__.location = location
         """
         The location of the resource group.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if tags and not isinstance(tags, dict):
             raise TypeError('Expected argument tags to be a dict')
         __self__.tags = tags
@@ -43,5 +46,6 @@ async def get_resource_group(name=None,opts=None):
 
     return GetResourceGroupResult(
         location=__ret__.get('location'),
+        name=__ret__.get('name'),
         tags=__ret__.get('tags'),
         id=__ret__.get('id'))

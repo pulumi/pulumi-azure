@@ -24,6 +24,8 @@ func LookupStore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, erro
 		FirewallAllowAzureIps: outputs["firewallAllowAzureIps"],
 		FirewallState: outputs["firewallState"],
 		Location: outputs["location"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Tags: outputs["tags"],
 		Tier: outputs["tier"],
 		Id: outputs["id"],
@@ -49,6 +51,8 @@ type GetStoreResult struct {
 	// the state of the firewall, such as `Enabled` or `Disabled`.
 	FirewallState interface{}
 	Location interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// A mapping of tags to assign to the Data Lake Store.
 	Tags interface{}
 	// Current monthly commitment tier for the account.

@@ -20,9 +20,12 @@ func LookupGroup(ctx *pulumi.Context, args *GetGroupArgs) (*GetGroupResult, erro
 		return nil, err
 	}
 	return &GetGroupResult{
+		ApiManagementName: outputs["apiManagementName"],
 		Description: outputs["description"],
 		DisplayName: outputs["displayName"],
 		ExternalId: outputs["externalId"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Type: outputs["type"],
 		Id: outputs["id"],
 	}, nil
@@ -40,12 +43,15 @@ type GetGroupArgs struct {
 
 // A collection of values returned by getGroup.
 type GetGroupResult struct {
+	ApiManagementName interface{}
 	// The description of this API Management Group.
 	Description interface{}
 	// The display name of this API Management Group.
 	DisplayName interface{}
 	// The identifier of the external Group.
 	ExternalId interface{}
+	Name interface{}
+	ResourceGroupName interface{}
 	// The type of this API Management Group, such as `custom` or `external`.
 	Type interface{}
 	// id is the provider-assigned unique ID for this managed resource.

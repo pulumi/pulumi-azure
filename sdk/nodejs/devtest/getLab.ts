@@ -66,10 +66,12 @@ export interface GetLabResult {
      * The Azure location where the Dev Test Lab exists.
      */
     readonly location: string;
+    readonly name: string;
     /**
      * The ID of the Storage Account used for Storage of Premium Data Disk.
      */
     readonly premiumDataDiskStorageAccountId: string;
+    readonly resourceGroupName: string;
     /**
      * The type of storage used by the Dev Test Lab.
      */

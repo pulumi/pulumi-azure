@@ -21,8 +21,10 @@ func LookupLB(ctx *pulumi.Context, args *GetLBArgs) (*GetLBResult, error) {
 	return &GetLBResult{
 		FrontendIpConfigurations: outputs["frontendIpConfigurations"],
 		Location: outputs["location"],
+		Name: outputs["name"],
 		PrivateIpAddress: outputs["privateIpAddress"],
 		PrivateIpAddresses: outputs["privateIpAddresses"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
@@ -43,10 +45,13 @@ type GetLBResult struct {
 	FrontendIpConfigurations interface{}
 	// The Azure location where the Load Balancer exists.
 	Location interface{}
+	// The name of the Frontend IP Configuration.
+	Name interface{}
 	// Private IP Address to assign to the Load Balancer.
 	PrivateIpAddress interface{}
 	// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
 	PrivateIpAddresses interface{}
+	ResourceGroupName interface{}
 	// The SKU of the Load Balancer.
 	Sku interface{}
 	// A mapping of tags assigned to the resource.

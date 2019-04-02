@@ -52,6 +52,7 @@ export interface GetZoneResult {
      * Maximum number of Records in the zone.
      */
     readonly maxNumberOfRecordSets: number;
+    readonly name: string;
     /**
      * A list of values that make up the NS record for the zone.
      */

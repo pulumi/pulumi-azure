@@ -12,7 +12,7 @@ class GetLogProfileResult:
     """
     A collection of values returned by getLogProfile.
     """
-    def __init__(__self__, categories=None, locations=None, retention_policy=None, servicebus_rule_id=None, storage_account_id=None, id=None):
+    def __init__(__self__, categories=None, locations=None, name=None, retention_policy=None, servicebus_rule_id=None, storage_account_id=None, id=None):
         if categories and not isinstance(categories, list):
             raise TypeError('Expected argument categories to be a list')
         __self__.categories = categories
@@ -25,6 +25,9 @@ class GetLogProfileResult:
         """
         List of regions for which Activity Log events are stored or streamed.
         """
+        if name and not isinstance(name, str):
+            raise TypeError('Expected argument name to be a str')
+        __self__.name = name
         if retention_policy and not isinstance(retention_policy, dict):
             raise TypeError('Expected argument retention_policy to be a dict')
         __self__.retention_policy = retention_policy
@@ -59,6 +62,7 @@ async def get_log_profile(name=None,opts=None):
     return GetLogProfileResult(
         categories=__ret__.get('categories'),
         locations=__ret__.get('locations'),
+        name=__ret__.get('name'),
         retention_policy=__ret__.get('retentionPolicy'),
         servicebus_rule_id=__ret__.get('servicebusRuleId'),
         storage_account_id=__ret__.get('storageAccountId'),

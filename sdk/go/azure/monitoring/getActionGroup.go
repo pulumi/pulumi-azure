@@ -21,6 +21,8 @@ func LookupActionGroup(ctx *pulumi.Context, args *GetActionGroupArgs) (*GetActio
 	return &GetActionGroupResult{
 		EmailReceivers: outputs["emailReceivers"],
 		Enabled: outputs["enabled"],
+		Name: outputs["name"],
+		ResourceGroupName: outputs["resourceGroupName"],
 		ShortName: outputs["shortName"],
 		SmsReceivers: outputs["smsReceivers"],
 		WebhookReceivers: outputs["webhookReceivers"],
@@ -42,6 +44,9 @@ type GetActionGroupResult struct {
 	EmailReceivers interface{}
 	// Whether this action group is enabled.
 	Enabled interface{}
+	// The name of the webhook receiver. 
+	Name interface{}
+	ResourceGroupName interface{}
 	// The short name of the action group.
 	ShortName interface{}
 	// One or more `sms_receiver ` blocks as defined below.

@@ -60,14 +60,17 @@ export interface GetSubnetResult {
      * The collection of IP Configurations with IPs within this subnet.
      */
     readonly ipConfigurations: string[];
+    readonly name: string;
     /**
      * The ID of the Network Security Group associated with the subnet.
      */
     readonly networkSecurityGroupId: string;
+    readonly resourceGroupName: string;
     /**
      * The ID of the Route Table associated with this subnet.
      */
     readonly routeTableId: string;
+    readonly virtualNetworkName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */
