@@ -52,15 +52,15 @@ class TriggerRecurrence(pulumi.CustomResource):
         __props__ = dict()
 
         if frequency is None:
-            raise TypeError('Missing required property frequency')
+            raise TypeError("Missing required property 'frequency'")
         __props__['frequency'] = frequency
 
         if interval is None:
-            raise TypeError('Missing required property interval')
+            raise TypeError("Missing required property 'interval'")
         __props__['interval'] = interval
 
         if logic_app_id is None:
-            raise TypeError('Missing required property logic_app_id')
+            raise TypeError("Missing required property 'logic_app_id'")
         __props__['logic_app_id'] = logic_app_id
 
         __props__['name'] = name

@@ -14,16 +14,16 @@ class GetVirtualNetworkGatewayResult:
     """
     def __init__(__self__, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configurations=None, vpn_type=None, id=None):
         if active_active and not isinstance(active_active, bool):
-            raise TypeError('Expected argument active_active to be a bool')
+            raise TypeError("Expected argument 'active_active' to be a bool")
         __self__.active_active = active_active
         """
         (Optional) Is this an Active-Active Gateway?
         """
         if bgp_settings and not isinstance(bgp_settings, list):
-            raise TypeError('Expected argument bgp_settings to be a list')
+            raise TypeError("Expected argument 'bgp_settings' to be a list")
         __self__.bgp_settings = bgp_settings
         if default_local_network_gateway_id and not isinstance(default_local_network_gateway_id, str):
-            raise TypeError('Expected argument default_local_network_gateway_id to be a str')
+            raise TypeError("Expected argument 'default_local_network_gateway_id' to be a str")
         __self__.default_local_network_gateway_id = default_local_network_gateway_id
         """
         The ID of the local network gateway
@@ -32,65 +32,65 @@ class GetVirtualNetworkGatewayResult:
         [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
         """
         if enable_bgp and not isinstance(enable_bgp, bool):
-            raise TypeError('Expected argument enable_bgp to be a bool')
+            raise TypeError("Expected argument 'enable_bgp' to be a bool")
         __self__.enable_bgp = enable_bgp
         """
         Will BGP (Border Gateway Protocol) will be enabled
         for this Virtual Network Gateway.
         """
         if ip_configurations and not isinstance(ip_configurations, list):
-            raise TypeError('Expected argument ip_configurations to be a list')
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
         __self__.ip_configurations = ip_configurations
         """
         One or two `ip_configuration` blocks documented below.
         """
         if location and not isinstance(location, str):
-            raise TypeError('Expected argument location to be a str')
+            raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The location/region where the Virtual Network Gateway is located.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The user-defined name of the revoked certificate.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, str):
-            raise TypeError('Expected argument sku to be a str')
+            raise TypeError("Expected argument 'sku' to be a str")
         __self__.sku = sku
         """
         Configuration of the size and capacity of the Virtual Network Gateway.
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
         """
         if type and not isinstance(type, str):
-            raise TypeError('Expected argument type to be a str')
+            raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the Virtual Network Gateway.
         """
         if vpn_client_configurations and not isinstance(vpn_client_configurations, list):
-            raise TypeError('Expected argument vpn_client_configurations to be a list')
+            raise TypeError("Expected argument 'vpn_client_configurations' to be a list")
         __self__.vpn_client_configurations = vpn_client_configurations
         """
         A `vpn_client_configuration` block which is documented below.
         """
         if vpn_type and not isinstance(vpn_type, str):
-            raise TypeError('Expected argument vpn_type to be a str')
+            raise TypeError("Expected argument 'vpn_type' to be a str")
         __self__.vpn_type = vpn_type
         """
         The routing type of the Virtual Network Gateway.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

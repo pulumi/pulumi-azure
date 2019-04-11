@@ -124,25 +124,25 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__['disallow_public_ip_address'] = disallow_public_ip_address
 
         if gallery_image_reference is None:
-            raise TypeError('Missing required property gallery_image_reference')
+            raise TypeError("Missing required property 'gallery_image_reference'")
         __props__['gallery_image_reference'] = gallery_image_reference
 
         __props__['inbound_nat_rules'] = inbound_nat_rules
 
         if lab_name is None:
-            raise TypeError('Missing required property lab_name')
+            raise TypeError("Missing required property 'lab_name'")
         __props__['lab_name'] = lab_name
 
         if lab_subnet_name is None:
-            raise TypeError('Missing required property lab_subnet_name')
+            raise TypeError("Missing required property 'lab_subnet_name'")
         __props__['lab_subnet_name'] = lab_subnet_name
 
         if lab_virtual_network_id is None:
-            raise TypeError('Missing required property lab_virtual_network_id')
+            raise TypeError("Missing required property 'lab_virtual_network_id'")
         __props__['lab_virtual_network_id'] = lab_virtual_network_id
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -150,25 +150,25 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__['notes'] = notes
 
         if password is None:
-            raise TypeError('Missing required property password')
+            raise TypeError("Missing required property 'password'")
         __props__['password'] = password
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if size is None:
-            raise TypeError('Missing required property size')
+            raise TypeError("Missing required property 'size'")
         __props__['size'] = size
 
         if storage_type is None:
-            raise TypeError('Missing required property storage_type')
+            raise TypeError("Missing required property 'storage_type'")
         __props__['storage_type'] = storage_type
 
         __props__['tags'] = tags
 
         if username is None:
-            raise TypeError('Missing required property username')
+            raise TypeError("Missing required property 'username'")
         __props__['username'] = username
 
         __props__['fqdn'] = None

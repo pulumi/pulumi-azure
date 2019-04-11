@@ -14,22 +14,22 @@ class GetVMProtectionPolicyResult:
     """
     def __init__(__self__, name=None, recovery_vault_name=None, resource_group_name=None, tags=None, id=None):
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if recovery_vault_name and not isinstance(recovery_vault_name, str):
-            raise TypeError('Expected argument recovery_vault_name to be a str')
+            raise TypeError("Expected argument 'recovery_vault_name' to be a str")
         __self__.recovery_vault_name = recovery_vault_name
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

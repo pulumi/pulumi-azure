@@ -49,6 +49,10 @@ class API(pulumi.CustomResource):
     """
     Email address from which the notification will be sent.
     """
+    policy: pulumi.Output[dict]
+    """
+    A `policy` block as defined below.
+    """
     portal_url: pulumi.Output[str]
     """
     The URL for the Publisher Portal associated with this API Management service.
@@ -77,6 +81,14 @@ class API(pulumi.CustomResource):
     """
     A `security` block as defined below.
     """
+    sign_in: pulumi.Output[dict]
+    """
+    A `sign_in` block as defined below.
+    """
+    sign_up: pulumi.Output[dict]
+    """
+    A `sign_up` block as defined below.
+    """
     sku: pulumi.Output[dict]
     """
     A `sku` block as documented below.
@@ -85,7 +97,7 @@ class API(pulumi.CustomResource):
     """
     A mapping of tags assigned to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, additional_location=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sku=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_location=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, policy=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sign_in=None, sign_up=None, sku=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an API Management Service.
         
@@ -98,10 +110,13 @@ class API(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
+        :param pulumi.Input[dict] policy: A `policy` block as defined below.
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] security: A `security` block as defined below.
+        :param pulumi.Input[dict] sign_in: A `sign_in` block as defined below.
+        :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
         """
@@ -129,29 +144,35 @@ class API(pulumi.CustomResource):
         __props__['identity'] = identity
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         __props__['notification_sender_email'] = notification_sender_email
 
+        __props__['policy'] = policy
+
         if publisher_email is None:
-            raise TypeError('Missing required property publisher_email')
+            raise TypeError("Missing required property 'publisher_email'")
         __props__['publisher_email'] = publisher_email
 
         if publisher_name is None:
-            raise TypeError('Missing required property publisher_name')
+            raise TypeError("Missing required property 'publisher_name'")
         __props__['publisher_name'] = publisher_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['security'] = security
 
+        __props__['sign_in'] = sign_in
+
+        __props__['sign_up'] = sign_up
+
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['tags'] = tags

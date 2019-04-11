@@ -95,9 +95,9 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
     /**
-     * Whether or not this elastic pool is zone redundant.
+     * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
      */
-    public /*out*/ readonly zoneRedundant: pulumi.Output<boolean>;
+    public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.
@@ -148,8 +148,8 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["elasticPoolProperties"] = undefined /*out*/;
-            inputs["zoneRedundant"] = undefined /*out*/;
         }
         super("azure:mssql/elasticPool:ElasticPool", name, inputs, opts);
     }
@@ -197,7 +197,7 @@ export interface ElasticPoolState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Whether or not this elastic pool is zone redundant.
+     * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
      */
     readonly zoneRedundant?: pulumi.Input<boolean>;
 }
@@ -242,4 +242,8 @@ export interface ElasticPoolArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+     */
+    readonly zoneRedundant?: pulumi.Input<boolean>;
 }

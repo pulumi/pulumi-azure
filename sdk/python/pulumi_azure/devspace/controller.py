@@ -76,31 +76,31 @@ class Controller(pulumi.CustomResource):
         __props__ = dict()
 
         if host_suffix is None:
-            raise TypeError('Missing required property host_suffix')
+            raise TypeError("Missing required property 'host_suffix'")
         __props__['host_suffix'] = host_suffix
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['tags'] = tags
 
         if target_container_host_credentials_base64 is None:
-            raise TypeError('Missing required property target_container_host_credentials_base64')
+            raise TypeError("Missing required property 'target_container_host_credentials_base64'")
         __props__['target_container_host_credentials_base64'] = target_container_host_credentials_base64
 
         if target_container_host_resource_id is None:
-            raise TypeError('Missing required property target_container_host_resource_id')
+            raise TypeError("Missing required property 'target_container_host_resource_id'")
         __props__['target_container_host_resource_id'] = target_container_host_resource_id
 
         __props__['data_plane_fqdn'] = None

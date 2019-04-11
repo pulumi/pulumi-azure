@@ -50,6 +50,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * The account endpoint used to interact with the Batch service.
+     */
+    public /*out*/ readonly accountEndpoint: pulumi.Output<string>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -62,9 +66,17 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly poolAllocationMode: pulumi.Output<string | undefined>;
     /**
+     * The Batch account primary access key.
+     */
+    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
+    /**
+     * The Batch account secondary access key.
+     */
+    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */
@@ -86,10 +98,13 @@ export class Account extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state: AccountState = argsOrState as AccountState | undefined;
+            inputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["poolAllocationMode"] = state ? state.poolAllocationMode : undefined;
+            inputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -106,6 +121,9 @@ export class Account extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["accountEndpoint"] = undefined /*out*/;
+            inputs["primaryAccessKey"] = undefined /*out*/;
+            inputs["secondaryAccessKey"] = undefined /*out*/;
         }
         super("azure:batch/account:Account", name, inputs, opts);
     }
@@ -115,6 +133,10 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
+    /**
+     * The account endpoint used to interact with the Batch service.
+     */
+    readonly accountEndpoint?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -128,9 +150,17 @@ export interface AccountState {
      */
     readonly poolAllocationMode?: pulumi.Input<string>;
     /**
+     * The Batch account primary access key.
+     */
+    readonly primaryAccessKey?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The Batch account secondary access key.
+     */
+    readonly secondaryAccessKey?: pulumi.Input<string>;
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */

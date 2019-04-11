@@ -52,19 +52,19 @@ class GroupUser(pulumi.CustomResource):
         __props__ = dict()
 
         if api_management_name is None:
-            raise TypeError('Missing required property api_management_name')
+            raise TypeError("Missing required property 'api_management_name'")
         __props__['api_management_name'] = api_management_name
 
         if group_name is None:
-            raise TypeError('Missing required property group_name')
+            raise TypeError("Missing required property 'group_name'")
         __props__['group_name'] = group_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if user_id is None:
-            raise TypeError('Missing required property user_id')
+            raise TypeError("Missing required property 'user_id'")
         __props__['user_id'] = user_id
 
         super(GroupUser, __self__).__init__(

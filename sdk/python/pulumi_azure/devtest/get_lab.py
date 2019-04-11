@@ -14,67 +14,67 @@ class GetLabResult:
     """
     def __init__(__self__, artifacts_storage_account_id=None, default_premium_storage_account_id=None, default_storage_account_id=None, key_vault_id=None, location=None, name=None, premium_data_disk_storage_account_id=None, resource_group_name=None, storage_type=None, tags=None, unique_identifier=None, id=None):
         if artifacts_storage_account_id and not isinstance(artifacts_storage_account_id, str):
-            raise TypeError('Expected argument artifacts_storage_account_id to be a str')
+            raise TypeError("Expected argument 'artifacts_storage_account_id' to be a str")
         __self__.artifacts_storage_account_id = artifacts_storage_account_id
         """
         The ID of the Storage Account used for Artifact Storage.
         """
         if default_premium_storage_account_id and not isinstance(default_premium_storage_account_id, str):
-            raise TypeError('Expected argument default_premium_storage_account_id to be a str')
+            raise TypeError("Expected argument 'default_premium_storage_account_id' to be a str")
         __self__.default_premium_storage_account_id = default_premium_storage_account_id
         """
         The ID of the Default Premium Storage Account for this Dev Test Lab.
         """
         if default_storage_account_id and not isinstance(default_storage_account_id, str):
-            raise TypeError('Expected argument default_storage_account_id to be a str')
+            raise TypeError("Expected argument 'default_storage_account_id' to be a str")
         __self__.default_storage_account_id = default_storage_account_id
         """
         The ID of the Default Storage Account for this Dev Test Lab.
         """
         if key_vault_id and not isinstance(key_vault_id, str):
-            raise TypeError('Expected argument key_vault_id to be a str')
+            raise TypeError("Expected argument 'key_vault_id' to be a str")
         __self__.key_vault_id = key_vault_id
         """
         The ID of the Key used for this Dev Test Lab.
         """
         if location and not isinstance(location, str):
-            raise TypeError('Expected argument location to be a str')
+            raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The Azure location where the Dev Test Lab exists.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if premium_data_disk_storage_account_id and not isinstance(premium_data_disk_storage_account_id, str):
-            raise TypeError('Expected argument premium_data_disk_storage_account_id to be a str')
+            raise TypeError("Expected argument 'premium_data_disk_storage_account_id' to be a str")
         __self__.premium_data_disk_storage_account_id = premium_data_disk_storage_account_id
         """
         The ID of the Storage Account used for Storage of Premium Data Disk.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if storage_type and not isinstance(storage_type, str):
-            raise TypeError('Expected argument storage_type to be a str')
+            raise TypeError("Expected argument 'storage_type' to be a str")
         __self__.storage_type = storage_type
         """
         The type of storage used by the Dev Test Lab.
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         A mapping of tags to assign to the resource.
         """
         if unique_identifier and not isinstance(unique_identifier, str):
-            raise TypeError('Expected argument unique_identifier to be a str')
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
         __self__.unique_identifier = unique_identifier
         """
         The unique immutable identifier of the Dev Test Lab.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

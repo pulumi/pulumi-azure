@@ -14,40 +14,40 @@ class GetGroupResult:
     """
     def __init__(__self__, api_management_name=None, description=None, display_name=None, external_id=None, name=None, resource_group_name=None, type=None, id=None):
         if api_management_name and not isinstance(api_management_name, str):
-            raise TypeError('Expected argument api_management_name to be a str')
+            raise TypeError("Expected argument 'api_management_name' to be a str")
         __self__.api_management_name = api_management_name
         if description and not isinstance(description, str):
-            raise TypeError('Expected argument description to be a str')
+            raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
         The description of this API Management Group.
         """
         if display_name and not isinstance(display_name, str):
-            raise TypeError('Expected argument display_name to be a str')
+            raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
         """
         The display name of this API Management Group.
         """
         if external_id and not isinstance(external_id, str):
-            raise TypeError('Expected argument external_id to be a str')
+            raise TypeError("Expected argument 'external_id' to be a str")
         __self__.external_id = external_id
         """
         The identifier of the external Group.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if type and not isinstance(type, str):
-            raise TypeError('Expected argument type to be a str')
+            raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of this API Management Group, such as `custom` or `external`.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

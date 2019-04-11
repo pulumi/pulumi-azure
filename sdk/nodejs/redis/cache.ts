@@ -45,6 +45,7 @@ import * as utilities from "../utilities";
  *     enableNonSslPort: false,
  *     family: "C",
  *     location: testResourceGroup.location,
+ *     minimumTlsVersion: "1.2",
  *     name: "tf-redis-standard",
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Standard",
@@ -171,6 +172,10 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
+     * The minimum TLS version.  Defaults to `1.0`.
+     */
+    public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
+    /**
      * The name of the Redis instance. Changing this forces a
      * new resource to be created.
      */
@@ -246,6 +251,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["family"] = state ? state.family : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["patchSchedules"] = state ? state.patchSchedules : undefined;
             inputs["port"] = state ? state.port : undefined;
@@ -284,6 +290,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
             inputs["family"] = args ? args.family : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["patchSchedules"] = args ? args.patchSchedules : undefined;
             inputs["privateStaticIpAddress"] = args ? args.privateStaticIpAddress : undefined;
@@ -328,6 +335,10 @@ export interface CacheState {
      * The location of the resource group.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The minimum TLS version.  Defaults to `1.0`.
+     */
+    readonly minimumTlsVersion?: pulumi.Input<string>;
     /**
      * The name of the Redis instance. Changing this forces a
      * new resource to be created.
@@ -408,6 +419,10 @@ export interface CacheArgs {
      * The location of the resource group.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The minimum TLS version.  Defaults to `1.0`.
+     */
+    readonly minimumTlsVersion?: pulumi.Input<string>;
     /**
      * The name of the Redis instance. Changing this forces a
      * new resource to be created.

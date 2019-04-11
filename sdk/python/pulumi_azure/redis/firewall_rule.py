@@ -57,21 +57,21 @@ class FirewallRule(pulumi.CustomResource):
         __props__ = dict()
 
         if end_ip is None:
-            raise TypeError('Missing required property end_ip')
+            raise TypeError("Missing required property 'end_ip'")
         __props__['end_ip'] = end_ip
 
         __props__['name'] = name
 
         if redis_cache_name is None:
-            raise TypeError('Missing required property redis_cache_name')
+            raise TypeError("Missing required property 'redis_cache_name'")
         __props__['redis_cache_name'] = redis_cache_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if start_ip is None:
-            raise TypeError('Missing required property start_ip')
+            raise TypeError("Missing required property 'start_ip'")
         __props__['start_ip'] = start_ip
 
         super(FirewallRule, __self__).__init__(

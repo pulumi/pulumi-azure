@@ -40,7 +40,11 @@ class Image(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, data_disks=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, __name__=None, __opts__=None):
+    zone_resilient: pulumi.Output[bool]
+    """
+    Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+    """
+    def __init__(__self__, resource_name, opts=None, data_disks=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None, __name__=None, __opts__=None):
         """
         Manage a custom virtual machine image that can be used to create virtual machines.
         
@@ -56,6 +60,7 @@ class Image(pulumi.CustomResource):
                the image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,7 +80,7 @@ class Image(pulumi.CustomResource):
         __props__['data_disks'] = data_disks
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -83,12 +88,14 @@ class Image(pulumi.CustomResource):
         __props__['os_disk'] = os_disk
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['source_virtual_machine_id'] = source_virtual_machine_id
 
         __props__['tags'] = tags
+
+        __props__['zone_resilient'] = zone_resilient
 
         super(Image, __self__).__init__(
             'azure:compute/image:Image',

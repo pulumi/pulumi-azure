@@ -116,6 +116,7 @@ func (r *SharedImage) GalleryName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["galleryName"])
 }
 
+// An `identifier` block as defined below.
 func (r *SharedImage) Identifier() *pulumi.Output {
 	return r.s.State["identifier"]
 }
@@ -163,6 +164,7 @@ type SharedImageState struct {
 	Eula interface{}
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName interface{}
+	// An `identifier` block as defined below.
 	Identifier interface{}
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -188,6 +190,7 @@ type SharedImageArgs struct {
 	Eula interface{}
 	// Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
 	GalleryName interface{}
+	// An `identifier` block as defined below.
 	Identifier interface{}
 	// Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	Location interface{}

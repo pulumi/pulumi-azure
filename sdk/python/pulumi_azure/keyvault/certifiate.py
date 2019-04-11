@@ -76,7 +76,7 @@ class Certifiate(pulumi.CustomResource):
         __props__['certificate'] = certificate
 
         if certificate_policy is None:
-            raise TypeError('Missing required property certificate_policy')
+            raise TypeError("Missing required property 'certificate_policy'")
         __props__['certificate_policy'] = certificate_policy
 
         __props__['key_vault_id'] = key_vault_id

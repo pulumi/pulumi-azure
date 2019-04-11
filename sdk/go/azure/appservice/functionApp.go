@@ -65,6 +65,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 	inputs["defaultHostname"] = nil
 	inputs["kind"] = nil
 	inputs["outboundIpAddresses"] = nil
+	inputs["possibleOutboundIpAddresses"] = nil
 	inputs["siteCredential"] = nil
 	s, err := ctx.RegisterResource("azure:appservice/functionApp:FunctionApp", name, true, inputs, opts...)
 	if err != nil {
@@ -92,6 +93,7 @@ func GetFunctionApp(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["outboundIpAddresses"] = state.OutboundIpAddresses
+		inputs["possibleOutboundIpAddresses"] = state.PossibleOutboundIpAddresses
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["siteConfig"] = state.SiteConfig
 		inputs["siteCredential"] = state.SiteCredential
@@ -181,6 +183,11 @@ func (r *FunctionApp) OutboundIpAddresses() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["outboundIpAddresses"])
 }
 
+// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+func (r *FunctionApp) PossibleOutboundIpAddresses() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["possibleOutboundIpAddresses"])
+}
+
 // The name of the resource group in which to create the Function App.
 func (r *FunctionApp) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
@@ -239,6 +246,8 @@ type FunctionAppState struct {
 	Name interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses interface{}
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+	PossibleOutboundIpAddresses interface{}
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName interface{}
 	// A `site_config` object as defined below.

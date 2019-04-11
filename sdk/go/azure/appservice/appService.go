@@ -111,7 +111,7 @@ func (r *AppService) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The ID of the App Service Plan within which to create this App Service. Changing this forces a new resource to be created.
+// The ID of the App Service Plan within which to create this App Service.
 func (r *AppService) AppServicePlanId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["appServicePlanId"])
 }
@@ -141,7 +141,7 @@ func (r *AppService) DefaultSiteHostname() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultSiteHostname"])
 }
 
-// Is the App Service Enabled? Changing this forces a new resource to be created.
+// Is the App Service Enabled?
 func (r *AppService) Enabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enabled"])
 }
@@ -203,7 +203,7 @@ func (r *AppService) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering AppService resources.
 type AppServiceState struct {
-	// The ID of the App Service Plan within which to create this App Service. Changing this forces a new resource to be created.
+	// The ID of the App Service Plan within which to create this App Service.
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
@@ -215,7 +215,7 @@ type AppServiceState struct {
 	ConnectionStrings interface{}
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname interface{}
-	// Is the App Service Enabled? Changing this forces a new resource to be created.
+	// Is the App Service Enabled?
 	Enabled interface{}
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly interface{}
@@ -243,7 +243,7 @@ type AppServiceState struct {
 
 // The set of arguments for constructing a AppService resource.
 type AppServiceArgs struct {
-	// The ID of the App Service Plan within which to create this App Service. Changing this forces a new resource to be created.
+	// The ID of the App Service Plan within which to create this App Service.
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
@@ -253,7 +253,7 @@ type AppServiceArgs struct {
 	ClientCertEnabled interface{}
 	// One or more `connection_string` blocks as defined below.
 	ConnectionStrings interface{}
-	// Is the App Service Enabled? Changing this forces a new resource to be created.
+	// Is the App Service Enabled?
 	Enabled interface{}
 	// Can the App Service only be accessed via HTTPS? Defaults to `false`.
 	HttpsOnly interface{}

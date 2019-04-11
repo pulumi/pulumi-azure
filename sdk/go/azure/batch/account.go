@@ -38,6 +38,9 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["storageAccountId"] = args.StorageAccountId
 		inputs["tags"] = args.Tags
 	}
+	inputs["accountEndpoint"] = nil
+	inputs["primaryAccessKey"] = nil
+	inputs["secondaryAccessKey"] = nil
 	s, err := ctx.RegisterResource("azure:batch/account:Account", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -51,10 +54,13 @@ func GetAccount(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *AccountState, opts ...pulumi.ResourceOpt) (*Account, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["accountEndpoint"] = state.AccountEndpoint
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["poolAllocationMode"] = state.PoolAllocationMode
+		inputs["primaryAccessKey"] = state.PrimaryAccessKey
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
 		inputs["storageAccountId"] = state.StorageAccountId
 		inputs["tags"] = state.Tags
 	}
@@ -75,6 +81,11 @@ func (r *Account) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// The account endpoint used to interact with the Batch service.
+func (r *Account) AccountEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["accountEndpoint"])
+}
+
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *Account) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
@@ -90,9 +101,19 @@ func (r *Account) PoolAllocationMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["poolAllocationMode"])
 }
 
+// The Batch account primary access key.
+func (r *Account) PrimaryAccessKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryAccessKey"])
+}
+
 // The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 func (r *Account) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
+}
+
+// The Batch account secondary access key.
+func (r *Account) SecondaryAccessKey() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryAccessKey"])
 }
 
 // Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
@@ -107,14 +128,20 @@ func (r *Account) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
+	// The account endpoint used to interact with the Batch service.
+	AccountEndpoint interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
 	Name interface{}
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode interface{}
+	// The Batch account primary access key.
+	PrimaryAccessKey interface{}
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// The Batch account secondary access key.
+	SecondaryAccessKey interface{}
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	StorageAccountId interface{}
 	// A mapping of tags to assign to the resource.

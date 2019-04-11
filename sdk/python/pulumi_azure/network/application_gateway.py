@@ -30,6 +30,9 @@ class ApplicationGateway(pulumi.CustomResource):
     A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
     """
     enable_http2: pulumi.Output[bool]
+    """
+    Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+    """
     frontend_ip_configurations: pulumi.Output[list]
     """
     One or more `frontend_ip_configuration` blocks as defined below.
@@ -57,6 +60,10 @@ class ApplicationGateway(pulumi.CustomResource):
     probes: pulumi.Output[list]
     """
     One or more `probe` blocks as defined below.
+    """
+    redirect_configurations: pulumi.Output[list]
+    """
+    A `redirect_configuration` block as defined below.
     """
     request_routing_rules: pulumi.Output[list]
     """
@@ -86,7 +93,11 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A `waf_configuration` block as defined below.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, request_routing_rules=None, resource_group_name=None, sku=None, ssl_certificates=None, tags=None, url_path_maps=None, waf_configuration=None, __name__=None, __opts__=None):
+    zones: pulumi.Output[list]
+    """
+    A collection of availability zones to spread the Application Gateway over.
+    """
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, sku=None, ssl_certificates=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None, __name__=None, __opts__=None):
         """
         Manages an Application Gateway.
         
@@ -97,6 +108,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
         :param pulumi.Input[list] disabled_ssl_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+        :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
         :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
@@ -104,6 +116,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[list] probes: One or more `probe` blocks as defined below.
+        :param pulumi.Input[list] redirect_configurations: A `redirect_configuration` block as defined below.
         :param pulumi.Input[list] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
@@ -111,6 +124,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[dict] waf_configuration: A `waf_configuration` block as defined below.
+        :param pulumi.Input[list] zones: A collection of availability zones to spread the Application Gateway over.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -130,11 +144,11 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__['authentication_certificates'] = authentication_certificates
 
         if backend_address_pools is None:
-            raise TypeError('Missing required property backend_address_pools')
+            raise TypeError("Missing required property 'backend_address_pools'")
         __props__['backend_address_pools'] = backend_address_pools
 
         if backend_http_settings is None:
-            raise TypeError('Missing required property backend_http_settings')
+            raise TypeError("Missing required property 'backend_http_settings'")
         __props__['backend_http_settings'] = backend_http_settings
 
         __props__['custom_error_configurations'] = custom_error_configurations
@@ -144,39 +158,41 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__['enable_http2'] = enable_http2
 
         if frontend_ip_configurations is None:
-            raise TypeError('Missing required property frontend_ip_configurations')
+            raise TypeError("Missing required property 'frontend_ip_configurations'")
         __props__['frontend_ip_configurations'] = frontend_ip_configurations
 
         if frontend_ports is None:
-            raise TypeError('Missing required property frontend_ports')
+            raise TypeError("Missing required property 'frontend_ports'")
         __props__['frontend_ports'] = frontend_ports
 
         if gateway_ip_configurations is None:
-            raise TypeError('Missing required property gateway_ip_configurations')
+            raise TypeError("Missing required property 'gateway_ip_configurations'")
         __props__['gateway_ip_configurations'] = gateway_ip_configurations
 
         if http_listeners is None:
-            raise TypeError('Missing required property http_listeners')
+            raise TypeError("Missing required property 'http_listeners'")
         __props__['http_listeners'] = http_listeners
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         __props__['probes'] = probes
 
+        __props__['redirect_configurations'] = redirect_configurations
+
         if request_routing_rules is None:
-            raise TypeError('Missing required property request_routing_rules')
+            raise TypeError("Missing required property 'request_routing_rules'")
         __props__['request_routing_rules'] = request_routing_rules
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['ssl_certificates'] = ssl_certificates
@@ -186,6 +202,8 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__['url_path_maps'] = url_path_maps
 
         __props__['waf_configuration'] = waf_configuration
+
+        __props__['zones'] = zones
 
         super(ApplicationGateway, __self__).__init__(
             'azure:network/applicationGateway:ApplicationGateway',

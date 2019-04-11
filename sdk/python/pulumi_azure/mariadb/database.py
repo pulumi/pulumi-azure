@@ -59,21 +59,21 @@ class Database(pulumi.CustomResource):
         __props__ = dict()
 
         if charset is None:
-            raise TypeError('Missing required property charset')
+            raise TypeError("Missing required property 'charset'")
         __props__['charset'] = charset
 
         if collation is None:
-            raise TypeError('Missing required property collation')
+            raise TypeError("Missing required property 'collation'")
         __props__['collation'] = collation
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if server_name is None:
-            raise TypeError('Missing required property server_name')
+            raise TypeError("Missing required property 'server_name'")
         __props__['server_name'] = server_name
 
         super(Database, __self__).__init__(

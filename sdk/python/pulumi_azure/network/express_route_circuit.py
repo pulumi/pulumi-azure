@@ -87,29 +87,29 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         __props__['allow_classic_operations'] = allow_classic_operations
 
         if bandwidth_in_mbps is None:
-            raise TypeError('Missing required property bandwidth_in_mbps')
+            raise TypeError("Missing required property 'bandwidth_in_mbps'")
         __props__['bandwidth_in_mbps'] = bandwidth_in_mbps
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if peering_location is None:
-            raise TypeError('Missing required property peering_location')
+            raise TypeError("Missing required property 'peering_location'")
         __props__['peering_location'] = peering_location
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if service_provider_name is None:
-            raise TypeError('Missing required property service_provider_name')
+            raise TypeError("Missing required property 'service_provider_name'")
         __props__['service_provider_name'] = service_provider_name
 
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['tags'] = tags

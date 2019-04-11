@@ -40,10 +40,13 @@ func NewAPI(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["notificationSenderEmail"] = nil
+		inputs["policy"] = nil
 		inputs["publisherEmail"] = nil
 		inputs["publisherName"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["security"] = nil
+		inputs["signIn"] = nil
+		inputs["signUp"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
@@ -54,10 +57,13 @@ func NewAPI(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["notificationSenderEmail"] = args.NotificationSenderEmail
+		inputs["policy"] = args.Policy
 		inputs["publisherEmail"] = args.PublisherEmail
 		inputs["publisherName"] = args.PublisherName
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["security"] = args.Security
+		inputs["signIn"] = args.SignIn
+		inputs["signUp"] = args.SignUp
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
 	}
@@ -90,6 +96,7 @@ func GetAPI(ctx *pulumi.Context,
 		inputs["managementApiUrl"] = state.ManagementApiUrl
 		inputs["name"] = state.Name
 		inputs["notificationSenderEmail"] = state.NotificationSenderEmail
+		inputs["policy"] = state.Policy
 		inputs["portalUrl"] = state.PortalUrl
 		inputs["publicIpAddresses"] = state.PublicIpAddresses
 		inputs["publisherEmail"] = state.PublisherEmail
@@ -97,6 +104,8 @@ func GetAPI(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["scmUrl"] = state.ScmUrl
 		inputs["security"] = state.Security
+		inputs["signIn"] = state.SignIn
+		inputs["signUp"] = state.SignUp
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
 	}
@@ -167,6 +176,11 @@ func (r *API) NotificationSenderEmail() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["notificationSenderEmail"])
 }
 
+// A `policy` block as defined below.
+func (r *API) Policy() *pulumi.Output {
+	return r.s.State["policy"]
+}
+
 // The URL for the Publisher Portal associated with this API Management service.
 func (r *API) PortalUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["portalUrl"])
@@ -202,6 +216,16 @@ func (r *API) Security() *pulumi.Output {
 	return r.s.State["security"]
 }
 
+// A `sign_in` block as defined below.
+func (r *API) SignIn() *pulumi.Output {
+	return r.s.State["signIn"]
+}
+
+// A `sign_up` block as defined below.
+func (r *API) SignUp() *pulumi.Output {
+	return r.s.State["signUp"]
+}
+
 // A `sku` block as documented below.
 func (r *API) Sku() *pulumi.Output {
 	return r.s.State["sku"]
@@ -234,6 +258,8 @@ type APIState struct {
 	Name interface{}
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail interface{}
+	// A `policy` block as defined below.
+	Policy interface{}
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl interface{}
 	// Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
@@ -248,6 +274,10 @@ type APIState struct {
 	ScmUrl interface{}
 	// A `security` block as defined below.
 	Security interface{}
+	// A `sign_in` block as defined below.
+	SignIn interface{}
+	// A `sign_up` block as defined below.
+	SignUp interface{}
 	// A `sku` block as documented below.
 	Sku interface{}
 	// A mapping of tags assigned to the resource.
@@ -270,6 +300,8 @@ type APIArgs struct {
 	Name interface{}
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail interface{}
+	// A `policy` block as defined below.
+	Policy interface{}
 	// The email of publisher/company.
 	PublisherEmail interface{}
 	// The name of publisher/company.
@@ -278,6 +310,10 @@ type APIArgs struct {
 	ResourceGroupName interface{}
 	// A `security` block as defined below.
 	Security interface{}
+	// A `sign_in` block as defined below.
+	SignIn interface{}
+	// A `sign_up` block as defined below.
+	SignUp interface{}
 	// A `sku` block as documented below.
 	Sku interface{}
 	// A mapping of tags assigned to the resource.

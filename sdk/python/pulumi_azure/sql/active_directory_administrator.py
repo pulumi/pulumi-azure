@@ -57,23 +57,23 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         __props__ = dict()
 
         if login is None:
-            raise TypeError('Missing required property login')
+            raise TypeError("Missing required property 'login'")
         __props__['login'] = login
 
         if object_id is None:
-            raise TypeError('Missing required property object_id')
+            raise TypeError("Missing required property 'object_id'")
         __props__['object_id'] = object_id
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if server_name is None:
-            raise TypeError('Missing required property server_name')
+            raise TypeError("Missing required property 'server_name'")
         __props__['server_name'] = server_name
 
         if tenant_id is None:
-            raise TypeError('Missing required property tenant_id')
+            raise TypeError("Missing required property 'tenant_id'")
         __props__['tenant_id'] = tenant_id
 
         super(ActiveDirectoryAdministrator, __self__).__init__(

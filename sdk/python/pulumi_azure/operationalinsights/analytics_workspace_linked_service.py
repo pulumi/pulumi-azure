@@ -72,7 +72,7 @@ class AnalyticsWorkspaceLinkedService(pulumi.CustomResource):
         __props__['linked_service_properties'] = linked_service_properties
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['resource_id'] = resource_id
@@ -80,7 +80,7 @@ class AnalyticsWorkspaceLinkedService(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if workspace_name is None:
-            raise TypeError('Missing required property workspace_name')
+            raise TypeError("Missing required property 'workspace_name'")
         __props__['workspace_name'] = workspace_name
 
         __props__['name'] = None

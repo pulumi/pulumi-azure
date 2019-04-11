@@ -66,17 +66,17 @@ class ActionHttp(pulumi.CustomResource):
         __props__['headers'] = headers
 
         if logic_app_id is None:
-            raise TypeError('Missing required property logic_app_id')
+            raise TypeError("Missing required property 'logic_app_id'")
         __props__['logic_app_id'] = logic_app_id
 
         if method is None:
-            raise TypeError('Missing required property method')
+            raise TypeError("Missing required property 'method'")
         __props__['method'] = method
 
         __props__['name'] = name
 
         if uri is None:
-            raise TypeError('Missing required property uri')
+            raise TypeError("Missing required property 'uri'")
         __props__['uri'] = uri
 
         super(ActionHttp, __self__).__init__(

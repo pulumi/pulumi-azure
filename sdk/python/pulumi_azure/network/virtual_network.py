@@ -89,7 +89,7 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__ = dict()
 
         if address_spaces is None:
-            raise TypeError('Missing required property address_spaces')
+            raise TypeError("Missing required property 'address_spaces'")
         __props__['address_spaces'] = address_spaces
 
         __props__['ddos_protection_plan'] = ddos_protection_plan
@@ -97,13 +97,13 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__['dns_servers'] = dns_servers
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['subnets'] = subnets

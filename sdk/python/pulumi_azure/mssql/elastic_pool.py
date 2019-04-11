@@ -48,9 +48,9 @@ class ElasticPool(pulumi.CustomResource):
     """
     zone_redundant: pulumi.Output[bool]
     """
-    Whether or not this elastic pool is zone redundant.
+    Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, max_size_bytes=None, max_size_gb=None, name=None, per_database_settings=None, resource_group_name=None, server_name=None, sku=None, tags=None, zone_redundant=None, __name__=None, __opts__=None):
         """
         Allows you to manage an Azure SQL Elastic Pool via the `2017-10-01-preview` API which allows for `vCore` and `DTU` based configurations.
         
@@ -65,6 +65,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,7 +83,7 @@ class ElasticPool(pulumi.CustomResource):
         __props__ = dict()
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['max_size_bytes'] = max_size_bytes
@@ -92,25 +93,26 @@ class ElasticPool(pulumi.CustomResource):
         __props__['name'] = name
 
         if per_database_settings is None:
-            raise TypeError('Missing required property per_database_settings')
+            raise TypeError("Missing required property 'per_database_settings'")
         __props__['per_database_settings'] = per_database_settings
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if server_name is None:
-            raise TypeError('Missing required property server_name')
+            raise TypeError("Missing required property 'server_name'")
         __props__['server_name'] = server_name
 
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['tags'] = tags
 
+        __props__['zone_redundant'] = zone_redundant
+
         __props__['elastic_pool_properties'] = None
-        __props__['zone_redundant'] = None
 
         super(ElasticPool, __self__).__init__(
             'azure:mssql/elasticPool:ElasticPool',

@@ -97,7 +97,7 @@ class Job(pulumi.CustomResource):
         __props__['error_action_web'] = error_action_web
 
         if job_collection_name is None:
-            raise TypeError('Missing required property job_collection_name')
+            raise TypeError("Missing required property 'job_collection_name'")
         __props__['job_collection_name'] = job_collection_name
 
         __props__['name'] = name
@@ -105,7 +105,7 @@ class Job(pulumi.CustomResource):
         __props__['recurrence'] = recurrence
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['retry'] = retry

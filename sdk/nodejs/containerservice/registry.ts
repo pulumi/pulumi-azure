@@ -12,39 +12,6 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
- * ### Classic (unmanaged) Container Registry
- * 
- * When using the `Classic` SKU, you need to provide the Azure storage account.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- *     name: "resourceGroup1",
- * });
- * const testAccount = new azure.storage.Account("test", {
- *     accountReplicationType: "GRS",
- *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     name: "storageaccount1",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testRegistry = new azure.containerservice.Registry("test", {
- *     adminEnabled: true,
- *     location: testResourceGroup.location,
- *     name: "containerRegistry1",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: "Classic",
- *     storageAccountId: testAccount.id,
- * });
- * ```
- * 
- * ### Managed Container Registry
- * 
- * When using a SKU other than `Classic`, Azure Container Registry manages the storage account for you.
- * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";

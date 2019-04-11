@@ -47,15 +47,15 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if ip_configuration_name is None:
-            raise TypeError('Missing required property ip_configuration_name')
+            raise TypeError("Missing required property 'ip_configuration_name'")
         __props__['ip_configuration_name'] = ip_configuration_name
 
         if nat_rule_id is None:
-            raise TypeError('Missing required property nat_rule_id')
+            raise TypeError("Missing required property 'nat_rule_id'")
         __props__['nat_rule_id'] = nat_rule_id
 
         if network_interface_id is None:
-            raise TypeError('Missing required property network_interface_id')
+            raise TypeError("Missing required property 'network_interface_id'")
         __props__['network_interface_id'] = network_interface_id
 
         super(NetworkInterfaceNatRuleAssociation, __self__).__init__(

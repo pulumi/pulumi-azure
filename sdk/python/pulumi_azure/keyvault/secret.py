@@ -73,7 +73,7 @@ class Secret(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if value is None:
-            raise TypeError('Missing required property value')
+            raise TypeError("Missing required property 'value'")
         __props__['value'] = value
 
         __props__['vault_uri'] = vault_uri

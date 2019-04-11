@@ -84,6 +84,10 @@ export class API extends pulumi.CustomResource {
      */
     public readonly notificationSenderEmail: pulumi.Output<string>;
     /**
+     * A `policy` block as defined below.
+     */
+    public readonly policy: pulumi.Output<{ xmlContent: string, xmlLink?: string }>;
+    /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
     public /*out*/ readonly portalUrl: pulumi.Output<string>;
@@ -111,6 +115,14 @@ export class API extends pulumi.CustomResource {
      * A `security` block as defined below.
      */
     public readonly security: pulumi.Output<{ disableBackendSsl30?: boolean, disableBackendTls10?: boolean, disableBackendTls11?: boolean, disableFrontendSsl30?: boolean, disableFrontendTls10?: boolean, disableFrontendTls11?: boolean, disableTripleDesChipers?: boolean }>;
+    /**
+     * A `sign_in` block as defined below.
+     */
+    public readonly signIn: pulumi.Output<{ enabled: boolean }>;
+    /**
+     * A `sign_up` block as defined below.
+     */
+    public readonly signUp: pulumi.Output<{ enabled: boolean, termsOfService: { consentRequired: boolean, enabled: boolean, text?: string } }>;
     /**
      * A `sku` block as documented below.
      */
@@ -142,6 +154,7 @@ export class API extends pulumi.CustomResource {
             inputs["managementApiUrl"] = state ? state.managementApiUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
+            inputs["policy"] = state ? state.policy : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
             inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
             inputs["publisherEmail"] = state ? state.publisherEmail : undefined;
@@ -149,6 +162,8 @@ export class API extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["scmUrl"] = state ? state.scmUrl : undefined;
             inputs["security"] = state ? state.security : undefined;
+            inputs["signIn"] = state ? state.signIn : undefined;
+            inputs["signUp"] = state ? state.signUp : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -175,10 +190,13 @@ export class API extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
+            inputs["policy"] = args ? args.policy : undefined;
             inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
             inputs["publisherName"] = args ? args.publisherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["security"] = args ? args.security : undefined;
+            inputs["signIn"] = args ? args.signIn : undefined;
+            inputs["signUp"] = args ? args.signUp : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["gatewayRegionalUrl"] = undefined /*out*/;
@@ -237,6 +255,10 @@ export interface APIState {
      */
     readonly notificationSenderEmail?: pulumi.Input<string>;
     /**
+     * A `policy` block as defined below.
+     */
+    readonly policy?: pulumi.Input<{ xmlContent?: pulumi.Input<string>, xmlLink?: pulumi.Input<string> }>;
+    /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
     readonly portalUrl?: pulumi.Input<string>;
@@ -264,6 +286,14 @@ export interface APIState {
      * A `security` block as defined below.
      */
     readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean> }>;
+    /**
+     * A `sign_in` block as defined below.
+     */
+    readonly signIn?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    /**
+     * A `sign_up` block as defined below.
+     */
+    readonly signUp?: pulumi.Input<{ enabled: pulumi.Input<boolean>, termsOfService: pulumi.Input<{ consentRequired: pulumi.Input<boolean>, enabled: pulumi.Input<boolean>, text?: pulumi.Input<string> }> }>;
     /**
      * A `sku` block as documented below.
      */
@@ -307,6 +337,10 @@ export interface APIArgs {
      */
     readonly notificationSenderEmail?: pulumi.Input<string>;
     /**
+     * A `policy` block as defined below.
+     */
+    readonly policy?: pulumi.Input<{ xmlContent?: pulumi.Input<string>, xmlLink?: pulumi.Input<string> }>;
+    /**
      * The email of publisher/company.
      */
     readonly publisherEmail: pulumi.Input<string>;
@@ -322,6 +356,14 @@ export interface APIArgs {
      * A `security` block as defined below.
      */
     readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean> }>;
+    /**
+     * A `sign_in` block as defined below.
+     */
+    readonly signIn?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    /**
+     * A `sign_up` block as defined below.
+     */
+    readonly signUp?: pulumi.Input<{ enabled: pulumi.Input<boolean>, termsOfService: pulumi.Input<{ consentRequired: pulumi.Input<boolean>, enabled: pulumi.Input<boolean>, text?: pulumi.Input<string> }> }>;
     /**
      * A `sku` block as documented below.
      */

@@ -56,7 +56,7 @@ type GetKubernetesClusterArgs struct {
 type GetKubernetesClusterResult struct {
 	// A `addon_profile` block as documented below.
 	AddonProfiles interface{}
-	// One or more `agent_profile_pool` blocks as documented below.
+	// An `agent_pool_profile` block as documented below.
 	AgentPoolProfiles interface{}
 	// The DNS Prefix of the managed Kubernetes cluster.
 	DnsPrefix interface{}

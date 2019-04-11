@@ -15,7 +15,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     agent_pool_profile: pulumi.Output[dict]
     """
-    One or more `agent_pool_profile` blocks as documented below.
+    An `agent_pool_profile` block.  Currently only one agent pool can exist.
     """
     dns_prefix: pulumi.Output[str]
     """
@@ -90,7 +90,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] addon_profile: A `addon_profile` block.
-        :param pulumi.Input[dict] agent_pool_profile: One or more `agent_pool_profile` blocks as documented below.
+        :param pulumi.Input[dict] agent_pool_profile: An `agent_pool_profile` block.  Currently only one agent pool can exist.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[dict] linux_profile: A `linux_profile` block.
@@ -120,11 +120,11 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__['addon_profile'] = addon_profile
 
         if agent_pool_profile is None:
-            raise TypeError('Missing required property agent_pool_profile')
+            raise TypeError("Missing required property 'agent_pool_profile'")
         __props__['agent_pool_profile'] = agent_pool_profile
 
         if dns_prefix is None:
-            raise TypeError('Missing required property dns_prefix')
+            raise TypeError("Missing required property 'dns_prefix'")
         __props__['dns_prefix'] = dns_prefix
 
         __props__['kubernetes_version'] = kubernetes_version
@@ -132,7 +132,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__['linux_profile'] = linux_profile
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -140,13 +140,13 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__['network_profile'] = network_profile
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['role_based_access_control'] = role_based_access_control
 
         if service_principal is None:
-            raise TypeError('Missing required property service_principal')
+            raise TypeError("Missing required property 'service_principal'")
         __props__['service_principal'] = service_principal
 
         __props__['tags'] = tags

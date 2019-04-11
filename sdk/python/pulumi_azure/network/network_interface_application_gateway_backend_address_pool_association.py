@@ -47,15 +47,15 @@ class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(pulumi.Cus
         __props__ = dict()
 
         if backend_address_pool_id is None:
-            raise TypeError('Missing required property backend_address_pool_id')
+            raise TypeError("Missing required property 'backend_address_pool_id'")
         __props__['backend_address_pool_id'] = backend_address_pool_id
 
         if ip_configuration_name is None:
-            raise TypeError('Missing required property ip_configuration_name')
+            raise TypeError("Missing required property 'ip_configuration_name'")
         __props__['ip_configuration_name'] = ip_configuration_name
 
         if network_interface_id is None:
-            raise TypeError('Missing required property network_interface_id')
+            raise TypeError("Missing required property 'network_interface_id'")
         __props__['network_interface_id'] = network_interface_id
 
         super(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation, __self__).__init__(

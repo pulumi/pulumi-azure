@@ -121,7 +121,7 @@ func (r *KubernetesCluster) AddonProfile() *pulumi.Output {
 	return r.s.State["addonProfile"]
 }
 
-// One or more `agent_pool_profile` blocks as documented below.
+// An `agent_pool_profile` block.  Currently only one agent pool can exist.
 func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
 	return r.s.State["agentPoolProfile"]
 }
@@ -210,7 +210,7 @@ func (r *KubernetesCluster) Tags() *pulumi.MapOutput {
 type KubernetesClusterState struct {
 	// A `addon_profile` block.
 	AddonProfile interface{}
-	// One or more `agent_pool_profile` blocks as documented below.
+	// An `agent_pool_profile` block.  Currently only one agent pool can exist.
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
@@ -250,7 +250,7 @@ type KubernetesClusterState struct {
 type KubernetesClusterArgs struct {
 	// A `addon_profile` block.
 	AddonProfile interface{}
-	// One or more `agent_pool_profile` blocks as documented below.
+	// An `agent_pool_profile` block.  Currently only one agent pool can exist.
 	AgentPoolProfile interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}

@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *     name: "my-group",
  *     resourceGroupName: exampleAPI1.resourceGroupName,
  * }));
- * const exampleGroupUser = new azure.apimanagement.GroupUser("example", {
+ * const exampleProductGroup = new azure.apimanagement.ProductGroup("example", {
  *     apiManagementName: exampleAPI.apply(exampleAPI => exampleAPI.name),
  *     groupName: exampleGroup.apply(exampleGroup => exampleGroup.name),
+ *     productId: azurerm_api_management_user_example.id.apply(id => id),
  *     resourceGroupName: exampleAPI.apply(exampleAPI => exampleAPI.resourceGroupName),
- *     userId: azurerm_api_management_user_example.id.apply(id => id),
  * });
  * const exampleProduct = pulumi.all([exampleAPI, exampleAPI]).apply(([exampleAPI, exampleAPI1]) => azure.apimanagement.getProduct({
  *     apiManagementName: exampleAPI.name,
@@ -56,6 +56,9 @@ export class ProductGroup extends pulumi.CustomResource {
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
     public readonly groupName: pulumi.Output<string>;
+    /**
+     * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+     */
     public readonly productId: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -113,6 +116,9 @@ export interface ProductGroupState {
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
     readonly groupName?: pulumi.Input<string>;
+    /**
+     * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+     */
     readonly productId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -132,6 +138,9 @@ export interface ProductGroupArgs {
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
     readonly groupName: pulumi.Input<string>;
+    /**
+     * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+     */
     readonly productId: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.

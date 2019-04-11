@@ -143,6 +143,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
     /**
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     */
+    public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
+    /**
      * The name of the resource group in which to create the Function App.
      */
     public readonly resourceGroupName: pulumi.Output<string>;
@@ -192,6 +196,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
+            inputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
             inputs["siteCredential"] = state ? state.siteCredential : undefined;
@@ -230,6 +235,7 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["defaultHostname"] = undefined /*out*/;
             inputs["kind"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
+            inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
             inputs["siteCredential"] = undefined /*out*/;
         }
         super("azure:appservice/functionApp:FunctionApp", name, inputs, opts);
@@ -292,6 +298,10 @@ export interface FunctionAppState {
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
     readonly outboundIpAddresses?: pulumi.Input<string>;
+    /**
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     */
+    readonly possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Function App.
      */

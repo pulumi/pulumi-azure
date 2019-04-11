@@ -81,7 +81,7 @@ class OutboundRule(pulumi.CustomResource):
         __props__['allocated_outbound_ports'] = allocated_outbound_ports
 
         if backend_address_pool_id is None:
-            raise TypeError('Missing required property backend_address_pool_id')
+            raise TypeError("Missing required property 'backend_address_pool_id'")
         __props__['backend_address_pool_id'] = backend_address_pool_id
 
         __props__['enable_tcp_reset'] = enable_tcp_reset
@@ -91,17 +91,17 @@ class OutboundRule(pulumi.CustomResource):
         __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
 
         if loadbalancer_id is None:
-            raise TypeError('Missing required property loadbalancer_id')
+            raise TypeError("Missing required property 'loadbalancer_id'")
         __props__['loadbalancer_id'] = loadbalancer_id
 
         __props__['name'] = name
 
         if protocol is None:
-            raise TypeError('Missing required property protocol')
+            raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         super(OutboundRule, __self__).__init__(

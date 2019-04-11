@@ -111,7 +111,7 @@ class EventGridEventSubscription(pulumi.CustomResource):
         __props__['retry_policy'] = retry_policy
 
         if scope is None:
-            raise TypeError('Missing required property scope')
+            raise TypeError("Missing required property 'scope'")
         __props__['scope'] = scope
 
         __props__['storage_blob_dead_letter_destination'] = storage_blob_dead_letter_destination

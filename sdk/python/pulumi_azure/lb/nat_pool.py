@@ -76,23 +76,23 @@ class NatPool(pulumi.CustomResource):
         __props__ = dict()
 
         if backend_port is None:
-            raise TypeError('Missing required property backend_port')
+            raise TypeError("Missing required property 'backend_port'")
         __props__['backend_port'] = backend_port
 
         if frontend_ip_configuration_name is None:
-            raise TypeError('Missing required property frontend_ip_configuration_name')
+            raise TypeError("Missing required property 'frontend_ip_configuration_name'")
         __props__['frontend_ip_configuration_name'] = frontend_ip_configuration_name
 
         if frontend_port_end is None:
-            raise TypeError('Missing required property frontend_port_end')
+            raise TypeError("Missing required property 'frontend_port_end'")
         __props__['frontend_port_end'] = frontend_port_end
 
         if frontend_port_start is None:
-            raise TypeError('Missing required property frontend_port_start')
+            raise TypeError("Missing required property 'frontend_port_start'")
         __props__['frontend_port_start'] = frontend_port_start
 
         if loadbalancer_id is None:
-            raise TypeError('Missing required property loadbalancer_id')
+            raise TypeError("Missing required property 'loadbalancer_id'")
         __props__['loadbalancer_id'] = loadbalancer_id
 
         __props__['location'] = location
@@ -100,11 +100,11 @@ class NatPool(pulumi.CustomResource):
         __props__['name'] = name
 
         if protocol is None:
-            raise TypeError('Missing required property protocol')
+            raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['frontend_ip_configuration_id'] = None

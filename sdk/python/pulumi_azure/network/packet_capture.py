@@ -87,19 +87,19 @@ class PacketCapture(pulumi.CustomResource):
         __props__['name'] = name
 
         if network_watcher_name is None:
-            raise TypeError('Missing required property network_watcher_name')
+            raise TypeError("Missing required property 'network_watcher_name'")
         __props__['network_watcher_name'] = network_watcher_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if storage_location is None:
-            raise TypeError('Missing required property storage_location')
+            raise TypeError("Missing required property 'storage_location'")
         __props__['storage_location'] = storage_location
 
         if target_resource_id is None:
-            raise TypeError('Missing required property target_resource_id')
+            raise TypeError("Missing required property 'target_resource_id'")
         __props__['target_resource_id'] = target_resource_id
 
         super(PacketCapture, __self__).__init__(

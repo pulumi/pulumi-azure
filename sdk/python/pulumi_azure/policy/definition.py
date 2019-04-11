@@ -101,7 +101,7 @@ class Definition(pulumi.CustomResource):
         __props__['description'] = description
 
         if display_name is None:
-            raise TypeError('Missing required property display_name')
+            raise TypeError("Missing required property 'display_name'")
         __props__['display_name'] = display_name
 
         __props__['management_group_id'] = management_group_id
@@ -109,7 +109,7 @@ class Definition(pulumi.CustomResource):
         __props__['metadata'] = metadata
 
         if mode is None:
-            raise TypeError('Missing required property mode')
+            raise TypeError("Missing required property 'mode'")
         __props__['mode'] = mode
 
         __props__['name'] = name
@@ -119,7 +119,7 @@ class Definition(pulumi.CustomResource):
         __props__['policy_rule'] = policy_rule
 
         if policy_type is None:
-            raise TypeError('Missing required property policy_type')
+            raise TypeError("Missing required property 'policy_type'")
         __props__['policy_type'] = policy_type
 
         super(Definition, __self__).__init__(

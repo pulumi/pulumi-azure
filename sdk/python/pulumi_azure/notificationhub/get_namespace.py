@@ -14,43 +14,43 @@ class GetNamespaceResult:
     """
     def __init__(__self__, enabled=None, location=None, name=None, namespace_type=None, resource_group_name=None, servicebus_endpoint=None, sku=None, id=None):
         if enabled and not isinstance(enabled, bool):
-            raise TypeError('Expected argument enabled to be a bool')
+            raise TypeError("Expected argument 'enabled' to be a bool")
         __self__.enabled = enabled
         """
         Is this Notification Hub Namespace enabled?
         """
         if location and not isinstance(location, str):
-            raise TypeError('Expected argument location to be a str')
+            raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The Azure Region in which this Notification Hub Namespace exists.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         (Required) The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
         """
         if namespace_type and not isinstance(namespace_type, str):
-            raise TypeError('Expected argument namespace_type to be a str')
+            raise TypeError("Expected argument 'namespace_type' to be a str")
         __self__.namespace_type = namespace_type
         """
         The Type of Namespace, such as `Messaging` or `NotificationHub`.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if servicebus_endpoint and not isinstance(servicebus_endpoint, str):
-            raise TypeError('Expected argument servicebus_endpoint to be a str')
+            raise TypeError("Expected argument 'servicebus_endpoint' to be a str")
         __self__.servicebus_endpoint = servicebus_endpoint
         if sku and not isinstance(sku, dict):
-            raise TypeError('Expected argument sku to be a dict')
+            raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         A `sku` block as defined below.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

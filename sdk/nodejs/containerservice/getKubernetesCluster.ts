@@ -52,7 +52,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly addonProfiles: { httpApplicationRoutings: { enabled: boolean, httpApplicationRoutingZoneName: string }[], omsAgents: { enabled: boolean, logAnalyticsWorkspaceId: string }[] }[];
     /**
-     * One or more `agent_profile_pool` blocks as documented below.
+     * An `agent_pool_profile` block as documented below.
      */
     readonly agentPoolProfiles: { count: number, dnsPrefix: string, maxPods: number, name: string, osDiskSizeGb: number, osType: string, vmSize: string, vnetSubnetId: string }[];
     /**
@@ -98,7 +98,7 @@ export interface GetKubernetesClusterResult {
     /**
      * A `network_profile` block as documented below.
      */
-    readonly networkProfiles: { dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, podCidr: string, serviceCidr: string }[];
+    readonly networkProfiles: { dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, networkPolicy: string, podCidr: string, serviceCidr: string }[];
     /**
      * Auto-generated Resource Group containing AKS Cluster resources.
      */

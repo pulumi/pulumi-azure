@@ -6,6 +6,41 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EventGrid Event Subscription
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const defaultResourceGroup = new azure.core.ResourceGroup("default", {
+ *     location: "West US 2",
+ *     name: "defaultResourceGroup",
+ * });
+ * const defaultAccount = new azure.storage.Account("default", {
+ *     accountReplicationType: "LRS",
+ *     accountTier: "Standard",
+ *     location: defaultResourceGroup.location,
+ *     name: "defaultStorageAccount",
+ *     resourceGroupName: defaultResourceGroup.name,
+ *     tags: {
+ *         environment: "staging",
+ *     },
+ * });
+ * const defaultQueue = new azure.storage.Queue("default", {
+ *     name: "defaultStorageQueue",
+ *     resourceGroupName: defaultResourceGroup.name,
+ *     storageAccountName: defaultAccount.name,
+ * });
+ * const defaultEventGridEventSubscription = new azure.eventhub.EventGridEventSubscription("default", {
+ *     name: "defaultEventSubscription",
+ *     scope: defaultResourceGroup.id,
+ *     storageQueueEndpoint: {
+ *         queueName: defaultQueue.name,
+ *         storageAccountId: defaultAccount.id,
+ *     },
+ * });
+ * ```
  */
 export class EventGridEventSubscription extends pulumi.CustomResource {
     /**

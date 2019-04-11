@@ -14,28 +14,28 @@ class GetManagementGroupResult:
     """
     def __init__(__self__, display_name=None, group_id=None, parent_management_group_id=None, subscription_ids=None, id=None):
         if display_name and not isinstance(display_name, str):
-            raise TypeError('Expected argument display_name to be a str')
+            raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
         """
         A friendly name for the Management Group.
         """
         if group_id and not isinstance(group_id, str):
-            raise TypeError('Expected argument group_id to be a str')
+            raise TypeError("Expected argument 'group_id' to be a str")
         __self__.group_id = group_id
         if parent_management_group_id and not isinstance(parent_management_group_id, str):
-            raise TypeError('Expected argument parent_management_group_id to be a str')
+            raise TypeError("Expected argument 'parent_management_group_id' to be a str")
         __self__.parent_management_group_id = parent_management_group_id
         """
         The ID of any Parent Management Group.
         """
         if subscription_ids and not isinstance(subscription_ids, list):
-            raise TypeError('Expected argument subscription_ids to be a list')
+            raise TypeError("Expected argument 'subscription_ids' to be a list")
         __self__.subscription_ids = subscription_ids
         """
         A list of Subscription ID's which are assigned to the Management Group.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

@@ -74,7 +74,7 @@ class ActivityLogAlert(pulumi.CustomResource):
         __props__['actions'] = actions
 
         if criteria is None:
-            raise TypeError('Missing required property criteria')
+            raise TypeError("Missing required property 'criteria'")
         __props__['criteria'] = criteria
 
         __props__['description'] = description
@@ -84,11 +84,11 @@ class ActivityLogAlert(pulumi.CustomResource):
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if scopes is None:
-            raise TypeError('Missing required property scopes')
+            raise TypeError("Missing required property 'scopes'")
         __props__['scopes'] = scopes
 
         __props__['tags'] = tags

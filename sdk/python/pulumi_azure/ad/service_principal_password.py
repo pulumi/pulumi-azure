@@ -61,19 +61,19 @@ class ServicePrincipalPassword(pulumi.CustomResource):
         __props__ = dict()
 
         if end_date is None:
-            raise TypeError('Missing required property end_date')
+            raise TypeError("Missing required property 'end_date'")
         __props__['end_date'] = end_date
 
         __props__['key_id'] = key_id
 
         if service_principal_id is None:
-            raise TypeError('Missing required property service_principal_id')
+            raise TypeError("Missing required property 'service_principal_id'")
         __props__['service_principal_id'] = service_principal_id
 
         __props__['start_date'] = start_date
 
         if value is None:
-            raise TypeError('Missing required property value')
+            raise TypeError("Missing required property 'value'")
         __props__['value'] = value
 
         super(ServicePrincipalPassword, __self__).__init__(

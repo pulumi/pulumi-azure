@@ -81,31 +81,31 @@ class SharedImageVersion(pulumi.CustomResource):
         __props__['exclude_from_latest'] = exclude_from_latest
 
         if gallery_name is None:
-            raise TypeError('Missing required property gallery_name')
+            raise TypeError("Missing required property 'gallery_name'")
         __props__['gallery_name'] = gallery_name
 
         if image_name is None:
-            raise TypeError('Missing required property image_name')
+            raise TypeError("Missing required property 'image_name'")
         __props__['image_name'] = image_name
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if managed_image_id is None:
-            raise TypeError('Missing required property managed_image_id')
+            raise TypeError("Missing required property 'managed_image_id'")
         __props__['managed_image_id'] = managed_image_id
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
         if target_regions is None:
-            raise TypeError('Missing required property target_regions')
+            raise TypeError("Missing required property 'target_regions'")
         __props__['target_regions'] = target_regions
 
         super(SharedImageVersion, __self__).__init__(

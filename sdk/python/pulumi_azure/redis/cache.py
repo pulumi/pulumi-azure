@@ -29,6 +29,10 @@ class Cache(pulumi.CustomResource):
     """
     The location of the resource group.
     """
+    minimum_tls_version: pulumi.Output[str]
+    """
+    The minimum TLS version.  Defaults to `1.0`.
+    """
     name: pulumi.Output[str]
     """
     The name of the Redis instance. Changing this forces a
@@ -87,7 +91,7 @@ class Cache(pulumi.CustomResource):
     """
     A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
     """
-    def __init__(__self__, resource_name, opts=None, capacity=None, enable_non_ssl_port=None, family=None, location=None, name=None, patch_schedules=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, shard_count=None, sku_name=None, subnet_id=None, tags=None, zones=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capacity=None, enable_non_ssl_port=None, family=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, shard_count=None, sku_name=None, subnet_id=None, tags=None, zones=None, __name__=None, __opts__=None):
         """
         Manages a Redis Cache.
         
@@ -120,6 +124,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6789) - disabled by default.
         :param pulumi.Input[str] family: The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
         :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
                new resource to be created.
         :param pulumi.Input[list] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
@@ -149,18 +154,20 @@ class Cache(pulumi.CustomResource):
         __props__ = dict()
 
         if capacity is None:
-            raise TypeError('Missing required property capacity')
+            raise TypeError("Missing required property 'capacity'")
         __props__['capacity'] = capacity
 
         __props__['enable_non_ssl_port'] = enable_non_ssl_port
 
         if family is None:
-            raise TypeError('Missing required property family')
+            raise TypeError("Missing required property 'family'")
         __props__['family'] = family
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
+
+        __props__['minimum_tls_version'] = minimum_tls_version
 
         __props__['name'] = name
 
@@ -169,17 +176,17 @@ class Cache(pulumi.CustomResource):
         __props__['private_static_ip_address'] = private_static_ip_address
 
         if redis_configuration is None:
-            raise TypeError('Missing required property redis_configuration')
+            raise TypeError("Missing required property 'redis_configuration'")
         __props__['redis_configuration'] = redis_configuration
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['shard_count'] = shard_count
 
         if sku_name is None:
-            raise TypeError('Missing required property sku_name')
+            raise TypeError("Missing required property 'sku_name'")
         __props__['sku_name'] = sku_name
 
         __props__['subnet_id'] = subnet_id

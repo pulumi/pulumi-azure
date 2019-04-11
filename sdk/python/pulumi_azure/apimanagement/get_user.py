@@ -14,46 +14,46 @@ class GetUserResult:
     """
     def __init__(__self__, api_management_name=None, email=None, first_name=None, last_name=None, note=None, resource_group_name=None, state=None, user_id=None, id=None):
         if api_management_name and not isinstance(api_management_name, str):
-            raise TypeError('Expected argument api_management_name to be a str')
+            raise TypeError("Expected argument 'api_management_name' to be a str")
         __self__.api_management_name = api_management_name
         if email and not isinstance(email, str):
-            raise TypeError('Expected argument email to be a str')
+            raise TypeError("Expected argument 'email' to be a str")
         __self__.email = email
         """
         The Email Address used for this User.
         """
         if first_name and not isinstance(first_name, str):
-            raise TypeError('Expected argument first_name to be a str')
+            raise TypeError("Expected argument 'first_name' to be a str")
         __self__.first_name = first_name
         """
         The First Name for the User.
         """
         if last_name and not isinstance(last_name, str):
-            raise TypeError('Expected argument last_name to be a str')
+            raise TypeError("Expected argument 'last_name' to be a str")
         __self__.last_name = last_name
         """
         The Last Name for the User.
         """
         if note and not isinstance(note, str):
-            raise TypeError('Expected argument note to be a str')
+            raise TypeError("Expected argument 'note' to be a str")
         __self__.note = note
         """
         Any notes about this User.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if state and not isinstance(state, str):
-            raise TypeError('Expected argument state to be a str')
+            raise TypeError("Expected argument 'state' to be a str")
         __self__.state = state
         """
         The current state of this User, for example `active`, `blocked` or `pending`.
         """
         if user_id and not isinstance(user_id, str):
-            raise TypeError('Expected argument user_id to be a str')
+            raise TypeError("Expected argument 'user_id' to be a str")
         __self__.user_id = user_id
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

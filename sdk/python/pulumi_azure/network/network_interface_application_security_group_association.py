@@ -47,15 +47,15 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         __props__ = dict()
 
         if application_security_group_id is None:
-            raise TypeError('Missing required property application_security_group_id')
+            raise TypeError("Missing required property 'application_security_group_id'")
         __props__['application_security_group_id'] = application_security_group_id
 
         if ip_configuration_name is None:
-            raise TypeError('Missing required property ip_configuration_name')
+            raise TypeError("Missing required property 'ip_configuration_name'")
         __props__['ip_configuration_name'] = ip_configuration_name
 
         if network_interface_id is None:
-            raise TypeError('Missing required property network_interface_id')
+            raise TypeError("Missing required property 'network_interface_id'")
         __props__['network_interface_id'] = network_interface_id
 
         super(NetworkInterfaceApplicationSecurityGroupAssociation, __self__).__init__(

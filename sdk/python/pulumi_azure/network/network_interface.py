@@ -118,11 +118,11 @@ class NetworkInterface(pulumi.CustomResource):
         __props__['internal_fqdn'] = internal_fqdn
 
         if ip_configurations is None:
-            raise TypeError('Missing required property ip_configurations')
+            raise TypeError("Missing required property 'ip_configurations'")
         __props__['ip_configurations'] = ip_configurations
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['mac_address'] = mac_address
@@ -132,7 +132,7 @@ class NetworkInterface(pulumi.CustomResource):
         __props__['network_security_group_id'] = network_security_group_id
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags

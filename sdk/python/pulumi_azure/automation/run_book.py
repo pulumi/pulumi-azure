@@ -87,7 +87,7 @@ class RunBook(pulumi.CustomResource):
         __props__ = dict()
 
         if account_name is None:
-            raise TypeError('Missing required property account_name')
+            raise TypeError("Missing required property 'account_name'")
         __props__['account_name'] = account_name
 
         __props__['content'] = content
@@ -95,29 +95,29 @@ class RunBook(pulumi.CustomResource):
         __props__['description'] = description
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if log_progress is None:
-            raise TypeError('Missing required property log_progress')
+            raise TypeError("Missing required property 'log_progress'")
         __props__['log_progress'] = log_progress
 
         if log_verbose is None:
-            raise TypeError('Missing required property log_verbose')
+            raise TypeError("Missing required property 'log_verbose'")
         __props__['log_verbose'] = log_verbose
 
         __props__['name'] = name
 
         if publish_content_link is None:
-            raise TypeError('Missing required property publish_content_link')
+            raise TypeError("Missing required property 'publish_content_link'")
         __props__['publish_content_link'] = publish_content_link
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if runbook_type is None:
-            raise TypeError('Missing required property runbook_type')
+            raise TypeError("Missing required property 'runbook_type'")
         __props__['runbook_type'] = runbook_type
 
         __props__['tags'] = tags

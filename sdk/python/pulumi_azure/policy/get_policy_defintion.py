@@ -14,55 +14,55 @@ class GetPolicyDefintionResult:
     """
     def __init__(__self__, description=None, display_name=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None, id=None):
         if description and not isinstance(description, str):
-            raise TypeError('Expected argument description to be a str')
+            raise TypeError("Expected argument 'description' to be a str")
         __self__.description = description
         """
         The Description of the Policy.
         """
         if display_name and not isinstance(display_name, str):
-            raise TypeError('Expected argument display_name to be a str')
+            raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
         if management_group_id and not isinstance(management_group_id, str):
-            raise TypeError('Expected argument management_group_id to be a str')
+            raise TypeError("Expected argument 'management_group_id' to be a str")
         __self__.management_group_id = management_group_id
         if metadata and not isinstance(metadata, str):
-            raise TypeError('Expected argument metadata to be a str')
+            raise TypeError("Expected argument 'metadata' to be a str")
         __self__.metadata = metadata
         """
         Any Metadata defined in the Policy.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The Name of the Policy Definition.
         """
         if parameters and not isinstance(parameters, str):
-            raise TypeError('Expected argument parameters to be a str')
+            raise TypeError("Expected argument 'parameters' to be a str")
         __self__.parameters = parameters
         """
         Any Parameters defined in the Policy.
         """
         if policy_rule and not isinstance(policy_rule, str):
-            raise TypeError('Expected argument policy_rule to be a str')
+            raise TypeError("Expected argument 'policy_rule' to be a str")
         __self__.policy_rule = policy_rule
         """
         The Rule as defined (in JSON) in the Policy.
         """
         if policy_type and not isinstance(policy_type, str):
-            raise TypeError('Expected argument policy_type to be a str')
+            raise TypeError("Expected argument 'policy_type' to be a str")
         __self__.policy_type = policy_type
         """
         The Type of the Policy, such as `Microsoft.Authorization/policyDefinitions`.
         """
         if type and not isinstance(type, str):
-            raise TypeError('Expected argument type to be a str')
+            raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The Type of Policy.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

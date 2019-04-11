@@ -57,7 +57,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
         __props__ = dict()
 
         if logic_app_id is None:
-            raise TypeError('Missing required property logic_app_id')
+            raise TypeError("Missing required property 'logic_app_id'")
         __props__['logic_app_id'] = logic_app_id
 
         __props__['method'] = method
@@ -67,7 +67,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
         __props__['relative_path'] = relative_path
 
         if schema is None:
-            raise TypeError('Missing required property schema')
+            raise TypeError("Missing required property 'schema'")
         __props__['schema'] = schema
 
         super(TriggerHttpRequest, __self__).__init__(

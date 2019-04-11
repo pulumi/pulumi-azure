@@ -135,25 +135,25 @@ class Cluster(pulumi.CustomResource):
         __props__['fabric_settings'] = fabric_settings
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if management_endpoint is None:
-            raise TypeError('Missing required property management_endpoint')
+            raise TypeError("Missing required property 'management_endpoint'")
         __props__['management_endpoint'] = management_endpoint
 
         __props__['name'] = name
 
         if node_types is None:
-            raise TypeError('Missing required property node_types')
+            raise TypeError("Missing required property 'node_types'")
         __props__['node_types'] = node_types
 
         if reliability_level is None:
-            raise TypeError('Missing required property reliability_level')
+            raise TypeError("Missing required property 'reliability_level'")
         __props__['reliability_level'] = reliability_level
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['reverse_proxy_certificate'] = reverse_proxy_certificate
@@ -161,11 +161,11 @@ class Cluster(pulumi.CustomResource):
         __props__['tags'] = tags
 
         if upgrade_mode is None:
-            raise TypeError('Missing required property upgrade_mode')
+            raise TypeError("Missing required property 'upgrade_mode'")
         __props__['upgrade_mode'] = upgrade_mode
 
         if vm_image is None:
-            raise TypeError('Missing required property vm_image')
+            raise TypeError("Missing required property 'vm_image'")
         __props__['vm_image'] = vm_image
 
         __props__['cluster_endpoint'] = None

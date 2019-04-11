@@ -31,6 +31,7 @@ func NewImage(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = nil
 		inputs["sourceVirtualMachineId"] = nil
 		inputs["tags"] = nil
+		inputs["zoneResilient"] = nil
 	} else {
 		inputs["dataDisks"] = args.DataDisks
 		inputs["location"] = args.Location
@@ -39,6 +40,7 @@ func NewImage(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sourceVirtualMachineId"] = args.SourceVirtualMachineId
 		inputs["tags"] = args.Tags
+		inputs["zoneResilient"] = args.ZoneResilient
 	}
 	s, err := ctx.RegisterResource("azure:compute/image:Image", name, true, inputs, opts...)
 	if err != nil {
@@ -60,6 +62,7 @@ func GetImage(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sourceVirtualMachineId"] = state.SourceVirtualMachineId
 		inputs["tags"] = state.Tags
+		inputs["zoneResilient"] = state.ZoneResilient
 	}
 	s, err := ctx.ReadResource("azure:compute/image:Image", name, id, inputs, opts...)
 	if err != nil {
@@ -116,6 +119,11 @@ func (r *Image) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+func (r *Image) ZoneResilient() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["zoneResilient"])
+}
+
 // Input properties used for looking up and filtering Image resources.
 type ImageState struct {
 	// One or more `data_disk` elements as defined below.
@@ -135,6 +143,8 @@ type ImageState struct {
 	SourceVirtualMachineId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+	ZoneResilient interface{}
 }
 
 // The set of arguments for constructing a Image resource.
@@ -156,4 +166,6 @@ type ImageArgs struct {
 	SourceVirtualMachineId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+	ZoneResilient interface{}
 }

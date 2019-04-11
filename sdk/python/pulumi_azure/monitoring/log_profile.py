@@ -66,17 +66,17 @@ class LogProfile(pulumi.CustomResource):
         __props__ = dict()
 
         if categories is None:
-            raise TypeError('Missing required property categories')
+            raise TypeError("Missing required property 'categories'")
         __props__['categories'] = categories
 
         if locations is None:
-            raise TypeError('Missing required property locations')
+            raise TypeError("Missing required property 'locations'")
         __props__['locations'] = locations
 
         __props__['name'] = name
 
         if retention_policy is None:
-            raise TypeError('Missing required property retention_policy')
+            raise TypeError("Missing required property 'retention_policy'")
         __props__['retention_policy'] = retention_policy
 
         __props__['servicebus_rule_id'] = servicebus_rule_id

@@ -53,6 +53,10 @@ class Account(pulumi.CustomResource):
     """
     A Managed Service Identity block as defined below.
     """
+    is_hns_enabled: pulumi.Output[bool]
+    """
+    Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the
@@ -86,6 +90,14 @@ class Account(pulumi.CustomResource):
     """
     The connection string associated with the primary location.
     """
+    primary_dfs_endpoint: pulumi.Output[str]
+    """
+    The endpoint URL for DFS storage in the primary location.
+    """
+    primary_dfs_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for DFS storage in the primary location.
+    """
     primary_file_endpoint: pulumi.Output[str]
     """
     The endpoint URL for file storage in the primary location.
@@ -114,6 +126,14 @@ class Account(pulumi.CustomResource):
     """
     The hostname with port if applicable for table storage in the primary location.
     """
+    primary_web_endpoint: pulumi.Output[str]
+    """
+    The endpoint URL for web storage in the primary location.
+    """
+    primary_web_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for web storage in the primary location.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to
@@ -139,6 +159,22 @@ class Account(pulumi.CustomResource):
     """
     The connection string associated with the secondary location.
     """
+    secondary_dfs_endpoint: pulumi.Output[str]
+    """
+    The endpoint URL for DFS storage in the secondary location.
+    """
+    secondary_dfs_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for DFS storage in the secondary location.
+    """
+    secondary_file_endpoint: pulumi.Output[str]
+    """
+    The endpoint URL for file storage in the secondary location.
+    """
+    secondary_file_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for file storage in the secondary location.
+    """
     secondary_location: pulumi.Output[str]
     """
     The secondary location of the storage account.
@@ -159,24 +195,20 @@ class Account(pulumi.CustomResource):
     """
     The hostname with port if applicable for table storage in the secondary location.
     """
+    secondary_web_endpoint: pulumi.Output[str]
+    """
+    The endpoint URL for web storage in the secondary location.
+    """
+    secondary_web_host: pulumi.Output[str]
+    """
+    The hostname with port if applicable for web storage in the secondary location.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, location=None, name=None, network_rules=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
         """
-        ## 
-        
-        ---
-        layout: "azurerm"
-        page_title: "Azure Resource Manager: azurerm_storage_account"
-        sidebar_current: "docs-azurerm-resource-storage-account"
-        description: |-
-          Manages a Azure Storage Account.
-        ---
-        
-        # azurerm_storage_account
-        
         Manage an Azure Storage Account.
         
         :param str resource_name: The name of the resource.
@@ -194,6 +226,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information.
         :param pulumi.Input[dict] identity: A Managed Service Identity block as defined below.
+        :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the
                resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
@@ -224,11 +257,11 @@ class Account(pulumi.CustomResource):
         __props__['account_kind'] = account_kind
 
         if account_replication_type is None:
-            raise TypeError('Missing required property account_replication_type')
+            raise TypeError("Missing required property 'account_replication_type'")
         __props__['account_replication_type'] = account_replication_type
 
         if account_tier is None:
-            raise TypeError('Missing required property account_tier')
+            raise TypeError("Missing required property 'account_tier'")
         __props__['account_tier'] = account_tier
 
         __props__['account_type'] = account_type
@@ -243,8 +276,10 @@ class Account(pulumi.CustomResource):
 
         __props__['identity'] = identity
 
+        __props__['is_hns_enabled'] = is_hns_enabled
+
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -252,7 +287,7 @@ class Account(pulumi.CustomResource):
         __props__['network_rules'] = network_rules
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
@@ -262,6 +297,8 @@ class Account(pulumi.CustomResource):
         __props__['primary_blob_endpoint'] = None
         __props__['primary_blob_host'] = None
         __props__['primary_connection_string'] = None
+        __props__['primary_dfs_endpoint'] = None
+        __props__['primary_dfs_host'] = None
         __props__['primary_file_endpoint'] = None
         __props__['primary_file_host'] = None
         __props__['primary_location'] = None
@@ -269,16 +306,24 @@ class Account(pulumi.CustomResource):
         __props__['primary_queue_host'] = None
         __props__['primary_table_endpoint'] = None
         __props__['primary_table_host'] = None
+        __props__['primary_web_endpoint'] = None
+        __props__['primary_web_host'] = None
         __props__['secondary_access_key'] = None
         __props__['secondary_blob_connection_string'] = None
         __props__['secondary_blob_endpoint'] = None
         __props__['secondary_blob_host'] = None
         __props__['secondary_connection_string'] = None
+        __props__['secondary_dfs_endpoint'] = None
+        __props__['secondary_dfs_host'] = None
+        __props__['secondary_file_endpoint'] = None
+        __props__['secondary_file_host'] = None
         __props__['secondary_location'] = None
         __props__['secondary_queue_endpoint'] = None
         __props__['secondary_queue_host'] = None
         __props__['secondary_table_endpoint'] = None
         __props__['secondary_table_host'] = None
+        __props__['secondary_web_endpoint'] = None
+        __props__['secondary_web_host'] = None
 
         super(Account, __self__).__init__(
             'azure:storage/account:Account',

@@ -95,7 +95,7 @@ class Group(pulumi.CustomResource):
         __props__ = dict()
 
         if containers is None:
-            raise TypeError('Missing required property containers')
+            raise TypeError("Missing required property 'containers'")
         __props__['containers'] = containers
 
         __props__['diagnostics'] = diagnostics
@@ -107,17 +107,17 @@ class Group(pulumi.CustomResource):
         __props__['ip_address_type'] = ip_address_type
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if os_type is None:
-            raise TypeError('Missing required property os_type')
+            raise TypeError("Missing required property 'os_type'")
         __props__['os_type'] = os_type
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['restart_policy'] = restart_policy

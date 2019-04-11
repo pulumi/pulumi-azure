@@ -173,7 +173,7 @@ class Queue(pulumi.CustomResource):
         __props__['name'] = name
 
         if namespace_name is None:
-            raise TypeError('Missing required property namespace_name')
+            raise TypeError("Missing required property 'namespace_name'")
         __props__['namespace_name'] = namespace_name
 
         __props__['requires_duplicate_detection'] = requires_duplicate_detection
@@ -181,7 +181,7 @@ class Queue(pulumi.CustomResource):
         __props__['requires_session'] = requires_session
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['support_ordering'] = support_ordering

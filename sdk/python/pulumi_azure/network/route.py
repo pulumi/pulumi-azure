@@ -62,7 +62,7 @@ class Route(pulumi.CustomResource):
         __props__ = dict()
 
         if address_prefix is None:
-            raise TypeError('Missing required property address_prefix')
+            raise TypeError("Missing required property 'address_prefix'")
         __props__['address_prefix'] = address_prefix
 
         __props__['name'] = name
@@ -70,15 +70,15 @@ class Route(pulumi.CustomResource):
         __props__['next_hop_in_ip_address'] = next_hop_in_ip_address
 
         if next_hop_type is None:
-            raise TypeError('Missing required property next_hop_type')
+            raise TypeError("Missing required property 'next_hop_type'")
         __props__['next_hop_type'] = next_hop_type
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if route_table_name is None:
-            raise TypeError('Missing required property route_table_name')
+            raise TypeError("Missing required property 'route_table_name'")
         __props__['route_table_name'] = route_table_name
 
         super(Route, __self__).__init__(

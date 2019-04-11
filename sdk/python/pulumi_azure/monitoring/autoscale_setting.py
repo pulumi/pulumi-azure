@@ -74,7 +74,7 @@ class AutoscaleSetting(pulumi.CustomResource):
         __props__['enabled'] = enabled
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -82,17 +82,17 @@ class AutoscaleSetting(pulumi.CustomResource):
         __props__['notification'] = notification
 
         if profiles is None:
-            raise TypeError('Missing required property profiles')
+            raise TypeError("Missing required property 'profiles'")
         __props__['profiles'] = profiles
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
         if target_resource_id is None:
-            raise TypeError('Missing required property target_resource_id')
+            raise TypeError("Missing required property 'target_resource_id'")
         __props__['target_resource_id'] = target_resource_id
 
         super(AutoscaleSetting, __self__).__init__(

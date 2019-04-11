@@ -54,6 +54,7 @@ type GetSharedImageResult struct {
 	// The End User Licence Agreement for the Shared Image.
 	Eula interface{}
 	GalleryName interface{}
+	// An `identifier` block as defined below.
 	Identifiers interface{}
 	// The supported Azure location where the Shared Image Gallery exists.
 	Location interface{}

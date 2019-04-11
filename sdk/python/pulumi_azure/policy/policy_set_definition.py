@@ -76,7 +76,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         __props__['description'] = description
 
         if display_name is None:
-            raise TypeError('Missing required property display_name')
+            raise TypeError("Missing required property 'display_name'")
         __props__['display_name'] = display_name
 
         __props__['management_group_id'] = management_group_id
@@ -90,7 +90,7 @@ class PolicySetDefinition(pulumi.CustomResource):
         __props__['policy_definitions'] = policy_definitions
 
         if policy_type is None:
-            raise TypeError('Missing required property policy_type')
+            raise TypeError("Missing required property 'policy_type'")
         __props__['policy_type'] = policy_type
 
         super(PolicySetDefinition, __self__).__init__(

@@ -84,11 +84,11 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         __props__['name'] = name
 
         if namespace_name is None:
-            raise TypeError('Missing required property namespace_name')
+            raise TypeError("Missing required property 'namespace_name'")
         __props__['namespace_name'] = namespace_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['send'] = send

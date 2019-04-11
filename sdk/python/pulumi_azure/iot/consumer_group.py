@@ -52,17 +52,17 @@ class ConsumerGroup(pulumi.CustomResource):
         __props__ = dict()
 
         if eventhub_endpoint_name is None:
-            raise TypeError('Missing required property eventhub_endpoint_name')
+            raise TypeError("Missing required property 'eventhub_endpoint_name'")
         __props__['eventhub_endpoint_name'] = eventhub_endpoint_name
 
         if iothub_name is None:
-            raise TypeError('Missing required property iothub_name')
+            raise TypeError("Missing required property 'iothub_name'")
         __props__['iothub_name'] = iothub_name
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         super(ConsumerGroup, __self__).__init__(

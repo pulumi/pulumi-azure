@@ -153,11 +153,11 @@ class Endpoint(pulumi.CustomResource):
         __props__['priority'] = priority
 
         if profile_name is None:
-            raise TypeError('Missing required property profile_name')
+            raise TypeError("Missing required property 'profile_name'")
         __props__['profile_name'] = profile_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['target'] = target
@@ -165,7 +165,7 @@ class Endpoint(pulumi.CustomResource):
         __props__['target_resource_id'] = target_resource_id
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         __props__['weight'] = weight

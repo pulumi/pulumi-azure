@@ -138,7 +138,7 @@ class Database(pulumi.CustomResource):
         __props__['import_'] = import_
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['max_size_bytes'] = max_size_bytes
@@ -150,13 +150,13 @@ class Database(pulumi.CustomResource):
         __props__['requested_service_objective_name'] = requested_service_objective_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['restore_point_in_time'] = restore_point_in_time
 
         if server_name is None:
-            raise TypeError('Missing required property server_name')
+            raise TypeError("Missing required property 'server_name'")
         __props__['server_name'] = server_name
 
         __props__['source_database_deletion_date'] = source_database_deletion_date

@@ -14,22 +14,22 @@ class GetDiagnosticCategoriesResult:
     """
     def __init__(__self__, logs=None, metrics=None, resource_id=None, id=None):
         if logs and not isinstance(logs, list):
-            raise TypeError('Expected argument logs to be a list')
+            raise TypeError("Expected argument 'logs' to be a list")
         __self__.logs = logs
         """
         A list of the Log Categories supported for this Resource.
         """
         if metrics and not isinstance(metrics, list):
-            raise TypeError('Expected argument metrics to be a list')
+            raise TypeError("Expected argument 'metrics' to be a list")
         __self__.metrics = metrics
         """
         A list of the Metric Categories supported for this Resource.
         """
         if resource_id and not isinstance(resource_id, str):
-            raise TypeError('Expected argument resource_id to be a str')
+            raise TypeError("Expected argument 'resource_id' to be a str")
         __self__.resource_id = resource_id
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

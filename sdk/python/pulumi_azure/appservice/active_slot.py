@@ -49,15 +49,15 @@ class ActiveSlot(pulumi.CustomResource):
         __props__ = dict()
 
         if app_service_name is None:
-            raise TypeError('Missing required property app_service_name')
+            raise TypeError("Missing required property 'app_service_name'")
         __props__['app_service_name'] = app_service_name
 
         if app_service_slot_name is None:
-            raise TypeError('Missing required property app_service_slot_name')
+            raise TypeError("Missing required property 'app_service_slot_name'")
         __props__['app_service_slot_name'] = app_service_slot_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         super(ActiveSlot, __self__).__init__(

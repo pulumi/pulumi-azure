@@ -52,7 +52,7 @@ class ZipBlob(pulumi.CustomResource):
         __props__['parallelism'] = parallelism
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['size'] = size
@@ -62,11 +62,11 @@ class ZipBlob(pulumi.CustomResource):
         __props__['source_uri'] = source_uri
 
         if storage_account_name is None:
-            raise TypeError('Missing required property storage_account_name')
+            raise TypeError("Missing required property 'storage_account_name'")
         __props__['storage_account_name'] = storage_account_name
 
         if storage_container_name is None:
-            raise TypeError('Missing required property storage_container_name')
+            raise TypeError("Missing required property 'storage_container_name'")
         __props__['storage_container_name'] = storage_container_name
 
         __props__['type'] = type

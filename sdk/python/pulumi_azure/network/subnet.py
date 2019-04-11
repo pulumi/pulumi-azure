@@ -81,7 +81,7 @@ class Subnet(pulumi.CustomResource):
         __props__ = dict()
 
         if address_prefix is None:
-            raise TypeError('Missing required property address_prefix')
+            raise TypeError("Missing required property 'address_prefix'")
         __props__['address_prefix'] = address_prefix
 
         __props__['delegations'] = delegations
@@ -93,7 +93,7 @@ class Subnet(pulumi.CustomResource):
         __props__['network_security_group_id'] = network_security_group_id
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['route_table_id'] = route_table_id
@@ -101,7 +101,7 @@ class Subnet(pulumi.CustomResource):
         __props__['service_endpoints'] = service_endpoints
 
         if virtual_network_name is None:
-            raise TypeError('Missing required property virtual_network_name')
+            raise TypeError("Missing required property 'virtual_network_name'")
         __props__['virtual_network_name'] = virtual_network_name
 
         super(Subnet, __self__).__init__(

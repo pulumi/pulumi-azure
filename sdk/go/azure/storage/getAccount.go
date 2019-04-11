@@ -28,6 +28,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		EnableBlobEncryption: outputs["enableBlobEncryption"],
 		EnableFileEncryption: outputs["enableFileEncryption"],
 		EnableHttpsTrafficOnly: outputs["enableHttpsTrafficOnly"],
+		IsHnsEnabled: outputs["isHnsEnabled"],
 		Location: outputs["location"],
 		Name: outputs["name"],
 		PrimaryAccessKey: outputs["primaryAccessKey"],
@@ -35,6 +36,8 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		PrimaryBlobEndpoint: outputs["primaryBlobEndpoint"],
 		PrimaryBlobHost: outputs["primaryBlobHost"],
 		PrimaryConnectionString: outputs["primaryConnectionString"],
+		PrimaryDfsEndpoint: outputs["primaryDfsEndpoint"],
+		PrimaryDfsHost: outputs["primaryDfsHost"],
 		PrimaryFileEndpoint: outputs["primaryFileEndpoint"],
 		PrimaryFileHost: outputs["primaryFileHost"],
 		PrimaryLocation: outputs["primaryLocation"],
@@ -42,17 +45,25 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 		PrimaryQueueHost: outputs["primaryQueueHost"],
 		PrimaryTableEndpoint: outputs["primaryTableEndpoint"],
 		PrimaryTableHost: outputs["primaryTableHost"],
+		PrimaryWebEndpoint: outputs["primaryWebEndpoint"],
+		PrimaryWebHost: outputs["primaryWebHost"],
 		ResourceGroupName: outputs["resourceGroupName"],
 		SecondaryAccessKey: outputs["secondaryAccessKey"],
 		SecondaryBlobConnectionString: outputs["secondaryBlobConnectionString"],
 		SecondaryBlobEndpoint: outputs["secondaryBlobEndpoint"],
 		SecondaryBlobHost: outputs["secondaryBlobHost"],
 		SecondaryConnectionString: outputs["secondaryConnectionString"],
+		SecondaryDfsEndpoint: outputs["secondaryDfsEndpoint"],
+		SecondaryDfsHost: outputs["secondaryDfsHost"],
+		SecondaryFileEndpoint: outputs["secondaryFileEndpoint"],
+		SecondaryFileHost: outputs["secondaryFileHost"],
 		SecondaryLocation: outputs["secondaryLocation"],
 		SecondaryQueueEndpoint: outputs["secondaryQueueEndpoint"],
 		SecondaryQueueHost: outputs["secondaryQueueHost"],
 		SecondaryTableEndpoint: outputs["secondaryTableEndpoint"],
 		SecondaryTableHost: outputs["secondaryTableHost"],
+		SecondaryWebEndpoint: outputs["secondaryWebEndpoint"],
+		SecondaryWebHost: outputs["secondaryWebHost"],
 		Tags: outputs["tags"],
 		Id: outputs["id"],
 	}, nil
@@ -89,6 +100,8 @@ type GetAccountResult struct {
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
 	// for more information.
 	EnableHttpsTrafficOnly interface{}
+	// Is Hierarchical Namespace enabled?
+	IsHnsEnabled interface{}
 	// The Azure location where the Storage Account exists
 	Location interface{}
 	// The Custom Domain Name used for the Storage Account.
@@ -103,6 +116,10 @@ type GetAccountResult struct {
 	PrimaryBlobHost interface{}
 	// The connection string associated with the primary location
 	PrimaryConnectionString interface{}
+	// The endpoint URL for DFS storage in the primary location.
+	PrimaryDfsEndpoint interface{}
+	// The hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsHost interface{}
 	// The endpoint URL for file storage in the primary location.
 	PrimaryFileEndpoint interface{}
 	// The hostname with port if applicable for file storage in the primary location.
@@ -117,6 +134,10 @@ type GetAccountResult struct {
 	PrimaryTableEndpoint interface{}
 	// The hostname with port if applicable for table storage in the primary location.
 	PrimaryTableHost interface{}
+	// The endpoint URL for web storage in the primary location.
+	PrimaryWebEndpoint interface{}
+	// The hostname with port if applicable for web storage in the primary location.
+	PrimaryWebHost interface{}
 	ResourceGroupName interface{}
 	// The secondary access key for the Storage Account.
 	SecondaryAccessKey interface{}
@@ -128,6 +149,14 @@ type GetAccountResult struct {
 	SecondaryBlobHost interface{}
 	// The connection string associated with the secondary location
 	SecondaryConnectionString interface{}
+	// The endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsEndpoint interface{}
+	// The hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsHost interface{}
+	// The endpoint URL for file storage in the secondary location.
+	SecondaryFileEndpoint interface{}
+	// The hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileHost interface{}
 	// The secondary location of the Storage Account.
 	SecondaryLocation interface{}
 	// The endpoint URL for queue storage in the secondary location.
@@ -138,6 +167,10 @@ type GetAccountResult struct {
 	SecondaryTableEndpoint interface{}
 	// The hostname with port if applicable for table storage in the secondary location.
 	SecondaryTableHost interface{}
+	// The endpoint URL for web storage in the secondary location.
+	SecondaryWebEndpoint interface{}
+	// The hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebHost interface{}
 	// A mapping of tags to assigned to the resource.
 	Tags interface{}
 	// id is the provider-assigned unique ID for this managed resource.

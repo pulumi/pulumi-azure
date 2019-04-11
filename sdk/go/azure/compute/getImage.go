@@ -29,6 +29,7 @@ func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, erro
 		ResourceGroupName: outputs["resourceGroupName"],
 		SortDescending: outputs["sortDescending"],
 		Tags: outputs["tags"],
+		ZoneResilient: outputs["zoneResilient"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -60,6 +61,8 @@ type GetImageResult struct {
 	SortDescending interface{}
 	// a mapping of tags to assigned to the resource.
 	Tags interface{}
+	// is zone resiliency enabled?
+	ZoneResilient interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

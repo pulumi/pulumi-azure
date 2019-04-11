@@ -108,7 +108,7 @@ class PublicIp(pulumi.CustomResource):
         __props__['ip_version'] = ip_version
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -116,7 +116,7 @@ class PublicIp(pulumi.CustomResource):
         __props__['public_ip_address_allocation'] = public_ip_address_allocation
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['reverse_fqdn'] = reverse_fqdn
