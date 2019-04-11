@@ -1,5 +1,13 @@
 ## 0.17.5 (Unreleased)
 
+## Breaking Changes
+
+- `azure.api.API` has been renamed to `azure.api.Service`, and `azure.api.Api` now represents the Terraform `azure_api_management_api` resource.
+
+## Improvements
+
+- Updated to v1.24.0 of the AzureRM Terraform Provider.
+-
 ## 0.17.4 (Released April 2nd, 2019)
 
 ## Improvements
