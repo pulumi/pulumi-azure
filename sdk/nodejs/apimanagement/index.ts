@@ -2,14 +2,24 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./aPI";
-export * from "./getAPI";
+export * from "./api";
+export * from "./apiOperation";
+export * from "./apiVersionSet";
+export * from "./authorizationServer";
+export * from "./certificate";
+export * from "./getApi";
 export * from "./getGroup";
 export * from "./getProduct";
+export * from "./getService";
 export * from "./getUser";
 export * from "./group";
 export * from "./groupUser";
+export * from "./logger";
+export * from "./openIdConnectProvider";
 export * from "./product";
+export * from "./productApi";
 export * from "./productGroup";
 export * from "./property";
+export * from "./service";
+export * from "./subscription";
 export * from "./user";

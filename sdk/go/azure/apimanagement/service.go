@@ -9,13 +9,13 @@ import (
 )
 
 // Manages an API Management Service.
-type API struct {
+type Service struct {
 	s *pulumi.ResourceState
 }
 
-// NewAPI registers a new resource with the given unique name, arguments, and options.
-func NewAPI(ctx *pulumi.Context,
-	name string, args *APIArgs, opts ...pulumi.ResourceOpt) (*API, error) {
+// NewService registers a new resource with the given unique name, arguments, and options.
+func NewService(ctx *pulumi.Context,
+	name string, args *ServiceArgs, opts ...pulumi.ResourceOpt) (*Service, error) {
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -73,17 +73,17 @@ func NewAPI(ctx *pulumi.Context,
 	inputs["portalUrl"] = nil
 	inputs["publicIpAddresses"] = nil
 	inputs["scmUrl"] = nil
-	s, err := ctx.RegisterResource("azure:apimanagement/aPI:API", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:apimanagement/service:Service", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &API{s: s}, nil
+	return &Service{s: s}, nil
 }
 
-// GetAPI gets an existing API resource's state with the given name, ID, and optional
+// GetService gets an existing Service resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetAPI(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *APIState, opts ...pulumi.ResourceOpt) (*API, error) {
+func GetService(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *ServiceState, opts ...pulumi.ResourceOpt) (*Service, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["additionalLocation"] = state.AdditionalLocation
@@ -109,135 +109,135 @@ func GetAPI(ctx *pulumi.Context,
 		inputs["sku"] = state.Sku
 		inputs["tags"] = state.Tags
 	}
-	s, err := ctx.ReadResource("azure:apimanagement/aPI:API", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:apimanagement/service:Service", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &API{s: s}, nil
+	return &Service{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *API) URN() *pulumi.URNOutput {
+func (r *Service) URN() *pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *API) ID() *pulumi.IDOutput {
+func (r *Service) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // One or more `additional_location` blocks as defined below.
-func (r *API) AdditionalLocation() *pulumi.Output {
+func (r *Service) AdditionalLocation() *pulumi.Output {
 	return r.s.State["additionalLocation"]
 }
 
 // One or more (up to 10) `certificate` blocks as defined below.
-func (r *API) Certificates() *pulumi.ArrayOutput {
+func (r *Service) Certificates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["certificates"])
 }
 
 // The URL of the Regional Gateway for the API Management Service in the specified region.
-func (r *API) GatewayRegionalUrl() *pulumi.StringOutput {
+func (r *Service) GatewayRegionalUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayRegionalUrl"])
 }
 
 // The URL of the Gateway for the API Management Service.
-func (r *API) GatewayUrl() *pulumi.StringOutput {
+func (r *Service) GatewayUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayUrl"])
 }
 
 // A `hostname_configuration` block as defined below.
-func (r *API) HostnameConfiguration() *pulumi.Output {
+func (r *Service) HostnameConfiguration() *pulumi.Output {
 	return r.s.State["hostnameConfiguration"]
 }
 
 // An `identity` block is documented below.
-func (r *API) Identity() *pulumi.Output {
+func (r *Service) Identity() *pulumi.Output {
 	return r.s.State["identity"]
 }
 
 // The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-func (r *API) Location() *pulumi.StringOutput {
+func (r *Service) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
 // The URL for the Management API associated with this API Management service.
-func (r *API) ManagementApiUrl() *pulumi.StringOutput {
+func (r *Service) ManagementApiUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["managementApiUrl"])
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
-func (r *API) Name() *pulumi.StringOutput {
+func (r *Service) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Email address from which the notification will be sent.
-func (r *API) NotificationSenderEmail() *pulumi.StringOutput {
+func (r *Service) NotificationSenderEmail() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["notificationSenderEmail"])
 }
 
 // A `policy` block as defined below.
-func (r *API) Policy() *pulumi.Output {
+func (r *Service) Policy() *pulumi.Output {
 	return r.s.State["policy"]
 }
 
 // The URL for the Publisher Portal associated with this API Management service.
-func (r *API) PortalUrl() *pulumi.StringOutput {
+func (r *Service) PortalUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["portalUrl"])
 }
 
 // Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-func (r *API) PublicIpAddresses() *pulumi.ArrayOutput {
+func (r *Service) PublicIpAddresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["publicIpAddresses"])
 }
 
 // The email of publisher/company.
-func (r *API) PublisherEmail() *pulumi.StringOutput {
+func (r *Service) PublisherEmail() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publisherEmail"])
 }
 
 // The name of publisher/company.
-func (r *API) PublisherName() *pulumi.StringOutput {
+func (r *Service) PublisherName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publisherName"])
 }
 
 // The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-func (r *API) ResourceGroupName() *pulumi.StringOutput {
+func (r *Service) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
-func (r *API) ScmUrl() *pulumi.StringOutput {
+func (r *Service) ScmUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["scmUrl"])
 }
 
 // A `security` block as defined below.
-func (r *API) Security() *pulumi.Output {
+func (r *Service) Security() *pulumi.Output {
 	return r.s.State["security"]
 }
 
 // A `sign_in` block as defined below.
-func (r *API) SignIn() *pulumi.Output {
+func (r *Service) SignIn() *pulumi.Output {
 	return r.s.State["signIn"]
 }
 
 // A `sign_up` block as defined below.
-func (r *API) SignUp() *pulumi.Output {
+func (r *Service) SignUp() *pulumi.Output {
 	return r.s.State["signUp"]
 }
 
 // A `sku` block as documented below.
-func (r *API) Sku() *pulumi.Output {
+func (r *Service) Sku() *pulumi.Output {
 	return r.s.State["sku"]
 }
 
 // A mapping of tags assigned to the resource.
-func (r *API) Tags() *pulumi.MapOutput {
+func (r *Service) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Input properties used for looking up and filtering API resources.
-type APIState struct {
+// Input properties used for looking up and filtering Service resources.
+type ServiceState struct {
 	// One or more `additional_location` blocks as defined below.
 	AdditionalLocation interface{}
 	// One or more (up to 10) `certificate` blocks as defined below.
@@ -284,8 +284,8 @@ type APIState struct {
 	Tags interface{}
 }
 
-// The set of arguments for constructing a API resource.
-type APIArgs struct {
+// The set of arguments for constructing a Service resource.
+type ServiceArgs struct {
 	// One or more `additional_location` blocks as defined below.
 	AdditionalLocation interface{}
 	// One or more (up to 10) `certificate` blocks as defined below.

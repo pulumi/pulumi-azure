@@ -8,103 +8,88 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetAPIResult:
+class GetApiResult:
     """
-    A collection of values returned by getAPI.
+    A collection of values returned by getApi.
     """
-    def __init__(__self__, additional_locations=None, gateway_regional_url=None, gateway_url=None, hostname_configurations=None, location=None, management_api_url=None, name=None, notification_sender_email=None, portal_url=None, public_ip_addresses=None, publisher_email=None, publisher_name=None, resource_group_name=None, scm_url=None, sku=None, tags=None, id=None):
-        if additional_locations and not isinstance(additional_locations, list):
-            raise TypeError("Expected argument 'additional_locations' to be a list")
-        __self__.additional_locations = additional_locations
+    def __init__(__self__, api_management_name=None, description=None, display_name=None, is_current=None, is_online=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, version=None, version_set_id=None, id=None):
+        if api_management_name and not isinstance(api_management_name, str):
+            raise TypeError("Expected argument 'api_management_name' to be a str")
+        __self__.api_management_name = api_management_name
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
         """
-        One or more `additional_location` blocks as defined below
+        A description of the API Management API, which may include HTML formatting tags.
         """
-        if gateway_regional_url and not isinstance(gateway_regional_url, str):
-            raise TypeError("Expected argument 'gateway_regional_url' to be a str")
-        __self__.gateway_regional_url = gateway_regional_url
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
         """
-        Gateway URL of the API Management service in the Region.
+        The display name of the API.
         """
-        if gateway_url and not isinstance(gateway_url, str):
-            raise TypeError("Expected argument 'gateway_url' to be a str")
-        __self__.gateway_url = gateway_url
+        if is_current and not isinstance(is_current, bool):
+            raise TypeError("Expected argument 'is_current' to be a bool")
+        __self__.is_current = is_current
         """
-        The URL for the API Management Service's Gateway.
+        Is this the current API Revision?
         """
-        if hostname_configurations and not isinstance(hostname_configurations, list):
-            raise TypeError("Expected argument 'hostname_configurations' to be a list")
-        __self__.hostname_configurations = hostname_configurations
+        if is_online and not isinstance(is_online, bool):
+            raise TypeError("Expected argument 'is_online' to be a bool")
+        __self__.is_online = is_online
         """
-        A `hostname_configuration` block as defined below.
-        """
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        __self__.location = location
-        """
-        The location name of the additional region among Azure Data center regions.
-        """
-        if management_api_url and not isinstance(management_api_url, str):
-            raise TypeError("Expected argument 'management_api_url' to be a str")
-        __self__.management_api_url = management_api_url
-        """
-        The URL for the Management API.
+        Is this API Revision online/accessible via the Gateway?
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+        if path and not isinstance(path, str):
+            raise TypeError("Expected argument 'path' to be a str")
+        __self__.path = path
         """
-        Specifies the plan's pricing tier.
+        The Path for this API Management API.
         """
-        if notification_sender_email and not isinstance(notification_sender_email, str):
-            raise TypeError("Expected argument 'notification_sender_email' to be a str")
-        __self__.notification_sender_email = notification_sender_email
+        if protocols and not isinstance(protocols, list):
+            raise TypeError("Expected argument 'protocols' to be a list")
+        __self__.protocols = protocols
         """
-        The email address from which the notification will be sent.
-        """
-        if portal_url and not isinstance(portal_url, str):
-            raise TypeError("Expected argument 'portal_url' to be a str")
-        __self__.portal_url = portal_url
-        """
-        The URL of the Publisher Portal.
-        """
-        if public_ip_addresses and not isinstance(public_ip_addresses, list):
-            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
-        __self__.public_ip_addresses = public_ip_addresses
-        """
-        Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        """
-        if publisher_email and not isinstance(publisher_email, str):
-            raise TypeError("Expected argument 'publisher_email' to be a str")
-        __self__.publisher_email = publisher_email
-        """
-        The email of Publisher/Company of the API Management Service.
-        """
-        if publisher_name and not isinstance(publisher_name, str):
-            raise TypeError("Expected argument 'publisher_name' to be a str")
-        __self__.publisher_name = publisher_name
-        """
-        The name of the Publisher/Company of the API Management Service.
+        A list of protocols the operations in this API can be invoked.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
-        if scm_url and not isinstance(scm_url, str):
-            raise TypeError("Expected argument 'scm_url' to be a str")
-        __self__.scm_url = scm_url
+        if revision and not isinstance(revision, str):
+            raise TypeError("Expected argument 'revision' to be a str")
+        __self__.revision = revision
+        if service_url and not isinstance(service_url, str):
+            raise TypeError("Expected argument 'service_url' to be a str")
+        __self__.service_url = service_url
         """
-        The SCM (Source Code Management) endpoint.
+        Absolute URL of the backend service implementing this API.
         """
-        if sku and not isinstance(sku, dict):
-            raise TypeError("Expected argument 'sku' to be a dict")
-        __self__.sku = sku
+        if soap_pass_through and not isinstance(soap_pass_through, bool):
+            raise TypeError("Expected argument 'soap_pass_through' to be a bool")
+        __self__.soap_pass_through = soap_pass_through
         """
-        A `sku` block as documented below.
+        Should this API expose a SOAP frontend, rather than a HTTP frontend?
         """
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        __self__.tags = tags
+        if subscription_key_parameter_names and not isinstance(subscription_key_parameter_names, list):
+            raise TypeError("Expected argument 'subscription_key_parameter_names' to be a list")
+        __self__.subscription_key_parameter_names = subscription_key_parameter_names
         """
-        A mapping of tags assigned to the resource.
+        A `subscription_key_parameter_names` block as documented below.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        The Version number of this API, if this API is versioned.
+        """
+        if version_set_id and not isinstance(version_set_id, str):
+            raise TypeError("Expected argument 'version_set_id' to be a str")
+        __self__.version_set_id = version_set_id
+        """
+        The ID of the Version Set which this API is associated with.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
@@ -113,31 +98,32 @@ class GetAPIResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_api(name=None,resource_group_name=None,opts=None):
+async def get_api(api_management_name=None,name=None,resource_group_name=None,revision=None,opts=None):
     """
-    Use this data source to access information about an existing API Management Service.
+    Use this data source to access information about an existing API Management API.
     """
     __args__ = dict()
 
+    __args__['apiManagementName'] = api_management_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getAPI:getAPI', __args__, opts=opts)
+    __args__['revision'] = revision
+    __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getApi:getApi', __args__, opts=opts)
 
-    return GetAPIResult(
-        additional_locations=__ret__.get('additionalLocations'),
-        gateway_regional_url=__ret__.get('gatewayRegionalUrl'),
-        gateway_url=__ret__.get('gatewayUrl'),
-        hostname_configurations=__ret__.get('hostnameConfigurations'),
-        location=__ret__.get('location'),
-        management_api_url=__ret__.get('managementApiUrl'),
+    return GetApiResult(
+        api_management_name=__ret__.get('apiManagementName'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        is_current=__ret__.get('isCurrent'),
+        is_online=__ret__.get('isOnline'),
         name=__ret__.get('name'),
-        notification_sender_email=__ret__.get('notificationSenderEmail'),
-        portal_url=__ret__.get('portalUrl'),
-        public_ip_addresses=__ret__.get('publicIpAddresses'),
-        publisher_email=__ret__.get('publisherEmail'),
-        publisher_name=__ret__.get('publisherName'),
+        path=__ret__.get('path'),
+        protocols=__ret__.get('protocols'),
         resource_group_name=__ret__.get('resourceGroupName'),
-        scm_url=__ret__.get('scmUrl'),
-        sku=__ret__.get('sku'),
-        tags=__ret__.get('tags'),
+        revision=__ret__.get('revision'),
+        service_url=__ret__.get('serviceUrl'),
+        soap_pass_through=__ret__.get('soapPassThrough'),
+        subscription_key_parameter_names=__ret__.get('subscriptionKeyParameterNames'),
+        version=__ret__.get('version'),
+        version_set_id=__ret__.get('versionSetId'),
         id=__ret__.get('id'))

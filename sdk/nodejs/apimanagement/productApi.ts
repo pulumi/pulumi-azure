@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an API Management Product Assignment to a Group.
+ * Manages an API Management API Assignment to a Product.
  * 
  * ## Example Usage
  * 
@@ -17,35 +17,36 @@ import * as utilities from "../utilities";
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
  * }));
- * const exampleGroup = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getGroup({
+ * const exampleApi = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getApi({
  *     apiManagementName: exampleService.name,
- *     name: "my-group",
+ *     name: "search-api",
  *     resourceGroupName: exampleService1.resourceGroupName,
+ *     revision: "2",
  * }));
- * const exampleProductGroup = new azure.apimanagement.ProductGroup("example", {
+ * const exampleProductApi = new azure.apimanagement.ProductApi("example", {
  *     apiManagementName: exampleService.apply(exampleService => exampleService.name),
- *     groupName: exampleGroup.apply(exampleGroup => exampleGroup.name),
- *     productId: azurerm_api_management_user_example.id.apply(id => id),
+ *     apiName: exampleApi.apply(exampleApi => exampleApi.name),
+ *     productId: azurerm_api_management_product_example.productId.apply(productId => productId),
  *     resourceGroupName: exampleService.apply(exampleService => exampleService.resourceGroupName),
  * });
- * const exampleProduct = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getProduct({
+ * const test = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getProduct({
  *     apiManagementName: exampleService.name,
  *     productId: "my-product",
  *     resourceGroupName: exampleService1.resourceGroupName,
  * }));
  * ```
  */
-export class ProductGroup extends pulumi.CustomResource {
+export class ProductApi extends pulumi.CustomResource {
     /**
-     * Get an existing ProductGroup resource's state with the given name, ID, and optional extra
+     * Get an existing ProductApi resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProductGroupState, opts?: pulumi.CustomResourceOptions): ProductGroup {
-        return new ProductGroup(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProductApiState, opts?: pulumi.CustomResourceOptions): ProductApi {
+        return new ProductApi(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -53,9 +54,9 @@ export class ProductGroup extends pulumi.CustomResource {
      */
     public readonly apiManagementName: pulumi.Output<string>;
     /**
-     * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
+     * The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly groupName: pulumi.Output<string>;
+    public readonly apiName: pulumi.Output<string>;
     /**
      * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
      */
@@ -66,28 +67,28 @@ export class ProductGroup extends pulumi.CustomResource {
     public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
-     * Create a ProductGroup resource with the given unique name, arguments, and options.
+     * Create a ProductApi resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProductGroupArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProductGroupArgs | ProductGroupState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ProductApiArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ProductApiArgs | ProductApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProductGroupState = argsOrState as ProductGroupState | undefined;
+            const state: ProductApiState = argsOrState as ProductApiState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
-            inputs["groupName"] = state ? state.groupName : undefined;
+            inputs["apiName"] = state ? state.apiName : undefined;
             inputs["productId"] = state ? state.productId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
-            const args = argsOrState as ProductGroupArgs | undefined;
+            const args = argsOrState as ProductApiArgs | undefined;
             if (!args || args.apiManagementName === undefined) {
                 throw new Error("Missing required property 'apiManagementName'");
             }
-            if (!args || args.groupName === undefined) {
-                throw new Error("Missing required property 'groupName'");
+            if (!args || args.apiName === undefined) {
+                throw new Error("Missing required property 'apiName'");
             }
             if (!args || args.productId === undefined) {
                 throw new Error("Missing required property 'productId'");
@@ -96,26 +97,26 @@ export class ProductGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["apiManagementName"] = args ? args.apiManagementName : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
+            inputs["apiName"] = args ? args.apiName : undefined;
             inputs["productId"] = args ? args.productId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:apimanagement/productGroup:ProductGroup", name, inputs, opts);
+        super("azure:apimanagement/productApi:ProductApi", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering ProductGroup resources.
+ * Input properties used for looking up and filtering ProductApi resources.
  */
-export interface ProductGroupState {
+export interface ProductApiState {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
     readonly apiManagementName?: pulumi.Input<string>;
     /**
-     * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
+     * The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly groupName?: pulumi.Input<string>;
+    readonly apiName?: pulumi.Input<string>;
     /**
      * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
      */
@@ -127,17 +128,17 @@ export interface ProductGroupState {
 }
 
 /**
- * The set of arguments for constructing a ProductGroup resource.
+ * The set of arguments for constructing a ProductApi resource.
  */
-export interface ProductGroupArgs {
+export interface ProductApiArgs {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
     readonly apiManagementName: pulumi.Input<string>;
     /**
-     * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
+     * The Name of the API Management API within the API Management Service. Changing this forces a new resource to be created.
      */
-    readonly groupName: pulumi.Input<string>;
+    readonly apiName: pulumi.Input<string>;
     /**
      * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
      */

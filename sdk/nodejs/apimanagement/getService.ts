@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.apimanagement.getAPI({
+ * const test = pulumi.output(azure.apimanagement.getService({
  *     name: "search-api",
  *     resourceGroupName: "search-service",
  * }));
@@ -21,17 +21,17 @@ import * as utilities from "../utilities";
  * export const apiManagementId = test.apply(test => test.id);
  * ```
  */
-export function getAPI(args: GetAPIArgs, opts?: pulumi.InvokeOptions): Promise<GetAPIResult> {
-    return pulumi.runtime.invoke("azure:apimanagement/getAPI:getAPI", {
+export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
+    return pulumi.runtime.invoke("azure:apimanagement/getService:getService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 /**
- * A collection of arguments for invoking getAPI.
+ * A collection of arguments for invoking getService.
  */
-export interface GetAPIArgs {
+export interface GetServiceArgs {
     /**
      * The name of the API Management service.
      */
@@ -43,9 +43,9 @@ export interface GetAPIArgs {
 }
 
 /**
- * A collection of values returned by getAPI.
+ * A collection of values returned by getService.
  */
-export interface GetAPIResult {
+export interface GetServiceResult {
     /**
      * One or more `additional_location` blocks as defined below
      */

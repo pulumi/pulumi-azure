@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "example-resources",
  * });
- * const exampleAPI = new azure.apimanagement.API("example", {
+ * const exampleService = new azure.apimanagement.Service("example", {
  *     location: exampleResourceGroup.location,
  *     name: "example-apim",
  *     publisherEmail: "pub1@email.com",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleProperty = new azure.apimanagement.Property("example", {
- *     apiManagementName: exampleAPI.name,
+ *     apiManagementName: exampleService.name,
  *     displayName: "ExampleProperty",
  *     name: "example-apimg",
  *     resourceGroupName: exampleResourceGroup.name,

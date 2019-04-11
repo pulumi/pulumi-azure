@@ -8,17 +8,17 @@ import (
 )
 
 // Use this data source to access information about an existing API Management Service.
-func LookupAPI(ctx *pulumi.Context, args *GetAPIArgs) (*GetAPIResult, error) {
+func LookupService(ctx *pulumi.Context, args *GetServiceArgs) (*GetServiceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 	}
-	outputs, err := ctx.Invoke("azure:apimanagement/getAPI:getAPI", inputs)
+	outputs, err := ctx.Invoke("azure:apimanagement/getService:getService", inputs)
 	if err != nil {
 		return nil, err
 	}
-	return &GetAPIResult{
+	return &GetServiceResult{
 		AdditionalLocations: outputs["additionalLocations"],
 		GatewayRegionalUrl: outputs["gatewayRegionalUrl"],
 		GatewayUrl: outputs["gatewayUrl"],
@@ -39,16 +39,16 @@ func LookupAPI(ctx *pulumi.Context, args *GetAPIArgs) (*GetAPIResult, error) {
 	}, nil
 }
 
-// A collection of arguments for invoking getAPI.
-type GetAPIArgs struct {
+// A collection of arguments for invoking getService.
+type GetServiceArgs struct {
 	// The name of the API Management service.
 	Name interface{}
 	// The Name of the Resource Group in which the API Management Service exists.
 	ResourceGroupName interface{}
 }
 
-// A collection of values returned by getAPI.
-type GetAPIResult struct {
+// A collection of values returned by getService.
+type GetServiceResult struct {
 	// One or more `additional_location` blocks as defined below
 	AdditionalLocations interface{}
 	// Gateway URL of the API Management service in the Region.
