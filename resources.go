@@ -45,12 +45,14 @@ const (
 	azureContainerService    = "containerservice"    // Azure Container Service
 	azureCore                = "core"                // Base Resources
 	azureCosmosDB            = "cosmosdb"            // Cosmos DB
+	azureDataFactory         = "datafactory"         // Data Factory
 	azureDatalake            = "datalake"            // Data Lake
 	azureDataBricks          = "databricks"          // DataBricks
 	azureDdosProtection      = "ddosprotection"      // DDOS Protection
 	azureDevSpace            = "devspace"            // DevSpace
 	azureDevTest             = "devtest"             // Dev Test Labs
 	azureDNS                 = "dns"                 // DNS
+	azureHdInsight           = "hdinsight"           // HDInsight
 	azureIot                 = "iot"                 // IoT resource
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureLogAnalytics        = "loganalytics"        // Log Analytics
@@ -81,6 +83,7 @@ const (
 	azureSignalr             = "signalr"             // SignalR
 	azureSQL                 = "sql"                 // SQL
 	azureStorage             = "storage"             // Storage
+	azureStreamAnalytics     = "streamanalytics"     // StreamAnalytics
 	azureTrafficManager      = "trafficmanager"      // Traffic Manager
 )
 
@@ -296,8 +299,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
 
 			// Batch
-			"azurerm_batch_account": {Tok: azureResource(azureBatch, "Account")},
-			"azurerm_batch_pool":    {Tok: azureResource(azureBatch, "Pool")},
+			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
+			"azurerm_batch_certificate": {Tok: azureResource(azureBatch, "Certificate")},
+			"azurerm_batch_pool":        {Tok: azureResource(azureBatch, "Pool")},
 
 			// Core
 			"azurerm_resource_group": {
@@ -332,6 +336,16 @@ func Provider() tfbridge.ProviderInfo {
 
 			// DataBricks
 			"azurerm_databricks_workspace": {Tok: azureResource(azureDataBricks, "Workspace")},
+
+			// DataFactory
+			"azurerm_data_factory":                           {Tok: azureResource(azureDataFactory, "Factory")},
+			"azurerm_data_factory_dataset_mysql":             {Tok: azureResource(azureDataFactory, "FactoryDatasetMysql")},
+			"azurerm_data_factory_dataset_postgresql":        {Tok: azureResource(azureDataFactory, "FactoryDatasetPostgresql")},
+			"azurerm_data_factory_dataset_sql_server_table":  {Tok: azureResource(azureDataFactory, "FactoryDatasetSqlServerTable")},
+			"azurerm_data_factory_linked_service_mysql":      {Tok: azureResource(azureDataFactory, "FactoryLinkedServiceMysql")},
+			"azurerm_data_factory_linked_service_postgresql": {Tok: azureResource(azureDataFactory, "FactoryLinkedServicePostgresql")},
+			"azurerm_data_factory_linked_service_sql_server": {Tok: azureResource(azureDataFactory, "FactoryLinkedServiceSqlServer")},
+			"azurerm_data_factory_pipeline":                  {Tok: azureResource(azureDataFactory, "FactoryPipeline")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},
@@ -371,6 +385,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dns_srv_record": {Tok: azureResource(azureDNS, "SrvRecord")},
 			"azurerm_dns_txt_record": {Tok: azureResource(azureDNS, "TxtRecord")},
 			"azurerm_dns_zone":       {Tok: azureResource(azureDNS, "Zone")},
+
+			// HDInsights
+			"azurerm_hdinsight_hadoop_cluster":            {Tok: azureResource(azureHdInsight, "HadoopCluster")},
+			"azurerm_hdinsight_hbase_cluster":             {Tok: azureResource(azureHdInsight, "HBaseCluster")},
+			"azurerm_hdinsight_interactive_query_cluster": {Tok: azureResource(azureHdInsight, "InteractiveQueryCluster")},
+			"azurerm_hdinsight_kafka_cluster":             {Tok: azureResource(azureHdInsight, "KafkaCluster")},
+			"azurerm_hdinsight_ml_services_cluster":       {Tok: azureResource(azureHdInsight, "MLServicesCluster")},
+			"azurerm_hdinsight_rserver_cluster":           {Tok: azureResource(azureHdInsight, "RServerCluster")},
+			"azurerm_hdinsight_spark_cluster":             {Tok: azureResource(azureHdInsight, "SparkCluster")},
+			"azurerm_hdinsight_storm_cluster":             {Tok: azureResource(azureHdInsight, "StormCluster")},
 
 			// Messaging
 			"azurerm_eventgrid_domain":                      {Tok: azureResource(azureMessaging, "EventGridDomain")},
@@ -414,7 +438,8 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "iothub.html.markdown",
 				},
 			},
-			"azurerm_iothub_consumer_group": {Tok: azureResource(azureIot, "ConsumerGroup")},
+			"azurerm_iothub_consumer_group":       {Tok: azureResource(azureIot, "ConsumerGroup")},
+			"azurerm_iothub_shared_access_policy": {Tok: azureResource(azureIot, "SharedAccessPolicy")},
 
 			// KeyVault
 			"azurerm_key_vault": {
@@ -577,6 +602,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_watcher":                                                        {Tok: azureResource(azureNetwork, "NetworkWatcher")},
 			"azurerm_packet_capture":                                                         {Tok: azureResource(azureNetwork, "PacketCapture")},
 			"azurerm_public_ip":                                                              {Tok: azureResource(azureNetwork, "PublicIp")},
+			"azurerm_public_ip_prefix":                                                       {Tok: azureResource(azureNetwork, "PublicIpPrefix")},
 			"azurerm_route":                                                                  {Tok: azureResource(azureNetwork, "Route")},
 			"azurerm_route_table":                                                            {Tok: azureResource(azureNetwork, "RouteTable")},
 			"azurerm_subnet":                                                                 {Tok: azureResource(azureNetwork, "Subnet")},
@@ -653,6 +679,16 @@ func Provider() tfbridge.ProviderInfo {
 					// Max length of a table name is 63.
 					azureName: AutoNameWithMaxLength(azureName, 63),
 				}},
+
+			//StreamAnalytics
+			"azurerm_stream_analytics_function_javascript_udf": {Tok: azureResource(azureStreamAnalytics, "FunctionJavaScriptUDF")},
+			"azurerm_stream_analytics_job":                     {Tok: azureResource(azureStreamAnalytics, "Job")},
+			"azurerm_stream_analytics_output_blob":             {Tok: azureResource(azureStreamAnalytics, "OutputBlob")},
+			"azurerm_stream_analytics_output_eventhub":         {Tok: azureResource(azureStreamAnalytics, "OutputEventHub")},
+			"azurerm_stream_analytics_output_servicebus_queue": {Tok: azureResource(azureStreamAnalytics, "OutputServiceBusQueue")},
+			"azurerm_stream_analytics_stream_input_blob":       {Tok: azureResource(azureStreamAnalytics, "StreamInputBlob")},
+			"azurerm_stream_analytics_stream_input_eventhub":   {Tok: azureResource(azureStreamAnalytics, "StreamInputEventHub")},
+			"azurerm_stream_analytics_stream_input_iothub":     {Tok: azureResource(azureStreamAnalytics, "StreamInputIotHub")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -685,6 +721,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_availability_set":     {Tok: azureDataSource(azureCompute, "getAvailabilitySet")},
 			"azurerm_batch_account":        {Tok: azureDataSource(azureBatch, "getAccount")},
+			"azurerm_batch_certificate":    {Tok: azureDataSource(azureBatch, "getCertificate")},
 			"azurerm_batch_pool":           {Tok: azureDataSource(azureBatch, "getPool")},
 			"azurerm_subscriptions":        {Tok: azureDataSource(azureCore, "getSubscriptions")},
 			"azurerm_cdn_profile":          {Tok: azureDataSource(azureCDN, "getProfile")},
@@ -751,6 +788,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_snapshot":                               {Tok: azureDataSource(azureCompute, "getSnapshot")},
 			"azurerm_subnet":                                 {Tok: azureDataSource(azureNetwork, "getSubnet")},
 			"azurerm_route_table":                            {Tok: azureDataSource(azureNetwork, "getRouteTable")},
+			"azurerm_express_route_circuit":                  {Tok: azureDataSource(azureNetwork, "getExpressRouteCircuit")},
+			"azurerm_firewall":                               {Tok: azureDataSource(azureNetwork, "getFirewall")},
 			"azurerm_subscription":                           {Tok: azureDataSource(azureCore, "getSubscription")},
 			"azurerm_policy_definition":                      {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
 			"azurerm_platform_image":                         {Tok: azureDataSource(azureCompute, "getPlatformImage")},
@@ -763,6 +802,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_account_sas":                    {Tok: azureDataSource(azureStorage, "getAccountSAS")},
 			"azurerm_traffic_manager_geographical_location":  {Tok: azureDataSource(azureTrafficManager, "getGeographicalLocation")},
 			"azurerm_virtual_machine":                        {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
+			"azurerm_hdinsight_cluster":                      {Tok: azureDataSource(azureHdInsight, "getCluster")},
+			"azurerm_stream_analytics_job":                   {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
