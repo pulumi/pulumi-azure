@@ -57,17 +57,17 @@ class Firewall(pulumi.CustomResource):
         __props__ = dict()
 
         if ip_configuration is None:
-            raise TypeError('Missing required property ip_configuration')
+            raise TypeError("Missing required property 'ip_configuration'")
         __props__['ip_configuration'] = ip_configuration
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags

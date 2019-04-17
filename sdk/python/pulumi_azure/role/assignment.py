@@ -59,7 +59,7 @@ class Assignment(pulumi.CustomResource):
         __props__['name'] = name
 
         if principal_id is None:
-            raise TypeError('Missing required property principal_id')
+            raise TypeError("Missing required property 'principal_id'")
         __props__['principal_id'] = principal_id
 
         __props__['role_definition_id'] = role_definition_id
@@ -67,7 +67,7 @@ class Assignment(pulumi.CustomResource):
         __props__['role_definition_name'] = role_definition_name
 
         if scope is None:
-            raise TypeError('Missing required property scope')
+            raise TypeError("Missing required property 'scope'")
         __props__['scope'] = scope
 
         super(Assignment, __self__).__init__(

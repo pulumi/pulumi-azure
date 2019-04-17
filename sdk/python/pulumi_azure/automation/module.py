@@ -52,17 +52,17 @@ class Module(pulumi.CustomResource):
         __props__ = dict()
 
         if automation_account_name is None:
-            raise TypeError('Missing required property automation_account_name')
+            raise TypeError("Missing required property 'automation_account_name'")
         __props__['automation_account_name'] = automation_account_name
 
         if module_link is None:
-            raise TypeError('Missing required property module_link')
+            raise TypeError("Missing required property 'module_link'")
         __props__['module_link'] = module_link
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         super(Module, __self__).__init__(

@@ -95,11 +95,11 @@ class Profile(pulumi.CustomResource):
         __props__ = dict()
 
         if dns_configs is None:
-            raise TypeError('Missing required property dns_configs')
+            raise TypeError("Missing required property 'dns_configs'")
         __props__['dns_configs'] = dns_configs
 
         if monitor_configs is None:
-            raise TypeError('Missing required property monitor_configs')
+            raise TypeError("Missing required property 'monitor_configs'")
         __props__['monitor_configs'] = monitor_configs
 
         __props__['name'] = name
@@ -107,13 +107,13 @@ class Profile(pulumi.CustomResource):
         __props__['profile_status'] = profile_status
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
         if traffic_routing_method is None:
-            raise TypeError('Missing required property traffic_routing_method')
+            raise TypeError("Missing required property 'traffic_routing_method'")
         __props__['traffic_routing_method'] = traffic_routing_method
 
         __props__['fqdn'] = None

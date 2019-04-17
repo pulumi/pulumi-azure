@@ -67,13 +67,13 @@ class Group(pulumi.CustomResource):
         __props__ = dict()
 
         if api_management_name is None:
-            raise TypeError('Missing required property api_management_name')
+            raise TypeError("Missing required property 'api_management_name'")
         __props__['api_management_name'] = api_management_name
 
         __props__['description'] = description
 
         if display_name is None:
-            raise TypeError('Missing required property display_name')
+            raise TypeError("Missing required property 'display_name'")
         __props__['display_name'] = display_name
 
         __props__['external_id'] = external_id
@@ -81,7 +81,7 @@ class Group(pulumi.CustomResource):
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['type'] = type

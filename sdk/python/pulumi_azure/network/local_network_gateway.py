@@ -79,23 +79,23 @@ class LocalNetworkGateway(pulumi.CustomResource):
         __props__ = dict()
 
         if address_spaces is None:
-            raise TypeError('Missing required property address_spaces')
+            raise TypeError("Missing required property 'address_spaces'")
         __props__['address_spaces'] = address_spaces
 
         __props__['bgp_settings'] = bgp_settings
 
         if gateway_address is None:
-            raise TypeError('Missing required property gateway_address')
+            raise TypeError("Missing required property 'gateway_address'")
         __props__['gateway_address'] = gateway_address
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags

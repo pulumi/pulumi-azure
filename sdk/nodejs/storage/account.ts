@@ -5,18 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## 
- * 
- * ---
- * layout: "azurerm"
- * page_title: "Azure Resource Manager: azurerm_storage_account"
- * sidebar_current: "docs-azurerm-resource-storage-account"
- * description: |-
- *   Manages a Azure Storage Account.
- * ---
- * 
- * # azurerm_storage_account
- * 
  * Manage an Azure Storage Account.
  * 
  * ## Example Usage
@@ -141,6 +129,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
     /**
+     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+     */
+    public readonly isHnsEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the
      * resource exists. Changing this forces a new resource to be created.
      */
@@ -174,6 +166,14 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
     /**
+     * The endpoint URL for DFS storage in the primary location.
+     */
+    public /*out*/ readonly primaryDfsEndpoint: pulumi.Output<string>;
+    /**
+     * The hostname with port if applicable for DFS storage in the primary location.
+     */
+    public /*out*/ readonly primaryDfsHost: pulumi.Output<string>;
+    /**
      * The endpoint URL for file storage in the primary location.
      */
     public /*out*/ readonly primaryFileEndpoint: pulumi.Output<string>;
@@ -202,6 +202,14 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryTableHost: pulumi.Output<string>;
     /**
+     * The endpoint URL for web storage in the primary location.
+     */
+    public /*out*/ readonly primaryWebEndpoint: pulumi.Output<string>;
+    /**
+     * The hostname with port if applicable for web storage in the primary location.
+     */
+    public /*out*/ readonly primaryWebHost: pulumi.Output<string>;
+    /**
      * The name of the resource group in which to
      * create the storage account. Changing this forces a new resource to be created.
      */
@@ -227,6 +235,22 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
     /**
+     * The endpoint URL for DFS storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryDfsEndpoint: pulumi.Output<string>;
+    /**
+     * The hostname with port if applicable for DFS storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryDfsHost: pulumi.Output<string>;
+    /**
+     * The endpoint URL for file storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryFileEndpoint: pulumi.Output<string>;
+    /**
+     * The hostname with port if applicable for file storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryFileHost: pulumi.Output<string>;
+    /**
      * The secondary location of the storage account.
      */
     public /*out*/ readonly secondaryLocation: pulumi.Output<string>;
@@ -246,6 +270,14 @@ export class Account extends pulumi.CustomResource {
      * The hostname with port if applicable for table storage in the secondary location.
      */
     public /*out*/ readonly secondaryTableHost: pulumi.Output<string>;
+    /**
+     * The endpoint URL for web storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryWebEndpoint: pulumi.Output<string>;
+    /**
+     * The hostname with port if applicable for web storage in the secondary location.
+     */
+    public /*out*/ readonly secondaryWebHost: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -274,6 +306,7 @@ export class Account extends pulumi.CustomResource {
             inputs["enableFileEncryption"] = state ? state.enableFileEncryption : undefined;
             inputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
+            inputs["isHnsEnabled"] = state ? state.isHnsEnabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkRules"] = state ? state.networkRules : undefined;
@@ -282,6 +315,8 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryBlobEndpoint"] = state ? state.primaryBlobEndpoint : undefined;
             inputs["primaryBlobHost"] = state ? state.primaryBlobHost : undefined;
             inputs["primaryConnectionString"] = state ? state.primaryConnectionString : undefined;
+            inputs["primaryDfsEndpoint"] = state ? state.primaryDfsEndpoint : undefined;
+            inputs["primaryDfsHost"] = state ? state.primaryDfsHost : undefined;
             inputs["primaryFileEndpoint"] = state ? state.primaryFileEndpoint : undefined;
             inputs["primaryFileHost"] = state ? state.primaryFileHost : undefined;
             inputs["primaryLocation"] = state ? state.primaryLocation : undefined;
@@ -289,17 +324,25 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryQueueHost"] = state ? state.primaryQueueHost : undefined;
             inputs["primaryTableEndpoint"] = state ? state.primaryTableEndpoint : undefined;
             inputs["primaryTableHost"] = state ? state.primaryTableHost : undefined;
+            inputs["primaryWebEndpoint"] = state ? state.primaryWebEndpoint : undefined;
+            inputs["primaryWebHost"] = state ? state.primaryWebHost : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["secondaryBlobConnectionString"] = state ? state.secondaryBlobConnectionString : undefined;
             inputs["secondaryBlobEndpoint"] = state ? state.secondaryBlobEndpoint : undefined;
             inputs["secondaryBlobHost"] = state ? state.secondaryBlobHost : undefined;
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
+            inputs["secondaryDfsEndpoint"] = state ? state.secondaryDfsEndpoint : undefined;
+            inputs["secondaryDfsHost"] = state ? state.secondaryDfsHost : undefined;
+            inputs["secondaryFileEndpoint"] = state ? state.secondaryFileEndpoint : undefined;
+            inputs["secondaryFileHost"] = state ? state.secondaryFileHost : undefined;
             inputs["secondaryLocation"] = state ? state.secondaryLocation : undefined;
             inputs["secondaryQueueEndpoint"] = state ? state.secondaryQueueEndpoint : undefined;
             inputs["secondaryQueueHost"] = state ? state.secondaryQueueHost : undefined;
             inputs["secondaryTableEndpoint"] = state ? state.secondaryTableEndpoint : undefined;
             inputs["secondaryTableHost"] = state ? state.secondaryTableHost : undefined;
+            inputs["secondaryWebEndpoint"] = state ? state.secondaryWebEndpoint : undefined;
+            inputs["secondaryWebHost"] = state ? state.secondaryWebHost : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
@@ -326,6 +369,7 @@ export class Account extends pulumi.CustomResource {
             inputs["enableFileEncryption"] = args ? args.enableFileEncryption : undefined;
             inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRules"] = args ? args.networkRules : undefined;
@@ -336,6 +380,8 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryBlobEndpoint"] = undefined /*out*/;
             inputs["primaryBlobHost"] = undefined /*out*/;
             inputs["primaryConnectionString"] = undefined /*out*/;
+            inputs["primaryDfsEndpoint"] = undefined /*out*/;
+            inputs["primaryDfsHost"] = undefined /*out*/;
             inputs["primaryFileEndpoint"] = undefined /*out*/;
             inputs["primaryFileHost"] = undefined /*out*/;
             inputs["primaryLocation"] = undefined /*out*/;
@@ -343,16 +389,24 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryQueueHost"] = undefined /*out*/;
             inputs["primaryTableEndpoint"] = undefined /*out*/;
             inputs["primaryTableHost"] = undefined /*out*/;
+            inputs["primaryWebEndpoint"] = undefined /*out*/;
+            inputs["primaryWebHost"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
             inputs["secondaryBlobConnectionString"] = undefined /*out*/;
             inputs["secondaryBlobEndpoint"] = undefined /*out*/;
             inputs["secondaryBlobHost"] = undefined /*out*/;
             inputs["secondaryConnectionString"] = undefined /*out*/;
+            inputs["secondaryDfsEndpoint"] = undefined /*out*/;
+            inputs["secondaryDfsHost"] = undefined /*out*/;
+            inputs["secondaryFileEndpoint"] = undefined /*out*/;
+            inputs["secondaryFileHost"] = undefined /*out*/;
             inputs["secondaryLocation"] = undefined /*out*/;
             inputs["secondaryQueueEndpoint"] = undefined /*out*/;
             inputs["secondaryQueueHost"] = undefined /*out*/;
             inputs["secondaryTableEndpoint"] = undefined /*out*/;
             inputs["secondaryTableHost"] = undefined /*out*/;
+            inputs["secondaryWebEndpoint"] = undefined /*out*/;
+            inputs["secondaryWebHost"] = undefined /*out*/;
         }
         super("azure:storage/account:Account", name, inputs, opts);
     }
@@ -407,6 +461,10 @@ export interface AccountState {
      */
     readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
+     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+     */
+    readonly isHnsEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the supported Azure location where the
      * resource exists. Changing this forces a new resource to be created.
      */
@@ -440,6 +498,14 @@ export interface AccountState {
      */
     readonly primaryConnectionString?: pulumi.Input<string>;
     /**
+     * The endpoint URL for DFS storage in the primary location.
+     */
+    readonly primaryDfsEndpoint?: pulumi.Input<string>;
+    /**
+     * The hostname with port if applicable for DFS storage in the primary location.
+     */
+    readonly primaryDfsHost?: pulumi.Input<string>;
+    /**
      * The endpoint URL for file storage in the primary location.
      */
     readonly primaryFileEndpoint?: pulumi.Input<string>;
@@ -468,6 +534,14 @@ export interface AccountState {
      */
     readonly primaryTableHost?: pulumi.Input<string>;
     /**
+     * The endpoint URL for web storage in the primary location.
+     */
+    readonly primaryWebEndpoint?: pulumi.Input<string>;
+    /**
+     * The hostname with port if applicable for web storage in the primary location.
+     */
+    readonly primaryWebHost?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which to
      * create the storage account. Changing this forces a new resource to be created.
      */
@@ -493,6 +567,22 @@ export interface AccountState {
      */
     readonly secondaryConnectionString?: pulumi.Input<string>;
     /**
+     * The endpoint URL for DFS storage in the secondary location.
+     */
+    readonly secondaryDfsEndpoint?: pulumi.Input<string>;
+    /**
+     * The hostname with port if applicable for DFS storage in the secondary location.
+     */
+    readonly secondaryDfsHost?: pulumi.Input<string>;
+    /**
+     * The endpoint URL for file storage in the secondary location.
+     */
+    readonly secondaryFileEndpoint?: pulumi.Input<string>;
+    /**
+     * The hostname with port if applicable for file storage in the secondary location.
+     */
+    readonly secondaryFileHost?: pulumi.Input<string>;
+    /**
      * The secondary location of the storage account.
      */
     readonly secondaryLocation?: pulumi.Input<string>;
@@ -512,6 +602,14 @@ export interface AccountState {
      * The hostname with port if applicable for table storage in the secondary location.
      */
     readonly secondaryTableHost?: pulumi.Input<string>;
+    /**
+     * The endpoint URL for web storage in the secondary location.
+     */
+    readonly secondaryWebEndpoint?: pulumi.Input<string>;
+    /**
+     * The hostname with port if applicable for web storage in the secondary location.
+     */
+    readonly secondaryWebHost?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -566,6 +664,10 @@ export interface AccountArgs {
      * A Managed Service Identity block as defined below.
      */
     readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    /**
+     * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+     */
+    readonly isHnsEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the
      * resource exists. Changing this forces a new resource to be created.

@@ -8,18 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// ## 
-// 
-// ---
-// layout: "azurerm"
-// page_title: "Azure Resource Manager: azurerm_storage_account"
-// sidebar_current: "docs-azurerm-resource-storage-account"
-// description: |-
-//   Manages a Azure Storage Account.
-// ---
-// 
-// # azurerm_storage_account
-// 
 // Manage an Azure Storage Account.
 type Account struct {
 	s *pulumi.ResourceState
@@ -53,6 +41,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["enableFileEncryption"] = nil
 		inputs["enableHttpsTrafficOnly"] = nil
 		inputs["identity"] = nil
+		inputs["isHnsEnabled"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["networkRules"] = nil
@@ -70,6 +59,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["enableFileEncryption"] = args.EnableFileEncryption
 		inputs["enableHttpsTrafficOnly"] = args.EnableHttpsTrafficOnly
 		inputs["identity"] = args.Identity
+		inputs["isHnsEnabled"] = args.IsHnsEnabled
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["networkRules"] = args.NetworkRules
@@ -81,6 +71,8 @@ func NewAccount(ctx *pulumi.Context,
 	inputs["primaryBlobEndpoint"] = nil
 	inputs["primaryBlobHost"] = nil
 	inputs["primaryConnectionString"] = nil
+	inputs["primaryDfsEndpoint"] = nil
+	inputs["primaryDfsHost"] = nil
 	inputs["primaryFileEndpoint"] = nil
 	inputs["primaryFileHost"] = nil
 	inputs["primaryLocation"] = nil
@@ -88,16 +80,24 @@ func NewAccount(ctx *pulumi.Context,
 	inputs["primaryQueueHost"] = nil
 	inputs["primaryTableEndpoint"] = nil
 	inputs["primaryTableHost"] = nil
+	inputs["primaryWebEndpoint"] = nil
+	inputs["primaryWebHost"] = nil
 	inputs["secondaryAccessKey"] = nil
 	inputs["secondaryBlobConnectionString"] = nil
 	inputs["secondaryBlobEndpoint"] = nil
 	inputs["secondaryBlobHost"] = nil
 	inputs["secondaryConnectionString"] = nil
+	inputs["secondaryDfsEndpoint"] = nil
+	inputs["secondaryDfsHost"] = nil
+	inputs["secondaryFileEndpoint"] = nil
+	inputs["secondaryFileHost"] = nil
 	inputs["secondaryLocation"] = nil
 	inputs["secondaryQueueEndpoint"] = nil
 	inputs["secondaryQueueHost"] = nil
 	inputs["secondaryTableEndpoint"] = nil
 	inputs["secondaryTableHost"] = nil
+	inputs["secondaryWebEndpoint"] = nil
+	inputs["secondaryWebHost"] = nil
 	s, err := ctx.RegisterResource("azure:storage/account:Account", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -122,6 +122,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["enableFileEncryption"] = state.EnableFileEncryption
 		inputs["enableHttpsTrafficOnly"] = state.EnableHttpsTrafficOnly
 		inputs["identity"] = state.Identity
+		inputs["isHnsEnabled"] = state.IsHnsEnabled
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["networkRules"] = state.NetworkRules
@@ -130,6 +131,8 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["primaryBlobEndpoint"] = state.PrimaryBlobEndpoint
 		inputs["primaryBlobHost"] = state.PrimaryBlobHost
 		inputs["primaryConnectionString"] = state.PrimaryConnectionString
+		inputs["primaryDfsEndpoint"] = state.PrimaryDfsEndpoint
+		inputs["primaryDfsHost"] = state.PrimaryDfsHost
 		inputs["primaryFileEndpoint"] = state.PrimaryFileEndpoint
 		inputs["primaryFileHost"] = state.PrimaryFileHost
 		inputs["primaryLocation"] = state.PrimaryLocation
@@ -137,17 +140,25 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["primaryQueueHost"] = state.PrimaryQueueHost
 		inputs["primaryTableEndpoint"] = state.PrimaryTableEndpoint
 		inputs["primaryTableHost"] = state.PrimaryTableHost
+		inputs["primaryWebEndpoint"] = state.PrimaryWebEndpoint
+		inputs["primaryWebHost"] = state.PrimaryWebHost
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
 		inputs["secondaryBlobConnectionString"] = state.SecondaryBlobConnectionString
 		inputs["secondaryBlobEndpoint"] = state.SecondaryBlobEndpoint
 		inputs["secondaryBlobHost"] = state.SecondaryBlobHost
 		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
+		inputs["secondaryDfsEndpoint"] = state.SecondaryDfsEndpoint
+		inputs["secondaryDfsHost"] = state.SecondaryDfsHost
+		inputs["secondaryFileEndpoint"] = state.SecondaryFileEndpoint
+		inputs["secondaryFileHost"] = state.SecondaryFileHost
 		inputs["secondaryLocation"] = state.SecondaryLocation
 		inputs["secondaryQueueEndpoint"] = state.SecondaryQueueEndpoint
 		inputs["secondaryQueueHost"] = state.SecondaryQueueHost
 		inputs["secondaryTableEndpoint"] = state.SecondaryTableEndpoint
 		inputs["secondaryTableHost"] = state.SecondaryTableHost
+		inputs["secondaryWebEndpoint"] = state.SecondaryWebEndpoint
+		inputs["secondaryWebHost"] = state.SecondaryWebHost
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:storage/account:Account", name, id, inputs, opts...)
@@ -224,6 +235,11 @@ func (r *Account) Identity() *pulumi.Output {
 	return r.s.State["identity"]
 }
 
+// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+func (r *Account) IsHnsEnabled() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["isHnsEnabled"])
+}
+
 // Specifies the supported Azure location where the
 // resource exists. Changing this forces a new resource to be created.
 func (r *Account) Location() *pulumi.StringOutput {
@@ -265,6 +281,16 @@ func (r *Account) PrimaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryConnectionString"])
 }
 
+// The endpoint URL for DFS storage in the primary location.
+func (r *Account) PrimaryDfsEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryDfsEndpoint"])
+}
+
+// The hostname with port if applicable for DFS storage in the primary location.
+func (r *Account) PrimaryDfsHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryDfsHost"])
+}
+
 // The endpoint URL for file storage in the primary location.
 func (r *Account) PrimaryFileEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryFileEndpoint"])
@@ -300,6 +326,16 @@ func (r *Account) PrimaryTableHost() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryTableHost"])
 }
 
+// The endpoint URL for web storage in the primary location.
+func (r *Account) PrimaryWebEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryWebEndpoint"])
+}
+
+// The hostname with port if applicable for web storage in the primary location.
+func (r *Account) PrimaryWebHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["primaryWebHost"])
+}
+
 // The name of the resource group in which to
 // create the storage account. Changing this forces a new resource to be created.
 func (r *Account) ResourceGroupName() *pulumi.StringOutput {
@@ -331,6 +367,26 @@ func (r *Account) SecondaryConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryConnectionString"])
 }
 
+// The endpoint URL for DFS storage in the secondary location.
+func (r *Account) SecondaryDfsEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryDfsEndpoint"])
+}
+
+// The hostname with port if applicable for DFS storage in the secondary location.
+func (r *Account) SecondaryDfsHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryDfsHost"])
+}
+
+// The endpoint URL for file storage in the secondary location.
+func (r *Account) SecondaryFileEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryFileEndpoint"])
+}
+
+// The hostname with port if applicable for file storage in the secondary location.
+func (r *Account) SecondaryFileHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryFileHost"])
+}
+
 // The secondary location of the storage account.
 func (r *Account) SecondaryLocation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryLocation"])
@@ -354,6 +410,16 @@ func (r *Account) SecondaryTableEndpoint() *pulumi.StringOutput {
 // The hostname with port if applicable for table storage in the secondary location.
 func (r *Account) SecondaryTableHost() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryTableHost"])
+}
+
+// The endpoint URL for web storage in the secondary location.
+func (r *Account) SecondaryWebEndpoint() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryWebEndpoint"])
+}
+
+// The hostname with port if applicable for web storage in the secondary location.
+func (r *Account) SecondaryWebHost() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["secondaryWebHost"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -387,6 +453,8 @@ type AccountState struct {
 	EnableHttpsTrafficOnly interface{}
 	// A Managed Service Identity block as defined below.
 	Identity interface{}
+	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+	IsHnsEnabled interface{}
 	// Specifies the supported Azure location where the
 	// resource exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -404,6 +472,10 @@ type AccountState struct {
 	PrimaryBlobHost interface{}
 	// The connection string associated with the primary location.
 	PrimaryConnectionString interface{}
+	// The endpoint URL for DFS storage in the primary location.
+	PrimaryDfsEndpoint interface{}
+	// The hostname with port if applicable for DFS storage in the primary location.
+	PrimaryDfsHost interface{}
 	// The endpoint URL for file storage in the primary location.
 	PrimaryFileEndpoint interface{}
 	// The hostname with port if applicable for file storage in the primary location.
@@ -418,6 +490,10 @@ type AccountState struct {
 	PrimaryTableEndpoint interface{}
 	// The hostname with port if applicable for table storage in the primary location.
 	PrimaryTableHost interface{}
+	// The endpoint URL for web storage in the primary location.
+	PrimaryWebEndpoint interface{}
+	// The hostname with port if applicable for web storage in the primary location.
+	PrimaryWebHost interface{}
 	// The name of the resource group in which to
 	// create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -431,6 +507,14 @@ type AccountState struct {
 	SecondaryBlobHost interface{}
 	// The connection string associated with the secondary location.
 	SecondaryConnectionString interface{}
+	// The endpoint URL for DFS storage in the secondary location.
+	SecondaryDfsEndpoint interface{}
+	// The hostname with port if applicable for DFS storage in the secondary location.
+	SecondaryDfsHost interface{}
+	// The endpoint URL for file storage in the secondary location.
+	SecondaryFileEndpoint interface{}
+	// The hostname with port if applicable for file storage in the secondary location.
+	SecondaryFileHost interface{}
 	// The secondary location of the storage account.
 	SecondaryLocation interface{}
 	// The endpoint URL for queue storage in the secondary location.
@@ -441,6 +525,10 @@ type AccountState struct {
 	SecondaryTableEndpoint interface{}
 	// The hostname with port if applicable for table storage in the secondary location.
 	SecondaryTableHost interface{}
+	// The endpoint URL for web storage in the secondary location.
+	SecondaryWebEndpoint interface{}
+	// The hostname with port if applicable for web storage in the secondary location.
+	SecondaryWebHost interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
@@ -471,6 +559,8 @@ type AccountArgs struct {
 	EnableHttpsTrafficOnly interface{}
 	// A Managed Service Identity block as defined below.
 	Identity interface{}
+	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
+	IsHnsEnabled interface{}
 	// Specifies the supported Azure location where the
 	// resource exists. Changing this forces a new resource to be created.
 	Location interface{}

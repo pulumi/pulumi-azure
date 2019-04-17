@@ -101,7 +101,7 @@ class KeyVault(pulumi.CustomResource):
         __props__['enabled_for_template_deployment'] = enabled_for_template_deployment
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -109,17 +109,17 @@ class KeyVault(pulumi.CustomResource):
         __props__['network_acls'] = network_acls
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['tags'] = tags
 
         if tenant_id is None:
-            raise TypeError('Missing required property tenant_id')
+            raise TypeError("Missing required property 'tenant_id'")
         __props__['tenant_id'] = tenant_id
 
         __props__['vault_uri'] = None

@@ -62,25 +62,25 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         __props__ = dict()
 
         if action is None:
-            raise TypeError('Missing required property action')
+            raise TypeError("Missing required property 'action'")
         __props__['action'] = action
 
         if azure_firewall_name is None:
-            raise TypeError('Missing required property azure_firewall_name')
+            raise TypeError("Missing required property 'azure_firewall_name'")
         __props__['azure_firewall_name'] = azure_firewall_name
 
         __props__['name'] = name
 
         if priority is None:
-            raise TypeError('Missing required property priority')
+            raise TypeError("Missing required property 'priority'")
         __props__['priority'] = priority
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if rules is None:
-            raise TypeError('Missing required property rules')
+            raise TypeError("Missing required property 'rules'")
         __props__['rules'] = rules
 
         super(FirewallApplicationRuleCollection, __self__).__init__(

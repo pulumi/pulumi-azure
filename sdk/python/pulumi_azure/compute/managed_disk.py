@@ -109,7 +109,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__ = dict()
 
         if create_option is None:
-            raise TypeError('Missing required property create_option')
+            raise TypeError("Missing required property 'create_option'")
         __props__['create_option'] = create_option
 
         __props__['disk_size_gb'] = disk_size_gb
@@ -119,7 +119,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__['image_reference_id'] = image_reference_id
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -127,7 +127,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__['os_type'] = os_type
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['source_resource_id'] = source_resource_id
@@ -135,7 +135,7 @@ class ManagedDisk(pulumi.CustomResource):
         __props__['source_uri'] = source_uri
 
         if storage_account_type is None:
-            raise TypeError('Missing required property storage_account_type')
+            raise TypeError("Missing required property 'storage_account_type'")
         __props__['storage_account_type'] = storage_account_type
 
         __props__['tags'] = tags

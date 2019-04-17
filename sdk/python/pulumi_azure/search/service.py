@@ -75,7 +75,7 @@ class Service(pulumi.CustomResource):
         __props__ = dict()
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -85,11 +85,11 @@ class Service(pulumi.CustomResource):
         __props__['replica_count'] = replica_count
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['tags'] = tags

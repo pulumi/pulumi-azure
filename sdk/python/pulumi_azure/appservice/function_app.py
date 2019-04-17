@@ -61,6 +61,10 @@ class FunctionApp(pulumi.CustomResource):
     """
     A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
     """
+    possible_outbound_ip_addresses: pulumi.Output[str]
+    """
+    A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to create the Function App.
@@ -123,7 +127,7 @@ class FunctionApp(pulumi.CustomResource):
         __props__ = dict()
 
         if app_service_plan_id is None:
-            raise TypeError('Missing required property app_service_plan_id')
+            raise TypeError("Missing required property 'app_service_plan_id'")
         __props__['app_service_plan_id'] = app_service_plan_id
 
         __props__['app_settings'] = app_settings
@@ -141,19 +145,19 @@ class FunctionApp(pulumi.CustomResource):
         __props__['identity'] = identity
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['site_config'] = site_config
 
         if storage_connection_string is None:
-            raise TypeError('Missing required property storage_connection_string')
+            raise TypeError("Missing required property 'storage_connection_string'")
         __props__['storage_connection_string'] = storage_connection_string
 
         __props__['tags'] = tags
@@ -163,6 +167,7 @@ class FunctionApp(pulumi.CustomResource):
         __props__['default_hostname'] = None
         __props__['kind'] = None
         __props__['outbound_ip_addresses'] = None
+        __props__['possible_outbound_ip_addresses'] = None
         __props__['site_credential'] = None
 
         super(FunctionApp, __self__).__init__(

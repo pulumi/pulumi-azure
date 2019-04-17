@@ -78,7 +78,7 @@ class Snapshot(pulumi.CustomResource):
         __props__ = dict()
 
         if create_option is None:
-            raise TypeError('Missing required property create_option')
+            raise TypeError("Missing required property 'create_option'")
         __props__['create_option'] = create_option
 
         __props__['disk_size_gb'] = disk_size_gb
@@ -86,13 +86,13 @@ class Snapshot(pulumi.CustomResource):
         __props__['encryption_settings'] = encryption_settings
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['source_resource_id'] = source_resource_id

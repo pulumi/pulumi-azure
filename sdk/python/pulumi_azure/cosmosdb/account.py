@@ -137,7 +137,7 @@ class Account(pulumi.CustomResource):
         __props__['capabilities'] = capabilities
 
         if consistency_policy is None:
-            raise TypeError('Missing required property consistency_policy')
+            raise TypeError("Missing required property 'consistency_policy'")
         __props__['consistency_policy'] = consistency_policy
 
         __props__['enable_automatic_failover'] = enable_automatic_failover
@@ -155,17 +155,17 @@ class Account(pulumi.CustomResource):
         __props__['kind'] = kind
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if offer_type is None:
-            raise TypeError('Missing required property offer_type')
+            raise TypeError("Missing required property 'offer_type'")
         __props__['offer_type'] = offer_type
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags

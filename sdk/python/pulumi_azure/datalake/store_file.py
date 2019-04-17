@@ -50,15 +50,15 @@ class StoreFile(pulumi.CustomResource):
         __props__ = dict()
 
         if account_name is None:
-            raise TypeError('Missing required property account_name')
+            raise TypeError("Missing required property 'account_name'")
         __props__['account_name'] = account_name
 
         if local_file_path is None:
-            raise TypeError('Missing required property local_file_path')
+            raise TypeError("Missing required property 'local_file_path'")
         __props__['local_file_path'] = local_file_path
 
         if remote_file_path is None:
-            raise TypeError('Missing required property remote_file_path')
+            raise TypeError("Missing required property 'remote_file_path'")
         __props__['remote_file_path'] = remote_file_path
 
         super(StoreFile, __self__).__init__(

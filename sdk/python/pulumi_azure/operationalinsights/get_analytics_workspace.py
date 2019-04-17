@@ -14,58 +14,58 @@ class GetAnalyticsWorkspaceResult:
     """
     def __init__(__self__, location=None, name=None, portal_url=None, primary_shared_key=None, resource_group_name=None, retention_in_days=None, secondary_shared_key=None, sku=None, tags=None, workspace_id=None, id=None):
         if location and not isinstance(location, str):
-            raise TypeError('Expected argument location to be a str')
+            raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if portal_url and not isinstance(portal_url, str):
-            raise TypeError('Expected argument portal_url to be a str')
+            raise TypeError("Expected argument 'portal_url' to be a str")
         __self__.portal_url = portal_url
         """
         The Portal URL for the Log Analytics Workspace.
         """
         if primary_shared_key and not isinstance(primary_shared_key, str):
-            raise TypeError('Expected argument primary_shared_key to be a str')
+            raise TypeError("Expected argument 'primary_shared_key' to be a str")
         __self__.primary_shared_key = primary_shared_key
         """
         The Primary shared key for the Log Analytics Workspace.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if retention_in_days and not isinstance(retention_in_days, float):
-            raise TypeError('Expected argument retention_in_days to be a float')
+            raise TypeError("Expected argument 'retention_in_days' to be a float")
         __self__.retention_in_days = retention_in_days
         """
         The workspace data retention in days.
         """
         if secondary_shared_key and not isinstance(secondary_shared_key, str):
-            raise TypeError('Expected argument secondary_shared_key to be a str')
+            raise TypeError("Expected argument 'secondary_shared_key' to be a str")
         __self__.secondary_shared_key = secondary_shared_key
         """
         The Secondary shared key for the Log Analytics Workspace.
         """
         if sku and not isinstance(sku, str):
-            raise TypeError('Expected argument sku to be a str')
+            raise TypeError("Expected argument 'sku' to be a str")
         __self__.sku = sku
         """
         The Sku of the Log Analytics Workspace.
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
         """
         if workspace_id and not isinstance(workspace_id, str):
-            raise TypeError('Expected argument workspace_id to be a str')
+            raise TypeError("Expected argument 'workspace_id' to be a str")
         __self__.workspace_id = workspace_id
         """
         The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

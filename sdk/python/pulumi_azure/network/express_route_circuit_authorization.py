@@ -59,13 +59,13 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         __props__ = dict()
 
         if express_route_circuit_name is None:
-            raise TypeError('Missing required property express_route_circuit_name')
+            raise TypeError("Missing required property 'express_route_circuit_name'")
         __props__['express_route_circuit_name'] = express_route_circuit_name
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['authorization_key'] = None

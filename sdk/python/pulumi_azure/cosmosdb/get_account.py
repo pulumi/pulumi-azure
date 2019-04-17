@@ -14,121 +14,121 @@ class GetAccountResult:
     """
     def __init__(__self__, capabilities=None, consistency_policies=None, enable_automatic_failover=None, enable_multiple_write_locations=None, endpoint=None, geo_locations=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, kind=None, location=None, name=None, offer_type=None, primary_master_key=None, primary_readonly_master_key=None, read_endpoints=None, resource_group_name=None, secondary_master_key=None, secondary_readonly_master_key=None, tags=None, virtual_network_rules=None, write_endpoints=None, id=None):
         if capabilities and not isinstance(capabilities, list):
-            raise TypeError('Expected argument capabilities to be a list')
+            raise TypeError("Expected argument 'capabilities' to be a list")
         __self__.capabilities = capabilities
         """
         Capabilities enabled on this Cosmos DB account.
         """
         if consistency_policies and not isinstance(consistency_policies, list):
-            raise TypeError('Expected argument consistency_policies to be a list')
+            raise TypeError("Expected argument 'consistency_policies' to be a list")
         __self__.consistency_policies = consistency_policies
         if enable_automatic_failover and not isinstance(enable_automatic_failover, bool):
-            raise TypeError('Expected argument enable_automatic_failover to be a bool')
+            raise TypeError("Expected argument 'enable_automatic_failover' to be a bool")
         __self__.enable_automatic_failover = enable_automatic_failover
         """
         If automatic failover is enabled for this CosmosDB Account.
         """
         if enable_multiple_write_locations and not isinstance(enable_multiple_write_locations, bool):
-            raise TypeError('Expected argument enable_multiple_write_locations to be a bool')
+            raise TypeError("Expected argument 'enable_multiple_write_locations' to be a bool")
         __self__.enable_multiple_write_locations = enable_multiple_write_locations
         """
         If multi-master is enabled for this Cosmos DB account.
         """
         if endpoint and not isinstance(endpoint, str):
-            raise TypeError('Expected argument endpoint to be a str')
+            raise TypeError("Expected argument 'endpoint' to be a str")
         __self__.endpoint = endpoint
         """
         The endpoint used to connect to the CosmosDB account.
         """
         if geo_locations and not isinstance(geo_locations, list):
-            raise TypeError('Expected argument geo_locations to be a list')
+            raise TypeError("Expected argument 'geo_locations' to be a list")
         __self__.geo_locations = geo_locations
         if ip_range_filter and not isinstance(ip_range_filter, str):
-            raise TypeError('Expected argument ip_range_filter to be a str')
+            raise TypeError("Expected argument 'ip_range_filter' to be a str")
         __self__.ip_range_filter = ip_range_filter
         """
         The current IP Filter for this CosmosDB account
         """
         if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
-            raise TypeError('Expected argument is_virtual_network_filter_enabled to be a bool')
+            raise TypeError("Expected argument 'is_virtual_network_filter_enabled' to be a bool")
         __self__.is_virtual_network_filter_enabled = is_virtual_network_filter_enabled
         """
         If virtual network filtering is enabled for this Cosmos DB account.
         """
         if kind and not isinstance(kind, str):
-            raise TypeError('Expected argument kind to be a str')
+            raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         The Kind of the CosmosDB account.
         """
         if location and not isinstance(location, str):
-            raise TypeError('Expected argument location to be a str')
+            raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The name of the Azure region hosting replicated data.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if offer_type and not isinstance(offer_type, str):
-            raise TypeError('Expected argument offer_type to be a str')
+            raise TypeError("Expected argument 'offer_type' to be a str")
         __self__.offer_type = offer_type
         """
         The Offer Type to used by this CosmosDB Account.
         """
         if primary_master_key and not isinstance(primary_master_key, str):
-            raise TypeError('Expected argument primary_master_key to be a str')
+            raise TypeError("Expected argument 'primary_master_key' to be a str")
         __self__.primary_master_key = primary_master_key
         """
         The Primary master key for the CosmosDB Account.
         """
         if primary_readonly_master_key and not isinstance(primary_readonly_master_key, str):
-            raise TypeError('Expected argument primary_readonly_master_key to be a str')
+            raise TypeError("Expected argument 'primary_readonly_master_key' to be a str")
         __self__.primary_readonly_master_key = primary_readonly_master_key
         """
         The Primary read-only master Key for the CosmosDB Account.
         """
         if read_endpoints and not isinstance(read_endpoints, list):
-            raise TypeError('Expected argument read_endpoints to be a list')
+            raise TypeError("Expected argument 'read_endpoints' to be a list")
         __self__.read_endpoints = read_endpoints
         """
         A list of read endpoints available for this CosmosDB account.
         """
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if secondary_master_key and not isinstance(secondary_master_key, str):
-            raise TypeError('Expected argument secondary_master_key to be a str')
+            raise TypeError("Expected argument 'secondary_master_key' to be a str")
         __self__.secondary_master_key = secondary_master_key
         """
         The Secondary master key for the CosmosDB Account.
         """
         if secondary_readonly_master_key and not isinstance(secondary_readonly_master_key, str):
-            raise TypeError('Expected argument secondary_readonly_master_key to be a str')
+            raise TypeError("Expected argument 'secondary_readonly_master_key' to be a str")
         __self__.secondary_readonly_master_key = secondary_readonly_master_key
         """
         The Secondary read-only master key for the CosmosDB Account.
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
         """
         if virtual_network_rules and not isinstance(virtual_network_rules, list):
-            raise TypeError('Expected argument virtual_network_rules to be a list')
+            raise TypeError("Expected argument 'virtual_network_rules' to be a list")
         __self__.virtual_network_rules = virtual_network_rules
         """
         Subnets that are allowed to access this CosmosDB account.
         """
         if write_endpoints and not isinstance(write_endpoints, list):
-            raise TypeError('Expected argument write_endpoints to be a list')
+            raise TypeError("Expected argument 'write_endpoints' to be a list")
         __self__.write_endpoints = write_endpoints
         """
         A list of write endpoints available for this CosmosDB account.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

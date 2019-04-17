@@ -14,34 +14,34 @@ class GetAccountSASResult:
     """
     def __init__(__self__, connection_string=None, expiry=None, https_only=None, permissions=None, resource_types=None, sas=None, services=None, start=None, id=None):
         if connection_string and not isinstance(connection_string, str):
-            raise TypeError('Expected argument connection_string to be a str')
+            raise TypeError("Expected argument 'connection_string' to be a str")
         __self__.connection_string = connection_string
         if expiry and not isinstance(expiry, str):
-            raise TypeError('Expected argument expiry to be a str')
+            raise TypeError("Expected argument 'expiry' to be a str")
         __self__.expiry = expiry
         if https_only and not isinstance(https_only, bool):
-            raise TypeError('Expected argument https_only to be a bool')
+            raise TypeError("Expected argument 'https_only' to be a bool")
         __self__.https_only = https_only
         if permissions and not isinstance(permissions, dict):
-            raise TypeError('Expected argument permissions to be a dict')
+            raise TypeError("Expected argument 'permissions' to be a dict")
         __self__.permissions = permissions
         if resource_types and not isinstance(resource_types, dict):
-            raise TypeError('Expected argument resource_types to be a dict')
+            raise TypeError("Expected argument 'resource_types' to be a dict")
         __self__.resource_types = resource_types
         if sas and not isinstance(sas, str):
-            raise TypeError('Expected argument sas to be a str')
+            raise TypeError("Expected argument 'sas' to be a str")
         __self__.sas = sas
         """
         The computed Account Shared Access Signature (SAS).
         """
         if services and not isinstance(services, dict):
-            raise TypeError('Expected argument services to be a dict')
+            raise TypeError("Expected argument 'services' to be a dict")
         __self__.services = services
         if start and not isinstance(start, str):
-            raise TypeError('Expected argument start to be a str')
+            raise TypeError("Expected argument 'start' to be a str")
         __self__.start = start
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

@@ -13,25 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleAPI = pulumi.output(azure.apimanagement.getAPI({
+ * const exampleService = pulumi.output(azure.apimanagement.getService({
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
  * }));
- * const exampleGroup = pulumi.all([exampleAPI, exampleAPI]).apply(([exampleAPI, exampleAPI1]) => azure.apimanagement.getGroup({
- *     apiManagementName: exampleAPI.name,
+ * const exampleGroup = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getGroup({
+ *     apiManagementName: exampleService.name,
  *     name: "my-group",
- *     resourceGroupName: exampleAPI1.resourceGroupName,
+ *     resourceGroupName: exampleService1.resourceGroupName,
  * }));
- * const exampleGroupUser = new azure.apimanagement.GroupUser("example", {
- *     apiManagementName: exampleAPI.apply(exampleAPI => exampleAPI.name),
+ * const exampleProductGroup = new azure.apimanagement.ProductGroup("example", {
+ *     apiManagementName: exampleService.apply(exampleService => exampleService.name),
  *     groupName: exampleGroup.apply(exampleGroup => exampleGroup.name),
- *     resourceGroupName: exampleAPI.apply(exampleAPI => exampleAPI.resourceGroupName),
- *     userId: azurerm_api_management_user_example.id.apply(id => id),
+ *     productId: azurerm_api_management_user_example.id.apply(id => id),
+ *     resourceGroupName: exampleService.apply(exampleService => exampleService.resourceGroupName),
  * });
- * const exampleProduct = pulumi.all([exampleAPI, exampleAPI]).apply(([exampleAPI, exampleAPI1]) => azure.apimanagement.getProduct({
- *     apiManagementName: exampleAPI.name,
+ * const exampleProduct = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getProduct({
+ *     apiManagementName: exampleService.name,
  *     productId: "my-product",
- *     resourceGroupName: exampleAPI1.resourceGroupName,
+ *     resourceGroupName: exampleService1.resourceGroupName,
  * }));
  * ```
  */
@@ -56,6 +56,9 @@ export class ProductGroup extends pulumi.CustomResource {
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
     public readonly groupName: pulumi.Output<string>;
+    /**
+     * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+     */
     public readonly productId: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -113,6 +116,9 @@ export interface ProductGroupState {
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
     readonly groupName?: pulumi.Input<string>;
+    /**
+     * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+     */
     readonly productId?: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -132,6 +138,9 @@ export interface ProductGroupArgs {
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
     readonly groupName: pulumi.Input<string>;
+    /**
+     * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+     */
     readonly productId: pulumi.Input<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.

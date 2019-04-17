@@ -78,7 +78,7 @@ class Probe(pulumi.CustomResource):
         __props__['interval_in_seconds'] = interval_in_seconds
 
         if loadbalancer_id is None:
-            raise TypeError('Missing required property loadbalancer_id')
+            raise TypeError("Missing required property 'loadbalancer_id'")
         __props__['loadbalancer_id'] = loadbalancer_id
 
         __props__['location'] = location
@@ -88,7 +88,7 @@ class Probe(pulumi.CustomResource):
         __props__['number_of_probes'] = number_of_probes
 
         if port is None:
-            raise TypeError('Missing required property port')
+            raise TypeError("Missing required property 'port'")
         __props__['port'] = port
 
         __props__['protocol'] = protocol
@@ -96,7 +96,7 @@ class Probe(pulumi.CustomResource):
         __props__['request_path'] = request_path
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['load_balancer_rules'] = None

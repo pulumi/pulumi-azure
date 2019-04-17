@@ -14,34 +14,34 @@ class GetHubResult:
     """
     def __init__(__self__, apns_credentials=None, gcm_credentials=None, location=None, name=None, namespace_name=None, resource_group_name=None, id=None):
         if apns_credentials and not isinstance(apns_credentials, list):
-            raise TypeError('Expected argument apns_credentials to be a list')
+            raise TypeError("Expected argument 'apns_credentials' to be a list")
         __self__.apns_credentials = apns_credentials
         """
         A `apns_credential` block as defined below.
         """
         if gcm_credentials and not isinstance(gcm_credentials, list):
-            raise TypeError('Expected argument gcm_credentials to be a list')
+            raise TypeError("Expected argument 'gcm_credentials' to be a list")
         __self__.gcm_credentials = gcm_credentials
         """
         A `gcm_credential` block as defined below.
         """
         if location and not isinstance(location, str):
-            raise TypeError('Expected argument location to be a str')
+            raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The Azure Region in which this Notification Hub exists.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if namespace_name and not isinstance(namespace_name, str):
-            raise TypeError('Expected argument namespace_name to be a str')
+            raise TypeError("Expected argument 'namespace_name' to be a str")
         __self__.namespace_name = namespace_name
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

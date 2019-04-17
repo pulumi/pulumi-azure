@@ -8,102 +8,89 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class API(pulumi.CustomResource):
-    additional_location: pulumi.Output[dict]
+class Api(pulumi.CustomResource):
+    api_management_name: pulumi.Output[str]
     """
-    One or more `additional_location` blocks as defined below.
+    The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
     """
-    certificates: pulumi.Output[list]
+    description: pulumi.Output[str]
     """
-    One or more (up to 10) `certificate` blocks as defined below.
+    A description of the API Management API, which may include HTML formatting tags.
     """
-    gateway_regional_url: pulumi.Output[str]
+    display_name: pulumi.Output[str]
     """
-    The URL of the Regional Gateway for the API Management Service in the specified region.
+    The display name of the API.
     """
-    gateway_url: pulumi.Output[str]
+    import_: pulumi.Output[dict]
     """
-    The URL of the Gateway for the API Management Service.
+    A `import` block as documented below.
     """
-    hostname_configuration: pulumi.Output[dict]
+    is_current: pulumi.Output[bool]
     """
-    A `hostname_configuration` block as defined below.
+    Is this the current API Revision?
     """
-    identity: pulumi.Output[dict]
+    is_online: pulumi.Output[bool]
     """
-    An `identity` block is documented below.
-    """
-    location: pulumi.Output[str]
-    """
-    The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-    """
-    management_api_url: pulumi.Output[str]
-    """
-    The URL for the Management API associated with this API Management service.
+    Is this API Revision online/accessible via the Gateway?
     """
     name: pulumi.Output[str]
     """
-    The name of the API Management Service. Changing this forces a new resource to be created.
+    The name of the API Management API. Changing this forces a new resource to be created.
     """
-    notification_sender_email: pulumi.Output[str]
+    path: pulumi.Output[str]
     """
-    Email address from which the notification will be sent.
+    The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
     """
-    portal_url: pulumi.Output[str]
+    protocols: pulumi.Output[list]
     """
-    The URL for the Publisher Portal associated with this API Management service.
-    """
-    public_ip_addresses: pulumi.Output[list]
-    """
-    Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-    """
-    publisher_email: pulumi.Output[str]
-    """
-    The email of publisher/company.
-    """
-    publisher_name: pulumi.Output[str]
-    """
-    The name of publisher/company.
+    A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+    The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
     """
-    scm_url: pulumi.Output[str]
+    revision: pulumi.Output[str]
     """
-    The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
+    The Revision which used for this API.
     """
-    security: pulumi.Output[dict]
+    service_url: pulumi.Output[str]
     """
-    A `security` block as defined below.
+    Absolute URL of the backend service implementing this API.
     """
-    sku: pulumi.Output[dict]
+    soap_pass_through: pulumi.Output[bool]
     """
-    A `sku` block as documented below.
+    Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
     """
-    tags: pulumi.Output[dict]
+    subscription_key_parameter_names: pulumi.Output[dict]
     """
-    A mapping of tags assigned to the resource.
+    A `subscription_key_parameter_names` block as documented below.
     """
-    def __init__(__self__, resource_name, opts=None, additional_location=None, certificates=None, hostname_configuration=None, identity=None, location=None, name=None, notification_sender_email=None, publisher_email=None, publisher_name=None, resource_group_name=None, security=None, sku=None, tags=None, __name__=None, __opts__=None):
+    version: pulumi.Output[str]
+    """
+    The Version number of this API, if this API is versioned.
+    """
+    version_set_id: pulumi.Output[str]
+    """
+    The ID of the Version Set which this API is associated with.
+    """
+    def __init__(__self__, resource_name, opts=None, api_management_name=None, description=None, display_name=None, import_=None, name=None, path=None, protocols=None, resource_group_name=None, revision=None, service_url=None, soap_pass_through=None, subscription_key_parameter_names=None, __name__=None, __opts__=None):
         """
-        Manages an API Management Service.
+        Manages an API within an API Management Service.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] additional_location: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[list] certificates: One or more (up to 10) `certificate` blocks as defined below.
-        :param pulumi.Input[dict] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input[dict] identity: An `identity` block is documented below.
-        :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[str] publisher_email: The email of publisher/company.
-        :param pulumi.Input[str] publisher_name: The name of publisher/company.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] security: A `security` block as defined below.
-        :param pulumi.Input[dict] sku: A `sku` block as documented below.
-        :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
+        :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
+        :param pulumi.Input[str] display_name: The display name of the API.
+        :param pulumi.Input[dict] import_: A `import` block as documented below.
+        :param pulumi.Input[str] name: The name of the API Management API. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
+        :param pulumi.Input[list] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] revision: The Revision which used for this API.
+        :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
+        :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+        :param pulumi.Input[dict] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,51 +107,49 @@ class API(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['additional_location'] = additional_location
+        if api_management_name is None:
+            raise TypeError("Missing required property 'api_management_name'")
+        __props__['api_management_name'] = api_management_name
 
-        __props__['certificates'] = certificates
+        __props__['description'] = description
 
-        __props__['hostname_configuration'] = hostname_configuration
+        if display_name is None:
+            raise TypeError("Missing required property 'display_name'")
+        __props__['display_name'] = display_name
 
-        __props__['identity'] = identity
-
-        if location is None:
-            raise TypeError('Missing required property location')
-        __props__['location'] = location
+        __props__['import_'] = import_
 
         __props__['name'] = name
 
-        __props__['notification_sender_email'] = notification_sender_email
+        if path is None:
+            raise TypeError("Missing required property 'path'")
+        __props__['path'] = path
 
-        if publisher_email is None:
-            raise TypeError('Missing required property publisher_email')
-        __props__['publisher_email'] = publisher_email
-
-        if publisher_name is None:
-            raise TypeError('Missing required property publisher_name')
-        __props__['publisher_name'] = publisher_name
+        if protocols is None:
+            raise TypeError("Missing required property 'protocols'")
+        __props__['protocols'] = protocols
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
-        __props__['security'] = security
+        if revision is None:
+            raise TypeError("Missing required property 'revision'")
+        __props__['revision'] = revision
 
-        if sku is None:
-            raise TypeError('Missing required property sku')
-        __props__['sku'] = sku
+        __props__['service_url'] = service_url
 
-        __props__['tags'] = tags
+        __props__['soap_pass_through'] = soap_pass_through
 
-        __props__['gateway_regional_url'] = None
-        __props__['gateway_url'] = None
-        __props__['management_api_url'] = None
-        __props__['portal_url'] = None
-        __props__['public_ip_addresses'] = None
-        __props__['scm_url'] = None
+        __props__['subscription_key_parameter_names'] = subscription_key_parameter_names
 
-        super(API, __self__).__init__(
-            'azure:apimanagement/aPI:API',
+        __props__['is_current'] = None
+        __props__['is_online'] = None
+        __props__['version'] = None
+        __props__['version_set_id'] = None
+
+        super(Api, __self__).__init__(
+            'azure:apimanagement/api:Api',
             resource_name,
             __props__,
             opts)

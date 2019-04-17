@@ -192,13 +192,22 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_azuread_service_principal_password": {Tok: azureResource(azureAD, "ServicePrincipalPassword")},
 
 			// API Mannagement
-			"azurerm_api_management":               {Tok: azureResource(azureAPIManagement, "API")},
-			"azurerm_api_management_group":         {Tok: azureResource(azureAPIManagement, "Group")},
-			"azurerm_api_management_group_user":    {Tok: azureResource(azureAPIManagement, "GroupUser")},
-			"azurerm_api_management_product":       {Tok: azureResource(azureAPIManagement, "Product")},
-			"azurerm_api_management_product_group": {Tok: azureResource(azureAPIManagement, "ProductGroup")},
-			"azurerm_api_management_property":      {Tok: azureResource(azureAPIManagement, "Property")},
-			"azurerm_api_management_user":          {Tok: azureResource(azureAPIManagement, "User")},
+			"azurerm_api_management":                         {Tok: azureResource(azureAPIManagement, "Service")},
+			"azurerm_api_management_api":                     {Tok: azureResource(azureAPIManagement, "Api")},
+			"azurerm_api_management_api_operation":           {Tok: azureResource(azureAPIManagement, "ApiOperation")},
+			"azurerm_api_management_api_version_set":         {Tok: azureResource(azureAPIManagement, "ApiVersionSet")},
+			"azurerm_api_management_authorization_server":    {Tok: azureResource(azureAPIManagement, "AuthorizationServer")},
+			"azurerm_api_management_certificate":             {Tok: azureResource(azureAPIManagement, "Certificate")},
+			"azurerm_api_management_group":                   {Tok: azureResource(azureAPIManagement, "Group")},
+			"azurerm_api_management_group_user":              {Tok: azureResource(azureAPIManagement, "GroupUser")},
+			"azurerm_api_management_logger":                  {Tok: azureResource(azureAPIManagement, "Logger")},
+			"azurerm_api_management_openid_connect_provider": {Tok: azureResource(azureAPIManagement, "OpenIdConnectProvider")},
+			"azurerm_api_management_product":                 {Tok: azureResource(azureAPIManagement, "Product")},
+			"azurerm_api_management_product_api":             {Tok: azureResource(azureAPIManagement, "ProductApi")},
+			"azurerm_api_management_product_group":           {Tok: azureResource(azureAPIManagement, "ProductGroup")},
+			"azurerm_api_management_property":                {Tok: azureResource(azureAPIManagement, "Property")},
+			"azurerm_api_management_subscription":            {Tok: azureResource(azureAPIManagement, "Subscription")},
+			"azurerm_api_management_user":                    {Tok: azureResource(azureAPIManagement, "User")},
 
 			// AppInsights
 			"azurerm_application_insights":         {Tok: azureResource(azureAppInsights, "Insights")},
@@ -650,12 +659,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_azuread_application":       {Tok: azureDataSource(azureAD, "getApplication")},
 			"azurerm_azuread_service_principal": {Tok: azureDataSource(azureAD, "getServicePrincipal")},
 			"azurerm_api_management": {
-				Tok: azureDataSource(azureAPIManagement, "getAPI"),
+				Tok: azureDataSource(azureAPIManagement, "getService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
+			"azurerm_api_management_api":     {Tok: azureDataSource(azureAPIManagement, "getApi")},
 			"azurerm_api_management_group":   {Tok: azureDataSource(azureAPIManagement, "getGroup")},
 			"azurerm_api_management_product": {Tok: azureDataSource(azureAPIManagement, "getProduct")},
 			"azurerm_api_management_user":    {Tok: azureDataSource(azureAPIManagement, "getUser")},

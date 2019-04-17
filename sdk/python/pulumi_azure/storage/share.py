@@ -64,11 +64,11 @@ class Share(pulumi.CustomResource):
         __props__['quota'] = quota
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if storage_account_name is None:
-            raise TypeError('Missing required property storage_account_name')
+            raise TypeError("Missing required property 'storage_account_name'")
         __props__['storage_account_name'] = storage_account_name
 
         __props__['url'] = None

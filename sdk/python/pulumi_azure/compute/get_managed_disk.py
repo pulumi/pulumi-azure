@@ -14,58 +14,58 @@ class GetManagedDiskResult:
     """
     def __init__(__self__, create_option=None, disk_size_gb=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None, id=None):
         if create_option and not isinstance(create_option, str):
-            raise TypeError('Expected argument create_option to be a str')
+            raise TypeError("Expected argument 'create_option' to be a str")
         __self__.create_option = create_option
         if disk_size_gb and not isinstance(disk_size_gb, float):
-            raise TypeError('Expected argument disk_size_gb to be a float')
+            raise TypeError("Expected argument 'disk_size_gb' to be a float")
         __self__.disk_size_gb = disk_size_gb
         """
         The size of the managed disk in gigabytes.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if os_type and not isinstance(os_type, str):
-            raise TypeError('Expected argument os_type to be a str')
+            raise TypeError("Expected argument 'os_type' to be a str")
         __self__.os_type = os_type
         """
         The operating system for managed disk. Valid values are `Linux` or `Windows`
         """
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if source_resource_id and not isinstance(source_resource_id, str):
-            raise TypeError('Expected argument source_resource_id to be a str')
+            raise TypeError("Expected argument 'source_resource_id' to be a str")
         __self__.source_resource_id = source_resource_id
         """
         ID of an existing managed disk that the current resource was created from.
         """
         if source_uri and not isinstance(source_uri, str):
-            raise TypeError('Expected argument source_uri to be a str')
+            raise TypeError("Expected argument 'source_uri' to be a str")
         __self__.source_uri = source_uri
         """
         The source URI for the managed disk
         """
         if storage_account_type and not isinstance(storage_account_type, str):
-            raise TypeError('Expected argument storage_account_type to be a str')
+            raise TypeError("Expected argument 'storage_account_type' to be a str")
         __self__.storage_account_type = storage_account_type
         """
         The storage account type for the managed disk.
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         A mapping of tags assigned to the resource.
         """
         if zones and not isinstance(zones, list):
-            raise TypeError('Expected argument zones to be a list')
+            raise TypeError("Expected argument 'zones' to be a list")
         __self__.zones = zones
         """
         A collection containing the availability zone the managed disk is allocated in.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

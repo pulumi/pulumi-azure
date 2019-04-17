@@ -63,6 +63,7 @@ func NewCache(ctx *pulumi.Context,
 		inputs["enableNonSslPort"] = nil
 		inputs["family"] = nil
 		inputs["location"] = nil
+		inputs["minimumTlsVersion"] = nil
 		inputs["name"] = nil
 		inputs["patchSchedules"] = nil
 		inputs["privateStaticIpAddress"] = nil
@@ -78,6 +79,7 @@ func NewCache(ctx *pulumi.Context,
 		inputs["enableNonSslPort"] = args.EnableNonSslPort
 		inputs["family"] = args.Family
 		inputs["location"] = args.Location
+		inputs["minimumTlsVersion"] = args.MinimumTlsVersion
 		inputs["name"] = args.Name
 		inputs["patchSchedules"] = args.PatchSchedules
 		inputs["privateStaticIpAddress"] = args.PrivateStaticIpAddress
@@ -112,6 +114,7 @@ func GetCache(ctx *pulumi.Context,
 		inputs["family"] = state.Family
 		inputs["hostname"] = state.Hostname
 		inputs["location"] = state.Location
+		inputs["minimumTlsVersion"] = state.MinimumTlsVersion
 		inputs["name"] = state.Name
 		inputs["patchSchedules"] = state.PatchSchedules
 		inputs["port"] = state.Port
@@ -167,6 +170,11 @@ func (r *Cache) Hostname() *pulumi.StringOutput {
 // The location of the resource group.
 func (r *Cache) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
+}
+
+// The minimum TLS version.  Defaults to `1.0`.
+func (r *Cache) MinimumTlsVersion() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["minimumTlsVersion"])
 }
 
 // The name of the Redis instance. Changing this forces a
@@ -253,6 +261,8 @@ type CacheState struct {
 	Hostname interface{}
 	// The location of the resource group.
 	Location interface{}
+	// The minimum TLS version.  Defaults to `1.0`.
+	MinimumTlsVersion interface{}
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name interface{}
@@ -295,6 +305,8 @@ type CacheArgs struct {
 	Family interface{}
 	// The location of the resource group.
 	Location interface{}
+	// The minimum TLS version.  Defaults to `1.0`.
+	MinimumTlsVersion interface{}
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name interface{}

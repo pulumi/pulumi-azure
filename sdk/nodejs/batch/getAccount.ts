@@ -47,6 +47,10 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * The account endpoint used to interact with the Batch service.
+     */
+    readonly accountEndpoint: string;
+    /**
      * The Azure Region in which this Batch account exists.
      */
     readonly location: string;
@@ -58,7 +62,15 @@ export interface GetAccountResult {
      * The pool allocation mode configured for this Batch account.
      */
     readonly poolAllocationMode: string;
+    /**
+     * The Batch account primary access key.
+     */
+    readonly primaryAccessKey: string;
     readonly resourceGroupName: string;
+    /**
+     * The Batch account secondary access key.
+     */
+    readonly secondaryAccessKey: string;
     /**
      * The ID of the Storage Account used for this Batch account.
      */

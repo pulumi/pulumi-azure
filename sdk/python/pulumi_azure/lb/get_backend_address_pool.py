@@ -14,13 +14,13 @@ class GetBackendAddressPoolResult:
     """
     def __init__(__self__, loadbalancer_id=None, name=None, id=None):
         if loadbalancer_id and not isinstance(loadbalancer_id, str):
-            raise TypeError('Expected argument loadbalancer_id to be a str')
+            raise TypeError("Expected argument 'loadbalancer_id' to be a str")
         __self__.loadbalancer_id = loadbalancer_id
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

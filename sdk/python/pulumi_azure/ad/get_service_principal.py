@@ -14,16 +14,16 @@ class GetServicePrincipalResult:
     """
     def __init__(__self__, application_id=None, display_name=None, object_id=None, id=None):
         if application_id and not isinstance(application_id, str):
-            raise TypeError('Expected argument application_id to be a str')
+            raise TypeError("Expected argument 'application_id' to be a str")
         __self__.application_id = application_id
         if display_name and not isinstance(display_name, str):
-            raise TypeError('Expected argument display_name to be a str')
+            raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
         if object_id and not isinstance(object_id, str):
-            raise TypeError('Expected argument object_id to be a str')
+            raise TypeError("Expected argument 'object_id' to be a str")
         __self__.object_id = object_id
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

@@ -91,7 +91,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         __props__ = dict()
 
         if express_route_circuit_name is None:
-            raise TypeError('Missing required property express_route_circuit_name')
+            raise TypeError("Missing required property 'express_route_circuit_name'")
         __props__['express_route_circuit_name'] = express_route_circuit_name
 
         __props__['microsoft_peering_config'] = microsoft_peering_config
@@ -99,25 +99,25 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         __props__['peer_asn'] = peer_asn
 
         if peering_type is None:
-            raise TypeError('Missing required property peering_type')
+            raise TypeError("Missing required property 'peering_type'")
         __props__['peering_type'] = peering_type
 
         if primary_peer_address_prefix is None:
-            raise TypeError('Missing required property primary_peer_address_prefix')
+            raise TypeError("Missing required property 'primary_peer_address_prefix'")
         __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if secondary_peer_address_prefix is None:
-            raise TypeError('Missing required property secondary_peer_address_prefix')
+            raise TypeError("Missing required property 'secondary_peer_address_prefix'")
         __props__['secondary_peer_address_prefix'] = secondary_peer_address_prefix
 
         __props__['shared_key'] = shared_key
 
         if vlan_id is None:
-            raise TypeError('Missing required property vlan_id')
+            raise TypeError("Missing required property 'vlan_id'")
         __props__['vlan_id'] = vlan_id
 
         __props__['azure_asn'] = None

@@ -62,27 +62,27 @@ class AnalyticsSolution(pulumi.CustomResource):
         __props__ = dict()
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if plan is None:
-            raise TypeError('Missing required property plan')
+            raise TypeError("Missing required property 'plan'")
         __props__['plan'] = plan
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if solution_name is None:
-            raise TypeError('Missing required property solution_name')
+            raise TypeError("Missing required property 'solution_name'")
         __props__['solution_name'] = solution_name
 
         if workspace_name is None:
-            raise TypeError('Missing required property workspace_name')
+            raise TypeError("Missing required property 'workspace_name'")
         __props__['workspace_name'] = workspace_name
 
         if workspace_resource_id is None:
-            raise TypeError('Missing required property workspace_resource_id')
+            raise TypeError("Missing required property 'workspace_resource_id'")
         __props__['workspace_resource_id'] = workspace_resource_id
 
         super(AnalyticsSolution, __self__).__init__(

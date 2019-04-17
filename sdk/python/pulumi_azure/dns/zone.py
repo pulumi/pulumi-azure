@@ -80,7 +80,7 @@ class Zone(pulumi.CustomResource):
         __props__['resolution_virtual_network_ids'] = resolution_virtual_network_ids
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags

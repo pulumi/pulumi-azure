@@ -79,27 +79,27 @@ class ConnectionMonitor(pulumi.CustomResource):
         __props__['auto_start'] = auto_start
 
         if destination is None:
-            raise TypeError('Missing required property destination')
+            raise TypeError("Missing required property 'destination'")
         __props__['destination'] = destination
 
         __props__['interval_in_seconds'] = interval_in_seconds
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if network_watcher_name is None:
-            raise TypeError('Missing required property network_watcher_name')
+            raise TypeError("Missing required property 'network_watcher_name'")
         __props__['network_watcher_name'] = network_watcher_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if source is None:
-            raise TypeError('Missing required property source')
+            raise TypeError("Missing required property 'source'")
         __props__['source'] = source
 
         __props__['tags'] = tags

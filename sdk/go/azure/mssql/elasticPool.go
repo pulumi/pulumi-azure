@@ -42,6 +42,7 @@ func NewElasticPool(ctx *pulumi.Context,
 		inputs["serverName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
+		inputs["zoneRedundant"] = nil
 	} else {
 		inputs["location"] = args.Location
 		inputs["maxSizeBytes"] = args.MaxSizeBytes
@@ -52,9 +53,9 @@ func NewElasticPool(ctx *pulumi.Context,
 		inputs["serverName"] = args.ServerName
 		inputs["sku"] = args.Sku
 		inputs["tags"] = args.Tags
+		inputs["zoneRedundant"] = args.ZoneRedundant
 	}
 	inputs["elasticPoolProperties"] = nil
-	inputs["zoneRedundant"] = nil
 	s, err := ctx.RegisterResource("azure:mssql/elasticPool:ElasticPool", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -146,7 +147,7 @@ func (r *ElasticPool) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Whether or not this elastic pool is zone redundant.
+// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
 func (r *ElasticPool) ZoneRedundant() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["zoneRedundant"])
 }
@@ -172,7 +173,7 @@ type ElasticPoolState struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Whether or not this elastic pool is zone redundant.
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
 	ZoneRedundant interface{}
 }
 
@@ -196,4 +197,6 @@ type ElasticPoolArgs struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
+	ZoneRedundant interface{}
 }

@@ -68,17 +68,17 @@ class DscConfiguration(pulumi.CustomResource):
         __props__ = dict()
 
         if automation_account_name is None:
-            raise TypeError('Missing required property automation_account_name')
+            raise TypeError("Missing required property 'automation_account_name'")
         __props__['automation_account_name'] = automation_account_name
 
         if content_embedded is None:
-            raise TypeError('Missing required property content_embedded')
+            raise TypeError("Missing required property 'content_embedded'")
         __props__['content_embedded'] = content_embedded
 
         __props__['description'] = description
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['log_verbose'] = log_verbose
@@ -86,7 +86,7 @@ class DscConfiguration(pulumi.CustomResource):
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['state'] = None

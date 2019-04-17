@@ -62,7 +62,7 @@ class Definition(pulumi.CustomResource):
         __props__ = dict()
 
         if assignable_scopes is None:
-            raise TypeError('Missing required property assignable_scopes')
+            raise TypeError("Missing required property 'assignable_scopes'")
         __props__['assignable_scopes'] = assignable_scopes
 
         __props__['description'] = description
@@ -70,13 +70,13 @@ class Definition(pulumi.CustomResource):
         __props__['name'] = name
 
         if permissions is None:
-            raise TypeError('Missing required property permissions')
+            raise TypeError("Missing required property 'permissions'")
         __props__['permissions'] = permissions
 
         __props__['role_definition_id'] = role_definition_id
 
         if scope is None:
-            raise TypeError('Missing required property scope')
+            raise TypeError("Missing required property 'scope'")
         __props__['scope'] = scope
 
         super(Definition, __self__).__init__(

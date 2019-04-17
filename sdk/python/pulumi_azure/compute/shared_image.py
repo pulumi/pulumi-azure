@@ -22,6 +22,9 @@ class SharedImage(pulumi.CustomResource):
     Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
     """
     identifier: pulumi.Output[dict]
+    """
+    An `identifier` block as defined below.
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
@@ -61,6 +64,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[str] eula: The End User Licence Agreement for the Shared Image.
         :param pulumi.Input[str] gallery_name: Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] identifier: An `identifier` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`.
@@ -89,21 +93,21 @@ class SharedImage(pulumi.CustomResource):
         __props__['eula'] = eula
 
         if gallery_name is None:
-            raise TypeError('Missing required property gallery_name')
+            raise TypeError("Missing required property 'gallery_name'")
         __props__['gallery_name'] = gallery_name
 
         if identifier is None:
-            raise TypeError('Missing required property identifier')
+            raise TypeError("Missing required property 'identifier'")
         __props__['identifier'] = identifier
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if os_type is None:
-            raise TypeError('Missing required property os_type')
+            raise TypeError("Missing required property 'os_type'")
         __props__['os_type'] = os_type
 
         __props__['privacy_statement_uri'] = privacy_statement_uri
@@ -111,7 +115,7 @@ class SharedImage(pulumi.CustomResource):
         __props__['release_note_uri'] = release_note_uri
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags

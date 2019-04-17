@@ -14,25 +14,25 @@ class GetPlatformImageResult:
     """
     def __init__(__self__, location=None, offer=None, publisher=None, sku=None, version=None, id=None):
         if location and not isinstance(location, str):
-            raise TypeError('Expected argument location to be a str')
+            raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         if offer and not isinstance(offer, str):
-            raise TypeError('Expected argument offer to be a str')
+            raise TypeError("Expected argument 'offer' to be a str")
         __self__.offer = offer
         if publisher and not isinstance(publisher, str):
-            raise TypeError('Expected argument publisher to be a str')
+            raise TypeError("Expected argument 'publisher' to be a str")
         __self__.publisher = publisher
         if sku and not isinstance(sku, str):
-            raise TypeError('Expected argument sku to be a str')
+            raise TypeError("Expected argument 'sku' to be a str")
         __self__.sku = sku
         if version and not isinstance(version, str):
-            raise TypeError('Expected argument version to be a str')
+            raise TypeError("Expected argument 'version' to be a str")
         __self__.version = version
         """
         The latest version of the Platform Image.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

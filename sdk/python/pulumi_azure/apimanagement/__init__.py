@@ -3,13 +3,23 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .service import *
 from .api import *
+from .api_operation import *
+from .api_version_set import *
+from .authorization_server import *
+from .certificate import *
 from .group import *
 from .group_user import *
+from .logger import *
+from .open_id_connect_provider import *
 from .product import *
+from .product_api import *
 from .product_group import *
 from .property import *
+from .subscription import *
 from .user import *
+from .get_service import *
 from .get_api import *
 from .get_group import *
 from .get_product import *

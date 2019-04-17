@@ -52,7 +52,7 @@ class ManangementLock(pulumi.CustomResource):
         __props__ = dict()
 
         if lock_level is None:
-            raise TypeError('Missing required property lock_level')
+            raise TypeError("Missing required property 'lock_level'")
         __props__['lock_level'] = lock_level
 
         __props__['name'] = name
@@ -60,7 +60,7 @@ class ManangementLock(pulumi.CustomResource):
         __props__['notes'] = notes
 
         if scope is None:
-            raise TypeError('Missing required property scope')
+            raise TypeError("Missing required property 'scope'")
         __props__['scope'] = scope
 
         super(ManangementLock, __self__).__init__(

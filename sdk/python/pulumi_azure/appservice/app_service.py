@@ -11,7 +11,7 @@ from .. import utilities, tables
 class AppService(pulumi.CustomResource):
     app_service_plan_id: pulumi.Output[str]
     """
-    The ID of the App Service Plan within which to create this App Service. Changing this forces a new resource to be created.
+    The ID of the App Service Plan within which to create this App Service.
     """
     app_settings: pulumi.Output[dict]
     """
@@ -35,7 +35,7 @@ class AppService(pulumi.CustomResource):
     """
     enabled: pulumi.Output[bool]
     """
-    Is the App Service Enabled? Changing this forces a new resource to be created.
+    Is the App Service Enabled?
     """
     https_only: pulumi.Output[bool]
     """
@@ -89,12 +89,12 @@ class AppService(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[list] connection_strings: One or more `connection_string` blocks as defined below.
-        :param pulumi.Input[bool] enabled: Is the App Service Enabled? Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] enabled: Is the App Service Enabled?
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[dict] identity: A Managed Service Identity block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -119,7 +119,7 @@ class AppService(pulumi.CustomResource):
         __props__ = dict()
 
         if app_service_plan_id is None:
-            raise TypeError('Missing required property app_service_plan_id')
+            raise TypeError("Missing required property 'app_service_plan_id'")
         __props__['app_service_plan_id'] = app_service_plan_id
 
         __props__['app_settings'] = app_settings
@@ -137,13 +137,13 @@ class AppService(pulumi.CustomResource):
         __props__['identity'] = identity
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['site_config'] = site_config

@@ -61,6 +61,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["probes"] = nil
+		inputs["redirectConfigurations"] = nil
 		inputs["requestRoutingRules"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
@@ -68,6 +69,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["tags"] = nil
 		inputs["urlPathMaps"] = nil
 		inputs["wafConfiguration"] = nil
+		inputs["zones"] = nil
 	} else {
 		inputs["authenticationCertificates"] = args.AuthenticationCertificates
 		inputs["backendAddressPools"] = args.BackendAddressPools
@@ -82,6 +84,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["probes"] = args.Probes
+		inputs["redirectConfigurations"] = args.RedirectConfigurations
 		inputs["requestRoutingRules"] = args.RequestRoutingRules
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
@@ -89,6 +92,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 		inputs["urlPathMaps"] = args.UrlPathMaps
 		inputs["wafConfiguration"] = args.WafConfiguration
+		inputs["zones"] = args.Zones
 	}
 	s, err := ctx.RegisterResource("azure:network/applicationGateway:ApplicationGateway", name, true, inputs, opts...)
 	if err != nil {
@@ -116,6 +120,7 @@ func GetApplicationGateway(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["probes"] = state.Probes
+		inputs["redirectConfigurations"] = state.RedirectConfigurations
 		inputs["requestRoutingRules"] = state.RequestRoutingRules
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
@@ -123,6 +128,7 @@ func GetApplicationGateway(ctx *pulumi.Context,
 		inputs["tags"] = state.Tags
 		inputs["urlPathMaps"] = state.UrlPathMaps
 		inputs["wafConfiguration"] = state.WafConfiguration
+		inputs["zones"] = state.Zones
 	}
 	s, err := ctx.ReadResource("azure:network/applicationGateway:ApplicationGateway", name, id, inputs, opts...)
 	if err != nil {
@@ -166,6 +172,7 @@ func (r *ApplicationGateway) DisabledSslProtocols() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["disabledSslProtocols"])
 }
 
+// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 func (r *ApplicationGateway) EnableHttp2() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableHttp2"])
 }
@@ -205,6 +212,11 @@ func (r *ApplicationGateway) Probes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["probes"])
 }
 
+// A `redirect_configuration` block as defined below.
+func (r *ApplicationGateway) RedirectConfigurations() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["redirectConfigurations"])
+}
+
 // One or more `request_routing_rule` blocks as defined below.
 func (r *ApplicationGateway) RequestRoutingRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["requestRoutingRules"])
@@ -240,6 +252,11 @@ func (r *ApplicationGateway) WafConfiguration() *pulumi.Output {
 	return r.s.State["wafConfiguration"]
 }
 
+// A collection of availability zones to spread the Application Gateway over.
+func (r *ApplicationGateway) Zones() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["zones"])
+}
+
 // Input properties used for looking up and filtering ApplicationGateway resources.
 type ApplicationGatewayState struct {
 	// One or more `authentication_certificate` blocks as defined below.
@@ -252,6 +269,7 @@ type ApplicationGatewayState struct {
 	CustomErrorConfigurations interface{}
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	DisabledSslProtocols interface{}
+	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 interface{}
 	// One or more `frontend_ip_configuration` blocks as defined below.
 	FrontendIpConfigurations interface{}
@@ -267,6 +285,8 @@ type ApplicationGatewayState struct {
 	Name interface{}
 	// One or more `probe` blocks as defined below.
 	Probes interface{}
+	// A `redirect_configuration` block as defined below.
+	RedirectConfigurations interface{}
 	// One or more `request_routing_rule` blocks as defined below.
 	RequestRoutingRules interface{}
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -281,6 +301,8 @@ type ApplicationGatewayState struct {
 	UrlPathMaps interface{}
 	// A `waf_configuration` block as defined below.
 	WafConfiguration interface{}
+	// A collection of availability zones to spread the Application Gateway over.
+	Zones interface{}
 }
 
 // The set of arguments for constructing a ApplicationGateway resource.
@@ -295,6 +317,7 @@ type ApplicationGatewayArgs struct {
 	CustomErrorConfigurations interface{}
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
 	DisabledSslProtocols interface{}
+	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 interface{}
 	// One or more `frontend_ip_configuration` blocks as defined below.
 	FrontendIpConfigurations interface{}
@@ -310,6 +333,8 @@ type ApplicationGatewayArgs struct {
 	Name interface{}
 	// One or more `probe` blocks as defined below.
 	Probes interface{}
+	// A `redirect_configuration` block as defined below.
+	RedirectConfigurations interface{}
 	// One or more `request_routing_rule` blocks as defined below.
 	RequestRoutingRules interface{}
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -324,4 +349,6 @@ type ApplicationGatewayArgs struct {
 	UrlPathMaps interface{}
 	// A `waf_configuration` block as defined below.
 	WafConfiguration interface{}
+	// A collection of availability zones to spread the Application Gateway over.
+	Zones interface{}
 }

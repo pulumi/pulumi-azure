@@ -109,7 +109,7 @@ class AccessPolicy(pulumi.CustomResource):
         __props__['key_vault_id'] = key_vault_id
 
         if object_id is None:
-            raise TypeError('Missing required property object_id')
+            raise TypeError("Missing required property 'object_id'")
         __props__['object_id'] = object_id
 
         __props__['resource_group_name'] = resource_group_name
@@ -117,7 +117,7 @@ class AccessPolicy(pulumi.CustomResource):
         __props__['secret_permissions'] = secret_permissions
 
         if tenant_id is None:
-            raise TypeError('Missing required property tenant_id')
+            raise TypeError("Missing required property 'tenant_id'")
         __props__['tenant_id'] = tenant_id
 
         __props__['vault_name'] = vault_name

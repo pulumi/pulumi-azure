@@ -82,17 +82,17 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         __props__ = dict()
 
         if backup is None:
-            raise TypeError('Missing required property backup')
+            raise TypeError("Missing required property 'backup'")
         __props__['backup'] = backup
 
         __props__['name'] = name
 
         if recovery_vault_name is None:
-            raise TypeError('Missing required property recovery_vault_name')
+            raise TypeError("Missing required property 'recovery_vault_name'")
         __props__['recovery_vault_name'] = recovery_vault_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['retention_daily'] = retention_daily

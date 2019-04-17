@@ -92,6 +92,10 @@ export class Image extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
+    /**
+     * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     */
+    public readonly zoneResilient: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -112,6 +116,7 @@ export class Image extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sourceVirtualMachineId"] = state ? state.sourceVirtualMachineId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["zoneResilient"] = state ? state.zoneResilient : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
             if (!args || args.location === undefined) {
@@ -127,6 +132,7 @@ export class Image extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sourceVirtualMachineId"] = args ? args.sourceVirtualMachineId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zoneResilient"] = args ? args.zoneResilient : undefined;
         }
         super("azure:compute/image:Image", name, inputs, opts);
     }
@@ -167,6 +173,10 @@ export interface ImageState {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     */
+    readonly zoneResilient?: pulumi.Input<boolean>;
 }
 
 /**
@@ -204,4 +214,8 @@ export interface ImageArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+     */
+    readonly zoneResilient?: pulumi.Input<boolean>;
 }

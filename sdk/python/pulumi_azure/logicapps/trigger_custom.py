@@ -47,11 +47,11 @@ class TriggerCustom(pulumi.CustomResource):
         __props__ = dict()
 
         if body is None:
-            raise TypeError('Missing required property body')
+            raise TypeError("Missing required property 'body'")
         __props__['body'] = body
 
         if logic_app_id is None:
-            raise TypeError('Missing required property logic_app_id')
+            raise TypeError("Missing required property 'logic_app_id'")
         __props__['logic_app_id'] = logic_app_id
 
         __props__['name'] = name

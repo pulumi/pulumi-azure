@@ -62,7 +62,7 @@ class Credential(pulumi.CustomResource):
         __props__ = dict()
 
         if account_name is None:
-            raise TypeError('Missing required property account_name')
+            raise TypeError("Missing required property 'account_name'")
         __props__['account_name'] = account_name
 
         __props__['description'] = description
@@ -70,15 +70,15 @@ class Credential(pulumi.CustomResource):
         __props__['name'] = name
 
         if password is None:
-            raise TypeError('Missing required property password')
+            raise TypeError("Missing required property 'password'")
         __props__['password'] = password
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if username is None:
-            raise TypeError('Missing required property username')
+            raise TypeError("Missing required property 'username'")
         __props__['username'] = username
 
         super(Credential, __self__).__init__(

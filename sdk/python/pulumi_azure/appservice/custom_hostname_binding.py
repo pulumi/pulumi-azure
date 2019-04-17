@@ -47,15 +47,15 @@ class CustomHostnameBinding(pulumi.CustomResource):
         __props__ = dict()
 
         if app_service_name is None:
-            raise TypeError('Missing required property app_service_name')
+            raise TypeError("Missing required property 'app_service_name'")
         __props__['app_service_name'] = app_service_name
 
         if hostname is None:
-            raise TypeError('Missing required property hostname')
+            raise TypeError("Missing required property 'hostname'")
         __props__['hostname'] = hostname
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         super(CustomHostnameBinding, __self__).__init__(

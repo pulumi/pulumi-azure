@@ -85,6 +85,7 @@ func (r *ProductGroup) GroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["groupName"])
 }
 
+// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
 func (r *ProductGroup) ProductId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["productId"])
 }
@@ -100,6 +101,7 @@ type ProductGroupState struct {
 	ApiManagementName interface{}
 	// The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
 	GroupName interface{}
+	// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
 	ProductId interface{}
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -111,6 +113,7 @@ type ProductGroupArgs struct {
 	ApiManagementName interface{}
 	// The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
 	GroupName interface{}
+	// The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
 	ProductId interface{}
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

@@ -113,17 +113,17 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __props__['name'] = name
 
         if remote_virtual_network_id is None:
-            raise TypeError('Missing required property remote_virtual_network_id')
+            raise TypeError("Missing required property 'remote_virtual_network_id'")
         __props__['remote_virtual_network_id'] = remote_virtual_network_id
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['use_remote_gateways'] = use_remote_gateways
 
         if virtual_network_name is None:
-            raise TypeError('Missing required property virtual_network_name')
+            raise TypeError("Missing required property 'virtual_network_name'")
         __props__['virtual_network_name'] = virtual_network_name
 
         super(VirtualNetworkPeering, __self__).__init__(

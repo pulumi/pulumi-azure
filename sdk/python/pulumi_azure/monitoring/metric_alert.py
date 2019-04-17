@@ -96,7 +96,7 @@ class MetricAlert(pulumi.CustomResource):
         __props__['auto_mitigate'] = auto_mitigate
 
         if criterias is None:
-            raise TypeError('Missing required property criterias')
+            raise TypeError("Missing required property 'criterias'")
         __props__['criterias'] = criterias
 
         __props__['description'] = description
@@ -108,11 +108,11 @@ class MetricAlert(pulumi.CustomResource):
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if scopes is None:
-            raise TypeError('Missing required property scopes')
+            raise TypeError("Missing required property 'scopes'")
         __props__['scopes'] = scopes
 
         __props__['severity'] = severity

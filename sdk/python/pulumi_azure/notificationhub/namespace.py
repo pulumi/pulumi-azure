@@ -68,21 +68,21 @@ class Namespace(pulumi.CustomResource):
         __props__['enabled'] = enabled
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if namespace_type is None:
-            raise TypeError('Missing required property namespace_type')
+            raise TypeError("Missing required property 'namespace_type'")
         __props__['namespace_type'] = namespace_type
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['servicebus_endpoint'] = None

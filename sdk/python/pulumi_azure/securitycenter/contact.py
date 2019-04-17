@@ -54,19 +54,19 @@ class Contact(pulumi.CustomResource):
         __props__ = dict()
 
         if alert_notifications is None:
-            raise TypeError('Missing required property alert_notifications')
+            raise TypeError("Missing required property 'alert_notifications'")
         __props__['alert_notifications'] = alert_notifications
 
         if alerts_to_admins is None:
-            raise TypeError('Missing required property alerts_to_admins')
+            raise TypeError("Missing required property 'alerts_to_admins'")
         __props__['alerts_to_admins'] = alerts_to_admins
 
         if email is None:
-            raise TypeError('Missing required property email')
+            raise TypeError("Missing required property 'email'")
         __props__['email'] = email
 
         if phone is None:
-            raise TypeError('Missing required property phone')
+            raise TypeError("Missing required property 'phone'")
         __props__['phone'] = phone
 
         super(Contact, __self__).__init__(

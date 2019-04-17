@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "example-resources",
  * });
- * const testAPI = new azure.apimanagement.API("test", {
+ * const testService = new azure.apimanagement.Service("test", {
  *     location: testResourceGroup.location,
  *     name: "example-apim",
  *     publisherEmail: "company@terraform.io",
@@ -30,17 +30,17 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export class API extends pulumi.CustomResource {
+export class Service extends pulumi.CustomResource {
     /**
-     * Get an existing API resource's state with the given name, ID, and optional extra
+     * Get an existing Service resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: APIState, opts?: pulumi.CustomResourceOptions): API {
-        return new API(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServiceState, opts?: pulumi.CustomResourceOptions): Service {
+        return new Service(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -84,6 +84,10 @@ export class API extends pulumi.CustomResource {
      */
     public readonly notificationSenderEmail: pulumi.Output<string>;
     /**
+     * A `policy` block as defined below.
+     */
+    public readonly policy: pulumi.Output<{ xmlContent: string, xmlLink?: string }>;
+    /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
     public /*out*/ readonly portalUrl: pulumi.Output<string>;
@@ -112,6 +116,14 @@ export class API extends pulumi.CustomResource {
      */
     public readonly security: pulumi.Output<{ disableBackendSsl30?: boolean, disableBackendTls10?: boolean, disableBackendTls11?: boolean, disableFrontendSsl30?: boolean, disableFrontendTls10?: boolean, disableFrontendTls11?: boolean, disableTripleDesChipers?: boolean }>;
     /**
+     * A `sign_in` block as defined below.
+     */
+    public readonly signIn: pulumi.Output<{ enabled: boolean }>;
+    /**
+     * A `sign_up` block as defined below.
+     */
+    public readonly signUp: pulumi.Output<{ enabled: boolean, termsOfService: { consentRequired: boolean, enabled: boolean, text?: string } }>;
+    /**
      * A `sku` block as documented below.
      */
     public readonly sku: pulumi.Output<{ capacity: number, name: string }>;
@@ -121,17 +133,17 @@ export class API extends pulumi.CustomResource {
     public readonly tags: pulumi.Output<{[key: string]: any}>;
 
     /**
-     * Create a API resource with the given unique name, arguments, and options.
+     * Create a Service resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: APIArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: APIArgs | APIState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: APIState = argsOrState as APIState | undefined;
+            const state: ServiceState = argsOrState as ServiceState | undefined;
             inputs["additionalLocation"] = state ? state.additionalLocation : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;
             inputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;
@@ -142,6 +154,7 @@ export class API extends pulumi.CustomResource {
             inputs["managementApiUrl"] = state ? state.managementApiUrl : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notificationSenderEmail"] = state ? state.notificationSenderEmail : undefined;
+            inputs["policy"] = state ? state.policy : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;
             inputs["publicIpAddresses"] = state ? state.publicIpAddresses : undefined;
             inputs["publisherEmail"] = state ? state.publisherEmail : undefined;
@@ -149,10 +162,12 @@ export class API extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["scmUrl"] = state ? state.scmUrl : undefined;
             inputs["security"] = state ? state.security : undefined;
+            inputs["signIn"] = state ? state.signIn : undefined;
+            inputs["signUp"] = state ? state.signUp : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
-            const args = argsOrState as APIArgs | undefined;
+            const args = argsOrState as ServiceArgs | undefined;
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -175,10 +190,13 @@ export class API extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
+            inputs["policy"] = args ? args.policy : undefined;
             inputs["publisherEmail"] = args ? args.publisherEmail : undefined;
             inputs["publisherName"] = args ? args.publisherName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["security"] = args ? args.security : undefined;
+            inputs["signIn"] = args ? args.signIn : undefined;
+            inputs["signUp"] = args ? args.signUp : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["gatewayRegionalUrl"] = undefined /*out*/;
@@ -188,14 +206,14 @@ export class API extends pulumi.CustomResource {
             inputs["publicIpAddresses"] = undefined /*out*/;
             inputs["scmUrl"] = undefined /*out*/;
         }
-        super("azure:apimanagement/aPI:API", name, inputs, opts);
+        super("azure:apimanagement/service:Service", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering API resources.
+ * Input properties used for looking up and filtering Service resources.
  */
-export interface APIState {
+export interface ServiceState {
     /**
      * One or more `additional_location` blocks as defined below.
      */
@@ -237,6 +255,10 @@ export interface APIState {
      */
     readonly notificationSenderEmail?: pulumi.Input<string>;
     /**
+     * A `policy` block as defined below.
+     */
+    readonly policy?: pulumi.Input<{ xmlContent?: pulumi.Input<string>, xmlLink?: pulumi.Input<string> }>;
+    /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
     readonly portalUrl?: pulumi.Input<string>;
@@ -265,6 +287,14 @@ export interface APIState {
      */
     readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean> }>;
     /**
+     * A `sign_in` block as defined below.
+     */
+    readonly signIn?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    /**
+     * A `sign_up` block as defined below.
+     */
+    readonly signUp?: pulumi.Input<{ enabled: pulumi.Input<boolean>, termsOfService: pulumi.Input<{ consentRequired: pulumi.Input<boolean>, enabled: pulumi.Input<boolean>, text?: pulumi.Input<string> }> }>;
+    /**
      * A `sku` block as documented below.
      */
     readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string> }>;
@@ -275,9 +305,9 @@ export interface APIState {
 }
 
 /**
- * The set of arguments for constructing a API resource.
+ * The set of arguments for constructing a Service resource.
  */
-export interface APIArgs {
+export interface ServiceArgs {
     /**
      * One or more `additional_location` blocks as defined below.
      */
@@ -307,6 +337,10 @@ export interface APIArgs {
      */
     readonly notificationSenderEmail?: pulumi.Input<string>;
     /**
+     * A `policy` block as defined below.
+     */
+    readonly policy?: pulumi.Input<{ xmlContent?: pulumi.Input<string>, xmlLink?: pulumi.Input<string> }>;
+    /**
      * The email of publisher/company.
      */
     readonly publisherEmail: pulumi.Input<string>;
@@ -322,6 +356,14 @@ export interface APIArgs {
      * A `security` block as defined below.
      */
     readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean> }>;
+    /**
+     * A `sign_in` block as defined below.
+     */
+    readonly signIn?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    /**
+     * A `sign_up` block as defined below.
+     */
+    readonly signUp?: pulumi.Input<{ enabled: pulumi.Input<boolean>, termsOfService: pulumi.Input<{ consentRequired: pulumi.Input<boolean>, enabled: pulumi.Input<boolean>, text?: pulumi.Input<string> }> }>;
     /**
      * A `sku` block as documented below.
      */

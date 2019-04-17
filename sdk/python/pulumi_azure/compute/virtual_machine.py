@@ -156,13 +156,13 @@ class VirtualMachine(pulumi.CustomResource):
         __props__['license_type'] = license_type
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if network_interface_ids is None:
-            raise TypeError('Missing required property network_interface_ids')
+            raise TypeError("Missing required property 'network_interface_ids'")
         __props__['network_interface_ids'] = network_interface_ids
 
         __props__['os_profile'] = os_profile
@@ -178,7 +178,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__['primary_network_interface_id'] = primary_network_interface_id
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['storage_data_disks'] = storage_data_disks
@@ -186,13 +186,13 @@ class VirtualMachine(pulumi.CustomResource):
         __props__['storage_image_reference'] = storage_image_reference
 
         if storage_os_disk is None:
-            raise TypeError('Missing required property storage_os_disk')
+            raise TypeError("Missing required property 'storage_os_disk'")
         __props__['storage_os_disk'] = storage_os_disk
 
         __props__['tags'] = tags
 
         if vm_size is None:
-            raise TypeError('Missing required property vm_size')
+            raise TypeError("Missing required property 'vm_size'")
         __props__['vm_size'] = vm_size
 
         __props__['zones'] = zones

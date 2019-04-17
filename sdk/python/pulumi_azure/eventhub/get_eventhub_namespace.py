@@ -14,78 +14,78 @@ class GetEventhubNamespaceResult:
     """
     def __init__(__self__, auto_inflate_enabled=None, capacity=None, default_primary_connection_string=None, default_primary_key=None, default_secondary_connection_string=None, default_secondary_key=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, id=None):
         if auto_inflate_enabled and not isinstance(auto_inflate_enabled, bool):
-            raise TypeError('Expected argument auto_inflate_enabled to be a bool')
+            raise TypeError("Expected argument 'auto_inflate_enabled' to be a bool")
         __self__.auto_inflate_enabled = auto_inflate_enabled
         """
         Is Auto Inflate enabled for the EventHub Namespace?
         """
         if capacity and not isinstance(capacity, float):
-            raise TypeError('Expected argument capacity to be a float')
+            raise TypeError("Expected argument 'capacity' to be a float")
         __self__.capacity = capacity
         """
         The Capacity / Throughput Units for a `Standard` SKU namespace.
         """
         if default_primary_connection_string and not isinstance(default_primary_connection_string, str):
-            raise TypeError('Expected argument default_primary_connection_string to be a str')
+            raise TypeError("Expected argument 'default_primary_connection_string' to be a str")
         __self__.default_primary_connection_string = default_primary_connection_string
         """
         The primary connection string for the authorization
         rule `RootManageSharedAccessKey`.
         """
         if default_primary_key and not isinstance(default_primary_key, str):
-            raise TypeError('Expected argument default_primary_key to be a str')
+            raise TypeError("Expected argument 'default_primary_key' to be a str")
         __self__.default_primary_key = default_primary_key
         """
         The primary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         if default_secondary_connection_string and not isinstance(default_secondary_connection_string, str):
-            raise TypeError('Expected argument default_secondary_connection_string to be a str')
+            raise TypeError("Expected argument 'default_secondary_connection_string' to be a str")
         __self__.default_secondary_connection_string = default_secondary_connection_string
         """
         The secondary connection string for the
         authorization rule `RootManageSharedAccessKey`.
         """
         if default_secondary_key and not isinstance(default_secondary_key, str):
-            raise TypeError('Expected argument default_secondary_key to be a str')
+            raise TypeError("Expected argument 'default_secondary_key' to be a str")
         __self__.default_secondary_key = default_secondary_key
         """
         The secondary access key for the authorization rule `RootManageSharedAccessKey`.
         """
         if kafka_enabled and not isinstance(kafka_enabled, bool):
-            raise TypeError('Expected argument kafka_enabled to be a bool')
+            raise TypeError("Expected argument 'kafka_enabled' to be a bool")
         __self__.kafka_enabled = kafka_enabled
         if location and not isinstance(location, str):
-            raise TypeError('Expected argument location to be a str')
+            raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The Azure location where the EventHub Namespace exists
         """
         if maximum_throughput_units and not isinstance(maximum_throughput_units, float):
-            raise TypeError('Expected argument maximum_throughput_units to be a float')
+            raise TypeError("Expected argument 'maximum_throughput_units' to be a float")
         __self__.maximum_throughput_units = maximum_throughput_units
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled.
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError('Expected argument resource_group_name to be a str')
+            raise TypeError("Expected argument 'resource_group_name' to be a str")
         __self__.resource_group_name = resource_group_name
         if sku and not isinstance(sku, str):
-            raise TypeError('Expected argument sku to be a str')
+            raise TypeError("Expected argument 'sku' to be a str")
         __self__.sku = sku
         """
         Defines which tier to use.
         """
         if tags and not isinstance(tags, dict):
-            raise TypeError('Expected argument tags to be a dict')
+            raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         A mapping of tags to assign to the EventHub Namespace.
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

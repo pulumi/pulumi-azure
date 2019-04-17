@@ -71,21 +71,21 @@ class EventHub(pulumi.CustomResource):
         __props__['location'] = location
 
         if message_retention is None:
-            raise TypeError('Missing required property message_retention')
+            raise TypeError("Missing required property 'message_retention'")
         __props__['message_retention'] = message_retention
 
         __props__['name'] = name
 
         if namespace_name is None:
-            raise TypeError('Missing required property namespace_name')
+            raise TypeError("Missing required property 'namespace_name'")
         __props__['namespace_name'] = namespace_name
 
         if partition_count is None:
-            raise TypeError('Missing required property partition_count')
+            raise TypeError("Missing required property 'partition_count'")
         __props__['partition_count'] = partition_count
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['partition_ids'] = None

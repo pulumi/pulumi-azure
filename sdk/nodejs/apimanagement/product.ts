@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "example-resources",
  * });
- * const testAPI = new azure.apimanagement.API("test", {
+ * const testService = new azure.apimanagement.Service("test", {
  *     location: testResourceGroup.location,
  *     name: "example-apim",
  *     publisherEmail: "company@terraform.io",
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const testProduct = new azure.apimanagement.Product("test", {
- *     apiManagementName: testAPI.name,
+ *     apiManagementName: testService.name,
  *     approvalRequired: true,
  *     displayName: "Test Product",
  *     productId: "test-product",

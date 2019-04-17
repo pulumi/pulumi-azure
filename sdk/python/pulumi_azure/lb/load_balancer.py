@@ -72,13 +72,13 @@ class LoadBalancer(pulumi.CustomResource):
         __props__['frontend_ip_configurations'] = frontend_ip_configurations
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['sku'] = sku

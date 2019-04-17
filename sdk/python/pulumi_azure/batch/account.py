@@ -9,6 +9,10 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Account(pulumi.CustomResource):
+    account_endpoint: pulumi.Output[str]
+    """
+    The account endpoint used to interact with the Batch service.
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -21,9 +25,17 @@ class Account(pulumi.CustomResource):
     """
     Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
     """
+    primary_access_key: pulumi.Output[str]
+    """
+    The Batch account primary access key.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+    """
+    secondary_access_key: pulumi.Output[str]
+    """
+    The Batch account secondary access key.
     """
     storage_account_id: pulumi.Output[str]
     """
@@ -62,7 +74,7 @@ class Account(pulumi.CustomResource):
         __props__ = dict()
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
@@ -70,12 +82,16 @@ class Account(pulumi.CustomResource):
         __props__['pool_allocation_mode'] = pool_allocation_mode
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['storage_account_id'] = storage_account_id
 
         __props__['tags'] = tags
+
+        __props__['account_endpoint'] = None
+        __props__['primary_access_key'] = None
+        __props__['secondary_access_key'] = None
 
         super(Account, __self__).__init__(
             'azure:batch/account:Account',

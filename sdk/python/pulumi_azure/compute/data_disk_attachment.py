@@ -66,21 +66,21 @@ class DataDiskAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if caching is None:
-            raise TypeError('Missing required property caching')
+            raise TypeError("Missing required property 'caching'")
         __props__['caching'] = caching
 
         __props__['create_option'] = create_option
 
         if lun is None:
-            raise TypeError('Missing required property lun')
+            raise TypeError("Missing required property 'lun'")
         __props__['lun'] = lun
 
         if managed_disk_id is None:
-            raise TypeError('Missing required property managed_disk_id')
+            raise TypeError("Missing required property 'managed_disk_id'")
         __props__['managed_disk_id'] = managed_disk_id
 
         if virtual_machine_id is None:
-            raise TypeError('Missing required property virtual_machine_id')
+            raise TypeError("Missing required property 'virtual_machine_id'")
         __props__['virtual_machine_id'] = virtual_machine_id
 
         __props__['write_accelerator_enabled'] = write_accelerator_enabled

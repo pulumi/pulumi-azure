@@ -54,15 +54,15 @@ class Configuration(pulumi.CustomResource):
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if server_name is None:
-            raise TypeError('Missing required property server_name')
+            raise TypeError("Missing required property 'server_name'")
         __props__['server_name'] = server_name
 
         if value is None:
-            raise TypeError('Missing required property value')
+            raise TypeError("Missing required property 'value'")
         __props__['value'] = value
 
         super(Configuration, __self__).__init__(

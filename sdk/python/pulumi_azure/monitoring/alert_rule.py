@@ -104,7 +104,7 @@ class AlertRule(pulumi.CustomResource):
         __props__ = dict()
 
         if aggregation is None:
-            raise TypeError('Missing required property aggregation')
+            raise TypeError("Missing required property 'aggregation'")
         __props__['aggregation'] = aggregation
 
         __props__['description'] = description
@@ -114,35 +114,35 @@ class AlertRule(pulumi.CustomResource):
         __props__['enabled'] = enabled
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if metric_name is None:
-            raise TypeError('Missing required property metric_name')
+            raise TypeError("Missing required property 'metric_name'")
         __props__['metric_name'] = metric_name
 
         __props__['name'] = name
 
         if operator is None:
-            raise TypeError('Missing required property operator')
+            raise TypeError("Missing required property 'operator'")
         __props__['operator'] = operator
 
         if period is None:
-            raise TypeError('Missing required property period')
+            raise TypeError("Missing required property 'period'")
         __props__['period'] = period
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if resource_id is None:
-            raise TypeError('Missing required property resource_id')
+            raise TypeError("Missing required property 'resource_id'")
         __props__['resource_id'] = resource_id
 
         __props__['tags'] = tags
 
         if threshold is None:
-            raise TypeError('Missing required property threshold')
+            raise TypeError("Missing required property 'threshold'")
         __props__['threshold'] = threshold
 
         __props__['webhook_action'] = webhook_action

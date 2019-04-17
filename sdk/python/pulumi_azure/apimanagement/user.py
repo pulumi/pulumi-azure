@@ -82,21 +82,21 @@ class User(pulumi.CustomResource):
         __props__ = dict()
 
         if api_management_name is None:
-            raise TypeError('Missing required property api_management_name')
+            raise TypeError("Missing required property 'api_management_name'")
         __props__['api_management_name'] = api_management_name
 
         __props__['confirmation'] = confirmation
 
         if email is None:
-            raise TypeError('Missing required property email')
+            raise TypeError("Missing required property 'email'")
         __props__['email'] = email
 
         if first_name is None:
-            raise TypeError('Missing required property first_name')
+            raise TypeError("Missing required property 'first_name'")
         __props__['first_name'] = first_name
 
         if last_name is None:
-            raise TypeError('Missing required property last_name')
+            raise TypeError("Missing required property 'last_name'")
         __props__['last_name'] = last_name
 
         __props__['note'] = note
@@ -104,13 +104,13 @@ class User(pulumi.CustomResource):
         __props__['password'] = password
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['state'] = state
 
         if user_id is None:
-            raise TypeError('Missing required property user_id')
+            raise TypeError("Missing required property 'user_id'")
         __props__['user_id'] = user_id
 
         super(User, __self__).__init__(

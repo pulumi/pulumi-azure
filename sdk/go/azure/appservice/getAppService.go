@@ -13,7 +13,6 @@ func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServ
 	if args != nil {
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
-		inputs["siteConfig"] = args.SiteConfig
 	}
 	outputs, err := ctx.Invoke("azure:appservice/getAppService:getAppService", inputs)
 	if err != nil {
@@ -33,7 +32,7 @@ func LookupAppService(ctx *pulumi.Context, args *GetAppServiceArgs) (*GetAppServ
 		OutboundIpAddresses: outputs["outboundIpAddresses"],
 		PossibleOutboundIpAddresses: outputs["possibleOutboundIpAddresses"],
 		ResourceGroupName: outputs["resourceGroupName"],
-		SiteConfig: outputs["siteConfig"],
+		SiteConfigs: outputs["siteConfigs"],
 		SiteCredentials: outputs["siteCredentials"],
 		SourceControls: outputs["sourceControls"],
 		Tags: outputs["tags"],
@@ -47,7 +46,6 @@ type GetAppServiceArgs struct {
 	Name interface{}
 	// The Name of the Resource Group where the App Service exists.
 	ResourceGroupName interface{}
-	SiteConfig interface{}
 }
 
 // A collection of values returned by getAppService.
@@ -77,7 +75,7 @@ type GetAppServiceResult struct {
 	PossibleOutboundIpAddresses interface{}
 	ResourceGroupName interface{}
 	// A `site_config` block as defined below.
-	SiteConfig interface{}
+	SiteConfigs interface{}
 	SiteCredentials interface{}
 	SourceControls interface{}
 	// A mapping of tags to assign to the resource.

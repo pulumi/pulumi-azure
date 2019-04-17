@@ -126,7 +126,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
         __props__ = dict()
 
         if access is None:
-            raise TypeError('Missing required property access')
+            raise TypeError("Missing required property 'access'")
         __props__['access'] = access
 
         __props__['description'] = description
@@ -142,25 +142,25 @@ class NetworkSecurityRule(pulumi.CustomResource):
         __props__['destination_port_ranges'] = destination_port_ranges
 
         if direction is None:
-            raise TypeError('Missing required property direction')
+            raise TypeError("Missing required property 'direction'")
         __props__['direction'] = direction
 
         __props__['name'] = name
 
         if network_security_group_name is None:
-            raise TypeError('Missing required property network_security_group_name')
+            raise TypeError("Missing required property 'network_security_group_name'")
         __props__['network_security_group_name'] = network_security_group_name
 
         if priority is None:
-            raise TypeError('Missing required property priority')
+            raise TypeError("Missing required property 'priority'")
         __props__['priority'] = priority
 
         if protocol is None:
-            raise TypeError('Missing required property protocol')
+            raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['source_address_prefix'] = source_address_prefix

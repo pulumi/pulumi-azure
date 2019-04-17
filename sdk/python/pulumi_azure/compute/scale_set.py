@@ -180,17 +180,17 @@ class ScaleSet(pulumi.CustomResource):
         __props__['license_type'] = license_type
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if network_profiles is None:
-            raise TypeError('Missing required property network_profiles')
+            raise TypeError("Missing required property 'network_profiles'")
         __props__['network_profiles'] = network_profiles
 
         if os_profile is None:
-            raise TypeError('Missing required property os_profile')
+            raise TypeError("Missing required property 'os_profile'")
         __props__['os_profile'] = os_profile
 
         __props__['os_profile_linux_config'] = os_profile_linux_config
@@ -206,7 +206,7 @@ class ScaleSet(pulumi.CustomResource):
         __props__['priority'] = priority
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['rolling_upgrade_policy'] = rolling_upgrade_policy
@@ -214,7 +214,7 @@ class ScaleSet(pulumi.CustomResource):
         __props__['single_placement_group'] = single_placement_group
 
         if sku is None:
-            raise TypeError('Missing required property sku')
+            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
 
         __props__['storage_profile_data_disks'] = storage_profile_data_disks
@@ -222,13 +222,13 @@ class ScaleSet(pulumi.CustomResource):
         __props__['storage_profile_image_reference'] = storage_profile_image_reference
 
         if storage_profile_os_disk is None:
-            raise TypeError('Missing required property storage_profile_os_disk')
+            raise TypeError("Missing required property 'storage_profile_os_disk'")
         __props__['storage_profile_os_disk'] = storage_profile_os_disk
 
         __props__['tags'] = tags
 
         if upgrade_policy_mode is None:
-            raise TypeError('Missing required property upgrade_policy_mode')
+            raise TypeError("Missing required property 'upgrade_policy_mode'")
         __props__['upgrade_policy_mode'] = upgrade_policy_mode
 
         __props__['zones'] = zones

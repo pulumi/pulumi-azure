@@ -75,15 +75,15 @@ class Key(pulumi.CustomResource):
         __props__ = dict()
 
         if key_opts is None:
-            raise TypeError('Missing required property key_opts')
+            raise TypeError("Missing required property 'key_opts'")
         __props__['key_opts'] = key_opts
 
         if key_size is None:
-            raise TypeError('Missing required property key_size')
+            raise TypeError("Missing required property 'key_size'")
         __props__['key_size'] = key_size
 
         if key_type is None:
-            raise TypeError('Missing required property key_type')
+            raise TypeError("Missing required property 'key_type'")
         __props__['key_type'] = key_type
 
         __props__['key_vault_id'] = key_vault_id

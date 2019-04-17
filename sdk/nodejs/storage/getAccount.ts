@@ -86,6 +86,10 @@ export interface GetAccountResult {
      */
     readonly enableHttpsTrafficOnly: boolean;
     /**
+     * Is Hierarchical Namespace enabled?
+     */
+    readonly isHnsEnabled: boolean;
+    /**
      * The Azure location where the Storage Account exists
      */
     readonly location: string;
@@ -114,6 +118,14 @@ export interface GetAccountResult {
      */
     readonly primaryConnectionString: string;
     /**
+     * The endpoint URL for DFS storage in the primary location.
+     */
+    readonly primaryDfsEndpoint: string;
+    /**
+     * The hostname with port if applicable for DFS storage in the primary location.
+     */
+    readonly primaryDfsHost: string;
+    /**
      * The endpoint URL for file storage in the primary location.
      */
     readonly primaryFileEndpoint: string;
@@ -141,6 +153,14 @@ export interface GetAccountResult {
      * The hostname with port if applicable for table storage in the primary location.
      */
     readonly primaryTableHost: string;
+    /**
+     * The endpoint URL for web storage in the primary location.
+     */
+    readonly primaryWebEndpoint: string;
+    /**
+     * The hostname with port if applicable for web storage in the primary location.
+     */
+    readonly primaryWebHost: string;
     readonly resourceGroupName: string;
     /**
      * The secondary access key for the Storage Account.
@@ -163,6 +183,22 @@ export interface GetAccountResult {
      */
     readonly secondaryConnectionString: string;
     /**
+     * The endpoint URL for DFS storage in the secondary location.
+     */
+    readonly secondaryDfsEndpoint: string;
+    /**
+     * The hostname with port if applicable for DFS storage in the secondary location.
+     */
+    readonly secondaryDfsHost: string;
+    /**
+     * The endpoint URL for file storage in the secondary location.
+     */
+    readonly secondaryFileEndpoint: string;
+    /**
+     * The hostname with port if applicable for file storage in the secondary location.
+     */
+    readonly secondaryFileHost: string;
+    /**
      * The secondary location of the Storage Account.
      */
     readonly secondaryLocation: string;
@@ -182,6 +218,14 @@ export interface GetAccountResult {
      * The hostname with port if applicable for table storage in the secondary location.
      */
     readonly secondaryTableHost: string;
+    /**
+     * The endpoint URL for web storage in the secondary location.
+     */
+    readonly secondaryWebEndpoint: string;
+    /**
+     * The hostname with port if applicable for web storage in the secondary location.
+     */
+    readonly secondaryWebHost: string;
     /**
      * A mapping of tags to assigned to the resource.
      */

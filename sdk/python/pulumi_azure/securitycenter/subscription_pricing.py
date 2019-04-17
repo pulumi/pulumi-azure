@@ -41,7 +41,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         __props__ = dict()
 
         if tier is None:
-            raise TypeError('Missing required property tier')
+            raise TypeError("Missing required property 'tier'")
         __props__['tier'] = tier
 
         super(SubscriptionPricing, __self__).__init__(

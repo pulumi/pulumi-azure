@@ -80,6 +80,10 @@ export interface GetImageResult {
      */
     readonly tags: {[key: string]: any};
     /**
+     * is zone resiliency enabled?
+     */
+    readonly zoneResilient: boolean;
+    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

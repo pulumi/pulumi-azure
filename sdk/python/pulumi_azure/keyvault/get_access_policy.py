@@ -14,28 +14,28 @@ class GetAccessPolicyResult:
     """
     def __init__(__self__, certificate_permissions=None, key_permissions=None, name=None, secret_permissions=None, id=None):
         if certificate_permissions and not isinstance(certificate_permissions, list):
-            raise TypeError('Expected argument certificate_permissions to be a list')
+            raise TypeError("Expected argument 'certificate_permissions' to be a list")
         __self__.certificate_permissions = certificate_permissions
         """
         the certificate permissions for the access policy
         """
         if key_permissions and not isinstance(key_permissions, list):
-            raise TypeError('Expected argument key_permissions to be a list')
+            raise TypeError("Expected argument 'key_permissions' to be a list")
         __self__.key_permissions = key_permissions
         """
         the key permissions for the access policy
         """
         if name and not isinstance(name, str):
-            raise TypeError('Expected argument name to be a str')
+            raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         if secret_permissions and not isinstance(secret_permissions, list):
-            raise TypeError('Expected argument secret_permissions to be a list')
+            raise TypeError("Expected argument 'secret_permissions' to be a list")
         __self__.secret_permissions = secret_permissions
         """
         the secret permissions for the access policy
         """
         if id and not isinstance(id, str):
-            raise TypeError('Expected argument id to be a str')
+            raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         id is the provider-assigned unique ID for this managed resource.

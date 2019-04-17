@@ -44,11 +44,11 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         __props__ = dict()
 
         if network_security_group_id is None:
-            raise TypeError('Missing required property network_security_group_id')
+            raise TypeError("Missing required property 'network_security_group_id'")
         __props__['network_security_group_id'] = network_security_group_id
 
         if subnet_id is None:
-            raise TypeError('Missing required property subnet_id')
+            raise TypeError("Missing required property 'subnet_id'")
         __props__['subnet_id'] = subnet_id
 
         super(SubnetNetworkSecurityGroupAssociation, __self__).__init__(

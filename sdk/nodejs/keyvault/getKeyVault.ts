@@ -49,7 +49,7 @@ export interface GetKeyVaultResult {
     /**
      * One or more `access_policy` blocks as defined below.
      */
-    readonly accessPolicies: { applicationId: string, certificatePermissions: string[], keyPermissions: string[], objectId: string, secretPermissions: string[], tenantId: string }[];
+    readonly accessPolicies: { applicationId: string, certificatePermissions: string[], keyPermissions: string[], objectId: string, secretPermissions: string[], storagePermissions: string[], tenantId: string }[];
     /**
      * Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
      */

@@ -88,7 +88,7 @@ class Pool(pulumi.CustomResource):
         __props__ = dict()
 
         if account_name is None:
-            raise TypeError('Missing required property account_name')
+            raise TypeError("Missing required property 'account_name'")
         __props__['account_name'] = account_name
 
         __props__['auto_scale'] = auto_scale
@@ -102,11 +102,11 @@ class Pool(pulumi.CustomResource):
         __props__['name'] = name
 
         if node_agent_sku_id is None:
-            raise TypeError('Missing required property node_agent_sku_id')
+            raise TypeError("Missing required property 'node_agent_sku_id'")
         __props__['node_agent_sku_id'] = node_agent_sku_id
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['start_task'] = start_task
@@ -114,11 +114,11 @@ class Pool(pulumi.CustomResource):
         __props__['stop_pending_resize_operation'] = stop_pending_resize_operation
 
         if storage_image_reference is None:
-            raise TypeError('Missing required property storage_image_reference')
+            raise TypeError("Missing required property 'storage_image_reference'")
         __props__['storage_image_reference'] = storage_image_reference
 
         if vm_size is None:
-            raise TypeError('Missing required property vm_size')
+            raise TypeError("Missing required property 'vm_size'")
         __props__['vm_size'] = vm_size
 
         super(Pool, __self__).__init__(

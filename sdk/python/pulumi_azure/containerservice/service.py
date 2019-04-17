@@ -89,33 +89,33 @@ class Service(pulumi.CustomResource):
         __props__ = dict()
 
         if agent_pool_profile is None:
-            raise TypeError('Missing required property agent_pool_profile')
+            raise TypeError("Missing required property 'agent_pool_profile'")
         __props__['agent_pool_profile'] = agent_pool_profile
 
         if diagnostics_profile is None:
-            raise TypeError('Missing required property diagnostics_profile')
+            raise TypeError("Missing required property 'diagnostics_profile'")
         __props__['diagnostics_profile'] = diagnostics_profile
 
         if linux_profile is None:
-            raise TypeError('Missing required property linux_profile')
+            raise TypeError("Missing required property 'linux_profile'")
         __props__['linux_profile'] = linux_profile
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if master_profile is None:
-            raise TypeError('Missing required property master_profile')
+            raise TypeError("Missing required property 'master_profile'")
         __props__['master_profile'] = master_profile
 
         __props__['name'] = name
 
         if orchestration_platform is None:
-            raise TypeError('Missing required property orchestration_platform')
+            raise TypeError("Missing required property 'orchestration_platform'")
         __props__['orchestration_platform'] = orchestration_platform
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['service_principal'] = service_principal

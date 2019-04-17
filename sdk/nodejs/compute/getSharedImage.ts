@@ -61,6 +61,9 @@ export interface GetSharedImageResult {
      */
     readonly eula: string;
     readonly galleryName: string;
+    /**
+     * An `identifier` block as defined below.
+     */
     readonly identifiers: { offer: string, publisher: string, sku: string }[];
     /**
      * The supported Azure location where the Shared Image Gallery exists.

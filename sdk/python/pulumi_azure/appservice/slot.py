@@ -103,11 +103,11 @@ class Slot(pulumi.CustomResource):
         __props__ = dict()
 
         if app_service_name is None:
-            raise TypeError('Missing required property app_service_name')
+            raise TypeError("Missing required property 'app_service_name'")
         __props__['app_service_name'] = app_service_name
 
         if app_service_plan_id is None:
-            raise TypeError('Missing required property app_service_plan_id')
+            raise TypeError("Missing required property 'app_service_plan_id'")
         __props__['app_service_plan_id'] = app_service_plan_id
 
         __props__['app_settings'] = app_settings
@@ -123,13 +123,13 @@ class Slot(pulumi.CustomResource):
         __props__['identity'] = identity
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['site_config'] = site_config

@@ -18,6 +18,9 @@ class ProductGroup(pulumi.CustomResource):
     The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
     """
     product_id: pulumi.Output[str]
+    """
+    The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -30,6 +33,7 @@ class ProductGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] group_name: The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] product_id: The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
@@ -48,19 +52,19 @@ class ProductGroup(pulumi.CustomResource):
         __props__ = dict()
 
         if api_management_name is None:
-            raise TypeError('Missing required property api_management_name')
+            raise TypeError("Missing required property 'api_management_name'")
         __props__['api_management_name'] = api_management_name
 
         if group_name is None:
-            raise TypeError('Missing required property group_name')
+            raise TypeError("Missing required property 'group_name'")
         __props__['group_name'] = group_name
 
         if product_id is None:
-            raise TypeError('Missing required property product_id')
+            raise TypeError("Missing required property 'product_id'")
         __props__['product_id'] = product_id
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         super(ProductGroup, __self__).__init__(

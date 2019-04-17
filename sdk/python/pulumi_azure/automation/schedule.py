@@ -101,7 +101,7 @@ class Schedule(pulumi.CustomResource):
         __props__['expiry_time'] = expiry_time
 
         if frequency is None:
-            raise TypeError('Missing required property frequency')
+            raise TypeError("Missing required property 'frequency'")
         __props__['frequency'] = frequency
 
         __props__['interval'] = interval
@@ -113,7 +113,7 @@ class Schedule(pulumi.CustomResource):
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['start_time'] = start_time

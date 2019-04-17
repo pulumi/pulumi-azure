@@ -81,27 +81,27 @@ class SubscriptionRule(pulumi.CustomResource):
         __props__['correlation_filter'] = correlation_filter
 
         if filter_type is None:
-            raise TypeError('Missing required property filter_type')
+            raise TypeError("Missing required property 'filter_type'")
         __props__['filter_type'] = filter_type
 
         __props__['name'] = name
 
         if namespace_name is None:
-            raise TypeError('Missing required property namespace_name')
+            raise TypeError("Missing required property 'namespace_name'")
         __props__['namespace_name'] = namespace_name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['sql_filter'] = sql_filter
 
         if subscription_name is None:
-            raise TypeError('Missing required property subscription_name')
+            raise TypeError("Missing required property 'subscription_name'")
         __props__['subscription_name'] = subscription_name
 
         if topic_name is None:
-            raise TypeError('Missing required property topic_name')
+            raise TypeError("Missing required property 'topic_name'")
         __props__['topic_name'] = topic_name
 
         super(SubscriptionRule, __self__).__init__(

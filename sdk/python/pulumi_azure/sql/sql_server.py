@@ -74,27 +74,27 @@ class SqlServer(pulumi.CustomResource):
         __props__ = dict()
 
         if administrator_login is None:
-            raise TypeError('Missing required property administrator_login')
+            raise TypeError("Missing required property 'administrator_login'")
         __props__['administrator_login'] = administrator_login
 
         if administrator_login_password is None:
-            raise TypeError('Missing required property administrator_login_password')
+            raise TypeError("Missing required property 'administrator_login_password'")
         __props__['administrator_login_password'] = administrator_login_password
 
         if location is None:
-            raise TypeError('Missing required property location')
+            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name
 
         if resource_group_name is None:
-            raise TypeError('Missing required property resource_group_name')
+            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         __props__['tags'] = tags
 
         if version is None:
-            raise TypeError('Missing required property version')
+            raise TypeError("Missing required property 'version'")
         __props__['version'] = version
 
         __props__['fully_qualified_domain_name'] = None
