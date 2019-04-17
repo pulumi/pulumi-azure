@@ -44,12 +44,13 @@ class Profile(pulumi.CustomResource):
     """
     traffic_routing_method: pulumi.Output[str]
     """
-    Specifies the algorithm used to route
-    traffic, possible values are:
+    Specifies the algorithm used to route traffic, possible values are:
     - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+    - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
     - `Performance` - Traffic is routed via the User's closest Endpoint
-    - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
     - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+    - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+    - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
     """
     def __init__(__self__, resource_name, opts=None, dns_configs=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __name__=None, __opts__=None):
         """
@@ -72,12 +73,13 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the virtual network.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route
-               traffic, possible values are:
+        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
                - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+               - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
                - `Performance` - Traffic is routed via the User's closest Endpoint
-               - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
                - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+               - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+               - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

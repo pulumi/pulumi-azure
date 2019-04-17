@@ -3,6 +3,8 @@
 
 // Export members:
 export * from "./account";
+export * from "./certificate";
 export * from "./getAccount";
+export * from "./getCertificate";
 export * from "./getPool";
 export * from "./pool";

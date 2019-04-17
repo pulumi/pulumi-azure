@@ -203,6 +203,10 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly expressRouteCircuitId: pulumi.Output<string | undefined>;
     /**
+     * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+     */
+    public readonly expressRouteGatewayBypass: pulumi.Output<boolean>;
+    /**
      * A `ipsec_policy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -285,6 +289,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             inputs["enableBgp"] = state ? state.enableBgp : undefined;
             inputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;
+            inputs["expressRouteGatewayBypass"] = state ? state.expressRouteGatewayBypass : undefined;
             inputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
             inputs["localNetworkGatewayId"] = state ? state.localNetworkGatewayId : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -314,6 +319,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
             inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["expressRouteCircuitId"] = args ? args.expressRouteCircuitId : undefined;
+            inputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
             inputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
             inputs["localNetworkGatewayId"] = args ? args.localNetworkGatewayId : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -352,6 +358,10 @@ export interface VirtualNetworkGatewayConnectionState {
      * The Express Route Circuit can be in the same or in a different subscription.
      */
     readonly expressRouteCircuitId?: pulumi.Input<string>;
+    /**
+     * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+     */
+    readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
      * A `ipsec_policy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
@@ -442,6 +452,10 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * The Express Route Circuit can be in the same or in a different subscription.
      */
     readonly expressRouteCircuitId?: pulumi.Input<string>;
+    /**
+     * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+     */
+    readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
      * A `ipsec_policy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     location: testResourceGroup.location,
  *     name: "acceptanceTestSearchService1",
  *     resourceGroupName: testResourceGroup.name,
- *     sku: "Standard",
+ *     sku: "standard",
  *     tags: {
  *         database: "test",
  *         environment: "staging",

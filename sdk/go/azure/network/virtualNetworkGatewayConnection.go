@@ -33,6 +33,7 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		inputs["authorizationKey"] = nil
 		inputs["enableBgp"] = nil
 		inputs["expressRouteCircuitId"] = nil
+		inputs["expressRouteGatewayBypass"] = nil
 		inputs["ipsecPolicy"] = nil
 		inputs["localNetworkGatewayId"] = nil
 		inputs["location"] = nil
@@ -49,6 +50,7 @@ func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		inputs["authorizationKey"] = args.AuthorizationKey
 		inputs["enableBgp"] = args.EnableBgp
 		inputs["expressRouteCircuitId"] = args.ExpressRouteCircuitId
+		inputs["expressRouteGatewayBypass"] = args.ExpressRouteGatewayBypass
 		inputs["ipsecPolicy"] = args.IpsecPolicy
 		inputs["localNetworkGatewayId"] = args.LocalNetworkGatewayId
 		inputs["location"] = args.Location
@@ -78,6 +80,7 @@ func GetVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 		inputs["authorizationKey"] = state.AuthorizationKey
 		inputs["enableBgp"] = state.EnableBgp
 		inputs["expressRouteCircuitId"] = state.ExpressRouteCircuitId
+		inputs["expressRouteGatewayBypass"] = state.ExpressRouteGatewayBypass
 		inputs["ipsecPolicy"] = state.IpsecPolicy
 		inputs["localNetworkGatewayId"] = state.LocalNetworkGatewayId
 		inputs["location"] = state.Location
@@ -126,6 +129,11 @@ func (r *VirtualNetworkGatewayConnection) EnableBgp() *pulumi.BoolOutput {
 // The Express Route Circuit can be in the same or in a different subscription.
 func (r *VirtualNetworkGatewayConnection) ExpressRouteCircuitId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["expressRouteCircuitId"])
+}
+
+// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+func (r *VirtualNetworkGatewayConnection) ExpressRouteGatewayBypass() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["expressRouteGatewayBypass"])
 }
 
 // A `ipsec_policy` block which is documented below.
@@ -220,6 +228,8 @@ type VirtualNetworkGatewayConnectionState struct {
 	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
 	// The Express Route Circuit can be in the same or in a different subscription.
 	ExpressRouteCircuitId interface{}
+	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+	ExpressRouteGatewayBypass interface{}
 	// A `ipsec_policy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -278,6 +288,8 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	// when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
 	// The Express Route Circuit can be in the same or in a different subscription.
 	ExpressRouteCircuitId interface{}
+	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+	ExpressRouteGatewayBypass interface{}
 	// A `ipsec_policy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).

@@ -23,6 +23,7 @@ from .network_security_rule import *
 from .network_watcher import *
 from .packet_capture import *
 from .public_ip import *
+from .public_ip_prefix import *
 from .route import *
 from .route_table import *
 from .subnet import *
@@ -33,6 +34,8 @@ from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
 from .virtual_network_peering import *
 from .get_application_security_group import *
+from .get_express_route_circuit import *
+from .get_firewall import *
 from .get_network_interface import *
 from .get_network_security_group import *
 from .get_network_watcher import *

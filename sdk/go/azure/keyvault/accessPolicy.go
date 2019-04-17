@@ -35,6 +35,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 		inputs["objectId"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["secretPermissions"] = nil
+		inputs["storagePermissions"] = nil
 		inputs["tenantId"] = nil
 		inputs["vaultName"] = nil
 	} else {
@@ -45,6 +46,7 @@ func NewAccessPolicy(ctx *pulumi.Context,
 		inputs["objectId"] = args.ObjectId
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["secretPermissions"] = args.SecretPermissions
+		inputs["storagePermissions"] = args.StoragePermissions
 		inputs["tenantId"] = args.TenantId
 		inputs["vaultName"] = args.VaultName
 	}
@@ -68,6 +70,7 @@ func GetAccessPolicy(ctx *pulumi.Context,
 		inputs["objectId"] = state.ObjectId
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["secretPermissions"] = state.SecretPermissions
+		inputs["storagePermissions"] = state.StoragePermissions
 		inputs["tenantId"] = state.TenantId
 		inputs["vaultName"] = state.VaultName
 	}
@@ -131,6 +134,11 @@ func (r *AccessPolicy) SecretPermissions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["secretPermissions"])
 }
 
+// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+func (r *AccessPolicy) StoragePermissions() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["storagePermissions"])
+}
+
 // The Azure Active Directory tenant ID that should be used
 // for authenticating requests to the key vault. Changing this forces a new resource
 // to be created.
@@ -168,6 +176,8 @@ type AccessPolicyState struct {
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
 	SecretPermissions interface{}
+	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+	StoragePermissions interface{}
 	// The Azure Active Directory tenant ID that should be used
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.
@@ -201,6 +211,8 @@ type AccessPolicyArgs struct {
 	// List of secret permissions, must be one or more
 	// from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
 	SecretPermissions interface{}
+	// List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+	StoragePermissions interface{}
 	// The Azure Active Directory tenant ID that should be used
 	// for authenticating requests to the key vault. Changing this forces a new resource
 	// to be created.

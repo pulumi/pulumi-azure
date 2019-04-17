@@ -35,6 +35,7 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil {
 		inputs["accountName"] = nil
 		inputs["autoScale"] = nil
+		inputs["certificates"] = nil
 		inputs["displayName"] = nil
 		inputs["fixedScale"] = nil
 		inputs["maxTasksPerNode"] = nil
@@ -48,6 +49,7 @@ func NewPool(ctx *pulumi.Context,
 	} else {
 		inputs["accountName"] = args.AccountName
 		inputs["autoScale"] = args.AutoScale
+		inputs["certificates"] = args.Certificates
 		inputs["displayName"] = args.DisplayName
 		inputs["fixedScale"] = args.FixedScale
 		inputs["maxTasksPerNode"] = args.MaxTasksPerNode
@@ -74,6 +76,7 @@ func GetPool(ctx *pulumi.Context,
 	if state != nil {
 		inputs["accountName"] = state.AccountName
 		inputs["autoScale"] = state.AutoScale
+		inputs["certificates"] = state.Certificates
 		inputs["displayName"] = state.DisplayName
 		inputs["fixedScale"] = state.FixedScale
 		inputs["maxTasksPerNode"] = state.MaxTasksPerNode
@@ -110,6 +113,11 @@ func (r *Pool) AccountName() *pulumi.StringOutput {
 // A `auto_scale` block that describes the scale settings when using auto scale.
 func (r *Pool) AutoScale() *pulumi.Output {
 	return r.s.State["autoScale"]
+}
+
+// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+func (r *Pool) Certificates() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["certificates"])
 }
 
 // Specifies the display name of the Batch pool.
@@ -167,6 +175,8 @@ type PoolState struct {
 	AccountName interface{}
 	// A `auto_scale` block that describes the scale settings when using auto scale.
 	AutoScale interface{}
+	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+	Certificates interface{}
 	// Specifies the display name of the Batch pool.
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
@@ -194,6 +204,8 @@ type PoolArgs struct {
 	AccountName interface{}
 	// A `auto_scale` block that describes the scale settings when using auto scale.
 	AutoScale interface{}
+	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+	Certificates interface{}
 	// Specifies the display name of the Batch pool.
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.

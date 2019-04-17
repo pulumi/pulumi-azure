@@ -4,3 +4,4 @@
 // Export members:
 export * from "./consumerGroup";
 export * from "./ioTHub";
+export * from "./sharedAccessPolicy";

@@ -62,6 +62,10 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly contentType: pulumi.Output<string | undefined>;
     /**
+     * A map of custom blob metadata.
+     */
+    public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
     public readonly name: pulumi.Output<string>;
@@ -120,6 +124,7 @@ export class Blob extends pulumi.CustomResource {
             const state: BlobState = argsOrState as BlobState | undefined;
             inputs["attempts"] = state ? state.attempts : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
+            inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["parallelism"] = state ? state.parallelism : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -143,6 +148,7 @@ export class Blob extends pulumi.CustomResource {
             }
             inputs["attempts"] = args ? args.attempts : undefined;
             inputs["contentType"] = args ? args.contentType : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parallelism"] = args ? args.parallelism : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -170,6 +176,10 @@ export interface BlobState {
      * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
      */
     readonly contentType?: pulumi.Input<string>;
+    /**
+     * A map of custom blob metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
@@ -228,6 +238,10 @@ export interface BlobArgs {
      * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
      */
     readonly contentType?: pulumi.Input<string>;
+    /**
+     * A map of custom blob metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */

@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.keyvault.getSecret({
+ * const test = azurerm_key_vault_existing.id.apply(id => azure.keyvault.getSecret({
+ *     keyVaultId: id,
  *     name: "secret-sauce",
- *     vaultUri: "https://rickslab.vault.azure.net/",
  * }));
  * 
  * export const secretValue = test.apply(test => test.value);
@@ -36,14 +36,14 @@ export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Pro
  * A collection of arguments for invoking getSecret.
  */
 export interface GetSecretArgs {
+    /**
+     * Specifies the ID of the Key Vault Key Vault instance where the Secret resides, available on the `azurerm_key_vault` Data Source / Resource.
+     */
     readonly keyVaultId?: string;
     /**
      * Specifies the name of the Key Vault Secret.
      */
     readonly name: string;
-    /**
-     * Specifies the ID of the Key Vault Key Vault instance where the Secret resides, available on the `azurerm_key_vault` Data Source / Resource.
-     */
     readonly vaultUri?: string;
 }
 

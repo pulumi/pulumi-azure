@@ -52,7 +52,7 @@ const (
 	azureDevSpace            = "devspace"            // DevSpace
 	azureDevTest             = "devtest"             // Dev Test Labs
 	azureDNS                 = "dns"                 // DNS
-	azureHdInsight           = "hdinsight"           // HDInsight
+	azureHdInsight           = "hdinsight"           // nolint:misspell // HDInsight
 	azureIot                 = "iot"                 // IoT resource
 	azureKeyVault            = "keyvault"            // Key Vault
 	azureLogAnalytics        = "loganalytics"        // Log Analytics
@@ -602,13 +602,19 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_watcher":                                                        {Tok: azureResource(azureNetwork, "NetworkWatcher")},
 			"azurerm_packet_capture":                                                         {Tok: azureResource(azureNetwork, "PacketCapture")},
 			"azurerm_public_ip":                                                              {Tok: azureResource(azureNetwork, "PublicIp")},
-			"azurerm_public_ip_prefix":                                                       {Tok: azureResource(azureNetwork, "PublicIpPrefix")},
-			"azurerm_route":                                                                  {Tok: azureResource(azureNetwork, "Route")},
-			"azurerm_route_table":                                                            {Tok: azureResource(azureNetwork, "RouteTable")},
-			"azurerm_subnet":                                                                 {Tok: azureResource(azureNetwork, "Subnet")},
-			"azurerm_subnet_network_security_group_association":                              {Tok: azureResource(azureNetwork, "SubnetNetworkSecurityGroupAssociation")},
-			"azurerm_subnet_route_table_association":                                         {Tok: azureResource(azureNetwork, "SubnetRouteTableAssociation")},
-			"azurerm_express_route_circuit":                                                  {Tok: azureResource(azureNetwork, "ExpressRouteCircuit")},
+			"azurerm_public_ip_prefix": {
+				Tok: azureResource(azureNetwork, "PublicIpPrefix"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Ensure "sku" is a singleton
+					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+				},
+			},
+			"azurerm_route":       {Tok: azureResource(azureNetwork, "Route")},
+			"azurerm_route_table": {Tok: azureResource(azureNetwork, "RouteTable")},
+			"azurerm_subnet":      {Tok: azureResource(azureNetwork, "Subnet")},
+			"azurerm_subnet_network_security_group_association": {Tok: azureResource(azureNetwork, "SubnetNetworkSecurityGroupAssociation")},
+			"azurerm_subnet_route_table_association":            {Tok: azureResource(azureNetwork, "SubnetRouteTableAssociation")},
+			"azurerm_express_route_circuit":                     {Tok: azureResource(azureNetwork, "ExpressRouteCircuit")},
 			"azurerm_express_route_circuit_authorization": {Tok: azureResource(azureNetwork, "ExpressRouteCircuitAuthorization"),
 				Docs: &tfbridge.DocInfo{
 					Source: "express_route_circuit_authorization.html.markdown",
@@ -775,20 +781,26 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_virtual_network":                        {Tok: azureDataSource(azureNetwork, "getVirtualNetwork")},
-			"azurerm_virtual_network_gateway":                {Tok: azureDataSource(azureNetwork, "getVirtualNetworkGateway")},
-			"azurerm_network_security_group":                 {Tok: azureDataSource(azureNetwork, "getNetworkSecurityGroup")},
-			"azurerm_network_interface":                      {Tok: azureDataSource(azureNetwork, "getNetworkInterface")},
-			"azurerm_network_watcher":                        {Tok: azureDataSource(azureNetwork, "getNetworkWatcher")},
-			"azurerm_public_ip":                              {Tok: azureDataSource(azureNetwork, "getPublicIP")},
-			"azurerm_public_ips":                             {Tok: azureDataSource(azureNetwork, "getPublicIPs")},
-			"azurerm_application_security_group":             {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
-			"azurerm_recovery_services_vault":                {Tok: azureDataSource(azureRecoveryServices, "getVault")},
-			"azurerm_resource_group":                         {Tok: azureDataSource(azureCore, "getResourceGroup")},
-			"azurerm_snapshot":                               {Tok: azureDataSource(azureCompute, "getSnapshot")},
-			"azurerm_subnet":                                 {Tok: azureDataSource(azureNetwork, "getSubnet")},
-			"azurerm_route_table":                            {Tok: azureDataSource(azureNetwork, "getRouteTable")},
-			"azurerm_express_route_circuit":                  {Tok: azureDataSource(azureNetwork, "getExpressRouteCircuit")},
+			"azurerm_virtual_network":            {Tok: azureDataSource(azureNetwork, "getVirtualNetwork")},
+			"azurerm_virtual_network_gateway":    {Tok: azureDataSource(azureNetwork, "getVirtualNetworkGateway")},
+			"azurerm_network_security_group":     {Tok: azureDataSource(azureNetwork, "getNetworkSecurityGroup")},
+			"azurerm_network_interface":          {Tok: azureDataSource(azureNetwork, "getNetworkInterface")},
+			"azurerm_network_watcher":            {Tok: azureDataSource(azureNetwork, "getNetworkWatcher")},
+			"azurerm_public_ip":                  {Tok: azureDataSource(azureNetwork, "getPublicIP")},
+			"azurerm_public_ips":                 {Tok: azureDataSource(azureNetwork, "getPublicIPs")},
+			"azurerm_application_security_group": {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
+			"azurerm_recovery_services_vault":    {Tok: azureDataSource(azureRecoveryServices, "getVault")},
+			"azurerm_resource_group":             {Tok: azureDataSource(azureCore, "getResourceGroup")},
+			"azurerm_snapshot":                   {Tok: azureDataSource(azureCompute, "getSnapshot")},
+			"azurerm_subnet":                     {Tok: azureDataSource(azureNetwork, "getSubnet")},
+			"azurerm_route_table":                {Tok: azureDataSource(azureNetwork, "getRouteTable")},
+			"azurerm_express_route_circuit": {
+				Tok: azureDataSource(azureNetwork, "getExpressRouteCircuit"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Ensure "sku" is a singleton
+					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
+				},
+			},
 			"azurerm_firewall":                               {Tok: azureDataSource(azureNetwork, "getFirewall")},
 			"azurerm_subscription":                           {Tok: azureDataSource(azureCore, "getSubscription")},
 			"azurerm_policy_definition":                      {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},

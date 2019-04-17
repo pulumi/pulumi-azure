@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  *     location: testrg.location,
  *     name: "storageaccountname",
  *     networkRules: {
- *         ipRules: ["127.0.0.1"],
+ *         ipRules: ["100.0.0.1"],
  *         virtualNetworkSubnetIds: [testSubnet.id],
  *     },
  *     resourceGroupName: testrg.name,

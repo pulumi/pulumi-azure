@@ -107,6 +107,10 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostname: pulumi.Output<string>;
     /**
+     * One or more `ip_filter_rule` blocks as defined below.
+     */
+    public readonly ipFilterRules: pulumi.Output<{ action: string, ipMask: string, name: string }[] | undefined>;
+    /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
     public readonly location: pulumi.Output<string>;
@@ -155,6 +159,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
             inputs["fallbackRoute"] = state ? state.fallbackRoute : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
+            inputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -176,6 +181,7 @@ export class IoTHub extends pulumi.CustomResource {
             }
             inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
+            inputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -227,6 +233,10 @@ export interface IoTHubState {
      */
     readonly hostname?: pulumi.Input<string>;
     /**
+     * One or more `ip_filter_rule` blocks as defined below.
+     */
+    readonly ipFilterRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, ipMask: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
@@ -269,6 +279,10 @@ export interface IoTHubArgs {
      * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
     readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
+    /**
+     * One or more `ip_filter_rule` blocks as defined below.
+     */
+    readonly ipFilterRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, ipMask: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */

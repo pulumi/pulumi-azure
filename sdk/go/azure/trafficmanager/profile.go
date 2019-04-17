@@ -130,12 +130,13 @@ func (r *Profile) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Specifies the algorithm used to route
-// traffic, possible values are:
+// Specifies the algorithm used to route traffic, possible values are:
 // - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
 // - `Performance` - Traffic is routed via the User's closest Endpoint
-// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 // - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 func (r *Profile) TrafficRoutingMethod() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["trafficRoutingMethod"])
 }
@@ -161,12 +162,13 @@ type ProfileState struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the algorithm used to route
-	// traffic, possible values are:
+	// Specifies the algorithm used to route traffic, possible values are:
 	// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+	// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
 	// - `Performance` - Traffic is routed via the User's closest Endpoint
-	// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 	// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+	// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+	// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 	TrafficRoutingMethod interface{}
 }
 
@@ -189,11 +191,12 @@ type ProfileArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies the algorithm used to route
-	// traffic, possible values are:
+	// Specifies the algorithm used to route traffic, possible values are:
 	// - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+	// - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
 	// - `Performance` - Traffic is routed via the User's closest Endpoint
-	// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 	// - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+	// - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+	// - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 	TrafficRoutingMethod interface{}
 }

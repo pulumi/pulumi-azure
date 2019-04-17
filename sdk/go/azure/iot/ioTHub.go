@@ -29,6 +29,7 @@ func NewIoTHub(ctx *pulumi.Context,
 	if args == nil {
 		inputs["endpoints"] = nil
 		inputs["fallbackRoute"] = nil
+		inputs["ipFilterRules"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
@@ -38,6 +39,7 @@ func NewIoTHub(ctx *pulumi.Context,
 	} else {
 		inputs["endpoints"] = args.Endpoints
 		inputs["fallbackRoute"] = args.FallbackRoute
+		inputs["ipFilterRules"] = args.IpFilterRules
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -72,6 +74,7 @@ func GetIoTHub(ctx *pulumi.Context,
 		inputs["eventHubOperationsPath"] = state.EventHubOperationsPath
 		inputs["fallbackRoute"] = state.FallbackRoute
 		inputs["hostname"] = state.Hostname
+		inputs["ipFilterRules"] = state.IpFilterRules
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -133,6 +136,11 @@ func (r *IoTHub) Hostname() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hostname"])
 }
 
+// One or more `ip_filter_rule` blocks as defined below.
+func (r *IoTHub) IpFilterRules() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["ipFilterRules"])
+}
+
 // Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 func (r *IoTHub) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
@@ -188,6 +196,8 @@ type IoTHubState struct {
 	FallbackRoute interface{}
 	// The hostname of the IotHub Resource.
 	Hostname interface{}
+	// One or more `ip_filter_rule` blocks as defined below.
+	IpFilterRules interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -211,6 +221,8 @@ type IoTHubArgs struct {
 	Endpoints interface{}
 	// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	FallbackRoute interface{}
+	// One or more `ip_filter_rule` blocks as defined below.
+	IpFilterRules interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.

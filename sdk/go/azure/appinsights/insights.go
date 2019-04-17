@@ -84,7 +84,7 @@ func (r *Insights) AppId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["appId"])
 }
 
-// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
+// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 func (r *Insights) ApplicationType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["applicationType"])
 }
@@ -120,7 +120,7 @@ func (r *Insights) Tags() *pulumi.MapOutput {
 type InsightsState struct {
 	// The App ID associated with this Application Insights component.
 	AppId interface{}
-	// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
+	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType interface{}
 	// The Instrumentation Key for this Application Insights component.
 	InstrumentationKey interface{}
@@ -138,7 +138,7 @@ type InsightsState struct {
 
 // The set of arguments for constructing a Insights resource.
 type InsightsArgs struct {
-	// Specifies the type of Application Insights to create. Valid values are `Java`, `iOS`, `MobileCenter`, `Other`, `Phone`, `Store`, `Web` and `Node.JS`.
+	// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
 	ApplicationType interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

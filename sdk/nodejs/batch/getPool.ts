@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     return pulumi.runtime.invoke("azure:batch/getPool:getPool", {
         "accountName": args.accountName,
+        "certificates": args.certificates,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "startTask": args.startTask,
@@ -21,9 +22,10 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetPoolArgs {
     readonly accountName: string;
+    readonly certificates?: { id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[];
     readonly name: string;
     readonly resourceGroupName: string;
-    readonly startTask?: { commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, userIdentities?: { autoUsers?: { elevationLevel?: string, scope?: string }[], userName?: string }[], waitForSuccess?: boolean };
+    readonly startTask?: { commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles?: { autoStorageContainerName?: string, blobPrefix?: string, fileMode?: string, filePath?: string, httpUrl?: string, storageContainerUrl?: string }[], userIdentities?: { autoUsers?: { elevationLevel?: string, scope?: string }[], userName?: string }[], waitForSuccess?: boolean };
 }
 
 /**
@@ -38,6 +40,10 @@ export interface GetPoolResult {
      * A `auto_scale` block that describes the scale settings when using auto scale.
      */
     readonly autoScales: { evaluationInterval: string, formula: string }[];
+    /**
+     * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+     */
+    readonly certificates?: { id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[];
     readonly displayName: string;
     /**
      * A `fixed_scale` block that describes the scale settings when using fixed scale.
@@ -59,7 +65,7 @@ export interface GetPoolResult {
     /**
      * A `start_task` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: { commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, userIdentities: { autoUsers: { elevationLevel: string, scope: string }[], userName: string }[], waitForSuccess?: boolean };
+    readonly startTask?: { commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles: { autoStorageContainerName: string, blobPrefix: string, fileMode: string, filePath: string, httpUrl: string, storageContainerUrl: string }[], userIdentities: { autoUsers: { elevationLevel: string, scope: string }[], userName: string }[], waitForSuccess?: boolean };
     /**
      * The reference of the storage image used by the nodes in the Batch pool.
      */

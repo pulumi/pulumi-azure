@@ -26,6 +26,7 @@ func LookupSubnet(ctx *pulumi.Context, args *GetSubnetArgs) (*GetSubnetResult, e
 		NetworkSecurityGroupId: outputs["networkSecurityGroupId"],
 		ResourceGroupName: outputs["resourceGroupName"],
 		RouteTableId: outputs["routeTableId"],
+		ServiceEndpoints: outputs["serviceEndpoints"],
 		VirtualNetworkName: outputs["virtualNetworkName"],
 		Id: outputs["id"],
 	}, nil
@@ -53,6 +54,8 @@ type GetSubnetResult struct {
 	ResourceGroupName interface{}
 	// The ID of the Route Table associated with this subnet.
 	RouteTableId interface{}
+	// A list of Service Endpoints within this subnet.
+	ServiceEndpoints interface{}
 	VirtualNetworkName interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

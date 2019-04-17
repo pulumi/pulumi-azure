@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as fs from "fs";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "%s",
@@ -34,6 +35,14 @@ import * as utilities from "../utilities";
  *         env: "test",
  *     },
  * });
+ * const testcer = new azure.batch.Certificate("testcer", {
+ *     accountName: testAccount.name,
+ *     certificate: Buffer.from(fs.readFileSync("certificate.cer", "utf-8")).toString("base64"),
+ *     format: "Cer",
+ *     resourceGroupName: testResourceGroup.name,
+ *     thumbprint: "312d31a79fa0cef49c00f769afc2b73e9f4edf34",
+ *     thumbprintAlgorithm: "SHA1",
+ * });
  * const testPool = new azure.batch.Pool("test", {
  *     accountName: testAccount.name,
  *     autoScale: {
@@ -45,6 +54,10 @@ import * as utilities from "../utilities";
  *       $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
  * `,
  *     },
+ *     certificates: [{
+ *         id: testcer.id,
+ *         visibilities: ["StartTask"],
+ *     }],
  *     displayName: "Test Acc Pool Auto",
  *     name: "testaccpool",
  *     nodeAgentSkuId: "batch.node.ubuntu 16.04",
@@ -95,6 +108,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly autoScale: pulumi.Output<{ evaluationInterval?: string, formula: string } | undefined>;
     /**
+     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+     */
+    public readonly certificates: pulumi.Output<{ id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[] | undefined>;
+    /**
      * Specifies the display name of the Batch pool.
      */
     public readonly displayName: pulumi.Output<string | undefined>;
@@ -121,7 +138,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * A `start_task` block that describes the start task settings for the Batch pool.
      */
-    public readonly startTask: pulumi.Output<{ commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, userIdentity: { autoUser?: { elevationLevel?: string, scope?: string }, userName?: string }, waitForSuccess?: boolean } | undefined>;
+    public readonly startTask: pulumi.Output<{ commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles?: { autoStorageContainerName?: string, blobPrefix?: string, fileMode?: string, filePath?: string, httpUrl?: string, storageContainerUrl?: string }[], userIdentity: { autoUser?: { elevationLevel?: string, scope?: string }, userName?: string }, waitForSuccess?: boolean } | undefined>;
     public readonly stopPendingResizeOperation: pulumi.Output<boolean | undefined>;
     /**
      * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
@@ -146,6 +163,7 @@ export class Pool extends pulumi.CustomResource {
             const state: PoolState = argsOrState as PoolState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["autoScale"] = state ? state.autoScale : undefined;
+            inputs["certificates"] = state ? state.certificates : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["fixedScale"] = state ? state.fixedScale : undefined;
             inputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
@@ -175,6 +193,7 @@ export class Pool extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["autoScale"] = args ? args.autoScale : undefined;
+            inputs["certificates"] = args ? args.certificates : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["fixedScale"] = args ? args.fixedScale : undefined;
             inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
@@ -203,6 +222,10 @@ export interface PoolState {
      */
     readonly autoScale?: pulumi.Input<{ evaluationInterval?: pulumi.Input<string>, formula: pulumi.Input<string> }>;
     /**
+     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+     */
+    readonly certificates?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, storeLocation: pulumi.Input<string>, storeName?: pulumi.Input<string>, visibilities?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    /**
      * Specifies the display name of the Batch pool.
      */
     readonly displayName?: pulumi.Input<string>;
@@ -229,7 +252,7 @@ export interface PoolState {
     /**
      * A `start_task` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: pulumi.Input<{ commandLine: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, maxTaskRetryCount?: pulumi.Input<number>, userIdentity: pulumi.Input<{ autoUser?: pulumi.Input<{ elevationLevel?: pulumi.Input<string>, scope?: pulumi.Input<string> }>, userName?: pulumi.Input<string> }>, waitForSuccess?: pulumi.Input<boolean> }>;
+    readonly startTask?: pulumi.Input<{ commandLine: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, maxTaskRetryCount?: pulumi.Input<number>, resourceFiles?: pulumi.Input<pulumi.Input<{ autoStorageContainerName?: pulumi.Input<string>, blobPrefix?: pulumi.Input<string>, fileMode?: pulumi.Input<string>, filePath?: pulumi.Input<string>, httpUrl?: pulumi.Input<string>, storageContainerUrl?: pulumi.Input<string> }>[]>, userIdentity: pulumi.Input<{ autoUser?: pulumi.Input<{ elevationLevel?: pulumi.Input<string>, scope?: pulumi.Input<string> }>, userName?: pulumi.Input<string> }>, waitForSuccess?: pulumi.Input<boolean> }>;
     readonly stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
      * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
@@ -253,6 +276,10 @@ export interface PoolArgs {
      * A `auto_scale` block that describes the scale settings when using auto scale.
      */
     readonly autoScale?: pulumi.Input<{ evaluationInterval?: pulumi.Input<string>, formula: pulumi.Input<string> }>;
+    /**
+     * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+     */
+    readonly certificates?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, storeLocation: pulumi.Input<string>, storeName?: pulumi.Input<string>, visibilities?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
      * Specifies the display name of the Batch pool.
      */
@@ -280,7 +307,7 @@ export interface PoolArgs {
     /**
      * A `start_task` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: pulumi.Input<{ commandLine: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, maxTaskRetryCount?: pulumi.Input<number>, userIdentity: pulumi.Input<{ autoUser?: pulumi.Input<{ elevationLevel?: pulumi.Input<string>, scope?: pulumi.Input<string> }>, userName?: pulumi.Input<string> }>, waitForSuccess?: pulumi.Input<boolean> }>;
+    readonly startTask?: pulumi.Input<{ commandLine: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, maxTaskRetryCount?: pulumi.Input<number>, resourceFiles?: pulumi.Input<pulumi.Input<{ autoStorageContainerName?: pulumi.Input<string>, blobPrefix?: pulumi.Input<string>, fileMode?: pulumi.Input<string>, filePath?: pulumi.Input<string>, httpUrl?: pulumi.Input<string>, storageContainerUrl?: pulumi.Input<string> }>[]>, userIdentity: pulumi.Input<{ autoUser?: pulumi.Input<{ elevationLevel?: pulumi.Input<string>, scope?: pulumi.Input<string> }>, userName?: pulumi.Input<string> }>, waitForSuccess?: pulumi.Input<boolean> }>;
     readonly stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
      * A `storage_image_reference` for the virtual machines that will compose the Batch pool.

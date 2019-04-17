@@ -76,6 +76,10 @@ export class PublicIp extends pulumi.CustomResource {
     public readonly name: pulumi.Output<string>;
     public readonly publicIpAddressAllocation: pulumi.Output<string>;
     /**
+     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     */
+    public readonly publicIpPrefixId: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource group in which to
      * create the public ip.
      */
@@ -118,6 +122,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publicIpAddressAllocation"] = state ? state.publicIpAddressAllocation : undefined;
+            inputs["publicIpPrefixId"] = state ? state.publicIpPrefixId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["reverseFqdn"] = state ? state.reverseFqdn : undefined;
             inputs["sku"] = state ? state.sku : undefined;
@@ -138,6 +143,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["publicIpAddressAllocation"] = args ? args.publicIpAddressAllocation : undefined;
+            inputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["reverseFqdn"] = args ? args.reverseFqdn : undefined;
             inputs["sku"] = args ? args.sku : undefined;
@@ -188,6 +194,10 @@ export interface PublicIpState {
      */
     readonly name?: pulumi.Input<string>;
     readonly publicIpAddressAllocation?: pulumi.Input<string>;
+    /**
+     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     */
+    readonly publicIpPrefixId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the public ip.
@@ -241,6 +251,10 @@ export interface PublicIpArgs {
      */
     readonly name?: pulumi.Input<string>;
     readonly publicIpAddressAllocation?: pulumi.Input<string>;
+    /**
+     * If specified then public IP address allocated will be provided from the public IP prefix resource.
+     */
+    readonly publicIpPrefixId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to
      * create the public ip.

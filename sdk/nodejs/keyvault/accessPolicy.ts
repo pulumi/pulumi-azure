@@ -59,6 +59,10 @@ export class AccessPolicy extends pulumi.CustomResource {
      */
     public readonly secretPermissions: pulumi.Output<string[] | undefined>;
     /**
+     * List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+     */
+    public readonly storagePermissions: pulumi.Output<string[] | undefined>;
+    /**
      * The Azure Active Directory tenant ID that should be used
      * for authenticating requests to the key vault. Changing this forces a new resource
      * to be created.
@@ -89,6 +93,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["objectId"] = state ? state.objectId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secretPermissions"] = state ? state.secretPermissions : undefined;
+            inputs["storagePermissions"] = state ? state.storagePermissions : undefined;
             inputs["tenantId"] = state ? state.tenantId : undefined;
             inputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
@@ -106,6 +111,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["objectId"] = args ? args.objectId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["secretPermissions"] = args ? args.secretPermissions : undefined;
+            inputs["storagePermissions"] = args ? args.storagePermissions : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
         }
@@ -151,6 +157,10 @@ export interface AccessPolicyState {
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
      */
     readonly secretPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+     */
+    readonly storagePermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Azure Active Directory tenant ID that should be used
      * for authenticating requests to the key vault. Changing this forces a new resource
@@ -202,6 +212,10 @@ export interface AccessPolicyArgs {
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
      */
     readonly secretPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+     */
+    readonly storagePermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Azure Active Directory tenant ID that should be used
      * for authenticating requests to the key vault. Changing this forces a new resource

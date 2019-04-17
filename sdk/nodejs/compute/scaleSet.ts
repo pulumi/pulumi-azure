@@ -45,23 +45,21 @@ import * as utilities from "../utilities";
  *     name: "BackEndAddressPool",
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const lbnatpool: azure.lb.NatPool[] = [];
- * for (let i = 0; i < 3; i++) {
- *     lbnatpool.push(new azure.lb.NatPool(`lbnatpool-${i}`, {
- *         backendPort: 22,
- *         frontendIpConfigurationName: "PublicIPAddress",
- *         frontendPortEnd: 50119,
- *         frontendPortStart: 50000,
- *         loadbalancerId: testLoadBalancer.id,
- *         name: "ssh",
- *         protocol: "Tcp",
- *         resourceGroupName: testResourceGroup.name,
- *     }));
- * }
+ * const lbnatpool = new azure.lb.NatPool("lbnatpool", {
+ *     backendPort: 22,
+ *     frontendIpConfigurationName: "PublicIPAddress",
+ *     frontendPortEnd: 50119,
+ *     frontendPortStart: 50000,
+ *     loadbalancerId: testLoadBalancer.id,
+ *     name: "ssh",
+ *     protocol: "Tcp",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
  * const testProbe = new azure.lb.Probe("test", {
  *     loadbalancerId: testLoadBalancer.id,
  *     name: "http-probe",
  *     port: 8080,
+ *     protocol: "Http",
  *     requestPath: "/health",
  *     resourceGroupName: testResourceGroup.name,
  * });
