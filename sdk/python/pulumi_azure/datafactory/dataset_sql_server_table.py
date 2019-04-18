@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class FactoryDatasetSqlServerTable(pulumi.CustomResource):
+class DatasetSqlServerTable(pulumi.CustomResource):
     additional_properties: pulumi.Output[dict]
     """
     A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
@@ -114,8 +114,8 @@ class FactoryDatasetSqlServerTable(pulumi.CustomResource):
 
         __props__['table_name'] = table_name
 
-        super(FactoryDatasetSqlServerTable, __self__).__init__(
-            'azure:datafactory/factoryDatasetSqlServerTable:FactoryDatasetSqlServerTable',
+        super(DatasetSqlServerTable, __self__).__init__(
+            'azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable',
             resource_name,
             __props__,
             opts)

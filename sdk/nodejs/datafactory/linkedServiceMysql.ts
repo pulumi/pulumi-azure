@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Linked Service (connection) between PostgreSQL and Azure Data Factory.
+ * Manage a Linked Service (connection) between MySQL and Azure Data Factory.
  * 
  * > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleFactoryLinkedServicePostgresql = new azure.datafactory.FactoryLinkedServicePostgresql("example", {
- *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
+ * const exampleLinkedServiceMysql = new azure.datafactory.LinkedServiceMysql("example", {
+ *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
  *     dataFactoryName: azurerm_data_factory_test.name,
  *     name: "example",
  *     resourceGroupName: azurerm_resource_group_test.name,
@@ -32,29 +32,29 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export class FactoryLinkedServicePostgresql extends pulumi.CustomResource {
+export class LinkedServiceMysql extends pulumi.CustomResource {
     /**
-     * Get an existing FactoryLinkedServicePostgresql resource's state with the given name, ID, and optional extra
+     * Get an existing LinkedServiceMysql resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FactoryLinkedServicePostgresqlState, opts?: pulumi.CustomResourceOptions): FactoryLinkedServicePostgresql {
-        return new FactoryLinkedServicePostgresql(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LinkedServiceMysqlState, opts?: pulumi.CustomResourceOptions): LinkedServiceMysql {
+        return new LinkedServiceMysql(name, <any>state, { ...opts, id: id });
     }
 
     /**
-     * A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
+     * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
     public readonly additionalProperties: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * List of tags that can be used for describing the Data Factory Linked Service PostgreSQL.
+     * List of tags that can be used for describing the Data Factory Linked Service MySQL.
      */
     public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
-     * The connection string in which to authenticate with PostgreSQL.
+     * The connection string in which to authenticate with MySQL.
      */
     public readonly connectionString: pulumi.Output<string>;
     /**
@@ -62,38 +62,38 @@ export class FactoryLinkedServicePostgresql extends pulumi.CustomResource {
      */
     public readonly dataFactoryName: pulumi.Output<string>;
     /**
-     * The description for the Data Factory Linked Service PostgreSQL.
+     * The description for the Data Factory Linked Service MySQL.
      */
     public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
+     * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      */
     public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
+     * A map of parameters to associate with the Data Factory Linked Service MySQL.
      */
     public readonly parameters: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service PostgreSQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
      */
     public readonly resourceGroupName: pulumi.Output<string>;
 
     /**
-     * Create a FactoryLinkedServicePostgresql resource with the given unique name, arguments, and options.
+     * Create a LinkedServiceMysql resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FactoryLinkedServicePostgresqlArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FactoryLinkedServicePostgresqlArgs | FactoryLinkedServicePostgresqlState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LinkedServiceMysqlArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LinkedServiceMysqlArgs | LinkedServiceMysqlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FactoryLinkedServicePostgresqlState = argsOrState as FactoryLinkedServicePostgresqlState | undefined;
+            const state: LinkedServiceMysqlState = argsOrState as LinkedServiceMysqlState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;
@@ -104,7 +104,7 @@ export class FactoryLinkedServicePostgresql extends pulumi.CustomResource {
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
         } else {
-            const args = argsOrState as FactoryLinkedServicePostgresqlArgs | undefined;
+            const args = argsOrState as LinkedServiceMysqlArgs | undefined;
             if (!args || args.connectionString === undefined) {
                 throw new Error("Missing required property 'connectionString'");
             }
@@ -124,24 +124,24 @@ export class FactoryLinkedServicePostgresql extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:datafactory/factoryLinkedServicePostgresql:FactoryLinkedServicePostgresql", name, inputs, opts);
+        super("azure:datafactory/linkedServiceMysql:LinkedServiceMysql", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering FactoryLinkedServicePostgresql resources.
+ * Input properties used for looking up and filtering LinkedServiceMysql resources.
  */
-export interface FactoryLinkedServicePostgresqlState {
+export interface LinkedServiceMysqlState {
     /**
-     * A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
+     * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
     readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
     /**
-     * List of tags that can be used for describing the Data Factory Linked Service PostgreSQL.
+     * List of tags that can be used for describing the Data Factory Linked Service MySQL.
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string in which to authenticate with PostgreSQL.
+     * The connection string in which to authenticate with MySQL.
      */
     readonly connectionString?: pulumi.Input<string>;
     /**
@@ -149,41 +149,41 @@ export interface FactoryLinkedServicePostgresqlState {
      */
     readonly dataFactoryName?: pulumi.Input<string>;
     /**
-     * The description for the Data Factory Linked Service PostgreSQL.
+     * The description for the Data Factory Linked Service MySQL.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
+     * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
+     * A map of parameters to associate with the Data Factory Linked Service MySQL.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service PostgreSQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
      */
     readonly resourceGroupName?: pulumi.Input<string>;
 }
 
 /**
- * The set of arguments for constructing a FactoryLinkedServicePostgresql resource.
+ * The set of arguments for constructing a LinkedServiceMysql resource.
  */
-export interface FactoryLinkedServicePostgresqlArgs {
+export interface LinkedServiceMysqlArgs {
     /**
-     * A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
+     * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
     readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
     /**
-     * List of tags that can be used for describing the Data Factory Linked Service PostgreSQL.
+     * List of tags that can be used for describing the Data Factory Linked Service MySQL.
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The connection string in which to authenticate with PostgreSQL.
+     * The connection string in which to authenticate with MySQL.
      */
     readonly connectionString: pulumi.Input<string>;
     /**
@@ -191,23 +191,23 @@ export interface FactoryLinkedServicePostgresqlArgs {
      */
     readonly dataFactoryName: pulumi.Input<string>;
     /**
-     * The description for the Data Factory Linked Service PostgreSQL.
+     * The description for the Data Factory Linked Service MySQL.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
+     * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      */
     readonly integrationRuntimeName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
+     * A map of parameters to associate with the Data Factory Linked Service MySQL.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The name of the resource group in which to create the Data Factory Linked Service PostgreSQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
      */
     readonly resourceGroupName: pulumi.Input<string>;
 }

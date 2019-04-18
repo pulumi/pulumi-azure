@@ -22,24 +22,24 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleFactoryPipeline = new azure.datafactory.FactoryPipeline("example", {
+ * const examplePipeline = new azure.datafactory.Pipeline("example", {
  *     dataFactoryName: exampleFactory.name,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  */
-export class FactoryPipeline extends pulumi.CustomResource {
+export class Pipeline extends pulumi.CustomResource {
     /**
-     * Get an existing FactoryPipeline resource's state with the given name, ID, and optional extra
+     * Get an existing Pipeline resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FactoryPipelineState, opts?: pulumi.CustomResourceOptions): FactoryPipeline {
-        return new FactoryPipeline(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PipelineState, opts?: pulumi.CustomResourceOptions): Pipeline {
+        return new Pipeline(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -72,17 +72,17 @@ export class FactoryPipeline extends pulumi.CustomResource {
     public readonly variables: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
-     * Create a FactoryPipeline resource with the given unique name, arguments, and options.
+     * Create a Pipeline resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FactoryPipelineArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FactoryPipelineArgs | FactoryPipelineState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FactoryPipelineState = argsOrState as FactoryPipelineState | undefined;
+            const state: PipelineState = argsOrState as PipelineState | undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -91,7 +91,7 @@ export class FactoryPipeline extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["variables"] = state ? state.variables : undefined;
         } else {
-            const args = argsOrState as FactoryPipelineArgs | undefined;
+            const args = argsOrState as PipelineArgs | undefined;
             if (!args || args.dataFactoryName === undefined) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
@@ -106,14 +106,14 @@ export class FactoryPipeline extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["variables"] = args ? args.variables : undefined;
         }
-        super("azure:datafactory/factoryPipeline:FactoryPipeline", name, inputs, opts);
+        super("azure:datafactory/pipeline:Pipeline", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering FactoryPipeline resources.
+ * Input properties used for looking up and filtering Pipeline resources.
  */
-export interface FactoryPipelineState {
+export interface PipelineState {
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
@@ -145,9 +145,9 @@ export interface FactoryPipelineState {
 }
 
 /**
- * The set of arguments for constructing a FactoryPipeline resource.
+ * The set of arguments for constructing a Pipeline resource.
  */
-export interface FactoryPipelineArgs {
+export interface PipelineArgs {
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */

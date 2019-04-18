@@ -11,13 +11,13 @@ import (
 // Manage a Linked Service (connection) between MySQL and Azure Data Factory.
 // 
 // > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-type FactoryLinkedServiceMysql struct {
+type LinkedServiceMysql struct {
 	s *pulumi.ResourceState
 }
 
-// NewFactoryLinkedServiceMysql registers a new resource with the given unique name, arguments, and options.
-func NewFactoryLinkedServiceMysql(ctx *pulumi.Context,
-	name string, args *FactoryLinkedServiceMysqlArgs, opts ...pulumi.ResourceOpt) (*FactoryLinkedServiceMysql, error) {
+// NewLinkedServiceMysql registers a new resource with the given unique name, arguments, and options.
+func NewLinkedServiceMysql(ctx *pulumi.Context,
+	name string, args *LinkedServiceMysqlArgs, opts ...pulumi.ResourceOpt) (*LinkedServiceMysql, error) {
 	if args == nil || args.ConnectionString == nil {
 		return nil, errors.New("missing required argument 'ConnectionString'")
 	}
@@ -49,17 +49,17 @@ func NewFactoryLinkedServiceMysql(ctx *pulumi.Context,
 		inputs["parameters"] = args.Parameters
 		inputs["resourceGroupName"] = args.ResourceGroupName
 	}
-	s, err := ctx.RegisterResource("azure:datafactory/factoryLinkedServiceMysql:FactoryLinkedServiceMysql", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:datafactory/linkedServiceMysql:LinkedServiceMysql", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FactoryLinkedServiceMysql{s: s}, nil
+	return &LinkedServiceMysql{s: s}, nil
 }
 
-// GetFactoryLinkedServiceMysql gets an existing FactoryLinkedServiceMysql resource's state with the given name, ID, and optional
+// GetLinkedServiceMysql gets an existing LinkedServiceMysql resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetFactoryLinkedServiceMysql(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FactoryLinkedServiceMysqlState, opts ...pulumi.ResourceOpt) (*FactoryLinkedServiceMysql, error) {
+func GetLinkedServiceMysql(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *LinkedServiceMysqlState, opts ...pulumi.ResourceOpt) (*LinkedServiceMysql, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["additionalProperties"] = state.AdditionalProperties
@@ -72,70 +72,70 @@ func GetFactoryLinkedServiceMysql(ctx *pulumi.Context,
 		inputs["parameters"] = state.Parameters
 		inputs["resourceGroupName"] = state.ResourceGroupName
 	}
-	s, err := ctx.ReadResource("azure:datafactory/factoryLinkedServiceMysql:FactoryLinkedServiceMysql", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:datafactory/linkedServiceMysql:LinkedServiceMysql", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FactoryLinkedServiceMysql{s: s}, nil
+	return &LinkedServiceMysql{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FactoryLinkedServiceMysql) URN() *pulumi.URNOutput {
+func (r *LinkedServiceMysql) URN() *pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FactoryLinkedServiceMysql) ID() *pulumi.IDOutput {
+func (r *LinkedServiceMysql) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service MySQL.
-func (r *FactoryLinkedServiceMysql) AdditionalProperties() *pulumi.MapOutput {
+func (r *LinkedServiceMysql) AdditionalProperties() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["additionalProperties"])
 }
 
 // List of tags that can be used for describing the Data Factory Linked Service MySQL.
-func (r *FactoryLinkedServiceMysql) Annotations() *pulumi.ArrayOutput {
+func (r *LinkedServiceMysql) Annotations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["annotations"])
 }
 
 // The connection string in which to authenticate with MySQL.
-func (r *FactoryLinkedServiceMysql) ConnectionString() *pulumi.StringOutput {
+func (r *LinkedServiceMysql) ConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["connectionString"])
 }
 
 // The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-func (r *FactoryLinkedServiceMysql) DataFactoryName() *pulumi.StringOutput {
+func (r *LinkedServiceMysql) DataFactoryName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
 // The description for the Data Factory Linked Service MySQL.
-func (r *FactoryLinkedServiceMysql) Description() *pulumi.StringOutput {
+func (r *LinkedServiceMysql) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The integration runtime reference to associate with the Data Factory Linked Service MySQL.
-func (r *FactoryLinkedServiceMysql) IntegrationRuntimeName() *pulumi.StringOutput {
+func (r *LinkedServiceMysql) IntegrationRuntimeName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["integrationRuntimeName"])
 }
 
 // Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *FactoryLinkedServiceMysql) Name() *pulumi.StringOutput {
+func (r *LinkedServiceMysql) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of parameters to associate with the Data Factory Linked Service MySQL.
-func (r *FactoryLinkedServiceMysql) Parameters() *pulumi.MapOutput {
+func (r *LinkedServiceMysql) Parameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
-func (r *FactoryLinkedServiceMysql) ResourceGroupName() *pulumi.StringOutput {
+func (r *LinkedServiceMysql) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Input properties used for looking up and filtering FactoryLinkedServiceMysql resources.
-type FactoryLinkedServiceMysqlState struct {
+// Input properties used for looking up and filtering LinkedServiceMysql resources.
+type LinkedServiceMysqlState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service MySQL.
 	AdditionalProperties interface{}
 	// List of tags that can be used for describing the Data Factory Linked Service MySQL.
@@ -156,8 +156,8 @@ type FactoryLinkedServiceMysqlState struct {
 	ResourceGroupName interface{}
 }
 
-// The set of arguments for constructing a FactoryLinkedServiceMysql resource.
-type FactoryLinkedServiceMysqlArgs struct {
+// The set of arguments for constructing a LinkedServiceMysql resource.
+type LinkedServiceMysqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service MySQL.
 	AdditionalProperties interface{}
 	// List of tags that can be used for describing the Data Factory Linked Service MySQL.

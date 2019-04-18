@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage a MySQL Dataset inside a Azure Data Factory.
+ * Manage a SQL Server Table Dataset inside a Azure Data Factory.
  * 
  * ## Example Usage
  * 
@@ -22,39 +22,39 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleFactoryDatasetMysql = new azure.datafactory.FactoryDatasetMysql("example", {
+ * const exampleDatasetSqlServerTable = new azure.datafactory.DatasetSqlServerTable("example", {
  *     dataFactoryName: exampleFactory.name,
- *     linkedServiceName: azurerm_data_factory_linked_service_mysql_test.name,
+ *     linkedServiceName: azurerm_data_factory_linked_service_sql_server_test.name,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleFactoryLinkedServiceMysql = new azure.datafactory.FactoryLinkedServiceMysql("example", {
- *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
+ * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
+ *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
  *     dataFactoryName: exampleFactory.name,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
  */
-export class FactoryDatasetMysql extends pulumi.CustomResource {
+export class DatasetSqlServerTable extends pulumi.CustomResource {
     /**
-     * Get an existing FactoryDatasetMysql resource's state with the given name, ID, and optional extra
+     * Get an existing DatasetSqlServerTable resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FactoryDatasetMysqlState, opts?: pulumi.CustomResourceOptions): FactoryDatasetMysql {
-        return new FactoryDatasetMysql(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DatasetSqlServerTableState, opts?: pulumi.CustomResourceOptions): DatasetSqlServerTable {
+        return new DatasetSqlServerTable(name, <any>state, { ...opts, id: id });
     }
 
     /**
-     * A map of additional properties to associate with the Data Factory Dataset MySQL.
+     * A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
      */
     public readonly additionalProperties: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * List of tags that can be used for describing the Data Factory Dataset MySQL.
+     * List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
      */
     public readonly annotations: pulumi.Output<string[] | undefined>;
     /**
@@ -62,7 +62,7 @@ export class FactoryDatasetMysql extends pulumi.CustomResource {
      */
     public readonly dataFactoryName: pulumi.Output<string>;
     /**
-     * The description for the Data Factory Dataset MySQL.
+     * The description for the Data Factory Dataset SQL Server Table.
      */
     public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -74,15 +74,15 @@ export class FactoryDatasetMysql extends pulumi.CustomResource {
      */
     public readonly linkedServiceName: pulumi.Output<string>;
     /**
-     * Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * A map of parameters to associate with the Data Factory Dataset MySQL.
+     * A map of parameters to associate with the Data Factory Dataset SQL Server Table.
      */
     public readonly parameters: pulumi.Output<{[key: string]: any} | undefined>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
@@ -90,22 +90,22 @@ export class FactoryDatasetMysql extends pulumi.CustomResource {
      */
     public readonly schemaColumns: pulumi.Output<{ description?: string, name: string, type?: string }[] | undefined>;
     /**
-     * The table name of the Data Factory Dataset MySQL.
+     * The table name of the Data Factory Dataset SQL Server Table.
      */
     public readonly tableName: pulumi.Output<string | undefined>;
 
     /**
-     * Create a FactoryDatasetMysql resource with the given unique name, arguments, and options.
+     * Create a DatasetSqlServerTable resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FactoryDatasetMysqlArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FactoryDatasetMysqlArgs | FactoryDatasetMysqlState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DatasetSqlServerTableArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DatasetSqlServerTableArgs | DatasetSqlServerTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FactoryDatasetMysqlState = argsOrState as FactoryDatasetMysqlState | undefined;
+            const state: DatasetSqlServerTableState = argsOrState as DatasetSqlServerTableState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
@@ -118,7 +118,7 @@ export class FactoryDatasetMysql extends pulumi.CustomResource {
             inputs["schemaColumns"] = state ? state.schemaColumns : undefined;
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
-            const args = argsOrState as FactoryDatasetMysqlArgs | undefined;
+            const args = argsOrState as DatasetSqlServerTableArgs | undefined;
             if (!args || args.dataFactoryName === undefined) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
@@ -140,20 +140,20 @@ export class FactoryDatasetMysql extends pulumi.CustomResource {
             inputs["schemaColumns"] = args ? args.schemaColumns : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
-        super("azure:datafactory/factoryDatasetMysql:FactoryDatasetMysql", name, inputs, opts);
+        super("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering FactoryDatasetMysql resources.
+ * Input properties used for looking up and filtering DatasetSqlServerTable resources.
  */
-export interface FactoryDatasetMysqlState {
+export interface DatasetSqlServerTableState {
     /**
-     * A map of additional properties to associate with the Data Factory Dataset MySQL.
+     * A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
      */
     readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
     /**
-     * List of tags that can be used for describing the Data Factory Dataset MySQL.
+     * List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -161,7 +161,7 @@ export interface FactoryDatasetMysqlState {
      */
     readonly dataFactoryName?: pulumi.Input<string>;
     /**
-     * The description for the Data Factory Dataset MySQL.
+     * The description for the Data Factory Dataset SQL Server Table.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -173,15 +173,15 @@ export interface FactoryDatasetMysqlState {
      */
     readonly linkedServiceName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Dataset MySQL.
+     * A map of parameters to associate with the Data Factory Dataset SQL Server Table.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -189,21 +189,21 @@ export interface FactoryDatasetMysqlState {
      */
     readonly schemaColumns?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
-     * The table name of the Data Factory Dataset MySQL.
+     * The table name of the Data Factory Dataset SQL Server Table.
      */
     readonly tableName?: pulumi.Input<string>;
 }
 
 /**
- * The set of arguments for constructing a FactoryDatasetMysql resource.
+ * The set of arguments for constructing a DatasetSqlServerTable resource.
  */
-export interface FactoryDatasetMysqlArgs {
+export interface DatasetSqlServerTableArgs {
     /**
-     * A map of additional properties to associate with the Data Factory Dataset MySQL.
+     * A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
      */
     readonly additionalProperties?: pulumi.Input<{[key: string]: any}>;
     /**
-     * List of tags that can be used for describing the Data Factory Dataset MySQL.
+     * List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
      */
     readonly annotations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -211,7 +211,7 @@ export interface FactoryDatasetMysqlArgs {
      */
     readonly dataFactoryName: pulumi.Input<string>;
     /**
-     * The description for the Data Factory Dataset MySQL.
+     * The description for the Data Factory Dataset SQL Server Table.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -223,15 +223,15 @@ export interface FactoryDatasetMysqlArgs {
      */
     readonly linkedServiceName: pulumi.Input<string>;
     /**
-     * Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+     * Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A map of parameters to associate with the Data Factory Dataset MySQL.
+     * A map of parameters to associate with the Data Factory Dataset SQL Server Table.
      */
     readonly parameters?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
+     * The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
@@ -239,7 +239,7 @@ export interface FactoryDatasetMysqlArgs {
      */
     readonly schemaColumns?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
-     * The table name of the Data Factory Dataset MySQL.
+     * The table name of the Data Factory Dataset SQL Server Table.
      */
     readonly tableName?: pulumi.Input<string>;
 }

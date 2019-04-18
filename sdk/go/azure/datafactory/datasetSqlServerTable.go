@@ -9,13 +9,13 @@ import (
 )
 
 // Manage a SQL Server Table Dataset inside a Azure Data Factory.
-type FactoryDatasetSqlServerTable struct {
+type DatasetSqlServerTable struct {
 	s *pulumi.ResourceState
 }
 
-// NewFactoryDatasetSqlServerTable registers a new resource with the given unique name, arguments, and options.
-func NewFactoryDatasetSqlServerTable(ctx *pulumi.Context,
-	name string, args *FactoryDatasetSqlServerTableArgs, opts ...pulumi.ResourceOpt) (*FactoryDatasetSqlServerTable, error) {
+// NewDatasetSqlServerTable registers a new resource with the given unique name, arguments, and options.
+func NewDatasetSqlServerTable(ctx *pulumi.Context,
+	name string, args *DatasetSqlServerTableArgs, opts ...pulumi.ResourceOpt) (*DatasetSqlServerTable, error) {
 	if args == nil || args.DataFactoryName == nil {
 		return nil, errors.New("missing required argument 'DataFactoryName'")
 	}
@@ -51,17 +51,17 @@ func NewFactoryDatasetSqlServerTable(ctx *pulumi.Context,
 		inputs["schemaColumns"] = args.SchemaColumns
 		inputs["tableName"] = args.TableName
 	}
-	s, err := ctx.RegisterResource("azure:datafactory/factoryDatasetSqlServerTable:FactoryDatasetSqlServerTable", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FactoryDatasetSqlServerTable{s: s}, nil
+	return &DatasetSqlServerTable{s: s}, nil
 }
 
-// GetFactoryDatasetSqlServerTable gets an existing FactoryDatasetSqlServerTable resource's state with the given name, ID, and optional
+// GetDatasetSqlServerTable gets an existing DatasetSqlServerTable resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetFactoryDatasetSqlServerTable(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FactoryDatasetSqlServerTableState, opts ...pulumi.ResourceOpt) (*FactoryDatasetSqlServerTable, error) {
+func GetDatasetSqlServerTable(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *DatasetSqlServerTableState, opts ...pulumi.ResourceOpt) (*DatasetSqlServerTable, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["additionalProperties"] = state.AdditionalProperties
@@ -76,80 +76,80 @@ func GetFactoryDatasetSqlServerTable(ctx *pulumi.Context,
 		inputs["schemaColumns"] = state.SchemaColumns
 		inputs["tableName"] = state.TableName
 	}
-	s, err := ctx.ReadResource("azure:datafactory/factoryDatasetSqlServerTable:FactoryDatasetSqlServerTable", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FactoryDatasetSqlServerTable{s: s}, nil
+	return &DatasetSqlServerTable{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FactoryDatasetSqlServerTable) URN() *pulumi.URNOutput {
+func (r *DatasetSqlServerTable) URN() *pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FactoryDatasetSqlServerTable) ID() *pulumi.IDOutput {
+func (r *DatasetSqlServerTable) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
-func (r *FactoryDatasetSqlServerTable) AdditionalProperties() *pulumi.MapOutput {
+func (r *DatasetSqlServerTable) AdditionalProperties() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["additionalProperties"])
 }
 
 // List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
-func (r *FactoryDatasetSqlServerTable) Annotations() *pulumi.ArrayOutput {
+func (r *DatasetSqlServerTable) Annotations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["annotations"])
 }
 
 // The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-func (r *FactoryDatasetSqlServerTable) DataFactoryName() *pulumi.StringOutput {
+func (r *DatasetSqlServerTable) DataFactoryName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
 // The description for the Data Factory Dataset SQL Server Table.
-func (r *FactoryDatasetSqlServerTable) Description() *pulumi.StringOutput {
+func (r *DatasetSqlServerTable) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-func (r *FactoryDatasetSqlServerTable) Folder() *pulumi.StringOutput {
+func (r *DatasetSqlServerTable) Folder() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["folder"])
 }
 
 // The Data Factory Linked Service name in which to associate the Dataset with.
-func (r *FactoryDatasetSqlServerTable) LinkedServiceName() *pulumi.StringOutput {
+func (r *DatasetSqlServerTable) LinkedServiceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["linkedServiceName"])
 }
 
 // Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *FactoryDatasetSqlServerTable) Name() *pulumi.StringOutput {
+func (r *DatasetSqlServerTable) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of parameters to associate with the Data Factory Dataset SQL Server Table.
-func (r *FactoryDatasetSqlServerTable) Parameters() *pulumi.MapOutput {
+func (r *DatasetSqlServerTable) Parameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
-func (r *FactoryDatasetSqlServerTable) ResourceGroupName() *pulumi.StringOutput {
+func (r *DatasetSqlServerTable) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `schema_column` block as defined below.
-func (r *FactoryDatasetSqlServerTable) SchemaColumns() *pulumi.ArrayOutput {
+func (r *DatasetSqlServerTable) SchemaColumns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["schemaColumns"])
 }
 
 // The table name of the Data Factory Dataset SQL Server Table.
-func (r *FactoryDatasetSqlServerTable) TableName() *pulumi.StringOutput {
+func (r *DatasetSqlServerTable) TableName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tableName"])
 }
 
-// Input properties used for looking up and filtering FactoryDatasetSqlServerTable resources.
-type FactoryDatasetSqlServerTableState struct {
+// Input properties used for looking up and filtering DatasetSqlServerTable resources.
+type DatasetSqlServerTableState struct {
 	// A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
 	AdditionalProperties interface{}
 	// List of tags that can be used for describing the Data Factory Dataset SQL Server Table.
@@ -174,8 +174,8 @@ type FactoryDatasetSqlServerTableState struct {
 	TableName interface{}
 }
 
-// The set of arguments for constructing a FactoryDatasetSqlServerTable resource.
-type FactoryDatasetSqlServerTableArgs struct {
+// The set of arguments for constructing a DatasetSqlServerTable resource.
+type DatasetSqlServerTableArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
 	AdditionalProperties interface{}
 	// List of tags that can be used for describing the Data Factory Dataset SQL Server Table.

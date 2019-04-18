@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class FactoryPipeline(pulumi.CustomResource):
+class Pipeline(pulumi.CustomResource):
     annotations: pulumi.Output[list]
     """
     List of tags that can be used for describing the Data Factory Pipeline.
@@ -84,8 +84,8 @@ class FactoryPipeline(pulumi.CustomResource):
 
         __props__['variables'] = variables
 
-        super(FactoryPipeline, __self__).__init__(
-            'azure:datafactory/factoryPipeline:FactoryPipeline',
+        super(Pipeline, __self__).__init__(
+            'azure:datafactory/pipeline:Pipeline',
             resource_name,
             __props__,
             opts)

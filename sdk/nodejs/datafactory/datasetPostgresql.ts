@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleFactoryDatasetPostgresql = new azure.datafactory.FactoryDatasetPostgresql("example", {
+ * const exampleDatasetPostgresql = new azure.datafactory.DatasetPostgresql("example", {
  *     dataFactoryName: exampleFactory.name,
  *     linkedServiceName: azurerm_data_factory_linked_service_postgresql_test.name,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleFactoryLinkedServicePostgresql = new azure.datafactory.FactoryLinkedServicePostgresql("example", {
+ * const exampleLinkedServicePostgresql = new azure.datafactory.LinkedServicePostgresql("example", {
  *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
  *     dataFactoryName: exampleFactory.name,
  *     name: "example",
@@ -36,17 +36,17 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export class FactoryDatasetPostgresql extends pulumi.CustomResource {
+export class DatasetPostgresql extends pulumi.CustomResource {
     /**
-     * Get an existing FactoryDatasetPostgresql resource's state with the given name, ID, and optional extra
+     * Get an existing DatasetPostgresql resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: FactoryDatasetPostgresqlState, opts?: pulumi.CustomResourceOptions): FactoryDatasetPostgresql {
-        return new FactoryDatasetPostgresql(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DatasetPostgresqlState, opts?: pulumi.CustomResourceOptions): DatasetPostgresql {
+        return new DatasetPostgresql(name, <any>state, { ...opts, id: id });
     }
 
     /**
@@ -95,17 +95,17 @@ export class FactoryDatasetPostgresql extends pulumi.CustomResource {
     public readonly tableName: pulumi.Output<string | undefined>;
 
     /**
-     * Create a FactoryDatasetPostgresql resource with the given unique name, arguments, and options.
+     * Create a DatasetPostgresql resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FactoryDatasetPostgresqlArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: FactoryDatasetPostgresqlArgs | FactoryDatasetPostgresqlState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DatasetPostgresqlArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: DatasetPostgresqlArgs | DatasetPostgresqlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FactoryDatasetPostgresqlState = argsOrState as FactoryDatasetPostgresqlState | undefined;
+            const state: DatasetPostgresqlState = argsOrState as DatasetPostgresqlState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
@@ -118,7 +118,7 @@ export class FactoryDatasetPostgresql extends pulumi.CustomResource {
             inputs["schemaColumns"] = state ? state.schemaColumns : undefined;
             inputs["tableName"] = state ? state.tableName : undefined;
         } else {
-            const args = argsOrState as FactoryDatasetPostgresqlArgs | undefined;
+            const args = argsOrState as DatasetPostgresqlArgs | undefined;
             if (!args || args.dataFactoryName === undefined) {
                 throw new Error("Missing required property 'dataFactoryName'");
             }
@@ -140,14 +140,14 @@ export class FactoryDatasetPostgresql extends pulumi.CustomResource {
             inputs["schemaColumns"] = args ? args.schemaColumns : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
-        super("azure:datafactory/factoryDatasetPostgresql:FactoryDatasetPostgresql", name, inputs, opts);
+        super("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering FactoryDatasetPostgresql resources.
+ * Input properties used for looking up and filtering DatasetPostgresql resources.
  */
-export interface FactoryDatasetPostgresqlState {
+export interface DatasetPostgresqlState {
     /**
      * A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
      */
@@ -195,9 +195,9 @@ export interface FactoryDatasetPostgresqlState {
 }
 
 /**
- * The set of arguments for constructing a FactoryDatasetPostgresql resource.
+ * The set of arguments for constructing a DatasetPostgresql resource.
  */
-export interface FactoryDatasetPostgresqlArgs {
+export interface DatasetPostgresqlArgs {
     /**
      * A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
      */

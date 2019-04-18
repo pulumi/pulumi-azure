@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class FactoryLinkedServiceSqlServer(pulumi.CustomResource):
+class LinkedServiceSqlServer(pulumi.CustomResource):
     additional_properties: pulumi.Output[dict]
     """
     A map of additional properties to associate with the Data Factory Linked Service SQL Server.
@@ -102,8 +102,8 @@ class FactoryLinkedServiceSqlServer(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
-        super(FactoryLinkedServiceSqlServer, __self__).__init__(
-            'azure:datafactory/factoryLinkedServiceSqlServer:FactoryLinkedServiceSqlServer',
+        super(LinkedServiceSqlServer, __self__).__init__(
+            'azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer',
             resource_name,
             __props__,
             opts)

@@ -9,13 +9,13 @@ import (
 )
 
 // Manage a MySQL Dataset inside a Azure Data Factory.
-type FactoryDatasetMysql struct {
+type DatasetMysql struct {
 	s *pulumi.ResourceState
 }
 
-// NewFactoryDatasetMysql registers a new resource with the given unique name, arguments, and options.
-func NewFactoryDatasetMysql(ctx *pulumi.Context,
-	name string, args *FactoryDatasetMysqlArgs, opts ...pulumi.ResourceOpt) (*FactoryDatasetMysql, error) {
+// NewDatasetMysql registers a new resource with the given unique name, arguments, and options.
+func NewDatasetMysql(ctx *pulumi.Context,
+	name string, args *DatasetMysqlArgs, opts ...pulumi.ResourceOpt) (*DatasetMysql, error) {
 	if args == nil || args.DataFactoryName == nil {
 		return nil, errors.New("missing required argument 'DataFactoryName'")
 	}
@@ -51,17 +51,17 @@ func NewFactoryDatasetMysql(ctx *pulumi.Context,
 		inputs["schemaColumns"] = args.SchemaColumns
 		inputs["tableName"] = args.TableName
 	}
-	s, err := ctx.RegisterResource("azure:datafactory/factoryDatasetMysql:FactoryDatasetMysql", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:datafactory/datasetMysql:DatasetMysql", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FactoryDatasetMysql{s: s}, nil
+	return &DatasetMysql{s: s}, nil
 }
 
-// GetFactoryDatasetMysql gets an existing FactoryDatasetMysql resource's state with the given name, ID, and optional
+// GetDatasetMysql gets an existing DatasetMysql resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetFactoryDatasetMysql(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FactoryDatasetMysqlState, opts ...pulumi.ResourceOpt) (*FactoryDatasetMysql, error) {
+func GetDatasetMysql(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *DatasetMysqlState, opts ...pulumi.ResourceOpt) (*DatasetMysql, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["additionalProperties"] = state.AdditionalProperties
@@ -76,80 +76,80 @@ func GetFactoryDatasetMysql(ctx *pulumi.Context,
 		inputs["schemaColumns"] = state.SchemaColumns
 		inputs["tableName"] = state.TableName
 	}
-	s, err := ctx.ReadResource("azure:datafactory/factoryDatasetMysql:FactoryDatasetMysql", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:datafactory/datasetMysql:DatasetMysql", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FactoryDatasetMysql{s: s}, nil
+	return &DatasetMysql{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FactoryDatasetMysql) URN() *pulumi.URNOutput {
+func (r *DatasetMysql) URN() *pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FactoryDatasetMysql) ID() *pulumi.IDOutput {
+func (r *DatasetMysql) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of additional properties to associate with the Data Factory Dataset MySQL.
-func (r *FactoryDatasetMysql) AdditionalProperties() *pulumi.MapOutput {
+func (r *DatasetMysql) AdditionalProperties() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["additionalProperties"])
 }
 
 // List of tags that can be used for describing the Data Factory Dataset MySQL.
-func (r *FactoryDatasetMysql) Annotations() *pulumi.ArrayOutput {
+func (r *DatasetMysql) Annotations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["annotations"])
 }
 
 // The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
-func (r *FactoryDatasetMysql) DataFactoryName() *pulumi.StringOutput {
+func (r *DatasetMysql) DataFactoryName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
 // The description for the Data Factory Dataset MySQL.
-func (r *FactoryDatasetMysql) Description() *pulumi.StringOutput {
+func (r *DatasetMysql) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-func (r *FactoryDatasetMysql) Folder() *pulumi.StringOutput {
+func (r *DatasetMysql) Folder() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["folder"])
 }
 
 // The Data Factory Linked Service name in which to associate the Dataset with.
-func (r *FactoryDatasetMysql) LinkedServiceName() *pulumi.StringOutput {
+func (r *DatasetMysql) LinkedServiceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["linkedServiceName"])
 }
 
 // Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *FactoryDatasetMysql) Name() *pulumi.StringOutput {
+func (r *DatasetMysql) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of parameters to associate with the Data Factory Dataset MySQL.
-func (r *FactoryDatasetMysql) Parameters() *pulumi.MapOutput {
+func (r *DatasetMysql) Parameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
-func (r *FactoryDatasetMysql) ResourceGroupName() *pulumi.StringOutput {
+func (r *DatasetMysql) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
 // A `schema_column` block as defined below.
-func (r *FactoryDatasetMysql) SchemaColumns() *pulumi.ArrayOutput {
+func (r *DatasetMysql) SchemaColumns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["schemaColumns"])
 }
 
 // The table name of the Data Factory Dataset MySQL.
-func (r *FactoryDatasetMysql) TableName() *pulumi.StringOutput {
+func (r *DatasetMysql) TableName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tableName"])
 }
 
-// Input properties used for looking up and filtering FactoryDatasetMysql resources.
-type FactoryDatasetMysqlState struct {
+// Input properties used for looking up and filtering DatasetMysql resources.
+type DatasetMysqlState struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
 	AdditionalProperties interface{}
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.
@@ -174,8 +174,8 @@ type FactoryDatasetMysqlState struct {
 	TableName interface{}
 }
 
-// The set of arguments for constructing a FactoryDatasetMysql resource.
-type FactoryDatasetMysqlArgs struct {
+// The set of arguments for constructing a DatasetMysql resource.
+type DatasetMysqlArgs struct {
 	// A map of additional properties to associate with the Data Factory Dataset MySQL.
 	AdditionalProperties interface{}
 	// List of tags that can be used for describing the Data Factory Dataset MySQL.

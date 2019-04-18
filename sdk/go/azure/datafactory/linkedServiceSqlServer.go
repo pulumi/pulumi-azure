@@ -11,13 +11,13 @@ import (
 // Manage a Linked Service (connection) between a SQL Server and Azure Data Factory.
 // 
 // > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-type FactoryLinkedServiceSqlServer struct {
+type LinkedServiceSqlServer struct {
 	s *pulumi.ResourceState
 }
 
-// NewFactoryLinkedServiceSqlServer registers a new resource with the given unique name, arguments, and options.
-func NewFactoryLinkedServiceSqlServer(ctx *pulumi.Context,
-	name string, args *FactoryLinkedServiceSqlServerArgs, opts ...pulumi.ResourceOpt) (*FactoryLinkedServiceSqlServer, error) {
+// NewLinkedServiceSqlServer registers a new resource with the given unique name, arguments, and options.
+func NewLinkedServiceSqlServer(ctx *pulumi.Context,
+	name string, args *LinkedServiceSqlServerArgs, opts ...pulumi.ResourceOpt) (*LinkedServiceSqlServer, error) {
 	if args == nil || args.ConnectionString == nil {
 		return nil, errors.New("missing required argument 'ConnectionString'")
 	}
@@ -49,17 +49,17 @@ func NewFactoryLinkedServiceSqlServer(ctx *pulumi.Context,
 		inputs["parameters"] = args.Parameters
 		inputs["resourceGroupName"] = args.ResourceGroupName
 	}
-	s, err := ctx.RegisterResource("azure:datafactory/factoryLinkedServiceSqlServer:FactoryLinkedServiceSqlServer", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FactoryLinkedServiceSqlServer{s: s}, nil
+	return &LinkedServiceSqlServer{s: s}, nil
 }
 
-// GetFactoryLinkedServiceSqlServer gets an existing FactoryLinkedServiceSqlServer resource's state with the given name, ID, and optional
+// GetLinkedServiceSqlServer gets an existing LinkedServiceSqlServer resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetFactoryLinkedServiceSqlServer(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *FactoryLinkedServiceSqlServerState, opts ...pulumi.ResourceOpt) (*FactoryLinkedServiceSqlServer, error) {
+func GetLinkedServiceSqlServer(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *LinkedServiceSqlServerState, opts ...pulumi.ResourceOpt) (*LinkedServiceSqlServer, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["additionalProperties"] = state.AdditionalProperties
@@ -72,70 +72,70 @@ func GetFactoryLinkedServiceSqlServer(ctx *pulumi.Context,
 		inputs["parameters"] = state.Parameters
 		inputs["resourceGroupName"] = state.ResourceGroupName
 	}
-	s, err := ctx.ReadResource("azure:datafactory/factoryLinkedServiceSqlServer:FactoryLinkedServiceSqlServer", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &FactoryLinkedServiceSqlServer{s: s}, nil
+	return &LinkedServiceSqlServer{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *FactoryLinkedServiceSqlServer) URN() *pulumi.URNOutput {
+func (r *LinkedServiceSqlServer) URN() *pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *FactoryLinkedServiceSqlServer) ID() *pulumi.IDOutput {
+func (r *LinkedServiceSqlServer) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service SQL Server.
-func (r *FactoryLinkedServiceSqlServer) AdditionalProperties() *pulumi.MapOutput {
+func (r *LinkedServiceSqlServer) AdditionalProperties() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["additionalProperties"])
 }
 
 // List of tags that can be used for describing the Data Factory Linked Service SQL Server.
-func (r *FactoryLinkedServiceSqlServer) Annotations() *pulumi.ArrayOutput {
+func (r *LinkedServiceSqlServer) Annotations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["annotations"])
 }
 
 // The connection string in which to authenticate with the SQL Server.
-func (r *FactoryLinkedServiceSqlServer) ConnectionString() *pulumi.StringOutput {
+func (r *LinkedServiceSqlServer) ConnectionString() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["connectionString"])
 }
 
 // The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-func (r *FactoryLinkedServiceSqlServer) DataFactoryName() *pulumi.StringOutput {
+func (r *LinkedServiceSqlServer) DataFactoryName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dataFactoryName"])
 }
 
 // The description for the Data Factory Linked Service SQL Server.
-func (r *FactoryLinkedServiceSqlServer) Description() *pulumi.StringOutput {
+func (r *LinkedServiceSqlServer) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
 // The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
-func (r *FactoryLinkedServiceSqlServer) IntegrationRuntimeName() *pulumi.StringOutput {
+func (r *LinkedServiceSqlServer) IntegrationRuntimeName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["integrationRuntimeName"])
 }
 
 // Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-func (r *FactoryLinkedServiceSqlServer) Name() *pulumi.StringOutput {
+func (r *LinkedServiceSqlServer) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // A map of parameters to associate with the Data Factory Linked Service SQL Server.
-func (r *FactoryLinkedServiceSqlServer) Parameters() *pulumi.MapOutput {
+func (r *LinkedServiceSqlServer) Parameters() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["parameters"])
 }
 
 // The name of the resource group in which to create the Data Factory Linked Service SQL Server. Changing this forces a new resource
-func (r *FactoryLinkedServiceSqlServer) ResourceGroupName() *pulumi.StringOutput {
+func (r *LinkedServiceSqlServer) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Input properties used for looking up and filtering FactoryLinkedServiceSqlServer resources.
-type FactoryLinkedServiceSqlServerState struct {
+// Input properties used for looking up and filtering LinkedServiceSqlServer resources.
+type LinkedServiceSqlServerState struct {
 	// A map of additional properties to associate with the Data Factory Linked Service SQL Server.
 	AdditionalProperties interface{}
 	// List of tags that can be used for describing the Data Factory Linked Service SQL Server.
@@ -156,8 +156,8 @@ type FactoryLinkedServiceSqlServerState struct {
 	ResourceGroupName interface{}
 }
 
-// The set of arguments for constructing a FactoryLinkedServiceSqlServer resource.
-type FactoryLinkedServiceSqlServerArgs struct {
+// The set of arguments for constructing a LinkedServiceSqlServer resource.
+type LinkedServiceSqlServerArgs struct {
 	// A map of additional properties to associate with the Data Factory Linked Service SQL Server.
 	AdditionalProperties interface{}
 	// List of tags that can be used for describing the Data Factory Linked Service SQL Server.

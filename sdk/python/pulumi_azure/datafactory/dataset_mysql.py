@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class FactoryDatasetMysql(pulumi.CustomResource):
+class DatasetMysql(pulumi.CustomResource):
     additional_properties: pulumi.Output[dict]
     """
     A map of additional properties to associate with the Data Factory Dataset MySQL.
@@ -114,8 +114,8 @@ class FactoryDatasetMysql(pulumi.CustomResource):
 
         __props__['table_name'] = table_name
 
-        super(FactoryDatasetMysql, __self__).__init__(
-            'azure:datafactory/factoryDatasetMysql:FactoryDatasetMysql',
+        super(DatasetMysql, __self__).__init__(
+            'azure:datafactory/datasetMysql:DatasetMysql',
             resource_name,
             __props__,
             opts)

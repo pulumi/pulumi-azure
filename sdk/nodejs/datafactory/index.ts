@@ -2,11 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./datasetMysql";
+export * from "./datasetPostgresql";
+export * from "./datasetSqlServerTable";
 export * from "./factory";
-export * from "./factoryDatasetMysql";
-export * from "./factoryDatasetPostgresql";
-export * from "./factoryDatasetSqlServerTable";
-export * from "./factoryLinkedServiceMysql";
-export * from "./factoryLinkedServicePostgresql";
-export * from "./factoryLinkedServiceSqlServer";
-export * from "./factoryPipeline";
+export * from "./linkedServiceMysql";
+export * from "./linkedServicePostgresql";
+export * from "./linkedServiceSqlServer";
+export * from "./pipeline";

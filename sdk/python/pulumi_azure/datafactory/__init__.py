@@ -4,10 +4,10 @@
 
 # Export this package's modules as members:
 from .factory import *
-from .factory_dataset_mysql import *
-from .factory_dataset_postgresql import *
-from .factory_dataset_sql_server_table import *
-from .factory_linked_service_mysql import *
-from .factory_linked_service_postgresql import *
-from .factory_linked_service_sql_server import *
-from .factory_pipeline import *
+from .dataset_mysql import *
+from .dataset_postgresql import *
+from .dataset_sql_server_table import *
+from .linked_service_mysql import *
+from .linked_service_postgresql import *
+from .linked_service_sql_server import *
+from .pipeline import *

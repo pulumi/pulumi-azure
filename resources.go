@@ -339,13 +339,13 @@ func Provider() tfbridge.ProviderInfo {
 
 			// DataFactory
 			"azurerm_data_factory":                           {Tok: azureResource(azureDataFactory, "Factory")},
-			"azurerm_data_factory_dataset_mysql":             {Tok: azureResource(azureDataFactory, "FactoryDatasetMysql")},
-			"azurerm_data_factory_dataset_postgresql":        {Tok: azureResource(azureDataFactory, "FactoryDatasetPostgresql")},
-			"azurerm_data_factory_dataset_sql_server_table":  {Tok: azureResource(azureDataFactory, "FactoryDatasetSqlServerTable")},
-			"azurerm_data_factory_linked_service_mysql":      {Tok: azureResource(azureDataFactory, "FactoryLinkedServiceMysql")},
-			"azurerm_data_factory_linked_service_postgresql": {Tok: azureResource(azureDataFactory, "FactoryLinkedServicePostgresql")},
-			"azurerm_data_factory_linked_service_sql_server": {Tok: azureResource(azureDataFactory, "FactoryLinkedServiceSqlServer")},
-			"azurerm_data_factory_pipeline":                  {Tok: azureResource(azureDataFactory, "FactoryPipeline")},
+			"azurerm_data_factory_dataset_mysql":             {Tok: azureResource(azureDataFactory, "DatasetMysql")},
+			"azurerm_data_factory_dataset_postgresql":        {Tok: azureResource(azureDataFactory, "DatasetPostgresql")},
+			"azurerm_data_factory_dataset_sql_server_table":  {Tok: azureResource(azureDataFactory, "DatasetSqlServerTable")},
+			"azurerm_data_factory_linked_service_mysql":      {Tok: azureResource(azureDataFactory, "LinkedServiceMysql")},
+			"azurerm_data_factory_linked_service_postgresql": {Tok: azureResource(azureDataFactory, "LinkedServicePostgresql")},
+			"azurerm_data_factory_linked_service_sql_server": {Tok: azureResource(azureDataFactory, "LinkedServiceSqlServer")},
+			"azurerm_data_factory_pipeline":                  {Tok: azureResource(azureDataFactory, "Pipeline")},
 
 			// Data Lake
 			"azurerm_data_lake_analytics_account":       {Tok: azureResource(azureDatalake, "AnalyticsAccount")},

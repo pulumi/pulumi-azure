@@ -8,18 +8,18 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class FactoryLinkedServicePostgresql(pulumi.CustomResource):
+class LinkedServiceMysql(pulumi.CustomResource):
     additional_properties: pulumi.Output[dict]
     """
-    A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
+    A map of additional properties to associate with the Data Factory Linked Service MySQL.
     """
     annotations: pulumi.Output[list]
     """
-    List of tags that can be used for describing the Data Factory Linked Service PostgreSQL.
+    List of tags that can be used for describing the Data Factory Linked Service MySQL.
     """
     connection_string: pulumi.Output[str]
     """
-    The connection string in which to authenticate with PostgreSQL.
+    The connection string in which to authenticate with MySQL.
     """
     data_factory_name: pulumi.Output[str]
     """
@@ -27,41 +27,41 @@ class FactoryLinkedServicePostgresql(pulumi.CustomResource):
     """
     description: pulumi.Output[str]
     """
-    The description for the Data Factory Linked Service PostgreSQL.
+    The description for the Data Factory Linked Service MySQL.
     """
     integration_runtime_name: pulumi.Output[str]
     """
-    The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
+    The integration runtime reference to associate with the Data Factory Linked Service MySQL.
     """
     name: pulumi.Output[str]
     """
-    Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+    Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
     """
     parameters: pulumi.Output[dict]
     """
-    A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
+    A map of parameters to associate with the Data Factory Linked Service MySQL.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to create the Data Factory Linked Service PostgreSQL. Changing this forces a new resource
+    The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
     """
     def __init__(__self__, resource_name, opts=None, additional_properties=None, annotations=None, connection_string=None, data_factory_name=None, description=None, integration_runtime_name=None, name=None, parameters=None, resource_group_name=None, __name__=None, __opts__=None):
         """
-        Manage a Linked Service (connection) between PostgreSQL and Azure Data Factory.
+        Manage a Linked Service (connection) between MySQL and Azure Data Factory.
         
         > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] additional_properties: A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
-        :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Linked Service PostgreSQL.
-        :param pulumi.Input[str] connection_string: The connection string in which to authenticate with PostgreSQL.
+        :param pulumi.Input[dict] additional_properties: A map of additional properties to associate with the Data Factory Linked Service MySQL.
+        :param pulumi.Input[list] annotations: List of tags that can be used for describing the Data Factory Linked Service MySQL.
+        :param pulumi.Input[str] connection_string: The connection string in which to authenticate with MySQL.
         :param pulumi.Input[str] data_factory_name: The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
-        :param pulumi.Input[str] description: The description for the Data Factory Linked Service PostgreSQL.
-        :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service PostgreSQL.
-        :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[dict] parameters: A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service PostgreSQL. Changing this forces a new resource
+        :param pulumi.Input[str] description: The description for the Data Factory Linked Service MySQL.
+        :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
+        :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+        :param pulumi.Input[dict] parameters: A map of parameters to associate with the Data Factory Linked Service MySQL.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service MySQL. Changing this forces a new resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -102,8 +102,8 @@ class FactoryLinkedServicePostgresql(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
-        super(FactoryLinkedServicePostgresql, __self__).__init__(
-            'azure:datafactory/factoryLinkedServicePostgresql:FactoryLinkedServicePostgresql',
+        super(LinkedServiceMysql, __self__).__init__(
+            'azure:datafactory/linkedServiceMysql:LinkedServiceMysql',
             resource_name,
             __props__,
             opts)

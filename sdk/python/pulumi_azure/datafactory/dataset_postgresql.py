@@ -8,7 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class FactoryDatasetPostgresql(pulumi.CustomResource):
+class DatasetPostgresql(pulumi.CustomResource):
     additional_properties: pulumi.Output[dict]
     """
     A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
@@ -114,8 +114,8 @@ class FactoryDatasetPostgresql(pulumi.CustomResource):
 
         __props__['table_name'] = table_name
 
-        super(FactoryDatasetPostgresql, __self__).__init__(
-            'azure:datafactory/factoryDatasetPostgresql:FactoryDatasetPostgresql',
+        super(DatasetPostgresql, __self__).__init__(
+            'azure:datafactory/datasetPostgresql:DatasetPostgresql',
             resource_name,
             __props__,
             opts)
