@@ -12,7 +12,7 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, auto_scales=None, display_name=None, fixed_scales=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, storage_image_references=None, vm_size=None, id=None):
+    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, display_name=None, fixed_scales=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, storage_image_references=None, vm_size=None, id=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         __self__.account_name = account_name
@@ -24,6 +24,12 @@ class GetPoolResult:
         __self__.auto_scales = auto_scales
         """
         A `auto_scale` block that describes the scale settings when using auto scale.
+        """
+        if certificates and not isinstance(certificates, list):
+            raise TypeError("Expected argument 'certificates' to be a list")
+        __self__.certificates = certificates
+        """
+        One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
         """
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
@@ -80,13 +86,14 @@ class GetPoolResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_pool(account_name=None,name=None,resource_group_name=None,start_task=None,opts=None):
+async def get_pool(account_name=None,certificates=None,name=None,resource_group_name=None,start_task=None,opts=None):
     """
     Use this data source to access information about an existing Batch pool
     """
     __args__ = dict()
 
     __args__['accountName'] = account_name
+    __args__['certificates'] = certificates
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTask'] = start_task
@@ -95,6 +102,7 @@ async def get_pool(account_name=None,name=None,resource_group_name=None,start_ta
     return GetPoolResult(
         account_name=__ret__.get('accountName'),
         auto_scales=__ret__.get('autoScales'),
+        certificates=__ret__.get('certificates'),
         display_name=__ret__.get('displayName'),
         fixed_scales=__ret__.get('fixedScales'),
         max_tasks_per_node=__ret__.get('maxTasksPerNode'),

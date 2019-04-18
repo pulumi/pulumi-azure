@@ -43,6 +43,10 @@ class PublicIp(pulumi.CustomResource):
     new resource to be created.
     """
     public_ip_address_allocation: pulumi.Output[str]
+    public_ip_prefix_id: pulumi.Output[str]
+    """
+    If specified then public IP address allocated will be provided from the public IP prefix resource.
+    """
     resource_group_name: pulumi.Output[str]
     """
     The name of the resource group in which to
@@ -64,7 +68,7 @@ class PublicIp(pulumi.CustomResource):
     """
     A collection containing the availability zone to allocate the Public IP in.
     """
-    def __init__(__self__, resource_name, opts=None, allocation_method=None, domain_name_label=None, idle_timeout_in_minutes=None, ip_version=None, location=None, name=None, public_ip_address_allocation=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allocation_method=None, domain_name_label=None, idle_timeout_in_minutes=None, ip_version=None, location=None, name=None, public_ip_address_allocation=None, public_ip_prefix_id=None, resource_group_name=None, reverse_fqdn=None, sku=None, tags=None, zones=None, __name__=None, __opts__=None):
         """
         Manage a Public IP Address.
         
@@ -77,6 +81,7 @@ class PublicIp(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Public IP resource . Changing this forces a
                new resource to be created.
+        :param pulumi.Input[str] public_ip_prefix_id: If specified then public IP address allocated will be provided from the public IP prefix resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the public ip.
         :param pulumi.Input[str] reverse_fqdn: A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
@@ -114,6 +119,8 @@ class PublicIp(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['public_ip_address_allocation'] = public_ip_address_allocation
+
+        __props__['public_ip_prefix_id'] = public_ip_prefix_id
 
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")

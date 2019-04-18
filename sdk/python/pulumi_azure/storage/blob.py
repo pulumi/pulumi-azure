@@ -17,6 +17,10 @@ class Blob(pulumi.CustomResource):
     """
     The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
     """
+    metadata: pulumi.Output[dict]
+    """
+    A map of custom blob metadata.
+    """
     name: pulumi.Output[str]
     """
     The name of the storage blob. Must be unique within the storage container the blob is located.
@@ -61,7 +65,7 @@ class Blob(pulumi.CustomResource):
     """
     The URL of the blob
     """
-    def __init__(__self__, resource_name, opts=None, attempts=None, content_type=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __name__=None, __opts__=None):
         """
         Manage an Azure Storage Blob.
         
@@ -69,6 +73,7 @@ class Blob(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] attempts: The number of attempts to make per page or block when uploading. Defaults to `1`.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+        :param pulumi.Input[dict] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
@@ -101,6 +106,8 @@ class Blob(pulumi.CustomResource):
         __props__['attempts'] = attempts
 
         __props__['content_type'] = content_type
+
+        __props__['metadata'] = metadata
 
         __props__['name'] = name
 

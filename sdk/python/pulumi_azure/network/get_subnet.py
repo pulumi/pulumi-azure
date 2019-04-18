@@ -12,7 +12,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, address_prefix=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, virtual_network_name=None, id=None):
+    def __init__(__self__, address_prefix=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, id=None):
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         __self__.address_prefix = address_prefix
@@ -43,6 +43,12 @@ class GetSubnetResult:
         """
         The ID of the Route Table associated with this subnet.
         """
+        if service_endpoints and not isinstance(service_endpoints, list):
+            raise TypeError("Expected argument 'service_endpoints' to be a list")
+        __self__.service_endpoints = service_endpoints
+        """
+        A list of Service Endpoints within this subnet.
+        """
         if virtual_network_name and not isinstance(virtual_network_name, str):
             raise TypeError("Expected argument 'virtual_network_name' to be a str")
         __self__.virtual_network_name = virtual_network_name
@@ -71,5 +77,6 @@ async def get_subnet(name=None,resource_group_name=None,virtual_network_name=Non
         network_security_group_id=__ret__.get('networkSecurityGroupId'),
         resource_group_name=__ret__.get('resourceGroupName'),
         route_table_id=__ret__.get('routeTableId'),
+        service_endpoints=__ret__.get('serviceEndpoints'),
         virtual_network_name=__ret__.get('virtualNetworkName'),
         id=__ret__.get('id'))

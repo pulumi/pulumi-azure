@@ -95,12 +95,13 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
     /**
-     * Specifies the algorithm used to route
-     * traffic, possible values are:
+     * Specifies the algorithm used to route traffic, possible values are:
      * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+     * - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
      * - `Performance` - Traffic is routed via the User's closest Endpoint
-     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      * - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+     * - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
     public readonly trafficRoutingMethod: pulumi.Output<string>;
 
@@ -189,12 +190,13 @@ export interface ProfileState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the algorithm used to route
-     * traffic, possible values are:
+     * Specifies the algorithm used to route traffic, possible values are:
      * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+     * - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
      * - `Performance` - Traffic is routed via the User's closest Endpoint
-     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      * - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+     * - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
     readonly trafficRoutingMethod?: pulumi.Input<string>;
 }
@@ -233,12 +235,13 @@ export interface ProfileArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the algorithm used to route
-     * traffic, possible values are:
+     * Specifies the algorithm used to route traffic, possible values are:
      * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+     * - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
      * - `Performance` - Traffic is routed via the User's closest Endpoint
-     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      * - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+     * - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+     * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
     readonly trafficRoutingMethod: pulumi.Input<string>;
 }

@@ -43,6 +43,12 @@ import * as utilities from "../utilities";
  *                 NODE_ENV: "testing",
  *             },
  *             image: "seanmckenna/aci-hellofiles",
+ *             livenessProbe: {
+ *                 execs: [
+ *                     "cat",
+ *                     "/tmp/healthy",
+ *                 ],
+ *             },
  *             memory: 1.5,
  *             name: "hw",
  *             ports: [
@@ -55,6 +61,13 @@ import * as utilities from "../utilities";
  *                     protocol: "TCP",
  *                 },
  *             ],
+ *             readinessProbe: {
+ *                 execs: [
+ *                     "/bin/sh",
+ *                     "-c",
+ *                     "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600",
+ *                 ],
+ *             },
  *             secureEnvironmentVariables: {
  *                 ACCESS_KEY: "secure_testing",
  *             },
@@ -102,7 +115,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    public readonly containers: pulumi.Output<{ command: string, commands: string[], cpu: number, environmentVariables?: {[key: string]: any}, gpu?: { count?: number, sku?: string }, image: string, memory: number, name: string, port: number, ports: { port: number, protocol: string }[], protocol: string, secureEnvironmentVariables?: {[key: string]: any}, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
+    public readonly containers: pulumi.Output<{ command: string, commands: string[], cpu: number, environmentVariables?: {[key: string]: any}, gpu?: { count?: number, sku?: string }, image: string, livenessProbe?: { execs?: string[], failureThreshold?: number, httpGets?: { path?: string, port?: number, scheme?: string }[], initialDelaySeconds?: number, periodSeconds?: number, successThreshold?: number, timeoutSeconds?: number }, memory: number, name: string, port: number, ports: { port: number, protocol: string }[], protocol: string, readinessProbe?: { execs?: string[], failureThreshold?: number, httpGets?: { path?: string, port?: number, scheme?: string }[], initialDelaySeconds?: number, periodSeconds?: number, successThreshold?: number, timeoutSeconds?: number }, secureEnvironmentVariables?: {[key: string]: any}, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
     /**
      * A `diagnostics` block as documented below.
      */
@@ -216,7 +229,7 @@ export interface GroupState {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, gpu?: pulumi.Input<{ count?: pulumi.Input<number>, sku?: pulumi.Input<string> }>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
+    readonly containers?: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, gpu?: pulumi.Input<{ count?: pulumi.Input<number>, sku?: pulumi.Input<string> }>, image: pulumi.Input<string>, livenessProbe?: pulumi.Input<{ execs?: pulumi.Input<pulumi.Input<string>[]>, failureThreshold?: pulumi.Input<number>, httpGets?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port?: pulumi.Input<number>, scheme?: pulumi.Input<string> }>[]>, initialDelaySeconds?: pulumi.Input<number>, periodSeconds?: pulumi.Input<number>, successThreshold?: pulumi.Input<number>, timeoutSeconds?: pulumi.Input<number> }>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, readinessProbe?: pulumi.Input<{ execs?: pulumi.Input<pulumi.Input<string>[]>, failureThreshold?: pulumi.Input<number>, httpGets?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port?: pulumi.Input<number>, scheme?: pulumi.Input<string> }>[]>, initialDelaySeconds?: pulumi.Input<number>, periodSeconds?: pulumi.Input<number>, successThreshold?: pulumi.Input<number>, timeoutSeconds?: pulumi.Input<number> }>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A `diagnostics` block as documented below.
      */
@@ -274,7 +287,7 @@ export interface GroupArgs {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    readonly containers: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, gpu?: pulumi.Input<{ count?: pulumi.Input<number>, sku?: pulumi.Input<string> }>, image: pulumi.Input<string>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
+    readonly containers: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, gpu?: pulumi.Input<{ count?: pulumi.Input<number>, sku?: pulumi.Input<string> }>, image: pulumi.Input<string>, livenessProbe?: pulumi.Input<{ execs?: pulumi.Input<pulumi.Input<string>[]>, failureThreshold?: pulumi.Input<number>, httpGets?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port?: pulumi.Input<number>, scheme?: pulumi.Input<string> }>[]>, initialDelaySeconds?: pulumi.Input<number>, periodSeconds?: pulumi.Input<number>, successThreshold?: pulumi.Input<number>, timeoutSeconds?: pulumi.Input<number> }>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, readinessProbe?: pulumi.Input<{ execs?: pulumi.Input<pulumi.Input<string>[]>, failureThreshold?: pulumi.Input<number>, httpGets?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port?: pulumi.Input<number>, scheme?: pulumi.Input<string> }>[]>, initialDelaySeconds?: pulumi.Input<number>, periodSeconds?: pulumi.Input<number>, successThreshold?: pulumi.Input<number>, timeoutSeconds?: pulumi.Input<number> }>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A `diagnostics` block as documented below.
      */

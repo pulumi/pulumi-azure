@@ -26,6 +26,10 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
     The Express Route Circuit can be in the same or in a different subscription.
     """
+    express_route_gateway_bypass: pulumi.Output[bool]
+    """
+    If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
+    """
     ipsec_policy: pulumi.Output[dict]
     """
     A `ipsec_policy` block which is documented below.
@@ -93,7 +97,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     in which the connection will be created. Changing the gateway forces a new
     resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, authorization_key=None, enable_bgp=None, express_route_circuit_id=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authorization_key=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, ipsec_policy=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, resource_group_name=None, routing_weight=None, shared_key=None, tags=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None, __name__=None, __opts__=None):
         """
         Manages a connection in an existing Virtual Network Gateway.
         
@@ -107,6 +111,7 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] express_route_circuit_id: The ID of the Express Route Circuit
                when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
                The Express Route Circuit can be in the same or in a different subscription.
+        :param pulumi.Input[bool] express_route_gateway_bypass: If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
         :param pulumi.Input[dict] ipsec_policy: A `ipsec_policy` block which is documented below.
                Only a single policy can be defined for a connection. For details on
                custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
@@ -159,6 +164,8 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         __props__['enable_bgp'] = enable_bgp
 
         __props__['express_route_circuit_id'] = express_route_circuit_id
+
+        __props__['express_route_gateway_bypass'] = express_route_gateway_bypass
 
         __props__['ipsec_policy'] = ipsec_policy
 

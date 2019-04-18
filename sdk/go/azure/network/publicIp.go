@@ -31,6 +31,7 @@ func NewPublicIp(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["publicIpAddressAllocation"] = nil
+		inputs["publicIpPrefixId"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["reverseFqdn"] = nil
 		inputs["sku"] = nil
@@ -44,6 +45,7 @@ func NewPublicIp(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["publicIpAddressAllocation"] = args.PublicIpAddressAllocation
+		inputs["publicIpPrefixId"] = args.PublicIpPrefixId
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["reverseFqdn"] = args.ReverseFqdn
 		inputs["sku"] = args.Sku
@@ -74,6 +76,7 @@ func GetPublicIp(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["publicIpAddressAllocation"] = state.PublicIpAddressAllocation
+		inputs["publicIpPrefixId"] = state.PublicIpPrefixId
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["reverseFqdn"] = state.ReverseFqdn
 		inputs["sku"] = state.Sku
@@ -142,6 +145,11 @@ func (r *PublicIp) PublicIpAddressAllocation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publicIpAddressAllocation"])
 }
 
+// If specified then public IP address allocated will be provided from the public IP prefix resource.
+func (r *PublicIp) PublicIpPrefixId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["publicIpPrefixId"])
+}
+
 // The name of the resource group in which to
 // create the public ip.
 func (r *PublicIp) ResourceGroupName() *pulumi.StringOutput {
@@ -188,6 +196,8 @@ type PublicIpState struct {
 	// new resource to be created.
 	Name interface{}
 	PublicIpAddressAllocation interface{}
+	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	PublicIpPrefixId interface{}
 	// The name of the resource group in which to
 	// create the public ip.
 	ResourceGroupName interface{}
@@ -217,6 +227,8 @@ type PublicIpArgs struct {
 	// new resource to be created.
 	Name interface{}
 	PublicIpAddressAllocation interface{}
+	// If specified then public IP address allocated will be provided from the public IP prefix resource.
+	PublicIpPrefixId interface{}
 	// The name of the resource group in which to
 	// create the public ip.
 	ResourceGroupName interface{}

@@ -11,6 +11,7 @@ from .. import utilities, tables
 class ZipBlob(pulumi.CustomResource):
     attempts: pulumi.Output[float]
     content_type: pulumi.Output[str]
+    metadata: pulumi.Output[dict]
     name: pulumi.Output[str]
     parallelism: pulumi.Output[float]
     resource_group_name: pulumi.Output[str]
@@ -21,7 +22,7 @@ class ZipBlob(pulumi.CustomResource):
     storage_container_name: pulumi.Output[str]
     type: pulumi.Output[str]
     url: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, attempts=None, content_type=None, name=None, parallelism=None, resource_group_name=None, size=None, content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __name__=None, __opts__=None):
         """
         Create a ZipBlob resource with the given unique name, props, and options.
         
@@ -46,6 +47,8 @@ class ZipBlob(pulumi.CustomResource):
         __props__['attempts'] = attempts
 
         __props__['content_type'] = content_type
+
+        __props__['metadata'] = metadata
 
         __props__['name'] = name
 

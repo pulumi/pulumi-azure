@@ -43,6 +43,10 @@ class AccessPolicy(pulumi.CustomResource):
     List of secret permissions, must be one or more
     from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
     """
+    storage_permissions: pulumi.Output[list]
+    """
+    List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
+    """
     tenant_id: pulumi.Output[str]
     """
     The Azure Active Directory tenant ID that should be used
@@ -54,7 +58,7 @@ class AccessPolicy(pulumi.CustomResource):
     Specifies the name of the Key Vault resource. Changing this
     forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, application_id=None, certificate_permissions=None, key_permissions=None, key_vault_id=None, object_id=None, resource_group_name=None, secret_permissions=None, tenant_id=None, vault_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_id=None, certificate_permissions=None, key_permissions=None, key_vault_id=None, object_id=None, resource_group_name=None, secret_permissions=None, storage_permissions=None, tenant_id=None, vault_name=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Access Policy.
         
@@ -79,6 +83,7 @@ class AccessPolicy(pulumi.CustomResource):
                create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[list] secret_permissions: List of secret permissions, must be one or more
                from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
+        :param pulumi.Input[list] storage_permissions: List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used
                for authenticating requests to the key vault. Changing this forces a new resource
                to be created.
@@ -115,6 +120,8 @@ class AccessPolicy(pulumi.CustomResource):
         __props__['resource_group_name'] = resource_group_name
 
         __props__['secret_permissions'] = secret_permissions
+
+        __props__['storage_permissions'] = storage_permissions
 
         if tenant_id is None:
             raise TypeError("Missing required property 'tenant_id'")

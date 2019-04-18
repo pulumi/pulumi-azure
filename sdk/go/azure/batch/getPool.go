@@ -12,6 +12,7 @@ func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) 
 	inputs := make(map[string]interface{})
 	if args != nil {
 		inputs["accountName"] = args.AccountName
+		inputs["certificates"] = args.Certificates
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["startTask"] = args.StartTask
@@ -23,6 +24,7 @@ func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) 
 	return &GetPoolResult{
 		AccountName: outputs["accountName"],
 		AutoScales: outputs["autoScales"],
+		Certificates: outputs["certificates"],
 		DisplayName: outputs["displayName"],
 		FixedScales: outputs["fixedScales"],
 		MaxTasksPerNode: outputs["maxTasksPerNode"],
@@ -39,6 +41,7 @@ func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) 
 // A collection of arguments for invoking getPool.
 type GetPoolArgs struct {
 	AccountName interface{}
+	Certificates interface{}
 	Name interface{}
 	ResourceGroupName interface{}
 	StartTask interface{}
@@ -50,6 +53,8 @@ type GetPoolResult struct {
 	AccountName interface{}
 	// A `auto_scale` block that describes the scale settings when using auto scale.
 	AutoScales interface{}
+	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+	Certificates interface{}
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
 	FixedScales interface{}

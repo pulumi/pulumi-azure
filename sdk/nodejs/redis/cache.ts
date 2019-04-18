@@ -199,7 +199,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    public readonly redisConfiguration: pulumi.Output<{ maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
+    public readonly redisConfiguration: pulumi.Output<{ aofBackupEnabled?: boolean, aofStorageConnectionString0?: string, aofStorageConnectionString1?: string, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -363,7 +363,7 @@ export interface CacheState {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    readonly redisConfiguration?: pulumi.Input<{ maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
+    readonly redisConfiguration?: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -439,7 +439,7 @@ export interface CacheArgs {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    readonly redisConfiguration: pulumi.Input<{ maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
+    readonly redisConfiguration: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.

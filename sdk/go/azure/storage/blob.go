@@ -29,6 +29,7 @@ func NewBlob(ctx *pulumi.Context,
 	if args == nil {
 		inputs["attempts"] = nil
 		inputs["contentType"] = nil
+		inputs["metadata"] = nil
 		inputs["name"] = nil
 		inputs["parallelism"] = nil
 		inputs["resourceGroupName"] = nil
@@ -41,6 +42,7 @@ func NewBlob(ctx *pulumi.Context,
 	} else {
 		inputs["attempts"] = args.Attempts
 		inputs["contentType"] = args.ContentType
+		inputs["metadata"] = args.Metadata
 		inputs["name"] = args.Name
 		inputs["parallelism"] = args.Parallelism
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -67,6 +69,7 @@ func GetBlob(ctx *pulumi.Context,
 	if state != nil {
 		inputs["attempts"] = state.Attempts
 		inputs["contentType"] = state.ContentType
+		inputs["metadata"] = state.Metadata
 		inputs["name"] = state.Name
 		inputs["parallelism"] = state.Parallelism
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -103,6 +106,11 @@ func (r *Blob) Attempts() *pulumi.IntOutput {
 // The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
 func (r *Blob) ContentType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["contentType"])
+}
+
+// A map of custom blob metadata.
+func (r *Blob) Metadata() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["metadata"])
 }
 
 // The name of the storage blob. Must be unique within the storage container the blob is located.
@@ -165,6 +173,8 @@ type BlobState struct {
 	Attempts interface{}
 	// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
 	ContentType interface{}
+	// A map of custom blob metadata.
+	Metadata interface{}
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
 	Name interface{}
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
@@ -197,6 +207,8 @@ type BlobArgs struct {
 	Attempts interface{}
 	// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
 	ContentType interface{}
+	// A map of custom blob metadata.
+	Metadata interface{}
 	// The name of the storage blob. Must be unique within the storage container the blob is located.
 	Name interface{}
 	// The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
