@@ -1,4 +1,6 @@
-## 0.17.5 (Unreleased)
+## 0.18.1 (Unreleased)
+
+## 0.18.0 (Released April 22nd, 2019)
 
 ## Breaking Changes
 
