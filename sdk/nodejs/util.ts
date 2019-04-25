@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
+
 type Diff<T extends string | number | symbol, U extends string | number | symbol> =
   ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
 
@@ -19,3 +21,9 @@ type Diff<T extends string | number | symbol, U extends string | number | symbol
 // with properties of the same name, but with entirely different types.
 /** @internal */
 export type Overwrite<T, U> = Pick<T, Diff<keyof T, keyof U>> & U;
+
+/** @internal */
+export function ifUndefined<T>(input: pulumi.Input<T> | undefined, value: pulumi.Input<T>) {
+  return pulumi.all([input, value])
+               .apply(([input, value]) => input !== undefined ? input : value);
+}

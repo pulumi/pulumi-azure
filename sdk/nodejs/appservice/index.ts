@@ -4,10 +4,10 @@
 // Export members:
 export * from "./activeSlot";
 export * from "./appService";
-export * from "./appserviceMixins";
 export * from "./customHostnameBinding";
 export * from "./functionApp";
 export * from "./getAppService";
 export * from "./getAppServicePlan";
 export * from "./plan";
 export * from "./slot";
+export * from "./zMixins";

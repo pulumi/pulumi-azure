@@ -80,12 +80,6 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R> = Overwrite<Func
     callbackFactory?: CallbackFactory<C, E, R>;
 
     /**
-     * Bindings to set for this particular FunctionApp.  Individual services will have their own
-     * specific bindings to set.
-     */
-    bindings: pulumi.Input<pulumi.Input<Binding>[]>;
-
-    /**
      * The name of the resource group in which to create the Function App.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -157,7 +151,7 @@ export interface Binding {
 function serializeCallback<C extends Context<R>, E, R>(
         name: string,
         args: CallbackFunctionAppArgs<C, E, R>,
-    ): pulumi.Output<pulumi.asset.AssetMap> {
+        bindings: pulumi.Input<pulumi.Input<Binding>[]>): pulumi.Output<pulumi.asset.AssetMap> {
 
     if (args.callback && args.callbackFactory) {
         throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
@@ -175,9 +169,7 @@ function serializeCallback<C extends Context<R>, E, R>(
     const serializedFunc = pulumi.runtime.serializeFunction(
         func, { isFactoryFunction: !!args.callbackFactory });
 
-    const pathSet = pulumi.runtime.computeCodePaths(args.codePathOptions);
-
-    return pulumi.all([args.bindings, serializedFunc, pathSet]).apply(([bindings, serializedFunc, pathSet]) => {
+    return pulumi.all([bindings, serializedFunc]).apply(async ([bindings, serializedFunc]) => {
         const map: pulumi.asset.AssetMap = {};
         map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
             "tracing": {
@@ -193,6 +185,7 @@ function serializeCallback<C extends Context<R>, E, R>(
         map[`${name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
         map[`${name}/handler.js`] = new pulumi.asset.StringAsset(serializedFunc.text);
 
+        const pathSet = await pulumi.runtime.computeCodePaths(args.codePathOptions);
         for (const [path, value] of pathSet.entries()) {
             map[name + "/" + path] = value;
         }
@@ -236,7 +229,8 @@ export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp
      */
     public readonly plan: appservice.Plan;
 
-    constructor(name: string, args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
+    constructor(name: string, bindings: pulumi.Input<pulumi.Input<Binding>[]>,
+                args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
 
         if (!args.resourceGroupName) {
             throw new pulumi.ResourceError("[args.resourceGroupName] must be provided", opts.parent);
@@ -279,7 +273,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp
             containerAccessType: "private",
         }, opts);
 
-        const assetMap = serializeCallback(name, args);
+        const assetMap = serializeCallback(name, args, bindings);
         const zipBlob = new storage.ZipBlob(name, {
             resourceGroupName: args.resourceGroupName,
             storageAccountName: account.name,
@@ -309,6 +303,22 @@ export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp
         this.container = container;
         this.plan = plan;
         this.zipBlob = zipBlob;
+    }
+}
+/**
+ * Base type for all subscription types.  An event subscription represents a connection between some
+ * azure resource an an FunctionApp that will be triggered when something happens to that resource.
+ */
+export abstract class EventSubscription<C extends Context<R>, E, R> extends pulumi.ComponentResource {
+    public readonly callbackFunctionApp: CallbackFunctionApp<C, E, R>;
+
+    constructor(type: string, name: string,
+                bindings: pulumi.Input<pulumi.Input<Binding>[]>,
+                args: CallbackFunctionAppArgs<C, E, R>,
+                opts: pulumi.ComponentResourceOptions = {}) {
+        super(type, name, undefined, opts);
+
+        this.callbackFunctionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
     }
 }
 

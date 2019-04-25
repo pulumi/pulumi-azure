@@ -834,12 +834,12 @@ func Provider() tfbridge.ProviderInfo {
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"appservice": {
 						DestFiles: []string{
-							"appserviceMixins.ts",
+							"zMixins.ts",
 						},
 					},
 					"eventhub": {
 						DestFiles: []string{
-							"eventhubMixins.ts",
+							"zMixins.ts",
 						},
 					},
 				},
