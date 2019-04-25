@@ -23,6 +23,9 @@ import { Overwrite } from "../util";
 import * as storage from "../storage";
 import * as appservice from "../appservice";
 
+export type HttpRequest = azurefunctions.HttpRequest;
+export type HttpResponse = azurefunctions.HttpResponse;
+
 export interface Context<R> extends azurefunctions.Context {
     log: {
         (...message: Array<any>): void;
@@ -139,6 +142,7 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R> = Overwrite<Func
  * Individual services will have more specific information they will define in their own bindings.
  */
 export interface Binding {
+    authLevel?: pulumi.Input<string>;
     type: pulumi.Input<string>;
     direction: pulumi.Input<string>;
     name: pulumi.Input<string>;
@@ -305,12 +309,13 @@ export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp
         this.zipBlob = zipBlob;
     }
 }
+
 /**
  * Base type for all subscription types.  An event subscription represents a connection between some
  * azure resource an an FunctionApp that will be triggered when something happens to that resource.
  */
 export abstract class EventSubscription<C extends Context<R>, E, R> extends pulumi.ComponentResource {
-    public readonly callbackFunctionApp: CallbackFunctionApp<C, E, R>;
+    public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
                 bindings: pulumi.Input<pulumi.Input<Binding>[]>,
@@ -318,7 +323,36 @@ export abstract class EventSubscription<C extends Context<R>, E, R> extends pulu
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
-        this.callbackFunctionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
+        this.functionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
+    }
+}
+
+/**
+ * An Azure Function exposed via an HTTP endpoint that is implemented on top of a
+ * JavaScript/TypeScript callback function.
+ */
+export class HttpEventSubscription extends EventSubscription<Context<HttpResponse>, HttpRequest, HttpResponse> {
+    /**
+     * Endpoint where this FunctionApp can be invoked.
+     */
+    public readonly url: pulumi.Output<string>;
+
+    constructor(name: string,
+                args: CallbackFunctionAppArgs<Context<HttpResponse>, HttpRequest, HttpResponse>,
+                opts: pulumi.CustomResourceOptions = {}) {
+        super("azure:appservice:HttpEventSubscription", name, [{
+                authLevel: "anonymous",
+                type: "httpTrigger",
+                direction: "in",
+                name: "req",
+            }, {
+                type: "http",
+                direction: "out",
+                name: "$return",
+            },
+        ], args, opts);
+
+        this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
     }
 }
 
