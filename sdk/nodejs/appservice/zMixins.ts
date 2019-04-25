@@ -21,7 +21,7 @@ import { FunctionAppArgs, FunctionApp } from "./functionApp";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
-import * as storage from "../storage";
+import * as storageForTypesOnly from "../storage";
 import * as util from "../util";
 
 export type HttpRequest = azurefunctions.HttpRequest;
@@ -108,7 +108,7 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R> = util.Overwrite
      * not provided, a new storage account will create. It will be a 'Standard', 'LRS', 'StorageV2'
      * account.
      */
-    account?: storage.Account;
+    account?: storageForTypesOnly.Account;
 
     /**
      * Not used.  The storage connection string is determined based on the ZipBlob that is created
@@ -125,7 +125,7 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R> = util.Overwrite
      * The container to use where the zip-file blob for the FunctionApp will be located. If not
      * provided, the root container of the storage account will be used.
      */
-    container?: storage.Container;
+    container?: storageForTypesOnly.Container;
 
     /**
      * A key-value pair of App Settings.
@@ -220,15 +220,15 @@ export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp
     /**
      * Storage account where the FunctionApp's zipbBlob is uploaded to.
      */
-    public readonly account: storage.Account;
+    public readonly account: storageForTypesOnly.Account;
     /**
      * Storage container where the FunctionApp's zipbBlob is uploaded to.
      */
-    public readonly container: storage.Container;
+    public readonly container: storageForTypesOnly.Container;
     /**
      * The blob containing all the code for this FunctionApp.
      */
-    public readonly zipBlob: storage.ZipBlob;
+    public readonly zipBlob: storageForTypesOnly.ZipBlob;
     /**
      * The plan this FunctionApp runs under.
      */
@@ -264,7 +264,8 @@ export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp
             }, opts);
         }
 
-        const account = args.account || new storage.Account(makeSafeStorageAccountName(name), {
+        const storageMod = <typeof storageForTypesOnly>require("../storage");
+        const account = args.account || new storageMod.Account(makeSafeStorageAccountName(name), {
             ...resourceGroupArgs,
 
             accountKind: "StorageV2",
@@ -272,14 +273,14 @@ export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp
             accountReplicationType: "LRS",
         }, opts);
 
-        const container = args.container || new storage.Container(makeSafeStorageContainerName(name), {
+        const container = args.container || new storageMod.Container(makeSafeStorageContainerName(name), {
             resourceGroupName: args.resourceGroupName,
             storageAccountName: account.name,
             containerAccessType: "private",
         }, opts);
 
         const assetMap = serializeCallback(name, args, bindings);
-        const zipBlob = new storage.ZipBlob(name, {
+        const zipBlob = new storageMod.ZipBlob(name, {
             resourceGroupName: args.resourceGroupName,
             storageAccountName: account.name,
             storageContainerName: container.name,
@@ -374,9 +375,9 @@ function makeSafeStorageContainerName(prefix: string) {
 
 /** @internal */
 export function signedBlobReadUrl(
-    blob: storage.Blob | storage.ZipBlob,
-    account: storage.Account,
-    container: storage.Container): pulumi.Output<string> {
+    blob: storageForTypesOnly.Blob | storageForTypesOnly.ZipBlob,
+    account: storageForTypesOnly.Account,
+    container: storageForTypesOnly.Container): pulumi.Output<string> {
 
     // Choose a fixed, far-future expiration date for signed blob URLs. The shared access signature
     // (SAS) we generate for the Azure storage blob must remain valid for as long as the Function
