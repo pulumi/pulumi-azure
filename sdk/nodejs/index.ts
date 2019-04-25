@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./provider";
+export * from "./util";
 
 // Export sub-modules:
 import * as ad from "./ad/index";

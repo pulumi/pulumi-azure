@@ -10,6 +10,7 @@ export * from "./eventHubAuthorizationRule";
 export * from "./eventHubConsumerGroup";
 export * from "./eventHubNamespace";
 export * from "./eventHubNamespaceAuthorizationRule";
+export * from "./eventhubMixins";
 export * from "./getEventhubNamespace";
 export * from "./getServiceBusNamespace";
 export * from "./namespace";

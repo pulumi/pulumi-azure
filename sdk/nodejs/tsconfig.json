@@ -42,6 +42,7 @@
         "appinsights/insights.ts",
         "appservice/activeSlot.ts",
         "appservice/appService.ts",
+        "appservice/appserviceMixins.ts",
         "appservice/customHostnameBinding.ts",
         "appservice/functionApp.ts",
         "appservice/getAppService.ts",
@@ -161,6 +162,7 @@
         "eventhub/eventHubConsumerGroup.ts",
         "eventhub/eventHubNamespace.ts",
         "eventhub/eventHubNamespaceAuthorizationRule.ts",
+        "eventhub/eventhubMixins.ts",
         "eventhub/getEventhubNamespace.ts",
         "eventhub/getServiceBusNamespace.ts",
         "eventhub/index.ts",
@@ -376,6 +378,7 @@
         "trafficmanager/getGeographicalLocation.ts",
         "trafficmanager/index.ts",
         "trafficmanager/profile.ts",
+        "util.ts",
         "utilities.ts"
     ]
 }
