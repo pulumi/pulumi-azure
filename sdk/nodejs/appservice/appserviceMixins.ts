@@ -15,9 +15,11 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import * as azurefunctions from "azure-functions-ts-essentials";
-import { Overwrite, signedBlobReadUrl } from "../util";
+import * as azurestorage from "azure-storage";
 
 import { FunctionAppArgs, FunctionApp } from "./functionApp";
+
+import { Overwrite } from "../util";
 import * as storage from "../storage";
 import * as appservice from "../appservice";
 
@@ -321,4 +323,34 @@ function makeSafeStorageContainerName(prefix: string) {
     // Account name needs to be at max 63 chars (minus the extra 8 random chars);
     // Name must be alphanumeric (and hyphens).
     return prefix.replace(/[^a-zA-Z0-9-]/g, "").toLowerCase().substr(0, 63 - 8);
+}
+
+/** @internal */
+export function signedBlobReadUrl(
+    blob: storage.Blob | storage.ZipBlob,
+    account: storage.Account,
+    container: storage.Container): pulumi.Output<string> {
+
+    // Choose a fixed, far-future expiration date for signed blob URLs. The shared access signature
+    // (SAS) we generate for the Azure storage blob must remain valid for as long as the Function
+    // App is deployed, since new instances will download the code on startup. By using a fixed
+    // date, rather than (e.g.) "today plus ten years", the signing operation is idempotent.
+    const signatureExpiration = new Date(2100, 1);
+
+    return pulumi.all([account.primaryConnectionString, container.name, blob.name]).apply(
+        ([connectionString, containerName, blobName]) => {
+            const blobService = new azurestorage.BlobService(connectionString);
+            const signature = blobService.generateSharedAccessSignature(
+                containerName,
+                blobName,
+                {
+                    AccessPolicy: {
+                        Expiry: signatureExpiration,
+                        Permissions: azurestorage.BlobUtilities.SharedAccessPermissions.READ,
+                    },
+                },
+            );
+
+            return blobService.getUrl(containerName, blobName, signature);
+        });
 }
