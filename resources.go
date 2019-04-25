@@ -842,6 +842,11 @@ func Provider() tfbridge.ProviderInfo {
 							"zMixins.ts",
 						},
 					},
+					"storage": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
 				},
 			},
 		},

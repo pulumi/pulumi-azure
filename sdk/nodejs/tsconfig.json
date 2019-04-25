@@ -363,6 +363,7 @@
         "storage/queue.ts",
         "storage/share.ts",
         "storage/table.ts",
+        "storage/zMixins.ts",
         "storage/zipBlob.ts",
         "streamanalytics/functionJavaScriptUDF.ts",
         "streamanalytics/getJob.ts",

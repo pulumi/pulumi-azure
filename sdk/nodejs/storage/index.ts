@@ -10,4 +10,5 @@ export * from "./getAccountSAS";
 export * from "./queue";
 export * from "./share";
 export * from "./table";
+export * from "./zMixins";
 export * from "./zipBlob";

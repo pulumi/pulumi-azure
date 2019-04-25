@@ -19,9 +19,10 @@ import * as azurestorage from "azure-storage";
 
 import { FunctionAppArgs, FunctionApp } from "./functionApp";
 
-import { Overwrite } from "../util";
-import * as storage from "../storage";
 import * as appservice from "../appservice";
+import * as core from "../core";
+import * as storage from "../storage";
+import * as util from "../util";
 
 export type HttpRequest = azurefunctions.HttpRequest;
 export type HttpResponse = azurefunctions.HttpResponse;
@@ -63,7 +64,7 @@ export type Callback<C extends Context<R>, E, R> = (context: C, event: E) => Pro
  */
 export type CallbackFactory<C extends Context<R>, E, R> = () => Callback<C, E, R>;
 
-export type CallbackFunctionAppArgs<C extends Context<R>, E, R> = Overwrite<FunctionAppArgs, {
+export type CallbackFunctionAppArgs<C extends Context<R>, E, R> = util.Overwrite<FunctionAppArgs, {
     /**
      * The Javascript function instance to use as the entrypoint for the Azure FunctionApp.  Either
      * [callback] or [callbackFactory] must be provided.
@@ -353,6 +354,8 @@ export class HttpEventSubscription extends EventSubscription<Context<HttpRespons
         ], args, opts);
 
         this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
+
+        this.registerOutputs();
     }
 }
 
@@ -397,4 +400,19 @@ export function signedBlobReadUrl(
 
             return blobService.getUrl(containerName, blobName, signature);
         });
+}
+
+interface BaseSubscriptionArgs {
+    resourceGroupName?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
+}
+
+/** @internal */
+export function getResourceGroupNameAndLocation(args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string>) {
+    const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName);
+    const resourceGroup = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
+
+    const location = util.ifUndefined(args.location, resourceGroup.location);
+
+    return { resourceGroupName, location };
 }

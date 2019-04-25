@@ -14,9 +14,9 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import { getServiceBusNamespace, Subscription, Topic } from ".";
+
 import * as appservice from "../appservice";
 import * as core from "../core";
-
 import * as util from "../util";
 
 interface TopicBinding extends appservice.Binding {
@@ -38,12 +38,12 @@ interface TopicBinding extends appservice.Binding {
     /**
      * The name of the topic we are subscribing to.
      */
-    topicName: string;
+    topicName: pulumi.Input<string>;
 
     /**
      * The name of the subscription inside the topic we are subscribing to.
      */
-    subscriptionName: string;
+    subscriptionName: pulumi.Input<string>;
 
     /**
      * The name of an app setting that contains the Service Bus connection string to use for this binding.
@@ -85,7 +85,7 @@ export interface TopicContext extends appservice.Context<void> {
  */
 export type TopicCallback = appservice.Callback<TopicContext, string, void>;
 
-export interface TopicEventCallbackFunctionArgs extends appservice.CallbackFunctionAppArgs<TopicContext, any, void> {
+export type TopicEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<TopicContext, any, void>, {
     /**
      * The Subscription to subscribe the FunctionApp to.  If not present, a new Subscription
      * resource will be created.
@@ -96,7 +96,20 @@ export interface TopicEventCallbackFunctionArgs extends appservice.CallbackFunct
      * The maximum number of deliveries.  Will default to 10 if not specified.
      */
     maxDeliveryCount?: pulumi.Input<number>;
-}
+
+    /**
+     * The name of the resource group in which to create the event subscription.  If not supplied,
+     * the resourceGroupName of the Topic will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
+    /**
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new
+     * resource to be created.  If not supplied, the location of the Topic's ResourceGroup will be
+     * used.
+     */
+    location?: pulumi.Input<string>;
+}>;
 
 declare module "./topic" {
     interface Topic {
@@ -105,13 +118,13 @@ declare module "./topic" {
          * with options to control the behavior of the subscription.
          */
         onEvent(
-            name: string, args: TopicCallback | TopicEventCallbackFunctionArgs, opts?: pulumi.ComponentResourceOptions): TopicEventSubscription;
+            name: string, args: TopicCallback | TopicEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): TopicEventSubscription;
     }
 }
 
 Topic.prototype.onEvent = function(this: Topic, name, args, opts) {
     const functionArgs = args instanceof Function
-        ? <TopicEventCallbackFunctionArgs>{ callback: args }
+        ? <TopicEventSubscriptionArgs>{ callback: args }
         : args;
 
     return new TopicEventSubscription(name, this, functionArgs, opts);
@@ -123,14 +136,11 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
 
     constructor(
         name: string, topic: Topic,
-        args: TopicEventCallbackFunctionArgs, opts: pulumi.ComponentResourceOptions = {}) {
+        args: TopicEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
         opts = { parent: topic, ...opts };
 
-        const resourceGroupName = util.ifUndefined(args.resourceGroupName, topic.resourceGroupName);
-        const resourceGroup = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
-
-        const location = util.ifUndefined(args.location, resourceGroup.location);
+        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, topic.resourceGroupName);
 
         const subscription = args.subscription || new Subscription(name, {
             resourceGroupName,
@@ -144,18 +154,14 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = "BindingConnectionAppSettingsKey";
 
-        const bindings = pulumi.all([topic.name, subscription.name]).apply(([topicName, subscriptionName]) => {
-            const topicBinding: TopicBinding = {
-                name: "topic",
-                direction: "in",
-                type: "serviceBusTrigger",
-                topicName,
-                subscriptionName,
-                connection: bindingConnectionKey,
-            };
-
-            return [topicBinding];
-        });
+        const bindings: TopicBinding[] = [{
+            name: "topic",
+            direction: "in",
+            type: "serviceBusTrigger",
+            topicName: topic.name,
+            subscriptionName: subscription.name,
+            connection: bindingConnectionKey,
+        }];
 
         const namespace = pulumi.all([topic.namespaceName, resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
@@ -176,5 +182,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
 
         this.topic = topic;
         this.subscription = subscription;
+
+        this.registerOutputs();
     }
 }
