@@ -1,5 +1,11 @@
 ## 0.18.1 (Unreleased)
 
+- `@pulumi/azure` gets 'serverless' functionality in line with `@pulumi/aws`.  Specifically:
+  1. You can now easily create a FunctionApp from a JavaScript/TypeScript function using
+     azure.appservice.CallbackFunctionApp.
+  2. You can subscribe to `azure.eventhub.Topic` events, invoking a FunctionApp containing the code
+     you want, using `Topic.onEvent(...)`.
+
 ## 0.18.0 (Released April 22nd, 2019)
 
 ## Breaking Changes
