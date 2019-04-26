@@ -140,6 +140,12 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> =
     appSettings?: pulumi.Input<{ [key: string]: any; }>
 
     /**
+     * Controls the value of WEBSITE_NODE_DEFAULT_VERSION in `appSettings`.  If not provided,
+     * defaults to `8.11.1`.
+     */
+    nodeVersion?: pulumi.Input<string>;
+
+    /**
      * Options to control which files and packages are included with the serialized FunctionApp code.
      */
     codePathOptions?: pulumi.runtime.CodePathOptions;
@@ -184,14 +190,17 @@ function serializeCallback<C extends Context<R>, E, R extends Result>(
     return pulumi.all([bindings, serializedFunc]).apply(async ([bindings, serializedFunc]) => {
         const map: pulumi.asset.AssetMap = {};
         map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
-            "tracing": {
-                "consoleLevel": "verbose",
+            version: "2.0",
+            tracing: { consoleLevel: "verbose" },
+            extensionBundle: {
+                id: "Microsoft.Azure.Functions.ExtensionBundle",
+                version: "[1.*, 2.0.0)"
             },
         }));
 
         map[`${name}/function.json`] = new pulumi.asset.StringAsset(JSON.stringify({
-            "disabled": false,
-            "bindings": bindings,
+            disabled: false,
+            bindings: bindings,
         }));
 
         map[`${name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
@@ -300,6 +309,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
             ...args,
             ...resourceGroupArgs,
 
+            version: "~2",
             appServicePlanId: plan.id,
             storageConnectionString: account.primaryConnectionString,
 
@@ -307,7 +317,8 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
                 settings = settings || {};
                 return {
                     ...settings,
-                    "WEBSITE_RUN_FROM_ZIP": codeBlobUrl,
+                    WEBSITE_RUN_FROM_ZIP: codeBlobUrl,
+                    WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "8.11.1"),
                 };
             }),
         }, opts);
