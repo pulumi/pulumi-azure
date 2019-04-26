@@ -1,5 +1,17 @@
 ## 0.18.1 (Unreleased)
 
+- `@pulumi/azure` gets 'serverless' functionality in line with `@pulumi/aws`.  Specifically:
+  1. You can now easily create a FunctionApp from a JavaScript/TypeScript function using
+     azure.appservice.CallbackFunctionApp.
+  2. Subscribing and responding to HTTP events can be done easily with the new
+     `azure.appservice.HttpEventSubsription` component.
+  3. You can subscribe to `azure.eventhub.Topic` events, invoking a FunctionApp containing the code
+     you want, using `topic.onEvent(...)`.
+  4. You can subscribe to `azure.storage.Container` blob events, invoking a FunctionApp containing
+     the code you want, using `container.onBlobEvent(...)`.
+  5. You can subscribe to `azure.storage.Queue` events, invoking a FunctionApp containing
+     the code you want, using `queue.onEvent(...)`.
+
 ## 0.18.0 (Released April 22nd, 2019)
 
 ## Breaking Changes

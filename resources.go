@@ -822,11 +822,33 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 			},
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^0.17.1",
+				"@pulumi/pulumi":                "^0.17.8",
+				"@azure/functions":              "^1.0.2-beta2",
+				"azure-storage":                 "^2.10.3",
+				"azure-functions-ts-essentials": "^1.3.2",
 			},
 			Overlay: &tfbridge.OverlayInfo{
-				Files:   []string{},
-				Modules: map[string]*tfbridge.OverlayInfo{},
+				Files: []string{},
+				DestFiles: []string{
+					"util.ts",
+				},
+				Modules: map[string]*tfbridge.OverlayInfo{
+					"appservice": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
+					"eventhub": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
+					"storage": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
+				},
 			},
 		},
 		Python: &tfbridge.PythonInfo{

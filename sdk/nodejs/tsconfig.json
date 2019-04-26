@@ -49,6 +49,7 @@
         "appservice/index.ts",
         "appservice/plan.ts",
         "appservice/slot.ts",
+        "appservice/zMixins.ts",
         "automation/account.ts",
         "automation/credential.ts",
         "automation/dscConfiguration.ts",
@@ -172,6 +173,7 @@
         "eventhub/subscriptionRule.ts",
         "eventhub/topic.ts",
         "eventhub/topicAuthorizationRule.ts",
+        "eventhub/zMixins.ts",
         "hdinsight/getCluster.ts",
         "hdinsight/hBaseCluster.ts",
         "hdinsight/hadoopCluster.ts",
@@ -361,6 +363,7 @@
         "storage/queue.ts",
         "storage/share.ts",
         "storage/table.ts",
+        "storage/zMixins.ts",
         "storage/zipBlob.ts",
         "streamanalytics/functionJavaScriptUDF.ts",
         "streamanalytics/getJob.ts",
@@ -376,6 +379,7 @@
         "trafficmanager/getGeographicalLocation.ts",
         "trafficmanager/index.ts",
         "trafficmanager/profile.ts",
+        "util.ts",
         "utilities.ts"
     ]
 }

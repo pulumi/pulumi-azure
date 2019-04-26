@@ -10,3 +10,4 @@ export * from "./getAppService";
 export * from "./getAppServicePlan";
 export * from "./plan";
 export * from "./slot";
+export * from "./zMixins";
