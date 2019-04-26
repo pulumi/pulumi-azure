@@ -42,8 +42,10 @@ func TestExamples(t *testing.T) {
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
 		base.With(integration.ProgramTestOptions{
-			Dir:                    path.Join(cwd, "http"),
-			ExtraRuntimeValidation: validateAPITest("Hello World!"),
+			Dir: path.Join(cwd, "http"),
+			ExtraRuntimeValidation: validateAPITest(func(body string) {
+				assert.Equal(body, "Hello World!")
+			}),
 		}),
 	}
 
