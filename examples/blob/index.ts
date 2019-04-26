@@ -23,9 +23,9 @@ const storageContainer = new azure.storage.Container("images-container", {
 
 // When a new PNG image is added, fire an event
 storageContainer.onBlobEvent("newImage", {
-    callback: async (context, blob) => {
-        console.log(context);
-        console.log(blob);
+    callback: async (context, arg) => {
+        console.log("ctx: " + JSON.stringify(context, null, 4));
+        console.log(arg);
     },
     filterSuffix: ".png",
 });

@@ -21,9 +21,9 @@ const queue = new azure.storage.Queue("queue", {
 });
 
 // When a new message is added, fire an event
-queue.onEvent("newMessage",  async (context, msg) => {
-    console.log("ctx: " + context);
-    console.log("msg: " + msg);
+queue.onEvent("newMessage",  async (context, arg) => {
+    console.log("ctx: " + JSON.stringify(context, null, 4));
+    console.log("arg: " + JSON.stringify(arg, null, 4));
 });
 
 // The storage account of the queue
