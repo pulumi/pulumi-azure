@@ -348,6 +348,26 @@ export type HttpRequest = azurefunctions.HttpRequest;
  */
 export type HttpResponse = azureessentials.HttpResponse;
 
+export type HttpEventSubscriptionArgs = util.Overwrite<CallbackFunctionAppArgs<Context<HttpResponse>, HttpRequest, HttpResponse>, {
+    /**
+     * The resource group in which to create the event subscription.  Either [resourceGroupName] or
+     * [resourceGroup] must be supplied.
+     */
+    resourceGroup?: core.ResourceGroup;
+
+    /**
+     * The name of the resource group in which to create the event subscription.  Either
+     * [resourceGroupName] or [resourceGroup] must be supplied.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
+    /**
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new
+     * resource to be created.  If not supplied, the location of the provided ResourceGroup will be
+     * used.
+     */
+    location?: pulumi.Input<string>;
+}>;
 
 /**
  * An Azure Function exposed via an HTTP endpoint that is implemented on top of a
@@ -360,19 +380,27 @@ export class HttpEventSubscription extends EventSubscription<Context<HttpRespons
     public readonly url: pulumi.Output<string>;
 
     constructor(name: string,
-                args: CallbackFunctionAppArgs<Context<HttpResponse>, HttpRequest, HttpResponse>,
+                args: HttpEventSubscriptionArgs,
                 opts: pulumi.CustomResourceOptions = {}) {
-        super("azure:appservice:HttpEventSubscription", name, [{
-                authLevel: "anonymous",
-                type: "httpTrigger",
-                direction: "in",
-                name: "req",
-            }, {
-                type: "http",
-                direction: "out",
-                name: "$return",
-            },
-        ], args, opts);
+
+        const { resourceGroupName, location } = getResourceGroupNameAndLocation(args, undefined);
+
+        const bindings = [{
+            authLevel: "anonymous",
+            type: "httpTrigger",
+            direction: "in",
+            name: "req",
+        }, {
+            type: "http",
+            direction: "out",
+            name: "$return",
+        }];
+
+        super("azure:appservice:HttpEventSubscription", name, bindings, {
+            ...args,
+            location,
+            resourceGroupName,
+        }, opts);
 
         this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
 
@@ -424,16 +452,31 @@ export function signedBlobReadUrl(
 }
 
 interface BaseSubscriptionArgs {
+    resourceGroup?: core.ResourceGroup;
     resourceGroupName?: pulumi.Input<string>;
     location?: pulumi.Input<string>;
 }
 
 /** @internal */
-export function getResourceGroupNameAndLocation(args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string>) {
-    const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName);
-    const resourceGroup = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
+export function getResourceGroupNameAndLocation(
+        args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
 
+    const resourceGroup = getResourceGroup(args, fallbackResourceGroupName);
     const location = util.ifUndefined(args.location, resourceGroup.location);
 
-    return { resourceGroupName, location };
+    return { resourceGroupName: resourceGroup.name, location };
+}
+
+function getResourceGroup(args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
+    if (args.resourceGroup) {
+        return { name: args.resourceGroup.name, location: args.resourceGroup.location };
+    }
+
+    if (!fallbackResourceGroupName) {
+        throw new Error("Either [args.resourceGroup] or [args.resourceGroupName] must be provided.");
+    }
+
+    const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName);
+    const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
+    return { name: getResult.name, location: getResult.location };
 }

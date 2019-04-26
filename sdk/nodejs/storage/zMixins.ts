@@ -112,10 +112,15 @@ export type BlobEventSubscriptionArgs = util.Overwrite<appservice.CallbackFuncti
      */
     filterPrefix?: pulumi.Input<string>;
     filterSuffix?: pulumi.Input<string>;
+    /**
+     * The resource group in which to create the event subscription.  If not supplied, the
+     * Container's resource group will be used.
+     */
+    resourceGroup?: core.ResourceGroup;
 
     /**
-     * The name of the resource group in which to create the event subscription.  If not supplied,
-     * the resourceGroupName of the Container will be used.
+     * The name of the resource group in which to create the event subscription.  If not supplied, the
+     * Container's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 
@@ -263,8 +268,14 @@ export type QueueCallback = appservice.Callback<QueueContext, Buffer, void>;
 
 export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<QueueContext, Buffer, void>, {
     /**
-     * The name of the resource group in which to create the event subscription.  If not supplied,
-     * the resourceGroupName of the Queue will be used.
+     * The resource group in which to create the event subscription.  If not supplied, the
+     * Queue's resource group will be used.
+     */
+    resourceGroup?: core.ResourceGroup;
+
+    /**
+     * The name of the resource group in which to create the event subscription.  If not supplied, the
+     * Queue's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 

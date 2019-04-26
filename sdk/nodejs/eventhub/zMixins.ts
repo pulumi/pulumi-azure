@@ -98,8 +98,14 @@ export type TopicEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
     maxDeliveryCount?: pulumi.Input<number>;
 
     /**
+     * The resource group in which to create the event subscription.  If not supplied, the Topic's
+     * resource group will be used.
+     */
+    resourceGroup?: core.ResourceGroup;
+
+    /**
      * The name of the resource group in which to create the event subscription.  If not supplied,
-     * the resourceGroupName of the Topic will be used.
+     * the Topic's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 
