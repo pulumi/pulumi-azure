@@ -1,7 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as azure from "@pulumi/azure";
-import * as serverless from "@pulumi/azure-serverless";
 
 const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
     location: "West US 2",
@@ -22,15 +21,9 @@ const queue = new azure.storage.Queue("queue", {
 });
 
 // When a new message is added, fire an event
-serverless.storage.onQueueMessage("newMessage", storageAccount, {
-    func: (context, msg) => {
-        console.log(context);
-        console.log(msg);
-        context.done();
-    },
-    queueName: queue.name,
-    resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
+queue.onEvent("newMessage",  async (context, msg) => {
+    console.log("ctx: " + context);
+    console.log("msg: " + msg);
 });
 
 // The storage account of the queue

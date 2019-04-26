@@ -7,8 +7,7 @@
         "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^v0.17.0",
-        "@pulumi/azure": "^v0.17.0",
+        "@pulumi/pulumi": "^0.17.8",
         "mime-types": "^2.1.19"
     },
     "devDependencies": {
@@ -16,7 +15,7 @@
         "typescript": "^3.0.0"
     },
     "peerDependencies": {
-        "@pulumi/azure-serverless": "latest"
+        "@pulumi/azure": "latest"
     },
     "license": "Apache 2.0"
 }
