@@ -150,7 +150,97 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> =
      * Options to control which files and packages are included with the serialized FunctionApp code.
      */
     codePathOptions?: pulumi.runtime.CodePathOptions;
+
+    hostSettings?: HostSettings;
 }>;
+
+/**
+ * The host.json metadata file contains global configuration options that affect all functions for a
+ * function app.  These values can be provided here, or defaults will be used in their place.
+ *
+ * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json
+ */
+export interface HostSettings {
+    /**
+     * Specifies how many function invocations are aggregated when calculating metrics for
+     * Application Insights.
+     *
+     * See https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json#aggregator for
+     * more details.
+     */
+    aggregator: {
+        /** Maximum number of requests to aggregate. Defaults to 1000 */
+        batchSize: number,
+        /** Maximum time period to aggregate.  Defaults to "00:00:30" */
+        flushTimeout: string,
+    },
+    /**
+     * Indicates the timeout duration for all functions. In a serverless Consumption plan, the valid
+     * range is from 1 second to 10 minutes, and the default value is 5 minutes. In an App Service
+     * plan, there is no overall limit and the default depends on the runtime version. In version
+     * 2.x, the default value for an App Service plan is 30 minutes.
+     */
+    functionTimeout: string,
+
+    /**
+     * Configuration settings for
+     * [host-health-monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
+     */
+    healthMonitor: {
+        /** Specifies whether the feature is enabled. Defaults to `true` */
+        enabled: boolean,
+        /** The time interval between the periodic background health checks. Defaults to 10 seconds. */
+        healthCheckInterval: string,
+        /**
+         * A sliding time window used in conjunction with the `healthCheckThreshold` setting.
+         * Defaults to 2 minutes.
+         */
+        healthCheckWindow:string,
+        /**
+         * Maximum number of times the health check can fail before a host recycle is initiated.  Defaults to `6`.
+         */
+        healthCheckThreshold: number,
+        /**
+         * The threshold at which a performance counter will be considered unhealthy.  Defaults to `0.80`.
+         */
+        counterThreshold: number
+    },
+    /** Controls the logging behaviors of the function app, including Application Insights. */
+    logging: {
+        /** Defines what level of file logging is enabled.  Defaults to `debugOnly` */
+        fileLoggingMode: "never" | "only" | "debugOnly",
+        logLevel: {
+            default: string
+        },
+        /** Controls the sampling feature in Application Insights. */
+        applicationInsights: {
+            samplingSettings: {
+                /** Enables or disables sampling.  Defaults to `true` */
+                isEnabled: boolean,
+                /** The threshold at which sampling begins. Defaults to `5` */
+                maxTelemetryItemsPerSecond: number,
+            },
+        },
+    },
+    /**
+     * Configuration settings for Singleton lock behavior. For more information, see
+     * [GitHub-issue](https://github.com/Azure/azure-webjobs-sdk-script/issues/912) about singleton
+     * support.
+     */
+    singleton: {
+        /** The period that function level locks are taken for. The locks auto-renew. */
+        lockPeriod: string,
+        /** The period that listener locks are taken for. */
+        listenerLockPeriod: string,
+        /** The time interval used for listener lock recovery if a listener lock couldn't be
+         * acquired on startup. */
+        listenerLockRecoveryPollingInterval: string,
+        /** The maximum amount of time the runtime will try to acquire a lock. */
+        lockAcquisitionTimeout: string,
+        /** The interval between lock acquisition attempts. */
+        lockAcquisitionPollingInterval: string
+    },
+}
 
 /**
  * Represents a Binding that will be emitted into the function.json config file for the FunctionApp.
@@ -191,6 +281,7 @@ function serializeCallback<C extends Context<R>, E, R extends Result>(
                 id: "Microsoft.Azure.Functions.ExtensionBundle",
                 version: "[1.*, 2.0.0)"
             },
+            ...args.hostSettings,
         }));
 
         map[`${name}/function.json`] = new pulumi.asset.StringAsset(JSON.stringify({
