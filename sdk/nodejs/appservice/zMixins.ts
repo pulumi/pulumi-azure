@@ -461,19 +461,19 @@ interface BaseSubscriptionArgs {
 export function getResourceGroupNameAndLocation(
         args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
 
+    if (!args.resourceGroup && !fallbackResourceGroupName) {
+        throw new Error("Either [args.resourceGroup] or [args.resourceGroupName] must be provided.");
+    }
+
     const resourceGroup = getResourceGroup(args, fallbackResourceGroupName);
     const location = util.ifUndefined(args.location, resourceGroup.location);
 
     return { resourceGroupName: resourceGroup.name, location };
 }
 
-function getResourceGroup(args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
+function getResourceGroup(args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string>) {
     if (args.resourceGroup) {
         return { name: args.resourceGroup.name, location: args.resourceGroup.location };
-    }
-
-    if (!fallbackResourceGroupName) {
-        throw new Error("Either [args.resourceGroup] or [args.resourceGroupName] must be provided.");
     }
 
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName);
