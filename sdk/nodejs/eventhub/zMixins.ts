@@ -19,7 +19,7 @@ import * as appservice from "../appservice";
 import * as core from "../core";
 import * as util from "../util";
 
-interface TopicBinding extends appservice.Binding {
+interface TopicBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of the property in the context object to bind the actual topic message to.
      */
@@ -160,7 +160,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = "BindingConnectionAppSettingsKey";
 
-        const bindings: TopicBinding[] = [{
+        const bindings: TopicBindingDefinition[] = [{
             name: "topic",
             direction: "in",
             type: "serviceBusTrigger",

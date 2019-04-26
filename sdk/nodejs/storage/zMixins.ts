@@ -22,7 +22,7 @@ import * as core from "../core";
 import * as storage from "../storage";
 import * as util from "../util";
 
-interface BlobBinding extends appservice.Binding {
+interface BlobBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of the property in the context object to bind the actual blob value to. Not really
      * important in our implementation as the blob value will be passed as the second argument to
@@ -169,7 +169,7 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = "BindingConnectionAppSettingsKey";
 
-        const bindings: BlobBinding[] = [{
+        const bindings: BlobBindingDefinition[] = [{
             path,
             name: "blob",
             type: "blobTrigger",
@@ -198,7 +198,7 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
     }
 }
 
-interface QueueBinding extends appservice.Binding {
+interface QueueBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of the property in the context object to bind the actual queue message to. Not really
      * important in our implementation as the queue message will be passed as the second argument to
@@ -320,7 +320,7 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = "BindingConnectionAppSettingsKey";
 
-        const bindings: QueueBinding[] = [{
+        const bindings: QueueBindingDefinition[] = [{
             name: "queue",
             type: "queueTrigger",
             direction: "in",

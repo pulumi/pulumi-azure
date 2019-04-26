@@ -156,12 +156,7 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> =
  * Represents a Binding that will be emitted into the function.json config file for the FunctionApp.
  * Individual services will have more specific information they will define in their own bindings.
  */
-export interface Binding {
-    authLevel?: pulumi.Input<string>;
-    type: pulumi.Input<string>;
-    direction: pulumi.Input<string>;
-    name: pulumi.Input<string>;
-}
+export type BindingDefinition = azurefunctions.BindingDefinition;
 
 /**
  * Takes in a callback and a set of bindings, and produces the right AssetMap layout that Azure
@@ -170,7 +165,7 @@ export interface Binding {
 function serializeCallback<C extends Context<R>, E, R extends Result>(
         name: string,
         args: CallbackFunctionAppArgs<C, E, R>,
-        bindings: pulumi.Input<pulumi.Input<Binding>[]>): pulumi.Output<pulumi.asset.AssetMap> {
+        bindings: pulumi.Input<pulumi.Input<BindingDefinition>[]>): pulumi.Output<pulumi.asset.AssetMap> {
 
     if (args.callback && args.callbackFactory) {
         throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
@@ -251,7 +246,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
      */
     public readonly plan: appservice.Plan;
 
-    constructor(name: string, bindings: pulumi.Input<pulumi.Input<Binding>[]>,
+    constructor(name: string, bindings: pulumi.Input<pulumi.Input<BindingDefinition>[]>,
                 args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
 
         if (!args.resourceGroupName) {
@@ -339,7 +334,7 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
-                bindings: pulumi.Input<pulumi.Input<Binding>[]>,
+                bindings: pulumi.Input<pulumi.Input<BindingDefinition>[]>,
                 args: CallbackFunctionAppArgs<C, E, R>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
@@ -381,6 +376,10 @@ export type HttpEventSubscriptionArgs = util.Overwrite<CallbackFunctionAppArgs<C
     location?: pulumi.Input<string>;
 }>;
 
+interface HttpBindingDefinition extends BindingDefinition {
+    authLevel?: "anonymous";
+}
+
 /**
  * An Azure Function exposed via an HTTP endpoint that is implemented on top of a
  * JavaScript/TypeScript callback function.
@@ -397,7 +396,7 @@ export class HttpEventSubscription extends EventSubscription<Context<HttpRespons
 
         const { resourceGroupName, location } = getResourceGroupNameAndLocation(args, undefined);
 
-        const bindings = [{
+        const bindings: HttpBindingDefinition[] = [{
             authLevel: "anonymous",
             type: "httpTrigger",
             direction: "in",
