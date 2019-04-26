@@ -1,7 +1,6 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as azure from "@pulumi/azure";
-import * as eventhub from "@pulumi/azure/eventhub";
 
 const location = "West US 2";
 
