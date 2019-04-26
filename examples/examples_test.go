@@ -44,7 +44,7 @@ func TestExamples(t *testing.T) {
 		base.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "http"),
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
-				assert.Equal(body, "Hello World!")
+				assert.Equal(t, body, "Hello World!")
 			}),
 		}),
 	}
