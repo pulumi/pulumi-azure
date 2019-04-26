@@ -24,6 +24,7 @@ import * as appservice from "../appservice";
 import * as core from "../core";
 import * as storageForTypesOnly from "../storage";
 import * as util from "../util";
+
 /**
  * An object containing output binding data. This value will be passed to JSON.stringify unless it
  * is a string, Buffer, ArrayBufferView, or number.
