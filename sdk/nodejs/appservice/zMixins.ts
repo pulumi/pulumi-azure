@@ -249,7 +249,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
         }
 
         if (!args.location) {
-            throw new pulumi.ResourceError("[args.location] must be provided in [args]", opts.parent);
+            throw new pulumi.ResourceError("[args.location] must be provided", opts.parent);
         }
 
         const resourceGroupArgs = {
