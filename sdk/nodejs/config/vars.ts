@@ -18,3 +18,4 @@ export let skipProviderRegistration: boolean | undefined = __config.getObject<bo
 export let subscriptionId: string | undefined = __config.get("subscriptionId") || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
 export let tenantId: string | undefined = __config.get("tenantId") || (utilities.getEnv("ARM_TENANT_ID") || "");
 export let useMsi: boolean | undefined = __config.getObject<boolean>("useMsi") || (utilities.getEnvBoolean("ARM_USE_MSI") || false);
+export let location: string | undefined = __config.get("location") || utilities.getEnv("ARM_LOCATION");
