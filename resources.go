@@ -819,12 +819,13 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
-				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
+				"@types/node":      "^10.0.0", // so we can access strongly typed node definitions.
+				"@azure/functions": "^1.0.2-beta2",
 			},
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":                "^0.17.8",
-				"azure-functions-ts-essentials": "^1.3.2",
 				"azure-storage":                 "^2.10.3",
+				"azure-functions-ts-essentials": "^1.3.2",
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				Files: []string{},

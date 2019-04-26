@@ -18,6 +18,7 @@
         "azure-storage": "^2.10.3"
     },
     "devDependencies": {
+        "@azure/functions": "^1.0.2-beta2",
         "@types/node": "^10.0.0",
         "typescript": "^3.4.1"
     },

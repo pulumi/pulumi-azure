@@ -14,7 +14,8 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import * as azurefunctions from "azure-functions-ts-essentials";
+import * as azureessentials from "azure-functions-ts-essentials";
+import * as azurefunctions from "@azure/functions";
 import * as azurestorage from "azure-storage";
 
 import { FunctionAppArgs, FunctionApp } from "./functionApp";
@@ -23,20 +24,26 @@ import * as appservice from "../appservice";
 import * as core from "../core";
 import * as storageForTypesOnly from "../storage";
 import * as util from "../util";
+/**
+ * An object containing output binding data. This value will be passed to JSON.stringify unless it
+ * is a string, Buffer, ArrayBufferView, or number.
+ *
+ * `void` can be specified as the Result type indicating that no value need be provided.
+ */
+export type Result = string | Buffer | ArrayBufferView | number | object | void;
 
-export type HttpRequest = azurefunctions.HttpRequest;
-export type HttpResponse = azurefunctions.HttpResponse;
-
-export interface Context<R> extends azurefunctions.Context {
-    log: {
-        (...message: Array<any>): void;
-        error(...message: Array<any>): void;
-        warn(...message: Array<any>): void;
-        info(...message: Array<any>): void;
-        verbose(...message: Array<any>): void;
-        metric(...message: Array<any>): void;
-    };
-    done(err?: Error | undefined, propertyBag?: R): void;
+export interface Context<R extends Result> extends azurefunctions.Context {
+    /**
+     * A callback function that signals to the runtime that your code has completed. If your
+     * function is synchronous, you must call context.done at the end of execution. If your function
+     * is asynchronous, you should not use this callback.
+     *
+     * @param err A user-defined error to pass back to the runtime. If present, your function
+     * execution will fail.
+     * @param result An object containing output binding data. `result` will be passed to
+     *  JSON.stringify unless it is a string, Buffer, ArrayBufferView, or number.
+     */
+    done(err?: Error | string | null, result?: R): void;
 }
 
 /**
@@ -54,7 +61,7 @@ export interface Context<R> extends azurefunctions.Context {
  * appropriate.  For async functions, `context.done()` does not need to be called, and instead a Promise
  * containing the result can be returned.
  */
-export type Callback<C extends Context<R>, E, R> = (context: C, event: E) => Promise<R> | void;
+export type Callback<C extends Context<R>, E, R extends Result> = (context: C, event: E) => Promise<R> | void;
 
 /**
  * CallbackFactory is the signature for a function that will be called once to produce the function
@@ -62,9 +69,9 @@ export type Callback<C extends Context<R>, E, R> = (context: C, event: E) => Pro
  * can then be used across all invocations of the FunctionApp (as long as the FunctionApp is using
  * the same warm node instance).
  */
-export type CallbackFactory<C extends Context<R>, E, R> = () => Callback<C, E, R>;
+export type CallbackFactory<C extends Context<R>, E, R extends Result> = () => Callback<C, E, R>;
 
-export type CallbackFunctionAppArgs<C extends Context<R>, E, R> = util.Overwrite<FunctionAppArgs, {
+export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> = util.Overwrite<FunctionAppArgs, {
     /**
      * The Javascript function instance to use as the entrypoint for the Azure FunctionApp.  Either
      * [callback] or [callbackFactory] must be provided.
@@ -153,7 +160,7 @@ export interface Binding {
  * Takes in a callback and a set of bindings, and produces the right AssetMap layout that Azure
  * FunctionApps expect.
  */
-function serializeCallback<C extends Context<R>, E, R>(
+function serializeCallback<C extends Context<R>, E, R extends Result>(
         name: string,
         args: CallbackFunctionAppArgs<C, E, R>,
         bindings: pulumi.Input<pulumi.Input<Binding>[]>): pulumi.Output<pulumi.asset.AssetMap> {
@@ -199,7 +206,7 @@ function serializeCallback<C extends Context<R>, E, R>(
     });
 }
 
-function redirectConsoleOutput<C extends Context<R>, E, R>(callback: Callback<C, E, R>) {
+function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callback: Callback<C, E, R>) {
     return (context: C, event: E) => {
         // Redirect console logging to context logging.
         console.log = context.log;
@@ -216,7 +223,7 @@ function redirectConsoleOutput<C extends Context<R>, E, R>(callback: Callback<C,
 /**
  * Base type for all subscription types.
  */
-export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp {
+export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> extends FunctionApp {
     /**
      * Storage account where the FunctionApp's zipbBlob is uploaded to.
      */
@@ -316,7 +323,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R> extends FunctionApp
  * Base type for all subscription types.  An event subscription represents a connection between some
  * azure resource an an FunctionApp that will be triggered when something happens to that resource.
  */
-export abstract class EventSubscription<C extends Context<R>, E, R> extends pulumi.ComponentResource {
+export abstract class EventSubscription<C extends Context<R>, E, R extends Result> extends pulumi.ComponentResource {
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
@@ -328,6 +335,19 @@ export abstract class EventSubscription<C extends Context<R>, E, R> extends pulu
         this.functionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
     }
 }
+
+// http callback functions.
+
+/**
+ * HTTP request object. Provided to your function when using HttpEventSubscription.
+ */
+export type HttpRequest = azurefunctions.HttpRequest;
+
+/**
+ * Represents an HTTP response including the status code and data.
+ */
+export type HttpResponse = azureessentials.HttpResponse;
+
 
 /**
  * An Azure Function exposed via an HTTP endpoint that is implemented on top of a
