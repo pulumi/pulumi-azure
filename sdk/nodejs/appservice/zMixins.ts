@@ -316,7 +316,11 @@ function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callba
 
 
 /**
- * Base type for all subscription types.
+  * A CallbackFunctionApp is a special type of azure.appservice.FunctionApp that can be created out
+  * of an actual JavaScript function instance.  The function instance will be analyzed and packaged
+  * up (including dependencies) into a form that can be used by AWS Lambda.  See
+  * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
+  * details on this process.
  */
 export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> extends FunctionApp {
     /**
