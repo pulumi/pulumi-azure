@@ -836,6 +836,7 @@ func Provider() tfbridge.ProviderInfo {
 					"appservice": {
 						DestFiles: []string{
 							"zMixins.ts",
+							"zMixins_http.ts",
 						},
 					},
 					"eventhub": {
