@@ -14,7 +14,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import * as azureessentials from "azure-functions-ts-essentials";
 import * as azurefunctions from "@azure/functions";
 import * as azurestorage from "azure-storage";
 
@@ -434,82 +433,6 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
         super(type, name, undefined, opts);
 
         this.functionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
-    }
-}
-
-// http callback functions.
-
-/**
- * HTTP request object. Provided to your function when using HttpEventSubscription.
- */
-export type HttpRequest = azurefunctions.HttpRequest;
-
-/**
- * Represents an HTTP response including the status code and data.
- */
-export type HttpResponse = azureessentials.HttpResponse;
-
-export type HttpEventSubscriptionArgs = util.Overwrite<CallbackFunctionAppArgs<Context<HttpResponse>, HttpRequest, HttpResponse>, {
-    /**
-     * The resource group in which to create the event subscription.  Either [resourceGroupName] or
-     * [resourceGroup] must be supplied.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the event subscription.  Either
-     * [resourceGroupName] or [resourceGroup] must be supplied.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the provided ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
-}>;
-
-interface HttpBindingDefinition extends BindingDefinition {
-    authLevel?: "anonymous";
-}
-
-/**
- * An Azure Function exposed via an HTTP endpoint that is implemented on top of a
- * JavaScript/TypeScript callback function.
- */
-export class HttpEventSubscription extends EventSubscription<Context<HttpResponse>, HttpRequest, HttpResponse> {
-    /**
-     * Endpoint where this FunctionApp can be invoked.
-     */
-    public readonly url: pulumi.Output<string>;
-
-    constructor(name: string,
-                args: HttpEventSubscriptionArgs,
-                opts: pulumi.CustomResourceOptions = {}) {
-
-        const { resourceGroupName, location } = getResourceGroupNameAndLocation(args, undefined);
-
-        const bindings: HttpBindingDefinition[] = [{
-            authLevel: "anonymous",
-            type: "httpTrigger",
-            direction: "in",
-            name: "req",
-        }, {
-            type: "http",
-            direction: "out",
-            name: "$return",
-        }];
-
-        super("azure:appservice:HttpEventSubscription", name, bindings, {
-            ...args,
-            location,
-            resourceGroupName,
-        }, opts);
-
-        this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
-
-        this.registerOutputs();
     }
 }
 

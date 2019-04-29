@@ -11,3 +11,4 @@ export * from "./getAppServicePlan";
 export * from "./plan";
 export * from "./slot";
 export * from "./zMixins";
+export * from "./zMixins_http";
