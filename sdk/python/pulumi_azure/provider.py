@@ -34,8 +34,12 @@ class Provider(pulumi.ProviderResource):
 
         __props__ = dict()
 
+        if client_certificate_password is None:
+            client_certificate_password = (utilities.get_env('ARM_CLIENT_CERTIFICATE_PASSWORD') or '')
         __props__['client_certificate_password'] = client_certificate_password
 
+        if client_certificate_path is None:
+            client_certificate_path = (utilities.get_env('ARM_CLIENT_CERTIFICATE_PATH') or '')
         __props__['client_certificate_path'] = client_certificate_path
 
         if client_id is None:
@@ -54,6 +58,8 @@ class Provider(pulumi.ProviderResource):
             msi_endpoint = (utilities.get_env('ARM_MSI_ENDPOINT') or '')
         __props__['msi_endpoint'] = msi_endpoint
 
+        if partner_id is None:
+            partner_id = (utilities.get_env('ARM_PARTNER_ID') or '')
         __props__['partner_id'] = partner_id
 
         if skip_credentials_validation is None:

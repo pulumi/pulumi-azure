@@ -10,9 +10,9 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('azure')
 
-client_certificate_password = __config__.get('clientCertificatePassword')
+client_certificate_password = __config__.get('clientCertificatePassword') or (utilities.get_env('ARM_CLIENT_CERTIFICATE_PASSWORD') or '')
 
-client_certificate_path = __config__.get('clientCertificatePath')
+client_certificate_path = __config__.get('clientCertificatePath') or (utilities.get_env('ARM_CLIENT_CERTIFICATE_PATH') or '')
 
 client_id = __config__.get('clientId') or (utilities.get_env('ARM_CLIENT_ID') or '')
 
@@ -22,7 +22,7 @@ environment = utilities.require_with_default(lambda: __config__.require('environ
 
 msi_endpoint = __config__.get('msiEndpoint') or (utilities.get_env('ARM_MSI_ENDPOINT') or '')
 
-partner_id = __config__.get('partnerId')
+partner_id = __config__.get('partnerId') or (utilities.get_env('ARM_PARTNER_ID') or '')
 
 skip_credentials_validation = __config__.get('skipCredentialsValidation') or (utilities.get_env_bool('ARM_SKIP_CREDENTIALS_VALIDATION') or False)
 
