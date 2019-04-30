@@ -51,10 +51,24 @@ export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppAr
      * used.
      */
     location?: pulumi.Input<string>;
+
+    /**
+     * Defines the route template, controlling to which request URLs your function responds. The 
+     * default value if none is provided is <functionname>.
+     */
+    route?: string;
+
+    /**
+     * An array of the HTTP methods to which the function responds. If not specified, the function 
+     * responds to all HTTP methods.
+     */
+    methods?: string[];
 }>;
 
 interface HttpBindingDefinition extends mod.BindingDefinition {
     authLevel?: "anonymous";
+    route?: string;
+    methods?: string[];
 }
 
 /**
@@ -78,6 +92,8 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
             type: "httpTrigger",
             direction: "in",
             name: "req",
+            route: args.route,
+            methods: args.methods,
         }, {
             type: "http",
             direction: "out",
@@ -90,7 +106,9 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
             resourceGroupName,
         }, opts);
 
-        this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
+        this.url = args.route
+            ? pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/{${args.route}}`
+            : pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
 
         this.registerOutputs();
     }
