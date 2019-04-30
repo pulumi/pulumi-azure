@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a SQL Server Table Dataset inside a Azure Data Factory.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
  *     name: "example",
@@ -105,7 +105,7 @@ export class DatasetSqlServerTable extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatasetSqlServerTableArgs | DatasetSqlServerTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DatasetSqlServerTableState | undefined;
+            const state: DatasetSqlServerTableState = argsOrState as DatasetSqlServerTableState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;

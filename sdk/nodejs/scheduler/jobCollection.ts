@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Scheduler Job Collection.
- *
+ * 
  * > **NOTE:** Support for Scheduler Job Collections has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
  *     name: "tfex-job_collection",
@@ -55,7 +55,7 @@ export class JobCollection extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Configures the Job collection quotas as documented in the `quota` block below.
+     * Configures the Job collection quotas as documented in the `quota` block below. 
      */
     public readonly quota: pulumi.Output<{ maxJobCount?: number, maxRecurrenceFrequency: string, maxRecurrenceInterval?: number, maxRetryInterval: number } | undefined>;
     /**
@@ -86,7 +86,7 @@ export class JobCollection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobCollectionArgs | JobCollectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as JobCollectionState | undefined;
+            const state: JobCollectionState = argsOrState as JobCollectionState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["quota"] = state ? state.quota : undefined;
@@ -127,7 +127,7 @@ export interface JobCollectionState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Configures the Job collection quotas as documented in the `quota` block below.
+     * Configures the Job collection quotas as documented in the `quota` block below. 
      */
     readonly quota?: pulumi.Input<{ maxJobCount?: pulumi.Input<number>, maxRecurrenceFrequency: pulumi.Input<string>, maxRecurrenceInterval?: pulumi.Input<number>, maxRetryInterval?: pulumi.Input<number> }>;
     /**
@@ -161,7 +161,7 @@ export interface JobCollectionArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Configures the Job collection quotas as documented in the `quota` block below.
+     * Configures the Job collection quotas as documented in the `quota` block below. 
      */
     readonly quota?: pulumi.Input<{ maxJobCount?: pulumi.Input<number>, maxRecurrenceFrequency: pulumi.Input<string>, maxRecurrenceInterval?: pulumi.Input<number>, maxRetryInterval?: pulumi.Input<number> }>;
     /**

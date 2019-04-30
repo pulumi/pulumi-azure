@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Dev Test Lab.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "example-resources",
@@ -96,7 +96,7 @@ export class Lab extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LabArgs | LabState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LabState | undefined;
+            const state: LabState = argsOrState as LabState | undefined;
             inputs["artifactsStorageAccountId"] = state ? state.artifactsStorageAccountId : undefined;
             inputs["defaultPremiumStorageAccountId"] = state ? state.defaultPremiumStorageAccountId : undefined;
             inputs["defaultStorageAccountId"] = state ? state.defaultStorageAccountId : undefined;

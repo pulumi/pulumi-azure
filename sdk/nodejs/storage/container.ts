@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Storage Container.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus",
  *     name: "acctestRG",
@@ -82,7 +82,7 @@ export class Container extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ContainerState | undefined;
+            const state: ContainerState = argsOrState as ContainerState | undefined;
             inputs["containerAccessType"] = state ? state.containerAccessType : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;

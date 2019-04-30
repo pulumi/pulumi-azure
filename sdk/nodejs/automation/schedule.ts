@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Schedule.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "tfex-automation-account",
@@ -114,7 +114,7 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ScheduleState | undefined;
+            const state: ScheduleState = argsOrState as ScheduleState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["description"] = state ? state.description : undefined;

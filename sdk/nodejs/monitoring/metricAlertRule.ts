@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a [metric-based alert rule](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) in Azure Monitor.
- *
+ * 
  * ## Example Usage (CPU Percentage of a virtual machine)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const test = new azure.monitoring.MetricAlertRule("test", {
  *     aggregation: "Average",
  *     description: "An alert rule to watch the metric Percentage CPU",
@@ -38,13 +38,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Example Usage (Storage usage of a SQL Database)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const test = new azure.monitoring.MetricAlertRule("test", {
  *     aggregation: "Maximum",
  *     description: "An alert rule to watch the metric Storage",
@@ -152,7 +152,7 @@ export class MetricAlertRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MetricAlertRuleArgs | MetricAlertRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MetricAlertRuleState | undefined;
+            const state: MetricAlertRuleState = argsOrState as MetricAlertRuleState | undefined;
             inputs["aggregation"] = state ? state.aggregation : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["emailAction"] = state ? state.emailAction : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Function App.
- *
+ * 
  * ## Example Usage (with App Service Plan)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus2",
  *     name: "azure-functions-test-rg",
@@ -42,11 +42,11 @@ import * as utilities from "../utilities";
  * });
  * ```
  * ## Example Usage (in a Consumption Plan)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus2",
  *     name: "azure-functions-cptest-rg",
@@ -182,7 +182,7 @@ export class FunctionApp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FunctionAppArgs | FunctionAppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as FunctionAppState | undefined;
+            const state: FunctionAppState = argsOrState as FunctionAppState | undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;

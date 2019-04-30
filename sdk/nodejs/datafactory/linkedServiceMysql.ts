@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Linked Service (connection) between MySQL and Azure Data Factory.
- *
+ * 
  * > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleLinkedServiceMysql = new azure.datafactory.LinkedServiceMysql("example", {
  *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
  *     dataFactoryName: azurerm_data_factory_test.name,
@@ -93,7 +93,7 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LinkedServiceMysqlArgs | LinkedServiceMysqlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LinkedServiceMysqlState | undefined;
+            const state: LinkedServiceMysqlState = argsOrState as LinkedServiceMysqlState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;

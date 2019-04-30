@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "Australia East",
  *     name: "notificationhub-resources",
@@ -104,7 +104,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AuthorizationRuleArgs | AuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AuthorizationRuleState | undefined;
+            const state: AuthorizationRuleState = argsOrState as AuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;

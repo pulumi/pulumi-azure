@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a HTTP Request Trigger within a Logic App Workflow
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
  *     name: "workflow-resources",
@@ -82,7 +82,7 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TriggerHttpRequestArgs | TriggerHttpRequestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as TriggerHttpRequestState | undefined;
+            const state: TriggerHttpRequestState = argsOrState as TriggerHttpRequestState | undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["method"] = state ? state.method : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to set a user or group as the AD administrator for an Azure SQL server
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -80,7 +80,7 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActiveDirectoryAdministratorArgs | ActiveDirectoryAdministratorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ActiveDirectoryAdministratorState | undefined;
+            const state: ActiveDirectoryAdministratorState = argsOrState as ActiveDirectoryAdministratorState | undefined;
             inputs["login"] = state ? state.login : undefined;
             inputs["objectId"] = state ? state.objectId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

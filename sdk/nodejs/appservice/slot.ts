@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an App Service Slot (within an App Service).
- *
+ * 
  * > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
- *
- *
+ * 
+ * 
  * ## Example Usage (.net 4.x)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "some-resource-group",
@@ -72,14 +72,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Example Usage (Java 1.8)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "some-resource-group",
@@ -205,7 +205,7 @@ export class Slot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SlotArgs | SlotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SlotState | undefined;
+            const state: SlotState = argsOrState as SlotState | undefined;
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;

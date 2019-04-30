@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Version Set within a API Management Service.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "example-resources",
@@ -94,7 +94,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiVersionSetArgs | ApiVersionSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ApiVersionSetState | undefined;
+            const state: ApiVersionSetState = argsOrState as ApiVersionSetState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;

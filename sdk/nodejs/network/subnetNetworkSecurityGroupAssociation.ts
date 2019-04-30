@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Network Security Group with a Subnet within a Virtual Network.
- *
+ * 
  * > **NOTE:** Subnet `<->` Network Security Group associations currently need to be configured on both this resource and using the `network_security_group_id` field on the `azurerm_subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `network_security_group_id` field from the `azurerm_subnet` resource such that this resource is used to link resources in future.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -87,7 +87,7 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
     constructor(name: string, argsOrState?: SubnetNetworkSecurityGroupAssociationArgs | SubnetNetworkSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SubnetNetworkSecurityGroupAssociationState | undefined;
+            const state: SubnetNetworkSecurityGroupAssociationState = argsOrState as SubnetNetworkSecurityGroupAssociationState | undefined;
             inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {

@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Load Balancer NAT pool.
- *
+ * 
  * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "LoadBalancerRG",
@@ -105,7 +105,7 @@ export class NatPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NatPoolArgs | NatPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NatPoolState | undefined;
+            const state: NatPoolState = argsOrState as NatPoolState | undefined;
             inputs["backendPort"] = state ? state.backendPort : undefined;
             inputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
             inputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;

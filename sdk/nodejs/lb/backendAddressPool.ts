@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Load Balancer Backend Address Pool.
- *
+ * 
  * > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "LoadBalancerRG",
@@ -87,7 +87,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BackendAddressPoolArgs | BackendAddressPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as BackendAddressPoolState | undefined;
+            const state: BackendAddressPoolState = argsOrState as BackendAddressPoolState | undefined;
             inputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
             inputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;

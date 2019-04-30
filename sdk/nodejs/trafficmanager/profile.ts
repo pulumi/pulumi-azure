@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Traffic Manager Profile to which multiple endpoints can be attached.
- *
+ * 
  * ## Example Usage
- *
- *
+ * 
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "trafficmanagerProfile",
@@ -43,9 +43,9 @@ import * as utilities from "../utilities";
  *     trafficRoutingMethod: "Weighted",
  * });
  * ```
- *
+ * 
  * ## Notes
- *
+ * 
  * The Traffic Manager is created with the location `global`.
  */
 export class Profile extends pulumi.CustomResource {
@@ -116,7 +116,7 @@ export class Profile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProfileArgs | ProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ProfileState | undefined;
+            const state: ProfileState = argsOrState as ProfileState | undefined;
             inputs["dnsConfigs"] = state ? state.dnsConfigs : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["monitorConfigs"] = state ? state.monitorConfigs : undefined;

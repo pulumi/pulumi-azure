@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation DSC Node Configuration.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "resourceGroup1",
@@ -103,7 +103,7 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DscNodeConfigurationArgs | DscNodeConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DscNodeConfigurationState | undefined;
+            const state: DscNodeConfigurationState = argsOrState as DscNodeConfigurationState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["configurationName"] = state ? state.configurationName : undefined;
             inputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;

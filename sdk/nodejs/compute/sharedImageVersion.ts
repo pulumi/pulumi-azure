@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Version of a Shared Image within a Shared Image Gallery.
- *
+ * 
  * > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const existingImage = pulumi.output(azure.compute.getImage({
  *     name: "search-api",
  *     resourceGroupName: "packerimages",
@@ -99,7 +99,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SharedImageVersionArgs | SharedImageVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SharedImageVersionState | undefined;
+            const state: SharedImageVersionState = argsOrState as SharedImageVersionState | undefined;
             inputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
             inputs["galleryName"] = state ? state.galleryName : undefined;
             inputs["imageName"] = state ? state.imageName : undefined;

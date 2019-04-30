@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Module.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "resourceGroup1",
@@ -76,7 +76,7 @@ export class Module extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ModuleArgs | ModuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ModuleState | undefined;
+            const state: ModuleState = argsOrState as ModuleState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["moduleLink"] = state ? state.moduleLink : undefined;
             inputs["name"] = state ? state.name : undefined;

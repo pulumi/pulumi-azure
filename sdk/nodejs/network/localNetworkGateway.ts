@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a local network gateway connection over which specific connections can be configured.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "localNetworkGWTest",
@@ -85,7 +85,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LocalNetworkGatewayArgs | LocalNetworkGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LocalNetworkGatewayState | undefined;
+            const state: LocalNetworkGatewayState = argsOrState as LocalNetworkGatewayState | undefined;
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             inputs["gatewayAddress"] = state ? state.gatewayAddress : undefined;

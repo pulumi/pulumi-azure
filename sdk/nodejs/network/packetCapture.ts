@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Configures Packet Capturing against a Virtual Machine using a Network Watcher.
- *
+ * 
  * > **NOTE:** This resource has been deprecated in favour of the `azurerm_network_connection_monitor` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "packet-capture-rg",
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *     targetResourceId: testVirtualMachine.id,
  * }, {dependsOn: [testExtension]});
  * ```
- *
+ * 
  * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azurerm_virtual_machine_extension` resource.
  */
 export class PacketCapture extends pulumi.CustomResource {
@@ -164,7 +164,7 @@ export class PacketCapture extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PacketCaptureArgs | PacketCaptureState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PacketCaptureState | undefined;
+            const state: PacketCaptureState = argsOrState as PacketCaptureState | undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["maximumBytesPerPacket"] = state ? state.maximumBytesPerPacket : undefined;
             inputs["maximumBytesPerSession"] = state ? state.maximumBytesPerSession : undefined;

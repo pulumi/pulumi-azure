@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a certificate in an Azure Batch account.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
  *     name: "testbatch",
@@ -106,7 +106,7 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as CertificateState | undefined;
+            const state: CertificateState = argsOrState as CertificateState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["format"] = state ? state.format : undefined;

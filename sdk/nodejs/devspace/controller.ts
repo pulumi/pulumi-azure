@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a DevSpace Controller.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
  *     name: "acctestRG1",
@@ -110,7 +110,7 @@ export class Controller extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ControllerArgs | ControllerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ControllerState | undefined;
+            const state: ControllerState = argsOrState as ControllerState | undefined;
             inputs["dataPlaneFqdn"] = state ? state.dataPlaneFqdn : undefined;
             inputs["hostSuffix"] = state ? state.hostSuffix : undefined;
             inputs["location"] = state ? state.location : undefined;

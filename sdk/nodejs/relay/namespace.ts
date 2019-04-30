@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Relay Namespace.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -95,7 +95,7 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NamespaceState | undefined;
+            const state: NamespaceState = argsOrState as NamespaceState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["metricId"] = state ? state.metricId : undefined;
             inputs["name"] = state ? state.name : undefined;

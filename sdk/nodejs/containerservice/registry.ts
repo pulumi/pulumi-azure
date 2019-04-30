@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Container Registry.
- *
+ * 
  * > **Note:** All arguments including the access key will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -103,7 +103,7 @@ export class Registry extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RegistryArgs | RegistryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RegistryState | undefined;
+            const state: RegistryState = argsOrState as RegistryState | undefined;
             inputs["adminEnabled"] = state ? state.adminEnabled : undefined;
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
             inputs["adminUsername"] = state ? state.adminUsername : undefined;

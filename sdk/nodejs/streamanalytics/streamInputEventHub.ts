@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Stream Input EventHub.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testEventHubConsumerGroup = new azure.eventhub.EventHubConsumerGroup("test", {
  *     eventhubName: azurerm_eventhub_test.name,
  *     name: "example-consumergroup",
@@ -103,7 +103,7 @@ export class StreamInputEventHub extends pulumi.CustomResource {
      */
     public readonly sharedAccessPolicyName: pulumi.Output<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
      */
     public readonly streamAnalyticsJobName: pulumi.Output<string>;
 
@@ -118,7 +118,7 @@ export class StreamInputEventHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StreamInputEventHubArgs | StreamInputEventHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as StreamInputEventHubState | undefined;
+            const state: StreamInputEventHubState = argsOrState as StreamInputEventHubState | undefined;
             inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -205,7 +205,7 @@ export interface StreamInputEventHubState {
      */
     readonly sharedAccessPolicyName?: pulumi.Input<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
      */
     readonly streamAnalyticsJobName?: pulumi.Input<string>;
 }
@@ -247,7 +247,7 @@ export interface StreamInputEventHubArgs {
      */
     readonly sharedAccessPolicyName: pulumi.Input<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
      */
     readonly streamAnalyticsJobName: pulumi.Input<string>;
 }

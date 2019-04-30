@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a [Log Profile](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.
- *
+ * 
  * > **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "eastus",
  *     name: "logprofiletest-rg",
@@ -103,7 +103,7 @@ export class LogProfile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogProfileArgs | LogProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LogProfileState | undefined;
+            const state: LogProfileState = argsOrState as LogProfileState | undefined;
             inputs["categories"] = state ? state.categories : undefined;
             inputs["locations"] = state ? state.locations : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Elastic Pool.
- *
+ * 
  * > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azurerm_mssql_elasticpool version instead.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "my-resource-group",
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     serverName: testSqlServer.name,
  * });
  * ```
- *
+ * 
  * > **NOTE on `azurerm_sql_elasticpool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
  */
 export class ElasticPool extends pulumi.CustomResource {
@@ -111,7 +111,7 @@ export class ElasticPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ElasticPoolArgs | ElasticPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ElasticPoolState | undefined;
+            const state: ElasticPoolState = argsOrState as ElasticPoolState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["dbDtuMax"] = state ? state.dbDtuMax : undefined;
             inputs["dbDtuMin"] = state ? state.dbDtuMin : undefined;

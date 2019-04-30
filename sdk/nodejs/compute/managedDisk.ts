@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a managed disk.
- *
+ * 
  * ## Example Usage with Create Empty
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
  *     name: "acctestRG",
@@ -29,13 +29,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
+ * 
  * ## Example Usage with Create Copy
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
  *     name: "acctestRG",
@@ -148,7 +148,7 @@ export class ManagedDisk extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ManagedDiskArgs | ManagedDiskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ManagedDiskState | undefined;
+            const state: ManagedDiskState = argsOrState as ManagedDiskState | undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;

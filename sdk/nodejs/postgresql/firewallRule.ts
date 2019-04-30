@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Firewall Rule for a PostgreSQL Server
- *
+ * 
  * ## Example Usage (Single IP Address)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testServer = new azure.postgresql.Server("test", {});
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *     startIpAddress: "40.112.8.12",
  * });
  * ```
- *
+ * 
  * ## Example Usage (IP Range)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testServer = new azure.postgresql.Server("test", {});
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
@@ -93,7 +93,7 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as FirewallRuleState | undefined;
+            const state: FirewallRuleState = argsOrState as FirewallRuleState | undefined;
             inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

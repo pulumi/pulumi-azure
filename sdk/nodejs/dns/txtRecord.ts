@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS TXT Records within Azure DNS.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -89,7 +89,7 @@ export class TxtRecord extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TxtRecordArgs | TxtRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as TxtRecordState | undefined;
+            const state: TxtRecordState = argsOrState as TxtRecordState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

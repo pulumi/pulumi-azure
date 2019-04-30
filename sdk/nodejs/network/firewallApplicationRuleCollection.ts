@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Rule Collection within an Azure Firewall.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "North Europe",
  *     name: "example-resources",
@@ -113,7 +113,7 @@ export class FirewallApplicationRuleCollection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FirewallApplicationRuleCollectionArgs | FirewallApplicationRuleCollectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as FirewallApplicationRuleCollectionState | undefined;
+            const state: FirewallApplicationRuleCollectionState = argsOrState as FirewallApplicationRuleCollectionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["azureFirewallName"] = state ? state.azureFirewallName : undefined;
             inputs["name"] = state ? state.name : undefined;

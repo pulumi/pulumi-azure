@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Windows Virtual Machine within a Dev Test Lab.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "example-resources",
@@ -152,7 +152,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WindowsVirtualMachineArgs | WindowsVirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as WindowsVirtualMachineState | undefined;
+            const state: WindowsVirtualMachineState = argsOrState as WindowsVirtualMachineState | undefined;
             inputs["allowClaim"] = state ? state.allowClaim : undefined;
             inputs["disallowPublicIpAddress"] = state ? state.disallowPublicIpAddress : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;

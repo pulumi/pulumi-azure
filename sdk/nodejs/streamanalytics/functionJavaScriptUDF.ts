@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = pulumi.output(azure.core.getResourceGroup({
  *     name: "example-resources",
  * }));
@@ -86,7 +86,7 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FunctionJavaScriptUDFArgs | FunctionJavaScriptUDFState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as FunctionJavaScriptUDFState | undefined;
+            const state: FunctionJavaScriptUDFState = argsOrState as FunctionJavaScriptUDFState | undefined;
             inputs["inputs"] = state ? state.inputs : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["output"] = state ? state.output : undefined;

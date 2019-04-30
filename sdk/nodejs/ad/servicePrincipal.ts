@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Service Principal associated with an Application within Azure Active Directory.
- *
+ * 
  * > **NOTE:** The Azure Active Directory resources have been split out into [a new AzureAD Provider](http://terraform.io/docs/providers/azuread/index.html) - as such the AzureAD resources within the AzureRM Provider are deprecated and will be removed in the next major version (2.0). Information on how to migrate from the existing resources to the new AzureAD Provider can be found here.
- *
+ * 
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testApplication = new azure.ad.Application("test", {
  *     availableToOtherTenants: false,
  *     homepage: "http://homepage",
@@ -63,7 +63,7 @@ export class ServicePrincipal extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServicePrincipalArgs | ServicePrincipalState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ServicePrincipalState | undefined;
+            const state: ServicePrincipalState = argsOrState as ServicePrincipalState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
         } else {

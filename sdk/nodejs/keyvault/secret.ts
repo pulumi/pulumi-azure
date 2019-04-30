@@ -6,18 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Secret.
- *
+ * 
  * > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  * import sprintf = require("sprintf-js");
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "my-resource-group",
@@ -114,7 +114,7 @@ export class Secret extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecretArgs | SecretState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SecretState | undefined;
+            const state: SecretState = argsOrState as SecretState | undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["name"] = state ? state.name : undefined;

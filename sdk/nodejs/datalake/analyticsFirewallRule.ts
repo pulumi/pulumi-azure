@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Azure Data Lake Analytics Firewall Rule.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
  *     name: "tfex_datalake_fw_rule",
@@ -82,7 +82,7 @@ export class AnalyticsFirewallRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AnalyticsFirewallRuleArgs | AnalyticsFirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AnalyticsFirewallRuleState | undefined;
+            const state: AnalyticsFirewallRuleState = argsOrState as AnalyticsFirewallRuleState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Assigns a given Principal (User or Application) to a given Role.
- *
+ * 
  * ## Example Usage (using a built-in Role)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const testAssignment = new azure.role.Assignment("test", {
@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  *     scope: primary.apply(primary => primary.id),
  * });
  * ```
- *
+ * 
  * ## Example Usage (Custom Role & Service Principal)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const testDefinition = new azure.role.Definition("test", {
@@ -47,13 +47,13 @@ import * as utilities from "../utilities";
  *     scope: primary.apply(primary => primary.id),
  * });
  * ```
- *
+ * 
  * ## Example Usage (Custom Role & User)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const testDefinition = new azure.role.Definition("test", {
@@ -119,7 +119,7 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AssignmentState | undefined;
+            const state: AssignmentState = argsOrState as AssignmentState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
             inputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;

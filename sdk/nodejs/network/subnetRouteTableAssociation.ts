@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Route Table with a Subnet within a Virtual Network.
- *
+ * 
  * > **NOTE:** Subnet `<->` Route Table associations currently need to be configured on both this resource and using the `route_table_id` field on the `azurerm_subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `route_table_id` field from the `azurerm_subnet` resource such that this resource is used to link resources in future.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -82,7 +82,7 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetRouteTableAssociationArgs | SubnetRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SubnetRouteTableAssociationState | undefined;
+            const state: SubnetRouteTableAssociationState = argsOrState as SubnetRouteTableAssociationState | undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {

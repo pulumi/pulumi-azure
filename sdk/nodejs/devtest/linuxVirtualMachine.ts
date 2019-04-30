@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Linux Virtual Machine within a Dev Test Lab.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as fs from "fs";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "example-resources",
@@ -157,7 +157,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LinuxVirtualMachineArgs | LinuxVirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LinuxVirtualMachineState | undefined;
+            const state: LinuxVirtualMachineState = argsOrState as LinuxVirtualMachineState | undefined;
             inputs["allowClaim"] = state ? state.allowClaim : undefined;
             inputs["disallowPublicIpAddress"] = state ? state.disallowPublicIpAddress : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;

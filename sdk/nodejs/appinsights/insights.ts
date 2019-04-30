@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Application Insights component.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "tf-test",
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     name: "tf-test-appinsights",
  *     resourceGroupName: testResourceGroup.name,
  * });
- *
+ * 
  * export const appId = testInsights.appId;
  * export const instrumentationKey = testInsights.instrumentationKey;
  * ```
@@ -83,7 +83,7 @@ export class Insights extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InsightsArgs | InsightsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as InsightsState | undefined;
+            const state: InsightsState = argsOrState as InsightsState | undefined;
             inputs["appId"] = state ? state.appId : undefined;
             inputs["applicationType"] = state ? state.applicationType : undefined;
             inputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;

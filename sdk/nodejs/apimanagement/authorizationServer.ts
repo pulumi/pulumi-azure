@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Server within an API Management Service.
- *
- *
+ * 
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleAuthorizationServer = new azure.apimanagement.AuthorizationServer("example", {
  *     apiManagementName: azurerm_api_management_example.name.apply(name => name),
  *     authorizationEndpoint: "https://example.mydomain.com/client/authorize",
@@ -130,7 +130,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AuthorizationServerArgs | AuthorizationServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AuthorizationServerState | undefined;
+            const state: AuthorizationServerState = argsOrState as AuthorizationServerState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["authorizationEndpoint"] = state ? state.authorizationEndpoint : undefined;
             inputs["authorizationMethods"] = state ? state.authorizationMethods : undefined;

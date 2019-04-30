@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Shared Image Gallery.
- *
+ * 
  * > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -80,7 +80,7 @@ export class SharedImageGallery extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SharedImageGalleryArgs | SharedImageGalleryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SharedImageGalleryState | undefined;
+            const state: SharedImageGalleryState = argsOrState as SharedImageGalleryState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

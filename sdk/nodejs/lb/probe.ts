@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a LoadBalancer Probe Resource.
- *
+ * 
  * > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "LoadBalancerRG",
@@ -101,7 +101,7 @@ export class Probe extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProbeArgs | ProbeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ProbeState | undefined;
+            const state: ProbeState = argsOrState as ProbeState | undefined;
             inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
             inputs["loadBalancerRules"] = state ? state.loadBalancerRules : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;

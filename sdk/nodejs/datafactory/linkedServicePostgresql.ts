@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Linked Service (connection) between PostgreSQL and Azure Data Factory.
- *
+ * 
  * > **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleLinkedServicePostgresql = new azure.datafactory.LinkedServicePostgresql("example", {
  *     connectionString: "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
  *     dataFactoryName: azurerm_data_factory_test.name,
@@ -93,7 +93,7 @@ export class LinkedServicePostgresql extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LinkedServicePostgresqlArgs | LinkedServicePostgresqlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as LinkedServicePostgresqlState | undefined;
+            const state: LinkedServicePostgresqlState = argsOrState as LinkedServicePostgresqlState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;

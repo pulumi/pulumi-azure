@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Metric Alert within Azure Monitor.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West US",
  *     name: "example-resources",
@@ -129,7 +129,7 @@ export class MetricAlert extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MetricAlertArgs | MetricAlertState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as MetricAlertState | undefined;
+            const state: MetricAlertState = argsOrState as MetricAlertState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["autoMitigate"] = state ? state.autoMitigate : undefined;
             inputs["criterias"] = state ? state.criterias : undefined;

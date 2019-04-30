@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
- *
+ * 
  * > **NOTE:** This resource has been deprecated in favour of the `azurerm_monitor_autoscale_setting` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "autoscalingTest",
@@ -80,13 +80,13 @@ import * as utilities from "../utilities";
  *     targetResourceId: testScaleSet.id,
  * });
  * ```
- *
+ * 
  * ## Example Usage (repeating on weekends)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "autoscalingTest",
@@ -162,13 +162,13 @@ import * as utilities from "../utilities";
  *     targetResourceId: testScaleSet.id,
  * });
  * ```
- *
+ * 
  * ## Example Usage (for fixed dates)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "autoscalingTest",
@@ -298,7 +298,7 @@ export class Setting extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SettingArgs | SettingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SettingState | undefined;
+            const state: SettingState = argsOrState as SettingState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

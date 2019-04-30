@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage as an Azure Container Group instance.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const aci_rg = new azure.core.ResourceGroup("aci-rg", {
  *     location: "west us",
  *     name: "aci-test",
@@ -180,7 +180,7 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as GroupState | undefined;
+            const state: GroupState = argsOrState as GroupState | undefined;
             inputs["containers"] = state ? state.containers : undefined;
             inputs["diagnostics"] = state ? state.diagnostics : undefined;
             inputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;

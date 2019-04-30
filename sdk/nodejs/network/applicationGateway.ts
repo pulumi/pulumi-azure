@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Gateway.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "example-resources",
@@ -209,7 +209,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationGatewayArgs | ApplicationGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ApplicationGatewayState | undefined;
+            const state: ApplicationGatewayState = argsOrState as ApplicationGatewayState | undefined;
             inputs["authenticationCertificates"] = state ? state.authenticationCertificates : undefined;
             inputs["backendAddressPools"] = state ? state.backendAddressPools : undefined;
             inputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;

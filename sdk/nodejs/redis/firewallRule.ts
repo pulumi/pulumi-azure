@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Firewall Rule associated with a Redis Cache.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "redis-resourcegroup",
@@ -93,7 +93,7 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as FirewallRuleState | undefined;
+            const state: FirewallRuleState = argsOrState as FirewallRuleState | undefined;
             inputs["endIp"] = state ? state.endIp : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["redisCacheName"] = state ? state.redisCacheName : undefined;

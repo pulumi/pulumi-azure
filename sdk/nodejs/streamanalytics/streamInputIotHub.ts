@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Stream Input IoTHub.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testIoTHub = new azure.iot.IoTHub("test", {
  *     location: azurerm_resource_group_example.location,
  *     name: "example-iothub",
@@ -92,7 +92,7 @@ export class StreamInputIotHub extends pulumi.CustomResource {
      */
     public readonly sharedAccessPolicyName: pulumi.Output<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
      */
     public readonly streamAnalyticsJobName: pulumi.Output<string>;
 
@@ -107,7 +107,7 @@ export class StreamInputIotHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StreamInputIotHubArgs | StreamInputIotHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as StreamInputIotHubState | undefined;
+            const state: StreamInputIotHubState = argsOrState as StreamInputIotHubState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
             inputs["iothubNamespace"] = state ? state.iothubNamespace : undefined;
@@ -194,7 +194,7 @@ export interface StreamInputIotHubState {
      */
     readonly sharedAccessPolicyName?: pulumi.Input<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
      */
     readonly streamAnalyticsJobName?: pulumi.Input<string>;
 }
@@ -236,7 +236,7 @@ export interface StreamInputIotHubArgs {
      */
     readonly sharedAccessPolicyName: pulumi.Input<string>;
     /**
-     * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+     * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
      */
     readonly streamAnalyticsJobName: pulumi.Input<string>;
 }

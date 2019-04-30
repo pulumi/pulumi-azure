@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a ServiceBus Namespace.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "terraform-servicebus",
@@ -97,7 +97,7 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NamespaceState | undefined;
+            const state: NamespaceState = argsOrState as NamespaceState | undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
             inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;

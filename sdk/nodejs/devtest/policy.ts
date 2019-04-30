@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Policy within a Dev Test Policy Set.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "example-resources",
@@ -100,7 +100,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PolicyState | undefined;
+            const state: PolicyState = argsOrState as PolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["evaluatorType"] = state ? state.evaluatorType : undefined;
             inputs["factData"] = state ? state.factData : undefined;

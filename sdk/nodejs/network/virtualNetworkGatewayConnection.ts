@@ -6,18 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a connection in an existing Virtual Network Gateway.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ### Site-to-Site connection
- *
+ * 
  * The following example shows a connection between an Azure virtual network
  * and an on-premises VPN device and network.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "test",
@@ -72,16 +72,16 @@ import * as utilities from "../utilities";
  *     virtualNetworkGatewayId: testVirtualNetworkGateway.id,
  * });
  * ```
- *
+ * 
  * ### VNet-to-VNet connection
- *
+ * 
  * The following example shows a connection between two Azure virtual network
  * in different locations/regions.
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const europeResourceGroup = new azure.core.ResourceGroup("europe", {
  *     location: "West Europe",
  *     name: "europe",
@@ -285,7 +285,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkGatewayConnectionArgs | VirtualNetworkGatewayConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
+            const state: VirtualNetworkGatewayConnectionState = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             inputs["enableBgp"] = state ? state.enableBgp : undefined;
             inputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;

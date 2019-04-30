@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Output to an EventHub.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = pulumi.output(azure.core.getResourceGroup({
  *     name: "example-resources",
  * }));
@@ -106,7 +106,7 @@ export class OutputEventHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OutputEventHubArgs | OutputEventHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as OutputEventHubState | undefined;
+            const state: OutputEventHubState = argsOrState as OutputEventHubState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

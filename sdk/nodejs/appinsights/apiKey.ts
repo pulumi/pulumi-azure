@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Application Insights API key.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "tf-test",
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     name: "tf-test-appinsights-write-annotations-api-key",
  *     writePermissions: ["annotations"],
  * });
- *
+ * 
  * export const authenticateSdkControlChannel = authenticateSdkControlChannelApiKey.apiKey;
  * export const fullPermissionsApiKey = fullPermissions.apiKey;
  * export const readTelemetryApiKey = readTelemetry.apiKey;
@@ -91,7 +91,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
      */
     public readonly readPermissions: pulumi.Output<string[] | undefined>;
     /**
@@ -110,7 +110,7 @@ export class ApiKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ApiKeyState | undefined;
+            const state: ApiKeyState = argsOrState as ApiKeyState | undefined;
             inputs["apiKey"] = state ? state.apiKey : undefined;
             inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -149,7 +149,7 @@ export interface ApiKeyState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
      */
     readonly readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -172,7 +172,7 @@ export interface ApiKeyArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created.
+     * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
      */
     readonly readPermissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**

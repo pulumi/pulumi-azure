@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Network Watcher.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "production-nwwatcher",
@@ -65,7 +65,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkWatcherArgs | NetworkWatcherState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as NetworkWatcherState | undefined;
+            const state: NetworkWatcherState = argsOrState as NetworkWatcherState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

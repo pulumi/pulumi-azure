@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Consumer Group within an IotHub
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -79,7 +79,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConsumerGroupArgs | ConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ConsumerGroupState | undefined;
+            const state: ConsumerGroupState = argsOrState as ConsumerGroupState | undefined;
             inputs["eventhubEndpointName"] = state ? state.eventhubEndpointName : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
             inputs["name"] = state ? state.name : undefined;

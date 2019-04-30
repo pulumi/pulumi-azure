@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Action Group within Azure Monitor.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "monitoring-resources",
@@ -100,7 +100,7 @@ export class ActionGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActionGroupArgs | ActionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ActionGroupState | undefined;
+            const state: ActionGroupState = argsOrState as ActionGroupState | undefined;
             inputs["emailReceivers"] = state ? state.emailReceivers : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["name"] = state ? state.name : undefined;

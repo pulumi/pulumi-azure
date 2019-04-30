@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an HTTP Action within a Logic App Workflow
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
  *     name: "workflow-resources",
@@ -79,7 +79,7 @@ export class ActionHttp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActionHttpArgs | ActionHttpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ActionHttpState | undefined;
+            const state: ActionHttpState = argsOrState as ActionHttpState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["headers"] = state ? state.headers : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Service Fabric Cluster.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -133,7 +133,7 @@ export class Cluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ClusterState | undefined;
+            const state: ClusterState = argsOrState as ClusterState | undefined;
             inputs["addOnFeatures"] = state ? state.addOnFeatures : undefined;
             inputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;

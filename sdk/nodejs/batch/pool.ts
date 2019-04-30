@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure Batch pool.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "%s",
  *     name: "testaccbatch",
@@ -162,7 +162,7 @@ export class Pool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PoolState | undefined;
+            const state: PoolState = argsOrState as PoolState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["autoScale"] = state ? state.autoScale : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;

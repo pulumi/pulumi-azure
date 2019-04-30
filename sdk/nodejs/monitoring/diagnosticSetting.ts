@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Diagnostic Setting for an existing Resource.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -102,7 +102,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DiagnosticSettingArgs | DiagnosticSettingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DiagnosticSettingState | undefined;
+            const state: DiagnosticSettingState = argsOrState as DiagnosticSettingState | undefined;
             inputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["logs"] = state ? state.logs : undefined;

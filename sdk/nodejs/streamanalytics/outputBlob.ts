@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Output to Blob Storage.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = pulumi.output(azure.core.getResourceGroup({
  *     name: "example-resources",
  * }));
@@ -116,7 +116,7 @@ export class OutputBlob extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OutputBlobArgs | OutputBlobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as OutputBlobState | undefined;
+            const state: OutputBlobState = argsOrState as OutputBlobState | undefined;
             inputs["dateFormat"] = state ? state.dateFormat : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["pathPattern"] = state ? state.pathPattern : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Recovery Services VM Protection Policy.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "tfex-recovery_vault",
@@ -78,7 +78,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
     }
 
     /**
-     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
+     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
      */
     public readonly backup: pulumi.Output<{ frequency: string, time: string, weekdays?: string[] }>;
     /**
@@ -129,7 +129,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProtectionPolicyVMArgs | ProtectionPolicyVMState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ProtectionPolicyVMState | undefined;
+            const state: ProtectionPolicyVMState = argsOrState as ProtectionPolicyVMState | undefined;
             inputs["backup"] = state ? state.backup : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
@@ -171,7 +171,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
  */
 export interface ProtectionPolicyVMState {
     /**
-     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
+     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
      */
     readonly backup?: pulumi.Input<{ frequency: pulumi.Input<string>, time: pulumi.Input<string>, weekdays?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
@@ -217,7 +217,7 @@ export interface ProtectionPolicyVMState {
  */
 export interface ProtectionPolicyVMArgs {
     /**
-     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below.
+     * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
      */
     readonly backup: pulumi.Input<{ frequency: pulumi.Input<string>, time: pulumi.Input<string>, weekdays?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**

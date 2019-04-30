@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Management Group.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const current = pulumi.output(azure.core.getSubscription({}));
  * const exampleParent = new azure.managementgroups.ManagementGroup("example_parent", {
  *     displayName: "ParentGroup",
@@ -66,7 +66,7 @@ export class ManagementGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ManagementGroupArgs | ManagementGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ManagementGroupState | undefined;
+            const state: ManagementGroupState = argsOrState as ManagementGroupState | undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
             inputs["parentManagementGroupId"] = state ? state.parentManagementGroupId : undefined;

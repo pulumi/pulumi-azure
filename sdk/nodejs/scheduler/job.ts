@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Scheduler Job.
- *
+ * 
  * > **NOTE:** Support for Scheduler Job has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this resource as a part of version 2.0 of the AzureRM Provider.
- *
+ * 
  * ## Example Usage (single web get now)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const web_once_now = new azure.scheduler.Job("web-once-now", {
  *     actionWeb: {
  *         // defaults to get
@@ -27,13 +27,13 @@ import * as utilities from "../utilities";
  *     state: "enabled",
  * });
  * ```
- *
+ * 
  * ## Example Usage (recurring daily with retry and basic authentication)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const web_recurring_daily = new azure.scheduler.Job("web-recurring-daily", {
  *     actionWeb: {
  *         authenticationBasic: {
@@ -73,13 +73,13 @@ import * as utilities from "../utilities";
  *     startTime: "2018-07-07T07:07:07-07:00",
  * });
  * ```
- *
+ * 
  * ## Example Usage (recurring monthly with an error action and client certificate authentication)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const web_recurring_daily = new azure.scheduler.Job("web-recurring-daily", {
  *     actionWeb: {
  *         authenticationCertificate: {
@@ -130,13 +130,13 @@ import * as utilities from "../utilities";
  *     startTime: "2018-07-07T07:07:07-07:00",
  * });
  * ```
- *
+ * 
  * ## Example Usage (storage queue action)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
@@ -231,7 +231,7 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as JobState | undefined;
+            const state: JobState = argsOrState as JobState | undefined;
             inputs["actionStorageQueue"] = state ? state.actionStorageQueue : undefined;
             inputs["actionWeb"] = state ? state.actionWeb : undefined;
             inputs["errorActionStorageQueue"] = state ? state.errorActionStorageQueue : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
- *
+ * 
  * ## Example Usage (Subscription Level Lock)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const current = pulumi.output(azure.core.getSubscription({}));
  * const subscription_level = new azure.managementresource.ManangementLock("subscription-level", {
  *     lockLevel: "CanNotDelete",
@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  *     scope: current.apply(current => current.id),
  * });
  * ```
- *
+ * 
  * ## Example Usage (Resource Group Level Lock)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "locked-resource-group",
@@ -39,13 +39,13 @@ import * as utilities from "../utilities";
  *     scope: test.id,
  * });
  * ```
- *
+ * 
  * ## Example Usage (Resource Level Lock)
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "locked-resource-group",
@@ -106,7 +106,7 @@ export class ManangementLock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ManangementLockArgs | ManangementLockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ManangementLockState | undefined;
+            const state: ManangementLockState = argsOrState as ManangementLockState | undefined;
             inputs["lockLevel"] = state ? state.lockLevel : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notes"] = state ? state.notes : undefined;

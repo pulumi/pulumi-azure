@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Configures the specified Policy Definition at the specified Scope. Also, Policy Set Definitions are supported.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testDefinition = new azure.policy.Definition("test", {
  *     displayName: "my-policy-definition",
  *     mode: "All",
@@ -95,7 +95,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
+     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
      */
     public readonly notScopes: pulumi.Output<string[] | undefined>;
     /**
@@ -119,7 +119,7 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as AssignmentState | undefined;
+            const state: AssignmentState = argsOrState as AssignmentState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["identity"] = state ? state.identity : undefined;
@@ -176,7 +176,7 @@ export interface AssignmentState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
+     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
      */
     readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -215,7 +215,7 @@ export interface AssignmentArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`).
+     * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
      */
     readonly notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

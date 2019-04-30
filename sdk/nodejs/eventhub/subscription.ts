@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a ServiceBus Subscription.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "tfex-servicebus-subscription",
@@ -79,7 +79,7 @@ export class Subscription extends pulumi.CustomResource {
      */
     public readonly enableBatchedOperations: pulumi.Output<boolean | undefined>;
     /**
-     * The name of a Queue or Topic to automatically forward
+     * The name of a Queue or Topic to automatically forward 
      * messages to.
      */
     public readonly forwardTo: pulumi.Output<string | undefined>;
@@ -135,7 +135,7 @@ export class Subscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubscriptionArgs | SubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SubscriptionState | undefined;
+            const state: SubscriptionState = argsOrState as SubscriptionState | undefined;
             inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
             inputs["deadLetteringOnFilterEvaluationExceptions"] = state ? state.deadLetteringOnFilterEvaluationExceptions : undefined;
             inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
@@ -212,7 +212,7 @@ export interface SubscriptionState {
      */
     readonly enableBatchedOperations?: pulumi.Input<boolean>;
     /**
-     * The name of a Queue or Topic to automatically forward
+     * The name of a Queue or Topic to automatically forward 
      * messages to.
      */
     readonly forwardTo?: pulumi.Input<string>;
@@ -287,7 +287,7 @@ export interface SubscriptionArgs {
      */
     readonly enableBatchedOperations?: pulumi.Input<boolean>;
     /**
-     * The name of a Queue or Topic to automatically forward
+     * The name of a Queue or Topic to automatically forward 
      * messages to.
      */
     readonly forwardTo?: pulumi.Input<string>;

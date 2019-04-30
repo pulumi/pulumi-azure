@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Hostname Binding within an App Service.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "some-resource-group",
@@ -83,7 +83,7 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CustomHostnameBindingArgs | CustomHostnameBindingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as CustomHostnameBindingState | undefined;
+            const state: CustomHostnameBindingState = argsOrState as CustomHostnameBindingState | undefined;
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a PostgreSQL Database within a PostgreSQL Server
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "api-rg-pro",
@@ -92,7 +92,7 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DatabaseState | undefined;
+            const state: DatabaseState = argsOrState as DatabaseState | undefined;
             inputs["charset"] = state ? state.charset : undefined;
             inputs["collation"] = state ? state.collation : undefined;
             inputs["name"] = state ? state.name : undefined;

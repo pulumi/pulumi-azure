@@ -5,16 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a policy set definition.
- *
+ * Manages a policy set definition. 
+ * 
  * > **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const test = new azure.policy.PolicySetDefinition("test", {
  *     displayName: "Test Policy Set",
  *     name: "testPolicySet",
@@ -101,7 +101,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicySetDefinitionArgs | PolicySetDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PolicySetDefinitionState | undefined;
+            const state: PolicySetDefinitionState = argsOrState as PolicySetDefinitionState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["managementGroupId"] = state ? state.managementGroupId : undefined;

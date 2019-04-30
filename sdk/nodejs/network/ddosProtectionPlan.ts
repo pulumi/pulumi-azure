@@ -6,20 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an AzureNetwork DDoS Protection Plan.
- *
+ * 
  * > **NOTE** Azure only allow `one` DDoS Protection Plan per region.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
  * });
- * const testNetworkDdosProtectionPlan = new azure.NetworkDdosProtectionPlan("test", {
+ * const testDdosProtectionPlan = new azure.network.DdosProtectionPlan("test", {
  *     location: testResourceGroup.location,
  *     name: "example-protection-plan",
  *     resourceGroupName: testResourceGroup.name,
@@ -71,7 +71,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DdosProtectionPlanArgs | DdosProtectionPlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DdosProtectionPlanState | undefined;
+            const state: DdosProtectionPlanState = argsOrState as DdosProtectionPlanState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

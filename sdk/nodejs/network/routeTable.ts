@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route Table
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -86,7 +86,7 @@ export class RouteTable extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteTableArgs | RouteTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as RouteTableState | undefined;
+            const state: RouteTableState = argsOrState as RouteTableState | undefined;
             inputs["disableBgpRoutePropagation"] = state ? state.disableBgpRoutePropagation : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Recurrence Trigger within a Logic App Workflow
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
  *     name: "workflow-resources",
@@ -71,7 +71,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TriggerRecurrenceArgs | TriggerRecurrenceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as TriggerRecurrenceState | undefined;
+            const state: TriggerRecurrenceState = argsOrState as TriggerRecurrenceState | undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
             inputs["interval"] = state ? state.interval : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;

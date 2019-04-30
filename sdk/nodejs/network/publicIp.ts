@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Public IP Address.
- *
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -112,7 +112,7 @@ export class PublicIp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PublicIpArgs | PublicIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as PublicIpState | undefined;
+            const state: PublicIpState = argsOrState as PublicIpState | undefined;
             inputs["allocationMethod"] = state ? state.allocationMethod : undefined;
             inputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;

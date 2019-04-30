@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Subscription within a API Management Service.
- *
- *
+ * 
+ * 
  * ## Example Usage
- *
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- *
+ * 
  * const testService = pulumi.output(azure.apimanagement.getService({
  *     name: "example-apim",
  *     resourceGroupName: "example-resources",
@@ -92,7 +92,7 @@ export class Subscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubscriptionArgs | SubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as SubscriptionState | undefined;
+            const state: SubscriptionState = argsOrState as SubscriptionState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;
