@@ -12,6 +12,8 @@
   5. You can subscribe to `azure.storage.Queue` events, invoking a FunctionApp containing
      the code you want, using `queue.onEvent(...)`.
 
+- Add support for `client_certificate_password`, `client_certificate_path` and `partner_id` as per the Terraform provider 
+
 ## 0.18.0 (Released April 22nd, 2019)
 
 ## Breaking Changes

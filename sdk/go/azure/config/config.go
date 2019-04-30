@@ -9,11 +9,25 @@ import (
 )
 
 func GetClientCertificatePassword(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azure:clientCertificatePassword")
+	v, err := config.Try(ctx, "azure:clientCertificatePassword")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "ARM_CLIENT_CERTIFICATE_PASSWORD").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetClientCertificatePath(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azure:clientCertificatePath")
+	v, err := config.Try(ctx, "azure:clientCertificatePath")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "ARM_CLIENT_CERTIFICATE_PATH").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetClientId(ctx *pulumi.Context) string {
@@ -62,7 +76,14 @@ func GetMsiEndpoint(ctx *pulumi.Context) string {
 }
 
 func GetPartnerId(ctx *pulumi.Context) string {
-	return config.Get(ctx, "azure:partnerId")
+	v, err := config.Try(ctx, "azure:partnerId")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "ARM_PARTNER_ID").(string); ok {
+		return dv
+	}
+	return v
 }
 
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {

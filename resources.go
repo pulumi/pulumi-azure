@@ -145,12 +145,6 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"ARM_CLIENT_ID"},
 				},
 			},
-			"client_secret": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   "",
-					EnvVars: []string{"ARM_CLIENT_SECRET"},
-				},
-			},
 			"tenant_id": {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "",
@@ -161,6 +155,30 @@ func Provider() tfbridge.ProviderInfo {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "public",
 					EnvVars: []string{"ARM_ENVIRONMENT"},
+				},
+			},
+			"client_certificate_password": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"},
+				},
+			},
+			"client_certificate_path": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_CLIENT_CERTIFICATE_PATH"},
+				},
+			},
+			"client_secret": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_CLIENT_SECRET"},
+				},
+			},
+			"partner_id": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "",
+					EnvVars: []string{"ARM_PARTNER_ID"},
 				},
 			},
 			"skip_credentials_validation": {
