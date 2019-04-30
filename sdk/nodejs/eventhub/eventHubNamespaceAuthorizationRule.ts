@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Rule for an Event Hub Namespace.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -103,7 +103,7 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubNamespaceAuthorizationRuleArgs | EventHubNamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubNamespaceAuthorizationRuleState = argsOrState as EventHubNamespaceAuthorizationRuleState | undefined;
+            const state = argsOrState as EventHubNamespaceAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["manage"] = state ? state.manage : undefined;

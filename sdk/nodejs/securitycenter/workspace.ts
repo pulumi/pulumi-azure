@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the subscription's Security Center Workspace.
- * 
+ *
  * > **NOTE:** Owner access permission is required.
- * 
+ *
  * > **NOTE:** The subscription's pricing model can not be `Free` for this to have any affect.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "westus",
  *     name: "tfex-security-workspace",
@@ -66,7 +66,7 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WorkspaceState = argsOrState as WorkspaceState | undefined;
+            const state = argsOrState as WorkspaceState | undefined;
             inputs["scope"] = state ? state.scope : undefined;
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {

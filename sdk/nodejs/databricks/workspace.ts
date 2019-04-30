@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Databricks Workspace
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "example-resources",
@@ -81,7 +81,7 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WorkspaceState = argsOrState as WorkspaceState | undefined;
+            const state = argsOrState as WorkspaceState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;

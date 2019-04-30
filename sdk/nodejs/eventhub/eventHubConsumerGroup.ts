@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -89,7 +89,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubConsumerGroupArgs | EventHubConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubConsumerGroupState = argsOrState as EventHubConsumerGroupState | undefined;
+            const state = argsOrState as EventHubConsumerGroupState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -7,17 +7,17 @@ import * as utilities from "../utilities";
 /**
  * Manages a virtual network including any configured subnets. Each subnet can
  * optionally be configured with a security group to be associated with the subnet.
- * 
+ *
  * > **NOTE on Virtual Networks and Subnet's:** Terraform currently
  * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
  * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -129,7 +129,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkArgs | VirtualNetworkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkState = argsOrState as VirtualNetworkState | undefined;
+            const state = argsOrState as VirtualNetworkState | undefined;
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
             inputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;

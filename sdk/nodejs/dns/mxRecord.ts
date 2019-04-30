@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS MX Records within Azure DNS.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -91,7 +91,7 @@ export class MxRecord extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MxRecordArgs | MxRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MxRecordState = argsOrState as MxRecordState | undefined;
+            const state = argsOrState as MxRecordState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

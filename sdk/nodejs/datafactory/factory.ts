@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Data Factory (Version 2).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
  *     name: "example",
@@ -77,7 +77,7 @@ export class Factory extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FactoryArgs | FactoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FactoryState = argsOrState as FactoryState | undefined;
+            const state = argsOrState as FactoryState | undefined;
             inputs["githubConfiguration"] = state ? state.githubConfiguration : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;

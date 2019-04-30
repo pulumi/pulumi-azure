@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Runbook.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "resourceGroup1",
@@ -109,7 +109,7 @@ export class RunBook extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RunBookArgs | RunBookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RunBookState = argsOrState as RunBookState | undefined;
+            const state = argsOrState as RunBookState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["description"] = state ? state.description : undefined;

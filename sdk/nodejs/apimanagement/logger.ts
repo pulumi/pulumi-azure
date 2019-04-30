@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Logger within an API Management Service.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "example-resources",
@@ -98,7 +98,7 @@ export class Logger extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoggerArgs | LoggerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LoggerState = argsOrState as LoggerState | undefined;
+            const state = argsOrState as LoggerState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["applicationInsights"] = state ? state.applicationInsights : undefined;
             inputs["buffered"] = state ? state.buffered : undefined;

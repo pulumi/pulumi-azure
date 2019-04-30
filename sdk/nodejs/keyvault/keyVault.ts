@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault.
- * 
+ *
  * > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -118,7 +118,7 @@ export class KeyVault extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KeyVaultArgs | KeyVaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KeyVaultState = argsOrState as KeyVaultState | undefined;
+            const state = argsOrState as KeyVaultState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["enabledForDeployment"] = state ? state.enabledForDeployment : undefined;
             inputs["enabledForDiskEncryption"] = state ? state.enabledForDiskEncryption : undefined;

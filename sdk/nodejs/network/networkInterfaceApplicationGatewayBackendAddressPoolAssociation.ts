@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -146,7 +146,7 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
     constructor(name: string, argsOrState?: NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs | NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState = argsOrState as NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState | undefined;
+            const state = argsOrState as NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState | undefined;
             inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;

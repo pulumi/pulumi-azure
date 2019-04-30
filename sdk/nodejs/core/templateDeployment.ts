@@ -6,19 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a template deployment of resources
- * 
+ *
  * > **Note on ARM Template Deployments:** Due to the way the underlying Azure API is designed, Terraform can only manage the deployment of the ARM Template - and not any resources which are created by it.
  * This means that when deleting the `azurerm_template_deployment` resource, Terraform will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
  * One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * > **Note:** This example uses Storage Accounts and Public IP's which are natively supported by Terraform - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acctestRG-01",
@@ -88,12 +88,12 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * 
+ *
  * export const storageAccountName = testTemplateDeployment.outputs.apply(outputs => (<any>outputs)["storageAccountName"]);
  * ```
- * 
+ *
  * ## Note
- * 
+ *
  * Terraform does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
  */
 export class TemplateDeployment extends pulumi.CustomResource {
@@ -153,7 +153,7 @@ export class TemplateDeployment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TemplateDeploymentArgs | TemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TemplateDeploymentState = argsOrState as TemplateDeploymentState | undefined;
+            const state = argsOrState as TemplateDeploymentState | undefined;
             inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outputs"] = state ? state.outputs : undefined;

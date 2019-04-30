@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management User Assignment to a Group.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleUser = pulumi.output(azure.apimanagement.getUser({
  *     apiManagementName: "example-apim",
  *     resourceGroupName: "search-service",
@@ -68,7 +68,7 @@ export class GroupUser extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupUserArgs | GroupUserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupUserState = argsOrState as GroupUserState | undefined;
+            const state = argsOrState as GroupUserState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["groupName"] = state ? state.groupName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

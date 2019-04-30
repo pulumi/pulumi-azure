@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Promotes an App Service Slot to Production within an App Service.
- * 
+ *
  * > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const testAppService = new azure.appservice.AppService("test", {});
  * const testPlan = new azure.appservice.Plan("test", {});
  * const testSlot = new azure.appservice.Slot("test", {});
@@ -65,7 +65,7 @@ export class ActiveSlot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActiveSlotArgs | ActiveSlotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActiveSlotState = argsOrState as ActiveSlotState | undefined;
+            const state = argsOrState as ActiveSlotState | undefined;
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["appServiceSlotName"] = state ? state.appServiceSlotName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

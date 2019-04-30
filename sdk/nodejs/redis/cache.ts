@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Redis Cache.
- * 
+ *
  * ## Example Usage (Basic)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "redis-resources",
@@ -28,13 +28,13 @@ import * as utilities from "../utilities";
  *     skuName: "Basic",
  * });
  * ```
- * 
+ *
  * ## Example Usage (Standard)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "redis-resources",
@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  *     skuName: "Standard",
  * });
  * ```
- * 
+ *
  * ## Example Usage (Premium with Clustering)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "redis-resources",
@@ -79,13 +79,13 @@ import * as utilities from "../utilities";
  *     skuName: "Premium",
  * });
  * ```
- * 
+ *
  * ## Example Usage (Premium with Backup)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "redis-resources",
@@ -114,27 +114,27 @@ import * as utilities from "../utilities";
  *     skuName: "Premium",
  * });
  * ```
- * 
+ *
  * ## Default Redis Configuration Values
- * 
+ *
  * | Redis Value                     | Basic        | Standard     | Premium      |
  * | ------------------------------- | ------------ | ------------ | ------------ |
  * | maxmemory_reserved              | 2            | 50           | 200          |
  * | maxfragmentationmemory_reserved | 2            | 50           | 200          |
  * | maxmemory_delta                 | 2            | 50           | 200          |
  * | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
- * 
+ *
  * _*Important*: The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
- * 
+ *
  * * `patch_schedule` supports the following:
- * 
+ *
  * * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
  * * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
- * 
+ *
  * > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
- * 
+ *
  * ## Relevant Links
- * 
+ *
  *  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
  *  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
  */
@@ -245,7 +245,7 @@ export class Cache extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CacheState = argsOrState as CacheState | undefined;
+            const state = argsOrState as CacheState | undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["enableNonSslPort"] = state ? state.enableNonSslPort : undefined;
             inputs["family"] = state ? state.family : undefined;

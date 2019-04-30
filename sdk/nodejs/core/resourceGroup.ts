@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a resource group on Azure.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "testResourceGroup1",
@@ -61,7 +61,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceGroupArgs | ResourceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceGroupState = argsOrState as ResourceGroupState | undefined;
+            const state = argsOrState as ResourceGroupState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;

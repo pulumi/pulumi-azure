@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API within an API Management Service.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -132,7 +132,7 @@ export class Api extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiArgs | ApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApiState = argsOrState as ApiState | undefined;
+            const state = argsOrState as ApiState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;

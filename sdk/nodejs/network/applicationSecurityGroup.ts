@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Application Security Group.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "tf-test",
@@ -68,7 +68,7 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationSecurityGroupArgs | ApplicationSecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApplicationSecurityGroupState = argsOrState as ApplicationSecurityGroupState | undefined;
+            const state = argsOrState as ApplicationSecurityGroupState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

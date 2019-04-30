@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Configures a Connection Monitor to monitor communication between a Virtual Machine and an endpoint using a Network Watcher.
- * 
+ *
  * > **NOTE:** This resource has been deprecated in favour of the `azurerm_network_connection_monitor` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "connection-monitor-rg",
@@ -97,7 +97,7 @@ import * as utilities from "../utilities";
  *     },
  * }, {dependsOn: [testExtension]});
  * ```
- * 
+ *
  * > **NOTE:** This Resource requires that [the Network Watcher Agent Virtual Machine Extension](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor) is installed on the Virtual Machine before monitoring can be started. The extension can be installed via the `azurerm_virtual_machine_extension` resource.
  */
 export class ConnectionMonitor extends pulumi.CustomResource {
@@ -161,7 +161,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConnectionMonitorArgs | ConnectionMonitorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConnectionMonitorState = argsOrState as ConnectionMonitorState | undefined;
+            const state = argsOrState as ConnectionMonitorState | undefined;
             inputs["autoStart"] = state ? state.autoStart : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;

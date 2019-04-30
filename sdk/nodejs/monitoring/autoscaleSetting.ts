@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "autoscalingTest",
@@ -78,13 +78,13 @@ import * as utilities from "../utilities";
  *     targetResourceId: testScaleSet.id,
  * });
  * ```
- * 
+ *
  * ## Example Usage (repeating on weekends)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "autoscalingTest",
@@ -160,13 +160,13 @@ import * as utilities from "../utilities";
  *     targetResourceId: testScaleSet.id,
  * });
  * ```
- * 
+ *
  * ## Example Usage (for fixed dates)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "autoscalingTest",
@@ -296,7 +296,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AutoscaleSettingArgs | AutoscaleSettingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AutoscaleSettingState = argsOrState as AutoscaleSettingState | undefined;
+            const state = argsOrState as AutoscaleSettingState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

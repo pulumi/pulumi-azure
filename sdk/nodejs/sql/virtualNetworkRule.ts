@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to add, update, or remove an Azure SQL server to a subnet of a virtual network.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "example-sql-server-vnet-rule",
@@ -91,7 +91,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkRuleArgs | VirtualNetworkRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkRuleState = argsOrState as VirtualNetworkRuleState | undefined;
+            const state = argsOrState as VirtualNetworkRuleState | undefined;
             inputs["ignoreMissingVnetServiceEndpoint"] = state ? state.ignoreMissingVnetServiceEndpoint : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

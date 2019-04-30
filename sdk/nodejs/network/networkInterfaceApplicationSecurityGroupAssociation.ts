@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the association between a Network Interface and a Application Security Group.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -89,7 +89,7 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
     constructor(name: string, argsOrState?: NetworkInterfaceApplicationSecurityGroupAssociationArgs | NetworkInterfaceApplicationSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceApplicationSecurityGroupAssociationState = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationState | undefined;
+            const state = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationState | undefined;
             inputs["applicationSecurityGroupId"] = state ? state.applicationSecurityGroupId : undefined;
             inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;

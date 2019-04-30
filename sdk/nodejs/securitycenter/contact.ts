@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the subscription's Security Center Contact.
- * 
- * > **NOTE:** Owner access permission is required. 
- * 
+ *
+ * > **NOTE:** Owner access permission is required.
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const example = new azure.securitycenter.Contact("example", {
  *     alertNotifications: true,
  *     alertsToAdmins: true,
@@ -64,7 +64,7 @@ export class Contact extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ContactArgs | ContactState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ContactState = argsOrState as ContactState | undefined;
+            const state = argsOrState as ContactState | undefined;
             inputs["alertNotifications"] = state ? state.alertNotifications : undefined;
             inputs["alertsToAdmins"] = state ? state.alertsToAdmins : undefined;
             inputs["email"] = state ? state.email : undefined;

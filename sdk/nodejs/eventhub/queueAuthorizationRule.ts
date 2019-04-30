@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Authorization Rule for a ServiceBus Queue.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "terraform-servicebus",
@@ -112,7 +112,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueueAuthorizationRuleArgs | QueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueueAuthorizationRuleState = argsOrState as QueueAuthorizationRuleState | undefined;
+            const state = argsOrState as QueueAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;

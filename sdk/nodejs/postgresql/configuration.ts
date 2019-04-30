@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Sets a PostgreSQL Configuration value on a PostgreSQL Server.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "api-rg-pro",
@@ -86,7 +86,7 @@ export class Configuration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConfigurationState = argsOrState as ConfigurationState | undefined;
+            const state = argsOrState as ConfigurationState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serverName"] = state ? state.serverName : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a user assigned identity.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "eastus",
  *     name: "acceptanceTestResourceGroup1",
@@ -76,7 +76,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserAssignedIdentityArgs | UserAssignedIdentityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserAssignedIdentityState = argsOrState as UserAssignedIdentityState | undefined;
+            const state = argsOrState as UserAssignedIdentityState | undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

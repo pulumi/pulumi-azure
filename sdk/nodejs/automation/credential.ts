@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Automation Credential.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "resourceGroup1",
@@ -84,7 +84,7 @@ export class Credential extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CredentialArgs | CredentialState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CredentialState = argsOrState as CredentialState | undefined;
+            const state = argsOrState as CredentialState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

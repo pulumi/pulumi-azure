@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a virtual machine scale set.
- * 
+ *
  * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage with Managed Disks (Recommended)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as fs from "fs";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
  *     name: "acctestRG",
@@ -140,14 +140,14 @@ import * as utilities from "../utilities";
  *     upgradePolicyMode: "Rolling",
  * });
  * ```
- * 
+ *
  * ## Example Usage with Unmanaged Disks
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as fs from "fs";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acctestRG",
@@ -224,13 +224,13 @@ import * as utilities from "../utilities";
  *     upgradePolicyMode: "Manual",
  * });
  * ```
- * 
+ *
  * ## Example of storage_profile_image_reference with id
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testImage = new azure.compute.Image("test", {
  *     name: "test",
  * });
@@ -372,7 +372,7 @@ export class ScaleSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ScaleSetArgs | ScaleSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ScaleSetState = argsOrState as ScaleSetState | undefined;
+            const state = argsOrState as ScaleSetState | undefined;
             inputs["automaticOsUpgrade"] = state ? state.automaticOsUpgrade : undefined;
             inputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;

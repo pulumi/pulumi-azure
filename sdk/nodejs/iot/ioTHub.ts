@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an IotHub
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -151,7 +151,7 @@ export class IoTHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IoTHubArgs | IoTHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IoTHubState = argsOrState as IoTHubState | undefined;
+            const state = argsOrState as IoTHubState | undefined;
             inputs["endpoints"] = state ? state.endpoints : undefined;
             inputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
             inputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Operation within an API Management Service.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleApi = pulumi.output(azure.apimanagement.getApi({
  *     apiManagementName: "search-api-management",
  *     name: "search-api",
@@ -103,7 +103,7 @@ export class ApiOperation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiOperationArgs | ApiOperationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApiOperationState = argsOrState as ApiOperationState | undefined;
+            const state = argsOrState as ApiOperationState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["apiName"] = state ? state.apiName : undefined;
             inputs["description"] = state ? state.description : undefined;

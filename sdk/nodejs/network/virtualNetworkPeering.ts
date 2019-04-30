@@ -7,13 +7,13 @@ import * as utilities from "../utilities";
 /**
  * Manages a virtual network peering which allows resources to access other
  * resources in the linked virtual network.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const test = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "peeredvnets-rg",
@@ -43,13 +43,13 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: test2VirtualNetwork.name,
  * });
  * ```
- * 
+ *
  * ## Example Usage (Global virtual network peering)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const config = new pulumi.Config();
  * const location = config.get("location") || [
  *     "uksouth",
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *     "10.0.0.0/16",
  *     "10.1.0.0/16",
  * ];
- * 
+ *
  * const vnetResourceGroup: azure.core.ResourceGroup[] = [];
  * for (let i = 0; i < location.length; i++) {
  *     vnetResourceGroup.push(new azure.core.ResourceGroup(`vnet-${i}`, {
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *         virtualNetworkName: pulumi.all(vnetVirtualNetwork.map(v => v.name)).apply(name => name.map(v => v)[i]),
  *     }));
  * }
- * // enable global peering between the two virtual network 
+ * // enable global peering between the two virtual network
  * const peering: azure.network.VirtualNetworkPeering[] = [];
  * for (let i = 0; i < location.length; i++) {
  *     peering.push(new azure.network.VirtualNetworkPeering(`peering-${i}`, {
@@ -103,9 +103,9 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
- * 
+ *
  * ## Note
- * 
+ *
  * Virtual Network peerings cannot be created, updated or deleted concurrently.
  */
 export class VirtualNetworkPeering extends pulumi.CustomResource {
@@ -179,7 +179,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkPeeringArgs | VirtualNetworkPeeringState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkPeeringState = argsOrState as VirtualNetworkPeeringState | undefined;
+            const state = argsOrState as VirtualNetworkPeeringState | undefined;
             inputs["allowForwardedTraffic"] = state ? state.allowForwardedTraffic : undefined;
             inputs["allowGatewayTransit"] = state ? state.allowGatewayTransit : undefined;
             inputs["allowVirtualNetworkAccess"] = state ? state.allowVirtualNetworkAccess : undefined;

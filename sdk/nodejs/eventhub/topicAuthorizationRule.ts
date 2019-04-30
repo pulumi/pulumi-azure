@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "tfex-servicebus",
@@ -111,7 +111,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TopicAuthorizationRuleArgs | TopicAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TopicAuthorizationRuleState = argsOrState as TopicAuthorizationRuleState | undefined;
+            const state = argsOrState as TopicAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;

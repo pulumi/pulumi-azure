@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS NS Records within Azure DNS.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -89,7 +89,7 @@ export class NsRecord extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NsRecordArgs | NsRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NsRecordState = argsOrState as NsRecordState | undefined;
+            const state = argsOrState as NsRecordState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["record"] = state ? state.record : undefined;
             inputs["records"] = state ? state.records : undefined;

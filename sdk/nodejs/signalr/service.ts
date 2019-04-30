@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Azure SignalR service.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "terraform-signalr",
@@ -105,7 +105,7 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServiceState = argsOrState as ServiceState | undefined;
+            const state = argsOrState as ServiceState | undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["location"] = state ? state.location : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a ServiceBus Subscription Rule.
- * 
+ *
  * ## Example Usage (SQL Filter)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "tfex-servicebus-subscription-rule-sql",
@@ -49,13 +49,13 @@ import * as utilities from "../utilities";
  *     topicName: exampleTopic.name,
  * });
  * ```
- * 
+ *
  * ## Example Usage (Correlation Filter)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "tfex-servicebus-subscription-rule-cor",
@@ -157,7 +157,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubscriptionRuleArgs | SubscriptionRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubscriptionRuleState = argsOrState as SubscriptionRuleState | undefined;
+            const state = argsOrState as SubscriptionRuleState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["correlationFilter"] = state ? state.correlationFilter : undefined;
             inputs["filterType"] = state ? state.filterType : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "packet-capture-rg",
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *     typeHandlerVersion: "1.4",
  *     virtualMachineName: testVirtualMachine.name,
  * });
- * const testNetworkPacketCapture = new azure.network.NetworkPacketCapture("test", {
+ * const testNetworkPacketCapture = new azure.NetworkPacketCapture("test", {
  *     name: "pctestcapture",
  *     networkWatcherName: testNetworkWatcher.name,
  *     resourceGroupName: testResourceGroup.name,
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *     targetResourceId: testVirtualMachine.id,
  * }, {dependsOn: [testExtension]});
  * ```
- * 
+ *
  * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azurerm_virtual_machine_extension` resource.
  */
 export class NetworkPacketCapture extends pulumi.CustomResource {
@@ -162,7 +162,7 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkPacketCaptureArgs | NetworkPacketCaptureState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkPacketCaptureState = argsOrState as NetworkPacketCaptureState | undefined;
+            const state = argsOrState as NetworkPacketCaptureState | undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["maximumBytesPerPacket"] = state ? state.maximumBytesPerPacket : undefined;
             inputs["maximumBytesPerSession"] = state ? state.maximumBytesPerSession : undefined;

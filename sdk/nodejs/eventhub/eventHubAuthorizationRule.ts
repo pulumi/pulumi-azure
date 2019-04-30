@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Event Hubs authorization Rule within an Event Hub.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -115,7 +115,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubAuthorizationRuleArgs | EventHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubAuthorizationRuleState = argsOrState as EventHubAuthorizationRuleState | undefined;
+            const state = argsOrState as EventHubAuthorizationRuleState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["location"] = state ? state.location : undefined;

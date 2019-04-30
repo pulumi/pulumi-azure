@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an OpenID Connect Provider within a API Management Service.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -95,7 +95,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OpenIdConnectProviderArgs | OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: OpenIdConnectProviderState = argsOrState as OpenIdConnectProviderState | undefined;
+            const state = argsOrState as OpenIdConnectProviderState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["clientSecret"] = state ? state.clientSecret : undefined;

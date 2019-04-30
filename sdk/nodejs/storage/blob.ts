@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Storage Blob.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus",
  *     name: "acctestRG-d",
@@ -121,7 +121,7 @@ export class Blob extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BlobArgs | BlobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BlobState = argsOrState as BlobState | undefined;
+            const state = argsOrState as BlobState | undefined;
             inputs["attempts"] = state ? state.attempts : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;

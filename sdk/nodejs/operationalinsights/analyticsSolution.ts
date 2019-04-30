@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Log Analytics (formally Operational Insights) Solution.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
  *     name: "k8s-log-analytics-test",
@@ -93,7 +93,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AnalyticsSolutionArgs | AnalyticsSolutionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AnalyticsSolutionState = argsOrState as AnalyticsSolutionState | undefined;
+            const state = argsOrState as AnalyticsSolutionState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["plan"] = state ? state.plan : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

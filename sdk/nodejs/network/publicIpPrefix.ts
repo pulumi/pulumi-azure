@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Public IP Prefix.
- * 
+ *
  * > **NOTE** Public IP Prefix are currently in Public Preview. You can find more information about [Public IP Preifx Preview here](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-address-prefix).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "resourceGroup1",
@@ -87,7 +87,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PublicIpPrefixArgs | PublicIpPrefixState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PublicIpPrefixState = argsOrState as PublicIpPrefixState | undefined;
+            const state = argsOrState as PublicIpPrefixState | undefined;
             inputs["ipPrefix"] = state ? state.ipPrefix : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

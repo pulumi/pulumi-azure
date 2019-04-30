@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a ServiceBus Topic.
- * 
+ *
  * **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "tfex-servicebus-topic",
@@ -135,7 +135,7 @@ export class Topic extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TopicArgs | TopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TopicState = argsOrState as TopicState | undefined;
+            const state = argsOrState as TopicState | undefined;
             inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
             inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
             inputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;

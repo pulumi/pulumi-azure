@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
- * 
+ *
  * > **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "test",
@@ -183,7 +183,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkGatewayArgs | VirtualNetworkGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkGatewayState = argsOrState as VirtualNetworkGatewayState | undefined;
+            const state = argsOrState as VirtualNetworkGatewayState | undefined;
             inputs["activeActive"] = state ? state.activeActive : undefined;
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             inputs["defaultLocalNetworkGatewayId"] = state ? state.defaultLocalNetworkGatewayId : undefined;

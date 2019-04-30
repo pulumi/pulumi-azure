@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Certificate.
- * 
+ *
  * ## Example Usage (Importing a PFX)
- * 
+ *
  * > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "key-vault-certificate-example",
@@ -104,13 +104,13 @@ import * as utilities from "../utilities";
  *     name: "imported-cert",
  * });
  * ```
- * 
+ *
  * ## Example Usage (Generating a new certificate)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "key-vault-certificate-example",
@@ -285,7 +285,7 @@ export class Certifiate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertifiateArgs | CertifiateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertifiateState = argsOrState as CertifiateState | undefined;
+            const state = argsOrState as CertifiateState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["certificateData"] = state ? state.certificateData : undefined;
             inputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;

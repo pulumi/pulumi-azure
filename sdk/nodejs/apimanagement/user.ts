@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management User.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -104,7 +104,7 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserState = argsOrState as UserState | undefined;
+            const state = argsOrState as UserState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["confirmation"] = state ? state.confirmation : undefined;
             inputs["email"] = state ? state.email : undefined;

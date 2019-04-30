@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an EventHub Namespace.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "resourceGroup1",
@@ -108,7 +108,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubNamespaceArgs | EventHubNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubNamespaceState = argsOrState as EventHubNamespaceState | undefined;
+            const state = argsOrState as EventHubNamespaceState | undefined;
             inputs["autoInflateEnabled"] = state ? state.autoInflateEnabled : undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;

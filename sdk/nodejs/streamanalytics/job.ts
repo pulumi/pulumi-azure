@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Job.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -81,7 +81,7 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.
      */
     public readonly outputErrorPolicy: pulumi.Output<string>;
     /**
@@ -108,7 +108,7 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: JobState = argsOrState as JobState | undefined;
+            const state = argsOrState as JobState | undefined;
             inputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
             inputs["dataLocale"] = state ? state.dataLocale : undefined;
             inputs["eventsLateArrivalMaxDelayInSeconds"] = state ? state.eventsLateArrivalMaxDelayInSeconds : undefined;
@@ -204,7 +204,7 @@ export interface JobState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.
      */
     readonly outputErrorPolicy?: pulumi.Input<string>;
     /**
@@ -254,7 +254,7 @@ export interface JobArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.
      */
     readonly outputErrorPolicy: pulumi.Input<string>;
     /**

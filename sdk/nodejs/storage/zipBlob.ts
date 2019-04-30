@@ -42,7 +42,7 @@ export class ZipBlob extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ZipBlobArgs | ZipBlobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ZipBlobState = argsOrState as ZipBlobState | undefined;
+            const state = argsOrState as ZipBlobState | undefined;
             inputs["attempts"] = state ? state.attempts : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;

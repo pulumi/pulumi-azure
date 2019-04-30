@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Allows you to manage an Azure SQL Database
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -139,7 +139,7 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DatabaseState = argsOrState as DatabaseState | undefined;
+            const state = argsOrState as DatabaseState | undefined;
             inputs["collation"] = state ? state.collation : undefined;
             inputs["createMode"] = state ? state.createMode : undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;

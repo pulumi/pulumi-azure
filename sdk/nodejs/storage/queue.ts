@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Storage Queue.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westus",
  *     name: "example-resources",
@@ -70,7 +70,7 @@ export class Queue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueueState = argsOrState as QueueState | undefined;
+            const state = argsOrState as QueueState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -103,7 +103,7 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
     constructor(name: string, argsOrState?: NetworkInterfaceBackendAddressPoolAssociationArgs | NetworkInterfaceBackendAddressPoolAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceBackendAddressPoolAssociationState = argsOrState as NetworkInterfaceBackendAddressPoolAssociationState | undefined;
+            const state = argsOrState as NetworkInterfaceBackendAddressPoolAssociationState | undefined;
             inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;

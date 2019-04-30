@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a PostgreSQL Dataset inside a Azure Data Factory.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
  *     name: "example",
@@ -105,7 +105,7 @@ export class DatasetPostgresql extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatasetPostgresqlArgs | DatasetPostgresqlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DatasetPostgresqlState = argsOrState as DatasetPostgresqlState | undefined;
+            const state = argsOrState as DatasetPostgresqlState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;

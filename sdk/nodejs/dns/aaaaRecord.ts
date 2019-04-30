@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Enables you to manage DNS AAAA Records within Azure DNS.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -76,7 +76,7 @@ export class AaaaRecord extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AaaaRecordArgs | AaaaRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AaaaRecordState = argsOrState as AaaaRecordState | undefined;
+            const state = argsOrState as AaaaRecordState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

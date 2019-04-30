@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Azure Data Lake Analytics Account.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
  *     name: "tfex-datalake-account",
@@ -79,7 +79,7 @@ export class AnalyticsAccount extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AnalyticsAccountArgs | AnalyticsAccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AnalyticsAccountState = argsOrState as AnalyticsAccountState | undefined;
+            const state = argsOrState as AnalyticsAccountState | undefined;
             inputs["defaultStoreAccountName"] = state ? state.defaultStoreAccountName : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

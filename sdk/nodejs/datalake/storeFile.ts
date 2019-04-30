@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Azure Data Lake Store File.
- * 
- * > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then 
+ *
+ * > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then
  * taint the resource so the `azurerm_data_lake_store_file` gets recreated with the new data.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
  *     name: "example",
@@ -69,7 +69,7 @@ export class StoreFile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StoreFileArgs | StoreFileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StoreFileState = argsOrState as StoreFileState | undefined;
+            const state = argsOrState as StoreFileState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["localFilePath"] = state ? state.localFilePath : undefined;
             inputs["remoteFilePath"] = state ? state.remoteFilePath : undefined;

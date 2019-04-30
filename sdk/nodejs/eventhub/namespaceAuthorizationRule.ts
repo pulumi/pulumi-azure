@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "terraform-servicebus",
@@ -101,7 +101,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NamespaceAuthorizationRuleArgs | NamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NamespaceAuthorizationRuleState = argsOrState as NamespaceAuthorizationRuleState | undefined;
+            const state = argsOrState as NamespaceAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -6,20 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * Manages attaching a Disk to a Virtual Machine.
- * 
+ *
  * > **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
- * 
+ *
  * > **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storage_data_disk` block in the `azurerm_virtual_machine` resource.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const config = new pulumi.Config();
  * const prefix = config.get("prefix") || "example";
- * 
+ *
  * const vmName = `${prefix}-vm`;
  * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West Europe",
@@ -139,7 +139,7 @@ export class DataDiskAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DataDiskAttachmentArgs | DataDiskAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DataDiskAttachmentState = argsOrState as DataDiskAttachmentState | undefined;
+            const state = argsOrState as DataDiskAttachmentState | undefined;
             inputs["caching"] = state ? state.caching : undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
             inputs["lun"] = state ? state.lun : undefined;

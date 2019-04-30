@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a HDInsight Storm Cluster.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West Europe",
  *     name: "example-resources",
@@ -143,7 +143,7 @@ export class StormCluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StormClusterArgs | StormClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StormClusterState = argsOrState as StormClusterState | undefined;
+            const state = argsOrState as StormClusterState | undefined;
             inputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             inputs["componentVersion"] = state ? state.componentVersion : undefined;
             inputs["gateway"] = state ? state.gateway : undefined;

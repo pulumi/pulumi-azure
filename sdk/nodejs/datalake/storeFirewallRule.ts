@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Azure Data Lake Store Firewall Rule.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
  *     name: "example",
@@ -76,7 +76,7 @@ export class StoreFirewallRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StoreFirewallRuleArgs | StoreFirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StoreFirewallRuleState = argsOrState as StoreFirewallRuleState | undefined;
+            const state = argsOrState as StoreFirewallRuleState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
             inputs["name"] = state ? state.name : undefined;

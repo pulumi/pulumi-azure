@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EventGrid Domain
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
  *     name: "resourceGroup1",
@@ -84,7 +84,7 @@ export class EventGridDomain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventGridDomainArgs | EventGridDomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventGridDomainState = argsOrState as EventGridDomainState | undefined;
+            const state = argsOrState as EventGridDomainState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Configures a Network Connection Monitor to monitor communication between a Virtual Machine and an endpoint using a Network Watcher.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "connection-monitor-rg",
@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *     typeHandlerVersion: "1.4",
  *     virtualMachineName: testVirtualMachine.name,
  * });
- * const testNetworkConnectionMonitor = new azure.network.NetworkConnectionMonitor("test", {
+ * const testNetworkConnectionMonitor = new azure.NetworkConnectionMonitor("test", {
  *     destination: {
  *         address: "terraform.io",
  *         port: 80,
@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  *     },
  * }, {dependsOn: [testExtension]});
  * ```
- * 
+ *
  * > **NOTE:** This Resource requires that [the Network Watcher Agent Virtual Machine Extension](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor) is installed on the Virtual Machine before monitoring can be started. The extension can be installed via the `azurerm_virtual_machine_extension` resource.
  */
 export class NetworkConnectionMonitor extends pulumi.CustomResource {
@@ -159,7 +159,7 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkConnectionMonitorArgs | NetworkConnectionMonitorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkConnectionMonitorState = argsOrState as NetworkConnectionMonitorState | undefined;
+            const state = argsOrState as NetworkConnectionMonitorState | undefined;
             inputs["autoStart"] = state ? state.autoStart : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;

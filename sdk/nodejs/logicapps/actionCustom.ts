@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Custom Action within a Logic App Workflow
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
  *     name: "workflow-resources",
@@ -80,7 +80,7 @@ export class ActionCustom extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActionCustomArgs | ActionCustomState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActionCustomState = argsOrState as ActionCustomState | undefined;
+            const state = argsOrState as ActionCustomState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["name"] = state ? state.name : undefined;

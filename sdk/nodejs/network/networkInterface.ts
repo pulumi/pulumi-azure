@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Network Interface located in a Virtual Network, usually attached to a Virtual Machine.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -130,7 +130,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceState = argsOrState as NetworkInterfaceState | undefined;
+            const state = argsOrState as NetworkInterfaceState | undefined;
             inputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
             inputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;

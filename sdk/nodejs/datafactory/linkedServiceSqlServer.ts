@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a Linked Service (connection) between a SQL Server and Azure Data Factory.
- * 
+ *
  * > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleLinkedServiceSqlServer = new azure.datafactory.LinkedServiceSqlServer("example", {
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
  *     dataFactoryName: azurerm_data_factory_test.name,
@@ -93,7 +93,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LinkedServiceSqlServerArgs | LinkedServiceSqlServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LinkedServiceSqlServerState = argsOrState as LinkedServiceSqlServerState | undefined;
+            const state = argsOrState as LinkedServiceSqlServerState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;

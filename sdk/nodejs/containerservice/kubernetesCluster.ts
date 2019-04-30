@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
- * 
+ *
  * > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
+ *
  * ## Example Usage
- * 
+ *
  * This example provisions a basic Managed Kubernetes Cluster. Other examples of the `azurerm_kubernetes_cluster` resource can be found in [the `./examples/kubernetes` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/kubernetes)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "East US",
  *     name: "acctestRG1",
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *         Environment: "Production",
  *     },
  * });
- * 
+ *
  * export const clientCertificate = testKubernetesCluster.kubeConfig.apply(kubeConfig => kubeConfig.clientCertificate);
  * export const kubeConfig = testKubernetesCluster.kubeConfigRaw;
  * ```
@@ -143,7 +143,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KubernetesClusterArgs | KubernetesClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KubernetesClusterState = argsOrState as KubernetesClusterState | undefined;
+            const state = argsOrState as KubernetesClusterState | undefined;
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
             inputs["agentPoolProfile"] = state ? state.agentPoolProfile : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;

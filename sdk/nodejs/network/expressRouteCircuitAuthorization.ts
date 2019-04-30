@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an ExpressRoute Circuit Authorization.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "exprtTest",
@@ -87,7 +87,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ExpressRouteCircuitAuthorizationArgs | ExpressRouteCircuitAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ExpressRouteCircuitAuthorizationState = argsOrState as ExpressRouteCircuitAuthorizationState | undefined;
+            const state = argsOrState as ExpressRouteCircuitAuthorizationState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             inputs["authorizationUseStatus"] = state ? state.authorizationUseStatus : undefined;
             inputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;

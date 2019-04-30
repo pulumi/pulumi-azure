@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage a custom virtual machine image that can be used to create virtual machines.
- * 
+ *
  * ## Example Usage Creating from VHD
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acctest",
@@ -29,13 +29,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```
- * 
+ *
  * ## Example Usage Creating from Virtual Machine (VM must be generalized beforehand)
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acctest",
@@ -108,7 +108,7 @@ export class Image extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ImageArgs | ImageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ImageState = argsOrState as ImageState | undefined;
+            const state = argsOrState as ImageState | undefined;
             inputs["dataDisks"] = state ? state.dataDisks : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

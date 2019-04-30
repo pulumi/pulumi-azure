@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Route within a Route Table.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
@@ -80,7 +80,7 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteState = argsOrState as RouteState | undefined;
+            const state = argsOrState as RouteState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nextHopInIpAddress"] = state ? state.nextHopInIpAddress : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Stream Analytics Output to a ServiceBus Queue.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleResourceGroup = pulumi.output(azure.core.getResourceGroup({
  *     name: "example-resources",
  * }));
@@ -103,7 +103,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OutputServiceBusQueueArgs | OutputServiceBusQueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: OutputServiceBusQueueState = argsOrState as OutputServiceBusQueueState | undefined;
+            const state = argsOrState as OutputServiceBusQueueState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["queueName"] = state ? state.queueName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

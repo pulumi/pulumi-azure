@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manage an Recovery Services Vault.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const rg = new azure.core.ResourceGroup("rg", {
  *     location: "West US",
  *     name: "tfex-recovery_vault",
@@ -70,7 +70,7 @@ export class Vault extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VaultState = argsOrState as VaultState | undefined;
+            const state = argsOrState as VaultState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an Activity Log Alert within Azure Monitor.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const mainResourceGroup = new azure.core.ResourceGroup("main", {
  *     location: "West US",
  *     name: "example-resources",
@@ -109,7 +109,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActivityLogAlertArgs | ActivityLogAlertState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActivityLogAlertState = argsOrState as ActivityLogAlertState | undefined;
+            const state = argsOrState as ActivityLogAlertState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["criteria"] = state ? state.criteria : undefined;
             inputs["description"] = state ? state.description : undefined;

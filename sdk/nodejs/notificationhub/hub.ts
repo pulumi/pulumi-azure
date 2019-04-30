@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Notification Hub within a Notification Hub Namespace.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "Australia East",
  *     name: "notificationhub-resources",
@@ -83,7 +83,7 @@ export class Hub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HubArgs | HubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: HubState = argsOrState as HubState | undefined;
+            const state = argsOrState as HubState | undefined;
             inputs["apnsCredential"] = state ? state.apnsCredential : undefined;
             inputs["gcmCredential"] = state ? state.gcmCredential : undefined;
             inputs["location"] = state ? state.location : undefined;

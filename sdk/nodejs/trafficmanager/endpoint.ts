@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Traffic Manager Endpoint.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "trafficmanagerendpointTest",
@@ -149,7 +149,7 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EndpointState = argsOrState as EndpointState | undefined;
+            const state = argsOrState as EndpointState | undefined;
             inputs["endpointLocation"] = state ? state.endpointLocation : undefined;
             inputs["endpointMonitorStatus"] = state ? state.endpointMonitorStatus : undefined;
             inputs["endpointStatus"] = state ? state.endpointStatus : undefined;

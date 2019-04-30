@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Disk Snapshot.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
  *     name: "snapshot-rg",
@@ -96,7 +96,7 @@ export class Snapshot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnapshotArgs | SnapshotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnapshotState = argsOrState as SnapshotState | undefined;
+            const state = argsOrState as SnapshotState | undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;

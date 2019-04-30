@@ -6,13 +6,13 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management API Assignment to a Product.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const exampleService = pulumi.output(azure.apimanagement.getService({
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
@@ -77,7 +77,7 @@ export class ProductApi extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProductApiArgs | ProductApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProductApiState = argsOrState as ProductApiState | undefined;
+            const state = argsOrState as ProductApiState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["apiName"] = state ? state.apiName : undefined;
             inputs["productId"] = state ? state.productId : undefined;

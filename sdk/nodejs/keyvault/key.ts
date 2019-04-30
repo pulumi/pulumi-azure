@@ -6,14 +6,14 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Key.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US",
  *     name: "my-resource-group",
@@ -124,7 +124,7 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KeyState = argsOrState as KeyState | undefined;
+            const state = argsOrState as KeyState | undefined;
             inputs["e"] = state ? state.e : undefined;
             inputs["keyOpts"] = state ? state.keyOpts : undefined;
             inputs["keySize"] = state ? state.keySize : undefined;

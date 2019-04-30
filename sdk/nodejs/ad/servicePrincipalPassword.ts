@@ -6,17 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Password associated with a Service Principal within Azure Active Directory.
- * 
+ *
  * > **NOTE:** The Azure Active Directory resources have been split out into [a new AzureAD Provider](http://terraform.io/docs/providers/azuread/index.html) - as such the AzureAD resources within the AzureRM Provider are deprecated and will be removed in the next major version (2.0). Information on how to migrate from the existing resources to the new AzureAD Provider can be found here.
- * 
+ *
  * > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testApplication = new azure.ad.Application("test", {
  *     availableToOtherTenants: false,
  *     homepage: "http://homepage",
@@ -80,7 +80,7 @@ export class ServicePrincipalPassword extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServicePrincipalPasswordArgs | ServicePrincipalPasswordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServicePrincipalPasswordState = argsOrState as ServicePrincipalPasswordState | undefined;
+            const state = argsOrState as ServicePrincipalPasswordState | undefined;
             inputs["endDate"] = state ? state.endDate : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;

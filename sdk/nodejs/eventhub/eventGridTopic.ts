@@ -6,15 +6,15 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an EventGrid Topic
- * 
+ *
  * > **Note:** at this time EventGrid Topic's are only available in a limited number of regions.
- * 
+ *
  * ## Example Usage
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * 
+ *
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West US 2",
  *     name: "resourceGroup1",
@@ -82,7 +82,7 @@ export class EventGridTopic extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventGridTopicArgs | EventGridTopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventGridTopicState = argsOrState as EventGridTopicState | undefined;
+            const state = argsOrState as EventGridTopicState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
