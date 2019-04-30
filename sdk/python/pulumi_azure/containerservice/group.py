@@ -25,6 +25,10 @@ class Group(pulumi.CustomResource):
     """
     The FQDN of the container group derived from `dns_name_label`.
     """
+    identity: pulumi.Output[dict]
+    """
+    An `identity` block.
+    """
     image_registry_credentials: pulumi.Output[list]
     """
     A `image_registry_credential` block as documented below.
@@ -61,7 +65,7 @@ class Group(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, identity=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __name__=None, __opts__=None):
         """
         Manage as an Azure Container Group instance.
         
@@ -70,6 +74,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[list] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] diagnostics: A `diagnostics` block as documented below.
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP.
+        :param pulumi.Input[dict] identity: An `identity` block.
         :param pulumi.Input[list] image_registry_credentials: A `image_registry_credential` block as documented below.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -101,6 +106,8 @@ class Group(pulumi.CustomResource):
         __props__['diagnostics'] = diagnostics
 
         __props__['dns_name_label'] = dns_name_label
+
+        __props__['identity'] = identity
 
         __props__['image_registry_credentials'] = image_registry_credentials
 

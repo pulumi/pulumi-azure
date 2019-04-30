@@ -78,7 +78,7 @@ func (r *NetworkSecurityGroup) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// Specifies the name of the network security group. Changing this forces a new resource to be created.
+// The name of the security rule.
 func (r *NetworkSecurityGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -88,7 +88,7 @@ func (r *NetworkSecurityGroup) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// One or more `security_rule` blocks as defined below.
+// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
 func (r *NetworkSecurityGroup) SecurityRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["securityRules"])
 }
@@ -102,11 +102,11 @@ func (r *NetworkSecurityGroup) Tags() *pulumi.MapOutput {
 type NetworkSecurityGroupState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the network security group. Changing this forces a new resource to be created.
+	// The name of the security rule.
 	Name interface{}
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// One or more `security_rule` blocks as defined below.
+	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
 	SecurityRules interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -116,11 +116,11 @@ type NetworkSecurityGroupState struct {
 type NetworkSecurityGroupArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// Specifies the name of the network security group. Changing this forces a new resource to be created.
+	// The name of the security rule.
 	Name interface{}
 	// The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// One or more `security_rule` blocks as defined below.
+	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
 	SecurityRules interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

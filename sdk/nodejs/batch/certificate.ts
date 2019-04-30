@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "westeurope",
@@ -37,7 +36,10 @@ import * as utilities from "../utilities";
  * });
  * const testCertificate = new azure.batch.Certificate("test", {
  *     accountName: testAccount.name,
- *     certificate: Buffer.from(fs.readFileSync("certificate.pfx", "utf-8")).toString("base64"),
+ *     certificate: (() => {
+ *         throw "tf2pulumi error: NYI: call to filebase64";
+ *         return (() => { throw "NYI: call to filebase64"; })();
+ *     })(),
  *     format: "Pfx",
  *     password: "terraform",
  *     resourceGroupName: testResourceGroup.name,

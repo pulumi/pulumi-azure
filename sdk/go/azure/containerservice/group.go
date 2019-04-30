@@ -30,6 +30,7 @@ func NewGroup(ctx *pulumi.Context,
 		inputs["containers"] = nil
 		inputs["diagnostics"] = nil
 		inputs["dnsNameLabel"] = nil
+		inputs["identity"] = nil
 		inputs["imageRegistryCredentials"] = nil
 		inputs["ipAddressType"] = nil
 		inputs["location"] = nil
@@ -42,6 +43,7 @@ func NewGroup(ctx *pulumi.Context,
 		inputs["containers"] = args.Containers
 		inputs["diagnostics"] = args.Diagnostics
 		inputs["dnsNameLabel"] = args.DnsNameLabel
+		inputs["identity"] = args.Identity
 		inputs["imageRegistryCredentials"] = args.ImageRegistryCredentials
 		inputs["ipAddressType"] = args.IpAddressType
 		inputs["location"] = args.Location
@@ -70,6 +72,7 @@ func GetGroup(ctx *pulumi.Context,
 		inputs["diagnostics"] = state.Diagnostics
 		inputs["dnsNameLabel"] = state.DnsNameLabel
 		inputs["fqdn"] = state.Fqdn
+		inputs["identity"] = state.Identity
 		inputs["imageRegistryCredentials"] = state.ImageRegistryCredentials
 		inputs["ipAddress"] = state.IpAddress
 		inputs["ipAddressType"] = state.IpAddressType
@@ -115,6 +118,11 @@ func (r *Group) DnsNameLabel() *pulumi.StringOutput {
 // The FQDN of the container group derived from `dns_name_label`.
 func (r *Group) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
+}
+
+// An `identity` block.
+func (r *Group) Identity() *pulumi.Output {
+	return r.s.State["identity"]
 }
 
 // A `image_registry_credential` block as documented below.
@@ -172,6 +180,8 @@ type GroupState struct {
 	DnsNameLabel interface{}
 	// The FQDN of the container group derived from `dns_name_label`.
 	Fqdn interface{}
+	// An `identity` block.
+	Identity interface{}
 	// A `image_registry_credential` block as documented below.
 	ImageRegistryCredentials interface{}
 	// The IP address allocated to the container group.
@@ -200,6 +210,8 @@ type GroupArgs struct {
 	Diagnostics interface{}
 	// The DNS label/name for the container groups IP.
 	DnsNameLabel interface{}
+	// An `identity` block.
+	Identity interface{}
 	// A `image_registry_credential` block as documented below.
 	ImageRegistryCredentials interface{}
 	// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.

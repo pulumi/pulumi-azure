@@ -55,7 +55,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * The name of the route table. Changing this forces a new resource to be created.
+     * The name of the route.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -63,7 +63,7 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
+     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
      */
     public readonly routes: pulumi.Output<{ addressPrefix: string, name: string, nextHopInIpAddress?: string, nextHopType: string }[]>;
     /**
@@ -124,7 +124,7 @@ export interface RouteTableState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the route table. Changing this forces a new resource to be created.
+     * The name of the route.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -132,7 +132,7 @@ export interface RouteTableState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
+     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
      */
     readonly routes?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, nextHopInIpAddress?: pulumi.Input<string>, nextHopType: pulumi.Input<string> }>[]>;
     /**
@@ -158,7 +158,7 @@ export interface RouteTableArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The name of the route table. Changing this forces a new resource to be created.
+     * The name of the route.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -166,7 +166,7 @@ export interface RouteTableArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
+     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
      */
     readonly routes?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, nextHopInIpAddress?: pulumi.Input<string>, nextHopType: pulumi.Input<string> }>[]>;
     /**

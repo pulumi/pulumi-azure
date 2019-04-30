@@ -60,7 +60,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly location: pulumi.Output<string>;
     /**
-     * Specifies the name of the network security group. Changing this forces a new resource to be created.
+     * The name of the security rule.
      */
     public readonly name: pulumi.Output<string>;
     /**
@@ -68,7 +68,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
      */
     public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * One or more `security_rule` blocks as defined below.
+     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
      */
     public readonly securityRules: pulumi.Output<{ access: string, description?: string, destinationAddressPrefix?: string, destinationAddressPrefixes?: string[], destinationApplicationSecurityGroupIds?: string[], destinationPortRange?: string, destinationPortRanges?: string[], direction: string, name: string, priority: number, protocol: string, sourceAddressPrefix?: string, sourceAddressPrefixes?: string[], sourceApplicationSecurityGroupIds?: string[], sourcePortRange?: string, sourcePortRanges?: string[] }[]>;
     /**
@@ -117,7 +117,7 @@ export interface NetworkSecurityGroupState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the network security group. Changing this forces a new resource to be created.
+     * The name of the security rule.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -125,7 +125,7 @@ export interface NetworkSecurityGroupState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * One or more `security_rule` blocks as defined below.
+     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
      */
     readonly securityRules?: pulumi.Input<pulumi.Input<{ access: pulumi.Input<string>, description?: pulumi.Input<string>, destinationAddressPrefix?: pulumi.Input<string>, destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>, destinationApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, destinationPortRange?: pulumi.Input<string>, destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>, direction: pulumi.Input<string>, name: pulumi.Input<string>, priority: pulumi.Input<number>, protocol: pulumi.Input<string>, sourceAddressPrefix?: pulumi.Input<string>, sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>, sourceApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, sourcePortRange?: pulumi.Input<string>, sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
@@ -143,7 +143,7 @@ export interface NetworkSecurityGroupArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the network security group. Changing this forces a new resource to be created.
+     * The name of the security rule.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -151,7 +151,7 @@ export interface NetworkSecurityGroupArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * One or more `security_rule` blocks as defined below.
+     * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
      */
     readonly securityRules?: pulumi.Input<pulumi.Input<{ access: pulumi.Input<string>, description?: pulumi.Input<string>, destinationAddressPrefix?: pulumi.Input<string>, destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>, destinationApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, destinationPortRange?: pulumi.Input<string>, destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>, direction: pulumi.Input<string>, name: pulumi.Input<string>, priority: pulumi.Input<number>, protocol: pulumi.Input<string>, sourceAddressPrefix?: pulumi.Input<string>, sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>, sourceApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, sourcePortRange?: pulumi.Input<string>, sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**

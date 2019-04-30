@@ -129,6 +129,10 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
+     * An `identity` block.
+     */
+    public readonly identity: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
+    /**
      * A `image_registry_credential` block as documented below.
      */
     public readonly imageRegistryCredentials: pulumi.Output<{ password: string, server: string, username: string }[] | undefined>;
@@ -181,6 +185,7 @@ export class Group extends pulumi.CustomResource {
             inputs["diagnostics"] = state ? state.diagnostics : undefined;
             inputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["imageRegistryCredentials"] = state ? state.imageRegistryCredentials : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
@@ -204,6 +209,7 @@ export class Group extends pulumi.CustomResource {
             inputs["containers"] = args ? args.containers : undefined;
             inputs["diagnostics"] = args ? args.diagnostics : undefined;
             inputs["dnsNameLabel"] = args ? args.dnsNameLabel : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -239,6 +245,10 @@ export interface GroupState {
      * The FQDN of the container group derived from `dns_name_label`.
      */
     readonly fqdn?: pulumi.Input<string>;
+    /**
+     * An `identity` block.
+     */
+    readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * A `image_registry_credential` block as documented below.
      */
@@ -293,6 +303,10 @@ export interface GroupArgs {
      * The DNS label/name for the container groups IP.
      */
     readonly dnsNameLabel?: pulumi.Input<string>;
+    /**
+     * An `identity` block.
+     */
+    readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
      * A `image_registry_credential` block as documented below.
      */

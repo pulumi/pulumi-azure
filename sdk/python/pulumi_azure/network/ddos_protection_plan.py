@@ -8,46 +8,38 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class RouteTable(pulumi.CustomResource):
-    disable_bgp_route_propagation: pulumi.Output[bool]
-    """
-    Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-    """
+class DdosProtectionPlan(pulumi.CustomResource):
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
     name: pulumi.Output[str]
     """
-    The name of the route.
+    Specifies the name of the Network DDoS Protection Plan. Changing this forces a new resource to be created.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-    """
-    routes: pulumi.Output[list]
-    """
-    [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
-    """
-    subnets: pulumi.Output[list]
-    """
-    The collection of Subnets associated with this route table.
+    The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, disable_bgp_route_propagation=None, location=None, name=None, resource_group_name=None, routes=None, tags=None, __name__=None, __opts__=None):
+    virtual_network_ids: pulumi.Output[list]
+    """
+    The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
+    """
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
         """
-        Manages a Route Table
+        Manages an AzureNetwork DDoS Protection Plan.
+        
+        > **NOTE** Azure only allow `one` DDoS Protection Plan per region.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] disable_bgp_route_propagation: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] routes: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+        :param pulumi.Input[str] name: Specifies the name of the Network DDoS Protection Plan. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:
@@ -65,8 +57,6 @@ class RouteTable(pulumi.CustomResource):
 
         __props__ = dict()
 
-        __props__['disable_bgp_route_propagation'] = disable_bgp_route_propagation
-
         __props__['location'] = location
 
         __props__['name'] = name
@@ -75,14 +65,12 @@ class RouteTable(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
-        __props__['routes'] = routes
-
         __props__['tags'] = tags
 
-        __props__['subnets'] = None
+        __props__['virtual_network_ids'] = None
 
-        super(RouteTable, __self__).__init__(
-            'azure:network/routeTable:RouteTable',
+        super(DdosProtectionPlan, __self__).__init__(
+            'azure:network/ddosProtectionPlan:DdosProtectionPlan',
             resource_name,
             __props__,
             opts)
