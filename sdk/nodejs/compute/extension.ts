@@ -202,9 +202,6 @@ export class Extension extends pulumi.CustomResource {
             inputs["virtualMachineName"] = state ? state.virtualMachineName : undefined;
         } else {
             const args = argsOrState as ExtensionArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.publisher === undefined) {
                 throw new Error("Missing required property 'publisher'");
             }
@@ -310,7 +307,7 @@ export interface ExtensionArgs {
      * The location where the extension is created. Changing
      * this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.

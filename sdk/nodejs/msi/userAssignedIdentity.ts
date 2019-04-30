@@ -85,9 +85,6 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as UserAssignedIdentityArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -143,7 +140,7 @@ export interface UserAssignedIdentityArgs {
      * The location/region where the user assigned identity is
      * created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the user assigned identity. Changing this forces a
      * new identity to be created.

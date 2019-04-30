@@ -65,8 +65,6 @@ class Workspace(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['managed_resource_group_name'] = managed_resource_group_name

@@ -32,9 +32,6 @@ func NewService(ctx *pulumi.Context,
 	if args == nil || args.LinuxProfile == nil {
 		return nil, errors.New("missing required argument 'LinuxProfile'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.MasterProfile == nil {
 		return nil, errors.New("missing required argument 'MasterProfile'")
 	}

@@ -154,9 +154,6 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vmImage"] = state ? state.vmImage : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.managementEndpoint === undefined) {
                 throw new Error("Missing required property 'managementEndpoint'");
             }
@@ -311,7 +308,7 @@ export interface ClusterArgs {
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
      */

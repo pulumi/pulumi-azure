@@ -223,9 +223,6 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.linuxProfile === undefined) {
                 throw new Error("Missing required property 'linuxProfile'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.masterProfile === undefined) {
                 throw new Error("Missing required property 'masterProfile'");
             }
@@ -315,7 +312,7 @@ export interface ServiceArgs {
     /**
      * The location where the Container Service instance should be created. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * A Master Profile block as documented below.
      */

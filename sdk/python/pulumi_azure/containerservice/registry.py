@@ -91,8 +91,6 @@ class Registry(pulumi.CustomResource):
 
         __props__['georeplication_locations'] = georeplication_locations
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

@@ -112,9 +112,6 @@ export class Snapshot extends pulumi.CustomResource {
             if (!args || args.createOption === undefined) {
                 throw new Error("Missing required property 'createOption'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -192,7 +189,7 @@ export interface SnapshotArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
      */

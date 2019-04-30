@@ -124,9 +124,6 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["zoneRedundant"] = state ? state.zoneRedundant : undefined;
         } else {
             const args = argsOrState as ElasticPoolArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.perDatabaseSettings === undefined) {
                 throw new Error("Missing required property 'perDatabaseSettings'");
             }
@@ -209,7 +206,7 @@ export interface ElasticPoolArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      */

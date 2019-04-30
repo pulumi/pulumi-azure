@@ -19,9 +19,6 @@ func NewSnapshot(ctx *pulumi.Context,
 	if args == nil || args.CreateOption == nil {
 		return nil, errors.New("missing required argument 'CreateOption'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

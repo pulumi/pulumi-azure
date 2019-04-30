@@ -100,8 +100,6 @@ class EventHubNamespace(pulumi.CustomResource):
 
         __props__['kafka_enabled'] = kafka_enabled
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['maximum_throughput_units'] = maximum_throughput_units

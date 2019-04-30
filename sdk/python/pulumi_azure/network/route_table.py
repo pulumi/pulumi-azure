@@ -67,8 +67,6 @@ class RouteTable(pulumi.CustomResource):
 
         __props__['disable_bgp_route_propagation'] = disable_bgp_route_propagation
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

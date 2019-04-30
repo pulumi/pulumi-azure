@@ -110,8 +110,6 @@ class Job(pulumi.CustomResource):
             raise TypeError("Missing required property 'events_out_of_order_policy'")
         __props__['events_out_of_order_policy'] = events_out_of_order_policy
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

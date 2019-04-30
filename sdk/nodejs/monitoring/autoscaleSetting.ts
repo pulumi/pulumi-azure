@@ -307,9 +307,6 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
         } else {
             const args = argsOrState as AutoscaleSettingArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.profiles === undefined) {
                 throw new Error("Missing required property 'profiles'");
             }
@@ -381,7 +378,7 @@ export interface AutoscaleSettingArgs {
     /**
      * Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */

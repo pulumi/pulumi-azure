@@ -77,8 +77,6 @@ class Account(pulumi.CustomResource):
             raise TypeError("Missing required property 'kind'")
         __props__['kind'] = kind
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

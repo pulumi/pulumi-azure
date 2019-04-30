@@ -16,9 +16,6 @@ type Factory struct {
 // NewFactory registers a new resource with the given unique name, arguments, and options.
 func NewFactory(ctx *pulumi.Context,
 	name string, args *FactoryArgs, opts ...pulumi.ResourceOpt) (*Factory, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

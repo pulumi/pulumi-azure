@@ -121,9 +121,6 @@ export class Service extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -213,7 +210,7 @@ export interface ServiceArgs {
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */

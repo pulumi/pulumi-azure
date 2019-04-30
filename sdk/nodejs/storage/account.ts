@@ -352,9 +352,6 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.accountTier === undefined) {
                 throw new Error("Missing required property 'accountTier'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -672,7 +669,7 @@ export interface AccountArgs {
      * Specifies the supported Azure location where the
      * resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
      */

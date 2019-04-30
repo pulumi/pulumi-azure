@@ -173,8 +173,6 @@ class ApplicationGateway(pulumi.CustomResource):
             raise TypeError("Missing required property 'http_listeners'")
         __props__['http_listeners'] = http_listeners
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

@@ -65,8 +65,6 @@ class AnalyticsAccount(pulumi.CustomResource):
             raise TypeError("Missing required property 'default_store_account_name'")
         __props__['default_store_account_name'] = default_store_account_name
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

@@ -60,8 +60,6 @@ class Firewall(pulumi.CustomResource):
             raise TypeError("Missing required property 'ip_configuration'")
         __props__['ip_configuration'] = ip_configuration
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

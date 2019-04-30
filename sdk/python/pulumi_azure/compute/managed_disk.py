@@ -118,8 +118,6 @@ class ManagedDisk(pulumi.CustomResource):
 
         __props__['image_reference_id'] = image_reference_id
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

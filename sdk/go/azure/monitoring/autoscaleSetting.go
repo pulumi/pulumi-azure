@@ -16,9 +16,6 @@ type AutoscaleSetting struct {
 // NewAutoscaleSetting registers a new resource with the given unique name, arguments, and options.
 func NewAutoscaleSetting(ctx *pulumi.Context,
 	name string, args *AutoscaleSettingArgs, opts ...pulumi.ResourceOpt) (*AutoscaleSetting, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.Profiles == nil {
 		return nil, errors.New("missing required argument 'Profiles'")
 	}

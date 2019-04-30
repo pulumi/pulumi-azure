@@ -134,8 +134,6 @@ class Cluster(pulumi.CustomResource):
 
         __props__['fabric_settings'] = fabric_settings
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if management_endpoint is None:

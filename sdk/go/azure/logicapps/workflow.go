@@ -16,9 +16,6 @@ type Workflow struct {
 // NewWorkflow registers a new resource with the given unique name, arguments, and options.
 func NewWorkflow(ctx *pulumi.Context,
 	name string, args *WorkflowArgs, opts ...pulumi.ResourceOpt) (*Workflow, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

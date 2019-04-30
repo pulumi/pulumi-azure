@@ -115,8 +115,6 @@ class Extension(pulumi.CustomResource):
 
         __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

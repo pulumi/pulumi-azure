@@ -107,8 +107,6 @@ class IoTHub(pulumi.CustomResource):
 
         __props__['ip_filter_rules'] = ip_filter_rules
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

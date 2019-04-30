@@ -191,9 +191,6 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             if (!args || args.labVirtualNetworkId === undefined) {
                 throw new Error("Missing required property 'labVirtualNetworkId'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -347,7 +344,7 @@ export interface LinuxVirtualMachineArgs {
     /**
      * Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      */

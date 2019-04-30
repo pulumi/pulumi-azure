@@ -86,7 +86,7 @@ export class Topic extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * Integer value which controls the size of
      * memory allocated for the topic. For supported values see the "Queue/topic size"

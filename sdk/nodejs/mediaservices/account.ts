@@ -83,9 +83,6 @@ export class Account extends pulumi.CustomResource {
             inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,7 +127,7 @@ export interface AccountArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
      */

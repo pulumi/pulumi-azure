@@ -132,9 +132,6 @@ export class SharedImage extends pulumi.CustomResource {
             if (!args || args.identifier === undefined) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.osType === undefined) {
                 throw new Error("Missing required property 'osType'");
             }
@@ -230,7 +227,7 @@ export interface SharedImageArgs {
     /**
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Shared Image. Changing this forces a new resource to be created.
      */

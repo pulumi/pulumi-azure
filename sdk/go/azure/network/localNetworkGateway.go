@@ -22,9 +22,6 @@ func NewLocalNetworkGateway(ctx *pulumi.Context,
 	if args == nil || args.GatewayAddress == nil {
 		return nil, errors.New("missing required argument 'GatewayAddress'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

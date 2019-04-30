@@ -28,9 +28,6 @@ func NewWindowsVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.LabVirtualNetworkId == nil {
 		return nil, errors.New("missing required argument 'LabVirtualNetworkId'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.Password == nil {
 		return nil, errors.New("missing required argument 'Password'")
 	}

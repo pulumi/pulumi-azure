@@ -19,9 +19,6 @@ func NewRunBook(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.LogProgress == nil {
 		return nil, errors.New("missing required argument 'LogProgress'")
 	}

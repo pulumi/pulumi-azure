@@ -54,7 +54,7 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
     public readonly listen: pulumi.Output<boolean | undefined>;
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */

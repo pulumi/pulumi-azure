@@ -85,8 +85,6 @@ class Snapshot(pulumi.CustomResource):
 
         __props__['encryption_settings'] = encryption_settings
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

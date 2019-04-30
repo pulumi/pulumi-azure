@@ -140,3 +140,14 @@ func GetUseMsi(ctx *pulumi.Context) bool {
 	}
 	return v
 }
+
+func GetLocation(ctx *pulumi.Context) string {
+	v, err := config.Try(ctx, "azure:location")
+	if err == nil {
+		return v
+	}
+	if dv, ok := getEnvOrDefault("", nil, "ARM_LOCATION").(string); ok {
+		return dv
+	}
+	return v
+}

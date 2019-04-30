@@ -19,9 +19,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil || args.ConsistencyPolicy == nil {
 		return nil, errors.New("missing required argument 'ConsistencyPolicy'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.OfferType == nil {
 		return nil, errors.New("missing required argument 'OfferType'")
 	}

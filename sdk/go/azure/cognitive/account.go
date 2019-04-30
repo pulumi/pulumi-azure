@@ -19,9 +19,6 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

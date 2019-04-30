@@ -34,9 +34,6 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	if args == nil || args.HttpListeners == nil {
 		return nil, errors.New("missing required argument 'HttpListeners'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.RequestRoutingRules == nil {
 		return nil, errors.New("missing required argument 'RequestRoutingRules'")
 	}

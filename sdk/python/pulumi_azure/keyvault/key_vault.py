@@ -100,8 +100,6 @@ class KeyVault(pulumi.CustomResource):
 
         __props__['enabled_for_template_deployment'] = enabled_for_template_deployment
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

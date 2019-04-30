@@ -85,7 +85,7 @@ export class Queue extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
      */

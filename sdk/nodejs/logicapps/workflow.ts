@@ -92,9 +92,6 @@ export class Workflow extends pulumi.CustomResource {
             inputs["workflowVersion"] = state ? state.workflowVersion : undefined;
         } else {
             const args = argsOrState as WorkflowArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -156,7 +153,7 @@ export interface WorkflowArgs {
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      */

@@ -304,9 +304,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["virtualNetworkGatewayId"] = state ? state.virtualNetworkGatewayId : undefined;
         } else {
             const args = argsOrState as VirtualNetworkGatewayConnectionArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -471,7 +468,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * The location/region where the connection is
      * located. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the connection. Changing the name forces a
      * new resource to be created.

@@ -191,9 +191,6 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.consistencyPolicy === undefined) {
                 throw new Error("Missing required property 'consistencyPolicy'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.offerType === undefined) {
                 throw new Error("Missing required property 'offerType'");
             }
@@ -363,7 +360,7 @@ export interface AccountArgs {
     /**
      * The name of the Azure region to host replicated data.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
      */

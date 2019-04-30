@@ -176,9 +176,6 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             if (!args || args.destination === undefined) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.networkWatcherName === undefined) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
@@ -263,7 +260,7 @@ export interface ConnectionMonitorArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Connection Monitor. Changing this forces a new resource to be created.
      */

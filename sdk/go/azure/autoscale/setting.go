@@ -18,9 +18,6 @@ type Setting struct {
 // NewSetting registers a new resource with the given unique name, arguments, and options.
 func NewSetting(ctx *pulumi.Context,
 	name string, args *SettingArgs, opts ...pulumi.ResourceOpt) (*Setting, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.Profiles == nil {
 		return nil, errors.New("missing required argument 'Profiles'")
 	}

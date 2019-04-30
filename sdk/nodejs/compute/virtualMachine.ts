@@ -216,9 +216,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as VirtualMachineArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.networkInterfaceIds === undefined) {
                 throw new Error("Missing required property 'networkInterfaceIds'");
             }
@@ -383,7 +380,7 @@ export interface VirtualMachineArgs {
     /**
      * Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      */

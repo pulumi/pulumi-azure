@@ -96,8 +96,6 @@ class VirtualNetwork(pulumi.CustomResource):
 
         __props__['dns_servers'] = dns_servers
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

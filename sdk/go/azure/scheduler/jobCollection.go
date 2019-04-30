@@ -18,9 +18,6 @@ type JobCollection struct {
 // NewJobCollection registers a new resource with the given unique name, arguments, and options.
 func NewJobCollection(ctx *pulumi.Context,
 	name string, args *JobCollectionArgs, opts ...pulumi.ResourceOpt) (*JobCollection, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

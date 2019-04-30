@@ -76,8 +76,6 @@ class EventGridDomain(pulumi.CustomResource):
 
         __props__['input_schema'] = input_schema
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

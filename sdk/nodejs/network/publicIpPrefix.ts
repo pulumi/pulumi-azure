@@ -98,9 +98,6 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as PublicIpPrefixArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -162,7 +159,7 @@ export interface PublicIpPrefixArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
      */

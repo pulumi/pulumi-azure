@@ -101,9 +101,6 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             if (!args || args.gatewayAddress === undefined) {
                 throw new Error("Missing required property 'gatewayAddress'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -182,7 +179,7 @@ export interface LocalNetworkGatewayArgs {
      * The location/region where the local network gateway is
      * created. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the local network gateway. Changing this
      * forces a new resource to be created.

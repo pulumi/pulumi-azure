@@ -96,9 +96,6 @@ export class Insights extends pulumi.CustomResource {
             if (!args || args.applicationType === undefined) {
                 throw new Error("Missing required property 'applicationType'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -161,7 +158,7 @@ export interface InsightsArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Application Insights component. Changing this forces a
      * new resource to be created.

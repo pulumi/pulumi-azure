@@ -94,8 +94,6 @@ class RunBook(pulumi.CustomResource):
 
         __props__['description'] = description
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if log_progress is None:

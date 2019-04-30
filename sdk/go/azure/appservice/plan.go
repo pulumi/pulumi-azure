@@ -16,9 +16,6 @@ type Plan struct {
 // NewPlan registers a new resource with the given unique name, arguments, and options.
 func NewPlan(ctx *pulumi.Context,
 	name string, args *PlanArgs, opts ...pulumi.ResourceOpt) (*Plan, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
