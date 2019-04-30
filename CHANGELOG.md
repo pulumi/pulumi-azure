@@ -1,5 +1,8 @@
-## 0.18.1 (Unreleased)
+## 0.18.2 (Unreleased)
 
+## 0.18.1 (Released April 30th, 2019)
+
+## Improvements
 - `@pulumi/azure` gets 'serverless' functionality in line with `@pulumi/aws`.  Specifically:
   1. You can now easily create a FunctionApp from a JavaScript/TypeScript function using
      azure.appservice.CallbackFunctionApp.
