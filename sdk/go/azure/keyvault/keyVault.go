@@ -97,7 +97,7 @@ func (r *KeyVault) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// An access policy block as described below. A maximum of 16 may be declared.
+// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
 func (r *KeyVault) AccessPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["accessPolicies"])
 }
@@ -147,7 +147,7 @@ func (r *KeyVault) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
 func (r *KeyVault) TenantId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tenantId"])
 }
@@ -159,7 +159,7 @@ func (r *KeyVault) VaultUri() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering KeyVault resources.
 type KeyVaultState struct {
-	// An access policy block as described below. A maximum of 16 may be declared.
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
 	AccessPolicies interface{}
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment interface{}
@@ -179,7 +179,7 @@ type KeyVaultState struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
 	TenantId interface{}
 	// The URI of the Key Vault, used for performing operations on keys and secrets.
 	VaultUri interface{}
@@ -187,7 +187,7 @@ type KeyVaultState struct {
 
 // The set of arguments for constructing a KeyVault resource.
 type KeyVaultArgs struct {
-	// An access policy block as described below. A maximum of 16 may be declared.
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
 	AccessPolicies interface{}
 	// Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
 	EnabledForDeployment interface{}
@@ -207,6 +207,6 @@ type KeyVaultArgs struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
 	TenantId interface{}
 }

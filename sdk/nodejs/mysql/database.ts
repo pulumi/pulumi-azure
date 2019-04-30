@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     sku: {
  *         capacity: 2,
  *         family: "Gen4",
- *         name: "B_Gen4_2",
+ *         name: "B_Gen5_2",
  *         tier: "Basic",
  *     },
  *     sslEnforcement: "Enabled",

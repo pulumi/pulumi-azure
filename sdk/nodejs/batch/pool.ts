@@ -12,7 +12,6 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "%s",
@@ -37,7 +36,10 @@ import * as utilities from "../utilities";
  * });
  * const testcer = new azure.batch.Certificate("testcer", {
  *     accountName: testAccount.name,
- *     certificate: Buffer.from(fs.readFileSync("certificate.cer", "utf-8")).toString("base64"),
+ *     certificate: (() => {
+ *         throw "tf2pulumi error: NYI: call to filebase64";
+ *         return (() => { throw "NYI: call to filebase64"; })();
+ *     })(),
  *     format: "Cer",
  *     resourceGroupName: testResourceGroup.name,
  *     thumbprint: "312d31a79fa0cef49c00f769afc2b73e9f4edf34",

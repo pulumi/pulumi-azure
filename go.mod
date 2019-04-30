@@ -16,7 +16,7 @@ require (
 	github.com/hashicorp/go-msgpack v0.5.3 // indirect
 	github.com/hashicorp/go-sockaddr v1.0.0 // indirect
 	github.com/hashicorp/serf v0.8.2-0.20171022020050-c20a0b1b1ea9 // indirect
-	github.com/hashicorp/terraform v0.12.0-alpha4.0.20190401213546-16778fea9219
+	github.com/hashicorp/terraform v0.12.0-alpha4.0.20190424121927-9327eedb0417
 	github.com/miekg/dns v1.0.14 // indirect
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/pelletier/go-toml v1.3.0 // indirect
@@ -39,5 +39,5 @@ replace (
 	github.com/Nvveen/Gotty => github.com/ijc25/Gotty v0.0.0-20170406111628-a8b993ba6abd
 	github.com/Sirupsen/logrus => github.com/sirupsen/logrus v1.4.2-0.20190403091019-9b3cdde74fbe
 	github.com/golang/glog => github.com/pulumi/glog v0.0.0-20180820174630-7eaa6ffb71e4
-	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20190417123607-dd01e8265e07
+	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20190430154844-d9ed742ca686
 )

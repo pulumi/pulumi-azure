@@ -11,7 +11,7 @@ from .. import utilities, tables
 class KeyVault(pulumi.CustomResource):
     access_policies: pulumi.Output[list]
     """
-    An access policy block as described below. A maximum of 16 may be declared.
+    [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
     """
     enabled_for_deployment: pulumi.Output[bool]
     """
@@ -51,7 +51,7 @@ class KeyVault(pulumi.CustomResource):
     """
     tenant_id: pulumi.Output[str]
     """
-    The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+    The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
     """
     vault_uri: pulumi.Output[str]
     """
@@ -65,7 +65,7 @@ class KeyVault(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] access_policies: An access policy block as described below. A maximum of 16 may be declared.
+        :param pulumi.Input[list] access_policies: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
         :param pulumi.Input[bool] enabled_for_deployment: Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_disk_encryption: Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
         :param pulumi.Input[bool] enabled_for_template_deployment: Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
@@ -75,7 +75,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: An SKU block as described below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
  *     location: "West Europe",
@@ -81,7 +80,10 @@ import * as utilities from "../utilities";
  * });
  * const testCertifiate = new azure.keyvault.Certifiate("test", {
  *     certificate: {
- *         contents: Buffer.from(fs.readFileSync("certificate-to-import.pfx", "utf-8")).toString("base64"),
+ *         contents: (() => {
+ *             throw "tf2pulumi error: NYI: call to filebase64";
+ *             return (() => { throw "NYI: call to filebase64"; })();
+ *         })(),
  *         password: "",
  *     },
  *     certificatePolicy: {

@@ -79,13 +79,15 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
  * 
  * const web_recurring_daily = new azure.scheduler.Job("web-recurring-daily", {
  *     actionWeb: {
  *         authenticationCertificate: {
  *             password: "cert_password",
- *             pfx: Buffer.from(fs.readFileSync("your_cert.pfx", "utf-8")).toString("base64"),
+ *             pfx: (() => {
+ *                 throw "tf2pulumi error: NYI: call to filebase64";
+ *                 return (() => { throw "NYI: call to filebase64"; })();
+ *             })(),
  *         },
  *         url: "https://this.url.fails",
  *     },

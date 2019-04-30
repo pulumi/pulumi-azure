@@ -15,7 +15,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    Specifies the name of the network security group. Changing this forces a new resource to be created.
+    The name of the security rule.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -23,7 +23,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     """
     security_rules: pulumi.Output[list]
     """
-    One or more `security_rule` blocks as defined below.
+    [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
     """
     tags: pulumi.Output[dict]
     """
@@ -40,9 +40,9 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the network security group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the security rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] security_rules: One or more `security_rule` blocks as defined below.
+        :param pulumi.Input[list] security_rules: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         """
         if __name__ is not None:

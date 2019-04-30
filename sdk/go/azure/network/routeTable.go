@@ -84,7 +84,7 @@ func (r *RouteTable) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The name of the route table. Changing this forces a new resource to be created.
+// The name of the route.
 func (r *RouteTable) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -94,7 +94,7 @@ func (r *RouteTable) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
+// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
 func (r *RouteTable) Routes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["routes"])
 }
@@ -115,11 +115,11 @@ type RouteTableState struct {
 	DisableBgpRoutePropagation interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the route table. Changing this forces a new resource to be created.
+	// The name of the route.
 	Name interface{}
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
+	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
 	Routes interface{}
 	// The collection of Subnets associated with this route table.
 	Subnets interface{}
@@ -133,11 +133,11 @@ type RouteTableArgs struct {
 	DisableBgpRoutePropagation interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The name of the route table. Changing this forces a new resource to be created.
+	// The name of the route.
 	Name interface{}
 	// The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Can be specified multiple times to define multiple routes. Each `route` block supports fields documented below.
+	// [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
 	Routes interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

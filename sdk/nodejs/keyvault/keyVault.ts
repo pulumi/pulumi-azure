@@ -59,7 +59,7 @@ export class KeyVault extends pulumi.CustomResource {
     }
 
     /**
-     * An access policy block as described below. A maximum of 16 may be declared.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
      */
     public readonly accessPolicies: pulumi.Output<{ applicationId?: string, certificatePermissions?: string[], keyPermissions?: string[], objectId: string, secretPermissions?: string[], storagePermissions?: string[], tenantId: string }[]>;
     /**
@@ -99,7 +99,7 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly tags: pulumi.Output<{[key: string]: any}>;
     /**
-     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
      */
     public readonly tenantId: pulumi.Output<string>;
     /**
@@ -164,7 +164,7 @@ export class KeyVault extends pulumi.CustomResource {
  */
 export interface KeyVaultState {
     /**
-     * An access policy block as described below. A maximum of 16 may be declared.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions?: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions?: pulumi.Input<pulumi.Input<string>[]>, storagePermissions?: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }>[]>;
     /**
@@ -204,7 +204,7 @@ export interface KeyVaultState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
      */
     readonly tenantId?: pulumi.Input<string>;
     /**
@@ -218,7 +218,7 @@ export interface KeyVaultState {
  */
 export interface KeyVaultArgs {
     /**
-     * An access policy block as described below. A maximum of 16 may be declared.
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
      */
     readonly accessPolicies?: pulumi.Input<pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions?: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions?: pulumi.Input<pulumi.Input<string>[]>, storagePermissions?: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }>[]>;
     /**
@@ -258,7 +258,7 @@ export interface KeyVaultArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
      */
     readonly tenantId: pulumi.Input<string>;
 }
