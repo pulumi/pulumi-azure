@@ -41,7 +41,9 @@
   ```
 
 - Add support for `client_certificate_password`, `client_certificate_path` and
-  `partner_id` as per the Terraform provider
+  `partner_id` as per the upstream Terraform provider
+
+- Update to v1.27.1 of the upstream Terraform provider.
 
 ## 0.18.0 (Released April 22nd, 2019)
 
