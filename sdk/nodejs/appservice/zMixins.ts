@@ -489,22 +489,15 @@ interface BaseSubscriptionArgs {
 export function getResourceGroupNameAndLocation(
         args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
 
-    if (!args.resourceGroup && !fallbackResourceGroupName) {
-        throw new Error("Either [args.resourceGroup] or [args.resourceGroupName] must be provided.");
+    if (args.resourceGroup) {
+        return { resourceGroupName: args.resourceGroup.name, location: args.resourceGroup.location };
     }
 
-    const resourceGroup = getResourceGroup(args, fallbackResourceGroupName);
-    const location = util.ifUndefined(args.location, resourceGroup.location);
-
-    return { resourceGroupName: resourceGroup.name, location };
-}
-
-function getResourceGroup(args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string>) {
-    if (args.resourceGroup) {
-        return { name: args.resourceGroup.name, location: args.resourceGroup.location };
+    if (!fallbackResourceGroupName) {
+        throw new Error("Either [args.resourceGroup] or [args.resourceGroupName] must be provided.");
     }
 
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName);
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
-    return { name: getResult.name, location: getResult.location };
+    return { resourceGroupName, location: getResult.location };
 }
