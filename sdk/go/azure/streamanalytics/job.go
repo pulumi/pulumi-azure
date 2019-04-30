@@ -31,9 +31,6 @@ func NewJob(ctx *pulumi.Context,
 	if args == nil || args.EventsOutOfOrderPolicy == nil {
 		return nil, errors.New("missing required argument 'EventsOutOfOrderPolicy'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.OutputErrorPolicy == nil {
 		return nil, errors.New("missing required argument 'OutputErrorPolicy'")
 	}

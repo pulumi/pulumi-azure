@@ -79,8 +79,6 @@ class Image(pulumi.CustomResource):
 
         __props__['data_disks'] = data_disks
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

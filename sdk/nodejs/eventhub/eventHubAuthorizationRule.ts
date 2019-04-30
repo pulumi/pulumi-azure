@@ -66,7 +66,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      */
     public readonly listen: pulumi.Output<boolean | undefined>;
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */

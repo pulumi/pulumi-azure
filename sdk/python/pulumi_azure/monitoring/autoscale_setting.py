@@ -73,8 +73,6 @@ class AutoscaleSetting(pulumi.CustomResource):
 
         __props__['enabled'] = enabled
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

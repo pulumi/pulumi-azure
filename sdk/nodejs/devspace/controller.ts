@@ -125,9 +125,6 @@ export class Controller extends pulumi.CustomResource {
             if (!args || args.hostSuffix === undefined) {
                 throw new Error("Missing required property 'hostSuffix'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -207,7 +204,7 @@ export interface ControllerArgs {
     /**
      * Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
      */

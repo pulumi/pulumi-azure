@@ -79,8 +79,6 @@ class Controller(pulumi.CustomResource):
             raise TypeError("Missing required property 'host_suffix'")
         __props__['host_suffix'] = host_suffix
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

@@ -402,9 +402,6 @@ export class ScaleSet extends pulumi.CustomResource {
             inputs["zones"] = state ? state.zones : undefined;
         } else {
             const args = argsOrState as ScaleSetArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.networkProfiles === undefined) {
                 throw new Error("Missing required property 'networkProfiles'");
             }
@@ -598,7 +595,7 @@ export interface ScaleSetArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the image from the marketplace.
      */

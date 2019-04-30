@@ -172,9 +172,6 @@ export class MetricAlertRule extends pulumi.CustomResource {
             if (!args || args.aggregation === undefined) {
                 throw new Error("Missing required property 'aggregation'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.metricName === undefined) {
                 throw new Error("Missing required property 'metricName'");
             }
@@ -297,7 +294,7 @@ export interface MetricAlertRuleArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The metric that defines what the rule monitors.
      */

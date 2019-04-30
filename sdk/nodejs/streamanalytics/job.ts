@@ -138,9 +138,6 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.eventsOutOfOrderPolicy === undefined) {
                 throw new Error("Missing required property 'eventsOutOfOrderPolicy'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.outputErrorPolicy === undefined) {
                 throw new Error("Missing required property 'outputErrorPolicy'");
             }
@@ -251,7 +248,7 @@ export interface JobArgs {
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */

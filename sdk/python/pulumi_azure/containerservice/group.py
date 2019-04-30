@@ -106,8 +106,6 @@ class Group(pulumi.CustomResource):
 
         __props__['ip_address_type'] = ip_address_type
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

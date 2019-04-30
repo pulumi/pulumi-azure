@@ -19,9 +19,6 @@ func NewExpressRouteCircuit(ctx *pulumi.Context,
 	if args == nil || args.BandwidthInMbps == nil {
 		return nil, errors.New("missing required argument 'BandwidthInMbps'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.PeeringLocation == nil {
 		return nil, errors.New("missing required argument 'PeeringLocation'")
 	}

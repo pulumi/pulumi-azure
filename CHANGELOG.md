@@ -12,7 +12,36 @@
   5. You can subscribe to `azure.storage.Queue` events, invoking a FunctionApp containing
      the code you want, using `queue.onEvent(...)`.
 
-- Add support for `client_certificate_password`, `client_certificate_path` and `partner_id` as per the Terraform provider 
+- The location for each resource attached to a provider instance is now set as
+  part of the provider configuration. This means that the following code from
+  v0.18.0:
+
+  ```ts
+  const rg = new azure.core.ResourceGroup("rg", { location" EastUS" });
+  const sa = new azure.storage.Account("storage", {
+      resourceGroupName: rg.name,
+      location: "EastUS",
+  });
+  ```
+
+  Can now be written as:
+
+  ```ts
+  const rg = new azure.core.ResourceGroup("rg");
+  const sa = new azure.storage.Account("storage", {
+      resourceGroupName: rg.name,
+  });
+  ```
+
+  Location can then be set using the provider configuration block if using first
+  class providers, or, for the default provider, by running:
+
+  ```
+  pulumi config set azure:location EastUS
+  ```
+
+- Add support for `client_certificate_password`, `client_certificate_path` and
+  `partner_id` as per the Terraform provider
 
 ## 0.18.0 (Released April 22nd, 2019)
 

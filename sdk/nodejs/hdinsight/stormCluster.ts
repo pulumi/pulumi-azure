@@ -167,9 +167,6 @@ export class StormCluster extends pulumi.CustomResource {
             if (!args || args.gateway === undefined) {
                 throw new Error("Missing required property 'gateway'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -272,7 +269,7 @@ export interface StormClusterArgs {
     /**
      * Specifies the Azure Region which this HDInsight Storm Cluster should exist. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name for this HDInsight Storm Cluster. Changing this forces a new resource to be created.
      */

@@ -66,7 +66,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
     public readonly loadbalancerId: pulumi.Output<string>;
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */

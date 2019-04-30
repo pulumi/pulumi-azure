@@ -87,7 +87,7 @@ export class Subscription extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * The lock duration for the subscription, maximum
      * supported value is 5 minutes. Defaults to 1 minute.

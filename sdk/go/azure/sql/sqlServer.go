@@ -25,9 +25,6 @@ func NewSqlServer(ctx *pulumi.Context,
 	if args == nil || args.AdministratorLoginPassword == nil {
 		return nil, errors.New("missing required argument 'AdministratorLoginPassword'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

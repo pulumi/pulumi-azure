@@ -100,8 +100,6 @@ class Service(pulumi.CustomResource):
             raise TypeError("Missing required property 'linux_profile'")
         __props__['linux_profile'] = linux_profile
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if master_profile is None:

@@ -86,8 +86,6 @@ class ConnectionMonitor(pulumi.CustomResource):
 
         __props__['interval_in_seconds'] = interval_in_seconds
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

@@ -88,8 +88,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
             raise TypeError("Missing required property 'gateway_address'")
         __props__['gateway_address'] = gateway_address
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

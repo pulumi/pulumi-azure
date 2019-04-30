@@ -152,9 +152,6 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.origins === undefined) {
                 throw new Error("Missing required property 'origins'");
             }
@@ -284,7 +281,7 @@ export interface EndpointArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
      */

@@ -95,8 +95,6 @@ class Server(pulumi.CustomResource):
             raise TypeError("Missing required property 'administrator_login_password'")
         __props__['administrator_login_password'] = administrator_login_password
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

@@ -137,8 +137,6 @@ class Database(pulumi.CustomResource):
 
         __props__['import_'] = import_
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['max_size_bytes'] = max_size_bytes

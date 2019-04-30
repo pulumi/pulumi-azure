@@ -105,9 +105,6 @@ export class DscConfiguration extends pulumi.CustomResource {
             if (!args || args.contentEmbedded === undefined) {
                 throw new Error("Missing required property 'contentEmbedded'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -178,7 +175,7 @@ export interface DscConfigurationArgs {
     /**
      * Must be the same location as the Automation Account.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Verbose log option.
      */

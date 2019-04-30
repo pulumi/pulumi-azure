@@ -21,9 +21,6 @@ func NewAppService(ctx *pulumi.Context,
 	if args == nil || args.AppServicePlanId == nil {
 		return nil, errors.New("missing required argument 'AppServicePlanId'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

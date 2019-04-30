@@ -117,9 +117,6 @@ export class SharedImageVersion extends pulumi.CustomResource {
             if (!args || args.imageName === undefined) {
                 throw new Error("Missing required property 'imageName'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.managedImageId === undefined) {
                 throw new Error("Missing required property 'managedImageId'");
             }
@@ -204,7 +201,7 @@ export interface SharedImageVersionArgs {
     /**
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */

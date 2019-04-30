@@ -100,8 +100,6 @@ class SharedImage(pulumi.CustomResource):
             raise TypeError("Missing required property 'identifier'")
         __props__['identifier'] = identifier
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

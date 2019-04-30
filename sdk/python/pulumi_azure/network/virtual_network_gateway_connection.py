@@ -171,8 +171,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         __props__['local_network_gateway_id'] = local_network_gateway_id
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

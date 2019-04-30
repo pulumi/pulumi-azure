@@ -16,9 +16,6 @@ type NetworkWatcher struct {
 // NewNetworkWatcher registers a new resource with the given unique name, arguments, and options.
 func NewNetworkWatcher(ctx *pulumi.Context,
 	name string, args *NetworkWatcherArgs, opts ...pulumi.ResourceOpt) (*NetworkWatcher, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}

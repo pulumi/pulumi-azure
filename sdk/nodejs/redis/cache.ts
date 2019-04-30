@@ -274,9 +274,6 @@ export class Cache extends pulumi.CustomResource {
             if (!args || args.family === undefined) {
                 throw new Error("Missing required property 'family'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.redisConfiguration === undefined) {
                 throw new Error("Missing required property 'redisConfiguration'");
             }
@@ -418,7 +415,7 @@ export interface CacheArgs {
     /**
      * The location of the resource group.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The minimum TLS version.  Defaults to `1.0`.
      */

@@ -126,9 +126,6 @@ export class RunBook extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.logProgress === undefined) {
                 throw new Error("Missing required property 'logProgress'");
             }
@@ -229,7 +226,7 @@ export interface RunBookArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Progress log option.
      */

@@ -168,9 +168,6 @@ export class Service extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.publisherEmail === undefined) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
@@ -327,7 +324,7 @@ export interface ServiceArgs {
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */

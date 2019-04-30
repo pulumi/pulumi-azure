@@ -202,9 +202,6 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             if (!args || args.ipConfigurations === undefined) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -345,7 +342,7 @@ export interface VirtualNetworkGatewayArgs {
      * The location/region where the Virtual Network Gateway is
      * located. Changing the location/region forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Virtual Network Gateway. Changing the name
      * forces a new resource to be created.

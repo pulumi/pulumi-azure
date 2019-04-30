@@ -91,9 +91,6 @@ export class Namespace extends pulumi.CustomResource {
             inputs["sku"] = state ? state.sku : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.namespaceType === undefined) {
                 throw new Error("Missing required property 'namespaceType'");
             }
@@ -160,7 +157,7 @@ export interface NamespaceArgs {
     /**
      * The Azure Region in which this Notification Hub Namespace should be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      */

@@ -21,9 +21,6 @@ func NewAlertRule(ctx *pulumi.Context,
 	if args == nil || args.Aggregation == nil {
 		return nil, errors.New("missing required argument 'Aggregation'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.MetricName == nil {
 		return nil, errors.New("missing required argument 'MetricName'")
 	}

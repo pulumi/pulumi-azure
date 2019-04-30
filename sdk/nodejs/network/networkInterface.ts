@@ -152,9 +152,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             if (!args || args.ipConfigurations === undefined) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -278,7 +275,7 @@ export interface NetworkInterfaceArgs {
     /**
      * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The media access control (MAC) address of the network interface.
      */

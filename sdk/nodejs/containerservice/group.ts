@@ -195,9 +195,6 @@ export class Group extends pulumi.CustomResource {
             if (!args || args.containers === undefined) {
                 throw new Error("Missing required property 'containers'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.osType === undefined) {
                 throw new Error("Missing required property 'osType'");
             }
@@ -307,7 +304,7 @@ export interface GroupArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      */

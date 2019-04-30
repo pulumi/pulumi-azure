@@ -170,9 +170,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             if (!args || args.dnsPrefix === undefined) {
                 throw new Error("Missing required property 'dnsPrefix'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -307,7 +304,7 @@ export interface KubernetesClusterArgs {
     /**
      * The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */

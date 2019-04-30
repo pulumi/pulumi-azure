@@ -4,7 +4,6 @@
 package core
 
 import (
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
@@ -16,9 +15,6 @@ type ResourceGroup struct {
 // NewResourceGroup registers a new resource with the given unique name, arguments, and options.
 func NewResourceGroup(ctx *pulumi.Context,
 	name string, args *ResourceGroupArgs, opts ...pulumi.ResourceOpt) (*ResourceGroup, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["location"] = nil

@@ -21,9 +21,6 @@ type Extension struct {
 // NewExtension registers a new resource with the given unique name, arguments, and options.
 func NewExtension(ctx *pulumi.Context,
 	name string, args *ExtensionArgs, opts ...pulumi.ResourceOpt) (*Extension, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.Publisher == nil {
 		return nil, errors.New("missing required argument 'Publisher'")
 	}

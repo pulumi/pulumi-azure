@@ -24,9 +24,6 @@ func NewSharedImage(ctx *pulumi.Context,
 	if args == nil || args.Identifier == nil {
 		return nil, errors.New("missing required argument 'Identifier'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.OsType == nil {
 		return nil, errors.New("missing required argument 'OsType'")
 	}

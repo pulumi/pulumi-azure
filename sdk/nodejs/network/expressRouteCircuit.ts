@@ -120,9 +120,6 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             if (!args || args.bandwidthInMbps === undefined) {
                 throw new Error("Missing required property 'bandwidthInMbps'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.peeringLocation === undefined) {
                 throw new Error("Missing required property 'peeringLocation'");
             }
@@ -216,7 +213,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */

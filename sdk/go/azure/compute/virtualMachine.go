@@ -18,9 +18,6 @@ type VirtualMachine struct {
 // NewVirtualMachine registers a new resource with the given unique name, arguments, and options.
 func NewVirtualMachine(ctx *pulumi.Context,
 	name string, args *VirtualMachineArgs, opts ...pulumi.ResourceOpt) (*VirtualMachine, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.NetworkInterfaceIds == nil {
 		return nil, errors.New("missing required argument 'NetworkInterfaceIds'")
 	}

@@ -15,15 +15,20 @@
 package azure
 
 import (
+	"fmt"
 	"strings"
 	"unicode"
 
+	"github.com/hashicorp/terraform/config"
 	"github.com/hashicorp/terraform/helper/schema"
+	"github.com/hashicorp/terraform/terraform"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/resource"
 	"github.com/pulumi/pulumi/pkg/tokens"
+	"github.com/pulumi/pulumi/pkg/util/contract"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
+	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
 )
 
 // all of the Azure token components used below.
@@ -120,7 +125,10 @@ func boolRef(b bool) *bool {
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	const azureName = "name"
+	const (
+		azureName     = "name"
+		azureLocation = "location"
+	)
 
 	p := azurerm.Provider().(*schema.Provider)
 
@@ -203,6 +211,19 @@ func Provider() tfbridge.ProviderInfo {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "",
 					EnvVars: []string{"ARM_MSI_ENDPOINT"},
+				},
+			},
+		},
+		ExtraConfig: map[string]*tfbridge.ConfigInfo{
+			azureLocation: {
+				Schema: &schema.Schema{
+					Type:     schema.TypeString,
+					Optional: true,
+				},
+				Info: &tfbridge.SchemaInfo{
+					Default: &tfbridge.DefaultInfo{
+						EnvVars: []string{"ARM_LOCATION"},
+					},
 				},
 			},
 		},
@@ -328,7 +349,16 @@ func Provider() tfbridge.ProviderInfo {
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
 					// Max length of a resource group name is 90
 					azureName: AutoNameWithMaxLength(azureName, 90),
-				}},
+					azureLocation: {
+						Default: &tfbridge.DefaultInfo{
+							// To make it easy to repurpose an entire stack for different regions, we will let the
+							// resource group's location be parameterizable using configuration. Note that all other
+							// resources, by default, will take the location from the resource group to which they belong.
+							Config: azureLocation,
+						},
+					},
+				},
+			},
 			"azurerm_template_deployment": {Tok: azureResource(azureCore, "TemplateDeployment")},
 
 			// CDN
@@ -896,11 +926,15 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	// For all resources with name properties, we will add an auto-name property.  Make sure to skip those that
-	// already have a name mapping entry, since those may have custom overrides set above (e.g., for length).
+	// Provide default values for certain resource properties, to improve usability:
+	//     1) For all resources with `name` properties, we will add an auto-name property.  Make sure to skip those
+	//        that already have a name mapping entry, since those may have custom overrides set above (e.g., for length).
+	//     2) For all resources with `location` properties, default to the resource group's location to which the
+	//        resource belongs. This ensures that each resource doesn't need to be given a location explicitly.
+	rgRegionMap := make(map[string]string)
 	for resname, res := range prov.Resources {
 		if schema := p.ResourcesMap[resname]; schema != nil {
-			// Only apply auto-name to input properties (Optional || Required) named `name`
+			// Only apply automatic values for input properties (Optional || Required) named `name`
 			if tfs, has := schema.Schema[azureName]; has && (tfs.Optional || tfs.Required) {
 				if _, hasfield := res.Fields[azureName]; !hasfield {
 					if res.Fields == nil {
@@ -910,6 +944,50 @@ func Provider() tfbridge.ProviderInfo {
 					// https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions for
 					// details.
 					res.Fields[azureName] = AutoNameWithMaxLength(azureName, 24)
+				}
+			}
+			if tfs, has := schema.Schema[azureLocation]; has && (tfs.Optional || tfs.Required) {
+				if _, hasfield := res.Fields[azureLocation]; !hasfield {
+					if res.Fields == nil {
+						res.Fields = make(map[string]*tfbridge.SchemaInfo)
+					}
+					res.Fields[azureLocation] = &tfbridge.SchemaInfo{
+						Name: azureLocation,
+						Default: &tfbridge.DefaultInfo{
+							From: func(res *tfbridge.PulumiResource) (interface{}, error) {
+								// In here we will fetch the resource group property from this resource and
+								// use it to query the Azure API and return the resource group's location. We
+								// maintain a little cache to avoid querying the API too many times. Note that
+								// it's possible (likely) during previews that the location will be unknown, so
+								// we special logic to propagate likewise unknown location values.
+								if rg, has := res.Properties["resourceGroupName"]; has {
+									rgName := rg.StringValue()
+									rgRegion, has := rgRegionMap[rgName]
+									if !has {
+										rgRes := p.ResourcesMap["azurerm_resource_group"]
+										contract.Assert(rgRes != nil)
+										rgData := rgRes.Data(&terraform.InstanceState{
+											// Mock up a URI with the relevant pieces, so that we can read back
+											// the resource group's location information.
+											ID: fmt.Sprintf("/subscriptions/_/resourceGroups/%s", rg.StringValue()),
+										})
+										if err := rgRes.Read(rgData, p.Meta()); err != nil {
+											return nil, err
+										}
+										if rgData.Id() == "" {
+											rgRegion = config.UnknownVariableValue
+										} else {
+											rgRegion = azure.NormalizeLocation(rgData.Get("location"))
+										}
+										rgRegionMap[rgName] = rgRegion // memoize the value.
+									}
+									return rgRegion, nil
+								}
+
+								return nil, nil
+							},
+						},
+					}
 				}
 			}
 		}

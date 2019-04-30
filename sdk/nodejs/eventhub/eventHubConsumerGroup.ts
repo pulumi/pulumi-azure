@@ -60,7 +60,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
     public readonly eventhubName: pulumi.Output<string>;
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */

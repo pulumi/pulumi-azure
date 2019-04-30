@@ -119,9 +119,6 @@ export class Image extends pulumi.CustomResource {
             inputs["zoneResilient"] = state ? state.zoneResilient : undefined;
         } else {
             const args = argsOrState as ImageArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -191,7 +188,7 @@ export interface ImageArgs {
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * Specifies the name of the image. Changing this forces a
      * new resource to be created.

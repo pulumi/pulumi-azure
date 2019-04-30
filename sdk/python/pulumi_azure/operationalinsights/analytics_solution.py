@@ -61,8 +61,6 @@ class AnalyticsSolution(pulumi.CustomResource):
 
         __props__ = dict()
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         if plan is None:

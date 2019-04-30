@@ -19,9 +19,6 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil || args.Containers == nil {
 		return nil, errors.New("missing required argument 'Containers'")
 	}
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.OsType == nil {
 		return nil, errors.New("missing required argument 'OsType'")
 	}

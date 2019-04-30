@@ -64,7 +64,7 @@ export class Probe extends pulumi.CustomResource {
      * The ID of the LoadBalancer in which to create the NAT Rule.
      */
     public readonly loadbalancerId: pulumi.Output<string>;
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * Specifies the name of the Probe.
      */

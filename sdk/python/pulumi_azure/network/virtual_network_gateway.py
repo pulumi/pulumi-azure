@@ -152,8 +152,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             raise TypeError("Missing required property 'ip_configurations'")
         __props__['ip_configurations'] = ip_configurations
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

@@ -252,9 +252,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             if (!args || args.httpListeners === undefined) {
                 throw new Error("Missing required property 'httpListeners'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.requestRoutingRules === undefined) {
                 throw new Error("Missing required property 'requestRoutingRules'");
             }
@@ -432,7 +429,7 @@ export interface ApplicationGatewayArgs {
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the Application Gateway. Changing this forces a new resource to be created.
      */

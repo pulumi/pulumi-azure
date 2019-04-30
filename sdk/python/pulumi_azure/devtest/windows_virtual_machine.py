@@ -141,8 +141,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             raise TypeError("Missing required property 'lab_virtual_network_id'")
         __props__['lab_virtual_network_id'] = lab_virtual_network_id
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['name'] = name

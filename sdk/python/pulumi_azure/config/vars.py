@@ -34,3 +34,5 @@ tenant_id = __config__.get('tenantId') or (utilities.get_env('ARM_TENANT_ID') or
 
 use_msi = __config__.get('useMsi') or (utilities.get_env_bool('ARM_USE_MSI') or False)
 
+location = __config__.get('location') or utilities.get_env('ARM_LOCATION')
+

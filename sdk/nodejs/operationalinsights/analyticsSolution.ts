@@ -102,9 +102,6 @@ export class AnalyticsSolution extends pulumi.CustomResource {
             inputs["workspaceResourceId"] = state ? state.workspaceResourceId : undefined;
         } else {
             const args = argsOrState as AnalyticsSolutionArgs | undefined;
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.plan === undefined) {
                 throw new Error("Missing required property 'plan'");
             }
@@ -168,7 +165,7 @@ export interface AnalyticsSolutionArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * A `plan` block as documented below.
      */

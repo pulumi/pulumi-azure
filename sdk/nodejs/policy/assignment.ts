@@ -89,7 +89,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string | undefined>;
+    public readonly location: pulumi.Output<string>;
     /**
      * The name of the Policy Assignment. Changing this forces a new resource to be created.
      */

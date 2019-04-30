@@ -131,9 +131,6 @@ export class ElasticPool extends pulumi.CustomResource {
             if (!args || args.edition === undefined) {
                 throw new Error("Missing required property 'edition'");
             }
-            if (!args || args.location === undefined) {
-                throw new Error("Missing required property 'location'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -229,7 +226,7 @@ export interface ElasticPoolArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    readonly location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
     /**
      * The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
      */

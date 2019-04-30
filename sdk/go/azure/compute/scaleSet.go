@@ -19,9 +19,6 @@ type ScaleSet struct {
 // NewScaleSet registers a new resource with the given unique name, arguments, and options.
 func NewScaleSet(ctx *pulumi.Context,
 	name string, args *ScaleSetArgs, opts ...pulumi.ResourceOpt) (*ScaleSet, error) {
-	if args == nil || args.Location == nil {
-		return nil, errors.New("missing required argument 'Location'")
-	}
 	if args == nil || args.NetworkProfiles == nil {
 		return nil, errors.New("missing required argument 'NetworkProfiles'")
 	}

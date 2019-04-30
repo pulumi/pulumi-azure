@@ -163,8 +163,6 @@ class Cache(pulumi.CustomResource):
             raise TypeError("Missing required property 'family'")
         __props__['family'] = family
 
-        if location is None:
-            raise TypeError("Missing required property 'location'")
         __props__['location'] = location
 
         __props__['minimum_tls_version'] = minimum_tls_version
