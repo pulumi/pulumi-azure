@@ -254,7 +254,7 @@ export type BindingDefinition = azurefunctions.BindingDefinition;
 function serializeCallback<C extends Context<R>, E, R extends Result>(
         name: string,
         args: CallbackFunctionAppArgs<C, E, R>,
-        bindings: BindingDefinition[]): pulumi.Output<pulumi.asset.AssetMap> {
+        bindings: pulumi.Input<BindingDefinition[]>): pulumi.Output<pulumi.asset.AssetMap> {
 
     if (args.callback && args.callbackFactory) {
         throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
@@ -339,7 +339,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
      */
     public readonly plan: appservice.Plan;
 
-    constructor(name: string, bindings: BindingDefinition[],
+    constructor(name: string, bindings: pulumi.Input<BindingDefinition[]>,
                 args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
 
         if (!args.resourceGroupName) {
@@ -427,7 +427,7 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
-                bindings: BindingDefinition[],
+                bindings: pulumi.Input<BindingDefinition[]>,
                 args: CallbackFunctionAppArgs<C, E, R>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);

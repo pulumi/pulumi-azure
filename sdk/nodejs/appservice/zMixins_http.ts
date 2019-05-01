@@ -51,10 +51,24 @@ export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppAr
      * used.
      */
     location?: pulumi.Input<string>;
+
+    /**
+     * Defines the route template, controlling to which request URLs your function responds. The 
+     * default value if none is provided is <functionname>.
+     */
+    route?: pulumi.Input<string>;
+
+    /**
+     * An array of the HTTP methods to which the function responds. If not specified, the function 
+     * responds to all HTTP methods.
+     */
+    methods?: pulumi.Input<pulumi.Input<string>[]>;
 }>;
 
 interface HttpBindingDefinition extends mod.BindingDefinition {
     authLevel?: "anonymous";
+    route?: string;
+    methods?: string[];
 }
 
 /**
@@ -73,16 +87,20 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
-        const bindings: HttpBindingDefinition[] = [{
-            authLevel: "anonymous",
-            type: "httpTrigger",
-            direction: "in",
-            name: "req",
-        }, {
-            type: "http",
-            direction: "out",
-            name: "$return",
-        }];
+        const bindings = 
+            pulumi.all([args.route, args.methods]).apply(([route, methods]) => 
+                [<HttpBindingDefinition>{
+                    authLevel: "anonymous",
+                    type: "httpTrigger",
+                    direction: "in",
+                    name: "req",
+                    route: route,
+                    methods: methods,
+                }, <HttpBindingDefinition>{
+                    type: "http",
+                    direction: "out",
+                    name: "$return",
+                }]);
 
         super("azure:appservice:HttpEventSubscription", name, bindings, {
             ...args,
@@ -90,7 +108,9 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
             resourceGroupName,
         }, opts);
 
-        this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
+        this.url = args.route
+            ? pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/{${args.route}}`
+            : pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
 
         this.registerOutputs();
     }

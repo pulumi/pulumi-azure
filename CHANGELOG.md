@@ -7,7 +7,7 @@
   1. You can now easily create a FunctionApp from a JavaScript/TypeScript function using
      azure.appservice.CallbackFunctionApp.
   2. Subscribing and responding to HTTP events can be done easily with the new
-     `azure.appservice.HttpEventSubsription` component.
+     `azure.appservice.HttpEventSubsription` component. Custom routing is supported.
   3. You can subscribe to `azure.eventhub.Topic` events, invoking a FunctionApp containing the code
      you want, using `topic.onEvent(...)`.
   4. You can subscribe to `azure.storage.Container` blob events, invoking a FunctionApp containing
