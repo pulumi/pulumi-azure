@@ -44,62 +44,62 @@ export class PublicIp extends pulumi.CustomResource {
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      */
-    public readonly allocationMethod: pulumi.Output<string>;
+    public readonly allocationMethod!: pulumi.Output<string>;
     /**
      * Label for the Domain Name. Will be used to make up the FQDN.  If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
      */
-    public readonly domainNameLabel: pulumi.Output<string | undefined>;
+    public readonly domainNameLabel!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone
      */
-    public /*out*/ readonly fqdn: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes.
      */
-    public readonly idleTimeoutInMinutes: pulumi.Output<number | undefined>;
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
      * The IP address value that was allocated.
      */
-    public /*out*/ readonly ipAddress: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
      * The IP Version to use, IPv6 or IPv4.
      */
-    public readonly ipVersion: pulumi.Output<string | undefined>;
+    public readonly ipVersion!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Public IP resource . Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
-    public readonly publicIpAddressAllocation: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly publicIpAddressAllocation!: pulumi.Output<string>;
     /**
      * If specified then public IP address allocated will be provided from the public IP prefix resource.
      */
-    public readonly publicIpPrefixId: pulumi.Output<string | undefined>;
+    public readonly publicIpPrefixId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to
      * create the public ip.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
      */
-    public readonly reverseFqdn: pulumi.Output<string | undefined>;
+    public readonly reverseFqdn!: pulumi.Output<string | undefined>;
     /**
      * The SKU of the Public IP. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
      */
-    public readonly sku: pulumi.Output<string | undefined>;
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * A collection containing the availability zone to allocate the Public IP in.
      */
-    public readonly zones: pulumi.Output<string | undefined>;
+    public readonly zones!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PublicIp resource with the given unique name, arguments, and options.
@@ -112,7 +112,7 @@ export class PublicIp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PublicIpArgs | PublicIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PublicIpState = argsOrState as PublicIpState | undefined;
+            const state = argsOrState as PublicIpState | undefined;
             inputs["allocationMethod"] = state ? state.allocationMethod : undefined;
             inputs["domainNameLabel"] = state ? state.domainNameLabel : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;

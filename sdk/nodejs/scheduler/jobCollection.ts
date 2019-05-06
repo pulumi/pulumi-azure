@@ -49,31 +49,31 @@ export class JobCollection extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Scheduler Job Collection. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Configures the Job collection quotas as documented in the `quota` block below. 
      */
-    public readonly quota: pulumi.Output<{ maxJobCount?: number, maxRecurrenceFrequency: string, maxRecurrenceInterval?: number, maxRetryInterval: number } | undefined>;
+    public readonly quota!: pulumi.Output<{ maxJobCount?: number, maxRecurrenceFrequency: string, maxRecurrenceInterval?: number, maxRetryInterval: number } | undefined>;
     /**
      * The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Sets the Job Collection's pricing level's SKU. Possible values include: `Standard`, `Free`, `P10Premium`, `P20Premium`.
      */
-    public readonly sku: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * Sets Job Collection's state. Possible values include: `Enabled`, `Disabled`, `Suspended`.
      */
-    public readonly state: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a JobCollection resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class JobCollection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobCollectionArgs | JobCollectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: JobCollectionState = argsOrState as JobCollectionState | undefined;
+            const state = argsOrState as JobCollectionState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["quota"] = state ? state.quota : undefined;

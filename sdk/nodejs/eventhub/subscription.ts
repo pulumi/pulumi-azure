@@ -59,70 +59,70 @@ export class Subscription extends pulumi.CustomResource {
      * Subscription is automatically deleted, minimum of 5 minutes. Provided in the
      * TimeSpan format.
      */
-    public readonly autoDeleteOnIdle: pulumi.Output<string>;
-    public readonly deadLetteringOnFilterEvaluationExceptions: pulumi.Output<boolean | undefined>;
+    public readonly autoDeleteOnIdle!: pulumi.Output<string>;
+    public readonly deadLetteringOnFilterEvaluationExceptions!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls
      * whether the Subscription has dead letter support when a message expires. Defaults
      * to false.
      */
-    public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
+    public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
     /**
      * The TTL of messages sent to this Subscription
      * if no TTL value is set on the message itself. Provided in the TimeSpan
      * format.
      */
-    public readonly defaultMessageTtl: pulumi.Output<string>;
+    public readonly defaultMessageTtl!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether the
      * Subscription supports batched operations. Defaults to false.
      */
-    public readonly enableBatchedOperations: pulumi.Output<boolean | undefined>;
+    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
     /**
      * The name of a Queue or Topic to automatically forward 
      * messages to.
      */
-    public readonly forwardTo: pulumi.Output<string | undefined>;
+    public readonly forwardTo!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The lock duration for the subscription, maximum
      * supported value is 5 minutes. Defaults to 1 minute.
      */
-    public readonly lockDuration: pulumi.Output<string>;
+    public readonly lockDuration!: pulumi.Output<string>;
     /**
      * The maximum number of deliveries.
      */
-    public readonly maxDeliveryCount: pulumi.Output<number>;
+    public readonly maxDeliveryCount!: pulumi.Output<number>;
     /**
      * Specifies the name of the ServiceBus Subscription resource.
      * Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the ServiceBus Namespace to create
      * this Subscription in. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether this Subscription
      * supports the concept of a session. Defaults to false. Changing this forces a
      * new resource to be created.
      */
-    public readonly requiresSession: pulumi.Output<boolean | undefined>;
+    public readonly requiresSession!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to
      * create the namespace. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the ServiceBus Topic to create
      * this Subscription in. Changing this forces a new resource to be created.
      */
-    public readonly topicName: pulumi.Output<string>;
+    public readonly topicName!: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -135,7 +135,7 @@ export class Subscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubscriptionArgs | SubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubscriptionState = argsOrState as SubscriptionState | undefined;
+            const state = argsOrState as SubscriptionState | undefined;
             inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
             inputs["deadLetteringOnFilterEvaluationExceptions"] = state ? state.deadLetteringOnFilterEvaluationExceptions : undefined;
             inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;

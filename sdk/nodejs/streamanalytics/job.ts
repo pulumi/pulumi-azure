@@ -51,51 +51,51 @@ export class Job extends pulumi.CustomResource {
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
      */
-    public readonly compatibilityLevel: pulumi.Output<string>;
+    public readonly compatibilityLevel!: pulumi.Output<string>;
     /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
      */
-    public readonly dataLocale: pulumi.Output<string>;
+    public readonly dataLocale!: pulumi.Output<string>;
     /**
      * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).
      */
-    public readonly eventsLateArrivalMaxDelayInSeconds: pulumi.Output<number>;
+    public readonly eventsLateArrivalMaxDelayInSeconds!: pulumi.Output<number>;
     /**
      * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s).
      */
-    public readonly eventsOutOfOrderMaxDelayInSeconds: pulumi.Output<number>;
+    public readonly eventsOutOfOrderMaxDelayInSeconds!: pulumi.Output<number>;
     /**
      * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.
      */
-    public readonly eventsOutOfOrderPolicy: pulumi.Output<string>;
+    public readonly eventsOutOfOrderPolicy!: pulumi.Output<string>;
     /**
      * The Job ID assigned by the Stream Analytics Job.
      */
-    public /*out*/ readonly jobId: pulumi.Output<string>;
+    public /*out*/ readonly jobId!: pulumi.Output<string>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
      */
-    public readonly outputErrorPolicy: pulumi.Output<string>;
+    public readonly outputErrorPolicy!: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */
-    public readonly streamingUnits: pulumi.Output<number>;
+    public readonly streamingUnits!: pulumi.Output<number>;
     /**
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
-    public readonly transformationQuery: pulumi.Output<string>;
+    public readonly transformationQuery!: pulumi.Output<string>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -108,7 +108,7 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: JobState = argsOrState as JobState | undefined;
+            const state = argsOrState as JobState | undefined;
             inputs["compatibilityLevel"] = state ? state.compatibilityLevel : undefined;
             inputs["dataLocale"] = state ? state.dataLocale : undefined;
             inputs["eventsLateArrivalMaxDelayInSeconds"] = state ? state.eventsLateArrivalMaxDelayInSeconds : undefined;

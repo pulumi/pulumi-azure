@@ -47,17 +47,17 @@ export class Table extends pulumi.CustomResource {
     /**
      * The name of the storage table. Must be unique within the storage account the table is located.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the storage table. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the storage account in which to create the storage table.
      * Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName: pulumi.Output<string>;
+    public readonly storageAccountName!: pulumi.Output<string>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class Table extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TableState = argsOrState as TableState | undefined;
+            const state = argsOrState as TableState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;

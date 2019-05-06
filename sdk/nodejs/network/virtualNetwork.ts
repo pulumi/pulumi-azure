@@ -84,39 +84,39 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * network. You can supply more than one address space. Changing this forces
      * a new resource to be created.
      */
-    public readonly addressSpaces: pulumi.Output<string[]>;
+    public readonly addressSpaces!: pulumi.Output<string[]>;
     /**
      * A `ddos_protection_plan` block as documented below.
      */
-    public readonly ddosProtectionPlan: pulumi.Output<{ enable: boolean, id: string } | undefined>;
+    public readonly ddosProtectionPlan!: pulumi.Output<{ enable: boolean, id: string } | undefined>;
     /**
      * List of IP addresses of DNS servers
      */
-    public readonly dnsServers: pulumi.Output<string[] | undefined>;
+    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
      * The location/region where the virtual network is
      * created. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the virtual network. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the virtual network.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Can be specified multiple times to define multiple
      * subnets. Each `subnet` block supports fields documented below.
      */
-    public readonly subnets: pulumi.Output<{ addressPrefix: string, id: string, name: string, securityGroup?: string }[]>;
+    public readonly subnets!: pulumi.Output<{ addressPrefix: string, id: string, name: string, securityGroup?: string }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -129,7 +129,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkArgs | VirtualNetworkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkState = argsOrState as VirtualNetworkState | undefined;
+            const state = argsOrState as VirtualNetworkState | undefined;
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
             inputs["ddosProtectionPlan"] = state ? state.ddosProtectionPlan : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;

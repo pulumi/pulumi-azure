@@ -80,27 +80,27 @@ export class FirewallApplicationRuleCollection extends pulumi.CustomResource {
     /**
      * Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
      */
-    public readonly action: pulumi.Output<string>;
+    public readonly action!: pulumi.Output<string>;
     /**
      * Specifies the name of the Firewall in which the Application Rule Collection should be created. Changing this forces a new resource to be created.
      */
-    public readonly azureFirewallName: pulumi.Output<string>;
+    public readonly azureFirewallName!: pulumi.Output<string>;
     /**
      * Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
      */
-    public readonly priority: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * One or more `rule` blocks as defined below.
      */
-    public readonly rules: pulumi.Output<{ description?: string, fqdnTags?: string[], name: string, protocols?: { port?: number, type: string }[], sourceAddresses: string[], targetFqdns?: string[] }[]>;
+    public readonly rules!: pulumi.Output<{ description?: string, fqdnTags?: string[], name: string, protocols?: { port?: number, type: string }[], sourceAddresses: string[], targetFqdns?: string[] }[]>;
 
     /**
      * Create a FirewallApplicationRuleCollection resource with the given unique name, arguments, and options.
@@ -113,7 +113,7 @@ export class FirewallApplicationRuleCollection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FirewallApplicationRuleCollectionArgs | FirewallApplicationRuleCollectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FirewallApplicationRuleCollectionState = argsOrState as FirewallApplicationRuleCollectionState | undefined;
+            const state = argsOrState as FirewallApplicationRuleCollectionState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["azureFirewallName"] = state ? state.azureFirewallName : undefined;
             inputs["name"] = state ? state.name : undefined;

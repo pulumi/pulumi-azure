@@ -64,23 +64,23 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * The highest IP address included in the range.
      */
-    public readonly endIp: pulumi.Output<string>;
+    public readonly endIp!: pulumi.Output<string>;
     /**
      * The name of the Firewall Rule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Redis Cache. Changing this forces a new resource to be created.
      */
-    public readonly redisCacheName: pulumi.Output<string>;
+    public readonly redisCacheName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which this Redis Cache exists.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The lowest IP address included in the range
      */
-    public readonly startIp: pulumi.Output<string>;
+    public readonly startIp!: pulumi.Output<string>;
 
     /**
      * Create a FirewallRule resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FirewallRuleState = argsOrState as FirewallRuleState | undefined;
+            const state = argsOrState as FirewallRuleState | undefined;
             inputs["endIp"] = state ? state.endIp : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["redisCacheName"] = state ? state.redisCacheName : undefined;

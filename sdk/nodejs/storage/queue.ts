@@ -47,17 +47,17 @@ export class Queue extends pulumi.CustomResource {
     /**
      * The name of the storage queue. Must be unique within the storage account the queue is located.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the storage queue. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the storage account in which to create the storage queue.
      * Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName: pulumi.Output<string>;
+    public readonly storageAccountName!: pulumi.Output<string>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class Queue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueueState = argsOrState as QueueState | undefined;
+            const state = argsOrState as QueueState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;

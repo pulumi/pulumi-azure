@@ -49,11 +49,11 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
      */
-    public readonly scope: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * The ID of the Log Analytics Workspace to save the data in.
      */
-    public readonly workspaceId: pulumi.Output<string>;
+    public readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WorkspaceState = argsOrState as WorkspaceState | undefined;
+            const state = argsOrState as WorkspaceState | undefined;
             inputs["scope"] = state ? state.scope : undefined;
             inputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {

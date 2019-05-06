@@ -61,35 +61,35 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
      */
-    public readonly eventhubAuthorizationRuleId: pulumi.Output<string | undefined>;
+    public readonly eventhubAuthorizationRuleId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
-    public readonly eventhubName: pulumi.Output<string | undefined>;
+    public readonly eventhubName!: pulumi.Output<string | undefined>;
     /**
      * One or more `log` blocks as defined below.
      */
-    public readonly logs: pulumi.Output<{ category: string, enabled?: boolean, retentionPolicy: { days?: number, enabled: boolean } }[] | undefined>;
+    public readonly logs!: pulumi.Output<{ category: string, enabled?: boolean, retentionPolicy: { days?: number, enabled: boolean } }[] | undefined>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
-    public readonly logAnalyticsWorkspaceId: pulumi.Output<string | undefined>;
+    public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
      * One or more `metric` blocks as defined below.
      */
-    public readonly metrics: pulumi.Output<{ category: string, enabled?: boolean, retentionPolicy: { days?: number, enabled: boolean } }[] | undefined>;
+    public readonly metrics!: pulumi.Output<{ category: string, enabled?: boolean, retentionPolicy: { days?: number, enabled: boolean } }[] | undefined>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
      */
-    public readonly storageAccountId: pulumi.Output<string | undefined>;
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
      * The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId: pulumi.Output<string>;
+    public readonly targetResourceId!: pulumi.Output<string>;
 
     /**
      * Create a DiagnosticSetting resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DiagnosticSettingArgs | DiagnosticSettingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DiagnosticSettingState = argsOrState as DiagnosticSettingState | undefined;
+            const state = argsOrState as DiagnosticSettingState | undefined;
             inputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["logs"] = state ? state.logs : undefined;

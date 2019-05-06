@@ -46,27 +46,27 @@ export class AnalyticsAccount extends pulumi.CustomResource {
     /**
      * Specifies the data lake store to use by default. Changing this forces a new resource to be created.
      */
-    public readonly defaultStoreAccountName: pulumi.Output<string>;
+    public readonly defaultStoreAccountName!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Lake Analytics Account. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Data Lake Analytics Account.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The monthly commitment tier for Data Lake Analytics Account. Accepted values are `Consumption`, `Commitment_100000AUHours`, `Commitment_10000AUHours`, `Commitment_1000AUHours`, `Commitment_100AUHours`, `Commitment_500000AUHours`, `Commitment_50000AUHours`, `Commitment_5000AUHours`, or `Commitment_500AUHours`.
      */
-    public readonly tier: pulumi.Output<string | undefined>;
+    public readonly tier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a AnalyticsAccount resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ export class AnalyticsAccount extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AnalyticsAccountArgs | AnalyticsAccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AnalyticsAccountState = argsOrState as AnalyticsAccountState | undefined;
+            const state = argsOrState as AnalyticsAccountState | undefined;
             inputs["defaultStoreAccountName"] = state ? state.defaultStoreAccountName : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

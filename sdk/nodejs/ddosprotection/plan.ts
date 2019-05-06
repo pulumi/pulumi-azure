@@ -44,23 +44,23 @@ export class Plan extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the DDoS Protection Plan. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The Resource ID list of the Virtual Networks associated with DDoS Protection Plan.
      */
-    public /*out*/ readonly virtualNetworkIds: pulumi.Output<string[]>;
+    public /*out*/ readonly virtualNetworkIds!: pulumi.Output<string[]>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class Plan extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PlanArgs | PlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PlanState = argsOrState as PlanState | undefined;
+            const state = argsOrState as PlanState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

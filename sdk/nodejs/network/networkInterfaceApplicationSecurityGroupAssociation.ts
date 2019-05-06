@@ -68,15 +68,15 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
     /**
      * The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly applicationSecurityGroupId: pulumi.Output<string>;
+    public readonly applicationSecurityGroupId!: pulumi.Output<string>;
     /**
      * The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
      */
-    public readonly ipConfigurationName: pulumi.Output<string>;
+    public readonly ipConfigurationName!: pulumi.Output<string>;
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceApplicationSecurityGroupAssociation resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
     constructor(name: string, argsOrState?: NetworkInterfaceApplicationSecurityGroupAssociationArgs | NetworkInterfaceApplicationSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceApplicationSecurityGroupAssociationState = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationState | undefined;
+            const state = argsOrState as NetworkInterfaceApplicationSecurityGroupAssociationState | undefined;
             inputs["applicationSecurityGroupId"] = state ? state.applicationSecurityGroupId : undefined;
             inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;

@@ -64,38 +64,38 @@ export class Image extends pulumi.CustomResource {
     /**
      * One or more `data_disk` elements as defined below.
      */
-    public readonly dataDisks: pulumi.Output<{ blobUri: string, caching?: string, lun?: number, managedDiskId?: string, sizeGb: number }[] | undefined>;
+    public readonly dataDisks!: pulumi.Output<{ blobUri: string, caching?: string, lun?: number, managedDiskId?: string, sizeGb: number }[] | undefined>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the image. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * One or more `os_disk` elements as defined below.
      */
-    public readonly osDisk: pulumi.Output<{ blobUri: string, caching?: string, managedDiskId: string, osState?: string, osType?: string, sizeGb: number } | undefined>;
+    public readonly osDisk!: pulumi.Output<{ blobUri: string, caching?: string, managedDiskId: string, osState?: string, osType?: string, sizeGb: number } | undefined>;
     /**
      * The name of the resource group in which to create
      * the image. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Virtual Machine ID from which to create the image.
      */
-    public readonly sourceVirtualMachineId: pulumi.Output<string | undefined>;
+    public readonly sourceVirtualMachineId!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
      */
-    public readonly zoneResilient: pulumi.Output<boolean | undefined>;
+    public readonly zoneResilient!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -108,7 +108,7 @@ export class Image extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ImageArgs | ImageState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ImageState = argsOrState as ImageState | undefined;
+            const state = argsOrState as ImageState | undefined;
             inputs["dataDisks"] = state ? state.dataDisks : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

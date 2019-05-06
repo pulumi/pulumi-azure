@@ -94,91 +94,91 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    public readonly availabilitySetId: pulumi.Output<string>;
+    public readonly availabilitySetId!: pulumi.Output<string>;
     /**
      * A `boot_diagnostics` block.
      */
-    public readonly bootDiagnostics: pulumi.Output<{ enabled: boolean, storageUri: string } | undefined>;
+    public readonly bootDiagnostics!: pulumi.Output<{ enabled: boolean, storageUri: string } | undefined>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      */
-    public readonly deleteDataDisksOnTermination: pulumi.Output<boolean | undefined>;
+    public readonly deleteDataDisksOnTermination!: pulumi.Output<boolean | undefined>;
     /**
      * Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      */
-    public readonly deleteOsDiskOnTermination: pulumi.Output<boolean | undefined>;
+    public readonly deleteOsDiskOnTermination!: pulumi.Output<boolean | undefined>;
     /**
      * A `identity` block.
      */
-    public readonly identity: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
+    public readonly identity!: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      */
-    public readonly licenseType: pulumi.Output<string>;
+    public readonly licenseType!: pulumi.Output<string>;
     /**
      * Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of Network Interface ID's which should be associated with the Virtual Machine.
      */
-    public readonly networkInterfaceIds: pulumi.Output<string[]>;
+    public readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
      * An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
      */
-    public readonly osProfile: pulumi.Output<{ adminPassword?: string, adminUsername: string, computerName: string, customData: string } | undefined>;
+    public readonly osProfile!: pulumi.Output<{ adminPassword?: string, adminUsername: string, computerName: string, customData: string } | undefined>;
     /**
      * A `os_profile_linux_config` block.
      */
-    public readonly osProfileLinuxConfig: pulumi.Output<{ disablePasswordAuthentication: boolean, sshKeys?: { keyData: string, path: string }[] } | undefined>;
+    public readonly osProfileLinuxConfig!: pulumi.Output<{ disablePasswordAuthentication: boolean, sshKeys?: { keyData: string, path: string }[] } | undefined>;
     /**
      * One or more `os_profile_secrets` blocks.
      */
-    public readonly osProfileSecrets: pulumi.Output<{ sourceVaultId: string, vaultCertificates?: { certificateStore?: string, certificateUrl: string }[] }[] | undefined>;
+    public readonly osProfileSecrets!: pulumi.Output<{ sourceVaultId: string, vaultCertificates?: { certificateStore?: string, certificateUrl: string }[] }[] | undefined>;
     /**
      * A `os_profile_windows_config` block.
      */
-    public readonly osProfileWindowsConfig: pulumi.Output<{ additionalUnattendConfigs?: { component: string, content: string, pass: string, settingName: string }[], enableAutomaticUpgrades?: boolean, provisionVmAgent?: boolean, timezone?: string, winrms?: { certificateUrl?: string, protocol: string }[] } | undefined>;
+    public readonly osProfileWindowsConfig!: pulumi.Output<{ additionalUnattendConfigs?: { component: string, content: string, pass: string, settingName: string }[], enableAutomaticUpgrades?: boolean, provisionVmAgent?: boolean, timezone?: string, winrms?: { certificateUrl?: string, protocol: string }[] } | undefined>;
     /**
      * A `plan` block.
      */
-    public readonly plan: pulumi.Output<{ name: string, product: string, publisher: string } | undefined>;
+    public readonly plan!: pulumi.Output<{ name: string, product: string, publisher: string } | undefined>;
     /**
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      */
-    public readonly primaryNetworkInterfaceId: pulumi.Output<string | undefined>;
+    public readonly primaryNetworkInterfaceId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * One or more `storage_data_disk` blocks.
      */
-    public readonly storageDataDisks: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, lun: number, managedDiskId: string, managedDiskType: string, name: string, vhdUri?: string, writeAcceleratorEnabled?: boolean }[]>;
+    public readonly storageDataDisks!: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, lun: number, managedDiskId: string, managedDiskType: string, name: string, vhdUri?: string, writeAcceleratorEnabled?: boolean }[]>;
     /**
      * A `storage_image_reference` block.
      */
-    public readonly storageImageReference: pulumi.Output<{ id?: string, offer?: string, publisher?: string, sku?: string, version: string }>;
+    public readonly storageImageReference!: pulumi.Output<{ id?: string, offer?: string, publisher?: string, sku?: string, version: string }>;
     /**
      * A `storage_os_disk` block.
      */
-    public readonly storageOsDisk: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, imageUri?: string, managedDiskId: string, managedDiskType: string, name: string, osType: string, vhdUri?: string, writeAcceleratorEnabled?: boolean }>;
+    public readonly storageOsDisk!: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, imageUri?: string, managedDiskId: string, managedDiskType: string, name: string, osType: string, vhdUri?: string, writeAcceleratorEnabled?: boolean }>;
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
      */
-    public readonly vmSize: pulumi.Output<string>;
+    public readonly vmSize!: pulumi.Output<string>;
     /**
      * A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
      */
-    public readonly zones: pulumi.Output<string | undefined>;
+    public readonly zones!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -191,7 +191,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualMachineArgs | VirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualMachineState = argsOrState as VirtualMachineState | undefined;
+            const state = argsOrState as VirtualMachineState | undefined;
             inputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
             inputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
             inputs["deleteDataDisksOnTermination"] = state ? state.deleteDataDisksOnTermination : undefined;

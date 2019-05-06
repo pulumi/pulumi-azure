@@ -63,23 +63,23 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      */
-    public readonly endIpAddress: pulumi.Output<string>;
+    public readonly endIpAddress!: pulumi.Output<string>;
     /**
      * Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      */
-    public readonly startIpAddress: pulumi.Output<string>;
+    public readonly startIpAddress!: pulumi.Output<string>;
 
     /**
      * Create a FirewallRule resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FirewallRuleState = argsOrState as FirewallRuleState | undefined;
+            const state = argsOrState as FirewallRuleState | undefined;
             inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

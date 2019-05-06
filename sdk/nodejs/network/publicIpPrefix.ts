@@ -46,35 +46,35 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     /**
      * The IP address prefix value that was allocated.
      */
-    public /*out*/ readonly ipPrefix: pulumi.Output<string>;
+    public /*out*/ readonly ipPrefix!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Public IP resource . Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the number of bits of the prefix. The value can be set between 24 (256 addresses) and 31 (2 addresses). Changing this forces a new resource to be created.
      */
-    public readonly prefixLength: pulumi.Output<number | undefined>;
+    public readonly prefixLength!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which to create the public IP.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created.
      */
-    public readonly sku: pulumi.Output<string | undefined>;
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * A collection containing the availability zone to allocate the Public IP in.
      */
-    public readonly zones: pulumi.Output<string | undefined>;
+    public readonly zones!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PublicIpPrefix resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PublicIpPrefixArgs | PublicIpPrefixState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PublicIpPrefixState = argsOrState as PublicIpPrefixState | undefined;
+            const state = argsOrState as PublicIpPrefixState | undefined;
             inputs["ipPrefix"] = state ? state.ipPrefix : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

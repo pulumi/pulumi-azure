@@ -46,24 +46,24 @@ export class CNameRecord extends pulumi.CustomResource {
     /**
      * The name of the DNS CNAME Record.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The target of the CNAME.
      */
-    public readonly record: pulumi.Output<string>;
+    public readonly record!: pulumi.Output<string>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
-    public readonly ttl: pulumi.Output<number>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly zoneName: pulumi.Output<string>;
+    public readonly zoneName!: pulumi.Output<string>;
 
     /**
      * Create a CNameRecord resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class CNameRecord extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CNameRecordArgs | CNameRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CNameRecordState = argsOrState as CNameRecordState | undefined;
+            const state = argsOrState as CNameRecordState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["record"] = state ? state.record : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

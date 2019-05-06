@@ -125,34 +125,34 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * Controls if forwarded traffic from  VMs
      * in the remote virtual network is allowed. Defaults to false.
      */
-    public readonly allowForwardedTraffic: pulumi.Output<boolean>;
+    public readonly allowForwardedTraffic!: pulumi.Output<boolean>;
     /**
      * Controls gatewayLinks can be used in the
      * remote virtual network’s link to the local virtual network.
      */
-    public readonly allowGatewayTransit: pulumi.Output<boolean>;
+    public readonly allowGatewayTransit!: pulumi.Output<boolean>;
     /**
      * Controls if the VMs in the remote
      * virtual network can access VMs in the local virtual network. Defaults to
      * false.
      */
-    public readonly allowVirtualNetworkAccess: pulumi.Output<boolean>;
+    public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean>;
     /**
      * The name of the virtual network peering. Changing this
      * forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The full Azure resource ID of the
      * remote virtual network.  Changing this forces a new resource to be created.
      */
-    public readonly remoteVirtualNetworkId: pulumi.Output<string>;
+    public readonly remoteVirtualNetworkId!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the virtual network. Changing this forces a new resource to be
      * created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Controls if remote gateways can be used on
      * the local virtual network. If the flag is set to `true`, and
@@ -161,12 +161,12 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      * have this flag set to `true`. This flag cannot be set if virtual network
      * already has a gateway. Defaults to `false`.
      */
-    public readonly useRemoteGateways: pulumi.Output<boolean>;
+    public readonly useRemoteGateways!: pulumi.Output<boolean>;
     /**
      * The name of the virtual network. Changing
      * this forces a new resource to be created.
      */
-    public readonly virtualNetworkName: pulumi.Output<string>;
+    public readonly virtualNetworkName!: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkPeering resource with the given unique name, arguments, and options.
@@ -179,7 +179,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkPeeringArgs | VirtualNetworkPeeringState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkPeeringState = argsOrState as VirtualNetworkPeeringState | undefined;
+            const state = argsOrState as VirtualNetworkPeeringState | undefined;
             inputs["allowForwardedTraffic"] = state ? state.allowForwardedTraffic : undefined;
             inputs["allowGatewayTransit"] = state ? state.allowGatewayTransit : undefined;
             inputs["allowVirtualNetworkAccess"] = state ? state.allowVirtualNetworkAccess : undefined;

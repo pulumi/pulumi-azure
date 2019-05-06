@@ -125,57 +125,57 @@ export class Extension extends pulumi.CustomResource {
      * Specifies if the platform deploys
      * the latest minor version update to the `type_handler_version` specified.
      */
-    public readonly autoUpgradeMinorVersion: pulumi.Output<boolean | undefined>;
+    public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
      * The location where the extension is created. Changing
      * this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The protected_settings passed to the
      * extension, like settings, these are specified as a JSON object in a string.
      */
-    public readonly protectedSettings: pulumi.Output<string | undefined>;
+    public readonly protectedSettings!: pulumi.Output<string | undefined>;
     /**
      * The publisher of the extension, available publishers
      * can be found by using the Azure CLI.
      */
-    public readonly publisher: pulumi.Output<string>;
+    public readonly publisher!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the virtual network. Changing this forces a new resource to be
      * created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The settings passed to the extension, these are
      * specified as a JSON object in a string.
      */
-    public readonly settings: pulumi.Output<string | undefined>;
+    public readonly settings!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The type of extension, available types for a publisher can
      * be found using the Azure CLI.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * Specifies the version of the extension to
      * use, available versions can be found using the Azure CLI.
      */
-    public readonly typeHandlerVersion: pulumi.Output<string>;
+    public readonly typeHandlerVersion!: pulumi.Output<string>;
     /**
      * The name of the virtual machine. Changing
      * this forces a new resource to be created.
      */
-    public readonly virtualMachineName: pulumi.Output<string>;
+    public readonly virtualMachineName!: pulumi.Output<string>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.
@@ -188,7 +188,7 @@ export class Extension extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ExtensionArgs | ExtensionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ExtensionState = argsOrState as ExtensionState | undefined;
+            const state = argsOrState as ExtensionState | undefined;
             inputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

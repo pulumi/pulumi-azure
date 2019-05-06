@@ -49,31 +49,31 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
      */
-    public readonly disableBgpRoutePropagation: pulumi.Output<boolean | undefined>;
+    public readonly disableBgpRoutePropagation!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the route.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
      */
-    public readonly routes: pulumi.Output<{ addressPrefix: string, name: string, nextHopInIpAddress?: string, nextHopType: string }[]>;
+    public readonly routes!: pulumi.Output<{ addressPrefix: string, name: string, nextHopInIpAddress?: string, nextHopType: string }[]>;
     /**
      * The collection of Subnets associated with this route table.
      */
-    public /*out*/ readonly subnets: pulumi.Output<string[]>;
+    public /*out*/ readonly subnets!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a RouteTable resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class RouteTable extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteTableArgs | RouteTableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteTableState = argsOrState as RouteTableState | undefined;
+            const state = argsOrState as RouteTableState | undefined;
             inputs["disableBgpRoutePropagation"] = state ? state.disableBgpRoutePropagation : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -55,39 +55,39 @@ export class Policy extends pulumi.CustomResource {
     /**
      * A description for the Policy.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created.
      */
-    public readonly evaluatorType: pulumi.Output<string>;
+    public readonly evaluatorType!: pulumi.Output<string>;
     /**
      * The Fact Data for this Policy.
      */
-    public readonly factData: pulumi.Output<string | undefined>;
+    public readonly factData!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created.
      */
-    public readonly labName: pulumi.Output<string>;
+    public readonly labName!: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created.
      */
-    public readonly policySetName: pulumi.Output<string>;
+    public readonly policySetName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The Threshold for this Policy.
      */
-    public readonly threshold: pulumi.Output<string>;
+    public readonly threshold!: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -100,7 +100,7 @@ export class Policy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicyState = argsOrState as PolicyState | undefined;
+            const state = argsOrState as PolicyState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["evaluatorType"] = state ? state.evaluatorType : undefined;
             inputs["factData"] = state ? state.factData : undefined;

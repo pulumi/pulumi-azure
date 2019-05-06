@@ -57,24 +57,24 @@ export class BackendAddressPool extends pulumi.CustomResource {
     /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
-    public /*out*/ readonly backendIpConfigurations: pulumi.Output<string[]>;
+    public /*out*/ readonly backendIpConfigurations!: pulumi.Output<string[]>;
     /**
      * The Load Balancing Rules associated with this Backend Address Pool.
      */
-    public /*out*/ readonly loadBalancingRules: pulumi.Output<string[]>;
+    public /*out*/ readonly loadBalancingRules!: pulumi.Output<string[]>;
     /**
      * The ID of the Load Balancer in which to create the Backend Address Pool.
      */
-    public readonly loadbalancerId: pulumi.Output<string>;
-    public readonly location: pulumi.Output<string>;
+    public readonly loadbalancerId!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Backend Address Pool.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the resource.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a BackendAddressPool resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BackendAddressPoolArgs | BackendAddressPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BackendAddressPoolState = argsOrState as BackendAddressPoolState | undefined;
+            const state = argsOrState as BackendAddressPoolState | undefined;
             inputs["backendIpConfigurations"] = state ? state.backendIpConfigurations : undefined;
             inputs["loadBalancingRules"] = state ? state.loadBalancingRules : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;

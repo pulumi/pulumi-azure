@@ -50,47 +50,47 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
      */
-    public readonly allowClassicOperations: pulumi.Output<boolean | undefined>;
+    public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
     /**
      * The bandwidth in Mbps of the circuit being created.
      */
-    public readonly bandwidthInMbps: pulumi.Output<number>;
+    public readonly bandwidthInMbps!: pulumi.Output<number>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the peering location and **not** the Azure resource location.
      */
-    public readonly peeringLocation: pulumi.Output<string>;
+    public readonly peeringLocation!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The string needed by the service provider to provision the ExpressRoute circuit.
      */
-    public /*out*/ readonly serviceKey: pulumi.Output<string>;
+    public /*out*/ readonly serviceKey!: pulumi.Output<string>;
     /**
      * The name of the ExpressRoute Service Provider.
      */
-    public readonly serviceProviderName: pulumi.Output<string>;
+    public readonly serviceProviderName!: pulumi.Output<string>;
     /**
      * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
      */
-    public /*out*/ readonly serviceProviderProvisioningState: pulumi.Output<string>;
+    public /*out*/ readonly serviceProviderProvisioningState!: pulumi.Output<string>;
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    public readonly sku: pulumi.Output<{ family: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ family: string, tier: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a ExpressRouteCircuit resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ExpressRouteCircuitArgs | ExpressRouteCircuitState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ExpressRouteCircuitState = argsOrState as ExpressRouteCircuitState | undefined;
+            const state = argsOrState as ExpressRouteCircuitState | undefined;
             inputs["allowClassicOperations"] = state ? state.allowClassicOperations : undefined;
             inputs["bandwidthInMbps"] = state ? state.bandwidthInMbps : undefined;
             inputs["location"] = state ? state.location : undefined;

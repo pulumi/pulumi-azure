@@ -57,47 +57,47 @@ export class ElasticPool extends pulumi.CustomResource {
         return new ElasticPool(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly elasticPoolProperties: pulumi.Output<{ creationDate: string, licenseType: string, maxSizeBytes: number, state: string, zoneRedundant: boolean }>;
+    public /*out*/ readonly elasticPoolProperties!: pulumi.Output<{ creationDate: string, licenseType: string, maxSizeBytes: number, state: string, zoneRedundant: boolean }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      */
-    public readonly maxSizeBytes: pulumi.Output<number>;
+    public readonly maxSizeBytes!: pulumi.Output<number>;
     /**
      * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
      */
-    public readonly maxSizeGb: pulumi.Output<number>;
+    public readonly maxSizeGb!: pulumi.Output<number>;
     /**
      * Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern. 
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A `per_database_settings` block as defined below.
      */
-    public readonly perDatabaseSettings: pulumi.Output<{ maxCapacity: number, minCapacity: number }>;
+    public readonly perDatabaseSettings!: pulumi.Output<{ maxCapacity: number, minCapacity: number }>;
     /**
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku: pulumi.Output<{ capacity: number, family?: string, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ capacity: number, family?: string, name: string, tier: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based  or `BusinessCritical` for `vCore` based `sku`. Defaults to `false`.
      */
-    public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.
@@ -110,7 +110,7 @@ export class ElasticPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ElasticPoolArgs | ElasticPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ElasticPoolState = argsOrState as ElasticPoolState | undefined;
+            const state = argsOrState as ElasticPoolState | undefined;
             inputs["elasticPoolProperties"] = state ? state.elasticPoolProperties : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;

@@ -49,35 +49,35 @@ export class SqlServer extends pulumi.CustomResource {
     /**
      * The administrator login name for the new server. Changing this forces a new resource to be created.
      */
-    public readonly administratorLogin: pulumi.Output<string>;
+    public readonly administratorLogin!: pulumi.Output<string>;
     /**
      * The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
-    public readonly administratorLoginPassword: pulumi.Output<string>;
+    public readonly administratorLoginPassword!: pulumi.Output<string>;
     /**
      * The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
      */
-    public /*out*/ readonly fullyQualifiedDomainName: pulumi.Output<string>;
+    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the SQL Server. This needs to be globally unique within Azure.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the SQL Server.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server).
      */
-    public readonly version: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a SqlServer resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ export class SqlServer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SqlServerArgs | SqlServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SqlServerState = argsOrState as SqlServerState | undefined;
+            const state = argsOrState as SqlServerState | undefined;
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
             inputs["fullyQualifiedDomainName"] = state ? state.fullyQualifiedDomainName : undefined;

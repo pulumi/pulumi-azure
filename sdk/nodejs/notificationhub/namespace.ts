@@ -44,31 +44,31 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Is this Notification Hub Namespace enabled? Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace should be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Type of Namespace - possible values are `Messaging` or `NotificationHub`. Changing this forces a new resource to be created.
      */
-    public readonly namespaceType: pulumi.Output<string>;
+    public readonly namespaceType!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The ServiceBus Endpoint for this Notification Hub Namespace.
      */
-    public /*out*/ readonly servicebusEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly servicebusEndpoint!: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku: pulumi.Output<{ name: string }>;
+    public readonly sku!: pulumi.Output<{ name: string }>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NamespaceState = argsOrState as NamespaceState | undefined;
+            const state = argsOrState as NamespaceState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

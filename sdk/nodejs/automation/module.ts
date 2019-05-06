@@ -51,19 +51,19 @@ export class Module extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName: pulumi.Output<string>;
+    public readonly automationAccountName!: pulumi.Output<string>;
     /**
      * The published Module link.
      */
-    public readonly moduleLink: pulumi.Output<{ hash?: { algorithm: string, value: string }, uri: string }>;
+    public readonly moduleLink!: pulumi.Output<{ hash?: { algorithm: string, value: string }, uri: string }>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a Module resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class Module extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ModuleArgs | ModuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ModuleState = argsOrState as ModuleState | undefined;
+            const state = argsOrState as ModuleState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["moduleLink"] = state ? state.moduleLink : undefined;
             inputs["name"] = state ? state.name : undefined;

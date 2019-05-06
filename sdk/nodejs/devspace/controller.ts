@@ -65,39 +65,39 @@ export class Controller extends pulumi.CustomResource {
     /**
      * DNS name for accessing DataPlane services.
      */
-    public /*out*/ readonly dataPlaneFqdn: pulumi.Output<string>;
+    public /*out*/ readonly dataPlaneFqdn!: pulumi.Output<string>;
     /**
      * The host suffix for the DevSpace Controller. Changing this forces a new resource to be created.
      */
-    public readonly hostSuffix: pulumi.Output<string>;
+    public readonly hostSuffix!: pulumi.Output<string>;
     /**
      * Specifies the supported location where the DevSpace Controller should exist. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group under which the DevSpace Controller resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `sku` block as documented below. Changing this forces a new resource to be created.
      */
-    public readonly sku: pulumi.Output<{ name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ name: string, tier: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
      */
-    public readonly targetContainerHostCredentialsBase64: pulumi.Output<string>;
+    public readonly targetContainerHostCredentialsBase64!: pulumi.Output<string>;
     /**
      * The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
      */
-    public readonly targetContainerHostResourceId: pulumi.Output<string>;
+    public readonly targetContainerHostResourceId!: pulumi.Output<string>;
 
     /**
      * Create a Controller resource with the given unique name, arguments, and options.
@@ -110,7 +110,7 @@ export class Controller extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ControllerArgs | ControllerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ControllerState = argsOrState as ControllerState | undefined;
+            const state = argsOrState as ControllerState | undefined;
             inputs["dataPlaneFqdn"] = state ? state.dataPlaneFqdn : undefined;
             inputs["hostSuffix"] = state ? state.hostSuffix : undefined;
             inputs["location"] = state ? state.location : undefined;

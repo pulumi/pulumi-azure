@@ -65,11 +65,11 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
     /**
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly routeTableId: pulumi.Output<string>;
+    public readonly routeTableId!: pulumi.Output<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
 
     /**
      * Create a SubnetRouteTableAssociation resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubnetRouteTableAssociationArgs | SubnetRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetRouteTableAssociationState = argsOrState as SubnetRouteTableAssociationState | undefined;
+            const state = argsOrState as SubnetRouteTableAssociationState | undefined;
             inputs["routeTableId"] = state ? state.routeTableId : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {

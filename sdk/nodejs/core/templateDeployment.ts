@@ -114,33 +114,33 @@ export class TemplateDeployment extends pulumi.CustomResource {
      * Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
      * specified within the template, and Terraform will not be aware of this.
      */
-    public readonly deploymentMode: pulumi.Output<string>;
+    public readonly deploymentMode!: pulumi.Output<string>;
     /**
      * Specifies the name of the template deployment. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`.
      */
-    public /*out*/ readonly outputs: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the name and value pairs that define the deployment parameters for the template.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references
      */
-    public readonly parametersBody: pulumi.Output<string | undefined>;
+    public readonly parametersBody!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to
      * create the template deployment.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the JSON definition for the template.
      */
-    public readonly templateBody: pulumi.Output<string>;
+    public readonly templateBody!: pulumi.Output<string>;
 
     /**
      * Create a TemplateDeployment resource with the given unique name, arguments, and options.
@@ -153,7 +153,7 @@ export class TemplateDeployment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TemplateDeploymentArgs | TemplateDeploymentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TemplateDeploymentState = argsOrState as TemplateDeploymentState | undefined;
+            const state = argsOrState as TemplateDeploymentState | undefined;
             inputs["deploymentMode"] = state ? state.deploymentMode : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outputs"] = state ? state.outputs : undefined;

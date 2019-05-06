@@ -125,15 +125,15 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
     /**
      * The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly backendAddressPoolId: pulumi.Output<string>;
+    public readonly backendAddressPoolId!: pulumi.Output<string>;
     /**
      * The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
      */
-    public readonly ipConfigurationName: pulumi.Output<string>;
+    public readonly ipConfigurationName!: pulumi.Output<string>;
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation resource with the given unique name, arguments, and options.
@@ -146,7 +146,7 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
     constructor(name: string, argsOrState?: NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs | NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState = argsOrState as NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState | undefined;
+            const state = argsOrState as NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState | undefined;
             inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;

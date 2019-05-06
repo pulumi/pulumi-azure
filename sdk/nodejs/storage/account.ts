@@ -87,201 +87,201 @@ export class Account extends pulumi.CustomResource {
     /**
      * Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      */
-    public readonly accessTier: pulumi.Output<string>;
+    public readonly accessTier!: pulumi.Output<string>;
     /**
      * The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
      */
-    public readonly accountEncryptionSource: pulumi.Output<string | undefined>;
+    public readonly accountEncryptionSource!: pulumi.Output<string | undefined>;
     /**
      * Defines the Kind of account. Valid options are `Storage`,
      * `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
      * Defaults to `Storage`.
      */
-    public readonly accountKind: pulumi.Output<string | undefined>;
+    public readonly accountKind!: pulumi.Output<string | undefined>;
     /**
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
      */
-    public readonly accountReplicationType: pulumi.Output<string>;
+    public readonly accountReplicationType!: pulumi.Output<string>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
      */
-    public readonly accountTier: pulumi.Output<string>;
-    public readonly accountType: pulumi.Output<string>;
+    public readonly accountTier!: pulumi.Output<string>;
+    public readonly accountType!: pulumi.Output<string>;
     /**
      * A `custom_domain` block as documented below.
      */
-    public readonly customDomain: pulumi.Output<{ name: string, useSubdomain?: boolean } | undefined>;
+    public readonly customDomain!: pulumi.Output<{ name: string, useSubdomain?: boolean } | undefined>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
-    public readonly enableBlobEncryption: pulumi.Output<boolean | undefined>;
+    public readonly enableBlobEncryption!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
-    public readonly enableFileEncryption: pulumi.Output<boolean | undefined>;
+    public readonly enableFileEncryption!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
      * for more information.
      */
-    public readonly enableHttpsTrafficOnly: pulumi.Output<boolean | undefined>;
+    public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean | undefined>;
     /**
      * A Managed Service Identity block as defined below.
      */
-    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
-    public readonly isHnsEnabled: pulumi.Output<boolean | undefined>;
+    public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the
      * resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A `network_rules` block as documented below.
      */
-    public readonly networkRules: pulumi.Output<{ bypasses: string[], ipRules?: string[], virtualNetworkSubnetIds?: string[] } | undefined>;
+    public readonly networkRules!: pulumi.Output<{ bypasses: string[], ipRules?: string[], virtualNetworkSubnetIds?: string[] } | undefined>;
     /**
      * The primary access key for the storage account.
      */
-    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
      * The connection string associated with the primary blob location.
      */
-    public /*out*/ readonly primaryBlobConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly primaryBlobConnectionString!: pulumi.Output<string>;
     /**
      * The endpoint URL for blob storage in the primary location.
      */
-    public /*out*/ readonly primaryBlobEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly primaryBlobEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for blob storage in the primary location.
      */
-    public /*out*/ readonly primaryBlobHost: pulumi.Output<string>;
+    public /*out*/ readonly primaryBlobHost!: pulumi.Output<string>;
     /**
      * The connection string associated with the primary location.
      */
-    public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
      * The endpoint URL for DFS storage in the primary location.
      */
-    public /*out*/ readonly primaryDfsEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly primaryDfsEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for DFS storage in the primary location.
      */
-    public /*out*/ readonly primaryDfsHost: pulumi.Output<string>;
+    public /*out*/ readonly primaryDfsHost!: pulumi.Output<string>;
     /**
      * The endpoint URL for file storage in the primary location.
      */
-    public /*out*/ readonly primaryFileEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly primaryFileEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for file storage in the primary location.
      */
-    public /*out*/ readonly primaryFileHost: pulumi.Output<string>;
+    public /*out*/ readonly primaryFileHost!: pulumi.Output<string>;
     /**
      * The primary location of the storage account.
      */
-    public /*out*/ readonly primaryLocation: pulumi.Output<string>;
+    public /*out*/ readonly primaryLocation!: pulumi.Output<string>;
     /**
      * The endpoint URL for queue storage in the primary location.
      */
-    public /*out*/ readonly primaryQueueEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly primaryQueueEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for queue storage in the primary location.
      */
-    public /*out*/ readonly primaryQueueHost: pulumi.Output<string>;
+    public /*out*/ readonly primaryQueueHost!: pulumi.Output<string>;
     /**
      * The endpoint URL for table storage in the primary location.
      */
-    public /*out*/ readonly primaryTableEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly primaryTableEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for table storage in the primary location.
      */
-    public /*out*/ readonly primaryTableHost: pulumi.Output<string>;
+    public /*out*/ readonly primaryTableHost!: pulumi.Output<string>;
     /**
      * The endpoint URL for web storage in the primary location.
      */
-    public /*out*/ readonly primaryWebEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly primaryWebEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for web storage in the primary location.
      */
-    public /*out*/ readonly primaryWebHost: pulumi.Output<string>;
+    public /*out*/ readonly primaryWebHost!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the storage account. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The secondary access key for the storage account.
      */
-    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * The connection string associated with the secondary blob location.
      */
-    public /*out*/ readonly secondaryBlobConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly secondaryBlobConnectionString!: pulumi.Output<string>;
     /**
      * The endpoint URL for blob storage in the secondary location.
      */
-    public /*out*/ readonly secondaryBlobEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly secondaryBlobEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for blob storage in the secondary location.
      */
-    public /*out*/ readonly secondaryBlobHost: pulumi.Output<string>;
+    public /*out*/ readonly secondaryBlobHost!: pulumi.Output<string>;
     /**
      * The connection string associated with the secondary location.
      */
-    public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * The endpoint URL for DFS storage in the secondary location.
      */
-    public /*out*/ readonly secondaryDfsEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly secondaryDfsEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for DFS storage in the secondary location.
      */
-    public /*out*/ readonly secondaryDfsHost: pulumi.Output<string>;
+    public /*out*/ readonly secondaryDfsHost!: pulumi.Output<string>;
     /**
      * The endpoint URL for file storage in the secondary location.
      */
-    public /*out*/ readonly secondaryFileEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly secondaryFileEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for file storage in the secondary location.
      */
-    public /*out*/ readonly secondaryFileHost: pulumi.Output<string>;
+    public /*out*/ readonly secondaryFileHost!: pulumi.Output<string>;
     /**
      * The secondary location of the storage account.
      */
-    public /*out*/ readonly secondaryLocation: pulumi.Output<string>;
+    public /*out*/ readonly secondaryLocation!: pulumi.Output<string>;
     /**
      * The endpoint URL for queue storage in the secondary location.
      */
-    public /*out*/ readonly secondaryQueueEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly secondaryQueueEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for queue storage in the secondary location.
      */
-    public /*out*/ readonly secondaryQueueHost: pulumi.Output<string>;
+    public /*out*/ readonly secondaryQueueHost!: pulumi.Output<string>;
     /**
      * The endpoint URL for table storage in the secondary location.
      */
-    public /*out*/ readonly secondaryTableEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly secondaryTableEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for table storage in the secondary location.
      */
-    public /*out*/ readonly secondaryTableHost: pulumi.Output<string>;
+    public /*out*/ readonly secondaryTableHost!: pulumi.Output<string>;
     /**
      * The endpoint URL for web storage in the secondary location.
      */
-    public /*out*/ readonly secondaryWebEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly secondaryWebEndpoint!: pulumi.Output<string>;
     /**
      * The hostname with port if applicable for web storage in the secondary location.
      */
-    public /*out*/ readonly secondaryWebHost: pulumi.Output<string>;
+    public /*out*/ readonly secondaryWebHost!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -294,7 +294,7 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountState = argsOrState as AccountState | undefined;
+            const state = argsOrState as AccountState | undefined;
             inputs["accessTier"] = state ? state.accessTier : undefined;
             inputs["accountEncryptionSource"] = state ? state.accountEncryptionSource : undefined;
             inputs["accountKind"] = state ? state.accountKind : undefined;

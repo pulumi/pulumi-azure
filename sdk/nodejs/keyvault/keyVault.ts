@@ -61,51 +61,51 @@ export class KeyVault extends pulumi.CustomResource {
     /**
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
      */
-    public readonly accessPolicies: pulumi.Output<{ applicationId?: string, certificatePermissions?: string[], keyPermissions?: string[], objectId: string, secretPermissions?: string[], storagePermissions?: string[], tenantId: string }[]>;
+    public readonly accessPolicies!: pulumi.Output<{ applicationId?: string, certificatePermissions?: string[], keyPermissions?: string[], objectId: string, secretPermissions?: string[], storagePermissions?: string[], tenantId: string }[]>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */
-    public readonly enabledForDeployment: pulumi.Output<boolean | undefined>;
+    public readonly enabledForDeployment!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. Defaults to `false`.
      */
-    public readonly enabledForDiskEncryption: pulumi.Output<boolean | undefined>;
+    public readonly enabledForDiskEncryption!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. Defaults to `false`.
      */
-    public readonly enabledForTemplateDeployment: pulumi.Output<boolean | undefined>;
+    public readonly enabledForTemplateDeployment!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A `network_acls` block as defined below.
      */
-    public readonly networkAcls: pulumi.Output<{ bypass: string, defaultAction: string, ipRules?: string[], virtualNetworkSubnetIds?: string[] } | undefined>;
+    public readonly networkAcls!: pulumi.Output<{ bypass: string, defaultAction: string, ipRules?: string[], virtualNetworkSubnetIds?: string[] } | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * An SKU block as described below.
      */
-    public readonly sku: pulumi.Output<{ name: string }>;
+    public readonly sku!: pulumi.Output<{ name: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
      */
-    public readonly tenantId: pulumi.Output<string>;
+    public readonly tenantId!: pulumi.Output<string>;
     /**
      * The URI of the Key Vault, used for performing operations on keys and secrets.
      */
-    public /*out*/ readonly vaultUri: pulumi.Output<string>;
+    public /*out*/ readonly vaultUri!: pulumi.Output<string>;
 
     /**
      * Create a KeyVault resource with the given unique name, arguments, and options.
@@ -118,7 +118,7 @@ export class KeyVault extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KeyVaultArgs | KeyVaultState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KeyVaultState = argsOrState as KeyVaultState | undefined;
+            const state = argsOrState as KeyVaultState | undefined;
             inputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             inputs["enabledForDeployment"] = state ? state.enabledForDeployment : undefined;
             inputs["enabledForDiskEncryption"] = state ? state.enabledForDiskEncryption : undefined;

@@ -119,39 +119,39 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly filters: pulumi.Output<{ localIpAddress?: string, localPort?: string, protocol: string, remoteIpAddress?: string, remotePort?: string }[] | undefined>;
+    public readonly filters!: pulumi.Output<{ localIpAddress?: string, localPort?: string, protocol: string, remoteIpAddress?: string, remotePort?: string }[] | undefined>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
-    public readonly maximumBytesPerPacket: pulumi.Output<number | undefined>;
+    public readonly maximumBytesPerPacket!: pulumi.Output<number | undefined>;
     /**
      * Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
      */
-    public readonly maximumBytesPerSession: pulumi.Output<number | undefined>;
+    public readonly maximumBytesPerSession!: pulumi.Output<number | undefined>;
     /**
      * The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
      */
-    public readonly maximumCaptureDuration: pulumi.Output<number | undefined>;
+    public readonly maximumCaptureDuration!: pulumi.Output<number | undefined>;
     /**
      * The name to use for this Packet Capture. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
-    public readonly networkWatcherName: pulumi.Output<string>;
+    public readonly networkWatcherName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `storage_location` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly storageLocation: pulumi.Output<{ filePath?: string, storageAccountId?: string, storagePath: string }>;
+    public readonly storageLocation!: pulumi.Output<{ filePath?: string, storageAccountId?: string, storagePath: string }>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
      */
-    public readonly targetResourceId: pulumi.Output<string>;
+    public readonly targetResourceId!: pulumi.Output<string>;
 
     /**
      * Create a PacketCapture resource with the given unique name, arguments, and options.
@@ -164,7 +164,7 @@ export class PacketCapture extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PacketCaptureArgs | PacketCaptureState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PacketCaptureState = argsOrState as PacketCaptureState | undefined;
+            const state = argsOrState as PacketCaptureState | undefined;
             inputs["filters"] = state ? state.filters : undefined;
             inputs["maximumBytesPerPacket"] = state ? state.maximumBytesPerPacket : undefined;
             inputs["maximumBytesPerSession"] = state ? state.maximumBytesPerSession : undefined;

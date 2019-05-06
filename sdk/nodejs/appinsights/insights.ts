@@ -44,33 +44,33 @@ export class Insights extends pulumi.CustomResource {
     /**
      * The App ID associated with this Application Insights component.
      */
-    public /*out*/ readonly appId: pulumi.Output<string>;
+    public /*out*/ readonly appId!: pulumi.Output<string>;
     /**
      * Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
      */
-    public readonly applicationType: pulumi.Output<string>;
+    public readonly applicationType!: pulumi.Output<string>;
     /**
      * The Instrumentation Key for this Application Insights component.
      */
-    public /*out*/ readonly instrumentationKey: pulumi.Output<string>;
+    public /*out*/ readonly instrumentationKey!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Application Insights component. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the Application Insights component.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Insights resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class Insights extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: InsightsArgs | InsightsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: InsightsState = argsOrState as InsightsState | undefined;
+            const state = argsOrState as InsightsState | undefined;
             inputs["appId"] = state ? state.appId : undefined;
             inputs["applicationType"] = state ? state.applicationType : undefined;
             inputs["instrumentationKey"] = state ? state.instrumentationKey : undefined;

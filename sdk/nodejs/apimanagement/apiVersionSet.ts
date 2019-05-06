@@ -53,35 +53,35 @@ export class ApiVersionSet extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which the API Version Set should exist. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The description of API Version Set.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The display name of this API Version Set.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The name of the API Version Set. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the parent API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the Header which should be read from Inbound Requests which defines the API Version.
      */
-    public readonly versionHeaderName: pulumi.Output<string | undefined>;
+    public readonly versionHeaderName!: pulumi.Output<string | undefined>;
     /**
      * The name of the Query String which should be read from Inbound Requests which defines the API Version.
      */
-    public readonly versionQueryName: pulumi.Output<string | undefined>;
+    public readonly versionQueryName!: pulumi.Output<string | undefined>;
     /**
      * Specifies where in an Inbound HTTP Request that the API Version should be read from. Possible values are `Header`, `Query` and `Segment`.
      */
-    public readonly versioningScheme: pulumi.Output<string>;
+    public readonly versioningScheme!: pulumi.Output<string>;
 
     /**
      * Create a ApiVersionSet resource with the given unique name, arguments, and options.
@@ -94,7 +94,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiVersionSetArgs | ApiVersionSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApiVersionSetState = argsOrState as ApiVersionSetState | undefined;
+            const state = argsOrState as ApiVersionSetState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;

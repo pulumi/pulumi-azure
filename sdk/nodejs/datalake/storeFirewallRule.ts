@@ -47,23 +47,23 @@ export class StoreFirewallRule extends pulumi.CustomResource {
     /**
      * Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
      */
-    public readonly accountName: pulumi.Output<string>;
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * The End IP Address for the firewall rule.
      */
-    public readonly endIpAddress: pulumi.Output<string>;
+    public readonly endIpAddress!: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Data Lake Store.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Start IP address for the firewall rule.
      */
-    public readonly startIpAddress: pulumi.Output<string>;
+    public readonly startIpAddress!: pulumi.Output<string>;
 
     /**
      * Create a StoreFirewallRule resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class StoreFirewallRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StoreFirewallRuleArgs | StoreFirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StoreFirewallRuleState = argsOrState as StoreFirewallRuleState | undefined;
+            const state = argsOrState as StoreFirewallRuleState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -258,108 +258,108 @@ export class ScaleSet extends pulumi.CustomResource {
     /**
      * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
      */
-    public readonly automaticOsUpgrade: pulumi.Output<boolean | undefined>;
+    public readonly automaticOsUpgrade!: pulumi.Output<boolean | undefined>;
     /**
      * A boot diagnostics profile block as referenced below.
      */
-    public readonly bootDiagnostics: pulumi.Output<{ enabled?: boolean, storageUri: string } | undefined>;
+    public readonly bootDiagnostics!: pulumi.Output<{ enabled?: boolean, storageUri: string } | undefined>;
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`.
      */
-    public readonly evictionPolicy: pulumi.Output<string | undefined>;
+    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
      * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
      */
-    public readonly extensions: pulumi.Output<{ autoUpgradeMinorVersion?: boolean, name: string, protectedSettings?: string, publisher: string, settings?: string, type: string, typeHandlerVersion: string }[] | undefined>;
+    public readonly extensions!: pulumi.Output<{ autoUpgradeMinorVersion?: boolean, name: string, protectedSettings?: string, publisher: string, settings?: string, type: string, typeHandlerVersion: string }[] | undefined>;
     /**
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
      */
-    public readonly healthProbeId: pulumi.Output<string | undefined>;
-    public readonly identity: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
+    public readonly healthProbeId!: pulumi.Output<string | undefined>;
+    public readonly identity!: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
     /**
      * Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
      */
-    public readonly licenseType: pulumi.Output<string>;
+    public readonly licenseType!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the image from the marketplace.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A collection of network profile block as documented below.
      */
-    public readonly networkProfiles: pulumi.Output<{ acceleratedNetworking?: boolean, dnsSettings?: { dnsServers: string[] }, ipConfigurations: { applicationGatewayBackendAddressPoolIds?: string[], applicationSecurityGroupIds?: string[], loadBalancerBackendAddressPoolIds?: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, publicIpAddressConfiguration?: { domainNameLabel: string, idleTimeout: number, name: string }, subnetId: string }[], ipForwarding?: boolean, name: string, networkSecurityGroupId?: string, primary: boolean }[]>;
+    public readonly networkProfiles!: pulumi.Output<{ acceleratedNetworking?: boolean, dnsSettings?: { dnsServers: string[] }, ipConfigurations: { applicationGatewayBackendAddressPoolIds?: string[], applicationSecurityGroupIds?: string[], loadBalancerBackendAddressPoolIds?: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, publicIpAddressConfiguration?: { domainNameLabel: string, idleTimeout: number, name: string }, subnetId: string }[], ipForwarding?: boolean, name: string, networkSecurityGroupId?: string, primary: boolean }[]>;
     /**
      * A Virtual Machine OS Profile block as documented below.
      */
-    public readonly osProfile: pulumi.Output<{ adminPassword?: string, adminUsername: string, computerNamePrefix: string, customData?: string }>;
+    public readonly osProfile!: pulumi.Output<{ adminPassword?: string, adminUsername: string, computerNamePrefix: string, customData?: string }>;
     /**
      * A Linux config block as documented below.
      */
-    public readonly osProfileLinuxConfig: pulumi.Output<{ disablePasswordAuthentication?: boolean, sshKeys?: { keyData?: string, path: string }[] }>;
+    public readonly osProfileLinuxConfig!: pulumi.Output<{ disablePasswordAuthentication?: boolean, sshKeys?: { keyData?: string, path: string }[] }>;
     /**
      * A collection of Secret blocks as documented below.
      */
-    public readonly osProfileSecrets: pulumi.Output<{ sourceVaultId: string, vaultCertificates?: { certificateStore?: string, certificateUrl: string }[] }[] | undefined>;
+    public readonly osProfileSecrets!: pulumi.Output<{ sourceVaultId: string, vaultCertificates?: { certificateStore?: string, certificateUrl: string }[] }[] | undefined>;
     /**
      * A Windows config block as documented below.
      */
-    public readonly osProfileWindowsConfig: pulumi.Output<{ additionalUnattendConfigs?: { component: string, content: string, pass: string, settingName: string }[], enableAutomaticUpgrades?: boolean, provisionVmAgent?: boolean, winrms?: { certificateUrl?: string, protocol: string }[] } | undefined>;
+    public readonly osProfileWindowsConfig!: pulumi.Output<{ additionalUnattendConfigs?: { component: string, content: string, pass: string, settingName: string }[], enableAutomaticUpgrades?: boolean, provisionVmAgent?: boolean, winrms?: { certificateUrl?: string, protocol: string }[] } | undefined>;
     /**
      * Specifies whether the virtual machine scale set should be overprovisioned.
      */
-    public readonly overprovision: pulumi.Output<boolean | undefined>;
+    public readonly overprovision!: pulumi.Output<boolean | undefined>;
     /**
      * A plan block as documented below.
      */
-    public readonly plan: pulumi.Output<{ name: string, product: string, publisher: string } | undefined>;
+    public readonly plan!: pulumi.Output<{ name: string, product: string, publisher: string } | undefined>;
     /**
      * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
      */
-    public readonly priority: pulumi.Output<string | undefined>;
+    public readonly priority!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
      */
-    public readonly rollingUpgradePolicy: pulumi.Output<{ maxBatchInstancePercent?: number, maxUnhealthyInstancePercent?: number, maxUnhealthyUpgradedInstancePercent?: number, pauseTimeBetweenBatches?: string } | undefined>;
+    public readonly rollingUpgradePolicy!: pulumi.Output<{ maxBatchInstancePercent?: number, maxUnhealthyInstancePercent?: number, maxUnhealthyUpgradedInstancePercent?: number, pauseTimeBetweenBatches?: string } | undefined>;
     /**
      * Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
      */
-    public readonly singlePlacementGroup: pulumi.Output<boolean | undefined>;
+    public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the SKU of the image used to create the virtual machines.
      */
-    public readonly sku: pulumi.Output<{ capacity: number, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ capacity: number, name: string, tier: string }>;
     /**
      * A storage profile data disk block as documented below
      */
-    public readonly storageProfileDataDisks: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, lun: number, managedDiskType: string }[] | undefined>;
+    public readonly storageProfileDataDisks!: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, lun: number, managedDiskType: string }[] | undefined>;
     /**
      * A storage profile image reference block as documented below.
      */
-    public readonly storageProfileImageReference: pulumi.Output<{ id?: string, offer?: string, publisher?: string, sku?: string, version?: string }>;
+    public readonly storageProfileImageReference!: pulumi.Output<{ id?: string, offer?: string, publisher?: string, sku?: string, version?: string }>;
     /**
      * A storage profile os disk block as documented below
      */
-    public readonly storageProfileOsDisk: pulumi.Output<{ caching: string, createOption: string, image?: string, managedDiskType: string, name?: string, osType?: string, vhdContainers?: string[] }>;
+    public readonly storageProfileOsDisk!: pulumi.Output<{ caching: string, createOption: string, image?: string, managedDiskType: string, name?: string, osType?: string, vhdContainers?: string[] }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe.
      */
-    public readonly upgradePolicyMode: pulumi.Output<string>;
+    public readonly upgradePolicyMode!: pulumi.Output<string>;
     /**
      * A collection of availability zones to spread the Virtual Machines over.
      */
-    public readonly zones: pulumi.Output<string[] | undefined>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ScaleSet resource with the given unique name, arguments, and options.
@@ -372,7 +372,7 @@ export class ScaleSet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ScaleSetArgs | ScaleSetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ScaleSetState = argsOrState as ScaleSetState | undefined;
+            const state = argsOrState as ScaleSetState | undefined;
             inputs["automaticOsUpgrade"] = state ? state.automaticOsUpgrade : undefined;
             inputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
             inputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;

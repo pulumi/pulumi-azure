@@ -91,44 +91,44 @@ export class Plan extends pulumi.CustomResource {
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
-    public readonly appServiceEnvironmentId: pulumi.Output<string>;
+    public readonly appServiceEnvironmentId!: pulumi.Output<string>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
-    public readonly kind: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The maximum number of workers supported with the App Service Plan's sku.
      */
-    public /*out*/ readonly maximumNumberOfWorkers: pulumi.Output<number>;
+    public /*out*/ readonly maximumNumberOfWorkers!: pulumi.Output<number>;
     /**
      * Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
-    public readonly perSiteScaling: pulumi.Output<boolean>;
-    public readonly properties: pulumi.Output<{ appServiceEnvironmentId: string, perSiteScaling: boolean, reserved: boolean }>;
+    public readonly perSiteScaling!: pulumi.Output<boolean>;
+    public readonly properties!: pulumi.Output<{ appServiceEnvironmentId: string, perSiteScaling: boolean, reserved: boolean }>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */
-    public readonly reserved: pulumi.Output<boolean>;
+    public readonly reserved!: pulumi.Output<boolean>;
     /**
      * The name of the resource group in which to create the App Service Plan component.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku: pulumi.Output<{ capacity: number, size: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ capacity: number, size: string, tier: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Plan resource with the given unique name, arguments, and options.
@@ -141,7 +141,7 @@ export class Plan extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PlanArgs | PlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PlanState = argsOrState as PlanState | undefined;
+            const state = argsOrState as PlanState | undefined;
             inputs["appServiceEnvironmentId"] = state ? state.appServiceEnvironmentId : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;

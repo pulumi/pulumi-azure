@@ -59,67 +59,67 @@ export class Api extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The display name of the API.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * A `import` block as documented below.
      */
-    public readonly import: pulumi.Output<{ contentFormat: string, contentValue: string, wsdlSelector?: { endpointName: string, serviceName: string } } | undefined>;
+    public readonly import!: pulumi.Output<{ contentFormat: string, contentValue: string, wsdlSelector?: { endpointName: string, serviceName: string } } | undefined>;
     /**
      * Is this the current API Revision?
      */
-    public /*out*/ readonly isCurrent: pulumi.Output<boolean>;
+    public /*out*/ readonly isCurrent!: pulumi.Output<boolean>;
     /**
      * Is this API Revision online/accessible via the Gateway?
      */
-    public /*out*/ readonly isOnline: pulumi.Output<boolean>;
+    public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of it's resource paths within the API Management Service.
      */
-    public readonly path: pulumi.Output<string>;
+    public readonly path!: pulumi.Output<string>;
     /**
      * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
      */
-    public readonly protocols: pulumi.Output<string[]>;
+    public readonly protocols!: pulumi.Output<string[]>;
     /**
      * The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Revision which used for this API.
      */
-    public readonly revision: pulumi.Output<string>;
+    public readonly revision!: pulumi.Output<string>;
     /**
      * Absolute URL of the backend service implementing this API.
      */
-    public readonly serviceUrl: pulumi.Output<string>;
+    public readonly serviceUrl!: pulumi.Output<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      */
-    public readonly soapPassThrough: pulumi.Output<boolean | undefined>;
+    public readonly soapPassThrough!: pulumi.Output<boolean | undefined>;
     /**
      * A `subscription_key_parameter_names` block as documented below.
      */
-    public readonly subscriptionKeyParameterNames: pulumi.Output<{ header: string, query: string }>;
+    public readonly subscriptionKeyParameterNames!: pulumi.Output<{ header: string, query: string }>;
     /**
      * The Version number of this API, if this API is versioned.
      */
-    public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
     /**
      * The ID of the Version Set which this API is associated with.
      */
-    public /*out*/ readonly versionSetId: pulumi.Output<string>;
+    public /*out*/ readonly versionSetId!: pulumi.Output<string>;
 
     /**
      * Create a Api resource with the given unique name, arguments, and options.
@@ -132,7 +132,7 @@ export class Api extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiArgs | ApiState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApiState = argsOrState as ApiState | undefined;
+            const state = argsOrState as ApiState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;

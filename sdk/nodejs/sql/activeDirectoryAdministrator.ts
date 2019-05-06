@@ -51,23 +51,23 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
     /**
      * The login name of the principal to set as the server administrator
      */
-    public readonly login: pulumi.Output<string>;
+    public readonly login!: pulumi.Output<string>;
     /**
      * The ID of the principal to set as the server administrator
      */
-    public readonly objectId: pulumi.Output<string>;
+    public readonly objectId!: pulumi.Output<string>;
     /**
      * The name of the resource group for the SQL server. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * The Azure Tenant ID
      */
-    public readonly tenantId: pulumi.Output<string>;
+    public readonly tenantId!: pulumi.Output<string>;
 
     /**
      * Create a ActiveDirectoryAdministrator resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActiveDirectoryAdministratorArgs | ActiveDirectoryAdministratorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActiveDirectoryAdministratorState = argsOrState as ActiveDirectoryAdministratorState | undefined;
+            const state = argsOrState as ActiveDirectoryAdministratorState | undefined;
             inputs["login"] = state ? state.login : undefined;
             inputs["objectId"] = state ? state.objectId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

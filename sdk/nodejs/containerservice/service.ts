@@ -152,43 +152,43 @@ export class Service extends pulumi.CustomResource {
     /**
      * A Agent Pool Profile's block as documented below.
      */
-    public readonly agentPoolProfile: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, name: string, vmSize: string }>;
+    public readonly agentPoolProfile!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, name: string, vmSize: string }>;
     /**
      * A VM Diagnostics Profile block as documented below.
      */
-    public readonly diagnosticsProfile: pulumi.Output<{ enabled: boolean, storageUri: string }>;
+    public readonly diagnosticsProfile!: pulumi.Output<{ enabled: boolean, storageUri: string }>;
     /**
      * A Linux Profile block as documented below.
      */
-    public readonly linuxProfile: pulumi.Output<{ adminUsername: string, sshKey: { keyData: string } }>;
+    public readonly linuxProfile!: pulumi.Output<{ adminUsername: string, sshKey: { keyData: string } }>;
     /**
      * The location where the Container Service instance should be created. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * A Master Profile block as documented below.
      */
-    public readonly masterProfile: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string }>;
+    public readonly masterProfile!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string }>;
     /**
      * Unique name of the agent pool profile in the context of the subscription and resource group.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the Container Orchestration Platform to use. Currently can be either `DCOS`, `Kubernetes` or `Swarm`. Changing this forces a new resource to be created.
      */
-    public readonly orchestrationPlatform: pulumi.Output<string>;
+    public readonly orchestrationPlatform!: pulumi.Output<string>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A Service Principal block as documented below.
      */
-    public readonly servicePrincipal: pulumi.Output<{ clientId: string, clientSecret: string } | undefined>;
+    public readonly servicePrincipal!: pulumi.Output<{ clientId: string, clientSecret: string } | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -201,7 +201,7 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServiceState = argsOrState as ServiceState | undefined;
+            const state = argsOrState as ServiceState | undefined;
             inputs["agentPoolProfile"] = state ? state.agentPoolProfile : undefined;
             inputs["diagnosticsProfile"] = state ? state.diagnosticsProfile : undefined;
             inputs["linuxProfile"] = state ? state.linuxProfile : undefined;

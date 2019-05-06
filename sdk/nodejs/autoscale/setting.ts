@@ -257,35 +257,35 @@ export class Setting extends pulumi.CustomResource {
     /**
      * Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the AutoScale Setting. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies a `notification` block as defined below.
      */
-    public readonly notification: pulumi.Output<{ email?: { customEmails?: string[], sendToSubscriptionAdministrator?: boolean, sendToSubscriptionCoAdministrator?: boolean }, webhooks?: { properties?: {[key: string]: any}, serviceUri: string }[] } | undefined>;
+    public readonly notification!: pulumi.Output<{ email?: { customEmails?: string[], sendToSubscriptionAdministrator?: boolean, sendToSubscriptionCoAdministrator?: boolean }, webhooks?: { properties?: {[key: string]: any}, serviceUri: string }[] } | undefined>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
-    public readonly profiles: pulumi.Output<{ capacity: { default: number, maximum: number, minimum: number }, fixedDate?: { end: string, start: string, timezone?: string }, name: string, recurrence?: { days: string[], hours: number, minutes: number, timezone?: string }, rules?: { metricTrigger: { metricName: string, metricResourceId: string, operator: string, statistic: string, threshold: number, timeAggregation: string, timeGrain: string, timeWindow: string }, scaleAction: { cooldown: string, direction: string, type: string, value: number } }[] }[]>;
+    public readonly profiles!: pulumi.Output<{ capacity: { default: number, maximum: number, minimum: number }, fixedDate?: { end: string, start: string, timezone?: string }, name: string, recurrence?: { days: string[], hours: number, minutes: number, timezone?: string }, rules?: { metricTrigger: { metricName: string, metricResourceId: string, operator: string, statistic: string, threshold: number, timeAggregation: string, timeGrain: string, timeWindow: string }, scaleAction: { cooldown: string, direction: string, type: string, value: number } }[] }[]>;
     /**
      * The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the resource ID of the resource that the autoscale setting should be added to.
      */
-    public readonly targetResourceId: pulumi.Output<string>;
+    public readonly targetResourceId!: pulumi.Output<string>;
 
     /**
      * Create a Setting resource with the given unique name, arguments, and options.
@@ -298,7 +298,7 @@ export class Setting extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SettingArgs | SettingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SettingState = argsOrState as SettingState | undefined;
+            const state = argsOrState as SettingState | undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

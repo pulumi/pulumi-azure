@@ -43,47 +43,47 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The ID of the Storage Account used for Artifact Storage.
      */
-    public /*out*/ readonly artifactsStorageAccountId: pulumi.Output<string>;
+    public /*out*/ readonly artifactsStorageAccountId!: pulumi.Output<string>;
     /**
      * The ID of the Default Premium Storage Account for this Dev Test Lab.
      */
-    public /*out*/ readonly defaultPremiumStorageAccountId: pulumi.Output<string>;
+    public /*out*/ readonly defaultPremiumStorageAccountId!: pulumi.Output<string>;
     /**
      * The ID of the Default Storage Account for this Dev Test Lab.
      */
-    public /*out*/ readonly defaultStorageAccountId: pulumi.Output<string>;
+    public /*out*/ readonly defaultStorageAccountId!: pulumi.Output<string>;
     /**
      * The ID of the Key used for this Dev Test Lab.
      */
-    public /*out*/ readonly keyVaultId: pulumi.Output<string>;
+    public /*out*/ readonly keyVaultId!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the Dev Test Lab should exist. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Lab. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the Storage Account used for Storage of Premium Data Disk.
      */
-    public /*out*/ readonly premiumDataDiskStorageAccountId: pulumi.Output<string>;
+    public /*out*/ readonly premiumDataDiskStorageAccountId!: pulumi.Output<string>;
     /**
      * The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
      */
-    public readonly storageType: pulumi.Output<string | undefined>;
+    public readonly storageType!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The unique immutable identifier of the Dev Test Lab.
      */
-    public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ export class Lab extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LabArgs | LabState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LabState = argsOrState as LabState | undefined;
+            const state = argsOrState as LabState | undefined;
             inputs["artifactsStorageAccountId"] = state ? state.artifactsStorageAccountId : undefined;
             inputs["defaultPremiumStorageAccountId"] = state ? state.defaultPremiumStorageAccountId : undefined;
             inputs["defaultStorageAccountId"] = state ? state.defaultStorageAccountId : undefined;

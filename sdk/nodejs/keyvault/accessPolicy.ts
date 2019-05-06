@@ -27,52 +27,52 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The object ID of an Application in Azure Active Directory.
      */
-    public readonly applicationId: pulumi.Output<string | undefined>;
+    public readonly applicationId!: pulumi.Output<string | undefined>;
     /**
      * List of certificate permissions, must be one or more from
      * the following: `backup`, `create`, `delete`, `deleteissuers`, `get`, `getissuers`, `import`, `list`, `listissuers`,
      * `managecontacts`, `manageissuers`, `purge`, `recover`, `restore`, `setissuers` and `update`.
      */
-    public readonly certificatePermissions: pulumi.Output<string[] | undefined>;
+    public readonly certificatePermissions!: pulumi.Output<string[] | undefined>;
     /**
      * List of key permissions, must be one or more from
      * the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
-    public readonly keyPermissions: pulumi.Output<string[] | undefined>;
-    public readonly keyVaultId: pulumi.Output<string>;
+    public readonly keyPermissions!: pulumi.Output<string[] | undefined>;
+    public readonly keyVaultId!: pulumi.Output<string>;
     /**
      * The object ID of a user, service principal or security
      * group in the Azure Active Directory tenant for the vault. The object ID must
      * be unique for the list of access policies. Changing this forces a new resource
      * to be created.
      */
-    public readonly objectId: pulumi.Output<string>;
+    public readonly objectId!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the namespace. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * List of secret permissions, must be one or more
      * from the following: `backup`, `delete`, `get`, `list`, `purge`, `recover`, `restore` and `set`.
      */
-    public readonly secretPermissions: pulumi.Output<string[] | undefined>;
+    public readonly secretPermissions!: pulumi.Output<string[] | undefined>;
     /**
      * List of storage permissions, must be one or more from the following: `backup`, `delete`, `deletesas`, `get`, `getsas`, `list`, `listsas`, `purge`, `recover`, `regeneratekey`, `restore`, `set`, `setsas` and `update`.
      */
-    public readonly storagePermissions: pulumi.Output<string[] | undefined>;
+    public readonly storagePermissions!: pulumi.Output<string[] | undefined>;
     /**
      * The Azure Active Directory tenant ID that should be used
      * for authenticating requests to the key vault. Changing this forces a new resource
      * to be created.
      */
-    public readonly tenantId: pulumi.Output<string>;
+    public readonly tenantId!: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault resource. Changing this
      * forces a new resource to be created.
      */
-    public readonly vaultName: pulumi.Output<string>;
+    public readonly vaultName!: pulumi.Output<string>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class AccessPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccessPolicyArgs | AccessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccessPolicyState = argsOrState as AccessPolicyState | undefined;
+            const state = argsOrState as AccessPolicyState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["certificatePermissions"] = state ? state.certificatePermissions : undefined;
             inputs["keyPermissions"] = state ? state.keyPermissions : undefined;

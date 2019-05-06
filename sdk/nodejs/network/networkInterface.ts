@@ -60,64 +60,64 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
      */
-    public readonly appliedDnsServers: pulumi.Output<string[]>;
+    public readonly appliedDnsServers!: pulumi.Output<string[]>;
     /**
      * List of DNS servers IP addresses to use for this NIC, overrides the VNet-level server list
      */
-    public readonly dnsServers: pulumi.Output<string[]>;
+    public readonly dnsServers!: pulumi.Output<string[]>;
     /**
      * Enables Azure Accelerated Networking using SR-IOV. Only certain VM instance sizes are supported. Refer to [Create a Virtual Machine with Accelerated Networking](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli). Defaults to `false`.
      */
-    public readonly enableAcceleratedNetworking: pulumi.Output<boolean | undefined>;
+    public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
     /**
      * Enables IP Forwarding on the NIC. Defaults to `false`.
      */
-    public readonly enableIpForwarding: pulumi.Output<boolean | undefined>;
+    public readonly enableIpForwarding!: pulumi.Output<boolean | undefined>;
     /**
      * Relative DNS name for this NIC used for internal communications between VMs in the same VNet
      */
-    public readonly internalDnsNameLabel: pulumi.Output<string>;
-    public readonly internalFqdn: pulumi.Output<string>;
+    public readonly internalDnsNameLabel!: pulumi.Output<string>;
+    public readonly internalFqdn!: pulumi.Output<string>;
     /**
      * One or more `ip_configuration` associated with this NIC as documented below.
      */
-    public readonly ipConfigurations: pulumi.Output<{ applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress?: string, privateIpAddressAllocation: string, privateIpAddressVersion?: string, publicIpAddressId?: string, subnetId?: string }[]>;
+    public readonly ipConfigurations!: pulumi.Output<{ applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress?: string, privateIpAddressAllocation: string, privateIpAddressVersion?: string, publicIpAddressId?: string, subnetId?: string }[]>;
     /**
      * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The media access control (MAC) address of the network interface.
      */
-    public readonly macAddress: pulumi.Output<string>;
+    public readonly macAddress!: pulumi.Output<string>;
     /**
      * The name of the network interface. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the Network Security Group to associate with the network interface.
      */
-    public readonly networkSecurityGroupId: pulumi.Output<string | undefined>;
+    public readonly networkSecurityGroupId!: pulumi.Output<string | undefined>;
     /**
      * The first private IP address of the network interface.
      */
-    public /*out*/ readonly privateIpAddress: pulumi.Output<string>;
+    public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
     /**
      * The private IP addresses of the network interface.
      */
-    public /*out*/ readonly privateIpAddresses: pulumi.Output<string[]>;
+    public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
      * The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Reference to a VM with which this NIC has been associated.
      */
-    public readonly virtualMachineId: pulumi.Output<string>;
+    public readonly virtualMachineId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -130,7 +130,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceState = argsOrState as NetworkInterfaceState | undefined;
+            const state = argsOrState as NetworkInterfaceState | undefined;
             inputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
             inputs["dnsServers"] = state ? state.dnsServers : undefined;
             inputs["enableAcceleratedNetworking"] = state ? state.enableAcceleratedNetworking : undefined;

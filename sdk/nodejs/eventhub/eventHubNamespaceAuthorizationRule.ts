@@ -53,44 +53,44 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
-    public readonly listen: pulumi.Output<boolean | undefined>;
-    public readonly location: pulumi.Output<string>;
+    public readonly listen!: pulumi.Output<boolean | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    public readonly manage: pulumi.Output<boolean | undefined>;
+    public readonly manage!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * The Primary Connection String for the Authorization Rule.
      */
-    public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
      * The Primary Key for the Authorization Rule.
      */
-    public /*out*/ readonly primaryKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the Authorization Rule.
      */
-    public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * The Secondary Key for the Authorization Rule.
      */
-    public /*out*/ readonly secondaryKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
      * Grants send access to this this Authorization Rule. Defaults to `false`.
      */
-    public readonly send: pulumi.Output<boolean | undefined>;
+    public readonly send!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a EventHubNamespaceAuthorizationRule resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubNamespaceAuthorizationRuleArgs | EventHubNamespaceAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubNamespaceAuthorizationRuleState = argsOrState as EventHubNamespaceAuthorizationRuleState | undefined;
+            const state = argsOrState as EventHubNamespaceAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["manage"] = state ? state.manage : undefined;

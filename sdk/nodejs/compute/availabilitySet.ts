@@ -43,31 +43,31 @@ export class AvailabilitySet extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
      */
-    public readonly managed: pulumi.Output<boolean | undefined>;
+    public readonly managed!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the availability set. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the number of fault domains that are used. Defaults to 3.
      */
-    public readonly platformFaultDomainCount: pulumi.Output<number | undefined>;
+    public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
     /**
      * Specifies the number of update domains that are used. Defaults to 5.
      */
-    public readonly platformUpdateDomainCount: pulumi.Output<number | undefined>;
+    public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a AvailabilitySet resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AvailabilitySetArgs | AvailabilitySetState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AvailabilitySetState = argsOrState as AvailabilitySetState | undefined;
+            const state = argsOrState as AvailabilitySetState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managed"] = state ? state.managed : undefined;
             inputs["name"] = state ? state.name : undefined;

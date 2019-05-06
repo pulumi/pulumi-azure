@@ -56,59 +56,59 @@ export class Blob extends pulumi.CustomResource {
     /**
      * The number of attempts to make per page or block when uploading. Defaults to `1`.
      */
-    public readonly attempts: pulumi.Output<number | undefined>;
+    public readonly attempts!: pulumi.Output<number | undefined>;
     /**
      * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
      */
-    public readonly contentType: pulumi.Output<string | undefined>;
+    public readonly contentType!: pulumi.Output<string | undefined>;
     /**
      * A map of custom blob metadata.
      */
-    public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
      */
-    public readonly parallelism: pulumi.Output<number | undefined>;
+    public readonly parallelism!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which to
      * create the storage container. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
      */
-    public readonly size: pulumi.Output<number | undefined>;
+    public readonly size!: pulumi.Output<number | undefined>;
     /**
      * An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
      */
-    public readonly source: pulumi.Output<string | undefined>;
+    public readonly source!: pulumi.Output<string | undefined>;
     /**
      * The URI of an existing blob, or a file in the Azure File service, to use as the source contents
      * for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
      */
-    public readonly sourceUri: pulumi.Output<string | undefined>;
+    public readonly sourceUri!: pulumi.Output<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage container.
      * Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName: pulumi.Output<string>;
+    public readonly storageAccountName!: pulumi.Output<string>;
     /**
      * The name of the storage container in which this blob should be created.
      */
-    public readonly storageContainerName: pulumi.Output<string>;
+    public readonly storageContainerName!: pulumi.Output<string>;
     /**
      * The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
      * this becomes required.
      */
-    public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
     /**
      * The URL of the blob
      */
-    public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Blob resource with the given unique name, arguments, and options.
@@ -121,7 +121,7 @@ export class Blob extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BlobArgs | BlobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BlobState = argsOrState as BlobState | undefined;
+            const state = argsOrState as BlobState | undefined;
             inputs["attempts"] = state ? state.attempts : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;

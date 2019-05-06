@@ -46,27 +46,27 @@ export class PtrRecord extends pulumi.CustomResource {
     /**
      * The name of the DNS PTR Record.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * List of Fully Qualified Domain Names.
      */
-    public readonly records: pulumi.Output<string[]>;
+    public readonly records!: pulumi.Output<string[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    public readonly ttl: pulumi.Output<number>;
+    public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly zoneName: pulumi.Output<string>;
+    public readonly zoneName!: pulumi.Output<string>;
 
     /**
      * Create a PtrRecord resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ export class PtrRecord extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PtrRecordArgs | PtrRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PtrRecordState = argsOrState as PtrRecordState | undefined;
+            const state = argsOrState as PtrRecordState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

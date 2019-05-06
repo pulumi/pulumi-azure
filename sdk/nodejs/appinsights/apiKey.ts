@@ -80,24 +80,24 @@ export class ApiKey extends pulumi.CustomResource {
     /**
      * The API Key secret (Sensitive).
      */
-    public /*out*/ readonly apiKey: pulumi.Output<string>;
+    public /*out*/ readonly apiKey!: pulumi.Output<string>;
     /**
      * The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created.
      */
-    public readonly applicationInsightsId: pulumi.Output<string>;
+    public readonly applicationInsightsId!: pulumi.Output<string>;
     /**
      * Specifies the name of the Application Insights API key. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. 
      */
-    public readonly readPermissions: pulumi.Output<string[] | undefined>;
+    public readonly readPermissions!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created.
      */
-    public readonly writePermissions: pulumi.Output<string[] | undefined>;
+    public readonly writePermissions!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -110,7 +110,7 @@ export class ApiKey extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApiKeyState = argsOrState as ApiKeyState | undefined;
+            const state = argsOrState as ApiKeyState | undefined;
             inputs["apiKey"] = state ? state.apiKey : undefined;
             inputs["applicationInsightsId"] = state ? state.applicationInsightsId : undefined;
             inputs["name"] = state ? state.name : undefined;

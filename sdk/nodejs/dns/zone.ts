@@ -45,39 +45,39 @@ export class Zone extends pulumi.CustomResource {
     /**
      * (Optional) Maximum number of Records in the zone. Defaults to `1000`.
      */
-    public /*out*/ readonly maxNumberOfRecordSets: pulumi.Output<number>;
+    public /*out*/ readonly maxNumberOfRecordSets!: pulumi.Output<number>;
     /**
      * The name of the DNS Zone. Must be a valid domain name.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * (Optional) A list of values that make up the NS record for the zone.
      */
-    public /*out*/ readonly nameServers: pulumi.Output<string[]>;
+    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
     /**
      * (Optional) The number of records already in the zone.
      */
-    public /*out*/ readonly numberOfRecordSets: pulumi.Output<number>;
+    public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
     /**
      * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
      */
-    public readonly registrationVirtualNetworkIds: pulumi.Output<string[] | undefined>;
+    public readonly registrationVirtualNetworkIds!: pulumi.Output<string[] | undefined>;
     /**
      * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
      */
-    public readonly resolutionVirtualNetworkIds: pulumi.Output<string[] | undefined>;
+    public readonly resolutionVirtualNetworkIds!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the type of this DNS zone. Possible values are `Public` or `Private` (Defaults to `Public`).
      */
-    public readonly zoneType: pulumi.Output<string | undefined>;
+    public readonly zoneType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ export class Zone extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ZoneState = argsOrState as ZoneState | undefined;
+            const state = argsOrState as ZoneState | undefined;
             inputs["maxNumberOfRecordSets"] = state ? state.maxNumberOfRecordSets : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;

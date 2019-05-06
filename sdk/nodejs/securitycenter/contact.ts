@@ -39,19 +39,19 @@ export class Contact extends pulumi.CustomResource {
     /**
      * Whether to send security alerts notifications to the security contact.
      */
-    public readonly alertNotifications: pulumi.Output<boolean>;
+    public readonly alertNotifications!: pulumi.Output<boolean>;
     /**
      * Whether to send security alerts notifications to subscription admins.
      */
-    public readonly alertsToAdmins: pulumi.Output<boolean>;
+    public readonly alertsToAdmins!: pulumi.Output<boolean>;
     /**
      * The email of the Security Center Contact.
      */
-    public readonly email: pulumi.Output<string>;
+    public readonly email!: pulumi.Output<string>;
     /**
      * The phone number of the Security Center Contact.
      */
-    public readonly phone: pulumi.Output<string>;
+    public readonly phone!: pulumi.Output<string>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -64,7 +64,7 @@ export class Contact extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ContactArgs | ContactState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ContactState = argsOrState as ContactState | undefined;
+            const state = argsOrState as ContactState | undefined;
             inputs["alertNotifications"] = state ? state.alertNotifications : undefined;
             inputs["alertsToAdmins"] = state ? state.alertsToAdmins : undefined;
             inputs["email"] = state ? state.email : undefined;

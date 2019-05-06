@@ -57,47 +57,47 @@ export class Server extends pulumi.CustomResource {
     /**
      * The Administrator Login for the MariaDB Server. Changing this forces a new resource to be created.
      */
-    public readonly administratorLogin: pulumi.Output<string>;
+    public readonly administratorLogin!: pulumi.Output<string>;
     /**
      * The Password associated with the `administrator_login` for the MariaDB Server.
      */
-    public readonly administratorLoginPassword: pulumi.Output<string>;
+    public readonly administratorLoginPassword!: pulumi.Output<string>;
     /**
      * The FQDN of the MariaDB Server.
      */
-    public /*out*/ readonly fqdn: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the MariaDB Server. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku: pulumi.Output<{ capacity: number, family: string, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ capacity: number, family: string, name: string, tier: string }>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
      */
-    public readonly sslEnforcement: pulumi.Output<string>;
+    public readonly sslEnforcement!: pulumi.Output<string>;
     /**
      * A `storage_profile` block as defined below.
      */
-    public readonly storageProfile: pulumi.Output<{ backupRetentionDays?: number, geoRedundantBackup?: string, storageMb: number }>;
+    public readonly storageProfile!: pulumi.Output<{ backupRetentionDays?: number, geoRedundantBackup?: string, storageMb: number }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
      */
-    public readonly version: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -110,7 +110,7 @@ export class Server extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServerArgs | ServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServerState = argsOrState as ServerState | undefined;
+            const state = argsOrState as ServerState | undefined;
             inputs["administratorLogin"] = state ? state.administratorLogin : undefined;
             inputs["administratorLoginPassword"] = state ? state.administratorLoginPassword : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;

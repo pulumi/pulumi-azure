@@ -81,61 +81,61 @@ export class ManagedDisk extends pulumi.CustomResource {
     /**
      * The method to use when creating the managed disk. Possible values include:
      */
-    public readonly createOption: pulumi.Output<string>;
+    public readonly createOption!: pulumi.Output<string>;
     /**
      * Specifies the size of the managed disk to create in gigabytes.
      * If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
      */
-    public readonly diskSizeGb: pulumi.Output<number>;
+    public readonly diskSizeGb!: pulumi.Output<number>;
     /**
      * an `encryption_settings` block as defined below.
      */
-    public readonly encryptionSettings: pulumi.Output<{ diskEncryptionKey?: { secretUrl: string, sourceVaultId: string }, enabled: boolean, keyEncryptionKey?: { keyUrl: string, sourceVaultId: string } } | undefined>;
+    public readonly encryptionSettings!: pulumi.Output<{ diskEncryptionKey?: { secretUrl: string, sourceVaultId: string }, enabled: boolean, keyEncryptionKey?: { keyUrl: string, sourceVaultId: string } } | undefined>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
      */
-    public readonly imageReferenceId: pulumi.Output<string | undefined>;
+    public readonly imageReferenceId!: pulumi.Output<string | undefined>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the managed disk. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specify a value when the source of an `Import` or `Copy`
      * operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
      */
-    public readonly osType: pulumi.Output<string | undefined>;
+    public readonly osType!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create
      * the managed disk.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * ID of an existing managed disk to copy when `create_option` is `Copy`.
      */
-    public readonly sourceResourceId: pulumi.Output<string | undefined>;
+    public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
      * URI to a valid VHD file to be used when `create_option` is `Import`.
      */
-    public readonly sourceUri: pulumi.Output<string>;
+    public readonly sourceUri!: pulumi.Output<string>;
     /**
      * The type of storage to use for the managed disk.
      * Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
      */
-    public readonly storageAccountType: pulumi.Output<string>;
+    public readonly storageAccountType!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * A collection containing the availability zone to allocate the Managed Disk in.
      */
-    public readonly zones: pulumi.Output<string | undefined>;
+    public readonly zones!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedDisk resource with the given unique name, arguments, and options.
@@ -148,7 +148,7 @@ export class ManagedDisk extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ManagedDiskArgs | ManagedDiskState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ManagedDiskState = argsOrState as ManagedDiskState | undefined;
+            const state = argsOrState as ManagedDiskState | undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
             inputs["diskSizeGb"] = state ? state.diskSizeGb : undefined;
             inputs["encryptionSettings"] = state ? state.encryptionSettings : undefined;

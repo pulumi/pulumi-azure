@@ -80,28 +80,28 @@ export class Secret extends pulumi.CustomResource {
     /**
      * Specifies the content type for the Key Vault Secret.
      */
-    public readonly contentType: pulumi.Output<string | undefined>;
+    public readonly contentType!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Key Vault where the Secret should be created.
      */
-    public readonly keyVaultId: pulumi.Output<string>;
+    public readonly keyVaultId!: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the value of the Key Vault Secret.
      */
-    public readonly value: pulumi.Output<string>;
-    public readonly vaultUri: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
+    public readonly vaultUri!: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Secret.
      */
-    public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Secret resource with the given unique name, arguments, and options.
@@ -114,7 +114,7 @@ export class Secret extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SecretArgs | SecretState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SecretState = argsOrState as SecretState | undefined;
+            const state = argsOrState as SecretState | undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["keyVaultId"] = state ? state.keyVaultId : undefined;
             inputs["name"] = state ? state.name : undefined;

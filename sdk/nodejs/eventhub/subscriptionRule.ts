@@ -112,39 +112,39 @@ export class SubscriptionRule extends pulumi.CustomResource {
     /**
      * Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
      */
-    public readonly action: pulumi.Output<string | undefined>;
+    public readonly action!: pulumi.Output<string | undefined>;
     /**
      * A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
      */
-    public readonly correlationFilter: pulumi.Output<{ contentType?: string, correlationId?: string, label?: string, messageId?: string, replyTo?: string, replyToSessionId?: string, sessionId?: string, to?: string } | undefined>;
+    public readonly correlationFilter!: pulumi.Output<{ contentType?: string, correlationId?: string, label?: string, messageId?: string, replyTo?: string, replyToSessionId?: string, sessionId?: string, to?: string } | undefined>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */
-    public readonly filterType: pulumi.Output<string>;
+    public readonly filterType!: pulumi.Output<string>;
     /**
      * Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the ServiceBus Namespace in which the ServiceBus Topic exists. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
      */
-    public readonly sqlFilter: pulumi.Output<string | undefined>;
+    public readonly sqlFilter!: pulumi.Output<string | undefined>;
     /**
      * The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      */
-    public readonly subscriptionName: pulumi.Output<string>;
+    public readonly subscriptionName!: pulumi.Output<string>;
     /**
      * The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
      */
-    public readonly topicName: pulumi.Output<string>;
+    public readonly topicName!: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionRule resource with the given unique name, arguments, and options.
@@ -157,7 +157,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubscriptionRuleArgs | SubscriptionRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubscriptionRuleState = argsOrState as SubscriptionRuleState | undefined;
+            const state = argsOrState as SubscriptionRuleState | undefined;
             inputs["action"] = state ? state.action : undefined;
             inputs["correlationFilter"] = state ? state.correlationFilter : undefined;
             inputs["filterType"] = state ? state.filterType : undefined;

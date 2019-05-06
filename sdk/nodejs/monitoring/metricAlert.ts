@@ -72,51 +72,51 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * One or more `action` blocks as defined below.
      */
-    public readonly actions: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;
+    public readonly actions!: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      */
-    public readonly autoMitigate: pulumi.Output<boolean | undefined>;
+    public readonly autoMitigate!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `criteria` blocks as defined below.
      */
-    public readonly criterias: pulumi.Output<{ aggregation: string, dimensions?: { name: string, operator: string, values: string[] }[], metricName: string, metricNamespace: string, operator: string, threshold: number }[]>;
+    public readonly criterias!: pulumi.Output<{ aggregation: string, dimensions?: { name: string, operator: string, values: string[] }[], metricName: string, metricNamespace: string, operator: string, threshold: number }[]>;
     /**
      * The description of this Metric Alert.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Should this Metric Alert be enabled? Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`.
      */
-    public readonly frequency: pulumi.Output<string | undefined>;
+    public readonly frequency!: pulumi.Output<string | undefined>;
     /**
      * The name of the Metric Alert. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Metric Alert instance.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The resource ID at which the metric criteria should be applied.
      */
-    public readonly scopes: pulumi.Output<string>;
+    public readonly scopes!: pulumi.Output<string>;
     /**
      * The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
      */
-    public readonly severity: pulumi.Output<number | undefined>;
+    public readonly severity!: pulumi.Output<number | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`.
      */
-    public readonly windowSize: pulumi.Output<string | undefined>;
+    public readonly windowSize!: pulumi.Output<string | undefined>;
 
     /**
      * Create a MetricAlert resource with the given unique name, arguments, and options.
@@ -129,7 +129,7 @@ export class MetricAlert extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MetricAlertArgs | MetricAlertState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MetricAlertState = argsOrState as MetricAlertState | undefined;
+            const state = argsOrState as MetricAlertState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["autoMitigate"] = state ? state.autoMitigate : undefined;
             inputs["criterias"] = state ? state.criterias : undefined;
