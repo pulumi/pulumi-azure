@@ -77,36 +77,36 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * A description to use for this Policy Assignment. Changing this forces a new resource to be created.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A friendly display name to use for this Policy Assignment. Changing this forces a new resource to be created.
      */
-    public readonly displayName: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * An `identity` block.
      */
-    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type?: string }>;
+    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type?: string }>;
     /**
      * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Policy Assignment. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
      */
-    public readonly notScopes: pulumi.Output<string[] | undefined>;
+    public readonly notScopes!: pulumi.Output<string[] | undefined>;
     /**
      * Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
      */
-    public readonly parameters: pulumi.Output<string | undefined>;
+    public readonly parameters!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Policy Definition to be applied at the specified Scope.
      */
-    public readonly policyDefinitionId: pulumi.Output<string>;
-    public readonly scope: pulumi.Output<string>;
+    public readonly policyDefinitionId!: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -119,7 +119,7 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssignmentState = argsOrState as AssignmentState | undefined;
+            const state = argsOrState as AssignmentState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["identity"] = state ? state.identity : undefined;

@@ -17,19 +17,19 @@ export class ZipBlob extends pulumi.CustomResource {
         return new ZipBlob(name, <any>state, { ...opts, id: id });
     }
 
-    public readonly attempts: pulumi.Output<number | undefined>;
-    public readonly contentType: pulumi.Output<string | undefined>;
-    public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly name: pulumi.Output<string>;
-    public readonly parallelism: pulumi.Output<number | undefined>;
-    public readonly resourceGroupName: pulumi.Output<string>;
-    public readonly size: pulumi.Output<number | undefined>;
-    public readonly content: pulumi.Output<pulumi.asset.Archive | undefined>;
-    public readonly sourceUri: pulumi.Output<string | undefined>;
-    public readonly storageAccountName: pulumi.Output<string>;
-    public readonly storageContainerName: pulumi.Output<string>;
-    public readonly type: pulumi.Output<string | undefined>;
-    public /*out*/ readonly url: pulumi.Output<string>;
+    public readonly attempts!: pulumi.Output<number | undefined>;
+    public readonly contentType!: pulumi.Output<string | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly parallelism!: pulumi.Output<number | undefined>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly size!: pulumi.Output<number | undefined>;
+    public readonly content!: pulumi.Output<pulumi.asset.Archive | undefined>;
+    public readonly sourceUri!: pulumi.Output<string | undefined>;
+    public readonly storageAccountName!: pulumi.Output<string>;
+    public readonly storageContainerName!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a ZipBlob resource with the given unique name, arguments, and options.
@@ -42,7 +42,7 @@ export class ZipBlob extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ZipBlobArgs | ZipBlobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ZipBlobState = argsOrState as ZipBlobState | undefined;
+            const state = argsOrState as ZipBlobState | undefined;
             inputs["attempts"] = state ? state.attempts : undefined;
             inputs["contentType"] = state ? state.contentType : undefined;
             inputs["metadata"] = state ? state.metadata : undefined;

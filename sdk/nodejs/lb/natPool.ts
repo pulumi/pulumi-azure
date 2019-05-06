@@ -62,37 +62,37 @@ export class NatPool extends pulumi.CustomResource {
     /**
      * The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
      */
-    public readonly backendPort: pulumi.Output<number>;
-    public /*out*/ readonly frontendIpConfigurationId: pulumi.Output<string>;
+    public readonly backendPort!: pulumi.Output<number>;
+    public /*out*/ readonly frontendIpConfigurationId!: pulumi.Output<string>;
     /**
      * The name of the frontend IP configuration exposing this rule.
      */
-    public readonly frontendIpConfigurationName: pulumi.Output<string>;
+    public readonly frontendIpConfigurationName!: pulumi.Output<string>;
     /**
      * The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    public readonly frontendPortEnd: pulumi.Output<number>;
+    public readonly frontendPortEnd!: pulumi.Output<number>;
     /**
      * The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with this Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    public readonly frontendPortStart: pulumi.Output<number>;
+    public readonly frontendPortStart!: pulumi.Output<number>;
     /**
      * The ID of the Load Balancer in which to create the NAT pool.
      */
-    public readonly loadbalancerId: pulumi.Output<string>;
-    public readonly location: pulumi.Output<string>;
+    public readonly loadbalancerId!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the NAT pool.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the resource.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a NatPool resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ export class NatPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NatPoolArgs | NatPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NatPoolState = argsOrState as NatPoolState | undefined;
+            const state = argsOrState as NatPoolState | undefined;
             inputs["backendPort"] = state ? state.backendPort : undefined;
             inputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
             inputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;

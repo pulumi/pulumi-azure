@@ -56,23 +56,23 @@ export class ProtectedVM extends pulumi.CustomResource {
     /**
      * Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
      */
-    public readonly backupPolicyId: pulumi.Output<string>;
+    public readonly backupPolicyId!: pulumi.Output<string>;
     /**
      * Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
      */
-    public readonly recoveryVaultName: pulumi.Output<string>;
+    public readonly recoveryVaultName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the ID of the VM to backup. Changing this forces a new resource to be created.
      */
-    public readonly sourceVmId: pulumi.Output<string>;
+    public readonly sourceVmId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a ProtectedVM resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class ProtectedVM extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProtectedVMArgs | ProtectedVMState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProtectedVMState = argsOrState as ProtectedVMState | undefined;
+            const state = argsOrState as ProtectedVMState | undefined;
             inputs["backupPolicyId"] = state ? state.backupPolicyId : undefined;
             inputs["recoveryVaultName"] = state ? state.recoveryVaultName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

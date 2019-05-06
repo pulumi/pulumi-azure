@@ -54,19 +54,19 @@ export class ConsumerGroup extends pulumi.CustomResource {
     /**
      * The name of the Event Hub-compatible endpoint in the IoT hub. Changing this forces a new resource to be created.
      */
-    public readonly eventhubEndpointName: pulumi.Output<string>;
+    public readonly eventhubEndpointName!: pulumi.Output<string>;
     /**
      * The name of the IoT Hub. Changing this forces a new resource to be created.
      */
-    public readonly iothubName: pulumi.Output<string>;
+    public readonly iothubName!: pulumi.Output<string>;
     /**
      * The name of this Consumer Group. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a ConsumerGroup resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConsumerGroupArgs | ConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConsumerGroupState = argsOrState as ConsumerGroupState | undefined;
+            const state = argsOrState as ConsumerGroupState | undefined;
             inputs["eventhubEndpointName"] = state ? state.eventhubEndpointName : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
             inputs["name"] = state ? state.name : undefined;

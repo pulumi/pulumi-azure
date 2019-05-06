@@ -62,23 +62,23 @@ export class Database extends pulumi.CustomResource {
     /**
      * Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
      */
-    public readonly charset: pulumi.Output<string>;
+    public readonly charset!: pulumi.Output<string>;
     /**
      * Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL Collation](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). Changing this forces a new resource to be created.
      */
-    public readonly collation: pulumi.Output<string>;
+    public readonly collation!: pulumi.Output<string>;
     /**
      * Specifies the name of the MySQL Database, which needs [to be a valid MySQL identifier](https://dev.mysql.com/doc/refman/5.7/en/identifiers.html). Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DatabaseState = argsOrState as DatabaseState | undefined;
+            const state = argsOrState as DatabaseState | undefined;
             inputs["charset"] = state ? state.charset : undefined;
             inputs["collation"] = state ? state.collation : undefined;
             inputs["name"] = state ? state.name : undefined;

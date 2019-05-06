@@ -52,81 +52,81 @@ export class Database extends pulumi.CustomResource {
     /**
      * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
-    public readonly collation: pulumi.Output<string>;
+    public readonly collation!: pulumi.Output<string>;
     /**
      * Specifies the type of database to create. Defaults to `Default`. See below for the accepted values/
      */
-    public readonly createMode: pulumi.Output<string | undefined>;
+    public readonly createMode!: pulumi.Output<string | undefined>;
     /**
      * The creation date of the SQL Database.
      */
-    public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The default secondary location of the SQL Database.
      */
-    public /*out*/ readonly defaultSecondaryLocation: pulumi.Output<string>;
+    public /*out*/ readonly defaultSecondaryLocation!: pulumi.Output<string>;
     /**
      * The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, or `DataWarehouse`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
-    public readonly edition: pulumi.Output<string>;
+    public readonly edition!: pulumi.Output<string>;
     /**
      * The name of the elastic database pool.
      */
-    public readonly elasticPoolName: pulumi.Output<string>;
-    public /*out*/ readonly encryption: pulumi.Output<string>;
+    public readonly elasticPoolName!: pulumi.Output<string>;
+    public /*out*/ readonly encryption!: pulumi.Output<string>;
     /**
      * A Database Import block as documented below. `create_mode` must be set to `Default`.
      */
-    public readonly import: pulumi.Output<{ administratorLogin: string, administratorLoginPassword: string, authenticationType: string, operationMode?: string, storageKey: string, storageKeyType: string, storageUri: string } | undefined>;
+    public readonly import!: pulumi.Output<{ administratorLogin: string, administratorLoginPassword: string, authenticationType: string, operationMode?: string, storageKey: string, storageKeyType: string, storageUri: string } | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
-    public readonly maxSizeBytes: pulumi.Output<string>;
+    public readonly maxSizeBytes!: pulumi.Output<string>;
     /**
      * The name of the database.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
      * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
-    public readonly requestedServiceObjectiveId: pulumi.Output<string>;
+    public readonly requestedServiceObjectiveId!: pulumi.Output<string>;
     /**
      * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
-    public readonly requestedServiceObjectiveName: pulumi.Output<string>;
+    public readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
      */
-    public readonly restorePointInTime: pulumi.Output<string>;
+    public readonly restorePointInTime!: pulumi.Output<string>;
     /**
      * The name of the SQL Server on which to create the database.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
      */
-    public readonly sourceDatabaseDeletionDate: pulumi.Output<string>;
+    public readonly sourceDatabaseDeletionDate!: pulumi.Output<string>;
     /**
      * The URI of the source database if `create_mode` value is not `Default`.
      */
-    public readonly sourceDatabaseId: pulumi.Output<string>;
+    public readonly sourceDatabaseId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
      */
-    public readonly threatDetectionPolicy: pulumi.Output<{ disabledAlerts?: string[], emailAccountAdmins?: string, emailAddresses?: string[], retentionDays?: number, state?: string, storageAccountAccessKey?: string, storageEndpoint?: string, useServerDefault?: string }>;
+    public readonly threatDetectionPolicy!: pulumi.Output<{ disabledAlerts?: string[], emailAccountAdmins?: string, emailAddresses?: string[], retentionDays?: number, state?: string, storageAccountAccessKey?: string, storageEndpoint?: string, useServerDefault?: string }>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -139,7 +139,7 @@ export class Database extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatabaseArgs | DatabaseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DatabaseState = argsOrState as DatabaseState | undefined;
+            const state = argsOrState as DatabaseState | undefined;
             inputs["collation"] = state ? state.collation : undefined;
             inputs["createMode"] = state ? state.createMode : undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;

@@ -50,47 +50,47 @@ export class ApiOperation extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiName: pulumi.Output<string>;
+    public readonly apiName!: pulumi.Output<string>;
     /**
      * A description for this API Operation, which may include HTML formatting tags.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Display Name for this API Management Operation.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values.
      */
-    public readonly method: pulumi.Output<string>;
+    public readonly method!: pulumi.Output<string>;
     /**
      * A unique identifier for this API Operation. Changing this forces a new resource to be created.
      */
-    public readonly operationId: pulumi.Output<string>;
+    public readonly operationId!: pulumi.Output<string>;
     /**
      * A `request` block as defined below.
      */
-    public readonly request: pulumi.Output<{ description?: string, headers?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], queryParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], representations?: { contentType: string, formParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], sample?: string, schemaId?: string, typeName?: string }[] }>;
+    public readonly request!: pulumi.Output<{ description?: string, headers?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], queryParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], representations?: { contentType: string, formParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], sample?: string, schemaId?: string, typeName?: string }[] }>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * One or more `response` blocks as defined below.
      */
-    public readonly responses: pulumi.Output<{ description?: string, headers?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], representations?: { contentType: string, formParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], sample?: string, schemaId?: string, typeName?: string }[], statusCode: number }[] | undefined>;
+    public readonly responses!: pulumi.Output<{ description?: string, headers?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], representations?: { contentType: string, formParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], sample?: string, schemaId?: string, typeName?: string }[], statusCode: number }[] | undefined>;
     /**
      * One or more `template_parameter` blocks as defined below.
      */
-    public readonly templateParameters: pulumi.Output<{ defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[] | undefined>;
+    public readonly templateParameters!: pulumi.Output<{ defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[] | undefined>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */
-    public readonly urlTemplate: pulumi.Output<string>;
+    public readonly urlTemplate!: pulumi.Output<string>;
 
     /**
      * Create a ApiOperation resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ export class ApiOperation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApiOperationArgs | ApiOperationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApiOperationState = argsOrState as ApiOperationState | undefined;
+            const state = argsOrState as ApiOperationState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["apiName"] = state ? state.apiName : undefined;
             inputs["description"] = state ? state.description : undefined;

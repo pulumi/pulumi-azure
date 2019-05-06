@@ -52,15 +52,15 @@ export class TriggerCustom extends pulumi.CustomResource {
     /**
      * Specifies the JSON Blob defining the Body of this Custom Trigger.
      */
-    public readonly body: pulumi.Output<string>;
+    public readonly body!: pulumi.Output<string>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId: pulumi.Output<string>;
+    public readonly logicAppId!: pulumi.Output<string>;
     /**
      * Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a TriggerCustom resource with the given unique name, arguments, and options.
@@ -73,7 +73,7 @@ export class TriggerCustom extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TriggerCustomArgs | TriggerCustomState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TriggerCustomState = argsOrState as TriggerCustomState | undefined;
+            const state = argsOrState as TriggerCustomState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["name"] = state ? state.name : undefined;

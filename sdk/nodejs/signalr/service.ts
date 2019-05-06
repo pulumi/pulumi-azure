@@ -44,55 +44,55 @@ export class Service extends pulumi.CustomResource {
     /**
      * The FQDN of the SignalR service.
      */
-    public /*out*/ readonly hostname: pulumi.Output<string>;
+    public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
      * The publicly accessible IP of the SignalR service.
      */
-    public /*out*/ readonly ipAddress: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the SignalR service. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The primary access key for the SignalR service.
      */
-    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
      * The primary connection string for the SignalR service.
      */
-    public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
      * The publicly accessible port of the SignalR service which is designed for browser/client use.
      */
-    public /*out*/ readonly publicPort: pulumi.Output<number>;
+    public /*out*/ readonly publicPort!: pulumi.Output<number>;
     /**
      * The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The secondary access key for the SignalR service.
      */
-    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * The secondary connection string for the SignalR service.
      */
-    public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * The publicly accessible port of the SignalR service which is designed for customer server side use.
      */
-    public /*out*/ readonly serverPort: pulumi.Output<number>;
+    public /*out*/ readonly serverPort!: pulumi.Output<number>;
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku: pulumi.Output<{ capacity: number, name: string }>;
+    public readonly sku!: pulumi.Output<{ capacity: number, name: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServiceState = argsOrState as ServiceState | undefined;
+            const state = argsOrState as ServiceState | undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["ipAddress"] = state ? state.ipAddress : undefined;
             inputs["location"] = state ? state.location : undefined;

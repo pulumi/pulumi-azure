@@ -53,33 +53,33 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The display name of this Subscription.
      */
-    public readonly displayName: pulumi.Output<string>;
-    public readonly primaryKey: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
+    public readonly primaryKey!: pulumi.Output<string>;
     /**
      * The ID of the Product which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    public readonly productId: pulumi.Output<string>;
+    public readonly productId!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
-    public readonly secondaryKey: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly secondaryKey!: pulumi.Output<string>;
     /**
      * The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
      */
-    public readonly state: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
      */
-    public readonly subscriptionId: pulumi.Output<string>;
+    public readonly subscriptionId!: pulumi.Output<string>;
     /**
      * The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
      */
-    public readonly userId: pulumi.Output<string>;
+    public readonly userId!: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class Subscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubscriptionArgs | SubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubscriptionState = argsOrState as SubscriptionState | undefined;
+            const state = argsOrState as SubscriptionState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["primaryKey"] = state ? state.primaryKey : undefined;

@@ -53,55 +53,55 @@ export class Schedule extends pulumi.CustomResource {
         return new Schedule(name, <any>state, { ...opts, id: id });
     }
 
-    public readonly accountName: pulumi.Output<string>;
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName: pulumi.Output<string>;
+    public readonly automationAccountName!: pulumi.Output<string>;
     /**
      * A description for this Schedule.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The end time of the schedule.
      */
-    public readonly expiryTime: pulumi.Output<string>;
+    public readonly expiryTime!: pulumi.Output<string>;
     /**
      * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
      */
-    public readonly frequency: pulumi.Output<string>;
+    public readonly frequency!: pulumi.Output<string>;
     /**
      * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
      */
-    public readonly interval: pulumi.Output<number>;
+    public readonly interval!: pulumi.Output<number>;
     /**
      * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
      */
-    public readonly monthDays: pulumi.Output<number[] | undefined>;
+    public readonly monthDays!: pulumi.Output<number[] | undefined>;
     /**
      * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
      */
-    public readonly monthlyOccurrences: pulumi.Output<{ day: string, occurrence: number }[] | undefined>;
+    public readonly monthlyOccurrences!: pulumi.Output<{ day: string, occurrence: number }[] | undefined>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
      */
-    public readonly startTime: pulumi.Output<string>;
+    public readonly startTime!: pulumi.Output<string>;
     /**
      * The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
      */
-    public readonly timezone: pulumi.Output<string | undefined>;
+    public readonly timezone!: pulumi.Output<string | undefined>;
     /**
      * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
      */
-    public readonly weekDays: pulumi.Output<string[] | undefined>;
+    public readonly weekDays!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -114,7 +114,7 @@ export class Schedule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ScheduleArgs | ScheduleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ScheduleState = argsOrState as ScheduleState | undefined;
+            const state = argsOrState as ScheduleState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["description"] = state ? state.description : undefined;

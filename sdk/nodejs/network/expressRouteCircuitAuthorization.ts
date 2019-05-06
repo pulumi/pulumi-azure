@@ -56,25 +56,25 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**
      * The Authorization Key.
      */
-    public /*out*/ readonly authorizationKey: pulumi.Output<string>;
+    public /*out*/ readonly authorizationKey!: pulumi.Output<string>;
     /**
      * The authorization use status.
      */
-    public /*out*/ readonly authorizationUseStatus: pulumi.Output<string>;
+    public /*out*/ readonly authorizationUseStatus!: pulumi.Output<string>;
     /**
      * The name of the Express Route Circuit in which to create the Authorization.
      */
-    public readonly expressRouteCircuitName: pulumi.Output<string>;
+    public readonly expressRouteCircuitName!: pulumi.Output<string>;
     /**
      * The name of the ExpressRoute circuit. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the ExpressRoute circuit. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a ExpressRouteCircuitAuthorization resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ExpressRouteCircuitAuthorizationArgs | ExpressRouteCircuitAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ExpressRouteCircuitAuthorizationState = argsOrState as ExpressRouteCircuitAuthorizationState | undefined;
+            const state = argsOrState as ExpressRouteCircuitAuthorizationState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             inputs["authorizationUseStatus"] = state ? state.authorizationUseStatus : undefined;
             inputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;

@@ -71,75 +71,75 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**
      * Can this Virtual Machine be claimed by users? Defaults to `true`.
      */
-    public readonly allowClaim: pulumi.Output<boolean | undefined>;
+    public readonly allowClaim!: pulumi.Output<boolean | undefined>;
     /**
      * Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
      */
-    public readonly disallowPublicIpAddress: pulumi.Output<boolean | undefined>;
+    public readonly disallowPublicIpAddress!: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN of the Virtual Machine.
      */
-    public /*out*/ readonly fqdn: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * A `gallery_image_reference` block as defined below.
      */
-    public readonly galleryImageReference: pulumi.Output<{ offer: string, publisher: string, sku: string, version: string }>;
+    public readonly galleryImageReference!: pulumi.Output<{ offer: string, publisher: string, sku: string, version: string }>;
     /**
      * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly inboundNatRules: pulumi.Output<{ backendPort: number, frontendPort: number, protocol: string }[] | undefined>;
+    public readonly inboundNatRules!: pulumi.Output<{ backendPort: number, frontendPort: number, protocol: string }[] | undefined>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
      */
-    public readonly labName: pulumi.Output<string>;
+    public readonly labName!: pulumi.Output<string>;
     /**
      * The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
      */
-    public readonly labSubnetName: pulumi.Output<string>;
+    public readonly labSubnetName!: pulumi.Output<string>;
     /**
      * The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
      */
-    public readonly labVirtualNetworkId: pulumi.Output<string>;
+    public readonly labVirtualNetworkId!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Machine. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Any notes about the Virtual Machine.
      */
-    public readonly notes: pulumi.Output<string | undefined>;
+    public readonly notes!: pulumi.Output<string | undefined>;
     /**
      * The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly password: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
      */
-    public readonly size: pulumi.Output<string>;
+    public readonly size!: pulumi.Output<string>;
     /**
      * The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`.
      */
-    public readonly storageType: pulumi.Output<string>;
+    public readonly storageType!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The unique immutable identifier of the Virtual Machine.
      */
-    public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
     /**
      * The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly username: pulumi.Output<string>;
+    public readonly username!: pulumi.Output<string>;
 
     /**
      * Create a WindowsVirtualMachine resource with the given unique name, arguments, and options.
@@ -152,7 +152,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WindowsVirtualMachineArgs | WindowsVirtualMachineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WindowsVirtualMachineState = argsOrState as WindowsVirtualMachineState | undefined;
+            const state = argsOrState as WindowsVirtualMachineState | undefined;
             inputs["allowClaim"] = state ? state.allowClaim : undefined;
             inputs["disallowPublicIpAddress"] = state ? state.disallowPublicIpAddress : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;

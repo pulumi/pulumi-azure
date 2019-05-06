@@ -58,37 +58,37 @@ export class Probe extends pulumi.CustomResource {
     /**
      * The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
      */
-    public readonly intervalInSeconds: pulumi.Output<number | undefined>;
-    public /*out*/ readonly loadBalancerRules: pulumi.Output<string[]>;
+    public readonly intervalInSeconds!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly loadBalancerRules!: pulumi.Output<string[]>;
     /**
      * The ID of the LoadBalancer in which to create the NAT Rule.
      */
-    public readonly loadbalancerId: pulumi.Output<string>;
-    public readonly location: pulumi.Output<string>;
+    public readonly loadbalancerId!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Probe.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The number of failed probe attempts after which the backend endpoint is removed from rotation. The default value is 2. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful.
      */
-    public readonly numberOfProbes: pulumi.Output<number | undefined>;
+    public readonly numberOfProbes!: pulumi.Output<number | undefined>;
     /**
      * Port on which the Probe queries the backend endpoint. Possible values range from 1 to 65535, inclusive.
      */
-    public readonly port: pulumi.Output<number>;
+    public readonly port!: pulumi.Output<number>;
     /**
      * Specifies the protocol of the end point. Possible values are `Http`, `Https` or `Tcp`. If Tcp is specified, a received ACK is required for the probe to be successful. If Http is specified, a 200 OK response from the specified URI is required for the probe to be successful.
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * The URI used for requesting health status from the backend endpoint. Required if protocol is set to Http. Otherwise, it is not allowed.
      */
-    public readonly requestPath: pulumi.Output<string | undefined>;
+    public readonly requestPath!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the resource.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a Probe resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ export class Probe extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProbeArgs | ProbeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProbeState = argsOrState as ProbeState | undefined;
+            const state = argsOrState as ProbeState | undefined;
             inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;
             inputs["loadBalancerRules"] = state ? state.loadBalancerRules : undefined;
             inputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;

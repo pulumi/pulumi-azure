@@ -51,23 +51,23 @@ export class ServicePrincipalPassword extends pulumi.CustomResource {
     /**
      * The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
      */
-    public readonly endDate: pulumi.Output<string>;
+    public readonly endDate!: pulumi.Output<string>;
     /**
      * A GUID used to uniquely identify this Key. If not specified a GUID will be created. Changing this field forces a new resource to be created.
      */
-    public readonly keyId: pulumi.Output<string>;
+    public readonly keyId!: pulumi.Output<string>;
     /**
      * The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
      */
-    public readonly servicePrincipalId: pulumi.Output<string>;
+    public readonly servicePrincipalId!: pulumi.Output<string>;
     /**
      * The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
      */
-    public readonly startDate: pulumi.Output<string>;
+    public readonly startDate!: pulumi.Output<string>;
     /**
      * The Password for this Service Principal.
      */
-    public readonly value: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a ServicePrincipalPassword resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class ServicePrincipalPassword extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServicePrincipalPasswordArgs | ServicePrincipalPasswordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServicePrincipalPasswordState = argsOrState as ServicePrincipalPasswordState | undefined;
+            const state = argsOrState as ServicePrincipalPasswordState | undefined;
             inputs["endDate"] = state ? state.endDate : undefined;
             inputs["keyId"] = state ? state.keyId : undefined;
             inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;

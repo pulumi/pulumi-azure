@@ -43,35 +43,35 @@ export class EventGridDomain extends pulumi.CustomResource {
     /**
      * The Endpoint associated with the EventGrid Domain.
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * A `input_mapping_default_values` block as defined below.
      */
-    public readonly inputMappingDefaultValues: pulumi.Output<{ dataVersion?: string, eventType?: string, subject?: string } | undefined>;
+    public readonly inputMappingDefaultValues!: pulumi.Output<{ dataVersion?: string, eventType?: string, subject?: string } | undefined>;
     /**
      * A `input_mapping_fields` block as defined below.
      */
-    public readonly inputMappingFields: pulumi.Output<{ dataVersion?: string, eventTime?: string, eventType?: string, id?: string, subject?: string, topic?: string } | undefined>;
+    public readonly inputMappingFields!: pulumi.Output<{ dataVersion?: string, eventTime?: string, eventType?: string, id?: string, subject?: string, topic?: string } | undefined>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
-    public readonly inputSchema: pulumi.Output<string | undefined>;
+    public readonly inputSchema!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a EventGridDomain resource with the given unique name, arguments, and options.
@@ -84,7 +84,7 @@ export class EventGridDomain extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventGridDomainArgs | EventGridDomainState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventGridDomainState = argsOrState as EventGridDomainState | undefined;
+            const state = argsOrState as EventGridDomainState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["inputMappingDefaultValues"] = state ? state.inputMappingDefaultValues : undefined;
             inputs["inputMappingFields"] = state ? state.inputMappingFields : undefined;

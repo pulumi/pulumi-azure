@@ -51,19 +51,19 @@ export class ProductGroup extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly groupName: pulumi.Output<string>;
+    public readonly groupName!: pulumi.Output<string>;
     /**
      * The ID of the API Management Product within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly productId: pulumi.Output<string>;
+    public readonly productId!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a ProductGroup resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class ProductGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProductGroupArgs | ProductGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProductGroupState = argsOrState as ProductGroupState | undefined;
+            const state = argsOrState as ProductGroupState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["groupName"] = state ? state.groupName : undefined;
             inputs["productId"] = state ? state.productId : undefined;

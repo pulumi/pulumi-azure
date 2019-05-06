@@ -178,47 +178,47 @@ export class Job extends pulumi.CustomResource {
     /**
      * A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
      */
-    public readonly actionStorageQueue: pulumi.Output<{ message: string, sasToken: string, storageAccountName: string, storageQueueName: string } | undefined>;
+    public readonly actionStorageQueue!: pulumi.Output<{ message: string, sasToken: string, storageAccountName: string, storageQueueName: string } | undefined>;
     /**
      * A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
      */
-    public readonly actionWeb: pulumi.Output<{ authenticationActiveDirectory?: { audience: string, clientId: string, secret: string, tenantId: string }, authenticationBasic?: { password: string, username: string }, authenticationCertificate?: { expiration: string, password: string, pfx: string, subjectName: string, thumbprint: string }, body?: string, headers?: {[key: string]: any}, method: string, url: string } | undefined>;
+    public readonly actionWeb!: pulumi.Output<{ authenticationActiveDirectory?: { audience: string, clientId: string, secret: string, tenantId: string }, authenticationBasic?: { password: string, username: string }, authenticationCertificate?: { expiration: string, password: string, pfx: string, subjectName: string, thumbprint: string }, body?: string, headers?: {[key: string]: any}, method: string, url: string } | undefined>;
     /**
      * A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
      */
-    public readonly errorActionStorageQueue: pulumi.Output<{ message: string, sasToken: string, storageAccountName: string, storageQueueName: string } | undefined>;
+    public readonly errorActionStorageQueue!: pulumi.Output<{ message: string, sasToken: string, storageAccountName: string, storageQueueName: string } | undefined>;
     /**
      * A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
      */
-    public readonly errorActionWeb: pulumi.Output<{ authenticationActiveDirectory?: { audience: string, clientId: string, secret: string, tenantId: string }, authenticationBasic?: { password: string, username: string }, authenticationCertificate?: { expiration: string, password: string, pfx: string, subjectName: string, thumbprint: string }, body?: string, headers?: {[key: string]: any}, method: string, url: string } | undefined>;
+    public readonly errorActionWeb!: pulumi.Output<{ authenticationActiveDirectory?: { audience: string, clientId: string, secret: string, tenantId: string }, authenticationBasic?: { password: string, username: string }, authenticationCertificate?: { expiration: string, password: string, pfx: string, subjectName: string, thumbprint: string }, body?: string, headers?: {[key: string]: any}, method: string, url: string } | undefined>;
     /**
      * Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
      */
-    public readonly jobCollectionName: pulumi.Output<string>;
+    public readonly jobCollectionName!: pulumi.Output<string>;
     /**
      * The name of the Scheduler Job. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A `recurrence` block defining a job occurrence schedule.
      */
-    public readonly recurrence: pulumi.Output<{ count?: number, endTime: string, frequency: string, hours?: number[], interval?: number, minutes?: number[], monthDays?: number[], monthlyOccurrences?: { day: string, occurrence: number }[], weekDays?: string[] } | undefined>;
+    public readonly recurrence!: pulumi.Output<{ count?: number, endTime: string, frequency: string, hours?: number[], interval?: number, minutes?: number[], monthDays?: number[], monthlyOccurrences?: { day: string, occurrence: number }[], weekDays?: string[] } | undefined>;
     /**
      * The name of the resource group in which to create the Scheduler Job. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `retry` block defining how to retry as described below.
      */
-    public readonly retry: pulumi.Output<{ count?: number, interval?: string } | undefined>;
+    public readonly retry!: pulumi.Output<{ count?: number, interval?: string } | undefined>;
     /**
      * The time the first instance of the job is to start running at.
      */
-    public readonly startTime: pulumi.Output<string>;
+    public readonly startTime!: pulumi.Output<string>;
     /**
      * The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
      */
-    public readonly state: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<string>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -231,7 +231,7 @@ export class Job extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: JobState = argsOrState as JobState | undefined;
+            const state = argsOrState as JobState | undefined;
             inputs["actionStorageQueue"] = state ? state.actionStorageQueue : undefined;
             inputs["actionWeb"] = state ? state.actionWeb : undefined;
             inputs["errorActionStorageQueue"] = state ? state.errorActionStorageQueue : undefined;

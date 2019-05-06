@@ -54,31 +54,31 @@ export class Group extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which the API Management Group should exist. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The description of this API Management Group.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The display name of this API Management Group.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The identifier of the external Group. For example, an Azure Active Directory group `aad://<tenant>.onmicrosoft.com/groups/<group object id>`.
      */
-    public readonly externalId: pulumi.Output<string | undefined>;
+    public readonly externalId!: pulumi.Output<string | undefined>;
     /**
      * The name of the API Management Group. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Group should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The type of this API Management Group. Possible values are `custom` and `external`. Default is `custom`.
      */
-    public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupState = argsOrState as GroupState | undefined;
+            const state = argsOrState as GroupState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;

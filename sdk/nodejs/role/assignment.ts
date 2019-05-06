@@ -90,23 +90,23 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the Principal (User or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
      */
-    public readonly principalId: pulumi.Output<string>;
+    public readonly principalId!: pulumi.Output<string>;
     /**
      * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
      */
-    public readonly roleDefinitionId: pulumi.Output<string>;
+    public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
      * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
      */
-    public readonly roleDefinitionName: pulumi.Output<string>;
+    public readonly roleDefinitionName!: pulumi.Output<string>;
     /**
      * The scope at which the Role Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
      */
-    public readonly scope: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -119,7 +119,7 @@ export class Assignment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AssignmentArgs | AssignmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AssignmentState = argsOrState as AssignmentState | undefined;
+            const state = argsOrState as AssignmentState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
             inputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;

@@ -89,59 +89,59 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
      */
-    public readonly aggregation: pulumi.Output<string>;
+    public readonly aggregation!: pulumi.Output<string>;
     /**
      * A verbose description of the alert rule that will be included in the alert email.
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * A `email_action` block as defined below.
      */
-    public readonly emailAction: pulumi.Output<{ customEmails: string[], sendToServiceOwners: boolean }>;
+    public readonly emailAction!: pulumi.Output<{ customEmails: string[], sendToServiceOwners: boolean }>;
     /**
      * If `true`, the alert rule is enabled. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The metric that defines what the rule monitors.
      */
-    public readonly metricName: pulumi.Output<string>;
+    public readonly metricName!: pulumi.Output<string>;
     /**
      * Specifies the name of the alert rule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The operator used to compare the metric data and the threshold. Possible values are `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, and `LessThanOrEqual`.
      */
-    public readonly operator: pulumi.Output<string>;
+    public readonly operator!: pulumi.Output<string>;
     /**
      * The period of time formatted in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations) that is used to monitor the alert activity based on the threshold. The period must be between 5 minutes and 1 day.
      */
-    public readonly period: pulumi.Output<string>;
+    public readonly period!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the alert rule. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The ID of the resource monitored by the alert rule.
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The threshold value that activates the alert.
      */
-    public readonly threshold: pulumi.Output<number>;
+    public readonly threshold!: pulumi.Output<number>;
     /**
      * A `webhook_action` block as defined below.
      */
-    public readonly webhookAction: pulumi.Output<{ properties: {[key: string]: string}, serviceUri: string }>;
+    public readonly webhookAction!: pulumi.Output<{ properties: {[key: string]: string}, serviceUri: string }>;
 
     /**
      * Create a AlertRule resource with the given unique name, arguments, and options.
@@ -154,7 +154,7 @@ export class AlertRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AlertRuleArgs | AlertRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AlertRuleState = argsOrState as AlertRuleState | undefined;
+            const state = argsOrState as AlertRuleState | undefined;
             inputs["aggregation"] = state ? state.aggregation : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["emailAction"] = state ? state.emailAction : undefined;

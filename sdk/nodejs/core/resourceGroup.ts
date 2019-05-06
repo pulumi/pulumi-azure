@@ -39,16 +39,16 @@ export class ResourceGroup extends pulumi.CustomResource {
      * The location where the resource group should be created.
      * For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the resource group. Must be unique on your
      * Azure subscription.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a ResourceGroup resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceGroupArgs | ResourceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ResourceGroupState = argsOrState as ResourceGroupState | undefined;
+            const state = argsOrState as ResourceGroupState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;

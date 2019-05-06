@@ -54,31 +54,31 @@ export class Property extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The display name of this API Management Property.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The name of the API Management Property. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Property should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
      */
-    public readonly secret: pulumi.Output<boolean | undefined>;
+    public readonly secret!: pulumi.Output<boolean | undefined>;
     /**
      * A list of tags to be applied to the API Management Property.
      */
-    public readonly tags: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<string[] | undefined>;
     /**
      * The value of this API Management Property.
      */
-    public readonly value: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a Property resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class Property extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PropertyArgs | PropertyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PropertyState = argsOrState as PropertyState | undefined;
+            const state = argsOrState as PropertyState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -86,51 +86,51 @@ export class SparkCluster extends pulumi.CustomResource {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clusterVersion: pulumi.Output<string>;
+    public readonly clusterVersion!: pulumi.Output<string>;
     /**
      * A `component_version` block as defined below.
      */
-    public readonly componentVersion: pulumi.Output<{ spark: string }>;
+    public readonly componentVersion!: pulumi.Output<{ spark: string }>;
     /**
      * A `gateway` block as defined below.
      */
-    public readonly gateway: pulumi.Output<{ enabled: boolean, password: string, username: string }>;
+    public readonly gateway!: pulumi.Output<{ enabled: boolean, password: string, username: string }>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
      */
-    public /*out*/ readonly httpsEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly httpsEndpoint!: pulumi.Output<string>;
     /**
      * Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `roles` block as defined below.
      */
-    public readonly roles: pulumi.Output<{ headNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string }, workerNode: { minInstanceCount?: number, password?: string, sshKeys?: string[], subnetId?: string, targetInstanceCount: number, username: string, virtualNetworkId?: string, vmSize: string }, zookeeperNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string } }>;
+    public readonly roles!: pulumi.Output<{ headNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string }, workerNode: { minInstanceCount?: number, password?: string, sshKeys?: string[], subnetId?: string, targetInstanceCount: number, username: string, virtualNetworkId?: string, vmSize: string }, zookeeperNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string } }>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
      */
-    public /*out*/ readonly sshEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly sshEndpoint!: pulumi.Output<string>;
     /**
      * One or more `storage_account` block as defined below.
      */
-    public readonly storageAccounts: pulumi.Output<{ isDefault: boolean, storageAccountKey: string, storageContainerId: string }[]>;
+    public readonly storageAccounts!: pulumi.Output<{ isDefault: boolean, storageAccountKey: string, storageContainerId: string }[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Spark Cluster.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    public readonly tier: pulumi.Output<string>;
+    public readonly tier!: pulumi.Output<string>;
 
     /**
      * Create a SparkCluster resource with the given unique name, arguments, and options.
@@ -143,7 +143,7 @@ export class SparkCluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SparkClusterArgs | SparkClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SparkClusterState = argsOrState as SparkClusterState | undefined;
+            const state = argsOrState as SparkClusterState | undefined;
             inputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             inputs["componentVersion"] = state ? state.componentVersion : undefined;
             inputs["gateway"] = state ? state.gateway : undefined;

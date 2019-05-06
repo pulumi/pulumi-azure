@@ -43,36 +43,36 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      * The list of string CIDRs representing the
      * address spaces the gateway exposes.
      */
-    public readonly addressSpaces: pulumi.Output<string[]>;
+    public readonly addressSpaces!: pulumi.Output<string[]>;
     /**
      * A `bgp_settings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.
      */
-    public readonly bgpSettings: pulumi.Output<{ asn: number, bgpPeeringAddress: string, peerWeight: number } | undefined>;
+    public readonly bgpSettings!: pulumi.Output<{ asn: number, bgpPeeringAddress: string, peerWeight: number } | undefined>;
     /**
      * The IP address of the gateway to which to
      * connect.
      */
-    public readonly gatewayAddress: pulumi.Output<string>;
+    public readonly gatewayAddress!: pulumi.Output<string>;
     /**
      * The location/region where the local network gateway is
      * created. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the local network gateway. Changing this
      * forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the local network gateway.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a LocalNetworkGateway resource with the given unique name, arguments, and options.
@@ -85,7 +85,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LocalNetworkGatewayArgs | LocalNetworkGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LocalNetworkGatewayState = argsOrState as LocalNetworkGatewayState | undefined;
+            const state = argsOrState as LocalNetworkGatewayState | undefined;
             inputs["addressSpaces"] = state ? state.addressSpaces : undefined;
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             inputs["gatewayAddress"] = state ? state.gatewayAddress : undefined;

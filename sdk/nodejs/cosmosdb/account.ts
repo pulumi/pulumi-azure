@@ -64,92 +64,92 @@ export class Account extends pulumi.CustomResource {
     /**
      * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
-    public readonly capabilities: pulumi.Output<{ name: string }[] | undefined>;
+    public readonly capabilities!: pulumi.Output<{ name: string }[] | undefined>;
     /**
      * A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
      */
-    public /*out*/ readonly connectionStrings: pulumi.Output<string[]>;
+    public /*out*/ readonly connectionStrings!: pulumi.Output<string[]>;
     /**
      * Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
      */
-    public readonly consistencyPolicy: pulumi.Output<{ consistencyLevel: string, maxIntervalInSeconds?: number, maxStalenessPrefix?: number }>;
+    public readonly consistencyPolicy!: pulumi.Output<{ consistencyLevel: string, maxIntervalInSeconds?: number, maxStalenessPrefix?: number }>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
-    public readonly enableAutomaticFailover: pulumi.Output<boolean | undefined>;
+    public readonly enableAutomaticFailover!: pulumi.Output<boolean | undefined>;
     /**
      * Enable multi-master support for this Cosmos DB account.
      */
-    public readonly enableMultipleWriteLocations: pulumi.Output<boolean | undefined>;
+    public readonly enableMultipleWriteLocations!: pulumi.Output<boolean | undefined>;
     /**
      * The endpoint used to connect to the CosmosDB account.
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
-    public readonly failoverPolicies: pulumi.Output<{ id: string, location: string, priority: number }[] | undefined>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    public readonly failoverPolicies!: pulumi.Output<{ id: string, location: string, priority: number }[] | undefined>;
     /**
      * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
      */
-    public readonly geoLocations: pulumi.Output<{ failoverPriority: number, id: string, location: string, prefix?: string }[]>;
+    public readonly geoLocations!: pulumi.Output<{ failoverPriority: number, id: string, location: string, prefix?: string }[]>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
-    public readonly ipRangeFilter: pulumi.Output<string | undefined>;
+    public readonly ipRangeFilter!: pulumi.Output<string | undefined>;
     /**
      * Enables virtual network filtering for this Cosmos DB account.
      */
-    public readonly isVirtualNetworkFilterEnabled: pulumi.Output<boolean | undefined>;
+    public readonly isVirtualNetworkFilterEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Kind of CosmosDB to create - possible values are `GlobalDocumentDB` and `MongoDB`. Defaults to `GlobalDocumentDB`. Changing this forces a new resource to be created.
      */
-    public readonly kind: pulumi.Output<string | undefined>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The name of the Azure region to host replicated data.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The capability to enable - Possible values are `EnableTable`, `EnableCassandra`, and `EnableGremlin`.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the Offer Type to use for this CosmosDB Account - currently this can only be set to `Standard`.
      */
-    public readonly offerType: pulumi.Output<string>;
+    public readonly offerType!: pulumi.Output<string>;
     /**
      * The Primary master key for the CosmosDB Account.
      */
-    public /*out*/ readonly primaryMasterKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryMasterKey!: pulumi.Output<string>;
     /**
      * The Primary read-only master Key for the CosmosDB Account.
      */
-    public /*out*/ readonly primaryReadonlyMasterKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryReadonlyMasterKey!: pulumi.Output<string>;
     /**
      * A list of read endpoints available for this CosmosDB account.
      */
-    public /*out*/ readonly readEndpoints: pulumi.Output<string[]>;
+    public /*out*/ readonly readEndpoints!: pulumi.Output<string[]>;
     /**
      * The name of the resource group in which the CosmosDB Account is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary master key for the CosmosDB Account.
      */
-    public /*out*/ readonly secondaryMasterKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryMasterKey!: pulumi.Output<string>;
     /**
      * The Secondary read-only master key for the CosmosDB Account.
      */
-    public /*out*/ readonly secondaryReadonlyMasterKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryReadonlyMasterKey!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
-    public readonly virtualNetworkRules: pulumi.Output<{ id: string }[] | undefined>;
+    public readonly virtualNetworkRules!: pulumi.Output<{ id: string }[] | undefined>;
     /**
      * A list of write endpoints available for this CosmosDB account.
      */
-    public /*out*/ readonly writeEndpoints: pulumi.Output<string[]>;
+    public /*out*/ readonly writeEndpoints!: pulumi.Output<string[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -162,7 +162,7 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountState = argsOrState as AccountState | undefined;
+            const state = argsOrState as AccountState | undefined;
             inputs["capabilities"] = state ? state.capabilities : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["consistencyPolicy"] = state ? state.consistencyPolicy : undefined;

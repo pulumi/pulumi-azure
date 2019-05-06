@@ -58,31 +58,31 @@ export class LinkedService extends pulumi.CustomResource {
     /**
      * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
      */
-    public readonly linkedServiceName: pulumi.Output<string | undefined>;
+    public readonly linkedServiceName!: pulumi.Output<string | undefined>;
     /**
      * A `linked_service_properties` block as defined below.
      */
-    public readonly linkedServiceProperties: pulumi.Output<{ resourceId: string }[]>;
+    public readonly linkedServiceProperties!: pulumi.Output<{ resourceId: string }[]>;
     /**
      * The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
      */
-    public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
      */
-    public readonly resourceId: pulumi.Output<string>;
+    public readonly resourceId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
      */
-    public readonly workspaceName: pulumi.Output<string>;
+    public readonly workspaceName!: pulumi.Output<string>;
 
     /**
      * Create a LinkedService resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class LinkedService extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LinkedServiceArgs | LinkedServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LinkedServiceState = argsOrState as LinkedServiceState | undefined;
+            const state = argsOrState as LinkedServiceState | undefined;
             inputs["linkedServiceName"] = state ? state.linkedServiceName : undefined;
             inputs["linkedServiceProperties"] = state ? state.linkedServiceProperties : undefined;
             inputs["name"] = state ? state.name : undefined;

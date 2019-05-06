@@ -51,84 +51,84 @@ export class Queue extends pulumi.CustomResource {
      * The ISO 8601 timespan duration of the idle interval after which the
      * Queue is automatically deleted, minimum of 5 minutes.
      */
-    public readonly autoDeleteOnIdle: pulumi.Output<string>;
+    public readonly autoDeleteOnIdle!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
      */
-    public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
+    public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
     /**
      * The ISO 8601 timespan duration of the TTL of messages sent to this
      * queue. This is the default value used when TTL is not set on message itself.
      */
-    public readonly defaultMessageTtl: pulumi.Output<string>;
+    public readonly defaultMessageTtl!: pulumi.Output<string>;
     /**
      * The ISO 8601 timespan duration during which
      * duplicates can be detected. Default value is 10 minutes. (`PT10M`)
      */
-    public readonly duplicateDetectionHistoryTimeWindow: pulumi.Output<string>;
-    public readonly enableBatchedOperations: pulumi.Output<boolean | undefined>;
+    public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string>;
+    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether Express Entities
      * are enabled. An express queue holds a message in memory temporarily before writing
      * it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST
      * be set to `false`.
      */
-    public readonly enableExpress: pulumi.Output<boolean | undefined>;
+    public readonly enableExpress!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether to enable
      * the queue to be partitioned across multiple message brokers. Changing this forces
      * a new resource to be created. Defaults to `false` for Basic and Standard. For Premium, it MUST
      * be set to `true`.
      */
-    public readonly enablePartitioning: pulumi.Output<boolean | undefined>;
+    public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. Maximum value is 5 minutes. Defaults to 1 minute. (`PT1M`)
      */
-    public readonly lockDuration: pulumi.Output<string>;
+    public readonly lockDuration!: pulumi.Output<string>;
     /**
      * Integer value which controls when a message is automatically deadlettered. Defaults to `10`.
      */
-    public readonly maxDeliveryCount: pulumi.Output<number | undefined>;
+    public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
     /**
      * Integer value which controls the size of
      * memory allocated for the queue. For supported values see the "Queue/topic size"
      * section of [this document](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quotas).
      */
-    public readonly maxSizeInMegabytes: pulumi.Output<number>;
+    public readonly maxSizeInMegabytes!: pulumi.Output<number>;
     /**
      * Specifies the name of the ServiceBus Queue resource. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the ServiceBus Namespace to create
      * this queue in. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether
      * the Queue requires duplicate detection. Changing this forces
      * a new resource to be created. Defaults to `false`.
      */
-    public readonly requiresDuplicateDetection: pulumi.Output<boolean | undefined>;
+    public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether the Queue requires sessions.
      * This will allow ordered handling of unbounded sequences of related messages. With sessions enabled
      * a queue can guarantee first-in-first-out delivery of messages.
      * Changing this forces a new resource to be created. Defaults to `false`.
      */
-    public readonly requiresSession: pulumi.Output<boolean | undefined>;
+    public readonly requiresSession!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to
      * create the namespace. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
-    public readonly supportOrdering: pulumi.Output<boolean | undefined>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
+    public readonly supportOrdering!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -141,7 +141,7 @@ export class Queue extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueueState = argsOrState as QueueState | undefined;
+            const state = argsOrState as QueueState | undefined;
             inputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
             inputs["deadLetteringOnMessageExpiration"] = state ? state.deadLetteringOnMessageExpiration : undefined;
             inputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;

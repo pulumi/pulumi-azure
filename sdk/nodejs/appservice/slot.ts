@@ -140,59 +140,59 @@ export class Slot extends pulumi.CustomResource {
     /**
      * The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
      */
-    public readonly appServiceName: pulumi.Output<string>;
+    public readonly appServiceName!: pulumi.Output<string>;
     /**
      * The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
      */
-    public readonly appServicePlanId: pulumi.Output<string>;
+    public readonly appServicePlanId!: pulumi.Output<string>;
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings: pulumi.Output<{[key: string]: any}>;
+    public readonly appSettings!: pulumi.Output<{[key: string]: any}>;
     /**
      * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    public readonly clientAffinityEnabled: pulumi.Output<boolean>;
+    public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
     /**
      * An `connection_string` block as defined below.
      */
-    public readonly connectionStrings: pulumi.Output<{ name: string, type: string, value: string }[]>;
+    public readonly connectionStrings!: pulumi.Output<{ name: string, type: string, value: string }[]>;
     /**
      * The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
      */
-    public /*out*/ readonly defaultSiteHostname: pulumi.Output<string>;
+    public /*out*/ readonly defaultSiteHostname!: pulumi.Output<string>;
     /**
      * Is the App Service Slot Enabled?
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
      */
-    public readonly httpsOnly: pulumi.Output<boolean | undefined>;
+    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
      * A Managed Service Identity block as defined below.
      */
-    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string } | undefined>;
+    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string } | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Connection String.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the App Service Slot component.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `site_config` object as defined below.
      */
-    public readonly siteConfig: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean }>;
+    public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Slot resource with the given unique name, arguments, and options.
@@ -205,7 +205,7 @@ export class Slot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SlotArgs | SlotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SlotState = argsOrState as SlotState | undefined;
+            const state = argsOrState as SlotState | undefined;
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;

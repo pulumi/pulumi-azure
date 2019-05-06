@@ -69,28 +69,28 @@ export class LogProfile extends pulumi.CustomResource {
     /**
      * List of categories of the logs.
      */
-    public readonly categories: pulumi.Output<string[]>;
+    public readonly categories!: pulumi.Output<string[]>;
     /**
      * List of regions for which Activity Log events are stored or streamed.
      */
-    public readonly locations: pulumi.Output<string[]>;
+    public readonly locations!: pulumi.Output<string[]>;
     /**
      * The name of the Log Profile. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
-    public readonly retentionPolicy: pulumi.Output<{ days?: number, enabled: boolean }>;
+    public readonly retentionPolicy!: pulumi.Output<{ days?: number, enabled: boolean }>;
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
      */
-    public readonly servicebusRuleId: pulumi.Output<string | undefined>;
+    public readonly servicebusRuleId!: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
      */
-    public readonly storageAccountId: pulumi.Output<string | undefined>;
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a LogProfile resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ export class LogProfile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LogProfileArgs | LogProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LogProfileState = argsOrState as LogProfileState | undefined;
+            const state = argsOrState as LogProfileState | undefined;
             inputs["categories"] = state ? state.categories : undefined;
             inputs["locations"] = state ? state.locations : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -48,15 +48,15 @@ export class StoreFile extends pulumi.CustomResource {
     /**
      * Specifies the name of the Data Lake Store for which the File should created.
      */
-    public readonly accountName: pulumi.Output<string>;
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * The path to the local file to be added to the Data Lake Store.
      */
-    public readonly localFilePath: pulumi.Output<string>;
+    public readonly localFilePath!: pulumi.Output<string>;
     /**
      * The path created for the file on the Data Lake Store.
      */
-    public readonly remoteFilePath: pulumi.Output<string>;
+    public readonly remoteFilePath!: pulumi.Output<string>;
 
     /**
      * Create a StoreFile resource with the given unique name, arguments, and options.
@@ -69,7 +69,7 @@ export class StoreFile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StoreFileArgs | StoreFileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StoreFileState = argsOrState as StoreFileState | undefined;
+            const state = argsOrState as StoreFileState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["localFilePath"] = state ? state.localFilePath : undefined;
             inputs["remoteFilePath"] = state ? state.remoteFilePath : undefined;

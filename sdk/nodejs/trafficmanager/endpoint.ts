@@ -71,17 +71,17 @@ export class Endpoint extends pulumi.CustomResource {
      * For Endpoints of type `azureEndpoints` the value will be taken from the
      * location of the Azure target resource.
      */
-    public readonly endpointLocation: pulumi.Output<string>;
-    public /*out*/ readonly endpointMonitorStatus: pulumi.Output<string>;
+    public readonly endpointLocation!: pulumi.Output<string>;
+    public /*out*/ readonly endpointMonitorStatus!: pulumi.Output<string>;
     /**
      * The status of the Endpoint, can be set to
      * either `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    public readonly endpointStatus: pulumi.Output<string>;
+    public readonly endpointStatus!: pulumi.Output<string>;
     /**
      * A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/en-us/rest/api/trafficmanager/geographichierarchies/getdefault).
      */
-    public readonly geoMappings: pulumi.Output<string[] | undefined>;
+    public readonly geoMappings!: pulumi.Output<string[] | undefined>;
     /**
      * This argument specifies the minimum number
      * of endpoints that must be ‘online’ in the child profile in order for the
@@ -89,54 +89,54 @@ export class Endpoint extends pulumi.CustomResource {
      * profile. This argument only applies to Endpoints of type `nestedEndpoints`
      * and defaults to `1`.
      */
-    public readonly minChildEndpoints: pulumi.Output<number | undefined>;
+    public readonly minChildEndpoints!: pulumi.Output<number | undefined>;
     /**
      * The name of the Traffic Manager endpoint. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the priority of this Endpoint, this must be
      * specified for Profiles using the `Priority` traffic routing method. Supports
      * values between 1 and 1000, with no Endpoints sharing the same value. If
      * omitted the value will be computed in order of creation.
      */
-    public readonly priority: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * The name of the Traffic Manager Profile to attach
      * create the Traffic Manager endpoint.
      */
-    public readonly profileName: pulumi.Output<string>;
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the Traffic Manager endpoint.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The FQDN DNS name of the target. This argument must be
      * provided for an endpoint of type `externalEndpoints`, for other types it
      * will be computed.
      */
-    public readonly target: pulumi.Output<string>;
+    public readonly target!: pulumi.Output<string>;
     /**
      * The resource id of an Azure resource to
      * target. This argument must be provided for an endpoint of type
      * `azureEndpoints` or `nestedEndpoints`.
      */
-    public readonly targetResourceId: pulumi.Output<string | undefined>;
+    public readonly targetResourceId!: pulumi.Output<string | undefined>;
     /**
      * The Endpoint type, must be one of:
      * - `azureEndpoints`
      * - `externalEndpoints`
      * - `nestedEndpoints`
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * Specifies how much traffic should be distributed to this
      * endpoint, this must be specified for Profiles using the  `Weighted` traffic
      * routing method. Supports values between 1 and 1000.
      */
-    public readonly weight: pulumi.Output<number>;
+    public readonly weight!: pulumi.Output<number>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -149,7 +149,7 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EndpointState = argsOrState as EndpointState | undefined;
+            const state = argsOrState as EndpointState | undefined;
             inputs["endpointLocation"] = state ? state.endpointLocation : undefined;
             inputs["endpointMonitorStatus"] = state ? state.endpointMonitorStatus : undefined;
             inputs["endpointStatus"] = state ? state.endpointStatus : undefined;

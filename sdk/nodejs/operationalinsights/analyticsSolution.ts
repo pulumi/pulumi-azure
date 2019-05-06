@@ -60,27 +60,27 @@ export class AnalyticsSolution extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * A `plan` block as documented below.
      */
-    public readonly plan: pulumi.Output<{ name: string, product: string, promotionCode?: string, publisher: string }>;
+    public readonly plan!: pulumi.Output<{ name: string, product: string, promotionCode?: string, publisher: string }>;
     /**
      * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
      */
-    public readonly solutionName: pulumi.Output<string>;
+    public readonly solutionName!: pulumi.Output<string>;
     /**
      * The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      */
-    public readonly workspaceName: pulumi.Output<string>;
+    public readonly workspaceName!: pulumi.Output<string>;
     /**
      * The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
      */
-    public readonly workspaceResourceId: pulumi.Output<string>;
+    public readonly workspaceResourceId!: pulumi.Output<string>;
 
     /**
      * Create a AnalyticsSolution resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AnalyticsSolutionArgs | AnalyticsSolutionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AnalyticsSolutionState = argsOrState as AnalyticsSolutionState | undefined;
+            const state = argsOrState as AnalyticsSolutionState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["plan"] = state ? state.plan : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

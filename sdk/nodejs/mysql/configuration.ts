@@ -61,19 +61,19 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values.
      */
-    public readonly value: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class Configuration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConfigurationState = argsOrState as ConfigurationState | undefined;
+            const state = argsOrState as ConfigurationState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serverName"] = state ? state.serverName : undefined;

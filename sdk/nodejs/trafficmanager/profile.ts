@@ -65,35 +65,35 @@ export class Profile extends pulumi.CustomResource {
      * This block specifies the DNS configuration of the
      * Profile, it supports the fields documented below.
      */
-    public readonly dnsConfigs: pulumi.Output<{ relativeName: string, ttl: number }[]>;
+    public readonly dnsConfigs!: pulumi.Output<{ relativeName: string, ttl: number }[]>;
     /**
      * The FQDN of the created Profile.
      */
-    public /*out*/ readonly fqdn: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * This block specifies the Endpoint monitoring
      * configuration for the Profile, it supports the fields documented below.
      */
-    public readonly monitorConfigs: pulumi.Output<{ path?: string, port: number, protocol: string }[]>;
+    public readonly monitorConfigs!: pulumi.Output<{ path?: string, port: number, protocol: string }[]>;
     /**
      * The name of the virtual network. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The status of the profile, can be set to either
      * `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    public readonly profileStatus: pulumi.Output<string>;
+    public readonly profileStatus!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the virtual network.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the algorithm used to route traffic, possible values are:
      * - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
@@ -103,7 +103,7 @@ export class Profile extends pulumi.CustomResource {
      * - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
      * - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
      */
-    public readonly trafficRoutingMethod: pulumi.Output<string>;
+    public readonly trafficRoutingMethod!: pulumi.Output<string>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -116,7 +116,7 @@ export class Profile extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProfileArgs | ProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProfileState = argsOrState as ProfileState | undefined;
+            const state = argsOrState as ProfileState | undefined;
             inputs["dnsConfigs"] = state ? state.dnsConfigs : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["monitorConfigs"] = state ? state.monitorConfigs : undefined;

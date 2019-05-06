@@ -50,27 +50,27 @@ export class Hub extends pulumi.CustomResource {
     /**
      * A `apns_credential` block as defined below.
      */
-    public readonly apnsCredential: pulumi.Output<{ applicationMode: string, bundleId: string, keyId: string, teamId: string, token: string } | undefined>;
+    public readonly apnsCredential!: pulumi.Output<{ applicationMode: string, bundleId: string, keyId: string, teamId: string, token: string } | undefined>;
     /**
      * A `gcm_credential` block as defined below.
      */
-    public readonly gcmCredential: pulumi.Output<{ apiKey: string } | undefined>;
+    public readonly gcmCredential!: pulumi.Output<{ apiKey: string } | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name to use for this Notification Hub. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class Hub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: HubArgs | HubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: HubState = argsOrState as HubState | undefined;
+            const state = argsOrState as HubState | undefined;
             inputs["apnsCredential"] = state ? state.apnsCredential : undefined;
             inputs["gcmCredential"] = state ? state.gcmCredential : undefined;
             inputs["location"] = state ? state.location : undefined;

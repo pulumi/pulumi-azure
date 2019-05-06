@@ -59,39 +59,39 @@ export class AuthorizationRule extends pulumi.CustomResource {
     /**
      * Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
      */
-    public readonly listen: pulumi.Output<boolean | undefined>;
+    public readonly listen!: pulumi.Output<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`.
      */
-    public readonly manage: pulumi.Output<boolean | undefined>;
+    public readonly manage!: pulumi.Output<boolean | undefined>;
     /**
      * The name to use for this Authorization Rule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
      */
-    public readonly notificationHubName: pulumi.Output<string>;
+    public readonly notificationHubName!: pulumi.Output<string>;
     /**
      * The Primary Access Key associated with this Authorization Rule.
      */
-    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Access Key associated with this Authorization Rule.
      */
-    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
      */
-    public readonly send: pulumi.Output<boolean | undefined>;
+    public readonly send!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AuthorizationRule resource with the given unique name, arguments, and options.
@@ -104,7 +104,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AuthorizationRuleArgs | AuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AuthorizationRuleState = argsOrState as AuthorizationRuleState | undefined;
+            const state = argsOrState as AuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;

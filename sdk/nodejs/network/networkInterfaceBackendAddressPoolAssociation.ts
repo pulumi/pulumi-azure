@@ -82,15 +82,15 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
     /**
      * The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly backendAddressPoolId: pulumi.Output<string>;
+    public readonly backendAddressPoolId!: pulumi.Output<string>;
     /**
      * The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
      */
-    public readonly ipConfigurationName: pulumi.Output<string>;
+    public readonly ipConfigurationName!: pulumi.Output<string>;
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceBackendAddressPoolAssociation resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
     constructor(name: string, argsOrState?: NetworkInterfaceBackendAddressPoolAssociationArgs | NetworkInterfaceBackendAddressPoolAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceBackendAddressPoolAssociationState = argsOrState as NetworkInterfaceBackendAddressPoolAssociationState | undefined;
+            const state = argsOrState as NetworkInterfaceBackendAddressPoolAssociationState | undefined;
             inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;

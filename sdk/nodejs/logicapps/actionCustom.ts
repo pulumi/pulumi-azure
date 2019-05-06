@@ -59,15 +59,15 @@ export class ActionCustom extends pulumi.CustomResource {
     /**
      * Specifies the JSON Blob defining the Body of this Custom Action.
      */
-    public readonly body: pulumi.Output<string>;
+    public readonly body!: pulumi.Output<string>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId: pulumi.Output<string>;
+    public readonly logicAppId!: pulumi.Output<string>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a ActionCustom resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class ActionCustom extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActionCustomArgs | ActionCustomState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActionCustomState = argsOrState as ActionCustomState | undefined;
+            const state = argsOrState as ActionCustomState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["name"] = state ? state.name : undefined;

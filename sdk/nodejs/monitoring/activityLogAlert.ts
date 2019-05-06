@@ -68,35 +68,35 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * One or more `action` blocks as defined below.
      */
-    public readonly actions: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;
+    public readonly actions!: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;
     /**
      * A `criteria` block as defined below.
      */
-    public readonly criteria: pulumi.Output<{ caller?: string, category: string, level?: string, operationName?: string, resourceGroup?: string, resourceId?: string, resourceProvider?: string, resourceType?: string, status?: string, subStatus?: string }>;
+    public readonly criteria!: pulumi.Output<{ caller?: string, category: string, level?: string, operationName?: string, resourceGroup?: string, resourceId?: string, resourceProvider?: string, resourceType?: string, status?: string, subStatus?: string }>;
     /**
      * The description of this activity log alert.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Should this Activity Log Alert be enabled? Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the activity log alert. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the activity log alert instance.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
      */
-    public readonly scopes: pulumi.Output<string[]>;
+    public readonly scopes!: pulumi.Output<string[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a ActivityLogAlert resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActivityLogAlertArgs | ActivityLogAlertState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActivityLogAlertState = argsOrState as ActivityLogAlertState | undefined;
+            const state = argsOrState as ActivityLogAlertState | undefined;
             inputs["actions"] = state ? state.actions : undefined;
             inputs["criteria"] = state ? state.criteria : undefined;
             inputs["description"] = state ? state.description : undefined;

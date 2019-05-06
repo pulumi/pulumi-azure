@@ -115,59 +115,59 @@ export class Group extends pulumi.CustomResource {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    public readonly containers: pulumi.Output<{ command: string, commands: string[], cpu: number, environmentVariables?: {[key: string]: any}, gpu?: { count?: number, sku?: string }, image: string, livenessProbe?: { execs?: string[], failureThreshold?: number, httpGets?: { path?: string, port?: number, scheme?: string }[], initialDelaySeconds?: number, periodSeconds?: number, successThreshold?: number, timeoutSeconds?: number }, memory: number, name: string, port: number, ports: { port: number, protocol: string }[], protocol: string, readinessProbe?: { execs?: string[], failureThreshold?: number, httpGets?: { path?: string, port?: number, scheme?: string }[], initialDelaySeconds?: number, periodSeconds?: number, successThreshold?: number, timeoutSeconds?: number }, secureEnvironmentVariables?: {[key: string]: any}, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
+    public readonly containers!: pulumi.Output<{ command: string, commands: string[], cpu: number, environmentVariables?: {[key: string]: any}, gpu?: { count?: number, sku?: string }, image: string, livenessProbe?: { execs?: string[], failureThreshold?: number, httpGets?: { path?: string, port?: number, scheme?: string }[], initialDelaySeconds?: number, periodSeconds?: number, successThreshold?: number, timeoutSeconds?: number }, memory: number, name: string, port: number, ports: { port: number, protocol: string }[], protocol: string, readinessProbe?: { execs?: string[], failureThreshold?: number, httpGets?: { path?: string, port?: number, scheme?: string }[], initialDelaySeconds?: number, periodSeconds?: number, successThreshold?: number, timeoutSeconds?: number }, secureEnvironmentVariables?: {[key: string]: any}, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
     /**
      * A `diagnostics` block as documented below.
      */
-    public readonly diagnostics: pulumi.Output<{ logAnalytics: { logType: string, metadata?: {[key: string]: string}, workspaceId: string, workspaceKey: string } } | undefined>;
+    public readonly diagnostics!: pulumi.Output<{ logAnalytics: { logType: string, metadata?: {[key: string]: string}, workspaceId: string, workspaceKey: string } } | undefined>;
     /**
      * The DNS label/name for the container groups IP.
      */
-    public readonly dnsNameLabel: pulumi.Output<string | undefined>;
+    public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
      * The FQDN of the container group derived from `dns_name_label`.
      */
-    public /*out*/ readonly fqdn: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * An `identity` block.
      */
-    public readonly identity: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
+    public readonly identity!: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
     /**
      * A `image_registry_credential` block as documented below.
      */
-    public readonly imageRegistryCredentials: pulumi.Output<{ password: string, server: string, username: string }[] | undefined>;
+    public readonly imageRegistryCredentials!: pulumi.Output<{ password: string, server: string, username: string }[] | undefined>;
     /**
      * The IP address allocated to the container group.
      */
-    public /*out*/ readonly ipAddress: pulumi.Output<string>;
+    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
      * Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
      */
-    public readonly ipAddressType: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
-    public readonly osType: pulumi.Output<string>;
+    public readonly osType!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
      */
-    public readonly restartPolicy: pulumi.Output<string | undefined>;
+    public readonly restartPolicy!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -180,7 +180,7 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupState = argsOrState as GroupState | undefined;
+            const state = argsOrState as GroupState | undefined;
             inputs["containers"] = state ? state.containers : undefined;
             inputs["diagnostics"] = state ? state.diagnostics : undefined;
             inputs["dnsNameLabel"] = state ? state.dnsNameLabel : undefined;

@@ -54,39 +54,39 @@ export class SharedImageVersion extends pulumi.CustomResource {
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
-    public readonly excludeFromLatest: pulumi.Output<boolean | undefined>;
+    public readonly excludeFromLatest!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
      */
-    public readonly galleryName: pulumi.Output<string>;
+    public readonly galleryName!: pulumi.Output<string>;
     /**
      * The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
      */
-    public readonly imageName: pulumi.Output<string>;
+    public readonly imageName!: pulumi.Output<string>;
     /**
      * The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The ID of the Managed Image which should be used for this Shared Image Version. Changing this forces a new resource to be created.
      */
-    public readonly managedImageId: pulumi.Output<string>;
+    public readonly managedImageId!: pulumi.Output<string>;
     /**
      * The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A collection of tags which should be applied to this resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * One or more `target_region` blocks as documented below.
      */
-    public readonly targetRegions: pulumi.Output<{ name: string, regionalReplicaCount: number }[]>;
+    public readonly targetRegions!: pulumi.Output<{ name: string, regionalReplicaCount: number }[]>;
 
     /**
      * Create a SharedImageVersion resource with the given unique name, arguments, and options.
@@ -99,7 +99,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SharedImageVersionArgs | SharedImageVersionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SharedImageVersionState = argsOrState as SharedImageVersionState | undefined;
+            const state = argsOrState as SharedImageVersionState | undefined;
             inputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
             inputs["galleryName"] = state ? state.galleryName : undefined;
             inputs["imageName"] = state ? state.imageName : undefined;

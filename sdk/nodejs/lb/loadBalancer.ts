@@ -50,35 +50,35 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * A `frontend_ip_configuration` block as documented below.
      */
-    public readonly frontendIpConfigurations: pulumi.Output<{ inboundNatRules: string[], loadBalancerRules: string[], name: string, outboundRules: string[], privateIpAddress: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string, zones?: string }[] | undefined>;
+    public readonly frontendIpConfigurations!: pulumi.Output<{ inboundNatRules: string[], loadBalancerRules: string[], name: string, outboundRules: string[], privateIpAddress: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string, zones?: string }[] | undefined>;
     /**
      * Specifies the supported Azure Region where the Load Balancer should be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the frontend ip configuration.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
      */
-    public /*out*/ readonly privateIpAddress: pulumi.Output<string>;
+    public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
     /**
      * The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
      */
-    public /*out*/ readonly privateIpAddresses: pulumi.Output<string[]>;
+    public /*out*/ readonly privateIpAddresses!: pulumi.Output<string[]>;
     /**
      * The name of the Resource Group in which to create the Load Balancer.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
      */
-    public readonly sku: pulumi.Output<string | undefined>;
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LoadBalancerState = argsOrState as LoadBalancerState | undefined;
+            const state = argsOrState as LoadBalancerState | undefined;
             inputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

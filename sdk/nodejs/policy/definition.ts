@@ -62,49 +62,49 @@ export class Definition extends pulumi.CustomResource {
     /**
      * The description of the policy definition.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The display name of the policy definition.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId: pulumi.Output<string | undefined>;
+    public readonly managementGroupId!: pulumi.Output<string | undefined>;
     /**
      * The metadata for the policy definition. This
      * is a json object representing additional metadata that should be stored
      * with the policy definition.
      */
-    public readonly metadata: pulumi.Output<string>;
+    public readonly metadata!: pulumi.Output<string>;
     /**
      * The policy mode that allows you to specify which resource
      * types will be evaluated.  The value can be "All", "Indexed" or
      * "NotSpecified". Changing this resource forces a new resource to be
      * created.
      */
-    public readonly mode: pulumi.Output<string>;
+    public readonly mode!: pulumi.Output<string>;
     /**
      * The name of the policy definition. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Parameters for the policy definition. This field
      * is a json object that allows you to parameterize your policy definition.
      */
-    public readonly parameters: pulumi.Output<string | undefined>;
+    public readonly parameters!: pulumi.Output<string | undefined>;
     /**
      * The policy rule for the policy definition. This
      * is a json object representing the rule that contains an if and
      * a then block.
      */
-    public readonly policyRule: pulumi.Output<string | undefined>;
+    public readonly policyRule!: pulumi.Output<string | undefined>;
     /**
      * The policy type.  The value can be "BuiltIn", "Custom"
      * or "NotSpecified". Changing this forces a new resource to be created.
      */
-    public readonly policyType: pulumi.Output<string>;
+    public readonly policyType!: pulumi.Output<string>;
 
     /**
      * Create a Definition resource with the given unique name, arguments, and options.
@@ -117,7 +117,7 @@ export class Definition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DefinitionState = argsOrState as DefinitionState | undefined;
+            const state = argsOrState as DefinitionState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["managementGroupId"] = state ? state.managementGroupId : undefined;

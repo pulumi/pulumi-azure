@@ -52,47 +52,47 @@ export class DatasetPostgresql extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
      */
-    public readonly additionalProperties: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly additionalProperties!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Dataset PostgreSQL.
      */
-    public readonly annotations: pulumi.Output<string[] | undefined>;
+    public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory name in which to associate the Dataset with. Changing this forces a new resource.
      */
-    public readonly dataFactoryName: pulumi.Output<string>;
+    public readonly dataFactoryName!: pulumi.Output<string>;
     /**
      * The description for the Data Factory Dataset PostgreSQL.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
      */
-    public readonly folder: pulumi.Output<string | undefined>;
+    public readonly folder!: pulumi.Output<string | undefined>;
     /**
      * The Data Factory Linked Service name in which to associate the Dataset with.
      */
-    public readonly linkedServiceName: pulumi.Output<string>;
+    public readonly linkedServiceName!: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory Dataset PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Dataset PostgreSQL.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory Dataset PostgreSQL. Changing this forces a new resource
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `schema_column` block as defined below.
      */
-    public readonly schemaColumns: pulumi.Output<{ description?: string, name: string, type?: string }[] | undefined>;
+    public readonly schemaColumns!: pulumi.Output<{ description?: string, name: string, type?: string }[] | undefined>;
     /**
      * The table name of the Data Factory Dataset PostgreSQL.
      */
-    public readonly tableName: pulumi.Output<string | undefined>;
+    public readonly tableName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatasetPostgresql resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ export class DatasetPostgresql extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DatasetPostgresqlArgs | DatasetPostgresqlState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DatasetPostgresqlState = argsOrState as DatasetPostgresqlState | undefined;
+            const state = argsOrState as DatasetPostgresqlState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;

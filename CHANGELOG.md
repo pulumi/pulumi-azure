@@ -1,5 +1,10 @@
 ## 0.18.2 (Unreleased)
 
+## Improvements
+
+- Updated the Pulumi <-> Terraform Bridge embedded in the provider, adding non-null
+  assertions to many properties in TypeScript.
+
 ## 0.18.1 (Released April 30th, 2019)
 
 ## Improvements

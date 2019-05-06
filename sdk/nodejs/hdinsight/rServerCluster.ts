@@ -89,55 +89,55 @@ export class RServerCluster extends pulumi.CustomResource {
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
-    public readonly clusterVersion: pulumi.Output<string>;
+    public readonly clusterVersion!: pulumi.Output<string>;
     /**
      * The SSH Connectivity Endpoint for the Edge Node of the HDInsight RServer Cluster.
      */
-    public /*out*/ readonly edgeSshEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly edgeSshEndpoint!: pulumi.Output<string>;
     /**
      * A `gateway` block as defined below.
      */
-    public readonly gateway: pulumi.Output<{ enabled: boolean, password: string, username: string }>;
+    public readonly gateway!: pulumi.Output<{ enabled: boolean, password: string, username: string }>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight RServer Cluster.
      */
-    public /*out*/ readonly httpsEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly httpsEndpoint!: pulumi.Output<string>;
     /**
      * Specifies the Azure Region which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name for this HDInsight RServer Cluster. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the Resource Group in which this HDInsight RServer Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `roles` block as defined below.
      */
-    public readonly roles: pulumi.Output<{ edgeNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string }, headNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string }, workerNode: { minInstanceCount?: number, password?: string, sshKeys?: string[], subnetId?: string, targetInstanceCount: number, username: string, virtualNetworkId?: string, vmSize: string }, zookeeperNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string } }>;
+    public readonly roles!: pulumi.Output<{ edgeNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string }, headNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string }, workerNode: { minInstanceCount?: number, password?: string, sshKeys?: string[], subnetId?: string, targetInstanceCount: number, username: string, virtualNetworkId?: string, vmSize: string }, zookeeperNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string } }>;
     /**
      * Should R Studio community edition for RServer be installed? Changing this forces a new resource to be created.
      */
-    public readonly rstudio: pulumi.Output<boolean>;
+    public readonly rstudio!: pulumi.Output<boolean>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight RServer Cluster.
      */
-    public /*out*/ readonly sshEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly sshEndpoint!: pulumi.Output<string>;
     /**
      * One or more `storage_account` block as defined below.
      */
-    public readonly storageAccounts: pulumi.Output<{ isDefault: boolean, storageAccountKey: string, storageContainerId: string }[]>;
+    public readonly storageAccounts!: pulumi.Output<{ isDefault: boolean, storageAccountKey: string, storageContainerId: string }[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight RServer Cluster.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the Tier which should be used for this HDInsight RServer Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
      */
-    public readonly tier: pulumi.Output<string>;
+    public readonly tier!: pulumi.Output<string>;
 
     /**
      * Create a RServerCluster resource with the given unique name, arguments, and options.
@@ -150,7 +150,7 @@ export class RServerCluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RServerClusterArgs | RServerClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RServerClusterState = argsOrState as RServerClusterState | undefined;
+            const state = argsOrState as RServerClusterState | undefined;
             inputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             inputs["edgeSshEndpoint"] = state ? state.edgeSshEndpoint : undefined;
             inputs["gateway"] = state ? state.gateway : undefined;

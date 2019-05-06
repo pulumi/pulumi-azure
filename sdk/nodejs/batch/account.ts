@@ -52,39 +52,39 @@ export class Account extends pulumi.CustomResource {
     /**
      * The account endpoint used to interact with the Batch service.
      */
-    public /*out*/ readonly accountEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
      */
-    public readonly poolAllocationMode: pulumi.Output<string | undefined>;
+    public readonly poolAllocationMode!: pulumi.Output<string | undefined>;
     /**
      * The Batch account primary access key.
      */
-    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Batch account secondary access key.
      */
-    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */
-    public readonly storageAccountId: pulumi.Output<string>;
+    public readonly storageAccountId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -97,7 +97,7 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountState = argsOrState as AccountState | undefined;
+            const state = argsOrState as AccountState | undefined;
             inputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

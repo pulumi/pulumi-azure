@@ -46,19 +46,19 @@ export class TriggerRecurrence extends pulumi.CustomResource {
     /**
      * Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
      */
-    public readonly frequency: pulumi.Output<string>;
+    public readonly frequency!: pulumi.Output<string>;
     /**
      * Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours.
      */
-    public readonly interval: pulumi.Output<number>;
+    public readonly interval!: pulumi.Output<number>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId: pulumi.Output<string>;
+    public readonly logicAppId!: pulumi.Output<string>;
     /**
      * Specifies the name of the Recurrence Triggers to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a TriggerRecurrence resource with the given unique name, arguments, and options.
@@ -71,7 +71,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TriggerRecurrenceArgs | TriggerRecurrenceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TriggerRecurrenceState = argsOrState as TriggerRecurrenceState | undefined;
+            const state = argsOrState as TriggerRecurrenceState | undefined;
             inputs["frequency"] = state ? state.frequency : undefined;
             inputs["interval"] = state ? state.interval : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;

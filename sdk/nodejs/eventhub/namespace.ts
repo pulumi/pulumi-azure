@@ -44,47 +44,47 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
      */
-    public readonly capacity: pulumi.Output<number | undefined>;
+    public readonly capacity!: pulumi.Output<number | undefined>;
     /**
      * The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly defaultPrimaryConnectionString!: pulumi.Output<string>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryKey: pulumi.Output<string>;
+    public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
     /**
      * The secondary connection string for the
      * authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly defaultSecondaryConnectionString!: pulumi.Output<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryKey: pulumi.Output<string>;
+    public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the namespace.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Defines which tier to use. Options are basic, standard or premium.
      */
-    public readonly sku: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -97,7 +97,7 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NamespaceState = argsOrState as NamespaceState | undefined;
+            const state = argsOrState as NamespaceState | undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;
             inputs["defaultPrimaryKey"] = state ? state.defaultPrimaryKey : undefined;

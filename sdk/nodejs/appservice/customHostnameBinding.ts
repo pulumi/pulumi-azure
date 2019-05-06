@@ -62,15 +62,15 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
     /**
      * The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created.
      */
-    public readonly appServiceName: pulumi.Output<string>;
+    public readonly appServiceName!: pulumi.Output<string>;
     /**
      * Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created.
      */
-    public readonly hostname: pulumi.Output<string>;
+    public readonly hostname!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a CustomHostnameBinding resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CustomHostnameBindingArgs | CustomHostnameBindingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CustomHostnameBindingState = argsOrState as CustomHostnameBindingState | undefined;
+            const state = argsOrState as CustomHostnameBindingState | undefined;
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

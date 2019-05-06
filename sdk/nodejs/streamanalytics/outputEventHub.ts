@@ -65,35 +65,35 @@ export class OutputEventHub extends pulumi.CustomResource {
     /**
      * The name of the Event Hub.
      */
-    public readonly eventhubName: pulumi.Output<string>;
+    public readonly eventhubName!: pulumi.Output<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `serialization` block as defined below.
      */
-    public readonly serialization: pulumi.Output<{ encoding?: string, fieldDelimiter?: string, format?: string, type: string }>;
+    public readonly serialization!: pulumi.Output<{ encoding?: string, fieldDelimiter?: string, format?: string, type: string }>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    public readonly servicebusNamespace: pulumi.Output<string>;
+    public readonly servicebusNamespace!: pulumi.Output<string>;
     /**
      * The shared access policy key for the specified shared access policy.
      */
-    public readonly sharedAccessPolicyKey: pulumi.Output<string>;
+    public readonly sharedAccessPolicyKey!: pulumi.Output<string>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    public readonly sharedAccessPolicyName: pulumi.Output<string>;
+    public readonly sharedAccessPolicyName!: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName: pulumi.Output<string>;
+    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
 
     /**
      * Create a OutputEventHub resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class OutputEventHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OutputEventHubArgs | OutputEventHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: OutputEventHubState = argsOrState as OutputEventHubState | undefined;
+            const state = argsOrState as OutputEventHubState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

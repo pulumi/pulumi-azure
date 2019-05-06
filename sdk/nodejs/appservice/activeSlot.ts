@@ -44,15 +44,15 @@ export class ActiveSlot extends pulumi.CustomResource {
     /**
      * The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
      */
-    public readonly appServiceName: pulumi.Output<string>;
+    public readonly appServiceName!: pulumi.Output<string>;
     /**
      * The name of the App Service Slot which should be promoted to the Production Slot within the App Service.
      */
-    public readonly appServiceSlotName: pulumi.Output<string>;
+    public readonly appServiceSlotName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the App Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a ActiveSlot resource with the given unique name, arguments, and options.
@@ -65,7 +65,7 @@ export class ActiveSlot extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActiveSlotArgs | ActiveSlotState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActiveSlotState = argsOrState as ActiveSlotState | undefined;
+            const state = argsOrState as ActiveSlotState | undefined;
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["appServiceSlotName"] = state ? state.appServiceSlotName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

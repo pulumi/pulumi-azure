@@ -45,57 +45,57 @@ export class EventHubNamespace extends pulumi.CustomResource {
     /**
      * Is Auto Inflate enabled for the EventHub Namespace?
      */
-    public readonly autoInflateEnabled: pulumi.Output<boolean | undefined>;
+    public readonly autoInflateEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
      */
-    public readonly capacity: pulumi.Output<number | undefined>;
+    public readonly capacity!: pulumi.Output<number | undefined>;
     /**
      * The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly defaultPrimaryConnectionString!: pulumi.Output<string>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultPrimaryKey: pulumi.Output<string>;
+    public /*out*/ readonly defaultPrimaryKey!: pulumi.Output<string>;
     /**
      * The secondary connection string for the
      * authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly defaultSecondaryConnectionString!: pulumi.Output<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly defaultSecondaryKey: pulumi.Output<string>;
+    public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
     /**
      * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
      */
-    public readonly kafkaEnabled: pulumi.Output<boolean | undefined>;
+    public readonly kafkaEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from 1 - 20.
      */
-    public readonly maximumThroughputUnits: pulumi.Output<number>;
+    public readonly maximumThroughputUnits!: pulumi.Output<number>;
     /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Defines which tier to use. Valid options are `Basic` and `Standard`.
      */
-    public readonly sku: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a EventHubNamespace resource with the given unique name, arguments, and options.
@@ -108,7 +108,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubNamespaceArgs | EventHubNamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubNamespaceState = argsOrState as EventHubNamespaceState | undefined;
+            const state = argsOrState as EventHubNamespaceState | undefined;
             inputs["autoInflateEnabled"] = state ? state.autoInflateEnabled : undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["defaultPrimaryConnectionString"] = state ? state.defaultPrimaryConnectionString : undefined;

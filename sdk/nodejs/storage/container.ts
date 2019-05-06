@@ -51,25 +51,25 @@ export class Container extends pulumi.CustomResource {
     /**
      * The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
      */
-    public readonly containerAccessType: pulumi.Output<string | undefined>;
+    public readonly containerAccessType!: pulumi.Output<string | undefined>;
     /**
      * The name of the storage container. Must be unique within the storage service the container is located.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Key-value definition of additional properties associated to the storage container
      */
-    public /*out*/ readonly properties: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
     /**
      * The name of the resource group in which to
      * create the storage container. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the storage account in which to create the storage container.
      * Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName: pulumi.Output<string>;
+    public readonly storageAccountName!: pulumi.Output<string>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ export class Container extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ContainerArgs | ContainerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ContainerState = argsOrState as ContainerState | undefined;
+            const state = argsOrState as ContainerState | undefined;
             inputs["containerAccessType"] = state ? state.containerAccessType : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;

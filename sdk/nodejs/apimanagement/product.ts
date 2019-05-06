@@ -55,43 +55,43 @@ export class Product extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * Do subscribers need to be approved prior to being able to use the Product?
      */
-    public readonly approvalRequired: pulumi.Output<boolean | undefined>;
+    public readonly approvalRequired!: pulumi.Output<boolean | undefined>;
     /**
      * A description of this Product, which may include HTML formatting tags.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Display Name for this API Management Product.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly productId: pulumi.Output<string>;
+    public readonly productId!: pulumi.Output<string>;
     /**
      * Is this Product Published?
      */
-    public readonly published: pulumi.Output<boolean>;
+    public readonly published!: pulumi.Output<boolean>;
     /**
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Is a Subscription required to access API's included in this Product?
      */
-    public readonly subscriptionRequired: pulumi.Output<boolean>;
+    public readonly subscriptionRequired!: pulumi.Output<boolean>;
     /**
      * The number of subscriptions a user can have to this Product at the same time.
      */
-    public readonly subscriptionsLimit: pulumi.Output<number | undefined>;
+    public readonly subscriptionsLimit!: pulumi.Output<number | undefined>;
     /**
      * The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
      */
-    public readonly terms: pulumi.Output<string | undefined>;
+    public readonly terms!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Product resource with the given unique name, arguments, and options.
@@ -104,7 +104,7 @@ export class Product extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProductArgs | ProductState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProductState = argsOrState as ProductState | undefined;
+            const state = argsOrState as ProductState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["approvalRequired"] = state ? state.approvalRequired : undefined;
             inputs["description"] = state ? state.description : undefined;

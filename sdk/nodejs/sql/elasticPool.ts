@@ -58,47 +58,47 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * The creation date of the SQL Elastic Pool.
      */
-    public /*out*/ readonly creationDate: pulumi.Output<string>;
+    public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
      * The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
      */
-    public readonly dbDtuMax: pulumi.Output<number>;
+    public readonly dbDtuMax!: pulumi.Output<number>;
     /**
      * The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
      */
-    public readonly dbDtuMin: pulumi.Output<number>;
+    public readonly dbDtuMin!: pulumi.Output<number>;
     /**
      * The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
      */
-    public readonly dtu: pulumi.Output<number>;
+    public readonly dtu!: pulumi.Output<number>;
     /**
      * The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
      */
-    public readonly edition: pulumi.Output<string>;
+    public readonly edition!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
      */
-    public readonly poolSize: pulumi.Output<number>;
+    public readonly poolSize!: pulumi.Output<number>;
     /**
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.
@@ -111,7 +111,7 @@ export class ElasticPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ElasticPoolArgs | ElasticPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ElasticPoolState = argsOrState as ElasticPoolState | undefined;
+            const state = argsOrState as ElasticPoolState | undefined;
             inputs["creationDate"] = state ? state.creationDate : undefined;
             inputs["dbDtuMax"] = state ? state.dbDtuMax : undefined;
             inputs["dbDtuMin"] = state ? state.dbDtuMin : undefined;

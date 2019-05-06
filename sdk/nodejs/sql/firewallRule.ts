@@ -50,24 +50,24 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * The ending IP address to allow through the firewall for this rule.
      */
-    public readonly endIpAddress: pulumi.Output<string>;
+    public readonly endIpAddress!: pulumi.Output<string>;
     /**
      * The name of the firewall rule.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the sql server.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the SQL Server on which to create the Firewall Rule.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * The starting IP address to allow through the firewall for this rule.
      */
-    public readonly startIpAddress: pulumi.Output<string>;
+    public readonly startIpAddress!: pulumi.Output<string>;
 
     /**
      * Create a FirewallRule resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class FirewallRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FirewallRuleArgs | FirewallRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FirewallRuleState = argsOrState as FirewallRuleState | undefined;
+            const state = argsOrState as FirewallRuleState | undefined;
             inputs["endIpAddress"] = state ? state.endIpAddress : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

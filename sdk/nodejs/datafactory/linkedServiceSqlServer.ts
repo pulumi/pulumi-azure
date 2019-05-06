@@ -48,39 +48,39 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
     /**
      * A map of additional properties to associate with the Data Factory Linked Service SQL Server.
      */
-    public readonly additionalProperties: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly additionalProperties!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * List of tags that can be used for describing the Data Factory Linked Service SQL Server.
      */
-    public readonly annotations: pulumi.Output<string[] | undefined>;
+    public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
      * The connection string in which to authenticate with the SQL Server.
      */
-    public readonly connectionString: pulumi.Output<string>;
+    public readonly connectionString!: pulumi.Output<string>;
     /**
      * The Data Factory name in which to associate the Linked Service with. Changing this forces a new resource.
      */
-    public readonly dataFactoryName: pulumi.Output<string>;
+    public readonly dataFactoryName!: pulumi.Output<string>;
     /**
      * The description for the Data Factory Linked Service SQL Server.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service SQL Server.
      */
-    public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
+    public readonly integrationRuntimeName!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Linked Service SQL Server.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory Linked Service SQL Server. Changing this forces a new resource
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a LinkedServiceSqlServer resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LinkedServiceSqlServerArgs | LinkedServiceSqlServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LinkedServiceSqlServerState = argsOrState as LinkedServiceSqlServerState | undefined;
+            const state = argsOrState as LinkedServiceSqlServerState | undefined;
             inputs["additionalProperties"] = state ? state.additionalProperties : undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["connectionString"] = state ? state.connectionString : undefined;

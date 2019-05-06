@@ -81,19 +81,19 @@ export class ManangementLock extends pulumi.CustomResource {
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
      */
-    public readonly lockLevel: pulumi.Output<string>;
+    public readonly lockLevel!: pulumi.Output<string>;
     /**
      * Specifies the name of the Management Lock. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created.
      */
-    public readonly notes: pulumi.Output<string | undefined>;
+    public readonly notes!: pulumi.Output<string | undefined>;
     /**
      * Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created.
      */
-    public readonly scope: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
 
     /**
      * Create a ManangementLock resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class ManangementLock extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ManangementLockArgs | ManangementLockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ManangementLockState = argsOrState as ManangementLockState | undefined;
+            const state = argsOrState as ManangementLockState | undefined;
             inputs["lockLevel"] = state ? state.lockLevel : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notes"] = state ? state.notes : undefined;

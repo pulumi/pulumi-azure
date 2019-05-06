@@ -58,23 +58,23 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the security rule.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
      */
-    public readonly securityRules: pulumi.Output<{ access: string, description?: string, destinationAddressPrefix?: string, destinationAddressPrefixes?: string[], destinationApplicationSecurityGroupIds?: string[], destinationPortRange?: string, destinationPortRanges?: string[], direction: string, name: string, priority: number, protocol: string, sourceAddressPrefix?: string, sourceAddressPrefixes?: string[], sourceApplicationSecurityGroupIds?: string[], sourcePortRange?: string, sourcePortRanges?: string[] }[]>;
+    public readonly securityRules!: pulumi.Output<{ access: string, description?: string, destinationAddressPrefix?: string, destinationAddressPrefixes?: string[], destinationApplicationSecurityGroupIds?: string[], destinationPortRange?: string, destinationPortRanges?: string[], direction: string, name: string, priority: number, protocol: string, sourceAddressPrefix?: string, sourceAddressPrefixes?: string[], sourceApplicationSecurityGroupIds?: string[], sourcePortRange?: string, sourcePortRanges?: string[] }[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a NetworkSecurityGroup resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkSecurityGroupArgs | NetworkSecurityGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkSecurityGroupState = argsOrState as NetworkSecurityGroupState | undefined;
+            const state = argsOrState as NetworkSecurityGroupState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

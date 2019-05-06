@@ -66,75 +66,75 @@ export class AppService extends pulumi.CustomResource {
     /**
      * The ID of the App Service Plan within which to create this App Service.
      */
-    public readonly appServicePlanId: pulumi.Output<string>;
+    public readonly appServicePlanId!: pulumi.Output<string>;
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings: pulumi.Output<{[key: string]: any}>;
+    public readonly appSettings!: pulumi.Output<{[key: string]: any}>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    public readonly clientAffinityEnabled: pulumi.Output<boolean>;
+    public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
     /**
      * Does the App Service require client certificates for incoming requests? Defaults to `false`.
      */
-    public readonly clientCertEnabled: pulumi.Output<boolean | undefined>;
+    public readonly clientCertEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `connection_string` blocks as defined below.
      */
-    public readonly connectionStrings: pulumi.Output<{ name: string, type: string, value: string }[]>;
+    public readonly connectionStrings!: pulumi.Output<{ name: string, type: string, value: string }[]>;
     /**
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      */
-    public /*out*/ readonly defaultSiteHostname: pulumi.Output<string>;
+    public /*out*/ readonly defaultSiteHostname!: pulumi.Output<string>;
     /**
      * Is the App Service Enabled?
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Can the App Service only be accessed via HTTPS? Defaults to `false`.
      */
-    public readonly httpsOnly: pulumi.Output<boolean | undefined>;
+    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
      * A Managed Service Identity block as defined below.
      */
-    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
-    public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
+    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      */
-    public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
+    public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the App Service.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `site_config` block as defined below.
      */
-    public readonly siteConfig: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean }>;
+    public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean }>;
     /**
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredential: pulumi.Output<{ password: string, username: string }>;
+    public /*out*/ readonly siteCredential!: pulumi.Output<{ password: string, username: string }>;
     /**
      * A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
      */
-    public /*out*/ readonly sourceControl: pulumi.Output<{ branch: string, repoUrl: string }>;
+    public /*out*/ readonly sourceControl!: pulumi.Output<{ branch: string, repoUrl: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a AppService resource with the given unique name, arguments, and options.
@@ -147,7 +147,7 @@ export class AppService extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AppServiceArgs | AppServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AppServiceState = argsOrState as AppServiceState | undefined;
+            const state = argsOrState as AppServiceState | undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;

@@ -46,43 +46,43 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The Identifier for Azure Insights metrics.
      */
-    public /*out*/ readonly metricId: pulumi.Output<string>;
+    public /*out*/ readonly metricId!: pulumi.Output<string>;
     /**
      * Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The primary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
      * The primary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly primaryKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Azure Relay Namespace.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The secondary connection string for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      */
-    public /*out*/ readonly secondaryKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku: pulumi.Output<{ name: string }>;
+    public readonly sku!: pulumi.Output<{ name: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class Namespace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NamespaceArgs | NamespaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NamespaceState = argsOrState as NamespaceState | undefined;
+            const state = argsOrState as NamespaceState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["metricId"] = state ? state.metricId : undefined;
             inputs["name"] = state ? state.name : undefined;

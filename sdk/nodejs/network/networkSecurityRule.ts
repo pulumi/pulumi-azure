@@ -57,75 +57,75 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
     /**
      * Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
      */
-    public readonly access: pulumi.Output<string>;
+    public readonly access!: pulumi.Output<string>;
     /**
      * A description for this rule. Restricted to 140 characters.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
      */
-    public readonly destinationAddressPrefix: pulumi.Output<string | undefined>;
+    public readonly destinationAddressPrefix!: pulumi.Output<string | undefined>;
     /**
      * List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
      */
-    public readonly destinationAddressPrefixes: pulumi.Output<string[] | undefined>;
+    public readonly destinationAddressPrefixes!: pulumi.Output<string[] | undefined>;
     /**
      * A List of destination Application Security Group ID's
      */
-    public readonly destinationApplicationSecurityGroupIds: pulumi.Output<string | undefined>;
+    public readonly destinationApplicationSecurityGroupIds!: pulumi.Output<string | undefined>;
     /**
      * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
      */
-    public readonly destinationPortRange: pulumi.Output<string | undefined>;
+    public readonly destinationPortRange!: pulumi.Output<string | undefined>;
     /**
      * List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
      */
-    public readonly destinationPortRanges: pulumi.Output<string[] | undefined>;
+    public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
     /**
      * The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
      */
-    public readonly direction: pulumi.Output<string>;
+    public readonly direction!: pulumi.Output<string>;
     /**
      * The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
      */
-    public readonly networkSecurityGroupName: pulumi.Output<string>;
+    public readonly networkSecurityGroupName!: pulumi.Output<string>;
     /**
      * Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    public readonly priority: pulumi.Output<number>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
      */
-    public readonly sourceAddressPrefix: pulumi.Output<string | undefined>;
+    public readonly sourceAddressPrefix!: pulumi.Output<string | undefined>;
     /**
      * List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
      */
-    public readonly sourceAddressPrefixes: pulumi.Output<string[] | undefined>;
+    public readonly sourceAddressPrefixes!: pulumi.Output<string[] | undefined>;
     /**
      * A List of source Application Security Group ID's
      */
-    public readonly sourceApplicationSecurityGroupIds: pulumi.Output<string | undefined>;
+    public readonly sourceApplicationSecurityGroupIds!: pulumi.Output<string | undefined>;
     /**
      * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
      */
-    public readonly sourcePortRange: pulumi.Output<string | undefined>;
+    public readonly sourcePortRange!: pulumi.Output<string | undefined>;
     /**
      * List of source ports or port ranges. This is required if `source_port_range` is not specified.
      */
-    public readonly sourcePortRanges: pulumi.Output<string[] | undefined>;
+    public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a NetworkSecurityRule resource with the given unique name, arguments, and options.
@@ -138,7 +138,7 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkSecurityRuleArgs | NetworkSecurityRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkSecurityRuleState = argsOrState as NetworkSecurityRuleState | undefined;
+            const state = argsOrState as NetworkSecurityRuleState | undefined;
             inputs["access"] = state ? state.access : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["destinationAddressPrefix"] = state ? state.destinationAddressPrefix : undefined;

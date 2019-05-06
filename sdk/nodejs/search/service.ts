@@ -45,39 +45,39 @@ export class Service extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Search Service. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Default is 1. Valid values include 1, 2, 3, 4, 6, or 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
      */
-    public readonly partitionCount: pulumi.Output<number>;
+    public readonly partitionCount!: pulumi.Output<number>;
     /**
      * The Search Service Administration primary key.
      */
-    public /*out*/ readonly primaryKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
      * Default is 1. Valid values include 1 through 12. Valid only when `sku` is `standard`. Changing this forces a new resource to be created.
      */
-    public readonly replicaCount: pulumi.Output<number>;
+    public readonly replicaCount!: pulumi.Output<number>;
     /**
      * The name of the resource group in which to create the Search Service. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Search Service Administration secondary key.
      */
-    public /*out*/ readonly secondaryKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
      * Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
      */
-    public readonly sku: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -90,7 +90,7 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServiceState = argsOrState as ServiceState | undefined;
+            const state = argsOrState as ServiceState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partitionCount"] = state ? state.partitionCount : undefined;

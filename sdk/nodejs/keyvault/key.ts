@@ -78,40 +78,40 @@ export class Key extends pulumi.CustomResource {
     /**
      * The RSA public exponent of this Key Vault Key.
      */
-    public /*out*/ readonly e: pulumi.Output<string>;
+    public /*out*/ readonly e!: pulumi.Output<string>;
     /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      */
-    public readonly keyOpts: pulumi.Output<string[]>;
+    public readonly keyOpts!: pulumi.Output<string[]>;
     /**
      * Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
      */
-    public readonly keySize: pulumi.Output<number>;
+    public readonly keySize!: pulumi.Output<number>;
     /**
      * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
-    public readonly keyType: pulumi.Output<string>;
+    public readonly keyType!: pulumi.Output<string>;
     /**
      * The ID of the Key Vault where the Key should be created.
      */
-    public readonly keyVaultId: pulumi.Output<string>;
+    public readonly keyVaultId!: pulumi.Output<string>;
     /**
      * The RSA modulus of this Key Vault Key.
      */
-    public /*out*/ readonly n: pulumi.Output<string>;
+    public /*out*/ readonly n!: pulumi.Output<string>;
     /**
      * Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
-    public readonly vaultUri: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly vaultUri!: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Key.
      */
-    public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -124,7 +124,7 @@ export class Key extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KeyState = argsOrState as KeyState | undefined;
+            const state = argsOrState as KeyState | undefined;
             inputs["e"] = state ? state.e : undefined;
             inputs["keyOpts"] = state ? state.keyOpts : undefined;
             inputs["keySize"] = state ? state.keySize : undefined;
