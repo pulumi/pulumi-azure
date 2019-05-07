@@ -88,7 +88,7 @@ export interface TopicContext extends appservice.Context<void> {
 export interface TopicHostSettings extends appservice.HostSettings {
     extensions?: {
         serviceBus: {
-            /** The maximum duration within which the message lock will be renewed automatically. */
+            /** The default PrefetchCount that will be used by the underlying MessageReceiver. */
             prefetchCount?: number,
             
             messageHandlerOptions?: {
@@ -101,7 +101,7 @@ export interface TopicHostSettings extends appservice.HostSettings {
                  */
                 maxConcurrentCalls?: number,
 
-                /** The default PrefetchCount that will be used by the underlying MessageReceiver. */
+                /** The maximum duration within which the message lock will be renewed automatically. */
                 maxAutoRenewDuration?: string,
             },
         }
