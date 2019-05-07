@@ -58,7 +58,7 @@ export interface HttpHostSettings extends mod.HostSettings {
             dynamicThrottlesEnabled?: boolean,
         }
     }    
- }
+}
 
 export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
     /**
