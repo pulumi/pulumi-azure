@@ -88,7 +88,7 @@ export interface TopicContext extends appservice.Context<void> {
 export interface TopicHostSettings extends appservice.HostSettings {
     extensions?: {
         serviceBus: {
-            /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
+            /** The maximum duration within which the message lock will be renewed automatically. */
             prefetchCount?: number,
             
             messageHandlerOptions?: {
