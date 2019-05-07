@@ -266,7 +266,7 @@ export interface QueueContext extends appservice.Context<void> {
  *
  * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#host-json
  */
-export interface QueuesHostSettings extends appservice.HostSettings {
+export interface QueueHostSettings extends appservice.HostSettings {
     extensions?: {
         queues: {
             /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
@@ -316,7 +316,7 @@ export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      * Host settings specific to the Storage Queue plugin. These values can be provided here, or defaults will 
      * be used in their place. 
      */
-    hostSettings?: QueuesHostSettings;
+    hostSettings?: QueueHostSettings;
 }>;
 
 declare module "./queue" {
