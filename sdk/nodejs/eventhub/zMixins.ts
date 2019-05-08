@@ -14,13 +14,11 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import { getServiceBusNamespace, Subscription, Topic } from ".";
-import { EventHub } from ".";
+import { getEventhubNamespace, EventHub, EventHubConsumerGroup } from ".";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
 import * as util from "../util";
-import { getEventhubNamespace } from "./getEventhubNamespace";
-import { EventHubConsumerGroup } from "./eventHubConsumerGroup";
 
 interface TopicBindingDefinition extends appservice.BindingDefinition {
     /**
