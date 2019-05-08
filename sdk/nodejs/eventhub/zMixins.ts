@@ -14,7 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import { getServiceBusNamespace, Subscription, Topic } from ".";
-import { getEventhubNamespace, EventHub, EventHubConsumerGroup } from ".";
+import { EventHub, EventHubConsumerGroup, getEventhubNamespace } from ".";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
