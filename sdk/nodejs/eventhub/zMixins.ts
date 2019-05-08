@@ -287,7 +287,7 @@ export type EventHubSubscriptionArgs = util.Overwrite<appservice.CallbackFunctio
     cardinality?: pulumi.Input<"many" | "one">;
 }>;
 
-declare module "./eventhub" {
+declare module "./eventHub" {
     interface EventHub {
         /**
          * Subscribes to events logged to this Event Hub to the handler provided, along
