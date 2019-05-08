@@ -1,5 +1,5 @@
 {
-    "name": "azure-topic",
+    "name": "azure-eventhub",
     "version": "0.1.0",
     "main": "bin/index.js",
     "typings": "bin/index.d.ts",
