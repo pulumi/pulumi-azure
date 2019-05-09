@@ -169,9 +169,6 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
 
         const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, account.resourceGroupName);
 
-        // The topic binding does not store the storage connection string directly.  Instead, the
-        // connection string is put into the app settings (under whatever key we want). Then, the
-        // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = "BindingConnectionAppSettingsKey";
 
         const bindings: CosmosBindingDefinition[] = [{
@@ -187,7 +184,7 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
             startFromBeginning: args.startFromBeginning,
         }];
 
-        // Place the mapping from the well known key name to the storage account connection string in
+        // Place the mapping from the well known key name to the Cosmos DB connection string in
         // the 'app settings' object.
 
         const appSettings = pulumi.all([args.appSettings, account.connectionStrings]).apply(
