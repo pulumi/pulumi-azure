@@ -12,3 +12,4 @@ export * from "./plan";
 export * from "./slot";
 export * from "./zMixins";
 export * from "./zMixins_http";
+export * from "./zMixins_timer";
