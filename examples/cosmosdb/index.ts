@@ -1,4 +1,4 @@
-// Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+// Copyright 2016-2019, Pulumi Corporation.  All rights reserved.
 
 import * as azure from "@pulumi/azure";
 import * as cosmosdb from "@pulumi/azure/cosmosdb";
@@ -11,7 +11,6 @@ const resourceGroup = new azure.core.ResourceGroup("test", {
 
 let cosmosdb = new azure.cosmosdb.Account("test", {
     resourceGroupName: resourceGroup.name,
-    geoLocations: [{ location: resourceGroup.location, failoverPriority: 0 }],
     offerType: "Standard",
     consistencyPolicy: {
         consistencyLevel: "Session",
