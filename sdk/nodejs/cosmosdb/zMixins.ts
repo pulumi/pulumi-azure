@@ -150,16 +150,12 @@ declare module "./account" {
          * with options to control the behavior of the subscription.
          */
         onChange(
-            name: string, args: CosmosChangeFeedCallback | CosmosChangeFeedSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): CosmosChangeFeedSubscription;
+            name: string, args: CosmosChangeFeedSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): CosmosChangeFeedSubscription;
     }
 }
 
 Account.prototype.onChange = function(this: Account, name, args, opts) {
-    const functionArgs = args instanceof Function
-        ? <CosmosChangeFeedSubscriptionArgs>{ callback: args }
-        : args;
-
-    return new CosmosChangeFeedSubscription(name, this, functionArgs, opts);
+    return new CosmosChangeFeedSubscription(name, this, args, opts);
 }
 
 export class CosmosChangeFeedSubscription extends appservice.EventSubscription<CosmosChangeFeedContext, any[], void> {
