@@ -1,5 +1,9 @@
 ## 0.18.3 (Unreleased)
 
+## Improvements
+
+- Serverless mixins now support the Event Hubs trigger.
+
 ## 0.18.2 (Released May 6th, 2019)
 
 ## Improvements
