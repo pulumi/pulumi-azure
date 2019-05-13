@@ -65,6 +65,10 @@ class Configuration(pulumi.CustomResource):
             raise TypeError("Missing required property 'value'")
         __props__['value'] = value
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Configuration, __self__).__init__(
             'azure:postgresql/configuration:Configuration',
             resource_name,

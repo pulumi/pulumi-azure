@@ -146,6 +146,13 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, inputs, opts);
     }
 }

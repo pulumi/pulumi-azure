@@ -100,6 +100,13 @@ export class ConsumerGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:iot/consumerGroup:ConsumerGroup", name, inputs, opts);
     }
 }

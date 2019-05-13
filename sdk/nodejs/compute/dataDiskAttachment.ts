@@ -167,6 +167,13 @@ export class DataDiskAttachment extends pulumi.CustomResource {
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
             inputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:compute/dataDiskAttachment:DataDiskAttachment", name, inputs, opts);
     }
 }

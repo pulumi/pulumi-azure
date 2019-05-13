@@ -86,6 +86,13 @@ export class Queue extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:storage/queue:Queue", name, inputs, opts);
     }
 }

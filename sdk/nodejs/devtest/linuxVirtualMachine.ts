@@ -223,6 +223,13 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, inputs, opts);
     }
 }

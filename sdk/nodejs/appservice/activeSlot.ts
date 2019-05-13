@@ -84,6 +84,13 @@ export class ActiveSlot extends pulumi.CustomResource {
             inputs["appServiceSlotName"] = args ? args.appServiceSlotName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:appservice/activeSlot:ActiveSlot", name, inputs, opts);
     }
 }

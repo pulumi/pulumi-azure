@@ -246,6 +246,13 @@ export class Slot extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["defaultSiteHostname"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:appservice/slot:Slot", name, inputs, opts);
     }
 }

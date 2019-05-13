@@ -79,6 +79,10 @@ class EventGridTopic(pulumi.CustomResource):
         __props__['primary_access_key'] = None
         __props__['secondary_access_key'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EventGridTopic, __self__).__init__(
             'azure:eventhub/eventGridTopic:EventGridTopic',
             resource_name,

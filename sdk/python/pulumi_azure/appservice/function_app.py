@@ -168,6 +168,10 @@ class FunctionApp(pulumi.CustomResource):
         __props__['possible_outbound_ip_addresses'] = None
         __props__['site_credential'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(FunctionApp, __self__).__init__(
             'azure:appservice/functionApp:FunctionApp',
             resource_name,

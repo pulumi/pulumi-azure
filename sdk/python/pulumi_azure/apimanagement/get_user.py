@@ -68,6 +68,10 @@ async def get_user(api_management_name=None,resource_group_name=None,user_id=Non
     __args__['apiManagementName'] = api_management_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['userId'] = user_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getUser:getUser', __args__, opts=opts)
 
     return GetUserResult(

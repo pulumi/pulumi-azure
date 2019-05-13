@@ -118,6 +118,13 @@ export class Store extends pulumi.CustomResource {
             inputs["tier"] = args ? args.tier : undefined;
             inputs["endpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:datalake/store:Store", name, inputs, opts);
     }
 }

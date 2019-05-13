@@ -80,6 +80,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:securitycenter/workspace:Workspace", name, inputs, opts);
     }
 }

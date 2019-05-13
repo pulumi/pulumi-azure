@@ -136,6 +136,10 @@ class Slot(pulumi.CustomResource):
 
         __props__['default_site_hostname'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Slot, __self__).__init__(
             'azure:appservice/slot:Slot',
             resource_name,

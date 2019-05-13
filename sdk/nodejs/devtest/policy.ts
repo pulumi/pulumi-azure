@@ -137,6 +137,13 @@ export class Policy extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["threshold"] = args ? args.threshold : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:devtest/policy:Policy", name, inputs, opts);
     }
 }

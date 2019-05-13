@@ -84,6 +84,10 @@ async def get_service_bus_namespace(name=None,resource_group_name=None,opts=None
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:eventhub/getServiceBusNamespace:getServiceBusNamespace', __args__, opts=opts)
 
     return GetServiceBusNamespaceResult(

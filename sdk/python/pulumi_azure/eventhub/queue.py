@@ -186,6 +186,10 @@ class Queue(pulumi.CustomResource):
 
         __props__['support_ordering'] = support_ordering
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Queue, __self__).__init__(
             'azure:eventhub/queue:Queue',
             resource_name,

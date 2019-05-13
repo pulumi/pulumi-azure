@@ -128,6 +128,13 @@ export class LogProfile extends pulumi.CustomResource {
             inputs["servicebusRuleId"] = args ? args.servicebusRuleId : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:monitoring/logProfile:LogProfile", name, inputs, opts);
     }
 }

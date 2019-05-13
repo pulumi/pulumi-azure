@@ -8,6 +8,13 @@ import * as utilities from "../utilities";
  * Use this data source to access information about an existing Batch pool
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:batch/getPool:getPool", {
         "accountName": args.accountName,
         "certificates": args.certificates,

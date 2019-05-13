@@ -83,6 +83,10 @@ class VirtualNetwork(pulumi.CustomResource):
 
         __props__['unique_identifier'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VirtualNetwork, __self__).__init__(
             'azure:devtest/virtualNetwork:VirtualNetwork',
             resource_name,

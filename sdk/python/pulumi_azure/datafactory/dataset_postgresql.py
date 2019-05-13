@@ -114,6 +114,10 @@ class DatasetPostgresql(pulumi.CustomResource):
 
         __props__['table_name'] = table_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DatasetPostgresql, __self__).__init__(
             'azure:datafactory/datasetPostgresql:DatasetPostgresql',
             resource_name,
