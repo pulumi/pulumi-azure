@@ -2,7 +2,7 @@
 
 ## Improvements
 
-- Serverless mixins now support the Event Hubs trigger.
+- Serverless mixins now support the Event Hubs and Cosmos DB triggers.
 
 ## 0.18.2 (Released May 6th, 2019)
 
