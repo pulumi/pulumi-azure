@@ -3,6 +3,7 @@
 ## Improvements
 
 - Serverless mixins now support the Event Hubs trigger.
+- Extension-level host settings in serverless functions.
 
 ## 0.18.2 (Released May 6th, 2019)
 
