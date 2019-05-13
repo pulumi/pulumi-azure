@@ -65,6 +65,10 @@ async def get_account_sas(connection_string=None,expiry=None,https_only=None,per
     __args__['resourceTypes'] = resource_types
     __args__['services'] = services
     __args__['start'] = start
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:storage/getAccountSAS:getAccountSAS', __args__, opts=opts)
 
     return GetAccountSASResult(

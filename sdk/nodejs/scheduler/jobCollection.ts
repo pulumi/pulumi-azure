@@ -110,6 +110,13 @@ export class JobCollection extends pulumi.CustomResource {
             inputs["state"] = args ? args.state : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:scheduler/jobCollection:JobCollection", name, inputs, opts);
     }
 }

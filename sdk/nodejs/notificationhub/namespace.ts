@@ -108,6 +108,13 @@ export class Namespace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["servicebusEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:notificationhub/namespace:Namespace", name, inputs, opts);
     }
 }

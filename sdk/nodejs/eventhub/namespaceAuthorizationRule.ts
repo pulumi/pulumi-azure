@@ -131,6 +131,13 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, inputs, opts);
     }
 }

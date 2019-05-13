@@ -124,6 +124,10 @@ class EventGridEventSubscription(pulumi.CustomResource):
 
         __props__['webhook_endpoint'] = webhook_endpoint
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EventGridEventSubscription, __self__).__init__(
             'azure:eventhub/eventGridEventSubscription:EventGridEventSubscription',
             resource_name,

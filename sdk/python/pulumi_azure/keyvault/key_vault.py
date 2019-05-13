@@ -122,6 +122,10 @@ class KeyVault(pulumi.CustomResource):
 
         __props__['vault_uri'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(KeyVault, __self__).__init__(
             'azure:keyvault/keyVault:KeyVault',
             resource_name,

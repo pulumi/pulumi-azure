@@ -74,6 +74,13 @@ export class ServicePrincipal extends pulumi.CustomResource {
             inputs["applicationId"] = args ? args.applicationId : undefined;
             inputs["displayName"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:ad/servicePrincipal:ServicePrincipal", name, inputs, opts);
     }
 }

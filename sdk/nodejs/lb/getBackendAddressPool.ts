@@ -26,6 +26,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", {
         "loadbalancerId": args.loadbalancerId,
         "name": args.name,

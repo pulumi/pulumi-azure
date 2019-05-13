@@ -119,6 +119,13 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startIp"] = args ? args.startIp : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:redis/firewallRule:FirewallRule", name, inputs, opts);
     }
 }

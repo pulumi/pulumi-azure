@@ -123,6 +123,13 @@ export class EventHub extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["partitionIds"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:eventhub/eventHub:EventHub", name, inputs, opts);
     }
 }

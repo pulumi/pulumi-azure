@@ -134,6 +134,13 @@ export class Registry extends pulumi.CustomResource {
             inputs["adminUsername"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:containerservice/registry:Registry", name, inputs, opts);
     }
 }

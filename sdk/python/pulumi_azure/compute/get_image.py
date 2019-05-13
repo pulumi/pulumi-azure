@@ -75,6 +75,10 @@ async def get_image(name=None,name_regex=None,resource_group_name=None,sort_desc
     __args__['nameRegex'] = name_regex
     __args__['resourceGroupName'] = resource_group_name
     __args__['sortDescending'] = sort_descending
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts)
 
     return GetImageResult(

@@ -119,6 +119,13 @@ export class LinkedService extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:loganalytics/linkedService:LinkedService", name, inputs, opts);
     }
 }

@@ -61,6 +61,10 @@ class StoreFile(pulumi.CustomResource):
             raise TypeError("Missing required property 'remote_file_path'")
         __props__['remote_file_path'] = remote_file_path
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(StoreFile, __self__).__init__(
             'azure:datalake/storeFile:StoreFile',
             resource_name,

@@ -119,6 +119,10 @@ class OutputBlob(pulumi.CustomResource):
             raise TypeError("Missing required property 'time_format'")
         __props__['time_format'] = time_format
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(OutputBlob, __self__).__init__(
             'azure:streamanalytics/outputBlob:OutputBlob',
             resource_name,

@@ -121,6 +121,13 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             inputs["secondarySharedKey"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, inputs, opts);
     }
 }

@@ -323,6 +323,10 @@ class Account(pulumi.CustomResource):
         __props__['secondary_web_endpoint'] = None
         __props__['secondary_web_host'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Account, __self__).__init__(
             'azure:storage/account:Account',
             resource_name,

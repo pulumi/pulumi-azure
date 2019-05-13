@@ -199,6 +199,10 @@ class Cache(pulumi.CustomResource):
         __props__['secondary_access_key'] = None
         __props__['ssl_port'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Cache, __self__).__init__(
             'azure:redis/cache:Cache',
             resource_name,

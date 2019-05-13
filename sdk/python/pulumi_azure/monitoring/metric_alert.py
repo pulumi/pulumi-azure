@@ -121,6 +121,10 @@ class MetricAlert(pulumi.CustomResource):
 
         __props__['window_size'] = window_size
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MetricAlert, __self__).__init__(
             'azure:monitoring/metricAlert:MetricAlert',
             resource_name,

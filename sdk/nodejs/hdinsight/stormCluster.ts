@@ -192,6 +192,13 @@ export class StormCluster extends pulumi.CustomResource {
             inputs["httpsEndpoint"] = undefined /*out*/;
             inputs["sshEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:hdinsight/stormCluster:StormCluster", name, inputs, opts);
     }
 }

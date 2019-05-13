@@ -122,6 +122,13 @@ export class AnalyticsWorkspaceLinkedService extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:operationalinsights/analyticsWorkspaceLinkedService:AnalyticsWorkspaceLinkedService", name, inputs, opts);
     }
 }

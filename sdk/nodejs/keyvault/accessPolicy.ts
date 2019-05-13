@@ -115,6 +115,13 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:keyvault/accessPolicy:AccessPolicy", name, inputs, opts);
     }
 }

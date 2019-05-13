@@ -103,6 +103,13 @@ export class ServicePrincipalPassword extends pulumi.CustomResource {
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:ad/servicePrincipalPassword:ServicePrincipalPassword", name, inputs, opts);
     }
 }

@@ -124,6 +124,13 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:datafactory/linkedServiceMysql:LinkedServiceMysql", name, inputs, opts);
     }
 }

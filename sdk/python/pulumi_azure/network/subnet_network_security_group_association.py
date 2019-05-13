@@ -51,6 +51,10 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             raise TypeError("Missing required property 'subnet_id'")
         __props__['subnet_id'] = subnet_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SubnetNetworkSecurityGroupAssociation, __self__).__init__(
             'azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation',
             resource_name,

@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:cosmosdb/getAccount:getAccount", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -189,6 +189,13 @@ export class Database extends pulumi.CustomResource {
             inputs["defaultSecondaryLocation"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:sql/database:Database", name, inputs, opts);
     }
 }
