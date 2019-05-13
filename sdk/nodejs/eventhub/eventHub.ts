@@ -53,32 +53,32 @@ export class EventHub extends pulumi.CustomResource {
     /**
      * A `capture_description` block as defined below.
      */
-    public readonly captureDescription: pulumi.Output<{ destination: { archiveNameFormat: string, blobContainerName: string, name: string, storageAccountId: string }, enabled: boolean, encoding: string, intervalInSeconds?: number, sizeLimitInBytes?: number, skipEmptyArchives?: boolean } | undefined>;
-    public readonly location: pulumi.Output<string>;
+    public readonly captureDescription!: pulumi.Output<{ destination: { archiveNameFormat: string, blobContainerName: string, name: string, storageAccountId: string }, enabled: boolean, encoding: string, intervalInSeconds?: number, sizeLimitInBytes?: number, skipEmptyArchives?: boolean } | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
      */
-    public readonly messageRetention: pulumi.Output<number>;
+    public readonly messageRetention!: pulumi.Output<number>;
     /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
      */
-    public readonly partitionCount: pulumi.Output<number>;
+    public readonly partitionCount!: pulumi.Output<number>;
     /**
      * The identifiers for partitions created for Event Hubs.
      */
-    public /*out*/ readonly partitionIds: pulumi.Output<string[]>;
+    public /*out*/ readonly partitionIds!: pulumi.Output<string[]>;
     /**
      * The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a EventHub resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class EventHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubArgs | EventHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubState = argsOrState as EventHubState | undefined;
+            const state = argsOrState as EventHubState | undefined;
             inputs["captureDescription"] = state ? state.captureDescription : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["messageRetention"] = state ? state.messageRetention : undefined;

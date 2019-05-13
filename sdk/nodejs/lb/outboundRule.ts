@@ -67,39 +67,39 @@ export class OutboundRule extends pulumi.CustomResource {
     /**
      * The number of outbound ports to be used for NAT.
      */
-    public readonly allocatedOutboundPorts: pulumi.Output<number | undefined>;
+    public readonly allocatedOutboundPorts!: pulumi.Output<number | undefined>;
     /**
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
-    public readonly backendAddressPoolId: pulumi.Output<string>;
+    public readonly backendAddressPoolId!: pulumi.Output<string>;
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    public readonly enableTcpReset: pulumi.Output<boolean | undefined>;
+    public readonly enableTcpReset!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `frontend_ip_configuration` blocks as defined below.
      */
-    public readonly frontendIpConfigurations: pulumi.Output<{ id: string, name: string }[] | undefined>;
+    public readonly frontendIpConfigurations!: pulumi.Output<{ id: string, name: string }[] | undefined>;
     /**
      * The timeout for the TCP idle connection
      */
-    public readonly idleTimeoutInMinutes: pulumi.Output<number | undefined>;
+    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
     /**
      * The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created.
      */
-    public readonly loadbalancerId: pulumi.Output<string>;
+    public readonly loadbalancerId!: pulumi.Output<string>;
     /**
      * Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a OutboundRule resource with the given unique name, arguments, and options.
@@ -112,7 +112,7 @@ export class OutboundRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OutboundRuleArgs | OutboundRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: OutboundRuleState = argsOrState as OutboundRuleState | undefined;
+            const state = argsOrState as OutboundRuleState | undefined;
             inputs["allocatedOutboundPorts"] = state ? state.allocatedOutboundPorts : undefined;
             inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             inputs["enableTcpReset"] = state ? state.enableTcpReset : undefined;

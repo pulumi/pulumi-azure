@@ -59,24 +59,24 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    public readonly eventhubName: pulumi.Output<string>;
-    public readonly location: pulumi.Output<string>;
+    public readonly eventhubName!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the user metadata.
      */
-    public readonly userMetadata: pulumi.Output<string | undefined>;
+    public readonly userMetadata!: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventHubConsumerGroup resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubConsumerGroupArgs | EventHubConsumerGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubConsumerGroupState = argsOrState as EventHubConsumerGroupState | undefined;
+            const state = argsOrState as EventHubConsumerGroupState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -86,15 +86,15 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
     /**
      * The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
      */
-    public readonly ipConfigurationName: pulumi.Output<string>;
+    public readonly ipConfigurationName!: pulumi.Output<string>;
     /**
      * The ID of the Load Balancer NAT Rule which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
-    public readonly natRuleId: pulumi.Output<string>;
+    public readonly natRuleId!: pulumi.Output<string>;
     /**
      * The ID of the Network Interface. Changing this forces a new resource to be created.
      */
-    public readonly networkInterfaceId: pulumi.Output<string>;
+    public readonly networkInterfaceId!: pulumi.Output<string>;
 
     /**
      * Create a NetworkInterfaceNatRuleAssociation resource with the given unique name, arguments, and options.
@@ -107,7 +107,7 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NetworkInterfaceNatRuleAssociationArgs | NetworkInterfaceNatRuleAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NetworkInterfaceNatRuleAssociationState = argsOrState as NetworkInterfaceNatRuleAssociationState | undefined;
+            const state = argsOrState as NetworkInterfaceNatRuleAssociationState | undefined;
             inputs["ipConfigurationName"] = state ? state.ipConfigurationName : undefined;
             inputs["natRuleId"] = state ? state.natRuleId : undefined;
             inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;

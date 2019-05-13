@@ -40,35 +40,35 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * The Access Endpoint for the Logic App Workflow
      */
-    public /*out*/ readonly accessEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly accessEndpoint!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A map of Key-Value pairs.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created.
      */
-    public readonly workflowSchema: pulumi.Output<string | undefined>;
+    public readonly workflowSchema!: pulumi.Output<string | undefined>;
     /**
      * Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be create.d
      */
-    public readonly workflowVersion: pulumi.Output<string | undefined>;
+    public readonly workflowVersion!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class Workflow extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WorkflowArgs | WorkflowState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WorkflowState = argsOrState as WorkflowState | undefined;
+            const state = argsOrState as WorkflowState | undefined;
             inputs["accessEndpoint"] = state ? state.accessEndpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

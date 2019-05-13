@@ -46,27 +46,27 @@ export class ActionHttp extends pulumi.CustomResource {
     /**
      * Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    public readonly body: pulumi.Output<string | undefined>;
+    public readonly body!: pulumi.Output<string | undefined>;
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    public readonly headers: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly headers!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId: pulumi.Output<string>;
+    public readonly logicAppId!: pulumi.Output<string>;
     /**
      * Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
      */
-    public readonly method: pulumi.Output<string>;
+    public readonly method!: pulumi.Output<string>;
     /**
      * Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the URI which will be called when this HTTP Action is triggered.
      */
-    public readonly uri: pulumi.Output<string>;
+    public readonly uri!: pulumi.Output<string>;
 
     /**
      * Create a ActionHttp resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ export class ActionHttp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActionHttpArgs | ActionHttpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActionHttpState = argsOrState as ActionHttpState | undefined;
+            const state = argsOrState as ActionHttpState | undefined;
             inputs["body"] = state ? state.body : undefined;
             inputs["headers"] = state ? state.headers : undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;

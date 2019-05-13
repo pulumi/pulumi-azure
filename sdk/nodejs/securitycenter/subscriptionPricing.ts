@@ -38,7 +38,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
-    public readonly tier: pulumi.Output<string>;
+    public readonly tier!: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionPricing resource with the given unique name, arguments, and options.
@@ -51,7 +51,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SubscriptionPricingArgs | SubscriptionPricingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubscriptionPricingState = argsOrState as SubscriptionPricingState | undefined;
+            const state = argsOrState as SubscriptionPricingState | undefined;
             inputs["tier"] = state ? state.tier : undefined;
         } else {
             const args = argsOrState as SubscriptionPricingArgs | undefined;

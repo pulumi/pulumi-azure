@@ -43,19 +43,19 @@ export class GroupUser extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly groupName: pulumi.Output<string>;
+    public readonly groupName!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created.
      */
-    public readonly userId: pulumi.Output<string>;
+    public readonly userId!: pulumi.Output<string>;
 
     /**
      * Create a GroupUser resource with the given unique name, arguments, and options.
@@ -68,7 +68,7 @@ export class GroupUser extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupUserArgs | GroupUserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: GroupUserState = argsOrState as GroupUserState | undefined;
+            const state = argsOrState as GroupUserState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["groupName"] = state ? state.groupName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

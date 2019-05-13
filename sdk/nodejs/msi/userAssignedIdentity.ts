@@ -40,30 +40,30 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
      * Client ID associated with the user assigned identity.
      */
-    public /*out*/ readonly clientId: pulumi.Output<string>;
+    public /*out*/ readonly clientId!: pulumi.Output<string>;
     /**
      * The location/region where the user assigned identity is
      * created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the user assigned identity. Changing this forces a
      * new identity to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Service Principal ID associated with the user assigned identity.
      */
-    public /*out*/ readonly principalId: pulumi.Output<string>;
+    public /*out*/ readonly principalId!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the user assigned identity.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a UserAssignedIdentity resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserAssignedIdentityArgs | UserAssignedIdentityState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserAssignedIdentityState = argsOrState as UserAssignedIdentityState | undefined;
+            const state = argsOrState as UserAssignedIdentityState | undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

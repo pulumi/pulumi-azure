@@ -62,39 +62,39 @@ export class StreamInputIotHub extends pulumi.CustomResource {
     /**
      * The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
      */
-    public readonly endpoint: pulumi.Output<string>;
+    public readonly endpoint!: pulumi.Output<string>;
     /**
      * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
      */
-    public readonly eventhubConsumerGroupName: pulumi.Output<string>;
+    public readonly eventhubConsumerGroupName!: pulumi.Output<string>;
     /**
      * The name or the URI of the IoT Hub.
      */
-    public readonly iothubNamespace: pulumi.Output<string>;
+    public readonly iothubNamespace!: pulumi.Output<string>;
     /**
      * The name of the Stream Input IoTHub. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `serialization` block as defined below.
      */
-    public readonly serialization: pulumi.Output<{ encoding?: string, fieldDelimiter?: string, type: string }>;
+    public readonly serialization!: pulumi.Output<{ encoding?: string, fieldDelimiter?: string, type: string }>;
     /**
      * The shared access policy key for the specified shared access policy.
      */
-    public readonly sharedAccessPolicyKey: pulumi.Output<string>;
+    public readonly sharedAccessPolicyKey!: pulumi.Output<string>;
     /**
      * The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
-    public readonly sharedAccessPolicyName: pulumi.Output<string>;
+    public readonly sharedAccessPolicyName!: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
      */
-    public readonly streamAnalyticsJobName: pulumi.Output<string>;
+    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
 
     /**
      * Create a StreamInputIotHub resource with the given unique name, arguments, and options.
@@ -107,7 +107,7 @@ export class StreamInputIotHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StreamInputIotHubArgs | StreamInputIotHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StreamInputIotHubState = argsOrState as StreamInputIotHubState | undefined;
+            const state = argsOrState as StreamInputIotHubState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["eventhubConsumerGroupName"] = state ? state.eventhubConsumerGroupName : undefined;
             inputs["iothubNamespace"] = state ? state.iothubNamespace : undefined;

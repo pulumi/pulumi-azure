@@ -93,83 +93,83 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
      */
-    public readonly appServicePlanId: pulumi.Output<string>;
+    public readonly appServicePlanId!: pulumi.Output<string>;
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly appSettings!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */
-    public readonly clientAffinityEnabled: pulumi.Output<boolean>;
+    public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
     /**
      * An `connection_string` block as defined below.
      */
-    public readonly connectionStrings: pulumi.Output<{ name: string, type: string, value: string }[]>;
+    public readonly connectionStrings!: pulumi.Output<{ name: string, type: string, value: string }[]>;
     /**
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
-    public /*out*/ readonly defaultHostname: pulumi.Output<string>;
+    public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
     /**
      * Should the built-in logging of this Function App be enabled? Defaults to `true`.
      */
-    public readonly enableBuiltinLogging: pulumi.Output<boolean | undefined>;
+    public readonly enableBuiltinLogging!: pulumi.Output<boolean | undefined>;
     /**
      * Is the Function App enabled?
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Can the Function App only be accessed via HTTPS? Defaults to `false`.
      */
-    public readonly httpsOnly: pulumi.Output<boolean | undefined>;
+    public readonly httpsOnly!: pulumi.Output<boolean | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
     /**
      * The Function App kind - such as `functionapp,linux,container`
      */
-    public /*out*/ readonly kind: pulumi.Output<string>;
+    public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Connection String.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      */
-    public /*out*/ readonly outboundIpAddresses: pulumi.Output<string>;
+    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
     /**
      * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      */
-    public /*out*/ readonly possibleOutboundIpAddresses: pulumi.Output<string>;
+    public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Function App.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `site_config` object as defined below.
      */
-    public readonly siteConfig: pulumi.Output<{ alwaysOn?: boolean, linuxFxVersion: string, use32BitWorkerProcess?: boolean, websocketsEnabled?: boolean }>;
+    public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, linuxFxVersion: string, use32BitWorkerProcess?: boolean, websocketsEnabled?: boolean }>;
     /**
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredential: pulumi.Output<{ password: string, username: string }>;
+    public /*out*/ readonly siteCredential!: pulumi.Output<{ password: string, username: string }>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */
-    public readonly storageConnectionString: pulumi.Output<string>;
+    public readonly storageConnectionString!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The runtime version associated with the Function App. Defaults to `~1`.
      */
-    public readonly version: pulumi.Output<string | undefined>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a FunctionApp resource with the given unique name, arguments, and options.
@@ -182,7 +182,7 @@ export class FunctionApp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FunctionAppArgs | FunctionAppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FunctionAppState = argsOrState as FunctionAppState | undefined;
+            const state = argsOrState as FunctionAppState | undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;

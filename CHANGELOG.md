@@ -1,4 +1,15 @@
-## 0.18.2 (Unreleased)
+## 0.18.3 (Unreleased)
+
+## Improvements
+
+- Serverless mixins now support the Event Hubs trigger.
+
+## 0.18.2 (Released May 6th, 2019)
+
+## Improvements
+
+- Updated the Pulumi <-> Terraform Bridge embedded in the provider, adding non-null
+  assertions to many properties in TypeScript.
 
 ## 0.18.1 (Released April 30th, 2019)
 

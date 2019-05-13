@@ -59,47 +59,47 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**
      * Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
      */
-    public readonly listen: pulumi.Output<boolean | undefined>;
+    public readonly listen!: pulumi.Output<boolean | undefined>;
     /**
      * Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    public readonly manage: pulumi.Output<boolean | undefined>;
+    public readonly manage!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the Authorization Rule. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the ServiceBus Namespace in which the Queue exists. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * The Primary Connection String for the Authorization Rule.
      */
-    public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
      * The Primary Key for the Authorization Rule.
      */
-    public /*out*/ readonly primaryKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
      * Specifies the name of the ServiceBus Queue. Changing this forces a new resource to be created.
      */
-    public readonly queueName: pulumi.Output<string>;
+    public readonly queueName!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the ServiceBus Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the Authorization Rule.
      */
-    public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * The Secondary Key for the Authorization Rule.
      */
-    public /*out*/ readonly secondaryKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`.
      */
-    public readonly send: pulumi.Output<boolean | undefined>;
+    public readonly send!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a QueueAuthorizationRule resource with the given unique name, arguments, and options.
@@ -112,7 +112,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: QueueAuthorizationRuleArgs | QueueAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: QueueAuthorizationRuleState = argsOrState as QueueAuthorizationRuleState | undefined;
+            const state = argsOrState as QueueAuthorizationRuleState | undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["manage"] = state ? state.manage : undefined;
             inputs["name"] = state ? state.name : undefined;

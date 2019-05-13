@@ -62,23 +62,23 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
      * Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
      */
-    public readonly ignoreMissingVnetServiceEndpoint: pulumi.Output<boolean | undefined>;
+    public readonly ignoreMissingVnetServiceEndpoint!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group where the SQL server resides. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * The ID of the subnet that the SQL server will be connected to.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkRule resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkRuleArgs | VirtualNetworkRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkRuleState = argsOrState as VirtualNetworkRuleState | undefined;
+            const state = argsOrState as VirtualNetworkRuleState | undefined;
             inputs["ignoreMissingVnetServiceEndpoint"] = state ? state.ignoreMissingVnetServiceEndpoint : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

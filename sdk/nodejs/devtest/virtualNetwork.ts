@@ -52,31 +52,31 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * A description for the Virtual Network.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created.
      */
-    public readonly labName: pulumi.Output<string>;
+    public readonly labName!: pulumi.Output<string>;
     /**
      * Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `subnet` block as defined below.
      */
-    public readonly subnet: pulumi.Output<{ name: string, useInVirtualMachineCreation?: string, usePublicIpAddress?: string }>;
+    public readonly subnet!: pulumi.Output<{ name: string, useInVirtualMachineCreation?: string, usePublicIpAddress?: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The unique immutable identifier of the Dev Test Virtual Network.
      */
-    public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
+    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkArgs | VirtualNetworkState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkState = argsOrState as VirtualNetworkState | undefined;
+            const state = argsOrState as VirtualNetworkState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["labName"] = state ? state.labName : undefined;
             inputs["name"] = state ? state.name : undefined;

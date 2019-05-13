@@ -43,31 +43,31 @@ export class Application extends pulumi.CustomResource {
     /**
      * The Application ID.
      */
-    public /*out*/ readonly applicationId: pulumi.Output<string>;
+    public /*out*/ readonly applicationId!: pulumi.Output<string>;
     /**
      * Is this Azure AD Application available to other tenants? Defaults to `false`.
      */
-    public readonly availableToOtherTenants: pulumi.Output<boolean | undefined>;
+    public readonly availableToOtherTenants!: pulumi.Output<boolean | undefined>;
     /**
      * The URL to the application's home page. If no homepage is specified this defaults to `https://{name}`.
      */
-    public readonly homepage: pulumi.Output<string>;
+    public readonly homepage!: pulumi.Output<string>;
     /**
      * A list of user-defined URI(s) that uniquely identify a Web application within it's Azure AD tenant, or within a verified custom domain if the application is multi-tenant.
      */
-    public readonly identifierUris: pulumi.Output<string[]>;
+    public readonly identifierUris!: pulumi.Output<string[]>;
     /**
      * The display name for the application.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Does this Azure AD Application allow OAuth2.0 implicit flow tokens? Defaults to `false`.
      */
-    public readonly oauth2AllowImplicitFlow: pulumi.Output<boolean | undefined>;
+    public readonly oauth2AllowImplicitFlow!: pulumi.Output<boolean | undefined>;
     /**
      * A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
      */
-    public readonly replyUrls: pulumi.Output<string[]>;
+    public readonly replyUrls!: pulumi.Output<string[]>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class Application extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ApplicationState = argsOrState as ApplicationState | undefined;
+            const state = argsOrState as ApplicationState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["availableToOtherTenants"] = state ? state.availableToOtherTenants : undefined;
             inputs["homepage"] = state ? state.homepage : undefined;

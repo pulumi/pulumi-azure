@@ -52,47 +52,47 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
      */
-    public readonly deviceConnect: pulumi.Output<boolean | undefined>;
+    public readonly deviceConnect!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created.
      */
-    public readonly iothubName: pulumi.Output<string>;
+    public readonly iothubName!: pulumi.Output<string>;
     /**
      * Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The primary connection string of the Shared Access Policy.
      */
-    public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
      * The primary key used to create the authentication token.
      */
-    public /*out*/ readonly primaryKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
      * Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry.
      */
-    public readonly registryRead: pulumi.Output<boolean | undefined>;
+    public readonly registryRead!: pulumi.Output<boolean | undefined>;
     /**
      * Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
      */
-    public readonly registryWrite: pulumi.Output<boolean | undefined>;
+    public readonly registryWrite!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The secondary connection string of the Shared Access Policy.
      */
-    public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * The secondary key used to create the authentication token.
      */
-    public /*out*/ readonly secondaryKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
      * Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
      */
-    public readonly serviceConnect: pulumi.Output<boolean | undefined>;
+    public readonly serviceConnect!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SharedAccessPolicy resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SharedAccessPolicyArgs | SharedAccessPolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SharedAccessPolicyState = argsOrState as SharedAccessPolicyState | undefined;
+            const state = argsOrState as SharedAccessPolicyState | undefined;
             inputs["deviceConnect"] = state ? state.deviceConnect : undefined;
             inputs["iothubName"] = state ? state.iothubName : undefined;
             inputs["name"] = state ? state.name : undefined;

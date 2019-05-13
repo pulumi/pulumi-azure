@@ -46,35 +46,35 @@ export class Account extends pulumi.CustomResource {
     /**
      * The Primary Access Key for the DSC Endpoint associated with this Automation Account.
      */
-    public /*out*/ readonly dscPrimaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly dscPrimaryAccessKey!: pulumi.Output<string>;
     /**
      * The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
      */
-    public /*out*/ readonly dscSecondaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly dscSecondaryAccessKey!: pulumi.Output<string>;
     /**
      * The DSC Server Endpoint associated with this Automation Account.
      */
-    public /*out*/ readonly dscServerEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly dscServerEndpoint!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The SKU name of the account - only `Basic` is supported at this time. Defaults to `Basic`.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku: pulumi.Output<{ name?: string }>;
+    public readonly sku!: pulumi.Output<{ name?: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountState = argsOrState as AccountState | undefined;
+            const state = argsOrState as AccountState | undefined;
             inputs["dscPrimaryAccessKey"] = state ? state.dscPrimaryAccessKey : undefined;
             inputs["dscSecondaryAccessKey"] = state ? state.dscSecondaryAccessKey : undefined;
             inputs["dscServerEndpoint"] = state ? state.dscServerEndpoint : undefined;

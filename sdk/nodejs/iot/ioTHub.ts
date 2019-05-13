@@ -81,64 +81,64 @@ export class IoTHub extends pulumi.CustomResource {
     /**
      * An `endpoint` block as defined below.
      */
-    public readonly endpoints: pulumi.Output<{ batchFrequencyInSeconds?: number, connectionString: string, containerName?: string, encoding?: string, fileNameFormat?: string, maxChunkSizeInBytes?: number, name: string, type: string }[] | undefined>;
+    public readonly endpoints!: pulumi.Output<{ batchFrequencyInSeconds?: number, connectionString: string, containerName?: string, encoding?: string, fileNameFormat?: string, maxChunkSizeInBytes?: number, name: string, type: string }[] | undefined>;
     /**
      * The EventHub compatible endpoint for events data
      */
-    public /*out*/ readonly eventHubEventsEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly eventHubEventsEndpoint!: pulumi.Output<string>;
     /**
      * The EventHub compatible path for events data
      */
-    public /*out*/ readonly eventHubEventsPath: pulumi.Output<string>;
+    public /*out*/ readonly eventHubEventsPath!: pulumi.Output<string>;
     /**
      * The EventHub compatible endpoint for operational data
      */
-    public /*out*/ readonly eventHubOperationsEndpoint: pulumi.Output<string>;
+    public /*out*/ readonly eventHubOperationsEndpoint!: pulumi.Output<string>;
     /**
      * The EventHub compatible path for operational data
      */
-    public /*out*/ readonly eventHubOperationsPath: pulumi.Output<string>;
+    public /*out*/ readonly eventHubOperationsPath!: pulumi.Output<string>;
     /**
      * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
-    public readonly fallbackRoute: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], source?: string }>;
+    public readonly fallbackRoute!: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], source?: string }>;
     /**
      * The hostname of the IotHub Resource.
      */
-    public /*out*/ readonly hostname: pulumi.Output<string>;
+    public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
      * One or more `ip_filter_rule` blocks as defined below.
      */
-    public readonly ipFilterRules: pulumi.Output<{ action: string, ipMask: string, name: string }[] | undefined>;
+    public readonly ipFilterRules!: pulumi.Output<{ action: string, ipMask: string, name: string }[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `route` block as defined below.
      */
-    public readonly routes: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], name: string, source: string }[] | undefined>;
+    public readonly routes!: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], name: string, source: string }[] | undefined>;
     /**
      * One or more `shared_access_policy` blocks as defined below.
      */
-    public /*out*/ readonly sharedAccessPolicies: pulumi.Output<{ keyName: string, permissions: string, primaryKey: string, secondaryKey: string }[]>;
+    public /*out*/ readonly sharedAccessPolicies!: pulumi.Output<{ keyName: string, permissions: string, primaryKey: string, secondaryKey: string }[]>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku: pulumi.Output<{ capacity: number, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ capacity: number, name: string, tier: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
-    public /*out*/ readonly type: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a IoTHub resource with the given unique name, arguments, and options.
@@ -151,7 +151,7 @@ export class IoTHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IoTHubArgs | IoTHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IoTHubState = argsOrState as IoTHubState | undefined;
+            const state = argsOrState as IoTHubState | undefined;
             inputs["endpoints"] = state ? state.endpoints : undefined;
             inputs["eventHubEventsEndpoint"] = state ? state.eventHubEventsEndpoint : undefined;
             inputs["eventHubEventsPath"] = state ? state.eventHubEventsPath : undefined;

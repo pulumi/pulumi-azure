@@ -46,11 +46,11 @@ export class ServicePrincipal extends pulumi.CustomResource {
     /**
      * The ID of the Azure AD Application for which to create a Service Principal.
      */
-    public readonly applicationId: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * The Display Name of the Azure Active Directory Application associated with this Service Principal.
      */
-    public /*out*/ readonly displayName: pulumi.Output<string>;
+    public /*out*/ readonly displayName!: pulumi.Output<string>;
 
     /**
      * Create a ServicePrincipal resource with the given unique name, arguments, and options.
@@ -63,7 +63,7 @@ export class ServicePrincipal extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServicePrincipalArgs | ServicePrincipalState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServicePrincipalState = argsOrState as ServicePrincipalState | undefined;
+            const state = argsOrState as ServicePrincipalState | undefined;
             inputs["applicationId"] = state ? state.applicationId : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
         } else {

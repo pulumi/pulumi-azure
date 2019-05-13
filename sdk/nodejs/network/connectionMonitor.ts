@@ -116,39 +116,39 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
      */
-    public readonly autoStart: pulumi.Output<boolean | undefined>;
+    public readonly autoStart!: pulumi.Output<boolean | undefined>;
     /**
      * A `destination` block as defined below.
      */
-    public readonly destination: pulumi.Output<{ address?: string, port: number, virtualMachineId?: string }>;
+    public readonly destination!: pulumi.Output<{ address?: string, port: number, virtualMachineId?: string }>;
     /**
      * Monitoring interval in seconds. Defaults to `60`.
      */
-    public readonly intervalInSeconds: pulumi.Output<number | undefined>;
+    public readonly intervalInSeconds!: pulumi.Output<number | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Connection Monitor. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      */
-    public readonly networkWatcherName: pulumi.Output<string>;
+    public readonly networkWatcherName!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Connection Monitor. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `source` block as defined below.
      */
-    public readonly source: pulumi.Output<{ port?: number, virtualMachineId: string }>;
+    public readonly source!: pulumi.Output<{ port?: number, virtualMachineId: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a ConnectionMonitor resource with the given unique name, arguments, and options.
@@ -161,7 +161,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConnectionMonitorArgs | ConnectionMonitorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConnectionMonitorState = argsOrState as ConnectionMonitorState | undefined;
+            const state = argsOrState as ConnectionMonitorState | undefined;
             inputs["autoStart"] = state ? state.autoStart : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["intervalInSeconds"] = state ? state.intervalInSeconds : undefined;

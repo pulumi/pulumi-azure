@@ -55,43 +55,43 @@ export class User extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created.
      */
-    public readonly confirmation: pulumi.Output<string | undefined>;
+    public readonly confirmation!: pulumi.Output<string | undefined>;
     /**
      * The email address associated with this user.
      */
-    public readonly email: pulumi.Output<string>;
+    public readonly email!: pulumi.Output<string>;
     /**
      * The first name for this user.
      */
-    public readonly firstName: pulumi.Output<string>;
+    public readonly firstName!: pulumi.Output<string>;
     /**
      * The last name for this user.
      */
-    public readonly lastName: pulumi.Output<string>;
+    public readonly lastName!: pulumi.Output<string>;
     /**
      * A note about this user.
      */
-    public readonly note: pulumi.Output<string | undefined>;
+    public readonly note!: pulumi.Output<string | undefined>;
     /**
      * The password associated with this user.
      */
-    public readonly password: pulumi.Output<string | undefined>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The state of this user. Possible values are `active`, `blocked` and `pending`.
      */
-    public readonly state: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<string>;
     /**
      * The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly userId: pulumi.Output<string>;
+    public readonly userId!: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -104,7 +104,7 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: UserState = argsOrState as UserState | undefined;
+            const state = argsOrState as UserState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["confirmation"] = state ? state.confirmation : undefined;
             inputs["email"] = state ? state.email : undefined;

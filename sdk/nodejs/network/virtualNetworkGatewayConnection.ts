@@ -190,69 +190,69 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * Express Route Circuit. This field is required only if the type is an
      * ExpressRoute connection.
      */
-    public readonly authorizationKey: pulumi.Output<string | undefined>;
+    public readonly authorizationKey!: pulumi.Output<string | undefined>;
     /**
      * If `true`, BGP (Border Gateway Protocol) is enabled
      * for this connection. Defaults to `false`.
      */
-    public readonly enableBgp: pulumi.Output<boolean>;
+    public readonly enableBgp!: pulumi.Output<boolean>;
     /**
      * The ID of the Express Route Circuit
      * when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`).
      * The Express Route Circuit can be in the same or in a different subscription.
      */
-    public readonly expressRouteCircuitId: pulumi.Output<string | undefined>;
+    public readonly expressRouteCircuitId!: pulumi.Output<string | undefined>;
     /**
      * If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
      */
-    public readonly expressRouteGatewayBypass: pulumi.Output<boolean>;
+    public readonly expressRouteGatewayBypass!: pulumi.Output<boolean>;
     /**
      * A `ipsec_policy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
-    public readonly ipsecPolicy: pulumi.Output<{ dhGroup: string, ikeEncryption: string, ikeIntegrity: string, ipsecEncryption: string, ipsecIntegrity: string, pfsGroup: string, saDatasize: number, saLifetime: number } | undefined>;
+    public readonly ipsecPolicy!: pulumi.Output<{ dhGroup: string, ikeEncryption: string, ikeIntegrity: string, ipsecEncryption: string, ipsecIntegrity: string, pfsGroup: string, saDatasize: number, saLifetime: number } | undefined>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
      */
-    public readonly localNetworkGatewayId: pulumi.Output<string | undefined>;
+    public readonly localNetworkGatewayId!: pulumi.Output<string | undefined>;
     /**
      * The location/region where the connection is
      * located. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the connection. Changing the name forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the peer virtual
      * network gateway when creating a VNet-to-VNet connection (i.e. when `type`
      * is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or
      * in a different subscription.
      */
-    public readonly peerVirtualNetworkGatewayId: pulumi.Output<string | undefined>;
+    public readonly peerVirtualNetworkGatewayId!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to
      * create the connection Changing the name forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The routing weight. Defaults to `10`.
      */
-    public readonly routingWeight: pulumi.Output<number>;
+    public readonly routingWeight!: pulumi.Output<number>;
     /**
      * The shared IPSec key. A key must be provided if a
      * Site-to-Site or VNet-to-VNet connection is created whereas ExpressRoute
      * connections do not need a shared key.
      */
-    public readonly sharedKey: pulumi.Output<string | undefined>;
+    public readonly sharedKey!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The type of connection. Valid options are `IPsec`
      * (Site-to-Site), `ExpressRoute` (ExpressRoute), and `Vnet2Vnet` (VNet-to-VNet).
@@ -260,19 +260,19 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * examples above). Changing the connection type will force a new connection
      * to be created.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
      * selectors requires an `ipsec_policy` block. Defaults to `false`.
      */
-    public readonly usePolicyBasedTrafficSelectors: pulumi.Output<boolean>;
+    public readonly usePolicyBasedTrafficSelectors!: pulumi.Output<boolean>;
     /**
      * The ID of the Virtual Network Gateway
      * in which the connection will be created. Changing the gateway forces a new
      * resource to be created.
      */
-    public readonly virtualNetworkGatewayId: pulumi.Output<string>;
+    public readonly virtualNetworkGatewayId!: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkGatewayConnection resource with the given unique name, arguments, and options.
@@ -285,7 +285,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkGatewayConnectionArgs | VirtualNetworkGatewayConnectionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkGatewayConnectionState = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
+            const state = argsOrState as VirtualNetworkGatewayConnectionState | undefined;
             inputs["authorizationKey"] = state ? state.authorizationKey : undefined;
             inputs["enableBgp"] = state ? state.enableBgp : undefined;
             inputs["expressRouteCircuitId"] = state ? state.expressRouteCircuitId : undefined;

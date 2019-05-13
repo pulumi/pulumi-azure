@@ -62,75 +62,75 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `addon_profile` block.
      */
-    public readonly addonProfile: pulumi.Output<{ aciConnectorLinux?: { enabled: boolean, subnetName: string }, httpApplicationRouting?: { enabled: boolean, httpApplicationRoutingZoneName: string }, omsAgent?: { enabled: boolean, logAnalyticsWorkspaceId: string } }>;
+    public readonly addonProfile!: pulumi.Output<{ aciConnectorLinux?: { enabled: boolean, subnetName: string }, httpApplicationRouting?: { enabled: boolean, httpApplicationRoutingZoneName: string }, omsAgent?: { enabled: boolean, logAnalyticsWorkspaceId: string } }>;
     /**
      * An `agent_pool_profile` block.  Currently only one agent pool can exist.
      */
-    public readonly agentPoolProfile: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb: number, osType?: string, vmSize: string, vnetSubnetId?: string }>;
+    public readonly agentPoolProfile!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb: number, osType?: string, vmSize: string, vnetSubnetId?: string }>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
-    public readonly dnsPrefix: pulumi.Output<string>;
+    public readonly dnsPrefix!: pulumi.Output<string>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
      */
-    public /*out*/ readonly fqdn: pulumi.Output<string>;
+    public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
      * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    public /*out*/ readonly kubeAdminConfig: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
+    public /*out*/ readonly kubeAdminConfig!: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    public /*out*/ readonly kubeAdminConfigRaw: pulumi.Output<string>;
+    public /*out*/ readonly kubeAdminConfigRaw!: pulumi.Output<string>;
     /**
      * A `kube_config` block as defined below.
      */
-    public /*out*/ readonly kubeConfig: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
+    public /*out*/ readonly kubeConfig!: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
     /**
      * Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
      */
-    public /*out*/ readonly kubeConfigRaw: pulumi.Output<string>;
+    public /*out*/ readonly kubeConfigRaw!: pulumi.Output<string>;
     /**
      * Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
      */
-    public readonly kubernetesVersion: pulumi.Output<string>;
+    public readonly kubernetesVersion!: pulumi.Output<string>;
     /**
      * A `linux_profile` block.
      */
-    public readonly linuxProfile: pulumi.Output<{ adminUsername: string, sshKey: { keyData: string } } | undefined>;
+    public readonly linuxProfile!: pulumi.Output<{ adminUsername: string, sshKey: { keyData: string } } | undefined>;
     /**
      * The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A `network_profile` block.
      */
-    public readonly networkProfile: pulumi.Output<{ dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, networkPolicy: string, podCidr: string, serviceCidr: string }>;
+    public readonly networkProfile!: pulumi.Output<{ dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, networkPolicy: string, podCidr: string, serviceCidr: string }>;
     /**
      * The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
      */
-    public /*out*/ readonly nodeResourceGroup: pulumi.Output<string>;
+    public /*out*/ readonly nodeResourceGroup!: pulumi.Output<string>;
     /**
      * Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `role_based_access_control` block. Changing this forces a new resource to be created.
      */
-    public readonly roleBasedAccessControl: pulumi.Output<{ azureActiveDirectory?: { clientAppId: string, serverAppId: string, serverAppSecret: string, tenantId: string }, enabled: boolean }>;
+    public readonly roleBasedAccessControl!: pulumi.Output<{ azureActiveDirectory?: { clientAppId: string, serverAppId: string, serverAppSecret: string, tenantId: string }, enabled: boolean }>;
     /**
      * A `service_principal` block as documented below.
      */
-    public readonly servicePrincipal: pulumi.Output<{ clientId: string, clientSecret: string }>;
+    public readonly servicePrincipal!: pulumi.Output<{ clientId: string, clientSecret: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a KubernetesCluster resource with the given unique name, arguments, and options.
@@ -143,7 +143,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KubernetesClusterArgs | KubernetesClusterState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: KubernetesClusterState = argsOrState as KubernetesClusterState | undefined;
+            const state = argsOrState as KubernetesClusterState | undefined;
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
             inputs["agentPoolProfile"] = state ? state.agentPoolProfile : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;

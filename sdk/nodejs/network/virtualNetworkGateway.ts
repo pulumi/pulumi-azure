@@ -105,8 +105,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
      * Defaults to `false`.
      */
-    public readonly activeActive: pulumi.Output<boolean>;
-    public readonly bgpSettings: pulumi.Output<{ asn?: number, peerWeight?: number, peeringAddress: string }>;
+    public readonly activeActive!: pulumi.Output<boolean>;
+    public readonly bgpSettings!: pulumi.Output<{ asn?: number, peerWeight?: number, peeringAddress: string }>;
     /**
      * The ID of the local network gateway
      * through which outbound Internet traffic from the virtual network in which the
@@ -114,34 +114,34 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
      * If not specified, forced tunneling is disabled.
      */
-    public readonly defaultLocalNetworkGatewayId: pulumi.Output<string | undefined>;
+    public readonly defaultLocalNetworkGatewayId!: pulumi.Output<string | undefined>;
     /**
      * If `true`, BGP (Border Gateway Protocol) will be enabled
      * for this Virtual Network Gateway. Defaults to `false`.
      */
-    public readonly enableBgp: pulumi.Output<boolean>;
+    public readonly enableBgp!: pulumi.Output<boolean>;
     /**
      * One or two `ip_configuration` blocks documented below.
      * An active-standby gateway requires exactly one `ip_configuration` block whereas
      * an active-active gateway requires exactly two `ip_configuration` blocks.
      */
-    public readonly ipConfigurations: pulumi.Output<{ name?: string, privateIpAddressAllocation?: string, publicIpAddressId?: string, subnetId: string }[]>;
+    public readonly ipConfigurations!: pulumi.Output<{ name?: string, privateIpAddressAllocation?: string, publicIpAddressId?: string, subnetId: string }[]>;
     /**
      * The location/region where the Virtual Network Gateway is
      * located. Changing the location/region forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The name of the Virtual Network Gateway. Changing the name
      * forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to
      * create the Virtual Network Gateway. Changing the resource group name forces
      * a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Configuration of the size and capacity of the virtual network
      * gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
@@ -150,27 +150,27 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
      * sku is only supported by an `ExpressRoute` gateway.
      */
-    public readonly sku: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The type of the Virtual Network Gateway. Valid options are
      * `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
     /**
      * A `vpn_client_configuration` block which
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */
-    public readonly vpnClientConfiguration: pulumi.Output<{ addressSpaces: string[], radiusServerAddress?: string, radiusServerSecret?: string, revokedCertificates?: { name: string, thumbprint: string }[], rootCertificates?: { name: string, publicCertData: string }[], vpnClientProtocols?: string[] } | undefined>;
+    public readonly vpnClientConfiguration!: pulumi.Output<{ addressSpaces: string[], radiusServerAddress?: string, radiusServerSecret?: string, revokedCertificates?: { name: string, thumbprint: string }[], rootCertificates?: { name: string, publicCertData: string }[], vpnClientProtocols?: string[] } | undefined>;
     /**
      * The routing type of the Virtual Network Gateway. Valid
      * options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
      */
-    public readonly vpnType: pulumi.Output<string | undefined>;
+    public readonly vpnType!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualNetworkGateway resource with the given unique name, arguments, and options.
@@ -183,7 +183,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualNetworkGatewayArgs | VirtualNetworkGatewayState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualNetworkGatewayState = argsOrState as VirtualNetworkGatewayState | undefined;
+            const state = argsOrState as VirtualNetworkGatewayState | undefined;
             inputs["activeActive"] = state ? state.activeActive : undefined;
             inputs["bgpSettings"] = state ? state.bgpSettings : undefined;
             inputs["defaultLocalNetworkGatewayId"] = state ? state.defaultLocalNetworkGatewayId : undefined;

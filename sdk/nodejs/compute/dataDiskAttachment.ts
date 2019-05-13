@@ -106,27 +106,27 @@ export class DataDiskAttachment extends pulumi.CustomResource {
     /**
      * Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
      */
-    public readonly caching: pulumi.Output<string>;
+    public readonly caching!: pulumi.Output<string>;
     /**
      * The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
      */
-    public readonly createOption: pulumi.Output<string | undefined>;
+    public readonly createOption!: pulumi.Output<string | undefined>;
     /**
      * The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created.
      */
-    public readonly lun: pulumi.Output<number>;
+    public readonly lun!: pulumi.Output<number>;
     /**
      * The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
      */
-    public readonly managedDiskId: pulumi.Output<string>;
+    public readonly managedDiskId!: pulumi.Output<string>;
     /**
      * The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
      */
-    public readonly virtualMachineId: pulumi.Output<string>;
+    public readonly virtualMachineId!: pulumi.Output<string>;
     /**
      * Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      */
-    public readonly writeAcceleratorEnabled: pulumi.Output<boolean | undefined>;
+    public readonly writeAcceleratorEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a DataDiskAttachment resource with the given unique name, arguments, and options.
@@ -139,7 +139,7 @@ export class DataDiskAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DataDiskAttachmentArgs | DataDiskAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DataDiskAttachmentState = argsOrState as DataDiskAttachmentState | undefined;
+            const state = argsOrState as DataDiskAttachmentState | undefined;
             inputs["caching"] = state ? state.caching : undefined;
             inputs["createOption"] = state ? state.createOption : undefined;
             inputs["lun"] = state ? state.lun : undefined;

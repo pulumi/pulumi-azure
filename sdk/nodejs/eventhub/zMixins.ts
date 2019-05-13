@@ -14,6 +14,7 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import { getServiceBusNamespace, Subscription, Topic } from ".";
+import { EventHub, EventHubConsumerGroup, getEventhubNamespace } from ".";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
@@ -52,7 +53,7 @@ interface TopicBindingDefinition extends appservice.BindingDefinition {
 }
 
 /**
- * Data that will be passed along in the context object to the BlobCallback.
+ * Data that will be passed along in the context object to the TopicCallback.
  */
 export interface TopicContext extends appservice.Context<void> {
     invocationId: string;
@@ -109,7 +110,7 @@ export interface TopicHostSettings extends appservice.HostSettings {
 }
 
 /**
- * Signature of the callback that can receive blob notifications.
+ * Signature of the callback that can receive topic notifications.
  */
 export type TopicCallback = appservice.Callback<TopicContext, string, void>;
 
@@ -189,7 +190,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
             maxDeliveryCount: pulumi.output(args.maxDeliveryCount).apply(c => c === undefined ? 10 : c),
         }, opts);
 
-        // The topic binding does not store the storage connection string directly.  Instead, the
+        // The topic binding does not store the Service Bus connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = "BindingConnectionAppSettingsKey";
@@ -207,7 +208,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
                                .apply(([namespaceName, resourceGroupName]) =>
                                     getServiceBusNamespace({ name: namespaceName, resourceGroupName }));
 
-        // Place the mapping from the well known key name to the storage account connection string in
+        // Place the mapping from the well known key name to the Service Bus account connection string in
         // the 'app settings' object.
 
         const appSettings = pulumi.all([args.appSettings, namespace.defaultPrimaryConnectionString]).apply(
@@ -222,6 +223,175 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
 
         this.topic = topic;
         this.subscription = subscription;
+
+        this.registerOutputs();
+    }
+}
+
+interface EventHubBindingDefinition extends appservice.BindingDefinition {
+    /**
+     * The name of the property in the context object to bind the actual event to.
+     */
+    name: string;
+
+    /**
+     * The type of an event hub binding.  Must be 'eventHubTrigger'.
+     */
+    type: "eventHubTrigger";
+
+    /**
+     * The direction of the binding.  We only support events being inputs to functions.
+     */
+    direction: "in";
+
+    /**
+     * The name of the event hub we are subscribing to.
+     */
+    eventHubName: pulumi.Input<string>;
+
+    /**
+     * An optional property that sets the consumer group used to subscribe to events in the hub. 
+     * If not present, a new Consumer Group resource will be created.
+     */
+    consumerGroup?: pulumi.Input<string>;
+
+    /**
+     * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
+     */
+    cardinality?: pulumi.Input<"many" | "one">;
+
+    /**
+     * The name of an app setting that contains the Event Hub connection string to use for this binding.
+     */
+    connection: string;
+}
+
+/**
+ * Data that will be passed along in the context object to the EventHubCallback.
+ */
+export interface EventHubContext extends appservice.Context<void> {
+    invocationId: string;
+    executionContext: {
+        invocationId: string;
+        functionName: string;
+        functionDirectory: string;
+    };
+    bindings: { eventHub: string };
+    bindingData: {
+        partitionContext: { 
+            consumerGroupName: string;
+            eventHubPath: string;
+            partitionId: string;
+            owner: string;
+            runtimeInformation: { 
+                partitionId: string;
+                lastSequenceNumber: number;
+                lastEnqueuedTimeUtc: string;
+                retrievalTime: string;
+            };
+        }, 
+        partitionKey: string;
+        offset: number, 
+        sequenceNumber: number;
+        enqueuedTimeUtc: string; 
+        properties: Record<string, any>;
+        systemProperties: Record<string, any>;
+        sys: {
+            methodName: string;
+            utcNow: string;
+        },
+        invocationId: string;
+    };
+}
+
+/**
+ * Signature of the callback that can receive event hub notifications.
+ */
+export type EventHubCallback = appservice.Callback<EventHubContext, string, void>;
+
+export type EventHubSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<EventHubContext, any, void>, {
+    /**
+     * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
+     */
+    consumerGroup?: EventHubConsumerGroup;
+
+    /**
+     * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
+     */
+    cardinality?: pulumi.Input<"many" | "one">;
+}>;
+
+declare module "./eventHub" {
+    interface EventHub {
+        /**
+         * Subscribes to events logged to this Event Hub to the handler provided, along
+         * with options to control the behavior of the subscription.
+         */
+        onEvent(
+            name: string, args: EventHubCallback | EventHubSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): EventHubSubscription;
+    }
+}
+
+EventHub.prototype.onEvent = function(this: EventHub, name, args, opts) {
+    const functionArgs = args instanceof Function
+        ? <EventHubSubscriptionArgs>{ callback: args }
+        : args;
+
+    return new EventHubSubscription(name, this, functionArgs, opts);
+}
+
+export class EventHubSubscription extends appservice.EventSubscription<EventHubContext, string, void> {
+    readonly eventHub: EventHub;
+    readonly consumerGroup: EventHubConsumerGroup;
+
+    constructor(
+        name: string, eventHub: EventHub,
+        args: EventHubSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
+
+        opts = { parent: eventHub, ...opts };
+
+        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, eventHub.resourceGroupName);
+
+        const consumerGroup = args.consumerGroup || new EventHubConsumerGroup(name, {
+            resourceGroupName,
+            namespaceName: eventHub.namespaceName,
+            eventhubName: eventHub.name,
+        }, opts);
+
+        // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
+        // connection string is put into the app settings (under whatever key we want). Then, the
+        // .connection property of the binding contains the *name* of that app setting key.
+        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+
+        const bindings: EventHubBindingDefinition[] = [{
+            name: "eventHub",
+            direction: "in",
+            type: "eventHubTrigger",
+            eventHubName: eventHub.name,
+            consumerGroup: consumerGroup.name,
+            cardinality: args.cardinality,
+            connection: bindingConnectionKey,
+        }];
+
+        const namespace = pulumi.all([eventHub.namespaceName, resourceGroupName])
+                               .apply(([namespaceName, resourceGroupName]) =>
+                                    getEventhubNamespace({ name: namespaceName, resourceGroupName }));
+
+        // Place the mapping from the well known key name to the Event Hubs account connection string in
+        // the 'app settings' object.
+
+        const appSettings = pulumi.all([args.appSettings, namespace.defaultPrimaryConnectionString]).apply(
+            ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
+
+        super("azure:eventhub:EventHubSubscription", name, bindings, {
+            ...args,
+            resourceGroupName,
+            location,
+            appSettings
+        }, opts);
+
+        this.eventHub = eventHub;
+        this.consumerGroup = consumerGroup;
 
         this.registerOutputs();
     }

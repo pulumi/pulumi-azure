@@ -61,31 +61,31 @@ export class Logger extends pulumi.CustomResource {
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * An `application_insights` block as documented below.
      */
-    public readonly applicationInsights: pulumi.Output<{ instrumentationKey: string } | undefined>;
+    public readonly applicationInsights!: pulumi.Output<{ instrumentationKey: string } | undefined>;
     /**
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      */
-    public readonly buffered: pulumi.Output<boolean | undefined>;
+    public readonly buffered!: pulumi.Output<boolean | undefined>;
     /**
      * A description of this Logger.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * An `eventhub` block as documented below.
      */
-    public readonly eventhub: pulumi.Output<{ connectionString: string, name: string } | undefined>;
+    public readonly eventhub!: pulumi.Output<{ connectionString: string, name: string } | undefined>;
     /**
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a Logger resource with the given unique name, arguments, and options.
@@ -98,7 +98,7 @@ export class Logger extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: LoggerArgs | LoggerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: LoggerState = argsOrState as LoggerState | undefined;
+            const state = argsOrState as LoggerState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["applicationInsights"] = state ? state.applicationInsights : undefined;
             inputs["buffered"] = state ? state.buffered : undefined;

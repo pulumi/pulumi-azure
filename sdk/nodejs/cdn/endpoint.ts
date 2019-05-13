@@ -58,68 +58,68 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
      */
-    public readonly contentTypesToCompresses: pulumi.Output<string[]>;
+    public readonly contentTypesToCompresses!: pulumi.Output<string[]>;
     /**
      * A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
      */
-    public readonly geoFilters: pulumi.Output<{ action: string, countryCodes: string[], relativePath: string }[] | undefined>;
-    public /*out*/ readonly hostName: pulumi.Output<string>;
+    public readonly geoFilters!: pulumi.Output<{ action: string, countryCodes: string[], relativePath: string }[] | undefined>;
+    public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
      * Indicates whether compression is to be enabled. Defaults to false.
      */
-    public readonly isCompressionEnabled: pulumi.Output<boolean | undefined>;
+    public readonly isCompressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Defaults to `true`.
      */
-    public readonly isHttpAllowed: pulumi.Output<boolean | undefined>;
+    public readonly isHttpAllowed!: pulumi.Output<boolean | undefined>;
     /**
      * Defaults to `true`.
      */
-    public readonly isHttpsAllowed: pulumi.Output<boolean | undefined>;
+    public readonly isHttpsAllowed!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
      */
-    public readonly optimizationType: pulumi.Output<string | undefined>;
+    public readonly optimizationType!: pulumi.Output<string | undefined>;
     /**
      * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
      */
-    public readonly origins: pulumi.Output<{ hostName: string, httpPort?: number, httpsPort?: number, name: string }[]>;
+    public readonly origins!: pulumi.Output<{ hostName: string, httpPort?: number, httpsPort?: number, name: string }[]>;
     /**
      * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
      */
-    public readonly originHostHeader: pulumi.Output<string>;
+    public readonly originHostHeader!: pulumi.Output<string>;
     /**
      * The path used at for origin requests.
      */
-    public readonly originPath: pulumi.Output<string>;
+    public readonly originPath!: pulumi.Output<string>;
     /**
      * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
      */
-    public readonly probePath: pulumi.Output<string>;
+    public readonly probePath!: pulumi.Output<string>;
     /**
      * The CDN Profile to which to attach the CDN Endpoint.
      */
-    public readonly profileName: pulumi.Output<string>;
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
      */
-    public readonly querystringCachingBehaviour: pulumi.Output<string | undefined>;
+    public readonly querystringCachingBehaviour!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the CDN Endpoint.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -132,7 +132,7 @@ export class Endpoint extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EndpointState = argsOrState as EndpointState | undefined;
+            const state = argsOrState as EndpointState | undefined;
             inputs["contentTypesToCompresses"] = state ? state.contentTypesToCompresses : undefined;
             inputs["geoFilters"] = state ? state.geoFilters : undefined;
             inputs["hostName"] = state ? state.hostName : undefined;

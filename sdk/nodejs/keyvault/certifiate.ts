@@ -239,40 +239,40 @@ export class Certifiate extends pulumi.CustomResource {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    public readonly certificate: pulumi.Output<{ contents: string, password?: string } | undefined>;
+    public readonly certificate!: pulumi.Output<{ contents: string, password?: string } | undefined>;
     /**
      * The raw Key Vault Certificate.
      */
-    public /*out*/ readonly certificateData: pulumi.Output<string>;
+    public /*out*/ readonly certificateData!: pulumi.Output<string>;
     /**
      * A `certificate_policy` block as defined below.
      */
-    public readonly certificatePolicy: pulumi.Output<{ issuerParameters: { name: string }, keyProperties: { exportable: boolean, keySize: number, keyType: string, reuseKey: boolean }, lifetimeActions?: { action: { actionType: string }, trigger: { daysBeforeExpiry?: number, lifetimePercentage?: number } }[], secretProperties: { contentType: string }, x509CertificateProperties: { extendedKeyUsages: string[], keyUsages: string[], subject: string, subjectAlternativeNames: { dnsNames?: string[], emails?: string[], upns?: string[] }, validityInMonths: number } }>;
+    public readonly certificatePolicy!: pulumi.Output<{ issuerParameters: { name: string }, keyProperties: { exportable: boolean, keySize: number, keyType: string, reuseKey: boolean }, lifetimeActions?: { action: { actionType: string }, trigger: { daysBeforeExpiry?: number, lifetimePercentage?: number } }[], secretProperties: { contentType: string }, x509CertificateProperties: { extendedKeyUsages: string[], keyUsages: string[], subject: string, subjectAlternativeNames: { dnsNames?: string[], emails?: string[], upns?: string[] }, validityInMonths: number } }>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
-    public readonly keyVaultId: pulumi.Output<string>;
+    public readonly keyVaultId!: pulumi.Output<string>;
     /**
      * The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The ID of the associated Key Vault Secret.
      */
-    public /*out*/ readonly secretId: pulumi.Output<string>;
+    public /*out*/ readonly secretId!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The X509 Thumbprint of the Key Vault Certificate returned as hex string.
      */
-    public /*out*/ readonly thumbprint: pulumi.Output<string>;
-    public readonly vaultUri: pulumi.Output<string>;
+    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    public readonly vaultUri!: pulumi.Output<string>;
     /**
      * The current version of the Key Vault Certificate.
      */
-    public /*out*/ readonly version: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
      * Create a Certifiate resource with the given unique name, arguments, and options.
@@ -285,7 +285,7 @@ export class Certifiate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertifiateArgs | CertifiateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertifiateState = argsOrState as CertifiateState | undefined;
+            const state = argsOrState as CertifiateState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["certificateData"] = state ? state.certificateData : undefined;
             inputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;

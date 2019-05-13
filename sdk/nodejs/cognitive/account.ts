@@ -48,39 +48,39 @@ export class Account extends pulumi.CustomResource {
     /**
      * The endpoint used to connect to the Cognitive Service Account.
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Specifies the type of Cognitive Service Account that should be created. Possible values are `Academic`, `Bing.Autosuggest`, `Bing.Autosuggest.v7`, `Bing.CustomSearch`, `Bing.Search`, `Bing.Search.v7`, `Bing.Speech`, `Bing.SpellCheck`, `Bing.SpellCheck.v7`, `ComputerVision`, `ContentModerator`, `CustomSpeech`, `Emotion`, `Face`, `LUIS`, `Recommendations`, `SpeakerRecognition`, `Speech`, `SpeechServices`, `SpeechTranslation`, `TextAnalytics`, `TextTranslation` and `WebLM`. Changing this forces a new resource to be created.
      */
-    public readonly kind: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Cognitive Service Account. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A primary access key which can be used to connect to the Cognitive Service Account.
      */
-    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The secondary access key which can be used to connect to the Cognitive Service Account.
      */
-    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku: pulumi.Output<{ name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ name: string, tier: string }>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -93,7 +93,7 @@ export class Account extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AccountState = argsOrState as AccountState | undefined;
+            const state = argsOrState as AccountState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;

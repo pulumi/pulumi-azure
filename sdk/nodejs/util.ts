@@ -18,8 +18,7 @@ type Diff<T extends string | number | symbol, U extends string | number | symbol
   ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
 
 // Overwrite allows you to take an existing type, and then overwrite existing properties in it
-// with properties of the same name, but with entirely different types.
-/** @internal */
+// with properties of the same name, but with entirely different types.c
 export type Overwrite<T, U> = Pick<T, Diff<keyof T, keyof U>> & U;
 
 /** @internal */

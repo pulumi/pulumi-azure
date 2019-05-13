@@ -56,47 +56,47 @@ export class RunBook extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      */
-    public readonly accountName: pulumi.Output<string>;
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * The desired content of the runbook.
      */
-    public readonly content: pulumi.Output<string>;
+    public readonly content!: pulumi.Output<string>;
     /**
      * A description for this credential.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Progress log option.
      */
-    public readonly logProgress: pulumi.Output<boolean>;
+    public readonly logProgress!: pulumi.Output<boolean>;
     /**
      * Verbose log option.
      */
-    public readonly logVerbose: pulumi.Output<boolean>;
+    public readonly logVerbose!: pulumi.Output<boolean>;
     /**
      * Specifies the name of the Runbook. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The published runbook content link.
      */
-    public readonly publishContentLink: pulumi.Output<{ hash?: { algorithm: string, value: string }, uri: string, version?: string }>;
+    public readonly publishContentLink!: pulumi.Output<{ hash?: { algorithm: string, value: string }, uri: string, version?: string }>;
     /**
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
      */
-    public readonly runbookType: pulumi.Output<string>;
+    public readonly runbookType!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a RunBook resource with the given unique name, arguments, and options.
@@ -109,7 +109,7 @@ export class RunBook extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RunBookArgs | RunBookState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RunBookState = argsOrState as RunBookState | undefined;
+            const state = argsOrState as RunBookState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["content"] = state ? state.content : undefined;
             inputs["description"] = state ? state.description : undefined;

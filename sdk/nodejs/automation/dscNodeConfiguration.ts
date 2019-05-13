@@ -77,20 +77,20 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName: pulumi.Output<string>;
-    public /*out*/ readonly configurationName: pulumi.Output<string>;
+    public readonly automationAccountName!: pulumi.Output<string>;
+    public /*out*/ readonly configurationName!: pulumi.Output<string>;
     /**
      * The PowerShell DSC Node Configuration (mof content).
      */
-    public readonly contentEmbedded: pulumi.Output<string>;
+    public readonly contentEmbedded!: pulumi.Output<string>;
     /**
      * Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a DscNodeConfiguration resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DscNodeConfigurationArgs | DscNodeConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DscNodeConfigurationState = argsOrState as DscNodeConfigurationState | undefined;
+            const state = argsOrState as DscNodeConfigurationState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["configurationName"] = state ? state.configurationName : undefined;
             inputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;

@@ -53,27 +53,27 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
     /**
      * One or more `input` blocks as defined below.
      */
-    public readonly inputs: pulumi.Output<{ type: string }[]>;
+    public readonly inputs!: pulumi.Output<{ type: string }[]>;
     /**
      * The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * An `output` blocks as defined below.
      */
-    public readonly output: pulumi.Output<{ type: string }>;
+    public readonly output!: pulumi.Output<{ type: string }>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The JavaScript of this UDF Function.
      */
-    public readonly script: pulumi.Output<string>;
+    public readonly script!: pulumi.Output<string>;
     /**
      * The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
      */
-    public readonly streamAnalyticsJobName: pulumi.Output<string>;
+    public readonly streamAnalyticsJobName!: pulumi.Output<string>;
 
     /**
      * Create a FunctionJavaScriptUDF resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FunctionJavaScriptUDFArgs | FunctionJavaScriptUDFState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FunctionJavaScriptUDFState = argsOrState as FunctionJavaScriptUDFState | undefined;
+            const state = argsOrState as FunctionJavaScriptUDFState | undefined;
             inputs["inputs"] = state ? state.inputs : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["output"] = state ? state.output : undefined;

@@ -61,19 +61,19 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
      */
-    public readonly serverName: pulumi.Output<string>;
+    public readonly serverName!: pulumi.Output<string>;
     /**
      * Specifies the value of the PostgreSQL Configuration. See the PostgreSQL documentation for valid values.
      */
-    public readonly value: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string>;
 
     /**
      * Create a Configuration resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class Configuration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ConfigurationState = argsOrState as ConfigurationState | undefined;
+            const state = argsOrState as ConfigurationState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["serverName"] = state ? state.serverName : undefined;

@@ -154,85 +154,85 @@ export class Cache extends pulumi.CustomResource {
     /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
      */
-    public readonly capacity: pulumi.Output<number>;
+    public readonly capacity!: pulumi.Output<number>;
     /**
      * Enable the non-SSL port (6789) - disabled by default.
      */
-    public readonly enableNonSslPort: pulumi.Output<boolean | undefined>;
+    public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
     /**
      * The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
      */
-    public readonly family: pulumi.Output<string>;
+    public readonly family!: pulumi.Output<string>;
     /**
      * The Hostname of the Redis Instance
      */
-    public /*out*/ readonly hostname: pulumi.Output<string>;
+    public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
      * The location of the resource group.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The minimum TLS version.  Defaults to `1.0`.
      */
-    public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
+    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
      * The name of the Redis instance. Changing this forces a
      * new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
      */
-    public readonly patchSchedules: pulumi.Output<{ dayOfWeek: string, startHourUtc?: number }[] | undefined>;
+    public readonly patchSchedules!: pulumi.Output<{ dayOfWeek: string, startHourUtc?: number }[] | undefined>;
     /**
      * The non-SSL Port of the Redis Instance
      */
-    public /*out*/ readonly port: pulumi.Output<number>;
+    public /*out*/ readonly port!: pulumi.Output<number>;
     /**
      * The Primary Access Key for the Redis Instance
      */
-    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
      */
-    public readonly privateStaticIpAddress: pulumi.Output<string>;
+    public readonly privateStaticIpAddress!: pulumi.Output<string>;
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    public readonly redisConfiguration: pulumi.Output<{ aofBackupEnabled?: boolean, aofStorageConnectionString0?: string, aofStorageConnectionString1?: string, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
+    public readonly redisConfiguration!: pulumi.Output<{ aofBackupEnabled?: boolean, aofStorageConnectionString0?: string, aofStorageConnectionString1?: string, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Access Key for the Redis Instance
      */
-    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
      */
-    public readonly shardCount: pulumi.Output<number | undefined>;
+    public readonly shardCount!: pulumi.Output<number | undefined>;
     /**
      * The SKU of Redis to use - can be either Basic, Standard or Premium.
      */
-    public readonly skuName: pulumi.Output<string>;
+    public readonly skuName!: pulumi.Output<string>;
     /**
      * The SSL Port of the Redis Instance
      */
-    public /*out*/ readonly sslPort: pulumi.Output<number>;
+    public /*out*/ readonly sslPort!: pulumi.Output<number>;
     /**
      * The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
      */
-    public readonly subnetId: pulumi.Output<string | undefined>;
+    public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
      */
-    public readonly zones: pulumi.Output<string | undefined>;
+    public readonly zones!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -245,7 +245,7 @@ export class Cache extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CacheState = argsOrState as CacheState | undefined;
+            const state = argsOrState as CacheState | undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
             inputs["enableNonSslPort"] = state ? state.enableNonSslPort : undefined;
             inputs["family"] = state ? state.family : undefined;

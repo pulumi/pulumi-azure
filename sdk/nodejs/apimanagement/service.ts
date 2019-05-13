@@ -46,91 +46,91 @@ export class Service extends pulumi.CustomResource {
     /**
      * One or more `additional_location` blocks as defined below.
      */
-    public readonly additionalLocation: pulumi.Output<{ gatewayRegionalUrl: string, location: string, publicIpAddresses: string[] } | undefined>;
+    public readonly additionalLocation!: pulumi.Output<{ gatewayRegionalUrl: string, location: string, publicIpAddresses: string[] } | undefined>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */
-    public readonly certificates: pulumi.Output<{ certificatePassword: string, encodedCertificate: string, storeName: string }[] | undefined>;
+    public readonly certificates!: pulumi.Output<{ certificatePassword: string, encodedCertificate: string, storeName: string }[] | undefined>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
-    public /*out*/ readonly gatewayRegionalUrl: pulumi.Output<string>;
+    public /*out*/ readonly gatewayRegionalUrl!: pulumi.Output<string>;
     /**
      * The URL of the Gateway for the API Management Service.
      */
-    public /*out*/ readonly gatewayUrl: pulumi.Output<string>;
+    public /*out*/ readonly gatewayUrl!: pulumi.Output<string>;
     /**
      * A `hostname_configuration` block as defined below.
      */
-    public readonly hostnameConfiguration: pulumi.Output<{ managements?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], portals?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], proxies?: { certificate?: string, certificatePassword?: string, defaultSslBinding: boolean, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], scms?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[] }>;
+    public readonly hostnameConfiguration!: pulumi.Output<{ managements?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], portals?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], proxies?: { certificate?: string, certificatePassword?: string, defaultSslBinding: boolean, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], scms?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[] }>;
     /**
      * An `identity` block is documented below.
      */
-    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string } | undefined>;
+    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string } | undefined>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The URL for the Management API associated with this API Management service.
      */
-    public /*out*/ readonly managementApiUrl: pulumi.Output<string>;
+    public /*out*/ readonly managementApiUrl!: pulumi.Output<string>;
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Email address from which the notification will be sent.
      */
-    public readonly notificationSenderEmail: pulumi.Output<string>;
+    public readonly notificationSenderEmail!: pulumi.Output<string>;
     /**
      * A `policy` block as defined below.
      */
-    public readonly policy: pulumi.Output<{ xmlContent: string, xmlLink?: string }>;
+    public readonly policy!: pulumi.Output<{ xmlContent: string, xmlLink?: string }>;
     /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
-    public /*out*/ readonly portalUrl: pulumi.Output<string>;
+    public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
      * Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      */
-    public /*out*/ readonly publicIpAddresses: pulumi.Output<string[]>;
+    public /*out*/ readonly publicIpAddresses!: pulumi.Output<string[]>;
     /**
      * The email of publisher/company.
      */
-    public readonly publisherEmail: pulumi.Output<string>;
+    public readonly publisherEmail!: pulumi.Output<string>;
     /**
      * The name of publisher/company.
      */
-    public readonly publisherName: pulumi.Output<string>;
+    public readonly publisherName!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
      */
-    public /*out*/ readonly scmUrl: pulumi.Output<string>;
+    public /*out*/ readonly scmUrl!: pulumi.Output<string>;
     /**
      * A `security` block as defined below.
      */
-    public readonly security: pulumi.Output<{ disableBackendSsl30?: boolean, disableBackendTls10?: boolean, disableBackendTls11?: boolean, disableFrontendSsl30?: boolean, disableFrontendTls10?: boolean, disableFrontendTls11?: boolean, disableTripleDesChipers?: boolean }>;
+    public readonly security!: pulumi.Output<{ disableBackendSsl30?: boolean, disableBackendTls10?: boolean, disableBackendTls11?: boolean, disableFrontendSsl30?: boolean, disableFrontendTls10?: boolean, disableFrontendTls11?: boolean, disableTripleDesChipers?: boolean }>;
     /**
      * A `sign_in` block as defined below.
      */
-    public readonly signIn: pulumi.Output<{ enabled: boolean }>;
+    public readonly signIn!: pulumi.Output<{ enabled: boolean }>;
     /**
      * A `sign_up` block as defined below.
      */
-    public readonly signUp: pulumi.Output<{ enabled: boolean, termsOfService: { consentRequired: boolean, enabled: boolean, text?: string } }>;
+    public readonly signUp!: pulumi.Output<{ enabled: boolean, termsOfService: { consentRequired: boolean, enabled: boolean, text?: string } }>;
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku: pulumi.Output<{ capacity: number, name: string }>;
+    public readonly sku!: pulumi.Output<{ capacity: number, name: string }>;
     /**
      * A mapping of tags assigned to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -143,7 +143,7 @@ export class Service extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ServiceState = argsOrState as ServiceState | undefined;
+            const state = argsOrState as ServiceState | undefined;
             inputs["additionalLocation"] = state ? state.additionalLocation : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;
             inputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;

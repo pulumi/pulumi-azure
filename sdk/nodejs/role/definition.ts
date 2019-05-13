@@ -42,27 +42,27 @@ export class Definition extends pulumi.CustomResource {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      */
-    public readonly assignableScopes: pulumi.Output<string[]>;
+    public readonly assignableScopes!: pulumi.Output<string[]>;
     /**
      * A description of the Role Definition.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The name of the Role Definition. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A `permissions` block as defined below.
      */
-    public readonly permissions: pulumi.Output<{ actions?: string[], dataActions?: string[], notActions?: string[], notDataActions?: string[] }[]>;
+    public readonly permissions!: pulumi.Output<{ actions?: string[], dataActions?: string[], notActions?: string[], notDataActions?: string[] }[]>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
-    public readonly roleDefinitionId: pulumi.Output<string>;
+    public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
      * The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
      */
-    public readonly scope: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
 
     /**
      * Create a Definition resource with the given unique name, arguments, and options.
@@ -75,7 +75,7 @@ export class Definition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DefinitionState = argsOrState as DefinitionState | undefined;
+            const state = argsOrState as DefinitionState | undefined;
             inputs["assignableScopes"] = state ? state.assignableScopes : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -42,43 +42,43 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Portal URL for the Log Analytics Workspace.
      */
-    public /*out*/ readonly portalUrl: pulumi.Output<string>;
+    public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
      * The Primary shared key for the Log Analytics Workspace.
      */
-    public /*out*/ readonly primarySharedKey: pulumi.Output<string>;
+    public /*out*/ readonly primarySharedKey!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The workspace data retention in days. Possible values range between 30 and 730.
      */
-    public readonly retentionInDays: pulumi.Output<number>;
+    public readonly retentionInDays!: pulumi.Output<number>;
     /**
      * The Secondary shared key for the Log Analytics Workspace.
      */
-    public /*out*/ readonly secondarySharedKey: pulumi.Output<string>;
+    public /*out*/ readonly secondarySharedKey!: pulumi.Output<string>;
     /**
      * Specifies the Sku of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, and `PerGB2018` (new Sku as of `2018-04-03`).
      */
-    public readonly sku: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The Workspace (or Customer) ID for the Log Analytics Workspace.
      */
-    public /*out*/ readonly workspaceId: pulumi.Output<string>;
+    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
 
     /**
      * Create a AnalyticsWorkspace resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AnalyticsWorkspaceArgs | AnalyticsWorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: AnalyticsWorkspaceState = argsOrState as AnalyticsWorkspaceState | undefined;
+            const state = argsOrState as AnalyticsWorkspaceState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["portalUrl"] = state ? state.portalUrl : undefined;

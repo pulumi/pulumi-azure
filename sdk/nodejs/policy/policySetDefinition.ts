@@ -60,35 +60,35 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     /**
      * The description of the policy set definition.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The display name of the policy set definition.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
      */
-    public readonly managementGroupId: pulumi.Output<string | undefined>;
+    public readonly managementGroupId!: pulumi.Output<string | undefined>;
     /**
      * The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
      */
-    public readonly metadata: pulumi.Output<string | undefined>;
+    public readonly metadata!: pulumi.Output<string | undefined>;
     /**
      * The name of the policy set definition. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
      */
-    public readonly parameters: pulumi.Output<string | undefined>;
+    public readonly parameters!: pulumi.Output<string | undefined>;
     /**
      * The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
      */
-    public readonly policyDefinitions: pulumi.Output<string | undefined>;
+    public readonly policyDefinitions!: pulumi.Output<string | undefined>;
     /**
      * The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
      */
-    public readonly policyType: pulumi.Output<string>;
+    public readonly policyType!: pulumi.Output<string>;
 
     /**
      * Create a PolicySetDefinition resource with the given unique name, arguments, and options.
@@ -101,7 +101,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PolicySetDefinitionArgs | PolicySetDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PolicySetDefinitionState = argsOrState as PolicySetDefinitionState | undefined;
+            const state = argsOrState as PolicySetDefinitionState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["managementGroupId"] = state ? state.managementGroupId : undefined;

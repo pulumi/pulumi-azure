@@ -51,27 +51,27 @@ export class Credential extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
-    public readonly accountName: pulumi.Output<string>;
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * The description associated with this Automation Credential.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Credential. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The password associated with this Automation Credential.
      */
-    public readonly password: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the Credential is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The username associated with this Automation Credential.
      */
-    public readonly username: pulumi.Output<string>;
+    public readonly username!: pulumi.Output<string>;
 
     /**
      * Create a Credential resource with the given unique name, arguments, and options.
@@ -84,7 +84,7 @@ export class Credential extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CredentialArgs | CredentialState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CredentialState = argsOrState as CredentialState | undefined;
+            const state = argsOrState as CredentialState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -874,7 +874,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":                "^0.17.8",
-				"@azure/functions":              "^1.0.2-beta2",
+				"@azure/functions":              "^1.0.3",
 				"azure-storage":                 "^2.10.3",
 				"azure-functions-ts-essentials": "^1.3.2",
 			},

@@ -44,31 +44,31 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The ID of the Managed Resource Group created by the Databricks Workspace.
      */
-    public /*out*/ readonly managedResourceGroupId: pulumi.Output<string>;
+    public /*out*/ readonly managedResourceGroupId!: pulumi.Output<string>;
     /**
      * The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created.
      */
-    public readonly managedResourceGroupName: pulumi.Output<string>;
+    public readonly managedResourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The `sku` to use for the Databricks Workspace. Possible values are `standard` or `premium`. Changing this forces a new resource to be created.
      */
-    public readonly sku: pulumi.Output<string>;
+    public readonly sku!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -81,7 +81,7 @@ export class Workspace extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: WorkspaceState = argsOrState as WorkspaceState | undefined;
+            const state = argsOrState as WorkspaceState | undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["managedResourceGroupId"] = state ? state.managedResourceGroupId : undefined;
             inputs["managedResourceGroupName"] = state ? state.managedResourceGroupName : undefined;

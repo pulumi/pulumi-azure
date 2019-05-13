@@ -45,31 +45,31 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
-    public readonly annotations: pulumi.Output<string[] | undefined>;
+    public readonly annotations!: pulumi.Output<string[] | undefined>;
     /**
      * The Data Factory name in which to associate the Pipeline with. Changing this forces a new resource.
      */
-    public readonly dataFactoryName: pulumi.Output<string>;
+    public readonly dataFactoryName!: pulumi.Output<string>;
     /**
      * The description for the Data Factory Pipeline.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A map of parameters to associate with the Data Factory Pipeline.
      */
-    public readonly parameters: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The name of the resource group in which to create the Data Factory Pipeline. Changing this forces a new resource
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A map of variables to associate with the Data Factory Pipeline.
      */
-    public readonly variables: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly variables!: pulumi.Output<{[key: string]: any} | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ export class Pipeline extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PipelineState = argsOrState as PipelineState | undefined;
+            const state = argsOrState as PipelineState | undefined;
             inputs["annotations"] = state ? state.annotations : undefined;
             inputs["dataFactoryName"] = state ? state.dataFactoryName : undefined;
             inputs["description"] = state ? state.description : undefined;

@@ -70,11 +70,11 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
     /**
      * The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly networkSecurityGroupId: pulumi.Output<string>;
+    public readonly networkSecurityGroupId!: pulumi.Output<string>;
     /**
      * The ID of the Subnet. Changing this forces a new resource to be created.
      */
-    public readonly subnetId: pulumi.Output<string>;
+    public readonly subnetId!: pulumi.Output<string>;
 
     /**
      * Create a SubnetNetworkSecurityGroupAssociation resource with the given unique name, arguments, and options.
@@ -87,7 +87,7 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
     constructor(name: string, argsOrState?: SubnetNetworkSecurityGroupAssociationArgs | SubnetNetworkSecurityGroupAssociationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SubnetNetworkSecurityGroupAssociationState = argsOrState as SubnetNetworkSecurityGroupAssociationState | undefined;
+            const state = argsOrState as SubnetNetworkSecurityGroupAssociationState | undefined;
             inputs["networkSecurityGroupId"] = state ? state.networkSecurityGroupId : undefined;
             inputs["subnetId"] = state ? state.subnetId : undefined;
         } else {

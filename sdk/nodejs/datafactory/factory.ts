@@ -40,31 +40,31 @@ export class Factory extends pulumi.CustomResource {
     /**
      * A `github_configuration` block as defined below.
      */
-    public readonly githubConfiguration: pulumi.Output<{ accountName: string, branchName: string, gitUrl: string, repositoryName: string, rootFolder: string } | undefined>;
+    public readonly githubConfiguration!: pulumi.Output<{ accountName: string, branchName: string, gitUrl: string, repositoryName: string, rootFolder: string } | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Data Factory.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * A `vsts_configuration` block as defined below.
      */
-    public readonly vstsConfiguration: pulumi.Output<{ accountName: string, branchName: string, projectName: string, repositoryName: string, rootFolder: string, tenantId: string } | undefined>;
+    public readonly vstsConfiguration!: pulumi.Output<{ accountName: string, branchName: string, projectName: string, repositoryName: string, rootFolder: string, tenantId: string } | undefined>;
 
     /**
      * Create a Factory resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ export class Factory extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: FactoryArgs | FactoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: FactoryState = argsOrState as FactoryState | undefined;
+            const state = argsOrState as FactoryState | undefined;
             inputs["githubConfiguration"] = state ? state.githubConfiguration : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;

@@ -48,25 +48,25 @@ export class Share extends pulumi.CustomResource {
     /**
      * The name of the share. Must be unique within the storage account where the share is located.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
      */
-    public readonly quota: pulumi.Output<number | undefined>;
+    public readonly quota!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource group in which to
      * create the share. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * Specifies the storage account in which to create the share.
      * Changing this forces a new resource to be created.
      */
-    public readonly storageAccountName: pulumi.Output<string>;
+    public readonly storageAccountName!: pulumi.Output<string>;
     /**
      * The URL of the share
      */
-    public /*out*/ readonly url: pulumi.Output<string>;
+    public /*out*/ readonly url!: pulumi.Output<string>;
 
     /**
      * Create a Share resource with the given unique name, arguments, and options.
@@ -79,7 +79,7 @@ export class Share extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ShareArgs | ShareState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ShareState = argsOrState as ShareState | undefined;
+            const state = argsOrState as ShareState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["quota"] = state ? state.quota : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;

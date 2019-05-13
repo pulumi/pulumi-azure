@@ -53,23 +53,23 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly logicAppId: pulumi.Output<string>;
+    public readonly logicAppId!: pulumi.Output<string>;
     /**
      * Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`.
      */
-    public readonly method: pulumi.Output<string | undefined>;
+    public readonly method!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the Relative Path used for this Request.
      */
-    public readonly relativePath: pulumi.Output<string | undefined>;
+    public readonly relativePath!: pulumi.Output<string | undefined>;
     /**
      * A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
      */
-    public readonly schema: pulumi.Output<string>;
+    public readonly schema!: pulumi.Output<string>;
 
     /**
      * Create a TriggerHttpRequest resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: TriggerHttpRequestArgs | TriggerHttpRequestState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: TriggerHttpRequestState = argsOrState as TriggerHttpRequestState | undefined;
+            const state = argsOrState as TriggerHttpRequestState | undefined;
             inputs["logicAppId"] = state ? state.logicAppId : undefined;
             inputs["method"] = state ? state.method : undefined;
             inputs["name"] = state ? state.name : undefined;

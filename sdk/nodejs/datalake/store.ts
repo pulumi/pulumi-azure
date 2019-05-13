@@ -42,43 +42,43 @@ export class Store extends pulumi.CustomResource {
     /**
      * Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
-    public readonly encryptionState: pulumi.Output<string | undefined>;
+    public readonly encryptionState!: pulumi.Output<string | undefined>;
     /**
      * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
      */
-    public readonly encryptionType: pulumi.Output<string>;
+    public readonly encryptionType!: pulumi.Output<string>;
     /**
      * The Endpoint for the Data Lake Store.
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * are Azure Service IP's allowed through the firewall? Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
-    public readonly firewallAllowAzureIps: pulumi.Output<string | undefined>;
+    public readonly firewallAllowAzureIps!: pulumi.Output<string | undefined>;
     /**
      * the state of the Firewall. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled.`
      */
-    public readonly firewallState: pulumi.Output<string | undefined>;
+    public readonly firewallState!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the Data Lake Store. Changing this forces a new resource to be created. Has to be between 3 to 24 characters.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Data Lake Store.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The monthly commitment tier for Data Lake Store. Accepted values are `Consumption`, `Commitment_1TB`, `Commitment_10TB`, `Commitment_100TB`, `Commitment_500TB`, `Commitment_1PB` or `Commitment_5PB`.
      */
-    public readonly tier: pulumi.Output<string | undefined>;
+    public readonly tier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Store resource with the given unique name, arguments, and options.
@@ -91,7 +91,7 @@ export class Store extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: StoreArgs | StoreState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: StoreState = argsOrState as StoreState | undefined;
+            const state = argsOrState as StoreState | undefined;
             inputs["encryptionState"] = state ? state.encryptionState : undefined;
             inputs["encryptionType"] = state ? state.encryptionType : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;

@@ -55,35 +55,35 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The base-64 encoded certificate data, which must be a PFX file. Changing this forces a new resource to be created.
      */
-    public readonly data: pulumi.Output<string>;
+    public readonly data!: pulumi.Output<string>;
     /**
      * The Expiration Date of this Certificate, formatted as an RFC3339 string.
      */
-    public /*out*/ readonly expiration: pulumi.Output<string>;
+    public /*out*/ readonly expiration!: pulumi.Output<string>;
     /**
      * The name of the API Management Certificate. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The password used for this certificate. Changing this forces a new resource to be created.
      */
-    public readonly password: pulumi.Output<string | undefined>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Subject of this Certificate.
      */
-    public /*out*/ readonly subject: pulumi.Output<string>;
+    public /*out*/ readonly subject!: pulumi.Output<string>;
     /**
      * The Thumbprint of this Certificate.
      */
-    public /*out*/ readonly thumbprint: pulumi.Output<string>;
+    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertificateState = argsOrState as CertificateState | undefined;
+            const state = argsOrState as CertificateState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["data"] = state ? state.data : undefined;
             inputs["expiration"] = state ? state.expiration : undefined;

@@ -50,32 +50,32 @@ export class DscConfiguration extends pulumi.CustomResource {
     /**
      * The name of the automation account in which the DSC Configuration is created. Changing this forces a new resource to be created.
      */
-    public readonly automationAccountName: pulumi.Output<string>;
+    public readonly automationAccountName!: pulumi.Output<string>;
     /**
      * The PowerShell DSC Configuration script.
      */
-    public readonly contentEmbedded: pulumi.Output<string>;
+    public readonly contentEmbedded!: pulumi.Output<string>;
     /**
      * Description to go with DSC Configuration.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Must be the same location as the Automation Account.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Verbose log option.
      */
-    public readonly logVerbose: pulumi.Output<boolean | undefined>;
+    public readonly logVerbose!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the DSC Configuration. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the DSC Configuration is created. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
-    public /*out*/ readonly state: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
 
     /**
      * Create a DscConfiguration resource with the given unique name, arguments, and options.
@@ -88,7 +88,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DscConfigurationArgs | DscConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DscConfigurationState = argsOrState as DscConfigurationState | undefined;
+            const state = argsOrState as DscConfigurationState | undefined;
             inputs["automationAccountName"] = state ? state.automationAccountName : undefined;
             inputs["contentEmbedded"] = state ? state.contentEmbedded : undefined;
             inputs["description"] = state ? state.description : undefined;

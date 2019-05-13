@@ -61,48 +61,48 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
-    public readonly eventhubName: pulumi.Output<string>;
+    public readonly eventhubName!: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have permissions to Listen to the Event Hub? Defaults to `false`.
      */
-    public readonly listen: pulumi.Output<boolean | undefined>;
-    public readonly location: pulumi.Output<string>;
+    public readonly listen!: pulumi.Output<boolean | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have permissions to Manage to the Event Hub? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`.
      */
-    public readonly manage: pulumi.Output<boolean | undefined>;
+    public readonly manage!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created.
      */
-    public readonly namespaceName: pulumi.Output<string>;
+    public readonly namespaceName!: pulumi.Output<string>;
     /**
      * The Primary Connection String for the Event Hubs authorization Rule.
      */
-    public /*out*/ readonly primaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly primaryConnectionString!: pulumi.Output<string>;
     /**
      * The Primary Key for the Event Hubs authorization Rule.
      */
-    public /*out*/ readonly primaryKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryKey!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Connection String for the Event Hubs authorization Rule.
      */
-    public /*out*/ readonly secondaryConnectionString: pulumi.Output<string>;
+    public /*out*/ readonly secondaryConnectionString!: pulumi.Output<string>;
     /**
      * The Secondary Key for the Event Hubs authorization Rule.
      */
-    public /*out*/ readonly secondaryKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
      * Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
      */
-    public readonly send: pulumi.Output<boolean | undefined>;
+    public readonly send!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a EventHubAuthorizationRule resource with the given unique name, arguments, and options.
@@ -115,7 +115,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventHubAuthorizationRuleArgs | EventHubAuthorizationRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventHubAuthorizationRuleState = argsOrState as EventHubAuthorizationRuleState | undefined;
+            const state = argsOrState as EventHubAuthorizationRuleState | undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["listen"] = state ? state.listen : undefined;
             inputs["location"] = state ? state.location : undefined;

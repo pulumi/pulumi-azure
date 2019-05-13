@@ -45,31 +45,31 @@ export class EventGridTopic extends pulumi.CustomResource {
     /**
      * The Endpoint associated with the EventGrid Topic.
      */
-    public /*out*/ readonly endpoint: pulumi.Output<string>;
+    public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the EventGrid Topic resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The Primary Shared Access Key associated with the EventGrid Topic.
      */
-    public /*out*/ readonly primaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly primaryAccessKey!: pulumi.Output<string>;
     /**
      * The name of the resource group in which the EventGrid Topic exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The Secondary Shared Access Key associated with the EventGrid Topic.
      */
-    public /*out*/ readonly secondaryAccessKey: pulumi.Output<string>;
+    public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a EventGridTopic resource with the given unique name, arguments, and options.
@@ -82,7 +82,7 @@ export class EventGridTopic extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventGridTopicArgs | EventGridTopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventGridTopicState = argsOrState as EventGridTopicState | undefined;
+            const state = argsOrState as EventGridTopicState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;

@@ -58,55 +58,55 @@ export class EventGridEventSubscription extends pulumi.CustomResource {
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
      */
-    public readonly eventDeliverySchema: pulumi.Output<string | undefined>;
+    public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
     /**
      * A `eventhub_endpoint` block as defined below.
      */
-    public readonly eventhubEndpoint: pulumi.Output<{ eventhubId: string } | undefined>;
+    public readonly eventhubEndpoint!: pulumi.Output<{ eventhubId: string } | undefined>;
     /**
      * A `hybrid_connection_endpoint` block as defined below.
      */
-    public readonly hybridConnectionEndpoint: pulumi.Output<{ hybridConnectionId: string } | undefined>;
+    public readonly hybridConnectionEndpoint!: pulumi.Output<{ hybridConnectionId: string } | undefined>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
      */
-    public readonly includedEventTypes: pulumi.Output<string[]>;
+    public readonly includedEventTypes!: pulumi.Output<string[]>;
     /**
      * A list of labels to assign to the event subscription.
      */
-    public readonly labels: pulumi.Output<string[] | undefined>;
+    public readonly labels!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A `retry_policy` block as defined below.
      */
-    public readonly retryPolicy: pulumi.Output<{ eventTimeToLive: number, maxDeliveryAttempts: number }>;
+    public readonly retryPolicy!: pulumi.Output<{ eventTimeToLive: number, maxDeliveryAttempts: number }>;
     /**
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      */
-    public readonly scope: pulumi.Output<string>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * A `storage_blob_dead_letter_destination` block as defined below.
      */
-    public readonly storageBlobDeadLetterDestination: pulumi.Output<{ storageAccountId: string, storageBlobContainerName: string } | undefined>;
+    public readonly storageBlobDeadLetterDestination!: pulumi.Output<{ storageAccountId: string, storageBlobContainerName: string } | undefined>;
     /**
      * A `storage_queue_endpoint` block as defined below.
      */
-    public readonly storageQueueEndpoint: pulumi.Output<{ queueName: string, storageAccountId: string } | undefined>;
+    public readonly storageQueueEndpoint!: pulumi.Output<{ queueName: string, storageAccountId: string } | undefined>;
     /**
      * A `subject_filter` block as defined below.
      */
-    public readonly subjectFilter: pulumi.Output<{ caseSensitive?: boolean, subjectBeginsWith?: string, subjectEndsWith?: string } | undefined>;
+    public readonly subjectFilter!: pulumi.Output<{ caseSensitive?: boolean, subjectBeginsWith?: string, subjectEndsWith?: string } | undefined>;
     /**
      * Specifies the name of the topic to associate with the event subscription.
      */
-    public readonly topicName: pulumi.Output<string>;
+    public readonly topicName!: pulumi.Output<string>;
     /**
      * A `webhook_endpoint` block as defined below.
      */
-    public readonly webhookEndpoint: pulumi.Output<{ url: string } | undefined>;
+    public readonly webhookEndpoint!: pulumi.Output<{ url: string } | undefined>;
 
     /**
      * Create a EventGridEventSubscription resource with the given unique name, arguments, and options.
@@ -119,7 +119,7 @@ export class EventGridEventSubscription extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: EventGridEventSubscriptionArgs | EventGridEventSubscriptionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: EventGridEventSubscriptionState = argsOrState as EventGridEventSubscriptionState | undefined;
+            const state = argsOrState as EventGridEventSubscriptionState | undefined;
             inputs["eventDeliverySchema"] = state ? state.eventDeliverySchema : undefined;
             inputs["eventhubEndpoint"] = state ? state.eventhubEndpoint : undefined;
             inputs["hybridConnectionEndpoint"] = state ? state.hybridConnectionEndpoint : undefined;

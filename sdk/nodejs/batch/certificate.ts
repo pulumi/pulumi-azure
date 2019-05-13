@@ -64,36 +64,36 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
-    public readonly accountName: pulumi.Output<string>;
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * The base64-encoded contents of the certificate.
      */
-    public readonly certificate: pulumi.Output<string>;
+    public readonly certificate!: pulumi.Output<string>;
     /**
      * The format of the certificate. Possible values are `Cer` or `Pfx`.
      */
-    public readonly format: pulumi.Output<string>;
+    public readonly format!: pulumi.Output<string>;
     /**
      * The generated name of the certificate.
      */
-    public /*out*/ readonly name: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
      */
-    public readonly password: pulumi.Output<string | undefined>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The public key of the certificate.
      */
-    public /*out*/ readonly publicData: pulumi.Output<string>;
+    public /*out*/ readonly publicData!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
      */
-    public readonly thumbprint: pulumi.Output<string>;
-    public readonly thumbprintAlgorithm: pulumi.Output<string>;
+    public readonly thumbprint!: pulumi.Output<string>;
+    public readonly thumbprintAlgorithm!: pulumi.Output<string>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -106,7 +106,7 @@ export class Certificate extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: CertificateState = argsOrState as CertificateState | undefined;
+            const state = argsOrState as CertificateState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["format"] = state ? state.format : undefined;

@@ -54,35 +54,35 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
      * The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
      */
-    public readonly apiManagementName: pulumi.Output<string>;
+    public readonly apiManagementName!: pulumi.Output<string>;
     /**
      * The Client ID used for the Client Application.
      */
-    public readonly clientId: pulumi.Output<string>;
+    public readonly clientId!: pulumi.Output<string>;
     /**
      * The Client Secret used for the Client Application.
      */
-    public readonly clientSecret: pulumi.Output<string>;
+    public readonly clientSecret!: pulumi.Output<string>;
     /**
      * A description of this OpenID Connect Provider.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * A user-friendly name for this OpenID Connect Provider.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The URI of the Metadata endpoint.
      */
-    public readonly metadataEndpoint: pulumi.Output<string>;
+    public readonly metadataEndpoint!: pulumi.Output<string>;
     /**
      * the Name of the OpenID Connect Provider which should be created within the API Management Service. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a OpenIdConnectProvider resource with the given unique name, arguments, and options.
@@ -95,7 +95,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: OpenIdConnectProviderArgs | OpenIdConnectProviderState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: OpenIdConnectProviderState = argsOrState as OpenIdConnectProviderState | undefined;
+            const state = argsOrState as OpenIdConnectProviderState | undefined;
             inputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             inputs["clientId"] = state ? state.clientId : undefined;
             inputs["clientSecret"] = state ? state.clientSecret : undefined;

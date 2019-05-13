@@ -49,48 +49,48 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Specifies whether the admin user is enabled. Defaults to `false`.
      */
-    public readonly adminEnabled: pulumi.Output<boolean | undefined>;
+    public readonly adminEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The Password associated with the Container Registry Admin account - if the admin account is enabled.
      */
-    public /*out*/ readonly adminPassword: pulumi.Output<string>;
+    public /*out*/ readonly adminPassword!: pulumi.Output<string>;
     /**
      * The Username associated with the Container Registry Admin account - if the admin account is enabled.
      */
-    public /*out*/ readonly adminUsername: pulumi.Output<string>;
+    public /*out*/ readonly adminUsername!: pulumi.Output<string>;
     /**
      * A list of Azure locations where the container registry should be geo-replicated.
      */
-    public readonly georeplicationLocations: pulumi.Output<string[] | undefined>;
+    public readonly georeplicationLocations!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly location: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * The URL that can be used to log into the container registry.
      */
-    public /*out*/ readonly loginServer: pulumi.Output<string>;
+    public /*out*/ readonly loginServer!: pulumi.Output<string>;
     /**
      * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
      */
-    public readonly sku: pulumi.Output<string | undefined>;
-    public readonly storageAccount: pulumi.Output<{ accessKey: string, name: string } | undefined>;
+    public readonly sku!: pulumi.Output<string | undefined>;
+    public readonly storageAccount!: pulumi.Output<{ accessKey: string, name: string } | undefined>;
     /**
      * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
      */
-    public readonly storageAccountId: pulumi.Output<string | undefined>;
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
      * Create a Registry resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ export class Registry extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RegistryArgs | RegistryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RegistryState = argsOrState as RegistryState | undefined;
+            const state = argsOrState as RegistryState | undefined;
             inputs["adminEnabled"] = state ? state.adminEnabled : undefined;
             inputs["adminPassword"] = state ? state.adminPassword : undefined;
             inputs["adminUsername"] = state ? state.adminUsername : undefined;

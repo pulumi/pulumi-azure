@@ -47,27 +47,27 @@ export class Route extends pulumi.CustomResource {
     /**
      * The destination CIDR to which the route applies, such as `10.1.0.0/16`
      */
-    public readonly addressPrefix: pulumi.Output<string>;
+    public readonly addressPrefix!: pulumi.Output<string>;
     /**
      * The name of the route. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
      */
-    public readonly nextHopInIpAddress: pulumi.Output<string | undefined>;
+    public readonly nextHopInIpAddress!: pulumi.Output<string | undefined>;
     /**
      * The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`
      */
-    public readonly nextHopType: pulumi.Output<string>;
+    public readonly nextHopType!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the route. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The name of the route table within which create the route. Changing this forces a new resource to be created.
      */
-    public readonly routeTableName: pulumi.Output<string>;
+    public readonly routeTableName!: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteState = argsOrState as RouteState | undefined;
+            const state = argsOrState as RouteState | undefined;
             inputs["addressPrefix"] = state ? state.addressPrefix : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["nextHopInIpAddress"] = state ? state.nextHopInIpAddress : undefined;

@@ -52,31 +52,31 @@ export class NsRecord extends pulumi.CustomResource {
     /**
      * The name of the DNS NS Record.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
      */
-    public readonly record: pulumi.Output<{ nsdname: string }[]>;
+    public readonly record!: pulumi.Output<{ nsdname: string }[]>;
     /**
      * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
      */
-    public readonly records: pulumi.Output<string[]>;
+    public readonly records!: pulumi.Output<string[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * The Time To Live (TTL) of the DNS record in seconds.
      */
-    public readonly ttl: pulumi.Output<number>;
+    public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
-    public readonly zoneName: pulumi.Output<string>;
+    public readonly zoneName!: pulumi.Output<string>;
 
     /**
      * Create a NsRecord resource with the given unique name, arguments, and options.
@@ -89,7 +89,7 @@ export class NsRecord extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NsRecordArgs | NsRecordState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NsRecordState = argsOrState as NsRecordState | undefined;
+            const state = argsOrState as NsRecordState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["record"] = state ? state.record : undefined;
             inputs["records"] = state ? state.records : undefined;

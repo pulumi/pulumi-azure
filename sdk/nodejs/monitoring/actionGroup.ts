@@ -59,35 +59,35 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * One or more `email_receiver` blocks as defined below.
      */
-    public readonly emailReceivers: pulumi.Output<{ emailAddress: string, name: string }[] | undefined>;
+    public readonly emailReceivers!: pulumi.Output<{ emailAddress: string, name: string }[] | undefined>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Action Group instance.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
-    public readonly shortName: pulumi.Output<string>;
+    public readonly shortName!: pulumi.Output<string>;
     /**
      * One or more `sms_receiver ` blocks as defined below.
      */
-    public readonly smsReceivers: pulumi.Output<{ countryCode: string, name: string, phoneNumber: string }[] | undefined>;
+    public readonly smsReceivers!: pulumi.Output<{ countryCode: string, name: string, phoneNumber: string }[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * One or more `webhook_receiver ` blocks as defined below.
      */
-    public readonly webhookReceivers: pulumi.Output<{ name: string, serviceUri: string }[] | undefined>;
+    public readonly webhookReceivers!: pulumi.Output<{ name: string, serviceUri: string }[] | undefined>;
 
     /**
      * Create a ActionGroup resource with the given unique name, arguments, and options.
@@ -100,7 +100,7 @@ export class ActionGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ActionGroupArgs | ActionGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ActionGroupState = argsOrState as ActionGroupState | undefined;
+            const state = argsOrState as ActionGroupState | undefined;
             inputs["emailReceivers"] = state ? state.emailReceivers : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["name"] = state ? state.name : undefined;

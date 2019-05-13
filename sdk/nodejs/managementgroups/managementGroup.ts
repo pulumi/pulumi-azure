@@ -41,19 +41,19 @@ export class ManagementGroup extends pulumi.CustomResource {
     /**
      * A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
      */
-    public readonly displayName: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string>;
     /**
      * The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
      */
-    public readonly groupId: pulumi.Output<string>;
+    public readonly groupId!: pulumi.Output<string>;
     /**
      * The ID of the Parent Management Group. Changing this forces a new resource to be created.
      */
-    public readonly parentManagementGroupId: pulumi.Output<string>;
+    public readonly parentManagementGroupId!: pulumi.Output<string>;
     /**
      * A list of Subscription ID's which should be assigned to the Management Group.
      */
-    public readonly subscriptionIds: pulumi.Output<string[] | undefined>;
+    public readonly subscriptionIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ManagementGroup resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class ManagementGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ManagementGroupArgs | ManagementGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ManagementGroupState = argsOrState as ManagementGroupState | undefined;
+            const state = argsOrState as ManagementGroupState | undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["groupId"] = state ? state.groupId : undefined;
             inputs["parentManagementGroupId"] = state ? state.parentManagementGroupId : undefined;

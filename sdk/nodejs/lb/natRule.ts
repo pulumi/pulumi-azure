@@ -58,41 +58,41 @@ export class NatRule extends pulumi.CustomResource {
         return new NatRule(name, <any>state, { ...opts, id: id });
     }
 
-    public /*out*/ readonly backendIpConfigurationId: pulumi.Output<string>;
+    public /*out*/ readonly backendIpConfigurationId!: pulumi.Output<string>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
      */
-    public readonly backendPort: pulumi.Output<number>;
+    public readonly backendPort!: pulumi.Output<number>;
     /**
      * Enables the Floating IP Capacity, required to configure a SQL AlwaysOn Availability Group.
      */
-    public readonly enableFloatingIp: pulumi.Output<boolean>;
-    public /*out*/ readonly frontendIpConfigurationId: pulumi.Output<string>;
+    public readonly enableFloatingIp!: pulumi.Output<boolean>;
+    public /*out*/ readonly frontendIpConfigurationId!: pulumi.Output<string>;
     /**
      * The name of the frontend IP configuration exposing this rule.
      */
-    public readonly frontendIpConfigurationName: pulumi.Output<string>;
+    public readonly frontendIpConfigurationName!: pulumi.Output<string>;
     /**
      * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 1 and 65534, inclusive.
      */
-    public readonly frontendPort: pulumi.Output<number>;
+    public readonly frontendPort!: pulumi.Output<number>;
     /**
      * The ID of the Load Balancer in which to create the NAT Rule.
      */
-    public readonly loadbalancerId: pulumi.Output<string>;
-    public readonly location: pulumi.Output<string>;
+    public readonly loadbalancerId!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the name of the NAT Rule.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
      */
-    public readonly protocol: pulumi.Output<string>;
+    public readonly protocol!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the resource.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
 
     /**
      * Create a NatRule resource with the given unique name, arguments, and options.
@@ -105,7 +105,7 @@ export class NatRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NatRuleArgs | NatRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NatRuleState = argsOrState as NatRuleState | undefined;
+            const state = argsOrState as NatRuleState | undefined;
             inputs["backendIpConfigurationId"] = state ? state.backendIpConfigurationId : undefined;
             inputs["backendPort"] = state ? state.backendPort : undefined;
             inputs["enableFloatingIp"] = state ? state.enableFloatingIp : undefined;

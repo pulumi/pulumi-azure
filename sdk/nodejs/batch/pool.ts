@@ -104,52 +104,52 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
      */
-    public readonly accountName: pulumi.Output<string>;
+    public readonly accountName!: pulumi.Output<string>;
     /**
      * A `auto_scale` block that describes the scale settings when using auto scale.
      */
-    public readonly autoScale: pulumi.Output<{ evaluationInterval?: string, formula: string } | undefined>;
+    public readonly autoScale!: pulumi.Output<{ evaluationInterval?: string, formula: string } | undefined>;
     /**
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
-    public readonly certificates: pulumi.Output<{ id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[] | undefined>;
+    public readonly certificates!: pulumi.Output<{ id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[] | undefined>;
     /**
      * Specifies the display name of the Batch pool.
      */
-    public readonly displayName: pulumi.Output<string | undefined>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * A `fixed_scale` block that describes the scale settings when using fixed scale.
      */
-    public readonly fixedScale: pulumi.Output<{ resizeTimeout?: string, targetDedicatedNodes?: number, targetLowPriorityNodes?: number } | undefined>;
+    public readonly fixedScale!: pulumi.Output<{ resizeTimeout?: string, targetDedicatedNodes?: number, targetLowPriorityNodes?: number } | undefined>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
-    public readonly maxTasksPerNode: pulumi.Output<number | undefined>;
+    public readonly maxTasksPerNode!: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the Sku of the node agents that will be created in the Batch pool.
      */
-    public readonly nodeAgentSkuId: pulumi.Output<string>;
+    public readonly nodeAgentSkuId!: pulumi.Output<string>;
     /**
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      */
-    public readonly resourceGroupName: pulumi.Output<string>;
+    public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * A `start_task` block that describes the start task settings for the Batch pool.
      */
-    public readonly startTask: pulumi.Output<{ commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles?: { autoStorageContainerName?: string, blobPrefix?: string, fileMode?: string, filePath?: string, httpUrl?: string, storageContainerUrl?: string }[], userIdentity: { autoUser?: { elevationLevel?: string, scope?: string }, userName?: string }, waitForSuccess?: boolean } | undefined>;
-    public readonly stopPendingResizeOperation: pulumi.Output<boolean | undefined>;
+    public readonly startTask!: pulumi.Output<{ commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles?: { autoStorageContainerName?: string, blobPrefix?: string, fileMode?: string, filePath?: string, httpUrl?: string, storageContainerUrl?: string }[], userIdentity: { autoUser?: { elevationLevel?: string, scope?: string }, userName?: string }, waitForSuccess?: boolean } | undefined>;
+    public readonly stopPendingResizeOperation!: pulumi.Output<boolean | undefined>;
     /**
      * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
      */
-    public readonly storageImageReference: pulumi.Output<{ id?: string, offer: string, publisher: string, sku: string, version: string }>;
+    public readonly storageImageReference!: pulumi.Output<{ id?: string, offer: string, publisher: string, sku: string, version: string }>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */
-    public readonly vmSize: pulumi.Output<string>;
+    public readonly vmSize!: pulumi.Output<string>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -162,7 +162,7 @@ export class Pool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PoolState = argsOrState as PoolState | undefined;
+            const state = argsOrState as PoolState | undefined;
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["autoScale"] = state ? state.autoScale : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;
