@@ -19,6 +19,106 @@ import * as mod from ".";
 import * as core from "../core";
 import * as util from "../util";
 
+/**
+ * Creates an appropriate [Cron](https://en.wikipedia.org/wiki/Cron) format string that can be
+ * used as the [recurrence] property of [ScheduleArgs]. Includes a component for seconds.
+ */
+function cronExpression(a: ScheduleArgs) {
+    checkRange(a.second, "second", 0, 59);
+    checkRange(a.minute, "minute", 0, 59);
+    checkRange(a.hour, "hour", 0, 23);
+    checkRange(a.dayOfMonth, "dayOfMonth", 1, 31);
+
+    return `${val(a.second)} ${val(a.minute)} ${val(a.hour)} ${val(a.dayOfMonth)} ${month(a.month)} ${dayOfWeek(a.dayOfWeek)}`;
+
+    function val(v: number | undefined) {
+        return v === undefined ? "*" : v;
+    }
+
+    function dayOfWeek(v: DayOfWeek | undefined) {
+        if (v === undefined || typeof v === "number") {
+            checkRange(v, "dayOfWeek", 0, 7);
+            return val(v);
+        }
+
+        switch (v) {
+            case "Sunday": return 0;
+            case "Monday": return 1;
+            case "Tuesday": return 2;
+            case "Wednesday": return 3;
+            case "Thursday": return 4;
+            case "Friday": return 5;
+            case "Saturday": return 6;
+            default: throw new Error(`Invalid day of week: ${v}`);
+        }
+    }
+
+    function month(v: Month | undefined) {
+        if (v === undefined || typeof v === "number") {
+            checkRange(v, "month", 1, 12);
+            return val(v);
+        }
+
+        switch (v) {
+            case "January": return 1;
+            case "February": return 2;
+            case "March": return 3;
+            case "April": return 4;
+            case "May": return 5;
+            case "June": return 6;
+            case "July": return 7;
+            case "August": return 8;
+            case "September": return 9;
+            case "October": return 10;
+            case "November": return 11;
+            case "December": return 12;
+            default: throw new Error(`Invalid month: ${v}`);
+        }
+    }
+
+    function checkRange(
+            val: number | undefined, name: keyof ScheduleArgs,
+            minInclusive: number, maxInclusive: number) {
+        if (val !== undefined) {
+            if (val < minInclusive || val > maxInclusive) {
+                throw new Error(`Value for [args.${name}] was not in the inclusive range [${minInclusive}, ${maxInclusive}].`);
+            }
+        }
+    }
+}
+
+/**
+ * If a number, it must be between 0 to 7 (inclusive). (0 and 7 both represent Sunday).
+ */
+export type DayOfWeek = number | "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
+
+/**
+ * If a number, it must be between 1 to 12 (inclusive).
+ */
+export type Month = number |
+    "January" | "February" | "March" | "April" | "May" | "June" |
+    "July" | "August" | "September" | "October" | "November" | "December";
+
+export interface ScheduleArgs {
+    /** 0 to 59.  Leave undefined to indicate no specific value. */
+    second?: number;
+
+    /** 0 to 59.  Leave undefined to indicate no specific value. */
+    minute?: number;
+
+    /** 0 to 23.  Leave undefined to indicate no specific value.  All times UTC */
+    hour?: number;
+
+    /** 1 to 31.  Leave undefined to indicate no specific value. */
+    dayOfMonth?: number;
+
+    /** Month of the year to perform the scheduled action on.  Leave undefined to indicate no specific value. */
+    month?: Month;
+
+    /** Day of the week to perform the scheduled action on.  Leave undefined to indicate no specific value. */
+    dayOfWeek?: DayOfWeek;
+}
+
 interface TimerBindingDefinition extends mod.BindingDefinition {
     /**
      * The name of the variable that represents the timer object in function code.
@@ -113,7 +213,7 @@ export type TimerSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<T
     /**
      * A CRON expression for the timer schedule, e.g. '0 * * * * *'.
      */
-    schedule: pulumi.Input<string>;
+    schedule: pulumi.Input<string | ScheduleArgs>;
 
     /**
      * If true, the function is invoked when the runtime starts.
@@ -128,12 +228,14 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
 
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
+        const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
+
         const bindings: TimerBindingDefinition[] = [{
             type: "timerTrigger",
             direction: "in",
             name: "timer",
-            schedule: args.schedule,
             runOnStartup: args.runOnStartup,
+            schedule,
         }];
 
         super("azure:appservice:TimerSubscription", name, bindings, {

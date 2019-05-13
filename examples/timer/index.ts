@@ -4,7 +4,7 @@ const resourceGroup = new azure.core.ResourceGroup('example', { location: 'West 
 
 new azure.appservice.TimerSubscription('everyminute', {
     resourceGroup,
-    schedule: '0 * * * * *',
+    schedule: { second: 0 },
     callback: async (context, args) => {
         console.log(`Timer due at ${args.ScheduleStatus.Last}`);
     }
