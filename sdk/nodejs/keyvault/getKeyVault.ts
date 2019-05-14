@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:keyvault/getKeyVault:getKeyVault", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

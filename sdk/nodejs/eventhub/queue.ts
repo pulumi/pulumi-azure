@@ -185,6 +185,13 @@ export class Queue extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:eventhub/queue:Queue", name, inputs, opts);
     }
 }

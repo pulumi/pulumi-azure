@@ -40,6 +40,10 @@ async def get_subscriptions(display_name_contains=None,display_name_prefix=None,
 
     __args__['displayNameContains'] = display_name_contains
     __args__['displayNamePrefix'] = display_name_prefix
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:core/getSubscriptions:getSubscriptions', __args__, opts=opts)
 
     return GetSubscriptionsResult(

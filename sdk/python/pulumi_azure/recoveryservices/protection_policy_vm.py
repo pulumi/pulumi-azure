@@ -107,6 +107,10 @@ class ProtectionPolicyVM(pulumi.CustomResource):
 
         __props__['timezone'] = timezone
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ProtectionPolicyVM, __self__).__init__(
             'azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM',
             resource_name,

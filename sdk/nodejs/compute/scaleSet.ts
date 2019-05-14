@@ -448,6 +448,13 @@ export class ScaleSet extends pulumi.CustomResource {
             inputs["upgradePolicyMode"] = args ? args.upgradePolicyMode : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:compute/scaleSet:ScaleSet", name, inputs, opts);
     }
 }

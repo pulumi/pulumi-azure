@@ -126,6 +126,13 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["configurationName"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, inputs, opts);
     }
 }

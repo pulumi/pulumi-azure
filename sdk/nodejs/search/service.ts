@@ -118,6 +118,13 @@ export class Service extends pulumi.CustomResource {
             inputs["primaryKey"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:search/service:Service", name, inputs, opts);
     }
 }

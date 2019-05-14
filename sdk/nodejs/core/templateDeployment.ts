@@ -177,6 +177,13 @@ export class TemplateDeployment extends pulumi.CustomResource {
             inputs["templateBody"] = args ? args.templateBody : undefined;
             inputs["outputs"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:core/templateDeployment:TemplateDeployment", name, inputs, opts);
     }
 }

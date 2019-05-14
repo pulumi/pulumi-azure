@@ -113,6 +113,13 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:devtest/virtualNetwork:VirtualNetwork", name, inputs, opts);
     }
 }

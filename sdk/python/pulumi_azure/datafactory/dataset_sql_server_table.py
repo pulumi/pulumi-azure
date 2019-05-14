@@ -114,6 +114,10 @@ class DatasetSqlServerTable(pulumi.CustomResource):
 
         __props__['table_name'] = table_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DatasetSqlServerTable, __self__).__init__(
             'azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable',
             resource_name,

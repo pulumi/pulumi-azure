@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:network/getSubnet:getSubnet", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

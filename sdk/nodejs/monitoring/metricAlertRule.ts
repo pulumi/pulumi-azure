@@ -205,6 +205,13 @@ export class MetricAlertRule extends pulumi.CustomResource {
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["webhookAction"] = args ? args.webhookAction : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:monitoring/metricAlertRule:MetricAlertRule", name, inputs, opts);
     }
 }

@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getRouteTable(args: GetRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:network/getRouteTable:getRouteTable", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -77,6 +77,10 @@ async def get_shared_image_version(gallery_name=None,image_name=None,name=None,r
     __args__['imageName'] = image_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts)
 
     return GetSharedImageVersionResult(

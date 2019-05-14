@@ -74,6 +74,10 @@ class AnalyticsFirewallRule(pulumi.CustomResource):
             raise TypeError("Missing required property 'start_ip_address'")
         __props__['start_ip_address'] = start_ip_address
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AnalyticsFirewallRule, __self__).__init__(
             'azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule',
             resource_name,

@@ -126,6 +126,13 @@ export class ApiVersionSet extends pulumi.CustomResource {
             inputs["versionQueryName"] = args ? args.versionQueryName : undefined;
             inputs["versioningScheme"] = args ? args.versioningScheme : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:apimanagement/apiVersionSet:ApiVersionSet", name, inputs, opts);
     }
 }

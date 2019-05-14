@@ -101,6 +101,10 @@ class Probe(pulumi.CustomResource):
 
         __props__['load_balancer_rules'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Probe, __self__).__init__(
             'azure:lb/probe:Probe',
             resource_name,

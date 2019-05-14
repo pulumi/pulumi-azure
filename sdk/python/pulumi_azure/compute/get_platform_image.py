@@ -48,6 +48,10 @@ async def get_platform_image(location=None,offer=None,publisher=None,sku=None,op
     __args__['offer'] = offer
     __args__['publisher'] = publisher
     __args__['sku'] = sku
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts)
 
     return GetPlatformImageResult(

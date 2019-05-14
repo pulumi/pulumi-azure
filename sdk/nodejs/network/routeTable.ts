@@ -107,6 +107,13 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["subnets"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:network/routeTable:RouteTable", name, inputs, opts);
     }
 }

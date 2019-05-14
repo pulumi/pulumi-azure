@@ -8,6 +8,13 @@ import * as utilities from "../utilities";
  * Use this data source to access information about the permissions from the Management Key Vault Templates.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:keyvault/getAccessPolicy:getAccessPolicy", {
         "name": args.name,
     }, opts);
