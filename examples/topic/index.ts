@@ -10,7 +10,6 @@ const resourceGroup = new azure.core.ResourceGroup("test", {
 });
 
 const namespace = new eventhub.Namespace("test", {
-    location: location,
     resourceGroupName: resourceGroup.name,
     sku: "standard",
 });

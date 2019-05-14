@@ -10,7 +10,6 @@ let resourceGroup = new azure.core.ResourceGroup(name, {
 
 let network = new azure.network.VirtualNetwork(name, {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     addressSpaces: ["10.0.0.0/16"],
     // Workaround two issues:
     // (1) The Azure API recently regressed and now fails when no subnets are defined at Network creation time.
@@ -29,7 +28,6 @@ let subnet = new azure.network.Subnet(name, {
 
 let networkInterface = new azure.network.NetworkInterface(name, {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     ipConfigurations: [{
         name: "webserveripcfg",
         subnetId: subnet.id,
@@ -39,7 +37,6 @@ let networkInterface = new azure.network.NetworkInterface(name, {
 
 let vm = new azure.compute.VirtualMachine("webservervm", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     networkInterfaceIds: [networkInterface.id],
     vmSize: "Standard_A0",
     deleteDataDisksOnTermination: true,
