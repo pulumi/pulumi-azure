@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:logicapps/getWorkflow:getWorkflow", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

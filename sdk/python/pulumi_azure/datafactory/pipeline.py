@@ -84,6 +84,10 @@ class Pipeline(pulumi.CustomResource):
 
         __props__['variables'] = variables
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Pipeline, __self__).__init__(
             'azure:datafactory/pipeline:Pipeline',
             resource_name,

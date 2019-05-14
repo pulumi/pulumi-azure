@@ -145,6 +145,10 @@ class Extension(pulumi.CustomResource):
             raise TypeError("Missing required property 'virtual_machine_name'")
         __props__['virtual_machine_name'] = virtual_machine_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Extension, __self__).__init__(
             'azure:compute/extension:Extension',
             resource_name,

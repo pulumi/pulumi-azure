@@ -134,6 +134,13 @@ export class Subnet extends pulumi.CustomResource {
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:network/subnet:Subnet", name, inputs, opts);
     }
 }

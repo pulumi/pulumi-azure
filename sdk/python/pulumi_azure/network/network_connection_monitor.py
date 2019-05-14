@@ -102,6 +102,10 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NetworkConnectionMonitor, __self__).__init__(
             'azure:network/networkConnectionMonitor:NetworkConnectionMonitor',
             resource_name,

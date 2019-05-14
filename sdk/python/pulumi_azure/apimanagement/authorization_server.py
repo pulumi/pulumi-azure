@@ -176,6 +176,10 @@ class AuthorizationServer(pulumi.CustomResource):
 
         __props__['token_endpoint'] = token_endpoint
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AuthorizationServer, __self__).__init__(
             'azure:apimanagement/authorizationServer:AuthorizationServer',
             resource_name,

@@ -144,6 +144,13 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue", name, inputs, opts);
     }
 }

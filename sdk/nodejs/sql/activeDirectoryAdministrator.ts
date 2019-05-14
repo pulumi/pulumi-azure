@@ -109,6 +109,13 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, inputs, opts);
     }
 }

@@ -147,6 +147,13 @@ export class Controller extends pulumi.CustomResource {
             inputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
             inputs["dataPlaneFqdn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:devspace/controller:Controller", name, inputs, opts);
     }
 }

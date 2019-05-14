@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:streamanalytics/getJob:getJob", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

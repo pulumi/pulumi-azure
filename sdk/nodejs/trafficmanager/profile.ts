@@ -148,6 +148,13 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
             inputs["fqdn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:trafficmanager/profile:Profile", name, inputs, opts);
     }
 }

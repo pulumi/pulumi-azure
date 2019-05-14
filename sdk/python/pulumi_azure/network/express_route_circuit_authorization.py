@@ -71,6 +71,10 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         __props__['authorization_key'] = None
         __props__['authorization_use_status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ExpressRouteCircuitAuthorization, __self__).__init__(
             'azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization',
             resource_name,

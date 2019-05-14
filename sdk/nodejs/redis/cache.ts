@@ -304,6 +304,13 @@ export class Cache extends pulumi.CustomResource {
             inputs["secondaryAccessKey"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:redis/cache:Cache", name, inputs, opts);
     }
 }

@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:appinsights/getInsights:getInsights", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

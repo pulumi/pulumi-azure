@@ -63,6 +63,10 @@ class Account(pulumi.CustomResource):
             raise TypeError("Missing required property 'storage_accounts'")
         __props__['storage_accounts'] = storage_accounts
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Account, __self__).__init__(
             'azure:mediaservices/account:Account',
             resource_name,

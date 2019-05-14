@@ -135,6 +135,10 @@ class Rule(pulumi.CustomResource):
 
         __props__['frontend_ip_configuration_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Rule, __self__).__init__(
             'azure:lb/rule:Rule',
             resource_name,

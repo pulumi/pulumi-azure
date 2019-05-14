@@ -99,6 +99,10 @@ class Lab(pulumi.CustomResource):
         __props__['premium_data_disk_storage_account_id'] = None
         __props__['unique_identifier'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Lab, __self__).__init__(
             'azure:devtest/lab:Lab',
             resource_name,

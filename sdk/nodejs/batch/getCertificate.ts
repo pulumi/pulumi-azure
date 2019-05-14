@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:batch/getCertificate:getCertificate", {
         "accountName": args.accountName,
         "name": args.name,

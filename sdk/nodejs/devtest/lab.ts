@@ -125,6 +125,13 @@ export class Lab extends pulumi.CustomResource {
             inputs["premiumDataDiskStorageAccountId"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:devtest/lab:Lab", name, inputs, opts);
     }
 }

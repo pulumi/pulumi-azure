@@ -24,6 +24,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:scheduler/getJobCollection:getJobCollection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

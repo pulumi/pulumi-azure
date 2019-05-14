@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:recoveryservices/getVault:getVault", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -191,6 +191,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vmImage"] = args ? args.vmImage : undefined;
             inputs["clusterEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:servicefabric/cluster:Cluster", name, inputs, opts);
     }
 }
