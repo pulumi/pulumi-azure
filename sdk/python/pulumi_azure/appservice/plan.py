@@ -107,6 +107,10 @@ class Plan(pulumi.CustomResource):
 
         __props__['maximum_number_of_workers'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Plan, __self__).__init__(
             'azure:appservice/plan:Plan',
             resource_name,

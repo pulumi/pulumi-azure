@@ -76,6 +76,10 @@ class SharedImageGallery(pulumi.CustomResource):
 
         __props__['unique_name'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SharedImageGallery, __self__).__init__(
             'azure:compute/sharedImageGallery:SharedImageGallery',
             resource_name,

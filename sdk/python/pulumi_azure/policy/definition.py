@@ -122,6 +122,10 @@ class Definition(pulumi.CustomResource):
             raise TypeError("Missing required property 'policy_type'")
         __props__['policy_type'] = policy_type
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Definition, __self__).__init__(
             'azure:policy/definition:Definition',
             resource_name,

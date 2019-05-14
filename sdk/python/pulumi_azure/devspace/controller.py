@@ -103,6 +103,10 @@ class Controller(pulumi.CustomResource):
 
         __props__['data_plane_fqdn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Controller, __self__).__init__(
             'azure:devspace/controller:Controller',
             resource_name,

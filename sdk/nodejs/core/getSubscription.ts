@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  */
 export function getSubscription(args?: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:core/getSubscription:getSubscription", {
         "subscriptionId": args.subscriptionId,
     }, opts);

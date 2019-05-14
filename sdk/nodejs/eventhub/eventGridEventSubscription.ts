@@ -152,6 +152,13 @@ export class EventGridEventSubscription extends pulumi.CustomResource {
             inputs["topicName"] = args ? args.topicName : undefined;
             inputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:eventhub/eventGridEventSubscription:EventGridEventSubscription", name, inputs, opts);
     }
 }

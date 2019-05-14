@@ -140,6 +140,10 @@ class NetworkInterface(pulumi.CustomResource):
         __props__['private_ip_address'] = None
         __props__['private_ip_addresses'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NetworkInterface, __self__).__init__(
             'azure:network/networkInterface:NetworkInterface',
             resource_name,

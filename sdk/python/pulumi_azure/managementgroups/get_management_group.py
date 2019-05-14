@@ -48,6 +48,10 @@ async def get_management_group(group_id=None,opts=None):
     __args__ = dict()
 
     __args__['groupId'] = group_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__, opts=opts)
 
     return GetManagementGroupResult(

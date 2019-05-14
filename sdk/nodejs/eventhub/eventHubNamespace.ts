@@ -144,6 +144,13 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["defaultSecondaryConnectionString"] = undefined /*out*/;
             inputs["defaultSecondaryKey"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:eventhub/eventHubNamespace:EventHubNamespace", name, inputs, opts);
     }
 }

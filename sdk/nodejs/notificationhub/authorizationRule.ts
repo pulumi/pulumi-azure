@@ -135,6 +135,13 @@ export class AuthorizationRule extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:notificationhub/authorizationRule:AuthorizationRule", name, inputs, opts);
     }
 }

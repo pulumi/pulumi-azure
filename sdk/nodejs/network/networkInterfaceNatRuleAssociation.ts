@@ -126,6 +126,13 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
             inputs["natRuleId"] = args ? args.natRuleId : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, inputs, opts);
     }
 }

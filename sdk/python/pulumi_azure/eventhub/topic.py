@@ -172,6 +172,10 @@ class Topic(pulumi.CustomResource):
 
         __props__['support_ordering'] = support_ordering
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Topic, __self__).__init__(
             'azure:eventhub/topic:Topic',
             resource_name,

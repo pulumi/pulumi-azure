@@ -3,6 +3,8 @@
 ## Improvements
 
 - Serverless mixins now support the Event Hubs and Timer trigger.
+- Fixed bug #2511, which resulted in crashes when updating many properties of an
+  `azure.containerservice.KubernetesCluster`.
 
 ## 0.18.2 (Released May 6th, 2019)
 

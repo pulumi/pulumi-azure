@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBuiltinRoleDefinition(args: GetBuiltinRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuiltinRoleDefinitionResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition", {
         "name": args.name,
     }, opts);

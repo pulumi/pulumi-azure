@@ -182,6 +182,10 @@ class Service(pulumi.CustomResource):
         __props__['public_ip_addresses'] = None
         __props__['scm_url'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Service, __self__).__init__(
             'azure:apimanagement/service:Service',
             resource_name,

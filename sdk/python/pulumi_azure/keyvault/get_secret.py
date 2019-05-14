@@ -65,6 +65,10 @@ async def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
     __args__['keyVaultId'] = key_vault_id
     __args__['name'] = name
     __args__['vaultUri'] = vault_uri
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__, opts=opts)
 
     return GetSecretResult(

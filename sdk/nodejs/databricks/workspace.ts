@@ -105,6 +105,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["managedResourceGroupId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:databricks/workspace:Workspace", name, inputs, opts);
     }
 }

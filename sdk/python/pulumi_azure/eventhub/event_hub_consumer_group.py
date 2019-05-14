@@ -75,6 +75,10 @@ class EventHubConsumerGroup(pulumi.CustomResource):
 
         __props__['user_metadata'] = user_metadata
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(EventHubConsumerGroup, __self__).__init__(
             'azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup',
             resource_name,

@@ -146,6 +146,13 @@ export class Certificate extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["publicData"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:batch/certificate:Certificate", name, inputs, opts);
     }
 }
