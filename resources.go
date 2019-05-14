@@ -897,6 +897,11 @@ func Provider() tfbridge.ProviderInfo {
 							"zMixins_http.ts",
 						},
 					},
+					"cosmosdb": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
 					"eventhub": {
 						DestFiles: []string{
 							"zMixins.ts",
