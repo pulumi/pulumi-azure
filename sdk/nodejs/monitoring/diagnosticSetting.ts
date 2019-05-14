@@ -125,6 +125,13 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:monitoring/diagnosticSetting:DiagnosticSetting", name, inputs, opts);
     }
 }

@@ -155,6 +155,13 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultUri"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:keyvault/keyVault:KeyVault", name, inputs, opts);
     }
 }

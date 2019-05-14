@@ -100,6 +100,13 @@ export class Definition extends pulumi.CustomResource {
             inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:role/definition:Definition", name, inputs, opts);
     }
 }

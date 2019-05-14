@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {
         "allocationType": args.allocationType,
         "attached": args.attached,

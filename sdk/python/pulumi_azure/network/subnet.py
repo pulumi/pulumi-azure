@@ -104,6 +104,10 @@ class Subnet(pulumi.CustomResource):
             raise TypeError("Missing required property 'virtual_network_name'")
         __props__['virtual_network_name'] = virtual_network_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Subnet, __self__).__init__(
             'azure:network/subnet:Subnet',
             resource_name,

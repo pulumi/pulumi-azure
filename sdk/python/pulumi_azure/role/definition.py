@@ -79,6 +79,10 @@ class Definition(pulumi.CustomResource):
             raise TypeError("Missing required property 'scope'")
         __props__['scope'] = scope
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Definition, __self__).__init__(
             'azure:role/definition:Definition',
             resource_name,

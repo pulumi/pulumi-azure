@@ -82,6 +82,10 @@ class Factory(pulumi.CustomResource):
 
         __props__['vsts_configuration'] = vsts_configuration
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Factory, __self__).__init__(
             'azure:datafactory/factory:Factory',
             resource_name,

@@ -157,6 +157,13 @@ export class Key extends pulumi.CustomResource {
             inputs["n"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:keyvault/key:Key", name, inputs, opts);
     }
 }

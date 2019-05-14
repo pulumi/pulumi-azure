@@ -115,6 +115,13 @@ export class Zone extends pulumi.CustomResource {
             inputs["nameServers"] = undefined /*out*/;
             inputs["numberOfRecordSets"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:dns/zone:Zone", name, inputs, opts);
     }
 }

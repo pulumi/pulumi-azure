@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     return pulumi.runtime.invoke("azure:monitoring/getLogProfile:getLogProfile", {
         "name": args.name,
     }, opts);

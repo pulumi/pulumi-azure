@@ -122,6 +122,13 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:sql/sqlServer:SqlServer", name, inputs, opts);
     }
 }

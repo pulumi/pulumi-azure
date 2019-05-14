@@ -263,6 +263,13 @@ export class Job extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:scheduler/job:Job", name, inputs, opts);
     }
 }

@@ -335,7 +335,14 @@ func Provider() tfbridge.ProviderInfo {
 					// Max length of a container group/instance is 63
 					azureName: AutoNameWithMaxLength(azureName, 63),
 				}},
-			"azurerm_kubernetes_cluster": {Tok: azureResource(azureContainerService, "KubernetesCluster")},
+			"azurerm_kubernetes_cluster": {
+				Tok: azureResource(azureContainerService, "KubernetesCluster"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"addon_profile": {
+						SuppressEmptyMapElements: boolRef(true),
+					},
+				},
+			},
 
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},

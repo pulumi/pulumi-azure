@@ -74,6 +74,10 @@ async def get_application(name=None,object_id=None,opts=None):
 
     __args__['name'] = name
     __args__['objectId'] = object_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__, opts=opts)
 
     return GetApplicationResult(

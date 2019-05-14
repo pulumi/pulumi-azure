@@ -108,6 +108,13 @@ export class Route extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:network/route:Route", name, inputs, opts);
     }
 }

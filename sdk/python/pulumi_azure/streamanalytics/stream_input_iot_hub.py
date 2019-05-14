@@ -110,6 +110,10 @@ class StreamInputIotHub(pulumi.CustomResource):
             raise TypeError("Missing required property 'stream_analytics_job_name'")
         __props__['stream_analytics_job_name'] = stream_analytics_job_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(StreamInputIotHub, __self__).__init__(
             'azure:streamanalytics/streamInputIotHub:StreamInputIotHub',
             resource_name,

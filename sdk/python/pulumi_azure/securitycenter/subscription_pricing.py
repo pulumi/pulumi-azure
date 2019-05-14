@@ -44,6 +44,10 @@ class SubscriptionPricing(pulumi.CustomResource):
             raise TypeError("Missing required property 'tier'")
         __props__['tier'] = tier
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SubscriptionPricing, __self__).__init__(
             'azure:securitycenter/subscriptionPricing:SubscriptionPricing',
             resource_name,

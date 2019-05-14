@@ -56,6 +56,10 @@ class TriggerCustom(pulumi.CustomResource):
 
         __props__['name'] = name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(TriggerCustom, __self__).__init__(
             'azure:logicapps/triggerCustom:TriggerCustom',
             resource_name,

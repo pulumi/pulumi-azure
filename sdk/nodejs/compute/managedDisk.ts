@@ -187,6 +187,13 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:compute/managedDisk:ManagedDisk", name, inputs, opts);
     }
 }

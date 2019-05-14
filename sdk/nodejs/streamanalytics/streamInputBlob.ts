@@ -166,6 +166,13 @@ export class StreamInputBlob extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             inputs["timeFormat"] = args ? args.timeFormat : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, inputs, opts);
     }
 }

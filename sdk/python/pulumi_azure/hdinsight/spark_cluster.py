@@ -126,6 +126,10 @@ class SparkCluster(pulumi.CustomResource):
         __props__['https_endpoint'] = None
         __props__['ssh_endpoint'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SparkCluster, __self__).__init__(
             'azure:hdinsight/sparkCluster:SparkCluster',
             resource_name,

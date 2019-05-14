@@ -149,6 +149,13 @@ export class NatRule extends pulumi.CustomResource {
             inputs["backendIpConfigurationId"] = undefined /*out*/;
             inputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super("azure:lb/natRule:NatRule", name, inputs, opts);
     }
 }
