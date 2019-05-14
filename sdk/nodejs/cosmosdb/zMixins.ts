@@ -175,13 +175,18 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
             name: "items",
             direction: "in",
             type: "cosmosDBTrigger",
-            leaseCollectionPrefix: name,
-            createLeaseCollectionIfNotExists: true,
             connectionStringSetting: bindingConnectionKey,
             databaseName: args.databaseName,
             collectionName: args.collectionName,
             maxItemsPerInvocation: args.maxItemsPerInvocation,
             startFromBeginning: args.startFromBeginning,
+            
+            // We take an opiniated approach here: use the default "leases" collection as
+            // a shared lease collection for all Cosmos DB triggered functions. With multiple
+            // functions, this is both the simplest and the cheapest solution. The collection
+            // will be auto-created if it doesn't exist yet.
+            leaseCollectionPrefix: name,
+            createLeaseCollectionIfNotExists: true,
         }];
 
         // Place the mapping from the well known key name to the Cosmos DB connection string in
