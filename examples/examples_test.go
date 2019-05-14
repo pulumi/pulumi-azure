@@ -53,6 +53,7 @@ func TestExamples(t *testing.T) {
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-multi")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-volume-mount")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "loadbalancer")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cosmosdb")}),
 	}
 
 	tests := shortTests
