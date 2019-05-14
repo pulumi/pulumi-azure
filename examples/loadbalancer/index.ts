@@ -9,14 +9,12 @@ const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
 
 const storageaccount = new azure.storage.Account("storageaccount", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     accountTier: "standard",
     accountReplicationType: "LRS",
 });
 
 const avset = new azure.compute.AvailabilitySet("avset", {
     resourceGroupName:resourceGroup.name,
-    location: resourceGroup.location,
     platformFaultDomainCount: 2,
     platformUpdateDomainCount: 2,
     managed: true,
@@ -24,14 +22,12 @@ const avset = new azure.compute.AvailabilitySet("avset", {
 
 const lbpip = new azure.network.PublicIp("lbpip", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     publicIpAddressAllocation: "dynamic",
     domainNameLabel: `${pulumi.getStack()}`,
 });
 
 const vnet = new azure.network.VirtualNetwork("vnet", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     addressSpaces: ["10.0.0.0/16"],
     subnets: [{
         name: "default",
@@ -47,7 +43,6 @@ const subnet = new azure.network.Subnet("subnet", {
 
 const lb = new azure.lb.LoadBalancer("lb", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     frontendIpConfigurations: [{
         name: "LoadBalancerFrontEnd",
         publicIpAddressId: lbpip.id,
@@ -56,13 +51,11 @@ const lb = new azure.lb.LoadBalancer("lb", {
 
 const backendPool = new azure.lb.BackendAddressPool("backendPool", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     loadbalancerId: lb.id,
 });
 
 const tcp = new azure.lb.NatRule("tcp", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     loadbalancerId: lb.id,
     protocol: "tcp",
     frontendPort: 5000,
@@ -72,7 +65,6 @@ const tcp = new azure.lb.NatRule("tcp", {
 
 const lbprobe = new azure.lb.Probe("lbprobe", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     loadbalancerId: lb.id,
     protocol: "tcp",
     port: 80,
@@ -82,7 +74,6 @@ const lbprobe = new azure.lb.Probe("lbprobe", {
 
 const lbrule = new azure.lb.Rule("lbrule", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     loadbalancerId: lb.id,
     protocol: "tcp",
     frontendPort: 80,
@@ -96,7 +87,6 @@ const lbrule = new azure.lb.Rule("lbrule", {
 
 const networkinterface = new azure.network.NetworkInterface("networkinterface", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     ipConfigurations: [
         {
             name: "ipconfig",
@@ -110,7 +100,6 @@ const networkinterface = new azure.network.NetworkInterface("networkinterface", 
 
 const vm = new azure.compute.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     availabilitySetId: avset.id,
     vmSize: "Standard_D1",
     networkInterfaceIds: [networkinterface.id],

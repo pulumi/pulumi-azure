@@ -37,9 +37,10 @@ func TestExamples(t *testing.T) {
 
 	shortTests := []integration.ProgramTestOptions{
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "blob")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventhub")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue")}),
+		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic")}),
 		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
 		base.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "http"),
