@@ -965,7 +965,7 @@ func Provider() tfbridge.ProviderInfo {
 								// we special logic to propagate likewise unknown location values.
 								if rg, has := res.Properties["resourceGroupName"]; has {
 									if rg.IsComputed() || rg.IsOutput() {
-										return "[computed]", nil
+										return config.UnknownVariableValue, nil
 									}
 									if rg.IsString() {
 										rgName := rg.StringValue()
