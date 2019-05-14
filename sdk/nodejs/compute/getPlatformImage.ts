@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     sku: "16.04-LTS",
  * }));
  * 
- * export const version = test.apply(test => test.version);
+ * export const version = test.version;
  * ```
  */
 export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {

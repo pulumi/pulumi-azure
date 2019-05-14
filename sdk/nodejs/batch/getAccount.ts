@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "test",
  * }));
  * 
- * export const poolAllocationMode = test.apply(test => test.poolAllocationMode);
+ * export const poolAllocationMode = test.poolAllocationMode;
  * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {

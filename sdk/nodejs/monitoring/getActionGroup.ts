@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "terraform-example-rg",
  * }));
  * 
- * export const actionGroupId = example.apply(example => example.id);
+ * export const actionGroupId = example.id;
  * ```
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {

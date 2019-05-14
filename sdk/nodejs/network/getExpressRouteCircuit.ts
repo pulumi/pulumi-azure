@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_testName,
  * }));
  * 
- * export const expressRouteCircuitId = test.apply(test => test.id);
- * export const serviceKey = test.apply(test => test.serviceKey);
+ * export const expressRouteCircuitId = test.id;
+ * export const serviceKey = test.serviceKey;
  * ```
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {

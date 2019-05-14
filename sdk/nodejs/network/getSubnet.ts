@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: "production",
  * }));
  * 
- * export const subnetId = test.apply(test => test.id);
+ * export const subnetId = test.id;
  * ```
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {

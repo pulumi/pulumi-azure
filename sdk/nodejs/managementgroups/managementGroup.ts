@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * const current = pulumi.output(azure.core.getSubscription({}));
  * const exampleParent = new azure.managementgroups.ManagementGroup("example_parent", {
  *     displayName: "ParentGroup",
- *     subscriptionIds: [current.apply(current => current.id)],
+ *     subscriptionIds: [current.id],
  * });
  * const exampleChild = new azure.managementgroups.ManagementGroup("example_child", {
  *     displayName: "ChildGroup",
  *     parentManagementGroupId: exampleParent.id,
- *     subscriptionIds: [current.apply(current => current.id)],
+ *     subscriptionIds: [current.id],
  * });
  * ```
  */

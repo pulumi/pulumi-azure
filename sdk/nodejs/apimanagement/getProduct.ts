@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const productTerms = test.apply(test => test.terms);
+ * export const productTerms = test.terms;
  * ```
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {

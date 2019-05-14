@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     enableNonSslPort: false,
  *     family: "P",
  *     location: testResourceGroup.location,
- *     name: server.hex.apply(hex => `redis${hex}`),
+ *     name: pulumi.interpolate`redis${server.hex}`,
  *     redisConfiguration: {
  *         maxclients: 256,
  *         maxmemoryDelta: 2,

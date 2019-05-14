@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "networking",
  * }));
  * 
- * export const applicationInsightsInstrumentationKey = test.apply(test => test.instrumentationKey);
+ * export const applicationInsightsInstrumentationKey = test.instrumentationKey;
  * ```
  */
 export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> {

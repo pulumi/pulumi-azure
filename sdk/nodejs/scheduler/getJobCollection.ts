@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "tfex-job-collection-rg",
  * }));
  * 
- * export const jobCollectionState = azurerm_scheduler_job_collection_jobs.state.apply(state => state);
+ * export const jobCollectionState = azurerm_scheduler_job_collection_jobs.state;
  * ```
  */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {

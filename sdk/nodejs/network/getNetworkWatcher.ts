@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_testName,
  * }));
  * 
- * export const networkWatcherId = test.apply(test => test.id);
+ * export const networkWatcherId = test.id;
  * ```
  */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {

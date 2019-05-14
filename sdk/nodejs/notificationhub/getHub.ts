@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "resource-group-name",
  * }));
  * 
- * export const id = test.apply(test => test.id);
+ * export const id = test.id;
  * ```
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {

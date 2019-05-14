@@ -25,14 +25,14 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing-resources",
  * }));
  * const test = new azure.compute.SharedImageVersion("test", {
- *     galleryName: existingSharedImage.apply(existingSharedImage => existingSharedImage.galleryName),
- *     imageName: existingSharedImage.apply(existingSharedImage => existingSharedImage.name),
- *     location: existingSharedImage.apply(existingSharedImage => existingSharedImage.location),
- *     managedImageId: existingImage.apply(existingImage => existingImage.id),
+ *     galleryName: existingSharedImage.galleryName,
+ *     imageName: existingSharedImage.name,
+ *     location: existingSharedImage.location,
+ *     managedImageId: existingImage.id,
  *     name: "0.0.1",
- *     resourceGroupName: existingSharedImage.apply(existingSharedImage => existingSharedImage.resourceGroupName),
+ *     resourceGroupName: existingSharedImage.resourceGroupName,
  *     targetRegions: [{
- *         name: existingSharedImage.apply(existingSharedImage => existingSharedImage.location),
+ *         name: existingSharedImage.location,
  *         regionalReplicaCount: 5,
  *     }],
  * });

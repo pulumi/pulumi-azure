@@ -25,27 +25,27 @@ import * as utilities from "../utilities";
  *     name: "example-eventhub",
  *     namespaceName: azurerm_eventhub_namespace_example.name,
  *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.name),
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const testEventHubNamespace = new azure.eventhub.EventHubNamespace("test", {
  *     capacity: 1,
  *     kafkaEnabled: false,
- *     location: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.location),
+ *     location: exampleResourceGroup.location,
  *     name: "example-ehnamespace",
- *     resourceGroupName: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.name),
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("example", {
  *     eventhubName: azurerm_eventhub_example.name,
  *     name: "output-to-eventhub",
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         type: "Avro",
  *     },
  *     servicebusNamespace: azurerm_eventhub_namespace_example.name,
  *     sharedAccessPolicyKey: azurerm_eventhub_namespace_example.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     streamAnalyticsJobName: exampleJob.name,
  * });
  * ```
  */

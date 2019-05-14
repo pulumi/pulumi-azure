@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * 
  * const available = pulumi.output(azure.core.getSubscriptions({}));
  * 
- * export const availableSubscriptions = available.apply(available => available.subscriptions);
- * export const firstAvailableSubscriptionDisplayName = available.apply(available => available.subscriptions[0].displayName);
+ * export const availableSubscriptions = available.subscriptions;
+ * export const firstAvailableSubscriptionDisplayName = available.subscriptions[0].displayName;
  * ```
  */
 export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {

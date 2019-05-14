@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "World",
  * }));
  * 
- * export const locationCode = test.apply(test => test.id);
+ * export const locationCode = test.id;
  * ```
  */
 export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetGeographicalLocationResult> {

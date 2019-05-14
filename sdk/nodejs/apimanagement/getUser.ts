@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     userId: "my-user",
  * }));
  * 
- * export const notes = test.apply(test => test.notes);
+ * export const notes = test.notes;
  * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
