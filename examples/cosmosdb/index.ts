@@ -9,7 +9,7 @@ const resourceGroup = new azure.core.ResourceGroup("test", {
     location: location,
 });
 
-let cosmosdb = new azure.cosmosdb.Account("test", {
+let db = new cosmosdb.Account("test", {
     resourceGroupName: resourceGroup.name,
     offerType: "Standard",
     consistencyPolicy: {
@@ -19,7 +19,7 @@ let cosmosdb = new azure.cosmosdb.Account("test", {
     },
 });
 
-cosmosdb.onChange("test", {
+db.onChange("test", {
     databaseName: "testdb",
     collectionName: "testc",
     callback: async (context, items) => {
