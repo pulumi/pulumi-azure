@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     lockLevel: "CanNotDelete",
  *     name: "subscription-level",
  *     notes: "Items can't be deleted in this subscription!",
- *     scope: current.apply(current => current.id),
+ *     scope: current.id,
  * });
  * ```
  * 

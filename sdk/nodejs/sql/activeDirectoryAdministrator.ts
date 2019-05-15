@@ -28,10 +28,10 @@ import * as utilities from "../utilities";
  * });
  * const testActiveDirectoryAdministrator = new azure.sql.ActiveDirectoryAdministrator("test", {
  *     login: "sqladmin",
- *     objectId: current.apply(current => current.servicePrincipalObjectId),
+ *     objectId: current.servicePrincipalObjectId,
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testSqlServer.name,
- *     tenantId: current.apply(current => current.tenantId),
+ *     tenantId: current.tenantId,
  * });
  * ```
  */

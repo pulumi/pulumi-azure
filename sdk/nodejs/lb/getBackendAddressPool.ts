@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     name: "first",
  * }));
  * 
- * export const backendAddressPoolId = testBackendAddressPool.apply(testBackendAddressPool => testBackendAddressPool.id);
+ * export const backendAddressPoolId = testBackendAddressPool.id;
  * ```
  */
 export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {

@@ -28,12 +28,12 @@ import * as utilities from "../utilities";
  *     output: {
  *         type: "bigint",
  *     },
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     resourceGroupName: exampleJob.resourceGroupName,
  *     script: `function getRandomNumber(in) {
  *   return in;
  * }
  * `,
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     streamAnalyticsJobName: exampleJob.name,
  * });
  * ```
  */

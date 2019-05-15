@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "networking",
  * }));
  * 
- * export const virtualMachineId = test.apply(test => test.id);
+ * export const virtualMachineId = test.id;
  * ```
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {

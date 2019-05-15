@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     revision: "2",
  * }));
  * const exampleApiOperation = new azure.apimanagement.ApiOperation("example", {
- *     apiManagementName: exampleApi.apply(exampleApi => exampleApi.apiManagementName),
- *     apiName: exampleApi.apply(exampleApi => exampleApi.name),
+ *     apiManagementName: exampleApi.apiManagementName,
+ *     apiName: exampleApi.name,
  *     description: "This can only be done by the logged in user.",
  *     displayName: "Delete User Operation",
  *     method: "DELETE",
  *     operationId: "user-delete",
- *     resourceGroupName: exampleApi.apply(exampleApi => exampleApi.resourceGroupName),
+ *     resourceGroupName: exampleApi.resourceGroupName,
  *     responses: [{
  *         statusCode: 200,
  *     }],

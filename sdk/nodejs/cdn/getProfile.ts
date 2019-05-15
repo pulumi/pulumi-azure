@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * }));
  * 
- * export const cdnProfileId = test.apply(test => test.id);
+ * export const cdnProfileId = test.id;
  * ```
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {

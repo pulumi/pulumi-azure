@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "my-resource-group",
  * }));
  * 
- * export const servicebusEndpoint = test.apply(test => test.servicebusEndpoint);
+ * export const servicebusEndpoint = test.servicebusEndpoint;
  * ```
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "packer-storage",
  * }));
  * 
- * export const storageAccountTier = test.apply(test => test.accountTier);
+ * export const storageAccountTier = test.accountTier;
  * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {

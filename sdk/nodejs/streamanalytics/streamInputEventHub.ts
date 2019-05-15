@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     eventhubName: azurerm_eventhub_test.name,
  *     name: "example-consumergroup",
  *     namespaceName: azurerm_eventhub_namespace_test.name,
- *     resourceGroupName: azurerm_resource_group_test.name.apply(name => name),
+ *     resourceGroupName: azurerm_resource_group_test.name,
  * });
  * const exampleResourceGroup = pulumi.output(azure.core.getResourceGroup({
  *     name: "example-resources",
@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
  *     capacity: 1,
  *     kafkaEnabled: false,
- *     location: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.location),
+ *     location: exampleResourceGroup.location,
  *     name: "example-namespace",
- *     resourceGroupName: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.name),
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const exampleEventHub = new azure.eventhub.EventHub("example", {
@@ -39,13 +39,13 @@ import * as utilities from "../utilities";
  *     name: "example-eventhub",
  *     namespaceName: exampleEventHubNamespace.name,
  *     partitionCount: 2,
- *     resourceGroupName: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.name),
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const testStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("test", {
  *     eventhubConsumerGroupName: azurerm_eventhub_consumer_group_example.name,
  *     eventhubName: exampleEventHub.name,
  *     name: "eventhub-stream-input",
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         encoding: "UTF8",
  *         type: "Json",
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     servicebusNamespace: exampleEventHubNamespace.name,
  *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     streamAnalyticsJobName: exampleJob.name,
  * });
  * ```
  */

@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "name_of_resource_group",
  * }));
  * 
- * export const domainNameLabel = test.apply(test => test.domainNameLabel);
- * export const publicIpAddress = test.apply(test => test.ipAddress);
+ * export const domainNameLabel = test.domainNameLabel;
+ * export const publicIpAddress = test.ipAddress;
  * ```
  * 
  * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: resourceGroupName,
  * }));
  * 
- * export const publicIpAddress = testPublicIP.apply(testPublicIP => testPublicIP.ipAddress);
+ * export const publicIpAddress = testPublicIP.ipAddress;
  * ```
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {

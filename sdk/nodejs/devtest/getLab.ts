@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * }));
  * 
- * export const uniqueIdentifier = test.apply(test => test.uniqueIdentifier);
+ * export const uniqueIdentifier = test.uniqueIdentifier;
  * ```
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {

@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const exampleAuthorizationServer = new azure.apimanagement.AuthorizationServer("example", {
- *     apiManagementName: azurerm_api_management_example.name.apply(name => name),
+ *     apiManagementName: azurerm_api_management_example.name,
  *     authorizationEndpoint: "https://example.mydomain.com/client/authorize",
  *     clientId: "42424242-4242-4242-4242-424242424242",
  *     clientRegistrationEndpoint: "https://example.mydomain.com/client/register",
  *     displayName: "Test Server",
  *     grantTypes: ["authorizationCode"],
  *     name: "test-server",
- *     resourceGroupName: azurerm_api_management_example.resourceGroupName.apply(resourceGroupName => resourceGroupName),
+ *     resourceGroupName: azurerm_api_management_example.resourceGroupName,
  * });
  * const exampleApi = pulumi.output(azure.apimanagement.getApi({
  *     apiManagementName: "search-api-management",

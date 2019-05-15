@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "some-resource-group",
  * }));
  * 
- * export const vaultUri = test.apply(test => test.vaultUri);
+ * export const vaultUri = test.vaultUri;
  * ```
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {

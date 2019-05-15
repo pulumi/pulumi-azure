@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  *             "create",
  *             "get",
  *         ],
- *         objectId: current.apply(current => current.servicePrincipalObjectId),
+ *         objectId: current.servicePrincipalObjectId,
  *         secretPermissions: ["set"],
- *         tenantId: current.apply(current => current.tenantId),
+ *         tenantId: current.tenantId,
  *     }],
  *     location: testResourceGroup.location,
  *     name: "keyvaultkeyexample",
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "Production",
  *     },
- *     tenantId: current.apply(current => current.tenantId),
+ *     tenantId: current.tenantId,
  * });
  * const generated = new azure.keyvault.Key("generated", {
  *     keyOpts: [

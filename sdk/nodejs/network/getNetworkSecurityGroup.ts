@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_testName,
  * }));
  * 
- * export const location = test.apply(test => test.location);
+ * export const location = test.location;
  * ```
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {

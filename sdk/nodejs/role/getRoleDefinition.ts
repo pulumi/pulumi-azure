@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const customDefinition = new azure.role.Definition("custom", {
  *     name: "CustomRoleDef",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.apply(primary => primary.id),
+ *     scope: primary.id,
  * });
  * const customRoleDefinition = pulumi.all([customDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.role.getRoleDefinition({
  *     roleDefinitionId: roleDefinitionId,
@@ -31,8 +31,8 @@ import * as utilities from "../utilities";
  *     scope: primary.id,
  * }));
  * 
- * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id.apply(id => id);
- * export const customRoleDefinitionId = customRoleDefinition.apply(customRoleDefinition => customRoleDefinition.id);
+ * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id;
+ * export const customRoleDefinitionId = customRoleDefinition.id;
  * ```
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     displayName: "Allowed resource types",
  * }));
  * 
- * export const id = test.apply(test => test.id);
+ * export const id = test.id;
  * ```
  */
 export function getPolicyDefintion(args: GetPolicyDefintionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionResult> {

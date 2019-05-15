@@ -23,21 +23,21 @@ import * as utilities from "../utilities";
  * const exampleAccount = new azure.storage.Account("example", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.location),
+ *     location: exampleResourceGroup.location,
  *     name: "examplesa",
- *     resourceGroupName: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.name),
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleContainer = new azure.storage.Container("example", {
  *     containerAccessType: "private",
  *     name: "example",
- *     resourceGroupName: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.name),
+ *     resourceGroupName: exampleResourceGroup.name,
  *     storageAccountName: exampleAccount.name,
  * });
  * const exampleOutputBlob = new azure.streamanalytics.OutputBlob("example", {
  *     dateFormat: "yyyy-MM-dd",
  *     name: "output-to-blob-storage",
  *     pathPattern: "some-pattern",
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         encoding: "UTF8",
  *         fieldDelimiter: ",",
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     storageAccountKey: exampleAccount.primaryAccessKey,
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     streamAnalyticsJobName: exampleJob.name,
  *     timeFormat: "HH",
  * });
  * ```

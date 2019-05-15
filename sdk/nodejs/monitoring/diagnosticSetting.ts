@@ -40,8 +40,8 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  *     name: "example",
- *     storageAccountId: testAccount.apply(testAccount => testAccount.id),
- *     targetResourceId: testKeyVault.apply(testKeyVault => testKeyVault.id),
+ *     storageAccountId: testAccount.id,
+ *     targetResourceId: testKeyVault.id,
  * });
  * ```
  */

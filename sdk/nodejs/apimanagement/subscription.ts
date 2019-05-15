@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  *     userId: "11111111-1111-1111-1111-111111111111",
  * }));
  * const testSubscription = new azure.apimanagement.Subscription("test", {
- *     apiManagementName: testService.apply(testService => testService.name),
+ *     apiManagementName: testService.name,
  *     displayName: "Parser API",
- *     productId: testProduct.apply(testProduct => testProduct.id),
- *     resourceGroupName: testService.apply(testService => testService.resourceGroupName),
- *     userId: testUser.apply(testUser => testUser.id),
+ *     productId: testProduct.id,
+ *     resourceGroupName: testService.resourceGroupName,
+ *     userId: testUser.id,
  * });
  * ```
  */

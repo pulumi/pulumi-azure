@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     vaultUri: "https://rickslab.vault.azure.net/",
  * }));
  * 
- * export const keyType = azurerm_key_vault_secret_test.keyType.apply(keyType => keyType);
+ * export const keyType = azurerm_key_vault_secret_test.keyType;
  * ```
  */
 export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyResult> {
