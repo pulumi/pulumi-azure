@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     revision: "2",
  * }));
  * 
- * export const apiManagementApiId = test.apply(test => test.id);
+ * export const apiManagementApiId = test.id;
  * ```
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {

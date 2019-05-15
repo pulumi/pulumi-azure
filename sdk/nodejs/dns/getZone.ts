@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const dnsZoneId = test.apply(test => test.id);
+ * export const dnsZoneId = test.id;
  * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {

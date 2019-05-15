@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "my-resource-group",
  * }));
  * 
- * export const availabilitySetId = test.apply(test => test.id);
+ * export const availabilitySetId = test.id;
  * ```
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     name: "secret-sauce",
  * }));
  * 
- * export const secretValue = test.apply(test => test.value);
+ * export const secretValue = test.value;
  * ```
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {

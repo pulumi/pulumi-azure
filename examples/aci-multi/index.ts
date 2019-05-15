@@ -7,7 +7,6 @@ const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
 });
 
 const containerGroup = new azure.containerservice.Group("containergroup", {
-    location: resourceGroup.location,
     resourceGroupName: resourceGroup.name,
     ipAddressType: "public",
     osType: "linux",

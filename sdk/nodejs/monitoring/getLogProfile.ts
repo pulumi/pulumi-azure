@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "test-logprofile",
  * }));
  * 
- * export const logProfileStorageAccountId = test.apply(test => test.storageAccountId);
+ * export const logProfileStorageAccountId = test.storageAccountId;
  * ```
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
  *     location: testResourceGroup.location,
- *     name: workspace.hex.apply(hex => `k8s-workspace-${hex}`),
+ *     name: pulumi.interpolate`k8s-workspace-${workspace.hex}`,
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "PerGB2018",
  * });

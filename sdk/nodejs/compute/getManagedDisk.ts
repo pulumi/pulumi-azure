@@ -62,10 +62,10 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             createOption: "Attach",
- *             diskSizeGb: datasourcemd.apply(datasourcemd => datasourcemd.diskSizeGb),
+ *             diskSizeGb: datasourcemd.diskSizeGb,
  *             lun: 1,
- *             managedDiskId: datasourcemd.apply(datasourcemd => datasourcemd.id),
- *             name: datasourcemd.apply(datasourcemd => datasourcemd.name),
+ *             managedDiskId: datasourcemd.id,
+ *             name: datasourcemd.name,
  *         },
  *     ],
  *     storageImageReference: {

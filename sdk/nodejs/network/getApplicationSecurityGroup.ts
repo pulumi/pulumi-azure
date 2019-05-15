@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "my-resource-group",
  * }));
  * 
- * export const applicationSecurityGroupId = test.apply(test => test.id);
+ * export const applicationSecurityGroupId = test.id;
  * ```
  */
 export function getApplicationSecurityGroup(args: GetApplicationSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationSecurityGroupResult> {

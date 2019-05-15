@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     groupId: "00000000-0000-0000-0000-000000000000",
  * }));
  * 
- * export const displayName = test.apply(test => test.displayName);
+ * export const displayName = test.displayName;
  * ```
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {

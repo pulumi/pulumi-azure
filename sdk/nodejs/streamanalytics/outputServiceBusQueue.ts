@@ -21,28 +21,28 @@ import * as utilities from "../utilities";
  *     resourceGroupName: name,
  * }));
  * const exampleNamespace = new azure.eventhub.Namespace("example", {
- *     location: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.location),
+ *     location: exampleResourceGroup.location,
  *     name: "example-namespace",
- *     resourceGroupName: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.name),
+ *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
  * const exampleQueue = new azure.eventhub.Queue("example", {
  *     enablePartitioning: true,
  *     name: "example-queue",
  *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.apply(exampleResourceGroup => exampleResourceGroup.name),
+ *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const test = new azure.streamanalytics.OutputServiceBusQueue("test", {
  *     name: "blob-storage-output",
  *     queueName: exampleQueue.name,
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         format: "Avro",
  *     },
  *     servicebusNamespace: exampleNamespace.name,
  *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,
  *     sharedAccessPolicyName: "RootManageSharedAccessKey",
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     streamAnalyticsJobName: exampleJob.name,
  * });
  * ```
  */

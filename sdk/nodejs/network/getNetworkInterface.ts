@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "networking",
  * }));
  * 
- * export const networkInterfaceId = test.apply(test => test.id);
+ * export const networkInterfaceId = test.id;
  * ```
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {

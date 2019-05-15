@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  *     labName: testLab.name,
- *     labSubnetName: testVirtualNetwork.subnet.apply(subnet => subnet.name),
+ *     labSubnetName: testVirtualNetwork.subnet.name,
  *     labVirtualNetworkId: testVirtualNetwork.id,
  *     location: testResourceGroup.location,
  *     name: "example-vm03",

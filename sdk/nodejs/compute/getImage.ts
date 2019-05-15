@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "packerimages",
  * }));
  * 
- * export const imageId = search.apply(search => search.id);
+ * export const imageId = search.id;
  * ```
  */
 export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {

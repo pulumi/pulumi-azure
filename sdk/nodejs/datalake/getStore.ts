@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "testdatalake",
  * }));
  * 
- * export const dataLakeStoreId = test.apply(test => test.id);
+ * export const dataLakeStoreId = test.id;
  * ```
  */
 export function getStore(args: GetStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetStoreResult> {

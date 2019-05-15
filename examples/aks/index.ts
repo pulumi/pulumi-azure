@@ -14,7 +14,6 @@ const resourceGroup = new azure.core.ResourceGroup("aks", {
 
 const kubernetesService = new azure.containerservice.KubernetesCluster("kubernetes", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     agentPoolProfile: {
         name: "agentpool",
         count: 2,

@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         name: "myosdisk1",
- *         vhdUri: pulumi.all([testAccount.primaryBlobEndpoint, testContainer.name]).apply(([primaryBlobEndpoint, name]) => `${primaryBlobEndpoint}${name}/myosdisk1.vhd`),
+ *         vhdUri: pulumi.interpolate`${testAccount.primaryBlobEndpoint}${testContainer.name}/myosdisk1.vhd`,
  *     },
  *     tags: {
  *         environment: "staging",

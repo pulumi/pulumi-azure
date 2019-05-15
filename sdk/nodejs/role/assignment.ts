@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const testAssignment = new azure.role.Assignment("test", {
- *     principalId: testClientConfig.apply(testClientConfig => testClientConfig.servicePrincipalObjectId),
+ *     principalId: testClientConfig.servicePrincipalObjectId,
  *     roleDefinitionName: "Reader",
- *     scope: primary.apply(primary => primary.id),
+ *     scope: primary.id,
  * });
  * ```
  * 
@@ -31,20 +31,20 @@ import * as utilities from "../utilities";
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const testDefinition = new azure.role.Definition("test", {
- *     assignableScopes: [primary.apply(primary => primary.id)],
+ *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
  *     }],
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.apply(primary => primary.id),
+ *     scope: primary.id,
  * });
  * const testAssignment = new azure.role.Assignment("test", {
  *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: testClientConfig.apply(testClientConfig => testClientConfig.servicePrincipalObjectId),
+ *     principalId: testClientConfig.servicePrincipalObjectId,
  *     roleDefinitionId: testDefinition.id,
- *     scope: primary.apply(primary => primary.id),
+ *     scope: primary.id,
  * });
  * ```
  * 
@@ -57,20 +57,20 @@ import * as utilities from "../utilities";
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const testDefinition = new azure.role.Definition("test", {
- *     assignableScopes: [primary.apply(primary => primary.id)],
+ *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
  *         notActions: [],
  *     }],
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.apply(primary => primary.id),
+ *     scope: primary.id,
  * });
  * const testAssignment = new azure.role.Assignment("test", {
  *     name: "00000000-0000-0000-0000-000000000000",
- *     principalId: testClientConfig.apply(testClientConfig => testClientConfig.clientId),
+ *     principalId: testClientConfig.clientId,
  *     roleDefinitionId: testDefinition.id,
- *     scope: primary.apply(primary => primary.id),
+ *     scope: primary.id,
  * });
  * ```
  */

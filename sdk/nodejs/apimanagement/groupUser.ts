@@ -20,10 +20,10 @@ import * as utilities from "../utilities";
  *     userId: "my-user",
  * }));
  * const exampleGroupUser = new azure.apimanagement.GroupUser("example", {
- *     apiManagementName: exampleUser.apply(exampleUser => exampleUser.apiManagementName),
+ *     apiManagementName: exampleUser.apiManagementName,
  *     groupName: "example-group",
- *     resourceGroupName: exampleUser.apply(exampleUser => exampleUser.resourceGroupName),
- *     userId: exampleUser.apply(exampleUser => exampleUser.id),
+ *     resourceGroupName: exampleUser.resourceGroupName,
+ *     userId: exampleUser.id,
  * });
  * ```
  */

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "my-resource-group",
  * }));
  * 
- * export const accessEndpoint = test.apply(test => test.accessEndpoint);
+ * export const accessEndpoint = test.accessEndpoint;
  * ```
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {

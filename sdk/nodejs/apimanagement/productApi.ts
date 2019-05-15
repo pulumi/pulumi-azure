@@ -24,10 +24,10 @@ import * as utilities from "../utilities";
  *     revision: "2",
  * }));
  * const exampleProductApi = new azure.apimanagement.ProductApi("example", {
- *     apiManagementName: exampleService.apply(exampleService => exampleService.name),
- *     apiName: exampleApi.apply(exampleApi => exampleApi.name),
- *     productId: azurerm_api_management_product_example.productId.apply(productId => productId),
- *     resourceGroupName: exampleService.apply(exampleService => exampleService.resourceGroupName),
+ *     apiManagementName: exampleService.name,
+ *     apiName: exampleApi.name,
+ *     productId: azurerm_api_management_product_example.productId,
+ *     resourceGroupName: exampleService.resourceGroupName,
  * });
  * const test = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getProduct({
  *     apiManagementName: exampleService.name,

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "Contributor",
  * }));
  * 
- * export const contributorRoleDefinitionId = contributor.apply(contributor => contributor.id);
+ * export const contributorRoleDefinitionId = contributor.id;
  * ```
  */
 export function getBuiltinRoleDefinition(args: GetBuiltinRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuiltinRoleDefinitionResult> {

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "test",
  * }));
  * 
- * export const loginServer = test.apply(test => test.loginServer);
+ * export const loginServer = test.loginServer;
  * ```
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {

@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *         days: 7,
  *         enabled: true,
  *     },
- *     servicebusRuleId: testEventHubNamespace.id.apply(id => `${id}/authorizationrules/RootManageSharedAccessKey`),
+ *     servicebusRuleId: pulumi.interpolate`${testEventHubNamespace.id}/authorizationrules/RootManageSharedAccessKey`,
  *     storageAccountId: testAccount.id,
  * });
  * ```

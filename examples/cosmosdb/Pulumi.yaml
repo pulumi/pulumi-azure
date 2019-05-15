@@ -1,0 +1,3 @@
+name: azure-cosmosdb-changefeed
+runtime: nodejs
+description: Azure Function subscribed to Cosmos DB Change Feed

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "acctest",
  * }));
  * 
- * export const logAnalyticsWorkspaceId = test.apply(test => test.workspaceId);
+ * export const logAnalyticsWorkspaceId = test.workspaceId;
  * ```
  */
 export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> {

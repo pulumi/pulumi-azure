@@ -8,7 +8,6 @@ const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
 
 const storageAccount = new azure.storage.Account("storageaccount", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     accountTier: "standard",
     accountReplicationType: "LRS",
 });
@@ -20,7 +19,6 @@ const storageShare = new azure.storage.Share("storageshare", {
 });
 
 const containerGroup = new azure.containerservice.Group("containergroup", {
-    location: resourceGroup.location,
     resourceGroupName: resourceGroup.name,
     ipAddressType: "public",
     osType: "linux",

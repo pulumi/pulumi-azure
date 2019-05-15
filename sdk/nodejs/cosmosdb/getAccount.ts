@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
  * }));
  * 
- * export const cosmosdbAccountEndpoint = azurerm_cosmosdb_account_jobs.endpoint.apply(endpoint => endpoint);
+ * export const cosmosdbAccountEndpoint = azurerm_cosmosdb_account_jobs.endpoint;
  * ```
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "networking",
  * }));
  * 
- * export const virtualNetworkId = test.apply(test => test.id);
+ * export const virtualNetworkId = test.id;
  * ```
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {

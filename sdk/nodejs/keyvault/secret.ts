@@ -35,13 +35,13 @@ import * as utilities from "../utilities";
  *             "create",
  *             "get",
  *         ],
- *         objectId: current.apply(current => current.servicePrincipalObjectId),
+ *         objectId: current.servicePrincipalObjectId,
  *         secretPermissions: [
  *             "set",
  *             "get",
  *             "delete",
  *         ],
- *         tenantId: current.apply(current => current.tenantId),
+ *         tenantId: current.tenantId,
  *     }],
  *     location: testResourceGroup.location,
  *     name: server.hex.apply(hex => sprintf.sprintf("%s%s", "kv", hex)),
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "Production",
  *     },
- *     tenantId: current.apply(current => current.tenantId),
+ *     tenantId: current.tenantId,
  * });
  * const testSecret = new azure.keyvault.Secret("test", {
  *     keyVaultId: testKeyVault.id,
