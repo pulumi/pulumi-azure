@@ -17,6 +17,7 @@ let db = new cosmosdb.Account("test", {
         maxIntervalInSeconds: 5,
         maxStalenessPrefix: 100,
     },
+    geoLocations: [{ location, failoverPriority: 0 }],
 });
 
 db.onChange("test", {
