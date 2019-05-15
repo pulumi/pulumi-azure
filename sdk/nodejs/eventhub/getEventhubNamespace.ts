@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const eventhubNamespaceId = test.apply(test => test.id);
+ * export const eventhubNamespaceId = test.id;
  * ```
  */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {

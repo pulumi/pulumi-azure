@@ -219,7 +219,7 @@ import * as utilities from "../utilities";
  *         caching: "ReadWrite",
  *         createOption: "FromImage",
  *         name: "osDiskProfile",
- *         vhdContainers: [pulumi.all([testAccount.primaryBlobEndpoint, testContainer.name]).apply(([primaryBlobEndpoint, name]) => `${primaryBlobEndpoint}${name}`)],
+ *         vhdContainers: [pulumi.interpolate`${testAccount.primaryBlobEndpoint}${testContainer.name}`],
  *     },
  *     upgradePolicyMode: "Manual",
  * });

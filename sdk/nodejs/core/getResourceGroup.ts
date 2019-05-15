@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  * const testManagedDisk = new azure.compute.ManagedDisk("test", {
  *     createOption: "Empty",
  *     diskSizeGb: 1,
- *     location: testResourceGroup.apply(testResourceGroup => testResourceGroup.location),
+ *     location: testResourceGroup.location,
  *     name: "managed_disk_name",
- *     resourceGroupName: testResourceGroup.apply(testResourceGroup => testResourceGroup.name),
+ *     resourceGroupName: testResourceGroup.name,
  *     storageAccountType: "Standard_LRS",
  * });
  * ```

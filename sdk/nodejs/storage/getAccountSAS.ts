@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     start: "2018-03-21",
  * }));
  * 
- * export const sasUrlQueryString = test.apply(test => test.sas);
+ * export const sasUrlQueryString = test.sas;
  * ```
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {

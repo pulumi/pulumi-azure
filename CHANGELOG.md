@@ -2,9 +2,10 @@
 
 ## Improvements
 
-- Serverless mixins now support the Event Hubs and Timer trigger.
+- Serverless mixins now support the Event Hubs, Cosmos DB, and Timer trigger.
 - Fixed bug #2511, which resulted in crashes when updating many properties of an
   `azure.containerservice.KubernetesCluster`.
+- Fix a bug where omitting a location would result in the initial failure of `pulumi preview` (#239).
 
 ## 0.18.2 (Released May 6th, 2019)
 

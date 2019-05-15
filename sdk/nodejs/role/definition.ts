@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * 
  * const primary = pulumi.output(azure.core.getSubscription({}));
  * const test = new azure.role.Definition("test", {
- *     assignableScopes: [primary.apply(primary => primary.id)],
+ *     assignableScopes: [primary.id],
  *     description: "This is a custom role created via Terraform",
  *     name: "my-custom-role",
  *     permissions: [{
  *         actions: ["*"],
  *         notActions: [],
  *     }],
- *     scope: primary.apply(primary => primary.id),
+ *     scope: primary.id,
  * });
  * ```
  */

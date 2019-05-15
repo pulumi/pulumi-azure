@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * }));
  * 
- * export const loadbalancerId = test.apply(test => test.id);
+ * export const loadbalancerId = test.id;
  * ```
  */
 export function getLB(args: GetLBArgs, opts?: pulumi.InvokeOptions): Promise<GetLBResult> {

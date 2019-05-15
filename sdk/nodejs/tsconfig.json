@@ -120,6 +120,7 @@
         "cosmosdb/account.ts",
         "cosmosdb/getAccount.ts",
         "cosmosdb/index.ts",
+        "cosmosdb/zMixins.ts",
         "databricks/index.ts",
         "databricks/workspace.ts",
         "datafactory/datasetMysql.ts",

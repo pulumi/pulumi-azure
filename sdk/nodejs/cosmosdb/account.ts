@@ -37,12 +37,12 @@ import * as utilities from "../utilities";
  *         {
  *             failoverPriority: 0,
  *             location: rg.location,
- *             prefix: ri.result.apply(result => `tfex-cosmos-db-${result}-customid`),
+ *             prefix: pulumi.interpolate`tfex-cosmos-db-${ri.result}-customid`,
  *         },
  *     ],
  *     kind: "GlobalDocumentDB",
  *     location: rg.location,
- *     name: ri.result.apply(result => `tfex-cosmos-db-${result}`),
+ *     name: pulumi.interpolate`tfex-cosmos-db-${ri.result}`,
  *     offerType: "Standard",
  *     resourceGroupName: rg.name,
  * });

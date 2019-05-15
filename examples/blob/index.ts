@@ -9,7 +9,6 @@ const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
 // Create a storage account for our images
 const storageAccount = new azure.storage.Account("storage", {
     resourceGroupName: resourceGroup.name,
-    location: resourceGroup.location,
     accountReplicationType: "LRS",
     accountTier: "Standard",
 });

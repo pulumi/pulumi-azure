@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const groupType = test.apply(test => test.type);
+ * export const groupType = test.type;
  * ```
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * }));
  * 
- * export const httpsEndpoint = example.apply(example => example.httpsEndpoint);
+ * export const httpsEndpoint = example.httpsEndpoint;
  * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {

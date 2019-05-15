@@ -898,6 +898,11 @@ func Provider() tfbridge.ProviderInfo {
 							"zMixins_timer.ts",
 						},
 					},
+					"cosmosdb": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
 					"eventhub": {
 						DestFiles: []string{
 							"zMixins.ts",
@@ -972,27 +977,32 @@ func Provider() tfbridge.ProviderInfo {
 								// it's possible (likely) during previews that the location will be unknown, so
 								// we special logic to propagate likewise unknown location values.
 								if rg, has := res.Properties["resourceGroupName"]; has {
-									rgName := rg.StringValue()
-									rgRegion, has := rgRegionMap[rgName]
-									if !has {
-										rgRes := p.ResourcesMap["azurerm_resource_group"]
-										contract.Assert(rgRes != nil)
-										rgData := rgRes.Data(&terraform.InstanceState{
-											// Mock up a URI with the relevant pieces, so that we can read back
-											// the resource group's location information.
-											ID: fmt.Sprintf("/subscriptions/_/resourceGroups/%s", rg.StringValue()),
-										})
-										if err := rgRes.Read(rgData, p.Meta()); err != nil {
-											return nil, err
-										}
-										if rgData.Id() == "" {
-											rgRegion = config.UnknownVariableValue
-										} else {
-											rgRegion = azure.NormalizeLocation(rgData.Get("location"))
-										}
-										rgRegionMap[rgName] = rgRegion // memoize the value.
+									if rg.IsComputed() || rg.IsOutput() {
+										return config.UnknownVariableValue, nil
 									}
-									return rgRegion, nil
+									if rg.IsString() {
+										rgName := rg.StringValue()
+										rgRegion, has := rgRegionMap[rgName]
+										if !has {
+											rgRes := p.ResourcesMap["azurerm_resource_group"]
+											contract.Assert(rgRes != nil)
+											rgData := rgRes.Data(&terraform.InstanceState{
+												// Mock up a URI with the relevant pieces, so that we can read back
+												// the resource group's location information.
+												ID: fmt.Sprintf("/subscriptions/_/resourceGroups/%s", rg.StringValue()),
+											})
+											if err := rgRes.Read(rgData, p.Meta()); err != nil {
+												return nil, err
+											}
+											if rgData.Id() == "" {
+												rgRegion = config.UnknownVariableValue
+											} else {
+												rgRegion = azure.NormalizeLocation(rgData.Get("location"))
+											}
+											rgRegionMap[rgName] = rgRegion // memoize the value.
+										}
+										return rgRegion, nil
+									}
 								}
 
 								return nil, nil

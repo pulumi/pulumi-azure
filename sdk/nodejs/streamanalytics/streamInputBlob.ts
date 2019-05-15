@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     dateFormat: "yyyy/MM/dd",
  *     name: "eventhub-stream-input",
  *     pathPattern: "some-random-pattern",
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         encoding: "UTF8",
  *         type: "Json",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     storageAccountKey: exampleAccount.primaryAccessKey,
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     streamAnalyticsJobName: exampleJob.name,
  *     timeFormat: "HH",
  * });
  * ```

@@ -35,14 +35,14 @@ import * as utilities from "../utilities";
  *     eventhubConsumerGroupName: "$Default",
  *     iothubNamespace: azurerm_iothub_example.name,
  *     name: "example-iothub-input",
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ *     resourceGroupName: exampleJob.resourceGroupName,
  *     serialization: {
  *         encoding: "UTF8",
  *         type: "Json",
  *     },
- *     sharedAccessPolicyKey: azurerm_iothub_example.sharedAccessPolicy.apply(sharedAccessPolicy => sharedAccessPolicy.0.primaryKey),
+ *     sharedAccessPolicyKey: azurerm_iothub_example.sharedAccessPolicy.0.primaryKey,
  *     sharedAccessPolicyName: "iothubowner",
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ *     streamAnalyticsJobName: exampleJob.name,
  * });
  * ```
  */

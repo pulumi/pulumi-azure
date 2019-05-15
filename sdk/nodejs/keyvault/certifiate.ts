@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *             "verify",
  *             "wrapKey",
  *         ],
- *         objectId: current.apply(current => current.servicePrincipalObjectId),
+ *         objectId: current.servicePrincipalObjectId,
  *         secretPermissions: [
  *             "backup",
  *             "delete",
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *             "restore",
  *             "set",
  *         ],
- *         tenantId: current.apply(current => current.tenantId),
+ *         tenantId: current.tenantId,
  *     }],
  *     location: testResourceGroup.location,
  *     name: "keyvaultcertexample",
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "Production",
  *     },
- *     tenantId: current.apply(current => current.tenantId),
+ *     tenantId: current.tenantId,
  * });
  * const testCertifiate = new azure.keyvault.Certifiate("test", {
  *     certificate: {
@@ -150,7 +150,7 @@ import * as utilities from "../utilities";
  *             "verify",
  *             "wrapKey",
  *         ],
- *         objectId: current.apply(current => current.servicePrincipalObjectId),
+ *         objectId: current.servicePrincipalObjectId,
  *         secretPermissions: [
  *             "backup",
  *             "delete",
@@ -161,7 +161,7 @@ import * as utilities from "../utilities";
  *             "restore",
  *             "set",
  *         ],
- *         tenantId: current.apply(current => current.tenantId),
+ *         tenantId: current.tenantId,
  *     }],
  *     location: testResourceGroup.location,
  *     name: "keyvaultcertexample",
@@ -172,7 +172,7 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "Production",
  *     },
- *     tenantId: current.apply(current => current.tenantId),
+ *     tenantId: current.tenantId,
  * });
  * const testCertifiate = new azure.keyvault.Certifiate("test", {
  *     certificatePolicy: {

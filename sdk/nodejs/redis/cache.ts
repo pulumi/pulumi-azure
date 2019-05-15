@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  *         rdbBackupEnabled: true,
  *         rdbBackupFrequency: 60,
  *         rdbBackupMaxSnapshotCount: 1,
- *         rdbStorageConnectionString: pulumi.all([testAccount.primaryBlobEndpoint, testAccount.name, testAccount.primaryAccessKey]).apply(([primaryBlobEndpoint, name, primaryAccessKey]) => `DefaultEndpointsProtocol=https;BlobEndpoint=${primaryBlobEndpoint};AccountName=${name};AccountKey=${primaryAccessKey}`),
+ *         rdbStorageConnectionString: pulumi.interpolate`DefaultEndpointsProtocol=https;BlobEndpoint=${testAccount.primaryBlobEndpoint};AccountName=${testAccount.name};AccountKey=${testAccount.primaryAccessKey}`,
  *     },
  *     resourceGroupName: testResourceGroup.name,
  *     skuName: "Premium",

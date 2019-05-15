@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "search-service",
  * }));
  * 
- * export const appServiceId = test.apply(test => test.id);
+ * export const appServiceId = test.id;
  * ```
  */
 export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {

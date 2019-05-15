@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * 
- * export const clientCertificate = testKubernetesCluster.kubeConfig.apply(kubeConfig => kubeConfig.clientCertificate);
+ * export const clientCertificate = testKubernetesCluster.kubeConfig.clientCertificate;
  * export const kubeConfig = testKubernetesCluster.kubeConfigRaw;
  * ```
  */

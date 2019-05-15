@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     name: "My First AzureAD Application",
  * }));
  * 
- * export const azureActiveDirectoryObjectId = test.apply(test => test.id);
+ * export const azureActiveDirectoryObjectId = test.id;
  * ```
  */
 export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {

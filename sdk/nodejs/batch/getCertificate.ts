@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example",
  * }));
  * 
- * export const thumbprint = example.apply(example => example.thumbprint);
+ * export const thumbprint = example.thumbprint;
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
