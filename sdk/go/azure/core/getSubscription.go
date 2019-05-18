@@ -46,6 +46,7 @@ type GetSubscriptionResult struct {
 	SpendingLimit interface{}
 	// The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
 	State interface{}
+	// The subscription GUID.
 	SubscriptionId interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

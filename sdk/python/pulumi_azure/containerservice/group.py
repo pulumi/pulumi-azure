@@ -19,7 +19,7 @@ class Group(pulumi.CustomResource):
     """
     dns_name_label: pulumi.Output[str]
     """
-    The DNS label/name for the container groups IP.
+    The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
     """
     fqdn: pulumi.Output[str]
     """
@@ -27,11 +27,11 @@ class Group(pulumi.CustomResource):
     """
     identity: pulumi.Output[dict]
     """
-    An `identity` block.
+    An `identity` block as defined below.
     """
     image_registry_credentials: pulumi.Output[list]
     """
-    A `image_registry_credential` block as documented below.
+    A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
     """
     ip_address: pulumi.Output[str]
     """
@@ -59,11 +59,11 @@ class Group(pulumi.CustomResource):
     """
     restart_policy: pulumi.Output[str]
     """
-    Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
+    Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
-    A mapping of tags to assign to the resource.
+    A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
     """
     def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, identity=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __name__=None, __opts__=None):
         """
@@ -73,16 +73,16 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] containers: The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] diagnostics: A `diagnostics` block as documented below.
-        :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP.
-        :param pulumi.Input[dict] identity: An `identity` block.
-        :param pulumi.Input[list] image_registry_credentials: A `image_registry_credential` block as documented below.
+        :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] identity: An `identity` block as defined below.
+        :param pulumi.Input[list] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

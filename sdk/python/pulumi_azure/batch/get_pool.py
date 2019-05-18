@@ -12,7 +12,7 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, display_name=None, fixed_scales=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, storage_image_references=None, vm_size=None, id=None):
+    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, storage_image_references=None, vm_size=None, id=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         __self__.account_name = account_name
@@ -30,6 +30,12 @@ class GetPoolResult:
         __self__.certificates = certificates
         """
         One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
+        """
+        if container_configurations and not isinstance(container_configurations, list):
+            raise TypeError("Expected argument 'container_configurations' to be a list")
+        __self__.container_configurations = container_configurations
+        """
+        The container configuration used in the pool's VMs.
         """
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
@@ -107,6 +113,7 @@ async def get_pool(account_name=None,certificates=None,name=None,resource_group_
         account_name=__ret__.get('accountName'),
         auto_scales=__ret__.get('autoScales'),
         certificates=__ret__.get('certificates'),
+        container_configurations=__ret__.get('containerConfigurations'),
         display_name=__ret__.get('displayName'),
         fixed_scales=__ret__.get('fixedScales'),
         max_tasks_per_node=__ret__.get('maxTasksPerNode'),

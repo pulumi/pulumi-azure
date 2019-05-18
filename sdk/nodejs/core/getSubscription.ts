@@ -66,6 +66,9 @@ export interface GetSubscriptionResult {
      * The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
      */
     readonly state: string;
+    /**
+     * The subscription GUID.
+     */
     readonly subscriptionId: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

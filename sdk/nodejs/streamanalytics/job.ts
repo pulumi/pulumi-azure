@@ -28,6 +28,9 @@ import * as utilities from "../utilities";
  *     outputErrorPolicy: "Drop",
  *     resourceGroupName: exampleResourceGroup.name,
  *     streamingUnits: 3,
+ *     tags: {
+ *         environment: "Example",
+ *     },
  *     transformationQuery: `    SELECT *
  *     INTO [YourOutputAlias]
  *     FROM [YourInputAlias]
@@ -93,6 +96,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly streamingUnits!: pulumi.Output<number>;
     /**
+     * A mapping of tags assigned to the resource.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    /**
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
     public readonly transformationQuery!: pulumi.Output<string>;
@@ -120,6 +127,7 @@ export class Job extends pulumi.CustomResource {
             inputs["outputErrorPolicy"] = state ? state.outputErrorPolicy : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["streamingUnits"] = state ? state.streamingUnits : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
             inputs["transformationQuery"] = state ? state.transformationQuery : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
@@ -160,6 +168,7 @@ export class Job extends pulumi.CustomResource {
             inputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["streamingUnits"] = args ? args.streamingUnits : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["transformationQuery"] = args ? args.transformationQuery : undefined;
             inputs["jobId"] = undefined /*out*/;
         }
@@ -223,6 +232,10 @@ export interface JobState {
      */
     readonly streamingUnits?: pulumi.Input<number>;
     /**
+     * A mapping of tags assigned to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */
     readonly transformationQuery?: pulumi.Input<string>;
@@ -272,6 +285,10 @@ export interface JobArgs {
      * Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
      */
     readonly streamingUnits: pulumi.Input<number>;
+    /**
+     * A mapping of tags assigned to the resource.
+     */
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      */

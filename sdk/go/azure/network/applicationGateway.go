@@ -46,6 +46,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["authenticationCertificates"] = nil
+		inputs["autoscaleConfiguration"] = nil
 		inputs["backendAddressPools"] = nil
 		inputs["backendHttpSettings"] = nil
 		inputs["customErrorConfigurations"] = nil
@@ -69,6 +70,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["zones"] = nil
 	} else {
 		inputs["authenticationCertificates"] = args.AuthenticationCertificates
+		inputs["autoscaleConfiguration"] = args.AutoscaleConfiguration
 		inputs["backendAddressPools"] = args.BackendAddressPools
 		inputs["backendHttpSettings"] = args.BackendHttpSettings
 		inputs["customErrorConfigurations"] = args.CustomErrorConfigurations
@@ -105,6 +107,7 @@ func GetApplicationGateway(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["authenticationCertificates"] = state.AuthenticationCertificates
+		inputs["autoscaleConfiguration"] = state.AutoscaleConfiguration
 		inputs["backendAddressPools"] = state.BackendAddressPools
 		inputs["backendHttpSettings"] = state.BackendHttpSettings
 		inputs["customErrorConfigurations"] = state.CustomErrorConfigurations
@@ -147,6 +150,11 @@ func (r *ApplicationGateway) ID() *pulumi.IDOutput {
 // One or more `authentication_certificate` blocks as defined below.
 func (r *ApplicationGateway) AuthenticationCertificates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["authenticationCertificates"])
+}
+
+// A `autoscale_configuration` block as defined below.
+func (r *ApplicationGateway) AutoscaleConfiguration() *pulumi.Output {
+	return r.s.State["autoscaleConfiguration"]
 }
 
 // One or more `backend_address_pool` blocks as defined below.
@@ -258,6 +266,8 @@ func (r *ApplicationGateway) Zones() *pulumi.ArrayOutput {
 type ApplicationGatewayState struct {
 	// One or more `authentication_certificate` blocks as defined below.
 	AuthenticationCertificates interface{}
+	// A `autoscale_configuration` block as defined below.
+	AutoscaleConfiguration interface{}
 	// One or more `backend_address_pool` blocks as defined below.
 	BackendAddressPools interface{}
 	// One or more `backend_http_settings` blocks as defined below.
@@ -306,6 +316,8 @@ type ApplicationGatewayState struct {
 type ApplicationGatewayArgs struct {
 	// One or more `authentication_certificate` blocks as defined below.
 	AuthenticationCertificates interface{}
+	// A `autoscale_configuration` block as defined below.
+	AutoscaleConfiguration interface{}
 	// One or more `backend_address_pool` blocks as defined below.
 	BackendAddressPools interface{}
 	// One or more `backend_http_settings` blocks as defined below.

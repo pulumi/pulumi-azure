@@ -23,7 +23,7 @@ class ManagementGroup(pulumi.CustomResource):
     """
     subscription_ids: pulumi.Output[list]
     """
-    A list of Subscription ID's which should be assigned to the Management Group.
+    A list of Subscription GUIDs which should be assigned to the Management Group.
     """
     def __init__(__self__, resource_name, opts=None, display_name=None, group_id=None, parent_management_group_id=None, subscription_ids=None, __name__=None, __opts__=None):
         """
@@ -34,7 +34,7 @@ class ManagementGroup(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
         :param pulumi.Input[str] group_id: The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
         :param pulumi.Input[str] parent_management_group_id: The ID of the Parent Management Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] subscription_ids: A list of Subscription ID's which should be assigned to the Management Group.
+        :param pulumi.Input[list] subscription_ids: A list of Subscription GUIDs which should be assigned to the Management Group.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

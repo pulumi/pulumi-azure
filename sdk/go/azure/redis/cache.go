@@ -14,16 +14,20 @@ import (
 // 
 // | Redis Value                     | Basic        | Standard     | Premium      |
 // | ------------------------------- | ------------ | ------------ | ------------ |
+// | enable_authentication           | true         | true         | true         |
 // | maxmemory_reserved              | 2            | 50           | 200          |
 // | maxfragmentationmemory_reserved | 2            | 50           | 200          |
 // | maxmemory_delta                 | 2            | 50           | 200          |
 // | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
 // 
-// _*Important*: The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+// > **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
 // 
-// * `patch_schedule` supports the following:
+// ---
+// 
+// A `patch_schedule` block supports the following:
 // 
 // * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+// 
 // * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
 // 
 // > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
@@ -44,9 +48,6 @@ func NewCache(ctx *pulumi.Context,
 	}
 	if args == nil || args.Family == nil {
 		return nil, errors.New("missing required argument 'Family'")
-	}
-	if args == nil || args.RedisConfiguration == nil {
-		return nil, errors.New("missing required argument 'RedisConfiguration'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -154,7 +155,7 @@ func (r *Cache) EnableNonSslPort() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableNonSslPort"])
 }
 
-// The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
+// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 func (r *Cache) Family() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["family"])
 }
@@ -221,7 +222,7 @@ func (r *Cache) ShardCount() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["shardCount"])
 }
 
-// The SKU of Redis to use - can be either Basic, Standard or Premium.
+// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 func (r *Cache) SkuName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["skuName"])
 }
@@ -252,7 +253,7 @@ type CacheState struct {
 	Capacity interface{}
 	// Enable the non-SSL port (6789) - disabled by default.
 	EnableNonSslPort interface{}
-	// The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
+	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family interface{}
 	// The Hostname of the Redis Instance
 	Hostname interface{}
@@ -280,7 +281,7 @@ type CacheState struct {
 	SecondaryAccessKey interface{}
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount interface{}
-	// The SKU of Redis to use - can be either Basic, Standard or Premium.
+	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 	SkuName interface{}
 	// The SSL Port of the Redis Instance
 	SslPort interface{}
@@ -298,7 +299,7 @@ type CacheArgs struct {
 	Capacity interface{}
 	// Enable the non-SSL port (6789) - disabled by default.
 	EnableNonSslPort interface{}
-	// The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
+	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family interface{}
 	// The location of the resource group.
 	Location interface{}
@@ -318,7 +319,7 @@ type CacheArgs struct {
 	ResourceGroupName interface{}
 	// *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
 	ShardCount interface{}
-	// The SKU of Redis to use - can be either Basic, Standard or Premium.
+	// The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
 	SkuName interface{}
 	// The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
 	SubnetId interface{}

@@ -66,7 +66,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * An `agent_pool_profile` block.  Currently only one agent pool can exist.
      */
-    public readonly agentPoolProfile!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb: number, osType?: string, vmSize: string, vnetSubnetId?: string }>;
+    public readonly agentPoolProfile!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb: number, osType?: string, type?: string, vmSize: string, vnetSubnetId?: string }>;
+    /**
+     * The IP ranges to whitelist for incoming traffic to the masters.
+     */
+    public readonly apiServerAuthorizedIpRanges!: pulumi.Output<string[] | undefined>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
@@ -146,6 +150,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             const state = argsOrState as KubernetesClusterState | undefined;
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
             inputs["agentPoolProfile"] = state ? state.agentPoolProfile : undefined;
+            inputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["kubeAdminConfig"] = state ? state.kubeAdminConfig : undefined;
@@ -178,6 +183,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             }
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
             inputs["agentPoolProfile"] = args ? args.agentPoolProfile : undefined;
+            inputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
             inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
@@ -217,7 +223,11 @@ export interface KubernetesClusterState {
     /**
      * An `agent_pool_profile` block.  Currently only one agent pool can exist.
      */
-    readonly agentPoolProfile?: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
+    readonly agentPoolProfile?: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, type?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
+    /**
+     * The IP ranges to whitelist for incoming traffic to the masters.
+     */
+    readonly apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */
@@ -295,7 +305,11 @@ export interface KubernetesClusterArgs {
     /**
      * An `agent_pool_profile` block.  Currently only one agent pool can exist.
      */
-    readonly agentPoolProfile: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
+    readonly agentPoolProfile: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, type?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
+    /**
+     * The IP ranges to whitelist for incoming traffic to the masters.
+     */
+    readonly apiServerAuthorizedIpRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
      */

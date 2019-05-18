@@ -9,75 +9,26 @@ import * as utilities from "../utilities";
  * 
  * ## Example Usage
  * 
+ * This example provisions a Basic Container. Other examples of the `azurerm_container_group` resource can be found in [the `./examples/container-instance` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/container-instance).
+ * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const aci_rg = new azure.core.ResourceGroup("aci-rg", {
- *     location: "west us",
- *     name: "aci-test",
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "example-resources",
  * });
- * const aci_sa = new azure.storage.Account("aci-sa", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: aci_rg.location,
- *     name: "acistorageacct",
- *     resourceGroupName: aci_rg.name,
- * });
- * const aci_share = new azure.storage.Share("aci-share", {
- *     name: "aci-test-share",
- *     quota: 50,
- *     resourceGroupName: aci_rg.name,
- *     storageAccountName: aci_sa.name,
- * });
- * const aci_helloworld = new azure.containerservice.Group("aci-helloworld", {
+ * const exampleGroup = new azure.containerservice.Group("example", {
  *     containers: [
  *         {
- *             commands: [
- *                 "/bin/bash",
- *                 "-c",
- *                 "'/path to/myscript.sh'",
- *             ],
  *             cpu: 0.5,
- *             environmentVariables: {
- *                 NODE_ENV: "testing",
- *             },
- *             image: "seanmckenna/aci-hellofiles",
- *             livenessProbe: {
- *                 execs: [
- *                     "cat",
- *                     "/tmp/healthy",
- *                 ],
- *             },
+ *             image: "microsoft/aci-helloworld:latest",
  *             memory: 1.5,
- *             name: "hw",
- *             ports: [
- *                 {
- *                     port: 80,
- *                     protocol: "TCP",
- *                 },
- *                 {
- *                     port: 443,
- *                     protocol: "TCP",
- *                 },
- *             ],
- *             readinessProbe: {
- *                 execs: [
- *                     "/bin/sh",
- *                     "-c",
- *                     "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600",
- *                 ],
- *             },
- *             secureEnvironmentVariables: {
- *                 ACCESS_KEY: "secure_testing",
- *             },
- *             volumes: [{
- *                 mountPath: "/aci/logs",
- *                 name: "logs",
- *                 readOnly: false,
- *                 shareName: aci_share.name,
- *                 storageAccountKey: aci_sa.primaryAccessKey,
- *                 storageAccountName: aci_sa.name,
+ *             name: "hello-world",
+ *             ports: [{
+ *                 port: 443,
+ *                 protocol: "TCP",
  *             }],
  *         },
  *         {
@@ -89,10 +40,10 @@ import * as utilities from "../utilities";
  *     ],
  *     dnsNameLabel: "aci-label",
  *     ipAddressType: "public",
- *     location: aci_rg.location,
- *     name: "aci-hw",
+ *     location: exampleResourceGroup.location,
+ *     name: "example-continst",
  *     osType: "Linux",
- *     resourceGroupName: aci_rg.name,
+ *     resourceGroupName: exampleResourceGroup.name,
  *     tags: {
  *         environment: "testing",
  *     },
@@ -121,7 +72,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly diagnostics!: pulumi.Output<{ logAnalytics: { logType: string, metadata?: {[key: string]: string}, workspaceId: string, workspaceKey: string } } | undefined>;
     /**
-     * The DNS label/name for the container groups IP.
+     * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
@@ -129,11 +80,11 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * An `identity` block.
+     * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
     /**
-     * A `image_registry_credential` block as documented below.
+     * A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
      */
     public readonly imageRegistryCredentials!: pulumi.Output<{ password: string, server: string, username: string }[] | undefined>;
     /**
@@ -161,11 +112,11 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
+     * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
      */
     public readonly restartPolicy!: pulumi.Output<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
@@ -245,7 +196,7 @@ export interface GroupState {
      */
     readonly diagnostics?: pulumi.Input<{ logAnalytics: pulumi.Input<{ logType: pulumi.Input<string>, metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, workspaceId: pulumi.Input<string>, workspaceKey: pulumi.Input<string> }> }>;
     /**
-     * The DNS label/name for the container groups IP.
+     * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
     readonly dnsNameLabel?: pulumi.Input<string>;
     /**
@@ -253,11 +204,11 @@ export interface GroupState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * An `identity` block.
+     * An `identity` block as defined below.
      */
     readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
-     * A `image_registry_credential` block as documented below.
+     * A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
      */
     readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
     /**
@@ -285,11 +236,11 @@ export interface GroupState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
+     * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
      */
     readonly restartPolicy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -307,15 +258,15 @@ export interface GroupArgs {
      */
     readonly diagnostics?: pulumi.Input<{ logAnalytics: pulumi.Input<{ logType: pulumi.Input<string>, metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, workspaceId: pulumi.Input<string>, workspaceKey: pulumi.Input<string> }> }>;
     /**
-     * The DNS label/name for the container groups IP.
+     * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
     readonly dnsNameLabel?: pulumi.Input<string>;
     /**
-     * An `identity` block.
+     * An `identity` block as defined below.
      */
     readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
-     * A `image_registry_credential` block as documented below.
+     * A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
      */
     readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
     /**
@@ -339,11 +290,11 @@ export interface GroupArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
+     * Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
      */
     readonly restartPolicy?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

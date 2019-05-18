@@ -32,6 +32,7 @@ func NewDatabase(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["maxSizeBytes"] = nil
 		inputs["name"] = nil
+		inputs["readScale"] = nil
 		inputs["requestedServiceObjectiveId"] = nil
 		inputs["requestedServiceObjectiveName"] = nil
 		inputs["resourceGroupName"] = nil
@@ -50,6 +51,7 @@ func NewDatabase(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["maxSizeBytes"] = args.MaxSizeBytes
 		inputs["name"] = args.Name
+		inputs["readScale"] = args.ReadScale
 		inputs["requestedServiceObjectiveId"] = args.RequestedServiceObjectiveId
 		inputs["requestedServiceObjectiveName"] = args.RequestedServiceObjectiveName
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -87,6 +89,7 @@ func GetDatabase(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["maxSizeBytes"] = state.MaxSizeBytes
 		inputs["name"] = state.Name
+		inputs["readScale"] = state.ReadScale
 		inputs["requestedServiceObjectiveId"] = state.RequestedServiceObjectiveId
 		inputs["requestedServiceObjectiveName"] = state.RequestedServiceObjectiveName
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -168,6 +171,11 @@ func (r *Database) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+func (r *Database) ReadScale() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["readScale"])
+}
+
 // Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
 // Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 func (r *Database) RequestedServiceObjectiveId() *pulumi.StringOutput {
@@ -237,6 +245,8 @@ type DatabaseState struct {
 	MaxSizeBytes interface{}
 	// The name of the database.
 	Name interface{}
+	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+	ReadScale interface{}
 	// Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
 	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveId interface{}
@@ -276,6 +286,8 @@ type DatabaseArgs struct {
 	MaxSizeBytes interface{}
 	// The name of the database.
 	Name interface{}
+	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+	ReadScale interface{}
 	// Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
 	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveId interface{}

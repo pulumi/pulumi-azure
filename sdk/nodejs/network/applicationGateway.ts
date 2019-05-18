@@ -114,13 +114,17 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly authenticationCertificates!: pulumi.Output<{ data: string, id: string, name: string }[] | undefined>;
     /**
+     * A `autoscale_configuration` block as defined below.
+     */
+    public readonly autoscaleConfiguration!: pulumi.Output<{ maxCapacity?: number, minCapacity: number } | undefined>;
+    /**
      * One or more `backend_address_pool` blocks as defined below.
      */
     public readonly backendAddressPools!: pulumi.Output<{ fqdnLists: string[], fqdns: string[], id: string, ipAddressLists: string[], ipAddresses: string[], name: string }[]>;
     /**
      * One or more `backend_http_settings` blocks as defined below.
      */
-    public readonly backendHttpSettings!: pulumi.Output<{ authenticationCertificates?: { id: string, name: string }[], connectionDraining?: { drainTimeoutSec: number, enabled: boolean }, cookieBasedAffinity: string, hostName?: string, id: string, name: string, path?: string, pickHostNameFromBackendAddress?: boolean, port: number, probeId: string, probeName?: string, protocol: string, requestTimeout?: number }[]>;
+    public readonly backendHttpSettings!: pulumi.Output<{ affinityCookieName?: string, authenticationCertificates?: { id: string, name: string }[], connectionDraining?: { drainTimeoutSec: number, enabled: boolean }, cookieBasedAffinity: string, hostName?: string, id: string, name: string, path?: string, pickHostNameFromBackendAddress?: boolean, port: number, probeId: string, probeName?: string, protocol: string, requestTimeout?: number }[]>;
     /**
      * One or more `custom_error_configuration` blocks as defined below.
      */
@@ -176,7 +180,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<{ capacity: number, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<{ capacity?: number, name: string, tier: string }>;
     /**
      * One or more `ssl_certificate` blocks as defined below.
      */
@@ -192,7 +196,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * A `waf_configuration` block as defined below.
      */
-    public readonly wafConfiguration!: pulumi.Output<{ enabled: boolean, fileUploadLimitMb?: number, firewallMode: string, maxRequestBodySizeKb?: number, requestBodyCheck?: boolean, ruleSetType?: string, ruleSetVersion: string } | undefined>;
+    public readonly wafConfiguration!: pulumi.Output<{ disabledRuleGroups?: { ruleGroupName: string, rules?: number[] }[], enabled: boolean, exclusions?: { matchVariable: string, selector?: string, selectorMatchOperator?: string }[], fileUploadLimitMb?: number, firewallMode: string, maxRequestBodySizeKb?: number, requestBodyCheck?: boolean, ruleSetType?: string, ruleSetVersion: string } | undefined>;
     /**
      * A collection of availability zones to spread the Application Gateway over.
      */
@@ -211,6 +215,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as ApplicationGatewayState | undefined;
             inputs["authenticationCertificates"] = state ? state.authenticationCertificates : undefined;
+            inputs["autoscaleConfiguration"] = state ? state.autoscaleConfiguration : undefined;
             inputs["backendAddressPools"] = state ? state.backendAddressPools : undefined;
             inputs["backendHttpSettings"] = state ? state.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = state ? state.customErrorConfigurations : undefined;
@@ -262,6 +267,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["authenticationCertificates"] = args ? args.authenticationCertificates : undefined;
+            inputs["autoscaleConfiguration"] = args ? args.autoscaleConfiguration : undefined;
             inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
             inputs["backendHttpSettings"] = args ? args.backendHttpSettings : undefined;
             inputs["customErrorConfigurations"] = args ? args.customErrorConfigurations : undefined;
@@ -304,13 +310,17 @@ export interface ApplicationGatewayState {
      */
     readonly authenticationCertificates?: pulumi.Input<pulumi.Input<{ data: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
+     * A `autoscale_configuration` block as defined below.
+     */
+    readonly autoscaleConfiguration?: pulumi.Input<{ maxCapacity?: pulumi.Input<number>, minCapacity: pulumi.Input<number> }>;
+    /**
      * One or more `backend_address_pool` blocks as defined below.
      */
     readonly backendAddressPools?: pulumi.Input<pulumi.Input<{ fqdnLists?: pulumi.Input<pulumi.Input<string>[]>, fqdns?: pulumi.Input<pulumi.Input<string>[]>, id?: pulumi.Input<string>, ipAddressLists?: pulumi.Input<pulumi.Input<string>[]>, ipAddresses?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
     /**
      * One or more `backend_http_settings` blocks as defined below.
      */
-    readonly backendHttpSettings?: pulumi.Input<pulumi.Input<{ authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, connectionDraining?: pulumi.Input<{ drainTimeoutSec: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>, cookieBasedAffinity: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, path?: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
+    readonly backendHttpSettings?: pulumi.Input<pulumi.Input<{ affinityCookieName?: pulumi.Input<string>, authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, connectionDraining?: pulumi.Input<{ drainTimeoutSec: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>, cookieBasedAffinity: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, path?: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
     /**
      * One or more `custom_error_configuration` blocks as defined below.
      */
@@ -366,7 +376,7 @@ export interface ApplicationGatewayState {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<{ capacity?: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
     /**
      * One or more `ssl_certificate` blocks as defined below.
      */
@@ -382,7 +392,7 @@ export interface ApplicationGatewayState {
     /**
      * A `waf_configuration` block as defined below.
      */
-    readonly wafConfiguration?: pulumi.Input<{ enabled: pulumi.Input<boolean>, fileUploadLimitMb?: pulumi.Input<number>, firewallMode: pulumi.Input<string>, maxRequestBodySizeKb?: pulumi.Input<number>, requestBodyCheck?: pulumi.Input<boolean>, ruleSetType?: pulumi.Input<string>, ruleSetVersion: pulumi.Input<string> }>;
+    readonly wafConfiguration?: pulumi.Input<{ disabledRuleGroups?: pulumi.Input<pulumi.Input<{ ruleGroupName: pulumi.Input<string>, rules?: pulumi.Input<pulumi.Input<number>[]> }>[]>, enabled: pulumi.Input<boolean>, exclusions?: pulumi.Input<pulumi.Input<{ matchVariable: pulumi.Input<string>, selector?: pulumi.Input<string>, selectorMatchOperator?: pulumi.Input<string> }>[]>, fileUploadLimitMb?: pulumi.Input<number>, firewallMode: pulumi.Input<string>, maxRequestBodySizeKb?: pulumi.Input<number>, requestBodyCheck?: pulumi.Input<boolean>, ruleSetType?: pulumi.Input<string>, ruleSetVersion: pulumi.Input<string> }>;
     /**
      * A collection of availability zones to spread the Application Gateway over.
      */
@@ -398,13 +408,17 @@ export interface ApplicationGatewayArgs {
      */
     readonly authenticationCertificates?: pulumi.Input<pulumi.Input<{ data: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
+     * A `autoscale_configuration` block as defined below.
+     */
+    readonly autoscaleConfiguration?: pulumi.Input<{ maxCapacity?: pulumi.Input<number>, minCapacity: pulumi.Input<number> }>;
+    /**
      * One or more `backend_address_pool` blocks as defined below.
      */
     readonly backendAddressPools: pulumi.Input<pulumi.Input<{ fqdnLists?: pulumi.Input<pulumi.Input<string>[]>, fqdns?: pulumi.Input<pulumi.Input<string>[]>, id?: pulumi.Input<string>, ipAddressLists?: pulumi.Input<pulumi.Input<string>[]>, ipAddresses?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
     /**
      * One or more `backend_http_settings` blocks as defined below.
      */
-    readonly backendHttpSettings: pulumi.Input<pulumi.Input<{ authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, connectionDraining?: pulumi.Input<{ drainTimeoutSec: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>, cookieBasedAffinity: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, path?: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
+    readonly backendHttpSettings: pulumi.Input<pulumi.Input<{ affinityCookieName?: pulumi.Input<string>, authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, connectionDraining?: pulumi.Input<{ drainTimeoutSec: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>, cookieBasedAffinity: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, path?: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
     /**
      * One or more `custom_error_configuration` blocks as defined below.
      */
@@ -460,7 +474,7 @@ export interface ApplicationGatewayArgs {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<{ capacity?: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
     /**
      * One or more `ssl_certificate` blocks as defined below.
      */
@@ -476,7 +490,7 @@ export interface ApplicationGatewayArgs {
     /**
      * A `waf_configuration` block as defined below.
      */
-    readonly wafConfiguration?: pulumi.Input<{ enabled: pulumi.Input<boolean>, fileUploadLimitMb?: pulumi.Input<number>, firewallMode: pulumi.Input<string>, maxRequestBodySizeKb?: pulumi.Input<number>, requestBodyCheck?: pulumi.Input<boolean>, ruleSetType?: pulumi.Input<string>, ruleSetVersion: pulumi.Input<string> }>;
+    readonly wafConfiguration?: pulumi.Input<{ disabledRuleGroups?: pulumi.Input<pulumi.Input<{ ruleGroupName: pulumi.Input<string>, rules?: pulumi.Input<pulumi.Input<number>[]> }>[]>, enabled: pulumi.Input<boolean>, exclusions?: pulumi.Input<pulumi.Input<{ matchVariable: pulumi.Input<string>, selector?: pulumi.Input<string>, selectorMatchOperator?: pulumi.Input<string> }>[]>, fileUploadLimitMb?: pulumi.Input<number>, firewallMode: pulumi.Input<string>, maxRequestBodySizeKb?: pulumi.Input<number>, requestBodyCheck?: pulumi.Input<boolean>, ruleSetType?: pulumi.Input<string>, ruleSetVersion: pulumi.Input<string> }>;
     /**
      * A collection of availability zones to spread the Application Gateway over.
      */

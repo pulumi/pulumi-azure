@@ -110,7 +110,7 @@ func (r *Group) Diagnostics() *pulumi.Output {
 	return r.s.State["diagnostics"]
 }
 
-// The DNS label/name for the container groups IP.
+// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 func (r *Group) DnsNameLabel() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsNameLabel"])
 }
@@ -120,12 +120,12 @@ func (r *Group) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
-// An `identity` block.
+// An `identity` block as defined below.
 func (r *Group) Identity() *pulumi.Output {
 	return r.s.State["identity"]
 }
 
-// A `image_registry_credential` block as documented below.
+// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
 func (r *Group) ImageRegistryCredentials() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["imageRegistryCredentials"])
 }
@@ -160,12 +160,12 @@ func (r *Group) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
+// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 func (r *Group) RestartPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["restartPolicy"])
 }
 
-// A mapping of tags to assign to the resource.
+// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 func (r *Group) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -176,13 +176,13 @@ type GroupState struct {
 	Containers interface{}
 	// A `diagnostics` block as documented below.
 	Diagnostics interface{}
-	// The DNS label/name for the container groups IP.
+	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel interface{}
 	// The FQDN of the container group derived from `dns_name_label`.
 	Fqdn interface{}
-	// An `identity` block.
+	// An `identity` block as defined below.
 	Identity interface{}
-	// A `image_registry_credential` block as documented below.
+	// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials interface{}
 	// The IP address allocated to the container group.
 	IpAddress interface{}
@@ -196,9 +196,9 @@ type GroupState struct {
 	OsType interface{}
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
+	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy interface{}
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags interface{}
 }
 
@@ -208,11 +208,11 @@ type GroupArgs struct {
 	Containers interface{}
 	// A `diagnostics` block as documented below.
 	Diagnostics interface{}
-	// The DNS label/name for the container groups IP.
+	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel interface{}
-	// An `identity` block.
+	// An `identity` block as defined below.
 	Identity interface{}
-	// A `image_registry_credential` block as documented below.
+	// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials interface{}
 	// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
 	IpAddressType interface{}
@@ -224,8 +224,8 @@ type GroupArgs struct {
 	OsType interface{}
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`.
+	// Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
 	RestartPolicy interface{}
-	// A mapping of tags to assign to the resource.
+	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
 	Tags interface{}
 }

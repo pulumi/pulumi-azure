@@ -17,6 +17,10 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     An `agent_pool_profile` block.  Currently only one agent pool can exist.
     """
+    api_server_authorized_ip_ranges: pulumi.Output[list]
+    """
+    The IP ranges to whitelist for incoming traffic to the masters.
+    """
     dns_prefix: pulumi.Output[str]
     """
     DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -81,7 +85,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, addon_profile=None, agent_pool_profile=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, addon_profile=None, agent_pool_profile=None, api_server_authorized_ip_ranges=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, __name__=None, __opts__=None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
         
@@ -91,6 +95,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] addon_profile: A `addon_profile` block.
         :param pulumi.Input[dict] agent_pool_profile: An `agent_pool_profile` block.  Currently only one agent pool can exist.
+        :param pulumi.Input[list] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
         :param pulumi.Input[dict] linux_profile: A `linux_profile` block.
@@ -122,6 +127,8 @@ class KubernetesCluster(pulumi.CustomResource):
         if agent_pool_profile is None:
             raise TypeError("Missing required property 'agent_pool_profile'")
         __props__['agent_pool_profile'] = agent_pool_profile
+
+        __props__['api_server_authorized_ip_ranges'] = api_server_authorized_ip_ranges
 
         if dns_prefix is None:
             raise TypeError("Missing required property 'dns_prefix'")

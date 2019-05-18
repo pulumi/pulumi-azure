@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * const current = pulumi.output(azure.core.getSubscription({}));
  * const exampleParent = new azure.managementgroups.ManagementGroup("example_parent", {
  *     displayName: "ParentGroup",
- *     subscriptionIds: [current.id],
+ *     subscriptionIds: [current.subscriptionId],
  * });
  * const exampleChild = new azure.managementgroups.ManagementGroup("example_child", {
  *     displayName: "ChildGroup",
  *     parentManagementGroupId: exampleParent.id,
- *     subscriptionIds: [current.id],
+ *     subscriptionIds: [current.subscriptionId],
  * });
  * ```
  */
@@ -51,7 +51,7 @@ export class ManagementGroup extends pulumi.CustomResource {
      */
     public readonly parentManagementGroupId!: pulumi.Output<string>;
     /**
-     * A list of Subscription ID's which should be assigned to the Management Group.
+     * A list of Subscription GUIDs which should be assigned to the Management Group.
      */
     public readonly subscriptionIds!: pulumi.Output<string[] | undefined>;
 
@@ -106,7 +106,7 @@ export interface ManagementGroupState {
      */
     readonly parentManagementGroupId?: pulumi.Input<string>;
     /**
-     * A list of Subscription ID's which should be assigned to the Management Group.
+     * A list of Subscription GUIDs which should be assigned to the Management Group.
      */
     readonly subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -128,7 +128,7 @@ export interface ManagementGroupArgs {
      */
     readonly parentManagementGroupId?: pulumi.Input<string>;
     /**
-     * A list of Subscription ID's which should be assigned to the Management Group.
+     * A list of Subscription GUIDs which should be assigned to the Management Group.
      */
     readonly subscriptionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

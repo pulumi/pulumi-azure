@@ -53,11 +53,15 @@ class Job(pulumi.CustomResource):
     """
     Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
     """
+    tags: pulumi.Output[dict]
+    """
+    A mapping of tags assigned to the resource.
+    """
     transformation_query: pulumi.Output[str]
     """
     Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
     """
-    def __init__(__self__, resource_name, opts=None, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, location=None, name=None, output_error_policy=None, resource_group_name=None, streaming_units=None, transformation_query=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, compatibility_level=None, data_locale=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, location=None, name=None, output_error_policy=None, resource_group_name=None, streaming_units=None, tags=None, transformation_query=None, __name__=None, __opts__=None):
         """
         Manages a Stream Analytics Job.
         
@@ -73,6 +77,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] output_error_policy: Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] streaming_units: Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
+        :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
         :param pulumi.Input[str] transformation_query: Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
         """
         if __name__ is not None:
@@ -125,6 +130,8 @@ class Job(pulumi.CustomResource):
         if streaming_units is None:
             raise TypeError("Missing required property 'streaming_units'")
         __props__['streaming_units'] = streaming_units
+
+        __props__['tags'] = tags
 
         if transformation_query is None:
             raise TypeError("Missing required property 'transformation_query'")
