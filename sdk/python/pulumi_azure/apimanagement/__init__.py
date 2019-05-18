@@ -6,6 +6,9 @@
 from .service import *
 from .api import *
 from .api_operation import *
+from .api_operation_policy import *
+from .api_policy import *
+from .api_schema import *
 from .api_version_set import *
 from .authorization_server import *
 from .certificate import *
@@ -16,6 +19,7 @@ from .open_id_connect_provider import *
 from .product import *
 from .product_api import *
 from .product_group import *
+from .product_policy import *
 from .property import *
 from .subscription import *
 from .user import *

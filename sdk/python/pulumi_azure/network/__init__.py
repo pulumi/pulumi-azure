@@ -11,6 +11,7 @@ from .express_route_circuit_authorization import *
 from .express_route_circuit_peering import *
 from .firewall import *
 from .firewall_application_rule_collection import *
+from .firewall_nat_rule_collection import *
 from .firewall_network_rule_collection import *
 from .local_network_gateway import *
 from .network_connection_monitor import *
@@ -21,6 +22,7 @@ from .network_interface_application_security_group_association import *
 from .network_interface_backend_address_pool_association import *
 from .network_interface_nat_rule_association import *
 from .network_packet_capture import *
+from .profile import *
 from .network_security_group import *
 from .network_security_rule import *
 from .network_watcher import *
