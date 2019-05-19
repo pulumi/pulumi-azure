@@ -58,6 +58,7 @@ func NewSlot(ctx *pulumi.Context,
 		inputs["tags"] = args.Tags
 	}
 	inputs["defaultSiteHostname"] = nil
+	inputs["siteCredential"] = nil
 	s, err := ctx.RegisterResource("azure:appservice/slot:Slot", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -84,6 +85,7 @@ func GetSlot(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["siteConfig"] = state.SiteConfig
+		inputs["siteCredential"] = state.SiteCredential
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:appservice/slot:Slot", name, id, inputs, opts...)
@@ -168,6 +170,11 @@ func (r *Slot) SiteConfig() *pulumi.Output {
 	return r.s.State["siteConfig"]
 }
 
+// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+func (r *Slot) SiteCredential() *pulumi.Output {
+	return r.s.State["siteCredential"]
+}
+
 // A mapping of tags to assign to the resource.
 func (r *Slot) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -201,6 +208,8 @@ type SlotState struct {
 	ResourceGroupName interface{}
 	// A `site_config` object as defined below.
 	SiteConfig interface{}
+	// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+	SiteCredential interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

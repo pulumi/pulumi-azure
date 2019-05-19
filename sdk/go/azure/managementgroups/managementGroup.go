@@ -77,7 +77,7 @@ func (r *ManagementGroup) ParentManagementGroupId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["parentManagementGroupId"])
 }
 
-// A list of Subscription ID's which should be assigned to the Management Group.
+// A list of Subscription GUIDs which should be assigned to the Management Group.
 func (r *ManagementGroup) SubscriptionIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["subscriptionIds"])
 }
@@ -90,7 +90,7 @@ type ManagementGroupState struct {
 	GroupId interface{}
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId interface{}
-	// A list of Subscription ID's which should be assigned to the Management Group.
+	// A list of Subscription GUIDs which should be assigned to the Management Group.
 	SubscriptionIds interface{}
 }
 
@@ -102,6 +102,6 @@ type ManagementGroupArgs struct {
 	GroupId interface{}
 	// The ID of the Parent Management Group. Changing this forces a new resource to be created.
 	ParentManagementGroupId interface{}
-	// A list of Subscription ID's which should be assigned to the Management Group.
+	// A list of Subscription GUIDs which should be assigned to the Management Group.
 	SubscriptionIds interface{}
 }

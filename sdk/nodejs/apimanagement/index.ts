@@ -4,6 +4,9 @@
 // Export members:
 export * from "./api";
 export * from "./apiOperation";
+export * from "./apiOperationPolicy";
+export * from "./apiPolicy";
+export * from "./apiSchema";
 export * from "./apiVersionSet";
 export * from "./authorizationServer";
 export * from "./certificate";
@@ -19,6 +22,7 @@ export * from "./openIdConnectProvider";
 export * from "./product";
 export * from "./productApi";
 export * from "./productGroup";
+export * from "./productPolicy";
 export * from "./property";
 export * from "./service";
 export * from "./subscription";

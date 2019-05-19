@@ -6,5 +6,6 @@ export * from "./getClientConfig";
 export * from "./getResourceGroup";
 export * from "./getSubscription";
 export * from "./getSubscriptions";
+export * from "./getUserAssignedIdentity";
 export * from "./resourceGroup";
 export * from "./templateDeployment";

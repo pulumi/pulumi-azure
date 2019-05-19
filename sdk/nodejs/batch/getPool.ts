@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Batch pool
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const test = pulumi.output(azure.batch.getPool({
+ *     accountName: "testbatchaccount",
+ *     name: "testbatchpool",
+ *     resourceGroupName: "test",
+ * }));
+ * ```
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     if (!opts) {
@@ -51,6 +64,10 @@ export interface GetPoolResult {
      * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
      */
     readonly certificates?: { id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[];
+    /**
+     * The container configuration used in the pool's VMs.
+     */
+    readonly containerConfigurations: { type: string }[];
     readonly displayName: string;
     /**
      * A `fixed_scale` block that describes the scale settings when using fixed scale.

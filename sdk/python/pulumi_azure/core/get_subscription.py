@@ -46,6 +46,9 @@ class GetSubscriptionResult:
         if subscription_id and not isinstance(subscription_id, str):
             raise TypeError("Expected argument 'subscription_id' to be a str")
         __self__.subscription_id = subscription_id
+        """
+        The subscription GUID.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id

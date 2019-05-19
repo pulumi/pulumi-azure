@@ -91,6 +91,10 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+     */
+    public readonly readScale!: pulumi.Output<boolean | undefined>;
+    /**
      * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
      * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
@@ -151,6 +155,7 @@ export class Database extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["maxSizeBytes"] = state ? state.maxSizeBytes : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["readScale"] = state ? state.readScale : undefined;
             inputs["requestedServiceObjectiveId"] = state ? state.requestedServiceObjectiveId : undefined;
             inputs["requestedServiceObjectiveName"] = state ? state.requestedServiceObjectiveName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -176,6 +181,7 @@ export class Database extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["readScale"] = args ? args.readScale : undefined;
             inputs["requestedServiceObjectiveId"] = args ? args.requestedServiceObjectiveId : undefined;
             inputs["requestedServiceObjectiveName"] = args ? args.requestedServiceObjectiveName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -245,6 +251,10 @@ export interface DatabaseState {
      * The name of the database.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+     */
+    readonly readScale?: pulumi.Input<boolean>;
     /**
      * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
      * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -320,6 +330,10 @@ export interface DatabaseArgs {
      * The name of the database.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+     */
+    readonly readScale?: pulumi.Input<boolean>;
     /**
      * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
      * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).

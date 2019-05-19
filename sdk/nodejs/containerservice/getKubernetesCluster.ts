@@ -61,7 +61,7 @@ export interface GetKubernetesClusterResult {
     /**
      * An `agent_pool_profile` block as documented below.
      */
-    readonly agentPoolProfiles: { count: number, dnsPrefix: string, maxPods: number, name: string, osDiskSizeGb: number, osType: string, vmSize: string, vnetSubnetId: string }[];
+    readonly agentPoolProfiles: { count: number, dnsPrefix: string, maxPods: number, name: string, osDiskSizeGb: number, osType: string, type: string, vmSize: string, vnetSubnetId: string }[];
     /**
      * The DNS Prefix of the managed Kubernetes cluster.
      */

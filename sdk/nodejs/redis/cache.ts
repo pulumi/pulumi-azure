@@ -7,111 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Redis Cache.
  * 
- * ## Example Usage (Basic)
+ * ## Example Usage
+ * 
+ * This example provisions a Standard Redis Cache. Other examples of the `azurerm_redis_cache` resource can be found in [the `./examples/redis-cache` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/redis-cache)
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- *     name: "redis-resources",
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * // NOTE: the Name used for Redis needs to be globally unique
- * const testCache = new azure.redis.Cache("test", {
- *     capacity: 0,
- *     enableNonSslPort: false,
- *     family: "C",
- *     location: testResourceGroup.location,
- *     name: "tf-redis-basic",
- *     resourceGroupName: testResourceGroup.name,
- *     skuName: "Basic",
- * });
- * ```
- * 
- * ## Example Usage (Standard)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- *     name: "redis-resources",
- * });
- * // NOTE: the Name used for Redis needs to be globally unique
- * const testCache = new azure.redis.Cache("test", {
+ * const exampleCache = new azure.redis.Cache("example", {
  *     capacity: 2,
  *     enableNonSslPort: false,
  *     family: "C",
- *     location: testResourceGroup.location,
+ *     location: exampleResourceGroup.location,
  *     minimumTlsVersion: "1.2",
- *     name: "tf-redis-standard",
- *     resourceGroupName: testResourceGroup.name,
+ *     name: "example-cache",
+ *     redisConfiguration: {},
+ *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Standard",
- * });
- * ```
- * 
- * ## Example Usage (Premium with Clustering)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- *     name: "redis-resources",
- * });
- * // NOTE: the Name used for Redis needs to be globally unique
- * const testCache = new azure.redis.Cache("test", {
- *     capacity: 1,
- *     enableNonSslPort: false,
- *     family: "P",
- *     location: testResourceGroup.location,
- *     name: "tf-redis-premium",
- *     redisConfiguration: {
- *         maxmemoryDelta: 2,
- *         maxmemoryPolicy: "allkeys-lru",
- *         maxmemoryReserved: 2,
- *     },
- *     resourceGroupName: testResourceGroup.name,
- *     shardCount: 3,
- *     skuName: "Premium",
- * });
- * ```
- * 
- * ## Example Usage (Premium with Backup)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- *     name: "redis-resources",
- * });
- * const testAccount = new azure.storage.Account("test", {
- *     accountReplicationType: "GRS",
- *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     name: "redissa",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * // NOTE: the Name used for Redis needs to be globally unique
- * const testCache = new azure.redis.Cache("test", {
- *     capacity: 3,
- *     enableNonSslPort: false,
- *     family: "P",
- *     location: testResourceGroup.location,
- *     name: "tf-redis-pbkup",
- *     redisConfiguration: {
- *         rdbBackupEnabled: true,
- *         rdbBackupFrequency: 60,
- *         rdbBackupMaxSnapshotCount: 1,
- *         rdbStorageConnectionString: pulumi.interpolate`DefaultEndpointsProtocol=https;BlobEndpoint=${testAccount.primaryBlobEndpoint};AccountName=${testAccount.name};AccountKey=${testAccount.primaryAccessKey}`,
- *     },
- *     resourceGroupName: testResourceGroup.name,
- *     skuName: "Premium",
  * });
  * ```
  * 
@@ -119,16 +37,20 @@ import * as utilities from "../utilities";
  * 
  * | Redis Value                     | Basic        | Standard     | Premium      |
  * | ------------------------------- | ------------ | ------------ | ------------ |
+ * | enable_authentication           | true         | true         | true         |
  * | maxmemory_reserved              | 2            | 50           | 200          |
  * | maxfragmentationmemory_reserved | 2            | 50           | 200          |
  * | maxmemory_delta                 | 2            | 50           | 200          |
  * | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
  * 
- * _*Important*: The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+ * > **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
  * 
- * * `patch_schedule` supports the following:
+ * ---
+ * 
+ * A `patch_schedule` block supports the following:
  * 
  * * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+ * 
  * * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
  * 
  * > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
@@ -160,7 +82,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
     /**
-     * The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
+     * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
     public readonly family!: pulumi.Output<string>;
     /**
@@ -199,7 +121,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    public readonly redisConfiguration!: pulumi.Output<{ aofBackupEnabled?: boolean, aofStorageConnectionString0?: string, aofStorageConnectionString1?: string, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
+    public readonly redisConfiguration!: pulumi.Output<{ aofBackupEnabled?: boolean, aofStorageConnectionString0?: string, aofStorageConnectionString1?: string, enableAuthentication?: boolean, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -214,7 +136,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly shardCount!: pulumi.Output<number | undefined>;
     /**
-     * The SKU of Redis to use - can be either Basic, Standard or Premium.
+     * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
@@ -274,9 +196,6 @@ export class Cache extends pulumi.CustomResource {
             if (!args || args.family === undefined) {
                 throw new Error("Missing required property 'family'");
             }
-            if (!args || args.redisConfiguration === undefined) {
-                throw new Error("Missing required property 'redisConfiguration'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -328,7 +247,7 @@ export interface CacheState {
      */
     readonly enableNonSslPort?: pulumi.Input<boolean>;
     /**
-     * The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
+     * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
     readonly family?: pulumi.Input<string>;
     /**
@@ -367,7 +286,7 @@ export interface CacheState {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    readonly redisConfiguration?: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
+    readonly redisConfiguration?: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, enableAuthentication?: pulumi.Input<boolean>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -382,7 +301,7 @@ export interface CacheState {
      */
     readonly shardCount?: pulumi.Input<number>;
     /**
-     * The SKU of Redis to use - can be either Basic, Standard or Premium.
+     * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      */
     readonly skuName?: pulumi.Input<string>;
     /**
@@ -416,7 +335,7 @@ export interface CacheArgs {
      */
     readonly enableNonSslPort?: pulumi.Input<boolean>;
     /**
-     * The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
+     * The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      */
     readonly family: pulumi.Input<string>;
     /**
@@ -443,7 +362,7 @@ export interface CacheArgs {
     /**
      * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    readonly redisConfiguration: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
+    readonly redisConfiguration?: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, enableAuthentication?: pulumi.Input<boolean>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -454,7 +373,7 @@ export interface CacheArgs {
      */
     readonly shardCount?: pulumi.Input<number>;
     /**
-     * The SKU of Redis to use - can be either Basic, Standard or Premium.
+     * The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
      */
     readonly skuName: pulumi.Input<string>;
     /**

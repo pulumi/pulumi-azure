@@ -3,5 +3,10 @@
 
 // Export members:
 export * from "./account";
+export * from "./cassandraKeyspace";
 export * from "./getAccount";
+export * from "./mongoCollection";
+export * from "./mongoDatabase";
+export * from "./sqlDatabase";
+export * from "./table";
 export * from "./zMixins";

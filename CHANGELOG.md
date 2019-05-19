@@ -6,6 +6,7 @@
 - Fixed bug #2511, which resulted in crashes when updating many properties of an
   `azure.containerservice.KubernetesCluster`.
 - Fix a bug where omitting a location would result in the initial failure of `pulumi preview` (#239).
+- Updated the provider to be based on version 1.28.0 of the AzureRM Terraform proivder.
 
 ## 0.18.2 (Released May 6th, 2019)
 

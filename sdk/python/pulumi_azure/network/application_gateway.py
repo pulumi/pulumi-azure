@@ -13,6 +13,10 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     One or more `authentication_certificate` blocks as defined below.
     """
+    autoscale_configuration: pulumi.Output[dict]
+    """
+    A `autoscale_configuration` block as defined below.
+    """
     backend_address_pools: pulumi.Output[list]
     """
     One or more `backend_address_pool` blocks as defined below.
@@ -97,13 +101,14 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A collection of availability zones to spread the Application Gateway over.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, sku=None, ssl_certificates=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, sku=None, ssl_certificates=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None, __name__=None, __opts__=None):
         """
         Manages an Application Gateway.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param pulumi.Input[dict] autoscale_configuration: A `autoscale_configuration` block as defined below.
         :param pulumi.Input[list] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
         :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
         :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
@@ -142,6 +147,8 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__ = dict()
 
         __props__['authentication_certificates'] = authentication_certificates
+
+        __props__['autoscale_configuration'] = autoscale_configuration
 
         if backend_address_pools is None:
             raise TypeError("Missing required property 'backend_address_pools'")

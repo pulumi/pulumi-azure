@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  *     name: name,
  *     resourceGroupName: resourceGroupName,
  * }));
- * const testDiagnosticCategories = azurerm_key_vault_test.id.apply(id => azure.monitoring.getDiagnosticCategories({
- *     resourceId: id,
+ * const testDiagnosticCategories = testKeyVault.apply(testKeyVault => azure.monitoring.getDiagnosticCategories({
+ *     resourceId: testKeyVault.id,
  * }));
  * ```
  */

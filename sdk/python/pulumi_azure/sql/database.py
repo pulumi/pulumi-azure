@@ -50,6 +50,10 @@ class Database(pulumi.CustomResource):
     """
     The name of the database.
     """
+    read_scale: pulumi.Output[bool]
+    """
+    Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
+    """
     requested_service_objective_id: pulumi.Output[str]
     """
     Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
@@ -87,7 +91,7 @@ class Database(pulumi.CustomResource):
     """
     Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
     """
-    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, import_=None, location=None, max_size_bytes=None, name=None, read_scale=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, threat_detection_policy=None, __name__=None, __opts__=None):
         """
         Allows you to manage an Azure SQL Database
         
@@ -101,6 +105,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] max_size_bytes: The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         :param pulumi.Input[str] name: The name of the database.
+        :param pulumi.Input[bool] read_scale: Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
         :param pulumi.Input[str] requested_service_objective_id: Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
                Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
         :param pulumi.Input[str] requested_service_objective_name: Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
@@ -142,6 +147,8 @@ class Database(pulumi.CustomResource):
         __props__['max_size_bytes'] = max_size_bytes
 
         __props__['name'] = name
+
+        __props__['read_scale'] = read_scale
 
         __props__['requested_service_objective_id'] = requested_service_objective_id
 
