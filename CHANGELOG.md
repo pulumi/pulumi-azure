@@ -3,6 +3,7 @@
 ## Improvements
 
 - Serverless mixins now support the Event Hubs and Cosmos DB triggers.
+- Extension-level host settings in serverless functions.
 - Fixed bug #2511, which resulted in crashes when updating many properties of an
   `azure.containerservice.KubernetesCluster`.
 - Fix a bug where omitting a location would result in the initial failure of `pulumi preview` (#239).

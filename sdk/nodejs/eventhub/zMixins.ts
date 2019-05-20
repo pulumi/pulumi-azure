@@ -82,6 +82,34 @@ export interface TopicContext extends appservice.Context<void> {
 }
 
 /**
+ * Host settings specific to the Service Bus Topic/Subscription plugin.
+ *
+ * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-service-bus#host-json
+ */
+export interface TopicHostSettings extends appservice.HostSettings {
+    extensions?: {
+        serviceBus: {
+            /** The default PrefetchCount that will be used by the underlying MessageReceiver. */
+            prefetchCount?: number,
+            
+            messageHandlerOptions?: {
+                /** Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete. */
+                autoComplete?: boolean,
+
+                /** The maximum number of concurrent calls to the callback that the message pump should initiate. 
+                 * By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only 
+                 * a single queue or topic message at a time, set maxConcurrentCalls to 1. 
+                 */
+                maxConcurrentCalls?: number,
+
+                /** The maximum duration within which the message lock will be renewed automatically. */
+                maxAutoRenewDuration?: string,
+            },
+        }
+    }    
+}
+
+/**
  * Signature of the callback that can receive topic notifications.
  */
 export type TopicCallback = appservice.Callback<TopicContext, string, void>;
@@ -116,6 +144,12 @@ export type TopicEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      * used.
      */
     location?: pulumi.Input<string>;
+
+    /** 
+     * Host settings specific to the Service Bus Topic/Subscription plugin. These values can be provided here, or defaults will 
+     * be used in their place. 
+     */
+    hostSettings?: TopicHostSettings;
 }>;
 
 declare module "./topic" {
