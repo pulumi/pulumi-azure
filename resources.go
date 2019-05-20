@@ -920,6 +920,7 @@ func Provider() tfbridge.ProviderInfo {
 						DestFiles: []string{
 							"zMixins.ts",
 							"zMixins_http.ts",
+							"zMixins_timer.ts",
 						},
 					},
 					"cosmosdb": {

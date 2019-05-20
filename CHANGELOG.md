@@ -2,7 +2,7 @@
 
 ## Improvements
 
-- Serverless mixins now support the Event Hubs and Cosmos DB triggers.
+- Serverless mixins now support the Event Hubs, Cosmos DB, and Timer trigger.
 - Extension-level host settings in serverless functions.
 - Fixed bug #2511, which resulted in crashes when updating many properties of an
   `azure.containerservice.KubernetesCluster`.

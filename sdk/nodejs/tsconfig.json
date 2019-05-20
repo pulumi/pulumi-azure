@@ -60,6 +60,7 @@
         "appservice/slot.ts",
         "appservice/zMixins.ts",
         "appservice/zMixins_http.ts",
+        "appservice/zMixins_timer.ts",
         "automation/account.ts",
         "automation/boolVariable.ts",
         "automation/credential.ts",
