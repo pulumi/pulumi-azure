@@ -34,6 +34,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	if args == nil {
 		inputs["addonProfile"] = nil
 		inputs["agentPoolProfile"] = nil
+		inputs["apiServerAuthorizedIpRanges"] = nil
 		inputs["dnsPrefix"] = nil
 		inputs["kubernetesVersion"] = nil
 		inputs["linuxProfile"] = nil
@@ -47,6 +48,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	} else {
 		inputs["addonProfile"] = args.AddonProfile
 		inputs["agentPoolProfile"] = args.AgentPoolProfile
+		inputs["apiServerAuthorizedIpRanges"] = args.ApiServerAuthorizedIpRanges
 		inputs["dnsPrefix"] = args.DnsPrefix
 		inputs["kubernetesVersion"] = args.KubernetesVersion
 		inputs["linuxProfile"] = args.LinuxProfile
@@ -79,6 +81,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 	if state != nil {
 		inputs["addonProfile"] = state.AddonProfile
 		inputs["agentPoolProfile"] = state.AgentPoolProfile
+		inputs["apiServerAuthorizedIpRanges"] = state.ApiServerAuthorizedIpRanges
 		inputs["dnsPrefix"] = state.DnsPrefix
 		inputs["fqdn"] = state.Fqdn
 		inputs["kubeAdminConfig"] = state.KubeAdminConfig
@@ -121,6 +124,11 @@ func (r *KubernetesCluster) AddonProfile() *pulumi.Output {
 // An `agent_pool_profile` block.  Currently only one agent pool can exist.
 func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
 	return r.s.State["agentPoolProfile"]
+}
+
+// The IP ranges to whitelist for incoming traffic to the masters.
+func (r *KubernetesCluster) ApiServerAuthorizedIpRanges() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["apiServerAuthorizedIpRanges"])
 }
 
 // DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -209,6 +217,8 @@ type KubernetesClusterState struct {
 	AddonProfile interface{}
 	// An `agent_pool_profile` block.  Currently only one agent pool can exist.
 	AgentPoolProfile interface{}
+	// The IP ranges to whitelist for incoming traffic to the masters.
+	ApiServerAuthorizedIpRanges interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
@@ -249,6 +259,8 @@ type KubernetesClusterArgs struct {
 	AddonProfile interface{}
 	// An `agent_pool_profile` block.  Currently only one agent pool can exist.
 	AgentPoolProfile interface{}
+	// The IP ranges to whitelist for incoming traffic to the masters.
+	ApiServerAuthorizedIpRanges interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
 	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).

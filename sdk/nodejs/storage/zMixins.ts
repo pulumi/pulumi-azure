@@ -262,6 +262,32 @@ export interface QueueContext extends appservice.Context<void> {
 }
 
 /**
+ * Host settings specific to the Storage Queue plugin.
+ *
+ * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#host-json
+ */
+export interface QueueHostSettings extends appservice.HostSettings {
+    extensions?: {
+        queues: {
+            /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
+            maxPollingInterval?: string,
+
+            /** The time interval between retries when processing of a message fails. */
+            visibilityTimeout?: string,
+
+            /** The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. */
+            batchSize?: number,
+
+            /** The number of times to try processing a message before moving it to the poison queue. */
+            maxDequeueCount?: number,
+
+            /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
+            newBatchThreshold?: number,
+        }
+    }    
+}
+
+/**
  * Signature of the callback that can receive queue notifications.
  */
 export type QueueCallback = appservice.Callback<QueueContext, Buffer, void>;
@@ -285,6 +311,12 @@ export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      * used.
      */
     location?: pulumi.Input<string>;
+
+    /** 
+     * Host settings specific to the Storage Queue plugin. These values can be provided here, or defaults will 
+     * be used in their place. 
+     */
+    hostSettings?: QueueHostSettings;
 }>;
 
 declare module "./queue" {

@@ -21,6 +21,10 @@ class Pool(pulumi.CustomResource):
     """
     One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
     """
+    container_configuration: pulumi.Output[dict]
+    """
+    The container configuration used in the pool's VMs.
+    """
     display_name: pulumi.Output[str]
     """
     Specifies the display name of the Batch pool.
@@ -58,7 +62,7 @@ class Pool(pulumi.CustomResource):
     """
     Specifies the size of the VM created in the Batch pool.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, auto_scale=None, certificates=None, display_name=None, fixed_scale=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, auto_scale=None, certificates=None, container_configuration=None, display_name=None, fixed_scale=None, max_tasks_per_node=None, name=None, node_agent_sku_id=None, resource_group_name=None, start_task=None, stop_pending_resize_operation=None, storage_image_reference=None, vm_size=None, __name__=None, __opts__=None):
         """
         Manages an Azure Batch pool.
         
@@ -67,6 +71,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] auto_scale: A `auto_scale` block that describes the scale settings when using auto scale.
         :param pulumi.Input[list] certificates: One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+        :param pulumi.Input[dict] container_configuration: The container configuration used in the pool's VMs.
         :param pulumi.Input[str] display_name: Specifies the display name of the Batch pool.
         :param pulumi.Input[dict] fixed_scale: A `fixed_scale` block that describes the scale settings when using fixed scale.
         :param pulumi.Input[float] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
@@ -99,6 +104,8 @@ class Pool(pulumi.CustomResource):
         __props__['auto_scale'] = auto_scale
 
         __props__['certificates'] = certificates
+
+        __props__['container_configuration'] = container_configuration
 
         __props__['display_name'] = display_name
 

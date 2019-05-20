@@ -32,6 +32,34 @@ export type HttpRequest = azurefunctions.HttpRequest;
  */
 export type HttpResponse = azureessentials.HttpResponse;
 
+/**
+ * Host settings specific to the HTTP plugin.
+ *
+ * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json#http
+ */
+export interface HttpHostSettings extends mod.HostSettings {
+    extensions?: {
+        http: {
+            /** The route prefix that applies to all routes. Use an empty string to remove the default prefix. */
+            routePrefix?: string,
+        
+            /** The maximum number of outstanding requests that are held at any given time. */
+            maxOutstandingRequests?: number,
+        
+            /** The maximum number of http functions that will be executed in parallel. */
+            maxConcurrentRequests?: number,
+        
+            /**
+             * When enabled, this setting causes the request processing pipeline to periodically check system performance 
+             * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in 
+             * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return 
+             * to normal levels.
+             */
+            dynamicThrottlesEnabled?: boolean,
+        }
+    }    
+}
+
 export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
     /**
      * The resource group in which to create the event subscription.  Either [resourceGroupName] or
@@ -63,6 +91,12 @@ export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppAr
      * responds to all HTTP methods.
      */
     methods?: pulumi.Input<pulumi.Input<string>[]>;
+
+    /** 
+     * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will 
+     * be used in their place. 
+     */
+    hostSettings?: HttpHostSettings;
 }>;
 
 interface HttpBindingDefinition extends mod.BindingDefinition {
@@ -106,9 +140,12 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
             resourceGroupName,
         }, opts);
 
-        this.url = args.route
-            ? pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/{${args.route}}`
-            : pulumi.interpolate`https://${this.functionApp.defaultHostname}/api/${name}`;
+        const routePrefix = args.hostSettings && args.hostSettings.extensions && args.hostSettings.extensions.http.routePrefix;
+        const rootPath = routePrefix === "" ? "" : `${routePrefix === undefined ? "api" : routePrefix}/`;
+
+        const functionPath = args.route === undefined ? name : `{${args.route}}`;
+
+        this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/${rootPath}${functionPath}`;
 
         this.registerOutputs();
     }

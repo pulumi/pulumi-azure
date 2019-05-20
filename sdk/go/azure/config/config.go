@@ -60,7 +60,6 @@ func GetEnvironment(ctx *pulumi.Context) string {
 	if dv, ok := getEnvOrDefault("public", nil, "ARM_ENVIRONMENT").(string); ok {
 		return dv
 	}
-	panic(err.Error())
 	return v
 }
 

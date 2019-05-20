@@ -15,7 +15,7 @@ class Assignment(pulumi.CustomResource):
     """
     principal_id: pulumi.Output[str]
     """
-    The ID of the Principal (User or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
+    The ID of the Principal (User or Application) to assign the Role Definition to. Changing this forces a new resource to be created. For an application, make sure to use the "object ID" (and not the "Application ID").
     """
     role_definition_id: pulumi.Output[str]
     """
@@ -36,7 +36,7 @@ class Assignment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] principal_id: The ID of the Principal (User or Application) to assign the Role Definition to. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] principal_id: The ID of the Principal (User or Application) to assign the Role Definition to. Changing this forces a new resource to be created. For an application, make sure to use the "object ID" (and not the "Application ID").
         :param pulumi.Input[str] role_definition_id: The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
         :param pulumi.Input[str] role_definition_name: The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
         :param pulumi.Input[str] scope: The scope at which the Role Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.

@@ -270,7 +270,7 @@ export class ScaleSet extends pulumi.CustomResource {
     /**
      * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
      */
-    public readonly extensions!: pulumi.Output<{ autoUpgradeMinorVersion?: boolean, name: string, protectedSettings?: string, publisher: string, settings?: string, type: string, typeHandlerVersion: string }[] | undefined>;
+    public readonly extensions!: pulumi.Output<{ autoUpgradeMinorVersion?: boolean, name: string, protectedSettings?: string, provisionAfterExtensions?: string[], publisher: string, settings?: string, type: string, typeHandlerVersion: string }[] | undefined>;
     /**
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
      */
@@ -478,7 +478,7 @@ export interface ScaleSetState {
     /**
      * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
      */
-    readonly extensions?: pulumi.Input<pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }>[]>;
+    readonly extensions?: pulumi.Input<pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }>[]>;
     /**
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
      */
@@ -589,7 +589,7 @@ export interface ScaleSetArgs {
     /**
      * Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
      */
-    readonly extensions?: pulumi.Input<pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }>[]>;
+    readonly extensions?: pulumi.Input<pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }>[]>;
     /**
      * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
      */

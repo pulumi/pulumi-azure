@@ -167,7 +167,7 @@ export interface HostSettings {
      * See https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json#aggregator for
      * more details.
      */
-    aggregator: {
+    aggregator?: {
         /** Maximum number of requests to aggregate. Defaults to 1000 */
         batchSize: number,
         /** Maximum time period to aggregate.  Defaults to "00:00:30" */
@@ -179,13 +179,13 @@ export interface HostSettings {
      * plan, there is no overall limit and the default depends on the runtime version. In version
      * 2.x, the default value for an App Service plan is 30 minutes.
      */
-    functionTimeout: string,
+    functionTimeout?: string,
 
     /**
      * Configuration settings for
      * [host-health-monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
      */
-    healthMonitor: {
+    healthMonitor?: {
         /** Specifies whether the feature is enabled. Defaults to `true` */
         enabled: boolean,
         /** The time interval between the periodic background health checks. Defaults to 10 seconds. */
@@ -205,7 +205,7 @@ export interface HostSettings {
         counterThreshold: number
     },
     /** Controls the logging behaviors of the function app, including Application Insights. */
-    logging: {
+    logging?: {
         /** Defines what level of file logging is enabled.  Defaults to `debugOnly` */
         fileLoggingMode: "never" | "only" | "debugOnly",
         logLevel: {
@@ -226,7 +226,7 @@ export interface HostSettings {
      * [GitHub-issue](https://github.com/Azure/azure-webjobs-sdk-script/issues/912) about singleton
      * support.
      */
-    singleton: {
+    singleton?: {
         /** The period that function level locks are taken for. The locks auto-renew. */
         lockPeriod: string,
         /** The period that listener locks are taken for. */

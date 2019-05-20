@@ -61,6 +61,10 @@ class Slot(pulumi.CustomResource):
     """
     A `site_config` object as defined below.
     """
+    site_credential: pulumi.Output[dict]
+    """
+    A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
@@ -135,6 +139,7 @@ class Slot(pulumi.CustomResource):
         __props__['tags'] = tags
 
         __props__['default_site_hostname'] = None
+        __props__['site_credential'] = None
 
         if opts is None:
             opts = pulumi.ResourceOptions()

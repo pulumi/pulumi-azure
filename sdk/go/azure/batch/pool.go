@@ -36,6 +36,7 @@ func NewPool(ctx *pulumi.Context,
 		inputs["accountName"] = nil
 		inputs["autoScale"] = nil
 		inputs["certificates"] = nil
+		inputs["containerConfiguration"] = nil
 		inputs["displayName"] = nil
 		inputs["fixedScale"] = nil
 		inputs["maxTasksPerNode"] = nil
@@ -50,6 +51,7 @@ func NewPool(ctx *pulumi.Context,
 		inputs["accountName"] = args.AccountName
 		inputs["autoScale"] = args.AutoScale
 		inputs["certificates"] = args.Certificates
+		inputs["containerConfiguration"] = args.ContainerConfiguration
 		inputs["displayName"] = args.DisplayName
 		inputs["fixedScale"] = args.FixedScale
 		inputs["maxTasksPerNode"] = args.MaxTasksPerNode
@@ -77,6 +79,7 @@ func GetPool(ctx *pulumi.Context,
 		inputs["accountName"] = state.AccountName
 		inputs["autoScale"] = state.AutoScale
 		inputs["certificates"] = state.Certificates
+		inputs["containerConfiguration"] = state.ContainerConfiguration
 		inputs["displayName"] = state.DisplayName
 		inputs["fixedScale"] = state.FixedScale
 		inputs["maxTasksPerNode"] = state.MaxTasksPerNode
@@ -118,6 +121,11 @@ func (r *Pool) AutoScale() *pulumi.Output {
 // One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
 func (r *Pool) Certificates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["certificates"])
+}
+
+// The container configuration used in the pool's VMs.
+func (r *Pool) ContainerConfiguration() *pulumi.Output {
+	return r.s.State["containerConfiguration"]
 }
 
 // Specifies the display name of the Batch pool.
@@ -177,6 +185,8 @@ type PoolState struct {
 	AutoScale interface{}
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
 	Certificates interface{}
+	// The container configuration used in the pool's VMs.
+	ContainerConfiguration interface{}
 	// Specifies the display name of the Batch pool.
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
@@ -206,6 +216,8 @@ type PoolArgs struct {
 	AutoScale interface{}
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
 	Certificates interface{}
+	// The container configuration used in the pool's VMs.
+	ContainerConfiguration interface{}
 	// Specifies the display name of the Batch pool.
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.

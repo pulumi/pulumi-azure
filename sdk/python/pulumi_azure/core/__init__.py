@@ -9,3 +9,4 @@ from .get_client_config import *
 from .get_resource_group import *
 from .get_subscription import *
 from .get_subscriptions import *
+from .get_user_assigned_identity import *

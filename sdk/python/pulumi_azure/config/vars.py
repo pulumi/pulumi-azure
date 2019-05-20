@@ -18,7 +18,7 @@ client_id = __config__.get('clientId') or (utilities.get_env('ARM_CLIENT_ID') or
 
 client_secret = __config__.get('clientSecret') or (utilities.get_env('ARM_CLIENT_SECRET') or '')
 
-environment = utilities.require_with_default(lambda: __config__.require('environment'), (utilities.get_env('ARM_ENVIRONMENT') or 'public'))
+environment = __config__.get('environment') or (utilities.get_env('ARM_ENVIRONMENT') or 'public')
 
 msi_endpoint = __config__.get('msiEndpoint') or (utilities.get_env('ARM_MSI_ENDPOINT') or '')
 

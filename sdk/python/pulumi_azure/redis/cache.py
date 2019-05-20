@@ -19,7 +19,7 @@ class Cache(pulumi.CustomResource):
     """
     family: pulumi.Output[str]
     """
-    The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
+    The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
     """
     hostname: pulumi.Output[str]
     """
@@ -73,7 +73,7 @@ class Cache(pulumi.CustomResource):
     """
     sku_name: pulumi.Output[str]
     """
-    The SKU of Redis to use - can be either Basic, Standard or Premium.
+    The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
     """
     ssl_port: pulumi.Output[float]
     """
@@ -99,16 +99,20 @@ class Cache(pulumi.CustomResource):
         
         | Redis Value                     | Basic        | Standard     | Premium      |
         | ------------------------------- | ------------ | ------------ | ------------ |
+        | enable_authentication           | true         | true         | true         |
         | maxmemory_reserved              | 2            | 50           | 200          |
         | maxfragmentationmemory_reserved | 2            | 50           | 200          |
         | maxmemory_delta                 | 2            | 50           | 200          |
         | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
         
-        _*Important*: The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+        > **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
         
-        * `patch_schedule` supports the following:
+        ---
+        
+        A `patch_schedule` block supports the following:
         
         * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+        
         * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
         
         > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
@@ -122,7 +126,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
         :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6789) - disabled by default.
-        :param pulumi.Input[str] family: The SKU family to use. Valid values are `C` and `P`, where C = Basic/Standard, P = Premium.
+        :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
         :param pulumi.Input[str] location: The location of the resource group.
         :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
         :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
@@ -133,7 +137,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Redis instance.
         :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
-        :param pulumi.Input[str] sku_name: The SKU of Redis to use - can be either Basic, Standard or Premium.
+        :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
@@ -173,8 +177,6 @@ class Cache(pulumi.CustomResource):
 
         __props__['private_static_ip_address'] = private_static_ip_address
 
-        if redis_configuration is None:
-            raise TypeError("Missing required property 'redis_configuration'")
         __props__['redis_configuration'] = redis_configuration
 
         if resource_group_name is None:

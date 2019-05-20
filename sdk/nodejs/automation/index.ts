@@ -3,9 +3,17 @@
 
 // Export members:
 export * from "./account";
+export * from "./boolVariable";
 export * from "./credential";
+export * from "./dateTimeVariable";
 export * from "./dscConfiguration";
 export * from "./dscNodeConfiguration";
+export * from "./getBoolVariable";
+export * from "./getDateTimeVariable";
+export * from "./getIntVariable";
+export * from "./getStringVariable";
+export * from "./intVariable";
 export * from "./module";
 export * from "./runBook";
 export * from "./schedule";
+export * from "./stringVariable";

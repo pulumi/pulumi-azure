@@ -55,6 +55,7 @@ func NewJob(ctx *pulumi.Context,
 		inputs["outputErrorPolicy"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["streamingUnits"] = nil
+		inputs["tags"] = nil
 		inputs["transformationQuery"] = nil
 	} else {
 		inputs["compatibilityLevel"] = args.CompatibilityLevel
@@ -67,6 +68,7 @@ func NewJob(ctx *pulumi.Context,
 		inputs["outputErrorPolicy"] = args.OutputErrorPolicy
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["streamingUnits"] = args.StreamingUnits
+		inputs["tags"] = args.Tags
 		inputs["transformationQuery"] = args.TransformationQuery
 	}
 	inputs["jobId"] = nil
@@ -94,6 +96,7 @@ func GetJob(ctx *pulumi.Context,
 		inputs["outputErrorPolicy"] = state.OutputErrorPolicy
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["streamingUnits"] = state.StreamingUnits
+		inputs["tags"] = state.Tags
 		inputs["transformationQuery"] = state.TransformationQuery
 	}
 	s, err := ctx.ReadResource("azure:streamanalytics/job:Job", name, id, inputs, opts...)
@@ -168,6 +171,11 @@ func (r *Job) StreamingUnits() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["streamingUnits"])
 }
 
+// A mapping of tags assigned to the resource.
+func (r *Job) Tags() *pulumi.MapOutput {
+	return (*pulumi.MapOutput)(r.s.State["tags"])
+}
+
 // Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 func (r *Job) TransformationQuery() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["transformationQuery"])
@@ -197,6 +205,8 @@ type JobState struct {
 	ResourceGroupName interface{}
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	StreamingUnits interface{}
+	// A mapping of tags assigned to the resource.
+	Tags interface{}
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery interface{}
 }
@@ -223,6 +233,8 @@ type JobArgs struct {
 	ResourceGroupName interface{}
 	// Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`.
 	StreamingUnits interface{}
+	// A mapping of tags assigned to the resource.
+	Tags interface{}
 	// Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
 	TransformationQuery interface{}
 }

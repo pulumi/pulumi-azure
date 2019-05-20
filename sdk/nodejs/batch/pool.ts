@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "%s",
+ *     location: "West Europe",
  *     name: "testaccbatch",
  * });
  * const testStorageAccount = new azure.storage.Account("test", {
@@ -60,6 +60,9 @@ import * as utilities from "../utilities";
  *         id: testcer.id,
  *         visibilities: ["StartTask"],
  *     }],
+ *     containerConfiguration: {
+ *         type: "DockerCompatible",
+ *     },
  *     displayName: "Test Acc Pool Auto",
  *     name: "testaccpool",
  *     nodeAgentSkuId: "batch.node.ubuntu 16.04",
@@ -79,9 +82,9 @@ import * as utilities from "../utilities";
  *         waitForSuccess: true,
  *     },
  *     storageImageReference: {
- *         offer: "UbuntuServer",
- *         publisher: "Canonical",
- *         sku: "16.04.0-LTS",
+ *         offer: "ubuntu-server-container",
+ *         publisher: "microsoft-azure-batch",
+ *         sku: "16-04-lts",
  *         version: "latest",
  *     },
  *     vmSize: "Standard_A1",
@@ -113,6 +116,10 @@ export class Pool extends pulumi.CustomResource {
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
     public readonly certificates!: pulumi.Output<{ id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[] | undefined>;
+    /**
+     * The container configuration used in the pool's VMs.
+     */
+    public readonly containerConfiguration!: pulumi.Output<{ type?: string } | undefined>;
     /**
      * Specifies the display name of the Batch pool.
      */
@@ -166,6 +173,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["accountName"] = state ? state.accountName : undefined;
             inputs["autoScale"] = state ? state.autoScale : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;
+            inputs["containerConfiguration"] = state ? state.containerConfiguration : undefined;
             inputs["displayName"] = state ? state.displayName : undefined;
             inputs["fixedScale"] = state ? state.fixedScale : undefined;
             inputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
@@ -196,6 +204,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["autoScale"] = args ? args.autoScale : undefined;
             inputs["certificates"] = args ? args.certificates : undefined;
+            inputs["containerConfiguration"] = args ? args.containerConfiguration : undefined;
             inputs["displayName"] = args ? args.displayName : undefined;
             inputs["fixedScale"] = args ? args.fixedScale : undefined;
             inputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
@@ -234,6 +243,10 @@ export interface PoolState {
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
     readonly certificates?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, storeLocation: pulumi.Input<string>, storeName?: pulumi.Input<string>, visibilities?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    /**
+     * The container configuration used in the pool's VMs.
+     */
+    readonly containerConfiguration?: pulumi.Input<{ type?: pulumi.Input<string> }>;
     /**
      * Specifies the display name of the Batch pool.
      */
@@ -289,6 +302,10 @@ export interface PoolArgs {
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
     readonly certificates?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, storeLocation: pulumi.Input<string>, storeName?: pulumi.Input<string>, visibilities?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    /**
+     * The container configuration used in the pool's VMs.
+     */
+    readonly containerConfiguration?: pulumi.Input<{ type?: pulumi.Input<string> }>;
     /**
      * Specifies the display name of the Batch pool.
      */

@@ -25,6 +25,7 @@ func LookupPool(ctx *pulumi.Context, args *GetPoolArgs) (*GetPoolResult, error) 
 		AccountName: outputs["accountName"],
 		AutoScales: outputs["autoScales"],
 		Certificates: outputs["certificates"],
+		ContainerConfigurations: outputs["containerConfigurations"],
 		DisplayName: outputs["displayName"],
 		FixedScales: outputs["fixedScales"],
 		MaxTasksPerNode: outputs["maxTasksPerNode"],
@@ -55,6 +56,8 @@ type GetPoolResult struct {
 	AutoScales interface{}
 	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
 	Certificates interface{}
+	// The container configuration used in the pool's VMs.
+	ContainerConfigurations interface{}
 	DisplayName interface{}
 	// A `fixed_scale` block that describes the scale settings when using fixed scale.
 	FixedScales interface{}

@@ -94,7 +94,7 @@ func (r *Plan) AppServiceEnvironmentId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["appServiceEnvironmentId"])
 }
 
-// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 func (r *Plan) Kind() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kind"])
 }
@@ -147,7 +147,7 @@ func (r *Plan) Tags() *pulumi.MapOutput {
 type PlanState struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId interface{}
-	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -172,7 +172,7 @@ type PlanState struct {
 type PlanArgs struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId interface{}
-	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux` and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
+	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
