@@ -21,8 +21,6 @@ import * as appservice from "../appservice";
 import * as core from "../core";
 import * as storage from "../storage";
 import * as util from "../util";
-import { AzureFunctionArgs } from "../appservice";
-import { promises } from "fs";
 
 interface BlobBindingDefinition extends appservice.BindingDefinition {
     /**
@@ -391,7 +389,10 @@ interface QueueOutputBindingDefinition extends appservice.BindingDefinition {
     connection: string;
 }
 
-export class QueueOutputBinding extends appservice.AzureFunctionOutputBinding {
+export class QueueOutputBinding implements appservice.AzureFunctionOutputBinding {
+    public readonly definition: pulumi.Output<appservice.BindingDefinition>;
+    public readonly appSettings: pulumi.Output<{ [key: string]: string }>;
+
     constructor(name: string, queue: Queue) {
 
         const bindingConnectionKey = pulumi.interpolate`${queue.storageAccountName}ConnectionStringKey`;
@@ -406,13 +407,13 @@ export class QueueOutputBinding extends appservice.AzureFunctionOutputBinding {
         }));
     
         const account = pulumi.all([queue.resourceGroupName, queue.storageAccountName])
-                            .apply(([resourceGroupName, storageAccountName]) =>
+                                .apply(([resourceGroupName, storageAccountName]) =>
                                 storage.getAccount({ resourceGroupName, name: storageAccountName }));
     
-        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
-            ([connectionString, key]) => ({ [key]: connectionString }));
     
-        super(binding);
+        this.definition = binding;
+        this.appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
     }
 }
 

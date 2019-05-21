@@ -21,6 +21,8 @@ import * as mod from ".";
 
 import * as core from "../core";
 import * as util from "../util";
+import { AzureFunctionArgs } from "./zMixins";
+import { appservice } from "..";
 
 /**
  * HTTP request object. Provided to your function when using HttpEventSubscription.
@@ -31,6 +33,9 @@ export type HttpRequest = azurefunctions.HttpRequest;
  * Represents an HTTP response including the status code and data.
  */
 export type HttpResponse = azureessentials.HttpResponse;
+/**
+ * Represents an HTTP response plus arbitrary properties to be used for output bindings.
+ */
 export type ExtendedHttpResponse = {
     response: azureessentials.HttpResponse;
     [key: string]: any;
@@ -175,7 +180,7 @@ export class HttpFunction extends mod.AzureFunction {
     
     constructor(name: string, args: HttpFunctionArgs) {
 
-        const outputBindings = args.outputBindings !== undefined ? args.outputBindings.map(b => b.definition) : [];
+        const outputBindings = args.outputBindings !== undefined ? args.outputBindings : [];
 
         const bindings: HttpBindingDefinition[] = [{
             authLevel: "anonymous",
@@ -190,9 +195,10 @@ export class HttpFunction extends mod.AzureFunction {
             name: outputBindings.length > 0 ? "response" : "$return",
         }];
 
+        const appSettings = pulumi.all(outputBindings.map(b => b.appSettings)).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
     
-        const definition = pulumi.all([mod.serializeFunctionCallback(args), outputBindings]).apply(
-            ([func, outputs]) => ({ name, bindings: bindings.concat(outputs), func }));
+        const definition = pulumi.all([mod.serializeFunctionCallback(args), outputBindings.map(b => b.definition), appSettings]).apply(
+            ([func, outputs, appSettings]) => (<AzureFunctionArgs>{ name, bindings: bindings.concat(outputs), func, appSettings }));
 
         super(definition);
     }

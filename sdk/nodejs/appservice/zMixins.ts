@@ -23,7 +23,6 @@ import * as appservice from "../appservice";
 import * as core from "../core";
 import * as storageForTypesOnly from "../storage";
 import * as util from "../util";
-import { OutputServiceBusQueue } from "../streamanalytics";
 
 /**
  * An object containing output binding data. This value will be passed to JSON.stringify unless it
@@ -548,6 +547,8 @@ export interface AzureFunctionArgs {
     appSettings?: { [key: string]: string };
 }
 
+// TODO: Should we inherit from pulumi.ComponentResource? If so, we should probably set parent to the Function App, but
+// how do we do so if Functions are created before the app (see the sample).
 export abstract class AzureFunction {
     public readonly definition: pulumi.Output<AzureFunctionArgs>;
 
@@ -557,16 +558,12 @@ export abstract class AzureFunction {
     }
 }
 
-export abstract class AzureFunctionOutputBinding {
-    public readonly definition: pulumi.Output<BindingDefinition>;
-
-    constructor(definition: pulumi.Output<BindingDefinition>) {
-
-        this.definition = definition;
-    }
+export interface AzureFunctionOutputBinding {
+    readonly definition: pulumi.Output<BindingDefinition>;
+    readonly appSettings: pulumi.Output<{ [key: string]: string }>;
 }
 
-function serializeCallbacks(args: MultiFunctionAppArgs): pulumi.Output<pulumi.asset.AssetMap> {
+function produceDeploymentPackage(args: MultiFunctionAppArgs): pulumi.Output<pulumi.asset.AssetMap> {
     
     if (args.functions === undefined) {
         throw new Error("Can not serialize undefined Azure Functions");
@@ -607,22 +604,19 @@ function serializeCallbacks(args: MultiFunctionAppArgs): pulumi.Output<pulumi.as
 function combineAppSettings(args: MultiFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
     
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.definition.apply(b => b.appSettings)) : [];
-    return pulumi.all([args.appSettings, ...perFunctionSettings]).apply(items => {
-
-            let appSettings = {};
-
-            for (const item of items) {
-                appSettings = { ...appSettings, ...item };            
-            }
-
-            return appSettings;
-        });
+    return pulumi.all([args.appSettings, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
 }
 
 export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
 
+    /**
+     * The functions to deploy as parts of this application.
+     */
     functions?: AzureFunction[];
 
+    /**
+     * The deployment package to deploy as-is (ignoring the 'functions' property).
+     */
     archive?: pulumi.Input<pulumi.asset.Archive>;
 
     /**
@@ -683,6 +677,7 @@ export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
     appServicePlanId?: never;
 }>;
 
+// TODO: Better name? Move to azure.functions.*?
 export class MultiFunctionApp extends FunctionApp {
     /**
      * Storage account where the FunctionApp's zipbBlob is uploaded to.
@@ -735,7 +730,7 @@ export class MultiFunctionApp extends FunctionApp {
 
         const archive = args.archive !== undefined 
             ? args.archive
-            : serializeCallbacks(args).apply(m => new pulumi.asset.AssetArchive(m));
+            : produceDeploymentPackage(args).apply(m => new pulumi.asset.AssetArchive(m));
         const zipBlob = new storageMod.ZipBlob(name, {
             resourceGroupName: args.resourceGroupName,
             storageAccountName: account.name,
