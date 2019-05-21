@@ -270,7 +270,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_app_service": {
 				Tok: azureResource(azureAppService, "AppService"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					// Max length of an app service name is 60. 
+					// Max length of an app service name is 60.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
 					azureName: AutoNameWithMaxLength(azureName, 60),
 					"site_config": {
@@ -398,12 +398,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_availability_set": {
 				Tok: azureResource(azureCompute, "AvailabilitySet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					// Max length of an availability set name is 80. 
+					// Max length of an availability set name is 80.
 					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
 					azureName: AutoNameWithMaxLength(azureName, 80),
 				},
 			},
-			"azurerm_virtual_machine_extension":            {Tok: azureResource(azureCompute, "Extension")},
+			"azurerm_virtual_machine_extension": {Tok: azureResource(azureCompute, "Extension")},
 			"azurerm_virtual_machine": {
 				Tok: azureResource(azureCompute, "VirtualMachine"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -690,11 +690,11 @@ func Provider() tfbridge.ProviderInfo {
 					azureName: AutoNameWithMaxLength(azureName, 64),
 				},
 			},
-			"azurerm_virtual_network_peering":                                                {Tok: azureResource(azureNetwork, "VirtualNetworkPeering")},
-			"azurerm_virtual_network_gateway":                                                {Tok: azureResource(azureNetwork, "VirtualNetworkGateway")},
-			"azurerm_virtual_network_gateway_connection":                                     {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection")},
-			"azurerm_local_network_gateway":                                                  {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
-			"azurerm_application_gateway":{
+			"azurerm_virtual_network_peering":            {Tok: azureResource(azureNetwork, "VirtualNetworkPeering")},
+			"azurerm_virtual_network_gateway":            {Tok: azureResource(azureNetwork, "VirtualNetworkGateway")},
+			"azurerm_virtual_network_gateway_connection": {Tok: azureResource(azureNetwork, "VirtualNetworkGatewayConnection")},
+			"azurerm_local_network_gateway":              {Tok: azureResource(azureNetwork, "LocalNetworkGateway")},
+			"azurerm_application_gateway": {
 				Tok: azureResource(azureNetwork, "ApplicationGateway"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of an Application Gateway is 80.
@@ -702,15 +702,15 @@ func Provider() tfbridge.ProviderInfo {
 					azureName: AutoNameWithMaxLength(azureName, 80),
 				},
 			},
-			"azurerm_application_security_group":                                             {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
-			"azurerm_connection_monitor":                                                     {Tok: azureResource(azureNetwork, "ConnectionMonitor")},
-			"azurerm_firewall":                                                               {Tok: azureResource(azureNetwork, "Firewall")},
-			"azurerm_firewall_application_rule_collection":                                   {Tok: azureResource(azureNetwork, "FirewallApplicationRuleCollection")},
-			"azurerm_firewall_nat_rule_collection":                                           {Tok: azureResource(azureNetwork, "FirewallNatRuleCollection")},
-			"azurerm_firewall_network_rule_collection":                                       {Tok: azureResource(azureNetwork, "FirewallNetworkRuleCollection")},
-			"azurerm_network_connection_monitor":                                             {Tok: azureResource(azureNetwork, "NetworkConnectionMonitor")},
-			"azurerm_network_ddos_protection_plan":                                           {Tok: azureResource(azureNetwork, "DdosProtectionPlan")},
-			"azurerm_network_interface":{
+			"azurerm_application_security_group":           {Tok: azureResource(azureNetwork, "ApplicationSecurityGroup")},
+			"azurerm_connection_monitor":                   {Tok: azureResource(azureNetwork, "ConnectionMonitor")},
+			"azurerm_firewall":                             {Tok: azureResource(azureNetwork, "Firewall")},
+			"azurerm_firewall_application_rule_collection": {Tok: azureResource(azureNetwork, "FirewallApplicationRuleCollection")},
+			"azurerm_firewall_nat_rule_collection":         {Tok: azureResource(azureNetwork, "FirewallNatRuleCollection")},
+			"azurerm_firewall_network_rule_collection":     {Tok: azureResource(azureNetwork, "FirewallNetworkRuleCollection")},
+			"azurerm_network_connection_monitor":           {Tok: azureResource(azureNetwork, "NetworkConnectionMonitor")},
+			"azurerm_network_ddos_protection_plan":         {Tok: azureResource(azureNetwork, "DdosProtectionPlan")},
+			"azurerm_network_interface": {
 				Tok: azureResource(azureNetwork, "NetworkInterface"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Network Interface is 80.
@@ -724,7 +724,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_network_interface_nat_rule_association":                                 {Tok: azureResource(azureNetwork, "NetworkInterfaceNatRuleAssociation")},
 			"azurerm_network_packet_capture":                                                 {Tok: azureResource(azureNetwork, "NetworkPacketCapture")},
 			"azurerm_network_profile":                                                        {Tok: azureResource(azureNetwork, "Profile")},
-			"azurerm_network_security_group":{
+			"azurerm_network_security_group": {
 				Tok: azureResource(azureNetwork, "NetworkSecurityGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Network Security Group is 80.
@@ -732,7 +732,7 @@ func Provider() tfbridge.ProviderInfo {
 					azureName: AutoNameWithMaxLength(azureName, 80),
 				},
 			},
-			"azurerm_network_security_rule":{
+			"azurerm_network_security_rule": {
 				Tok: azureResource(azureNetwork, "NetworkSecurityRule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Network Security Rule is 80.
@@ -740,9 +740,9 @@ func Provider() tfbridge.ProviderInfo {
 					azureName: AutoNameWithMaxLength(azureName, 80),
 				},
 			},
-			"azurerm_network_watcher":                                                        {Tok: azureResource(azureNetwork, "NetworkWatcher")},
-			"azurerm_packet_capture":                                                         {Tok: azureResource(azureNetwork, "PacketCapture")},
-			"azurerm_public_ip":{
+			"azurerm_network_watcher": {Tok: azureResource(azureNetwork, "NetworkWatcher")},
+			"azurerm_packet_capture":  {Tok: azureResource(azureNetwork, "PacketCapture")},
+			"azurerm_public_ip": {
 				Tok: azureResource(azureNetwork, "PublicIp"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Public IP Address is 80.
@@ -759,7 +759,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_route":       {Tok: azureResource(azureNetwork, "Route")},
 			"azurerm_route_table": {Tok: azureResource(azureNetwork, "RouteTable")},
-			"azurerm_subnet":{
+			"azurerm_subnet": {
 				Tok: azureResource(azureNetwork, "Subnet"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Subnet is 80.
@@ -783,7 +783,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Traffic Manager
 			"azurerm_traffic_manager_endpoint": {Tok: azureResource(azureTrafficManager, "Endpoint")},
-			"azurerm_traffic_manager_profile":{
+			"azurerm_traffic_manager_profile": {
 				Tok: azureResource(azureTrafficManager, "Profile"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Max length of a Traffic Manager Profile is 80.
