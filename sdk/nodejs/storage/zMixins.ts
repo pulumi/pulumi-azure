@@ -21,6 +21,8 @@ import * as appservice from "../appservice";
 import * as core from "../core";
 import * as storage from "../storage";
 import * as util from "../util";
+import { AzureFunctionArgs } from "../appservice";
+import { promises } from "fs";
 
 interface BlobBindingDefinition extends appservice.BindingDefinition {
     /**
@@ -327,6 +329,9 @@ declare module "./queue" {
          */
         onEvent(
             name: string, args: QueueCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
+
+        onMessage(
+            name: string, args: QueueCallback | QueueEventSubscriptionArgs): QueueFunction;
     }
 }
 
@@ -336,6 +341,79 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
         : args;
 
     return new QueueEventSubscription(name, this, functionArgs, opts);
+}
+
+Queue.prototype.onMessage = function(this: Queue, name, args) {
+    return new QueueFunction(name, this, args);
+}
+
+export class QueueFunction extends appservice.AzureFunction {
+    constructor(name: string,
+        queue: Queue,
+        args: QueueCallback | QueueEventSubscriptionArgs) {
+
+        const functionArgs = args instanceof Function
+            ? <QueueEventSubscriptionArgs>{ callback: args }
+            : args;
+    
+        const bindingConnectionKey = pulumi.interpolate`${queue.storageAccountName}ConnectionStringKey`;
+        
+        const bindings = pulumi.all([bindingConnectionKey, queue.name]).apply(([key, queueName]) => [{
+            name: "queue",
+            type: "queueTrigger",
+            direction: "in",
+            dataType: "binary",
+            queueName: queueName,
+            connection: key,
+        }]);
+    
+        const account = pulumi.all([queue.resourceGroupName, queue.storageAccountName])
+                            .apply(([resourceGroupName, storageAccountName]) =>
+                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
+    
+        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
+    
+        const definition = pulumi.all(
+            [bindings, appservice.serializeFunctionCallback(functionArgs), appSettings])
+                .apply(([bindings, func, appSettings]) => (<appservice.AzureFunctionArgs>{ name, bindings, func, appSettings })
+        );
+        super(definition);
+    }
+}
+
+interface QueueOutputBindingDefinition extends appservice.BindingDefinition {
+    name: string;
+    type: "queue";
+    direction: "out";
+    dataType: "binary";
+    queueName: string;
+    connection: string;
+}
+
+export class QueueOutputBinding extends appservice.AzureFunctionOutputBinding {
+    constructor(name: string, queue: Queue) {
+
+        const bindingConnectionKey = pulumi.interpolate`${queue.storageAccountName}ConnectionStringKey`;
+        
+        const binding = pulumi.all([bindingConnectionKey, queue.name]).apply(([key, queueName]) => (<QueueOutputBindingDefinition>{
+            name: name,
+            type: "queue",
+            direction: "out",
+            dataType: "binary",
+            queueName: queueName,
+            connection: key,
+        }));
+    
+        const account = pulumi.all([queue.resourceGroupName, queue.storageAccountName])
+                            .apply(([resourceGroupName, storageAccountName]) =>
+                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
+    
+        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
+    
+        super(binding);
+    }
 }
 
 export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, Buffer, void> {

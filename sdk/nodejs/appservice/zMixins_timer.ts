@@ -247,3 +247,22 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
         this.registerOutputs();
     }
 }
+
+export class TimerFunction extends mod.AzureFunction {
+    
+    constructor(name: string, args: TimerSubscriptionArgs) {
+
+        const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
+
+        const bindings: TimerBindingDefinition[] = [{
+            type: "timerTrigger",
+            direction: "in",
+            name: "timer",
+            runOnStartup: args.runOnStartup,
+            schedule,
+        }];
+
+        const definition =  mod.serializeFunctionCallback(args).apply(func => ({ name, bindings, func }));
+        super(definition);
+    }
+}

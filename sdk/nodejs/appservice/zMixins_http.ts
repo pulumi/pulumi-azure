@@ -31,6 +31,10 @@ export type HttpRequest = azurefunctions.HttpRequest;
  * Represents an HTTP response including the status code and data.
  */
 export type HttpResponse = azureessentials.HttpResponse;
+export type ExtendedHttpResponse = {
+    response: azureessentials.HttpResponse;
+    [key: string]: any;
+}
 
 /**
  * Host settings specific to the HTTP plugin.
@@ -148,5 +152,48 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
         this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/${rootPath}${functionPath}`;
 
         this.registerOutputs();
+    }
+}
+
+export type HttpFunctionArgs = util.Overwrite<mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse | ExtendedHttpResponse>, {
+    /**
+     * Defines the route template, controlling to which request URLs your function responds. The
+     * default value if none is provided is <functionname>.
+     */
+    route?: pulumi.Input<string>;
+
+    /**
+     * An array of the HTTP methods to which the function responds. If not specified, the function
+     * responds to all HTTP methods.
+     */
+    methods?: pulumi.Input<pulumi.Input<string>[]>;
+
+    outputBindings?: mod.AzureFunctionOutputBinding[];
+}>;
+
+export class HttpFunction extends mod.AzureFunction {
+    
+    constructor(name: string, args: HttpFunctionArgs) {
+
+        const outputBindings = args.outputBindings !== undefined ? args.outputBindings.map(b => b.definition) : [];
+
+        const bindings: HttpBindingDefinition[] = [{
+            authLevel: "anonymous",
+            type: "httpTrigger",
+            direction: "in",
+            name: "req",
+            route: args.route,
+            methods: args.methods,
+        }, {
+            type: "http",
+            direction: "out",
+            name: outputBindings.length > 0 ? "response" : "$return",
+        }];
+
+    
+        const definition = pulumi.all([mod.serializeFunctionCallback(args), outputBindings]).apply(
+            ([func, outputs]) => ({ name, bindings: bindings.concat(outputs), func }));
+
+        super(definition);
     }
 }
