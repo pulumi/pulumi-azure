@@ -1,4 +1,6 @@
-## 0.18.4 (Unreleased)
+## 0.18.5 (Unreleased)
+
+## 0.18.4 (Released 22nd May, 2019)
 
 ### Bug Fixes
 
