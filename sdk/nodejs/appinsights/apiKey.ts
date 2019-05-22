@@ -127,13 +127,6 @@ export class ApiKey extends pulumi.CustomResource {
             inputs["writePermissions"] = args ? args.writePermissions : undefined;
             inputs["apiKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:appinsights/apiKey:ApiKey", name, inputs, opts);
     }
 }

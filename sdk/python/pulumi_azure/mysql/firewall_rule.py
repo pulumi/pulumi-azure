@@ -74,10 +74,6 @@ class FirewallRule(pulumi.CustomResource):
             raise TypeError("Missing required property 'start_ip_address'")
         __props__['start_ip_address'] = start_ip_address
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(FirewallRule, __self__).__init__(
             'azure:mysql/firewallRule:FirewallRule',
             resource_name,

@@ -23,13 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:notificationhub/getHub:getHub", {
         "name": args.name,
         "namespaceName": args.namespaceName,

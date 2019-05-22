@@ -145,10 +145,6 @@ class AlertRule(pulumi.CustomResource):
 
         __props__['webhook_action'] = webhook_action
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(AlertRule, __self__).__init__(
             'azure:monitoring/alertRule:AlertRule',
             resource_name,

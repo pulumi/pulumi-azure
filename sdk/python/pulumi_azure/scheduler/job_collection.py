@@ -86,10 +86,6 @@ class JobCollection(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(JobCollection, __self__).__init__(
             'azure:scheduler/jobCollection:JobCollection',
             resource_name,

@@ -24,13 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:apimanagement/getApi:getApi", {
         "apiManagementName": args.apiManagementName,
         "name": args.name,

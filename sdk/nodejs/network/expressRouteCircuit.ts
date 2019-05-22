@@ -144,13 +144,6 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["serviceKey"] = undefined /*out*/;
             inputs["serviceProviderProvisioningState"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, inputs, opts);
     }
 }

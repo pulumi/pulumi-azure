@@ -179,13 +179,6 @@ export class Subscription extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:eventhub/subscription:Subscription", name, inputs, opts);
     }
 }

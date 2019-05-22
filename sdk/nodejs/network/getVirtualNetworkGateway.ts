@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -154,10 +154,6 @@ class AppService(pulumi.CustomResource):
         __props__['site_credential'] = None
         __props__['source_control'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(AppService, __self__).__init__(
             'azure:appservice/appService:AppService',
             resource_name,

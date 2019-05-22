@@ -100,13 +100,6 @@ export class ProductGroup extends pulumi.CustomResource {
             inputs["productId"] = args ? args.productId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:apimanagement/productGroup:ProductGroup", name, inputs, opts);
     }
 }

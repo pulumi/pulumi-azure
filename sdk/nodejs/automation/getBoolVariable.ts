@@ -24,13 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getBoolVariable(args: GetBoolVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetBoolVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:automation/getBoolVariable:getBoolVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,

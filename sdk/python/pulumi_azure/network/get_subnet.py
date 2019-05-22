@@ -68,10 +68,6 @@ async def get_subnet(name=None,resource_group_name=None,virtual_network_name=Non
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__, opts=opts)
 
     return GetSubnetResult(

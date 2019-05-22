@@ -325,13 +325,6 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, inputs, opts);
     }
 }

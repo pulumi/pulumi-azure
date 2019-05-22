@@ -92,10 +92,6 @@ class Certifiate(pulumi.CustomResource):
         __props__['thumbprint'] = None
         __props__['version'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Certifiate, __self__).__init__(
             'azure:keyvault/certifiate:Certifiate',
             resource_name,

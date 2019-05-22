@@ -104,10 +104,6 @@ class SubscriptionRule(pulumi.CustomResource):
             raise TypeError("Missing required property 'topic_name'")
         __props__['topic_name'] = topic_name
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SubscriptionRule, __self__).__init__(
             'azure:eventhub/subscriptionRule:SubscriptionRule',
             resource_name,

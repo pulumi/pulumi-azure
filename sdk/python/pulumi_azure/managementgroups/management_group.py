@@ -59,10 +59,6 @@ class ManagementGroup(pulumi.CustomResource):
 
         __props__['subscription_ids'] = subscription_ids
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ManagementGroup, __self__).__init__(
             'azure:managementgroups/managementGroup:ManagementGroup',
             resource_name,

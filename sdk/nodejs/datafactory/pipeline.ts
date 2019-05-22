@@ -106,13 +106,6 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["variables"] = args ? args.variables : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:datafactory/pipeline:Pipeline", name, inputs, opts);
     }
 }

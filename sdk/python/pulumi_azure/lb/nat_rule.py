@@ -109,10 +109,6 @@ class NatRule(pulumi.CustomResource):
         __props__['backend_ip_configuration_id'] = None
         __props__['frontend_ip_configuration_id'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(NatRule, __self__).__init__(
             'azure:lb/natRule:NatRule',
             resource_name,

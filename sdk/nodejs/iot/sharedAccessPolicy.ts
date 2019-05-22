@@ -137,13 +137,6 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, inputs, opts);
     }
 }

@@ -82,10 +82,6 @@ class Provider(pulumi.ProviderResource):
             use_msi = (utilities.get_env_bool('ARM_USE_MSI') or False)
         __props__['use_msi'] = pulumi.Output.from_input(use_msi).apply(json.dumps) if use_msi is not None else None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Provider, __self__).__init__(
             'azure',
             resource_name,

@@ -99,10 +99,6 @@ class Certificate(pulumi.CustomResource):
         __props__['name'] = None
         __props__['public_data'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Certificate, __self__).__init__(
             'azure:batch/certificate:Certificate',
             resource_name,

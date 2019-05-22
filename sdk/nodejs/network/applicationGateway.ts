@@ -290,13 +290,6 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/applicationGateway:ApplicationGateway", name, inputs, opts);
     }
 }

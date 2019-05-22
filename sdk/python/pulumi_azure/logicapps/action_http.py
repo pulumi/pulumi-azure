@@ -79,10 +79,6 @@ class ActionHttp(pulumi.CustomResource):
             raise TypeError("Missing required property 'uri'")
         __props__['uri'] = uri
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ActionHttp, __self__).__init__(
             'azure:logicapps/actionHttp:ActionHttp',
             resource_name,

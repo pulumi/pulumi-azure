@@ -85,10 +85,6 @@ class DataDiskAttachment(pulumi.CustomResource):
 
         __props__['write_accelerator_enabled'] = write_accelerator_enabled
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(DataDiskAttachment, __self__).__init__(
             'azure:compute/dataDiskAttachment:DataDiskAttachment',
             resource_name,

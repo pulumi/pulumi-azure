@@ -98,10 +98,6 @@ class Key(pulumi.CustomResource):
         __props__['n'] = None
         __props__['version'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Key, __self__).__init__(
             'azure:keyvault/key:Key',
             resource_name,

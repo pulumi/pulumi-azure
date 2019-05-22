@@ -111,10 +111,6 @@ class Service(pulumi.CustomResource):
         __props__['secondary_connection_string'] = None
         __props__['server_port'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Service, __self__).__init__(
             'azure:signalr/service:Service',
             resource_name,

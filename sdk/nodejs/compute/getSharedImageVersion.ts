@@ -24,13 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSharedImageVersion(args: GetSharedImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageVersionResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", {
         "galleryName": args.galleryName,
         "imageName": args.imageName,

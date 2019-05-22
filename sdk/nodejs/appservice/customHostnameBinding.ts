@@ -102,13 +102,6 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
             inputs["hostname"] = args ? args.hostname : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, inputs, opts);
     }
 }

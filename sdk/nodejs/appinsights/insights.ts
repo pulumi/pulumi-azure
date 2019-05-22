@@ -107,13 +107,6 @@ export class Insights extends pulumi.CustomResource {
             inputs["appId"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:appinsights/insights:Insights", name, inputs, opts);
     }
 }

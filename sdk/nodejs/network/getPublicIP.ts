@@ -81,13 +81,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPublicIP(args: GetPublicIPArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:network/getPublicIP:getPublicIP", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

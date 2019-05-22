@@ -60,10 +60,6 @@ class Queue(pulumi.CustomResource):
             raise TypeError("Missing required property 'storage_account_name'")
         __props__['storage_account_name'] = storage_account_name
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Queue, __self__).__init__(
             'azure:storage/queue:Queue',
             resource_name,

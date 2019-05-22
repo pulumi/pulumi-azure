@@ -148,13 +148,6 @@ export class Definition extends pulumi.CustomResource {
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:policy/definition:Definition", name, inputs, opts);
     }
 }

@@ -148,13 +148,6 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/firewallNatRuleCollection:FirewallNatRuleCollection", name, inputs, opts);
     }
 }

@@ -193,13 +193,6 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["sharedAccessPolicies"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:iot/ioTHub:IoTHub", name, inputs, opts);
     }
 }

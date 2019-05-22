@@ -96,13 +96,6 @@ export class ActionCustom extends pulumi.CustomResource {
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:logicapps/actionCustom:ActionCustom", name, inputs, opts);
     }
 }

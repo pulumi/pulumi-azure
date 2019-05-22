@@ -80,10 +80,6 @@ async def get_product(api_management_name=None,product_id=None,resource_group_na
     __args__['apiManagementName'] = api_management_name
     __args__['productId'] = product_id
     __args__['resourceGroupName'] = resource_group_name
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getProduct:getProduct', __args__, opts=opts)
 
     return GetProductResult(
