@@ -165,13 +165,6 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
             inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, inputs, opts);
     }
 }

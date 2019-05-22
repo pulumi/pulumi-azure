@@ -1,5 +1,9 @@
 ## 0.18.4 (Unreleased)
 
+### Bug Fixes
+
+- Bumping the version of pulumi-terraform to start resource recreation
+
 ## 0.18.3 (Released 21st May, 2019)
 
 ## Improvements

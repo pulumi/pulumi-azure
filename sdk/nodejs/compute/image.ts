@@ -131,13 +131,6 @@ export class Image extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zoneResilient"] = args ? args.zoneResilient : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:compute/image:Image", name, inputs, opts);
     }
 }

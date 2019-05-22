@@ -92,13 +92,6 @@ export class GroupUser extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userId"] = args ? args.userId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:apimanagement/groupUser:GroupUser", name, inputs, opts);
     }
 }

@@ -81,10 +81,6 @@ class Route(pulumi.CustomResource):
             raise TypeError("Missing required property 'route_table_name'")
         __props__['route_table_name'] = route_table_name
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Route, __self__).__init__(
             'azure:network/route:Route',
             resource_name,

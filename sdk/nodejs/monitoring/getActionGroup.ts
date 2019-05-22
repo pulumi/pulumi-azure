@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:monitoring/getActionGroup:getActionGroup", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

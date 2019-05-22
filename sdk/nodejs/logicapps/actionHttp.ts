@@ -104,13 +104,6 @@ export class ActionHttp extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["uri"] = args ? args.uri : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:logicapps/actionHttp:ActionHttp", name, inputs, opts);
     }
 }

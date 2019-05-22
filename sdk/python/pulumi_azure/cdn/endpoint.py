@@ -152,10 +152,6 @@ class Endpoint(pulumi.CustomResource):
 
         __props__['host_name'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Endpoint, __self__).__init__(
             'azure:cdn/endpoint:Endpoint',
             resource_name,

@@ -131,10 +131,6 @@ class RServerCluster(pulumi.CustomResource):
         __props__['https_endpoint'] = None
         __props__['ssh_endpoint'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(RServerCluster, __self__).__init__(
             'azure:hdinsight/rServerCluster:RServerCluster',
             resource_name,

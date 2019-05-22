@@ -24,13 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetStringVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:automation/getStringVariable:getStringVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,

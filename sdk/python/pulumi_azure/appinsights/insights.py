@@ -85,10 +85,6 @@ class Insights(pulumi.CustomResource):
         __props__['app_id'] = None
         __props__['instrumentation_key'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Insights, __self__).__init__(
             'azure:appinsights/insights:Insights',
             resource_name,

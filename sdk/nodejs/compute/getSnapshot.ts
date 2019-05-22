@@ -20,13 +20,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:compute/getSnapshot:getSnapshot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

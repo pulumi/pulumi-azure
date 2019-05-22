@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:devtest/getLab:getLab", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

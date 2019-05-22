@@ -126,13 +126,6 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:monitoring/actionGroup:ActionGroup", name, inputs, opts);
     }
 }

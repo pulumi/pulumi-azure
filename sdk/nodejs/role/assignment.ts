@@ -139,13 +139,6 @@ export class Assignment extends pulumi.CustomResource {
             inputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:role/assignment:Assignment", name, inputs, opts);
     }
 }

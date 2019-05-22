@@ -201,13 +201,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["nodeResourceGroup"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, inputs, opts);
     }
 }

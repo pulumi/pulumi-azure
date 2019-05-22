@@ -174,10 +174,6 @@ class VirtualNetworkGateway(pulumi.CustomResource):
 
         __props__['vpn_type'] = vpn_type
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(VirtualNetworkGateway, __self__).__init__(
             'azure:network/virtualNetworkGateway:VirtualNetworkGateway',
             resource_name,

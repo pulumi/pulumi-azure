@@ -81,10 +81,6 @@ class RouteTable(pulumi.CustomResource):
 
         __props__['subnets'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(RouteTable, __self__).__init__(
             'azure:network/routeTable:RouteTable',
             resource_name,

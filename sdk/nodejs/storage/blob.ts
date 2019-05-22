@@ -160,13 +160,6 @@ export class Blob extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:storage/blob:Blob", name, inputs, opts);
     }
 }

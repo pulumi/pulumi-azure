@@ -124,13 +124,6 @@ export class LinkedServicePostgresql extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, inputs, opts);
     }
 }

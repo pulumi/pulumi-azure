@@ -21,13 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicyDefintion(args: GetPolicyDefintionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", {
         "displayName": args.displayName,
         "managementGroupId": args.managementGroupId,

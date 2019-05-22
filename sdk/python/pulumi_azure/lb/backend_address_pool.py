@@ -72,10 +72,6 @@ class BackendAddressPool(pulumi.CustomResource):
         __props__['backend_ip_configurations'] = None
         __props__['load_balancing_rules'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(BackendAddressPool, __self__).__init__(
             'azure:lb/backendAddressPool:BackendAddressPool',
             resource_name,

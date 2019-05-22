@@ -46,13 +46,6 @@ import * as utilities from "../utilities";
  */
 export function getServicePrincipal(args?: GetServicePrincipalArgs, opts?: pulumi.InvokeOptions): Promise<GetServicePrincipalResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:ad/getServicePrincipal:getServicePrincipal", {
         "applicationId": args.applicationId,
         "displayName": args.displayName,

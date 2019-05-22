@@ -70,10 +70,6 @@ class Assignment(pulumi.CustomResource):
             raise TypeError("Missing required property 'scope'")
         __props__['scope'] = scope
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Assignment, __self__).__init__(
             'azure:role/assignment:Assignment',
             resource_name,

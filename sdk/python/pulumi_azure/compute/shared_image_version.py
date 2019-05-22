@@ -106,10 +106,6 @@ class SharedImageVersion(pulumi.CustomResource):
             raise TypeError("Missing required property 'target_regions'")
         __props__['target_regions'] = target_regions
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SharedImageVersion, __self__).__init__(
             'azure:compute/sharedImageVersion:SharedImageVersion',
             resource_name,

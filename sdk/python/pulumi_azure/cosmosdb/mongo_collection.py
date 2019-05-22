@@ -78,10 +78,6 @@ class MongoCollection(pulumi.CustomResource):
 
         __props__['shard_key'] = shard_key
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(MongoCollection, __self__).__init__(
             'azure:cosmosdb/mongoCollection:MongoCollection',
             resource_name,

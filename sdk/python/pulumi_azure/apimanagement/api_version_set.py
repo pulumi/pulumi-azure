@@ -95,10 +95,6 @@ class ApiVersionSet(pulumi.CustomResource):
             raise TypeError("Missing required property 'versioning_scheme'")
         __props__['versioning_scheme'] = versioning_scheme
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ApiVersionSet, __self__).__init__(
             'azure:apimanagement/apiVersionSet:ApiVersionSet',
             resource_name,

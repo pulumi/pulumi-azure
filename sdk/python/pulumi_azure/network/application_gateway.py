@@ -210,10 +210,6 @@ class ApplicationGateway(pulumi.CustomResource):
 
         __props__['zones'] = zones
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ApplicationGateway, __self__).__init__(
             'azure:network/applicationGateway:ApplicationGateway',
             resource_name,

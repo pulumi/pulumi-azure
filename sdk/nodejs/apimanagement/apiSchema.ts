@@ -113,13 +113,6 @@ export class ApiSchema extends pulumi.CustomResource {
             inputs["schemaId"] = args ? args.schemaId : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:apimanagement/apiSchema:ApiSchema", name, inputs, opts);
     }
 }

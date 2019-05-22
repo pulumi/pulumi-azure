@@ -114,13 +114,6 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, inputs, opts);
     }
 }

@@ -102,13 +102,6 @@ export class Container extends pulumi.CustomResource {
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["properties"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:storage/container:Container", name, inputs, opts);
     }
 }

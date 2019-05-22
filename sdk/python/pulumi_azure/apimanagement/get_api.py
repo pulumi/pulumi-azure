@@ -108,10 +108,6 @@ async def get_api(api_management_name=None,name=None,resource_group_name=None,re
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     __args__['revision'] = revision
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getApi:getApi', __args__, opts=opts)
 
     return GetApiResult(

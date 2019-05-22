@@ -208,13 +208,6 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, inputs, opts);
     }
 }

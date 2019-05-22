@@ -94,13 +94,6 @@ export class Account extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:mediaservices/account:Account", name, inputs, opts);
     }
 }

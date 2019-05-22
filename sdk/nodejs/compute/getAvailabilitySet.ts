@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAvailabilitySet(args: GetAvailabilitySetArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilitySetResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:compute/getAvailabilitySet:getAvailabilitySet", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

@@ -72,10 +72,6 @@ class ProductPolicy(pulumi.CustomResource):
 
         __props__['xml_link'] = xml_link
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ProductPolicy, __self__).__init__(
             'azure:apimanagement/productPolicy:ProductPolicy',
             resource_name,

@@ -23,13 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:apimanagement/getUser:getUser", {
         "apiManagementName": args.apiManagementName,
         "resourceGroupName": args.resourceGroupName,

@@ -312,13 +312,6 @@ export class Certifiate extends pulumi.CustomResource {
             inputs["thumbprint"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:keyvault/certifiate:Certifiate", name, inputs, opts);
     }
 }

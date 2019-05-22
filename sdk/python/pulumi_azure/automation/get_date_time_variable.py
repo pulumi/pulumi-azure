@@ -56,10 +56,6 @@ async def get_date_time_variable(automation_account_name=None,name=None,resource
     __args__['automationAccountName'] = automation_account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:automation/getDateTimeVariable:getDateTimeVariable', __args__, opts=opts)
 
     return GetDateTimeVariableResult(
