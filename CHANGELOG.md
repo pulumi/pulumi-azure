@@ -1,5 +1,7 @@
 ## 0.18.5 (Unreleased)
 
+- Expose signedBlobReadUrl to produce SAS URLs for Blobs (#258)
+
 ## 0.18.4 (Released 22nd May, 2019)
 
 ### Bug Fixes
