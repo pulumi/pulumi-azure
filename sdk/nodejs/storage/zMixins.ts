@@ -14,13 +14,63 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
+import { Account } from "./account";
+import { Blob } from "./blob";
 import { Container } from "./container";
+import { getAccountSAS } from "./getAccountSAS";
 import { Queue } from "./queue";
+import { ZipBlob } from "./zipBlob";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
 import * as storage from "../storage";
 import * as util from "../util";
+
+/**
+ * Produce a URL with read-only access to a Storage Blob with a Shared Access Signature (SAS).
+ * @param blob Blob to construct URL for.
+ * @param account Storage account.
+ */
+export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulumi.Output<string> {
+
+    // Choose a fixed, far-future expiration date for signed blob URLs. The shared access signature
+    // (SAS) we generate for the Azure storage blob must remain valid for as long as the Function
+    // App is deployed, since new instances will download the code on startup. By using a fixed
+    // date, rather than (e.g.) "today plus ten years", the signing operation is idempotent.
+    const signatureExpiration = "2100-01-01";
+
+    return pulumi.all([account.name, account.primaryConnectionString, blob.storageContainerName, blob.name]).apply(
+        ([accountName, connectionString, containerName, blobName]) => {
+            const accountSAS = getAccountSAS({
+                connectionString,
+                start: "2019-01-01",
+                expiry: signatureExpiration,
+                services: {
+                    blob: true,
+                    queue: false,
+                    table: false,
+                    file: false,
+                },
+                resourceTypes: {
+                    service: false,
+                    container: false,
+                    object: true,
+                },
+                permissions: {
+                    read: true,
+                    write: false,
+                    delete: false,
+                    list: false,
+                    add: false,
+                    create: false,
+                    update: false,
+                    process: false,
+                }
+            });
+
+            return pulumi.output(accountSAS).apply(sas => `https://${accountName}.blob.core.windows.net/${containerName}/${blobName}${sas.sas}`);
+        });
+}
 
 interface BlobBindingDefinition extends appservice.BindingDefinition {
     /**
