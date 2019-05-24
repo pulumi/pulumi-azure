@@ -71,10 +71,6 @@ class Plan(pulumi.CustomResource):
 
         __props__['virtual_network_ids'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Plan, __self__).__init__(
             'azure:ddosprotection/plan:Plan',
             resource_name,

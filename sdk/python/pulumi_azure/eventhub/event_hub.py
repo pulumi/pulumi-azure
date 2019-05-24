@@ -90,10 +90,6 @@ class EventHub(pulumi.CustomResource):
 
         __props__['partition_ids'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(EventHub, __self__).__init__(
             'azure:eventhub/eventHub:EventHub',
             resource_name,

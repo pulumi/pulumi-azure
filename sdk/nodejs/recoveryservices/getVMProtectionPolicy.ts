@@ -21,13 +21,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getVMProtectionPolicy(args: GetVMProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetVMProtectionPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy", {
         "name": args.name,
         "recoveryVaultName": args.recoveryVaultName,

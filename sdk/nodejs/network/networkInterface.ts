@@ -172,13 +172,6 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["privateIpAddresses"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/networkInterface:NetworkInterface", name, inputs, opts);
     }
 }

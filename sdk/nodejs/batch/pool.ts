@@ -216,13 +216,6 @@ export class Pool extends pulumi.CustomResource {
             inputs["storageImageReference"] = args ? args.storageImageReference : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:batch/pool:Pool", name, inputs, opts);
     }
 }

@@ -129,13 +129,6 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:postgresql/virtualNetworkRule:VirtualNetworkRule", name, inputs, opts);
     }
 }

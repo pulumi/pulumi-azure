@@ -83,10 +83,6 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
             raise TypeError("Missing required property 'rules'")
         __props__['rules'] = rules
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(FirewallApplicationRuleCollection, __self__).__init__(
             'azure:network/firewallApplicationRuleCollection:FirewallApplicationRuleCollection',
             resource_name,

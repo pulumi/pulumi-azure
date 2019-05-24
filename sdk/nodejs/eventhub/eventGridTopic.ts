@@ -103,13 +103,6 @@ export class EventGridTopic extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:eventhub/eventGridTopic:EventGridTopic", name, inputs, opts);
     }
 }

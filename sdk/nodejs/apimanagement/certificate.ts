@@ -125,13 +125,6 @@ export class Certificate extends pulumi.CustomResource {
             inputs["subject"] = undefined /*out*/;
             inputs["thumbprint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:apimanagement/certificate:Certificate", name, inputs, opts);
     }
 }

@@ -193,13 +193,6 @@ export class AppService extends pulumi.CustomResource {
             inputs["siteCredential"] = undefined /*out*/;
             inputs["sourceControl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:appservice/appService:AppService", name, inputs, opts);
     }
 }

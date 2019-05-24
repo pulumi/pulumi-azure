@@ -24,13 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getDateTimeVariable(args: GetDateTimeVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetDateTimeVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,

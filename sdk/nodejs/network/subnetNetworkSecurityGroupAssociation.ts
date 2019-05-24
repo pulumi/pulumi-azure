@@ -101,13 +101,6 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
             inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, inputs, opts);
     }
 }

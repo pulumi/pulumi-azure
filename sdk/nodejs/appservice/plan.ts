@@ -171,13 +171,6 @@ export class Plan extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["maximumNumberOfWorkers"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:appservice/plan:Plan", name, inputs, opts);
     }
 }

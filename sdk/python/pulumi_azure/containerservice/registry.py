@@ -111,10 +111,6 @@ class Registry(pulumi.CustomResource):
         __props__['admin_username'] = None
         __props__['login_server'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Registry, __self__).__init__(
             'azure:containerservice/registry:Registry',
             resource_name,

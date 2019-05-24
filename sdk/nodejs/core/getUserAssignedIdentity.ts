@@ -23,13 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

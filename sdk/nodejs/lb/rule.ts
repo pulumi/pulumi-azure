@@ -170,13 +170,6 @@ export class Rule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:lb/rule:Rule", name, inputs, opts);
     }
 }

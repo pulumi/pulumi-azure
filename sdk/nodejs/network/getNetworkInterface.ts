@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:network/getNetworkInterface:getNetworkInterface", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

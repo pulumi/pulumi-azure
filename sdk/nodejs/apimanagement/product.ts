@@ -146,13 +146,6 @@ export class Product extends pulumi.CustomResource {
             inputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
             inputs["terms"] = args ? args.terms : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:apimanagement/product:Product", name, inputs, opts);
     }
 }

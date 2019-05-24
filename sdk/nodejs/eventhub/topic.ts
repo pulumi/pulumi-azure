@@ -175,13 +175,6 @@ export class Topic extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:eventhub/topic:Topic", name, inputs, opts);
     }
 }

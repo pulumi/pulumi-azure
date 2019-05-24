@@ -138,13 +138,6 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             inputs["scopes"] = args ? args.scopes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:monitoring/activityLogAlert:ActivityLogAlert", name, inputs, opts);
     }
 }

@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:network/getNetworkWatcher:getNetworkWatcher", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

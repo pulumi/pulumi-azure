@@ -98,13 +98,6 @@ export class Factory extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["vstsConfiguration"] = args ? args.vstsConfiguration : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:datafactory/factory:Factory", name, inputs, opts);
     }
 }

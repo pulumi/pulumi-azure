@@ -146,13 +146,6 @@ export class User extends pulumi.CustomResource {
             inputs["state"] = args ? args.state : undefined;
             inputs["userId"] = args ? args.userId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:apimanagement/user:User", name, inputs, opts);
     }
 }

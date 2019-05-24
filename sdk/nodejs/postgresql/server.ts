@@ -155,13 +155,6 @@ export class Server extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["fqdn"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:postgresql/server:Server", name, inputs, opts);
     }
 }

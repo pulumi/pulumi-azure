@@ -196,13 +196,6 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
             inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/networkSecurityRule:NetworkSecurityRule", name, inputs, opts);
     }
 }

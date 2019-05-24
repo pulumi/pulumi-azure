@@ -188,13 +188,6 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["weight"] = args ? args.weight : undefined;
             inputs["endpointMonitorStatus"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:trafficmanager/endpoint:Endpoint", name, inputs, opts);
     }
 }

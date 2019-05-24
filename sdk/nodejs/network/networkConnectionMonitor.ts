@@ -193,13 +193,6 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/networkConnectionMonitor:NetworkConnectionMonitor", name, inputs, opts);
     }
 }

@@ -166,13 +166,6 @@ export class MetricAlert extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["windowSize"] = args ? args.windowSize : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:monitoring/metricAlert:MetricAlert", name, inputs, opts);
     }
 }

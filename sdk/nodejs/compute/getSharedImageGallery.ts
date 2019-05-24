@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getSharedImageGallery(args: GetSharedImageGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageGalleryResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:compute/getSharedImageGallery:getSharedImageGallery", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

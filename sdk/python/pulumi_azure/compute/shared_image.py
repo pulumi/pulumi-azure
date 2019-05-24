@@ -118,10 +118,6 @@ class SharedImage(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SharedImage, __self__).__init__(
             'azure:compute/sharedImage:SharedImage',
             resource_name,

@@ -124,10 +124,6 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         __props__['primary_azure_port'] = None
         __props__['secondary_azure_port'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ExpressRouteCircuitPeering, __self__).__init__(
             'azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering',
             resource_name,

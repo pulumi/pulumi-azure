@@ -97,10 +97,6 @@ class SqlServer(pulumi.CustomResource):
 
         __props__['fully_qualified_domain_name'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(SqlServer, __self__).__init__(
             'azure:sql/sqlServer:SqlServer',
             resource_name,

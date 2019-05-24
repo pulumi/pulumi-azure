@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getAppService(args: GetAppServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:appservice/getAppService:getAppService", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

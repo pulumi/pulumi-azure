@@ -107,13 +107,6 @@ export class Configuration extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:postgresql/configuration:Configuration", name, inputs, opts);
     }
 }
