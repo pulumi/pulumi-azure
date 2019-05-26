@@ -7,6 +7,8 @@
 
 - Update to v1.29.0 of the upstream AzureRM Terraform Provider.
 
+- Expose signedBlobReadUrl to produce SAS URLs for Blobs (#258)
+
 ## 0.18.4 (Released 22nd May, 2019)
 
 ## Bug Fixes

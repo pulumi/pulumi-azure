@@ -1015,7 +1015,6 @@ func Provider() tfbridge.ProviderInfo {
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":                "^0.17.12",
 				"@azure/functions":              "^1.0.3",
-				"azure-storage":                 "^2.10.3",
 				"azure-functions-ts-essentials": "^1.3.2",
 			},
 			Overlay: &tfbridge.OverlayInfo{
