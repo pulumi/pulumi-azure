@@ -40,8 +40,8 @@ export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulum
     const signatureExpiration = "2100-01-01";
 
     return pulumi.all([account.name, account.primaryConnectionString, blob.storageContainerName, blob.name]).apply(
-        ([accountName, connectionString, containerName, blobName]) => 
-            getAccountSAS({
+        async ([accountName, connectionString, containerName, blobName]) => {
+            const sas = await getAccountSAS({
                 connectionString,
                 start: "2019-01-01",
                 expiry: signatureExpiration,
@@ -66,8 +66,10 @@ export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulum
                     update: false,
                     process: false,
                 }
-            }).then(sas => `https://${accountName}.blob.core.windows.net/${containerName}/${blobName}${sas.sas}`)
-        );
+            });
+
+            return `https://${accountName}.blob.core.windows.net/${containerName}/${blobName}${sas.sas}`;
+        });
 }
 
 interface BlobBindingDefinition extends appservice.BindingDefinition {
