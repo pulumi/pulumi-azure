@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage and manage a ServiceBus Queue.
+ * Manage a ServiceBus Queue.
  * 
  * ## Example Usage
  * 

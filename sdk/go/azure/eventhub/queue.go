@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage and manage a ServiceBus Queue.
+// Manage a ServiceBus Queue.
 type Queue struct {
 	s *pulumi.ResourceState
 }

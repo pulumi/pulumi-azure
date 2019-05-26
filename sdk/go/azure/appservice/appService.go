@@ -28,6 +28,7 @@ func NewAppService(ctx *pulumi.Context,
 	if args == nil {
 		inputs["appServicePlanId"] = nil
 		inputs["appSettings"] = nil
+		inputs["authSettings"] = nil
 		inputs["clientAffinityEnabled"] = nil
 		inputs["clientCertEnabled"] = nil
 		inputs["connectionStrings"] = nil
@@ -42,6 +43,7 @@ func NewAppService(ctx *pulumi.Context,
 	} else {
 		inputs["appServicePlanId"] = args.AppServicePlanId
 		inputs["appSettings"] = args.AppSettings
+		inputs["authSettings"] = args.AuthSettings
 		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
 		inputs["clientCertEnabled"] = args.ClientCertEnabled
 		inputs["connectionStrings"] = args.ConnectionStrings
@@ -74,6 +76,7 @@ func GetAppService(ctx *pulumi.Context,
 	if state != nil {
 		inputs["appServicePlanId"] = state.AppServicePlanId
 		inputs["appSettings"] = state.AppSettings
+		inputs["authSettings"] = state.AuthSettings
 		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
 		inputs["clientCertEnabled"] = state.ClientCertEnabled
 		inputs["connectionStrings"] = state.ConnectionStrings
@@ -116,6 +119,10 @@ func (r *AppService) AppServicePlanId() *pulumi.StringOutput {
 // A key-value pair of App Settings.
 func (r *AppService) AppSettings() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["appSettings"])
+}
+
+func (r *AppService) AuthSettings() *pulumi.Output {
+	return r.s.State["authSettings"]
 }
 
 // Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -204,6 +211,7 @@ type AppServiceState struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
+	AuthSettings interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
@@ -244,6 +252,7 @@ type AppServiceArgs struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
+	AuthSettings interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.

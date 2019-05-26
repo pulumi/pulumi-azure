@@ -265,6 +265,12 @@ func Provider() tfbridge.ProviderInfo {
 			// AppInsights
 			"azurerm_application_insights":         {Tok: azureResource(azureAppInsights, "Insights")},
 			"azurerm_application_insights_api_key": {Tok: azureResource(azureAppInsights, "ApiKey")},
+			"azurerm_application_insights_web_test": {
+				Tok: azureResource(azureAppInsights, "WebTest"),
+				Docs: &tfbridge.DocInfo{
+					Source: "application_insights_webtests.html.markdown",
+				},
+			},
 
 			// App Service
 			"azurerm_app_service": {
@@ -954,7 +960,18 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-			"azurerm_virtual_network":            {Tok: azureDataSource(azureNetwork, "getVirtualNetwork")},
+			"azurerm_virtual_network": {
+				Tok: azureDataSource(azureNetwork, "getVirtualNetwork"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// Explicitly map addressSpace => addressSpaces to avoid confusion
+					// with addressSpaces => addressSpacesCollection below.
+					"address_space": {Name: "addressSpaces"},
+					// Conflicts with the pluralized `addressSpaces` property. Since address
+					// spaces is deprectaed upstream and we will pluralize address_space, consumers
+					// should not be broken but this will avoid duplicate field definitions.
+					"address_spaces": {Name: "addressSpacesCollection"},
+				},
+			},
 			"azurerm_virtual_network_gateway":    {Tok: azureDataSource(azureNetwork, "getVirtualNetworkGateway")},
 			"azurerm_network_security_group":     {Tok: azureDataSource(azureNetwork, "getNetworkSecurityGroup")},
 			"azurerm_network_interface":          {Tok: azureDataSource(azureNetwork, "getNetworkInterface")},

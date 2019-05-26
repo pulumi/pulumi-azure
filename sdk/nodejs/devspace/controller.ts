@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *     name: "acctestRG1",
  * });
  * const testKubernetesCluster = new azure.containerservice.KubernetesCluster("test", {
- *     agentPoolProfile: {
+ *     agentPoolProfiles: [{
  *         count: 1,
  *         name: "default",
  *         vmSize: "Standard_DS2_v2",
- *     },
+ *     }],
  *     dnsPrefix: "acctestaks1",
  *     location: testResourceGroup.location,
  *     name: "acctestaks1",

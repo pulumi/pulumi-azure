@@ -26,9 +26,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleSchedule = new azure.automation.Schedule("example", {
- *     advancedSchedule: [{
- *         weekDays: ["Friday"],
- *     }],
  *     automationAccountName: exampleAccount.name,
  *     description: "This is an example schedule",
  *     frequency: "Week",
@@ -37,6 +34,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     startTime: "2014-04-15T18:00:15+02:00",
  *     timezone: "Central Europe Standard Time",
+ *     weekDays: ["Friday"],
  * });
  * ```
  */

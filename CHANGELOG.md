@@ -1,10 +1,15 @@
 ## 0.18.5 (Unreleased)
 
+## Improvements
+
+- Update to v1.29.0 of the upstream AzureRM Terraform Provider.
+
 ## 0.18.4 (Released 22nd May, 2019)
 
-### Bug Fixes
+## Bug Fixes
 
-- Bumping the version of pulumi-terraform to start resource recreation
+- Update to the latest version of the Terraform Bridge to prevent issues where all
+  resources were marked for recreation after a provider upgrade.
 
 ## 0.18.3 (Released 21st May, 2019)
 
