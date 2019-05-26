@@ -49,6 +49,7 @@
         "appinsights/getInsights.ts",
         "appinsights/index.ts",
         "appinsights/insights.ts",
+        "appinsights/webTest.ts",
         "appservice/activeSlot.ts",
         "appservice/appService.ts",
         "appservice/customHostnameBinding.ts",

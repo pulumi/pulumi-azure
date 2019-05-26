@@ -265,6 +265,12 @@ func Provider() tfbridge.ProviderInfo {
 			// AppInsights
 			"azurerm_application_insights":         {Tok: azureResource(azureAppInsights, "Insights")},
 			"azurerm_application_insights_api_key": {Tok: azureResource(azureAppInsights, "ApiKey")},
+			"azurerm_application_insights_web_test": {
+				Tok: azureResource(azureAppInsights, "WebTest"),
+				Docs: &tfbridge.DocInfo{
+					Source: "application_insights_webtests.html.markdown",
+				},
+			},
 
 			// App Service
 			"azurerm_app_service": {
