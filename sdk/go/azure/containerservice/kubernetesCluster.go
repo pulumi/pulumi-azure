@@ -18,8 +18,8 @@ type KubernetesCluster struct {
 // NewKubernetesCluster registers a new resource with the given unique name, arguments, and options.
 func NewKubernetesCluster(ctx *pulumi.Context,
 	name string, args *KubernetesClusterArgs, opts ...pulumi.ResourceOpt) (*KubernetesCluster, error) {
-	if args == nil || args.AgentPoolProfile == nil {
-		return nil, errors.New("missing required argument 'AgentPoolProfile'")
+	if args == nil || args.AgentPoolProfiles == nil {
+		return nil, errors.New("missing required argument 'AgentPoolProfiles'")
 	}
 	if args == nil || args.DnsPrefix == nil {
 		return nil, errors.New("missing required argument 'DnsPrefix'")
@@ -33,7 +33,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["addonProfile"] = nil
-		inputs["agentPoolProfile"] = nil
+		inputs["agentPoolProfiles"] = nil
 		inputs["apiServerAuthorizedIpRanges"] = nil
 		inputs["dnsPrefix"] = nil
 		inputs["kubernetesVersion"] = nil
@@ -47,7 +47,7 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["addonProfile"] = args.AddonProfile
-		inputs["agentPoolProfile"] = args.AgentPoolProfile
+		inputs["agentPoolProfiles"] = args.AgentPoolProfiles
 		inputs["apiServerAuthorizedIpRanges"] = args.ApiServerAuthorizedIpRanges
 		inputs["dnsPrefix"] = args.DnsPrefix
 		inputs["kubernetesVersion"] = args.KubernetesVersion
@@ -80,7 +80,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["addonProfile"] = state.AddonProfile
-		inputs["agentPoolProfile"] = state.AgentPoolProfile
+		inputs["agentPoolProfiles"] = state.AgentPoolProfiles
 		inputs["apiServerAuthorizedIpRanges"] = state.ApiServerAuthorizedIpRanges
 		inputs["dnsPrefix"] = state.DnsPrefix
 		inputs["fqdn"] = state.Fqdn
@@ -121,9 +121,9 @@ func (r *KubernetesCluster) AddonProfile() *pulumi.Output {
 	return r.s.State["addonProfile"]
 }
 
-// An `agent_pool_profile` block.  Currently only one agent pool can exist.
-func (r *KubernetesCluster) AgentPoolProfile() *pulumi.Output {
-	return r.s.State["agentPoolProfile"]
+// One or more `agent_pool_profile` blocks as defined below.
+func (r *KubernetesCluster) AgentPoolProfiles() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["agentPoolProfiles"])
 }
 
 // The IP ranges to whitelist for incoming traffic to the masters.
@@ -215,8 +215,8 @@ func (r *KubernetesCluster) Tags() *pulumi.MapOutput {
 type KubernetesClusterState struct {
 	// A `addon_profile` block.
 	AddonProfile interface{}
-	// An `agent_pool_profile` block.  Currently only one agent pool can exist.
-	AgentPoolProfile interface{}
+	// One or more `agent_pool_profile` blocks as defined below.
+	AgentPoolProfiles interface{}
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
@@ -257,8 +257,8 @@ type KubernetesClusterState struct {
 type KubernetesClusterArgs struct {
 	// A `addon_profile` block.
 	AddonProfile interface{}
-	// An `agent_pool_profile` block.  Currently only one agent pool can exist.
-	AgentPoolProfile interface{}
+	// One or more `agent_pool_profile` blocks as defined below.
+	AgentPoolProfiles interface{}
 	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.

@@ -17,6 +17,7 @@ class AppService(pulumi.CustomResource):
     """
     A key-value pair of App Settings.
     """
+    auth_settings: pulumi.Output[dict]
     client_affinity_enabled: pulumi.Output[bool]
     """
     Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -81,7 +82,7 @@ class AppService(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an App Service (within an App Service Plan).
         
@@ -123,6 +124,8 @@ class AppService(pulumi.CustomResource):
         __props__['app_service_plan_id'] = app_service_plan_id
 
         __props__['app_settings'] = app_settings
+
+        __props__['auth_settings'] = auth_settings
 
         __props__['client_affinity_enabled'] = client_affinity_enabled
 

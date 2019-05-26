@@ -71,6 +71,7 @@ export class AppService extends pulumi.CustomResource {
      * A key-value pair of App Settings.
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: any}>;
+    public readonly authSettings!: pulumi.Output<{ activeDirectory?: { allowedAudiences?: string[], clientId: string, clientSecret?: string }, additionalLoginParams?: {[key: string]: any}, allowedExternalRedirectUrls?: string[], defaultProvider?: string, enabled: boolean, facebook?: { appId: string, appSecret: string, oauthScopes?: string[] }, google?: { clientId: string, clientSecret: string, oauthScopes?: string[] }, issuer?: string, microsoft?: { clientId: string, clientSecret: string, oauthScopes?: string[] }, runtimeVersion?: string, tokenRefreshExtensionHours?: number, tokenStoreEnabled?: boolean, twitter?: { consumerKey: string, consumerSecret: string }, unauthenticatedClientAction?: string }>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -150,6 +151,7 @@ export class AppService extends pulumi.CustomResource {
             const state = argsOrState as AppServiceState | undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
+            inputs["authSettings"] = state ? state.authSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = state ? state.clientCertEnabled : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
@@ -176,6 +178,7 @@ export class AppService extends pulumi.CustomResource {
             }
             inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
             inputs["appSettings"] = args ? args.appSettings : undefined;
+            inputs["authSettings"] = args ? args.authSettings : undefined;
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
@@ -209,6 +212,7 @@ export interface AppServiceState {
      * A key-value pair of App Settings.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    readonly authSettings?: pulumi.Input<{ activeDirectory?: pulumi.Input<{ allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>, clientId: pulumi.Input<string>, clientSecret?: pulumi.Input<string> }>, additionalLoginParams?: pulumi.Input<{[key: string]: any}>, allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>, defaultProvider?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, facebook?: pulumi.Input<{ appId: pulumi.Input<string>, appSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, google?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, issuer?: pulumi.Input<string>, microsoft?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, runtimeVersion?: pulumi.Input<string>, tokenRefreshExtensionHours?: pulumi.Input<number>, tokenStoreEnabled?: pulumi.Input<boolean>, twitter?: pulumi.Input<{ consumerKey: pulumi.Input<string>, consumerSecret: pulumi.Input<string> }>, unauthenticatedClientAction?: pulumi.Input<string> }>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -287,6 +291,7 @@ export interface AppServiceArgs {
      * A key-value pair of App Settings.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    readonly authSettings?: pulumi.Input<{ activeDirectory?: pulumi.Input<{ allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>, clientId: pulumi.Input<string>, clientSecret?: pulumi.Input<string> }>, additionalLoginParams?: pulumi.Input<{[key: string]: any}>, allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>, defaultProvider?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, facebook?: pulumi.Input<{ appId: pulumi.Input<string>, appSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, google?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, issuer?: pulumi.Input<string>, microsoft?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, runtimeVersion?: pulumi.Input<string>, tokenRefreshExtensionHours?: pulumi.Input<number>, tokenStoreEnabled?: pulumi.Input<boolean>, twitter?: pulumi.Input<{ consumerKey: pulumi.Input<string>, consumerSecret: pulumi.Input<string> }>, unauthenticatedClientAction?: pulumi.Input<string> }>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
