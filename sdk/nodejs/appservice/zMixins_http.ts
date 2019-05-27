@@ -21,8 +21,6 @@ import * as mod from ".";
 
 import * as core from "../core";
 import * as util from "../util";
-import { AzureFunctionArgs } from "./zMixins";
-import { appservice } from "..";
 
 /**
  * HTTP request object. Provided to your function when using HttpEventSubscription.
@@ -33,13 +31,6 @@ export type HttpRequest = azurefunctions.HttpRequest;
  * Represents an HTTP response including the status code and data.
  */
 export type HttpResponse = azureessentials.HttpResponse;
-/**
- * Represents an HTTP response plus arbitrary properties to be used for output bindings.
- */
-export type ExtendedHttpResponse = {
-    response: azureessentials.HttpResponse;
-    [key: string]: any;
-}
 
 /**
  * Host settings specific to the HTTP plugin.
@@ -160,7 +151,7 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
     }
 }
 
-export type HttpFunctionArgs = util.Overwrite<mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse | ExtendedHttpResponse>, {
+export type HttpFunctionArgs = util.Overwrite<mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
     /**
      * Defines the route template, controlling to which request URLs your function responds. The
      * default value if none is provided is <functionname>.
@@ -172,17 +163,14 @@ export type HttpFunctionArgs = util.Overwrite<mod.CallbackArgs<mod.Context<HttpR
      * responds to all HTTP methods.
      */
     methods?: pulumi.Input<pulumi.Input<string>[]>;
-
-    outputBindings?: mod.AzureFunctionOutputBinding[];
 }>;
 
+/**
+ * Azure Function triggered by HTTP requests.
+ */
 export class HttpFunction extends mod.AzureFunction {
-    
     constructor(name: string, args: HttpFunctionArgs) {
-
-        const outputBindings = args.outputBindings !== undefined ? args.outputBindings : [];
-
-        const bindings: HttpBindingDefinition[] = [{
+        const bindings: mod.BindingDefinition[] = [<HttpBindingDefinition>{
             authLevel: "anonymous",
             type: "httpTrigger",
             direction: "in",
@@ -192,14 +180,12 @@ export class HttpFunction extends mod.AzureFunction {
         }, {
             type: "http",
             direction: "out",
-            name: outputBindings.length > 0 ? "response" : "$return",
+            name: "$return",
         }];
 
-        const appSettings = pulumi.all(outputBindings.map(b => b.appSettings)).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
-    
-        const definition = pulumi.all([mod.serializeFunctionCallback(args), outputBindings.map(b => b.definition), appSettings]).apply(
-            ([func, outputs, appSettings]) => (<AzureFunctionArgs>{ name, bindings: bindings.concat(outputs), func, appSettings }));
-
-        super(definition);
+        super(name, {
+            bindings: bindings,
+            body: mod.serializeFunctionCallback(args),
+        });
     }
 }

@@ -248,10 +248,23 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
     }
 }
 
-export class TimerFunction extends mod.AzureFunction {
-    
-    constructor(name: string, args: TimerSubscriptionArgs) {
+export type TimerFunctionArgs = util.Overwrite<mod.CallbackArgs<TimerContext, TimerInfo, void>, {
+    /**
+     * A schedule or a CRON expression for the timer schedule, e.g. '0 * * * * *'.
+     */
+    schedule: pulumi.Input<string | ScheduleArgs>;
 
+    /**
+     * If true, the function is invoked when the runtime starts.
+     */
+    runOnStartup?: pulumi.Input<boolean>;
+}>;
+
+/**
+ * Azure Function triggered on a CRON schedule.
+ */
+export class TimerFunction extends mod.AzureFunction {
+    constructor(name: string, args: TimerFunctionArgs) {
         const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
 
         const bindings: TimerBindingDefinition[] = [{
@@ -262,7 +275,9 @@ export class TimerFunction extends mod.AzureFunction {
             schedule,
         }];
 
-        const definition =  mod.serializeFunctionCallback(args).apply(func => ({ name, bindings, func }));
-        super(definition);
+        super( name, {
+            bindings,
+            body: mod.serializeFunctionCallback(args),
+        });
     }
 }

@@ -246,59 +246,6 @@ export interface HostSettings {
  */
 export type BindingDefinition = azurefunctions.BindingDefinition;
 
-/**
- * Takes in a callback and a set of bindings, and produces the right AssetMap layout that Azure
- * FunctionApps expect.
- */
-function serializeCallback<C extends Context<R>, E, R extends Result>(
-        name: string,
-        args: CallbackFunctionAppArgs<C, E, R>,
-        bindings: pulumi.Input<BindingDefinition[]>): pulumi.Output<pulumi.asset.AssetMap> {
-
-    if (args.callback && args.callbackFactory) {
-        throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
-    }
-
-    if (!args.callback && !args.callbackFactory) {
-        throw new Error("One of [callback] or [callbackFactory] must be provided.");
-    }
-
-    const func = args.callback
-        ? redirectConsoleOutput(args.callback)
-        : () => redirectConsoleOutput(args.callbackFactory!());
-
-    const serializedFunc = pulumi.runtime.serializeFunction(
-        func, { isFactoryFunction: !!args.callbackFactory });
-
-    return pulumi.all([bindings, serializedFunc]).apply(async ([bindings, serializedFunc]) => {
-        const map: pulumi.asset.AssetMap = {};
-        map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
-            version: "2.0",
-            tracing: { consoleLevel: "verbose" },
-            extensionBundle: {
-                id: "Microsoft.Azure.Functions.ExtensionBundle",
-                version: "[1.*, 2.0.0)"
-            },
-            ...args.hostSettings,
-        }));
-
-        map[`${name}/function.json`] = new pulumi.asset.StringAsset(JSON.stringify({
-            disabled: false,
-            bindings: bindings,
-        }));
-
-        map[`${name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
-        map[`${name}/handler.js`] = new pulumi.asset.StringAsset(serializedFunc.text);
-
-        const pathSet = await pulumi.runtime.computeCodePaths(args.codePathOptions);
-        for (const [path, value] of pathSet.entries()) {
-            map[name + "/" + path] = value;
-        }
-
-        return map;
-    });
-}
-
 function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callback: Callback<C, E, R>) {
     return (context: C, event: E) => {
         // Redirect console logging to context logging.
@@ -312,118 +259,12 @@ function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callba
     };
 }
 
-
-/**
-  * A CallbackFunctionApp is a special type of azure.appservice.FunctionApp that can be created out
-  * of an actual JavaScript function instance.  The function instance will be analyzed and packaged
-  * up (including dependencies) into a form that can be used by AWS Lambda.  See
-  * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
-  * details on this process.
- */
-export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> extends FunctionApp {
-    /**
-     * Storage account where the FunctionApp's zipbBlob is uploaded to.
-     */
-    public readonly account: storageForTypesOnly.Account;
-    /**
-     * Storage container where the FunctionApp's zipbBlob is uploaded to.
-     */
-    public readonly container: storageForTypesOnly.Container;
-    /**
-     * The blob containing all the code for this FunctionApp.
-     */
-    public readonly zipBlob: storageForTypesOnly.ZipBlob;
-    /**
-     * The plan this FunctionApp runs under.
-     */
-    public readonly plan: appservice.Plan;
-
-    constructor(name: string, bindings: pulumi.Input<BindingDefinition[]>,
-                args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
-
-        if (!args.resourceGroupName) {
-            throw new pulumi.ResourceError("[args.resourceGroupName] must be provided", opts.parent);
-        }
-
-        if (!args.location) {
-            throw new pulumi.ResourceError("[args.location] must be provided", opts.parent);
-        }
-
-        const resourceGroupArgs = {
-            resourceGroupName: args.resourceGroupName,
-            location: args.location,
-        };
-
-        let plan = args.plan;
-        if (!plan) {
-            plan = new appservice.Plan(name, {
-                ...resourceGroupArgs,
-
-                kind: "FunctionApp",
-
-                sku: {
-                    tier: "Dynamic",
-                    size: "Y1",
-                },
-            }, opts);
-        }
-
-        const storageMod = <typeof storageForTypesOnly>require("../storage");
-        const account = args.account || new storageMod.Account(makeSafeStorageAccountName(name), {
-            ...resourceGroupArgs,
-
-            accountKind: "StorageV2",
-            accountTier: "Standard",
-            accountReplicationType: "LRS",
-        }, opts);
-
-        const container = args.container || new storageMod.Container(makeSafeStorageContainerName(name), {
-            resourceGroupName: args.resourceGroupName,
-            storageAccountName: account.name,
-            containerAccessType: "private",
-        }, opts);
-
-        const assetMap = serializeCallback(name, args, bindings);
-        const zipBlob = new storageMod.ZipBlob(name, {
-            resourceGroupName: args.resourceGroupName,
-            storageAccountName: account.name,
-            storageContainerName: container.name,
-            type: "block",
-            content: assetMap.apply(m => new pulumi.asset.AssetArchive(m)),
-        }, opts);
-
-        const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);
-        super(name, {
-            ...args,
-            ...resourceGroupArgs,
-
-            version: "~2",
-            appServicePlanId: plan.id,
-            storageConnectionString: account.primaryConnectionString,
-
-            appSettings: pulumi.output(args.appSettings).apply(settings => {
-                settings = settings || {};
-                return {
-                    ...settings,
-                    WEBSITE_RUN_FROM_ZIP: codeBlobUrl,
-                    WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "8.11.1"),
-                };
-            }),
-        }, opts);
-
-        this.account = account;
-        this.container = container;
-        this.plan = plan;
-        this.zipBlob = zipBlob;
-    }
-}
-
 /**
  * Base type for all subscription types.  An event subscription represents a connection between some
  * azure resource an an FunctionApp that will be triggered when something happens to that resource.
  */
 export abstract class EventSubscription<C extends Context<R>, E, R extends Result> extends pulumi.ComponentResource {
-    public readonly functionApp: CallbackFunctionApp<C, E, R>;
+    public readonly functionApp: MultiFunctionApp;
 
     constructor(type: string, name: string,
                 bindings: pulumi.Input<BindingDefinition[]>,
@@ -431,7 +272,15 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
-        this.functionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
+        const multiArgs = {
+            ...args,
+            functions: [new AzureFunction(name, {
+                bindings,
+                body: serializeFunctionCallback(args),
+            })]
+        };
+
+        this.functionApp = new MultiFunctionApp(name, multiArgs, { parent: this });
     }
 }
 
@@ -491,88 +340,101 @@ export type CallbackArgs<C extends Context<R>, E, R extends Result> = {
     callbackFactory?: CallbackFactory<C, E, R>;
 }
 
+/** @internal */
 export function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
-    args: CallbackArgs<C, E, R>): pulumi.Output<pulumi.runtime.SerializedFunction> {
+    args: CallbackArgs<C, E, R>): Promise<pulumi.runtime.SerializedFunction> {
 
     if (args.callback && args.callbackFactory) {
         throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
     }
 
     if (!args.callback && !args.callbackFactory) {
-        throw new Error("One of [callback] or [callbackFactory] must be provided.");
+        throw new pulumi.RunError("One of [callback] or [callbackFactory] must be provided.");
     }
 
     const func = args.callback
         ? redirectConsoleOutput(args.callback)
         : () => redirectConsoleOutput(args.callbackFactory!());
 
-    return pulumi.output(pulumi.runtime.serializeFunction(func, { isFactoryFunction: !!args.callbackFactory }));
+    return pulumi.runtime.serializeFunction(func, { isFactoryFunction: !!args.callbackFactory });
 }
 
+/** @internal */
 export interface AzureFunctionArgs {
-    name: string;
-    bindings: BindingDefinition[];
-    func: pulumi.runtime.SerializedFunction;
-    appSettings?: { [key: string]: string };
+    /**
+     * An array of function binding definitions.
+     */
+    bindings: pulumi.Input<BindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    body: Promise<pulumi.runtime.SerializedFunction>;
+
+    /**
+     * Application settings required by the function.
+     */
+    appSettings?: pulumi.Input<{ [key: string]: string }>;
 }
 
 // TODO: Should we inherit from pulumi.ComponentResource? If so, we should probably set parent to the Function App, but
 // how do we do so if Functions are created before the app (see the sample).
-export abstract class AzureFunction {
-    public readonly definition: pulumi.Output<AzureFunctionArgs>;
+export class AzureFunction {
+    /**
+     * Azure Function name.
+     */
+    public readonly name: string;
+    
+    /**
+     * Function definition.
+     */
+    public readonly definition: AzureFunctionArgs;
 
-    constructor(definition: pulumi.Output<AzureFunctionArgs>) {
-
-        this.definition = definition;
+    constructor(name: string, args: AzureFunctionArgs) {
+        this.name = name;
+        this.definition = args;
     }
 }
 
-export interface AzureFunctionOutputBinding {
-    readonly definition: pulumi.Output<BindingDefinition>;
-    readonly appSettings: pulumi.Output<{ [key: string]: string }>;
-}
-
-function produceDeploymentPackage(args: MultiFunctionAppArgs): pulumi.Output<pulumi.asset.AssetMap> {
+async function produceDeploymentPackage(args: MultiFunctionAppArgs): Promise<pulumi.asset.AssetMap> {
     
     if (args.functions === undefined) {
         throw new Error("Can not serialize undefined Azure Functions");
     }
 
-    return pulumi.all(args.functions.map(f => f.definition)).apply(async functions => {
+    const map: pulumi.asset.AssetMap = {};
+    map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
+        version: "2.0",
+        tracing: { consoleLevel: "verbose" },
+        extensionBundle: {
+            id: "Microsoft.Azure.Functions.ExtensionBundle",
+            version: "[1.*, 2.0.0)"
+        },
+        ...args.hostSettings,
+    }));
 
-        const map: pulumi.asset.AssetMap = {};
-        map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
-            version: "2.0",
-            tracing: { consoleLevel: "verbose" },
-            extensionBundle: {
-                id: "Microsoft.Azure.Functions.ExtensionBundle",
-                version: "[1.*, 2.0.0)"
-            },
-            ...args.hostSettings,
+    const pathSet = await pulumi.runtime.computeCodePaths(args.codePathOptions);
+    for (const [path, value] of pathSet.entries()) {
+        map[path] = value;
+    }
+
+    for (const func of args.functions) {
+        map[`${func.name}/function.json`] = new pulumi.asset.StringAsset(JSON.stringify({
+            disabled: false,
+            bindings: func.definition.bindings,
         }));
 
-        const pathSet = await pulumi.runtime.computeCodePaths(args.codePathOptions);
-        for (const [path, value] of pathSet.entries()) {
-            map[path] = value;
-        }
+        const body = await func.definition.body;
 
-        for (const func of functions) {
-            map[`${func.name}/function.json`] = new pulumi.asset.StringAsset(JSON.stringify({
-                disabled: false,
-                bindings: func.bindings,
-            }));
+        map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
+        map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
+    }
 
-            map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
-            map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(func.func.text);
-        }
-
-        return map;
-    });
+    return map;
 }
 
 function combineAppSettings(args: MultiFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
-    
-    const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.definition.apply(b => b.appSettings)) : [];
+    const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.definition.appSettings) : [];
     return pulumi.all([args.appSettings, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
 }
 
@@ -584,14 +446,9 @@ export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
     functions?: AzureFunction[];
 
     /**
-     * The deployment package to deploy as-is (ignoring the 'functions' property).
+     * The deployment package to deploy as-is (instead of the 'functions' property).
      */
     archive?: pulumi.Input<pulumi.asset.Archive>;
-
-    /**
-     * The name of the resource group in which to create the Function App.
-     */
-    resourceGroupName: pulumi.Input<string>;
 
     /**
      * The App Service Plan within which to create this Function App. Changing this forces a new
@@ -632,6 +489,9 @@ export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
      */
     codePathOptions?: pulumi.runtime.CodePathOptions;
 
+    /**
+     * The metadata containing global configuration options that affect all functions for the function app.
+     */
     hostSettings?: HostSettings;
 
     /**
@@ -646,7 +506,7 @@ export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
     appServicePlanId?: never;
 }>;
 
-// TODO: Better name? Move to azure.functions.*?
+// TODO: Better name?
 export class MultiFunctionApp extends FunctionApp {
     /**
      * Storage account where the FunctionApp's zipbBlob is uploaded to.
@@ -665,8 +525,18 @@ export class MultiFunctionApp extends FunctionApp {
      */
     public readonly plan: appservice.Plan;
 
-    constructor(name: string,
-                args: MultiFunctionAppArgs, opts: pulumi.CustomResourceOptions = {}) {
+    constructor(
+        name: string,
+        args: MultiFunctionAppArgs,
+        opts: pulumi.CustomResourceOptions = {}) {
+
+        if (!args.functions && !args.archive) {
+            throw new pulumi.RunError("One of [functions] or [archive] must be provided.");
+        }
+
+        if (args.functions && args.archive) {
+            throw new pulumi.RunError("Cannot provide both [functions] and [archive]");
+        }
 
         let plan = args.plan;
         if (!plan) {
@@ -699,7 +569,8 @@ export class MultiFunctionApp extends FunctionApp {
 
         const archive = args.archive !== undefined 
             ? args.archive
-            : produceDeploymentPackage(args).apply(m => new pulumi.asset.AssetArchive(m));
+            : pulumi.output(produceDeploymentPackage(args)).apply(m => new pulumi.asset.AssetArchive(m));
+
         const zipBlob = new storageMod.ZipBlob(name, {
             resourceGroupName: args.resourceGroupName,
             storageAccountName: account.name,
@@ -708,7 +579,7 @@ export class MultiFunctionApp extends FunctionApp {
             content: archive,
         }, opts);
 
-        const codeBlobUrl = signedBlobReadUrl(zipBlob, account, container);
+        const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);
         super(name, {
             ...args,
 
