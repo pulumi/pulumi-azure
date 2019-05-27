@@ -544,6 +544,15 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
             throw new pulumi.RunError("Cannot provide both [functions] and [archive]");
         }
 
+        if (args.functions) {
+            const names = args.functions.map(f => f.name);
+            const duplicates = names.filter((item, index) => names.indexOf(item) !== index);
+            if (duplicates.length > 0) {
+                const msg = [...new Set(duplicates)].map(s => `[${s}]`).join(", ");
+                throw new pulumi.RunError(`Function names must be unique within a given Function App. Duplicate functions: ${msg}.`);
+            }
+        }
+
         super("azure:appservice:MultiFunctionApp", name, undefined, opts);
 
         let plan = args.plan;
