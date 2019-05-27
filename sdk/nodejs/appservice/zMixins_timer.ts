@@ -228,17 +228,9 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
 
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
-        const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
+        const func = new TimerFunction(name, args);
 
-        const bindings: TimerBindingDefinition[] = [{
-            type: "timerTrigger",
-            direction: "in",
-            name: "timer",
-            runOnStartup: args.runOnStartup,
-            schedule,
-        }];
-
-        super("azure:appservice:TimerSubscription", name, bindings, {
+        super("azure:appservice:TimerSubscription", name, func, {
             ...args,
             location,
             resourceGroupName,
@@ -263,21 +255,33 @@ export type TimerFunctionArgs = util.Overwrite<mod.CallbackArgs<TimerContext, Ti
 /**
  * Azure Function triggered on a CRON schedule.
  */
-export class TimerFunction extends mod.AzureFunction {
+export class TimerFunction implements mod.FunctionArgs {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<TimerBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly body: Promise<pulumi.runtime.SerializedFunction>;
+
     constructor(name: string, args: TimerFunctionArgs) {
         const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
 
-        const bindings: TimerBindingDefinition[] = [{
+        this.name = name;
+        this.bindings = [{
             type: "timerTrigger",
             direction: "in",
             name: "timer",
             runOnStartup: args.runOnStartup,
             schedule,
         }];
-
-        super( name, {
-            bindings,
-            body: mod.serializeFunctionCallback(args),
-        });
+        this.body = mod.serializeFunctionCallback(args);
     }
 }

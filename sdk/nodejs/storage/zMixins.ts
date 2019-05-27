@@ -25,7 +25,6 @@ import * as appservice from "../appservice";
 import * as core from "../core";
 import * as storage from "../storage";
 import * as util from "../util";
-import { BindingDefinition } from "../appservice";
 
 /**
  * Produce a URL with read-only access to a Storage Blob with a Shared Access Signature (SAS).
@@ -238,7 +237,7 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
-        super("azure:storage:BlobEventSubscription", name, bindings, {
+        super("azure:storage:BlobEventSubscription", name, { name, bindings, body: appservice.serializeFunctionCallback(args) }, {
             ...args,
             appSettings,
             resourceGroupName,
@@ -317,25 +316,26 @@ export interface QueueContext extends appservice.Context<void> {
  *
  * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#host-json
  */
+export interface QueueHostExtensions {
+    /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
+    maxPollingInterval?: string,
+
+    /** The time interval between retries when processing of a message fails. */
+    visibilityTimeout?: string,
+
+    /** The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. */
+    batchSize?: number,
+
+    /** The number of times to try processing a message before moving it to the poison queue. */
+    maxDequeueCount?: number,
+
+    /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
+    newBatchThreshold?: number,
+}
 export interface QueueHostSettings extends appservice.HostSettings {
     extensions?: {
-        queues: {
-            /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
-            maxPollingInterval?: string,
-
-            /** The time interval between retries when processing of a message fails. */
-            visibilityTimeout?: string,
-
-            /** The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. */
-            batchSize?: number,
-
-            /** The number of times to try processing a message before moving it to the poison queue. */
-            maxDequeueCount?: number,
-
-            /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
-            newBatchThreshold?: number,
-        }
-    }    
+        queues: QueueHostExtensions
+    }
 }
 
 /**
@@ -398,38 +398,15 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 
         const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, queue.resourceGroupName);
 
-        // The queue binding does not store the storage connection string directly.  Instead, the
-        // connection string is put into the app settings (under whatever key we want). Then, the
-        // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const func = new QueueFunction(name, {
+            ...args,
+            queue
+        });
 
-        const bindings: QueueBindingDefinition[] = [{
-            name: "queue",
-            type: "queueTrigger",
-            direction: "in",
-            dataType: "binary",
-            queueName: queue.name,
-            connection: bindingConnectionKey,
-        }];
-
-        // Place the mapping from the well known key name to the storage account connection string in
-        // the 'app settings' object.
-        const appSettingsOutput = args.appSettings || pulumi.output({});
-
-        // Place the mapping from the well known key name to the storage account connection string in
-        // the 'app settings' object.
-        const account = pulumi.all([resourceGroupName, queue.storageAccountName])
-                                .apply(([resourceGroupName, storageAccountName]) =>
-                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
-
-        const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
-            ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
-
-        super("azure:storage:QueueEventSubscription", name, bindings, {
+        super("azure:storage:QueueEventSubscription", name, func, {
             ...args,
             resourceGroupName,
             location,
-            appSettings,
         }, opts);
 
         this.registerOutputs();
@@ -446,11 +423,33 @@ export type QueueFunctionArgs = util.Overwrite<appservice.CallbackArgs<QueueCont
 /**
  * Azure Function triggered by a Storage Queue.
  */
-export class QueueFunction extends appservice.AzureFunction {
+export class QueueFunction implements appservice.FunctionArgs {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<QueueBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly body: Promise<pulumi.runtime.SerializedFunction>;
+
+    /**
+     * Application settings required by the function.
+     */
+    public readonly appSettings: pulumi.Input<{ [key: string]: string }>;
+
     constructor(name: string, args: QueueFunctionArgs) {
+        this.name = name;
+        this.body = appservice.serializeFunctionCallback(args);
+
         const bindingConnectionKey = pulumi.interpolate`${args.queue.storageAccountName}ConnectionStringKey`;
-        
-        const bindings: BindingDefinition[] = [<QueueBindingDefinition>{
+        this.bindings = [{
             name: "queue",
             type: "queueTrigger",
             direction: "in",
@@ -463,13 +462,7 @@ export class QueueFunction extends appservice.AzureFunction {
                             .apply(([resourceGroupName, storageAccountName]) =>
                                 storage.getAccount({ resourceGroupName, name: storageAccountName }));
     
-        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
+        this.appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
             ([connectionString, key]) => ({ [key]: connectionString }));
-    
-        super(name, {             
-            bindings,
-            body: appservice.serializeFunctionCallback(args),
-            appSettings,
-        });
     }
 }

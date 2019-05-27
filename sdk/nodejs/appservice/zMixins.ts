@@ -18,8 +18,11 @@ import * as azurefunctions from "@azure/functions";
 
 import { FunctionAppArgs, FunctionApp } from "./functionApp";
 
+import * as mod from ".";
+
 import * as appservice from "../appservice";
 import * as core from "../core";
+import * as eventhubForTypesOnly from "../eventhub";
 import * as storageForTypesOnly from "../storage";
 import * as util from "../util";
 
@@ -238,6 +241,12 @@ export interface HostSettings {
         /** The interval between lock acquisition attempts. */
         lockAcquisitionPollingInterval: string
     },
+
+    extensions?: {
+        http?: mod.HttpHostExtensions,
+        serviceBus?: eventhubForTypesOnly.ServiceBusHostExtensions,
+        queues?: storageForTypesOnly.QueueHostExtensions,
+    }    
 }
 
 /**
@@ -267,17 +276,14 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: MultiFunctionApp;
 
     constructor(type: string, name: string,
-                bindings: pulumi.Input<BindingDefinition[]>,
+                func: FunctionArgs,
                 args: CallbackFunctionAppArgs<C, E, R>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
         const multiArgs = {
             ...args,
-            functions: [new AzureFunction(name, {
-                bindings,
-                body: serializeFunctionCallback(args),
-            })]
+            functions: [func],
         };
 
         this.functionApp = new MultiFunctionApp(name, multiArgs, { parent: this });
@@ -360,7 +366,12 @@ export function serializeFunctionCallback<C extends Context<R>, E, R extends Res
 }
 
 /** @internal */
-export interface AzureFunctionArgs {
+export interface FunctionArgs {
+    /**
+     * Azure Function name.
+     */
+    name: string;
+
     /**
      * An array of function binding definitions.
      */
@@ -375,25 +386,11 @@ export interface AzureFunctionArgs {
      * Application settings required by the function.
      */
     appSettings?: pulumi.Input<{ [key: string]: string }>;
-}
 
-// TODO: Should we inherit from pulumi.ComponentResource? If so, we should probably set parent to the Function App, but
-// how do we do so if Functions are created before the app (see the sample).
-export class AzureFunction {
     /**
-     * Azure Function name.
+     * HTTP route to call this function (applies to functions reachable via HTTP).
      */
-    public readonly name: string;
-    
-    /**
-     * Function definition.
-     */
-    public readonly definition: AzureFunctionArgs;
-
-    constructor(name: string, args: AzureFunctionArgs) {
-        this.name = name;
-        this.definition = args;
-    }
+    route?: pulumi.Input<string>;
 }
 
 async function produceDeploymentPackage(args: MultiFunctionAppArgs): Promise<pulumi.asset.AssetMap> {
@@ -419,12 +416,12 @@ async function produceDeploymentPackage(args: MultiFunctionAppArgs): Promise<pul
     }
 
     for (const func of args.functions) {
-        map[`${func.name}/function.json`] = new pulumi.asset.StringAsset(JSON.stringify({
+        map[`${func.name}/function.json`] = pulumi.output(func.bindings).apply(bs => new pulumi.asset.StringAsset(JSON.stringify({
             disabled: false,
-            bindings: func.definition.bindings,
-        }));
+            bindings: bs,
+        })));
 
-        const body = await func.definition.body;
+        const body = await func.body;
 
         map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
         map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
@@ -434,7 +431,7 @@ async function produceDeploymentPackage(args: MultiFunctionAppArgs): Promise<pul
 }
 
 function combineAppSettings(args: MultiFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
-    const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.definition.appSettings) : [];
+    const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings) : [];
     return pulumi.all([args.appSettings, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
 }
 
@@ -443,7 +440,7 @@ export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
     /**
      * The functions to deploy as parts of this application.
      */
-    functions?: AzureFunction[];
+    functions?: FunctionArgs[];
 
     /**
      * The deployment package to deploy as-is (instead of the 'functions' property).
@@ -507,7 +504,7 @@ export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
 }>;
 
 // TODO: Better name?
-export class MultiFunctionApp extends FunctionApp {
+export class MultiFunctionApp extends pulumi.ComponentResource {
     /**
      * Storage account where the FunctionApp's zipbBlob is uploaded to.
      */
@@ -521,14 +518,22 @@ export class MultiFunctionApp extends FunctionApp {
      */
     public readonly zipBlob: storageForTypesOnly.ZipBlob;
     /**
-     * The plan this FunctionApp runs under.
+     * The plan this Function App runs under.
      */
     public readonly plan: appservice.Plan;
+    /**
+     * The Function App.
+     */
+    public readonly app: appservice.FunctionApp;
+    /**
+     * Endpoints of functions reachable via HTTP.
+     */
+    public readonly endpoints: pulumi.Output<{ [functionName: string]: string }>;
 
     constructor(
         name: string,
         args: MultiFunctionAppArgs,
-        opts: pulumi.CustomResourceOptions = {}) {
+        opts: pulumi.ComponentResourceOptions = {}) {
 
         if (!args.functions && !args.archive) {
             throw new pulumi.RunError("One of [functions] or [archive] must be provided.");
@@ -537,6 +542,8 @@ export class MultiFunctionApp extends FunctionApp {
         if (args.functions && args.archive) {
             throw new pulumi.RunError("Cannot provide both [functions] and [archive]");
         }
+
+        super("azure:appservice:MultiFunctionApp", name, undefined, opts);
 
         let plan = args.plan;
         if (!plan) {
@@ -549,7 +556,7 @@ export class MultiFunctionApp extends FunctionApp {
                     tier: "Dynamic",
                     size: "Y1",
                 },
-            }, opts);
+            }, { parent: this });
         }
 
         const storageMod = <typeof storageForTypesOnly>require("../storage");
@@ -559,7 +566,7 @@ export class MultiFunctionApp extends FunctionApp {
             accountKind: "StorageV2",
             accountTier: "Standard",
             accountReplicationType: "LRS",
-        }, opts);
+        }, { parent: this });
 
         const container = args.container || new storageMod.Container(makeSafeStorageContainerName(name), {
             resourceGroupName: args.resourceGroupName,
@@ -577,10 +584,10 @@ export class MultiFunctionApp extends FunctionApp {
             storageContainerName: container.name,
             type: "block",
             content: archive,
-        }, opts);
+        }, { parent: this });
 
         const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);
-        super(name, {
+        this.app = new FunctionApp(name, {
             ...args,
 
             version: "~2",
@@ -594,11 +601,27 @@ export class MultiFunctionApp extends FunctionApp {
                     WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "8.11.1"),
                 };
             }),
-        }, opts);
+        }, { parent: this });
 
         this.account = account;
         this.container = container;
         this.plan = plan;
         this.zipBlob = zipBlob;
+
+        const routePrefix = args.hostSettings 
+            && args.hostSettings.extensions 
+            && args.hostSettings.extensions.http 
+            && args.hostSettings.extensions.http.routePrefix;
+        const rootPath = routePrefix === "" ? "" : `${routePrefix === undefined ? "api" : routePrefix}/`;
+
+        this.endpoints = this.app.defaultHostname.apply(hostName =>             
+            (args.functions !== undefined ? args.functions : [])
+                .filter(f => f.route !== undefined)
+                .map(f => [f.name, `https://${hostName}/${rootPath}${f.route}`])
+                .reduce((map, [key, val]) => {
+                    map[key] = val;
+                    return map;
+                }, {} as { [functioName: string]: string })
+        );
     }
 }

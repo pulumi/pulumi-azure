@@ -37,27 +37,28 @@ export type HttpResponse = azureessentials.HttpResponse;
  *
  * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json#http
  */
+export interface HttpHostExtensions {
+    /** The route prefix that applies to all routes. Use an empty string to remove the default prefix. */
+    routePrefix?: string,
+
+    /** The maximum number of outstanding requests that are held at any given time. */
+    maxOutstandingRequests?: number,
+
+    /** The maximum number of http functions that will be executed in parallel. */
+    maxConcurrentRequests?: number,
+
+    /**
+     * When enabled, this setting causes the request processing pipeline to periodically check system performance 
+     * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in 
+     * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return 
+     * to normal levels.
+     */
+    dynamicThrottlesEnabled?: boolean,
+}
 export interface HttpHostSettings extends mod.HostSettings {
     extensions?: {
-        http: {
-            /** The route prefix that applies to all routes. Use an empty string to remove the default prefix. */
-            routePrefix?: string,
-        
-            /** The maximum number of outstanding requests that are held at any given time. */
-            maxOutstandingRequests?: number,
-        
-            /** The maximum number of http functions that will be executed in parallel. */
-            maxConcurrentRequests?: number,
-        
-            /**
-             * When enabled, this setting causes the request processing pipeline to periodically check system performance 
-             * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in 
-             * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return 
-             * to normal levels.
-             */
-            dynamicThrottlesEnabled?: boolean,
-        }
-    }    
+        http: HttpHostExtensions
+    }
 }
 
 export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
@@ -121,31 +122,15 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
-        const bindings: HttpBindingDefinition[] = [{
-                    authLevel: "anonymous",
-                    type: "httpTrigger",
-                    direction: "in",
-                    name: "req",
-                    route: args.route,
-                    methods: args.methods,
-                }, {
-                    type: "http",
-                    direction: "out",
-                    name: "$return",
-                }];
+        const func = new HttpFunction(name, args);
 
-        super("azure:appservice:HttpEventSubscription", name, bindings, {
+        super("azure:appservice:HttpEventSubscription", name, func, {
             ...args,
             location,
             resourceGroupName,
         }, opts);
 
-        const routePrefix = args.hostSettings && args.hostSettings.extensions && args.hostSettings.extensions.http.routePrefix;
-        const rootPath = routePrefix === "" ? "" : `${routePrefix === undefined ? "api" : routePrefix}/`;
-
-        const functionPath = args.route === undefined ? name : `{${args.route}}`;
-
-        this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/${rootPath}${functionPath}`;
+        this.url = this.functionApp.endpoints[name];
 
         this.registerOutputs();
     }
@@ -168,9 +153,30 @@ export type HttpFunctionArgs = util.Overwrite<mod.CallbackArgs<mod.Context<HttpR
 /**
  * Azure Function triggered by HTTP requests.
  */
-export class HttpFunction extends mod.AzureFunction {
+export class HttpFunction implements mod.FunctionArgs {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<HttpBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly body: Promise<pulumi.runtime.SerializedFunction>;
+
+    /**
+     * HTTP route to call this function.
+     */
+    public readonly route: pulumi.Input<string>;
+
     constructor(name: string, args: HttpFunctionArgs) {
-        const bindings: mod.BindingDefinition[] = [<HttpBindingDefinition>{
+        this.name = name;
+        this.bindings = [{
             authLevel: "anonymous",
             type: "httpTrigger",
             direction: "in",
@@ -182,10 +188,7 @@ export class HttpFunction extends mod.AzureFunction {
             direction: "out",
             name: "$return",
         }];
-
-        super(name, {
-            bindings: bindings,
-            body: mod.serializeFunctionCallback(args),
-        });
+        this.body = mod.serializeFunctionCallback(args);
+        this.route = args.route === undefined ? name : `{${args.route}}`;
     }
 }
