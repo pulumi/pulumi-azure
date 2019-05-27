@@ -106,7 +106,7 @@ interface BlobBindingDefinition extends appservice.BindingDefinition {
     /**
      * The storage connection string for the storage account containing the blob.
      */
-    connection: string;
+    connection: pulumi.Input<string>;
 }
 
 /**
@@ -210,16 +210,69 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
 
         const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, container.resourceGroupName);
 
+        const func = new BlobFunction(name, {
+            ...args,
+            container
+        });
+
+        super("azure:storage:BlobEventSubscription", name, func, {
+            ...args,
+            resourceGroupName,
+            location,
+        }, opts);
+
+        this.registerOutputs();
+    }
+}
+
+export type BlobFunctionArgs = util.Overwrite<appservice.CallbackArgs<BlobContext, Buffer, void>, {
+    /**
+     * Defines the storage container to trigger the function.
+     */
+    container: Container;
+    /**
+     * An optional prefix or suffix to filter down notifications.  See
+     * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#trigger---blob-name-patterns
+     * for more details.
+     */
+    filterPrefix?: pulumi.Input<string>;
+    filterSuffix?: pulumi.Input<string>;
+}>;
+
+/**
+ * Azure Function triggered by changes in blobs of a Storage Container.
+ */
+export class BlobFunction implements appservice.FunctionArgs {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<BlobBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly body: Promise<pulumi.runtime.SerializedFunction>;
+
+    /**
+     * Application settings required by the function.
+     */
+    public readonly appSettings: pulumi.Input<{ [key: string]: string }>;
+
+    constructor(name: string, args: BlobFunctionArgs) {
+        this.name = name;
+        this.body = appservice.serializeFunctionCallback(args);
+
         const prefix = args.filterPrefix || "";
         const suffix = args.filterSuffix || "";
-        const path = pulumi.interpolate`${container.name}/${prefix}{blobName}${suffix}`;
+        const path = pulumi.interpolate`${args.container.name}/${prefix}{blobName}${suffix}`;
 
-        // The blob binding does not store the storage connection string directly.  Instead, the
-        // connection string is put into the app settings (under whatever key we want). Then, the
-        // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
-
-        const bindings: BlobBindingDefinition[] = [{
+        const bindingConnectionKey = pulumi.interpolate`${args.container.storageAccountName}ConnectionStringKey`;
+        this.bindings = [{
             path,
             name: "blob",
             type: "blobTrigger",
@@ -227,24 +280,13 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
             dataType: "binary",
             connection: bindingConnectionKey,
         }];
-
-        // Place the mapping from the well known key name to the storage account connection string in
-        // the 'app settings' object.
-        const account = pulumi.all([resourceGroupName, container.storageAccountName])
-                              .apply(([resourceGroupName, storageAccountName]) =>
+    
+        const account = pulumi.all([args.container.resourceGroupName, args.container.storageAccountName])
+                            .apply(([resourceGroupName, storageAccountName]) =>
                                 storage.getAccount({ resourceGroupName, name: storageAccountName }));
-
-        const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
-            ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
-
-        super("azure:storage:BlobEventSubscription", name, { name, bindings, body: appservice.serializeFunctionCallback(args) }, {
-            ...args,
-            appSettings,
-            resourceGroupName,
-            location,
-        }, opts);
-
-        this.registerOutputs();
+    
+        this.appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
     }
 }
 
