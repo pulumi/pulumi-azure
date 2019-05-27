@@ -13,11 +13,12 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
-import { Account } from "./account";
+import { SqlDatabase } from "./sqlDatabase";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
 import * as util from "../util";
+import { cosmosdb } from "..";
 
 interface CosmosBindingDefinition extends appservice.BindingDefinition {
     /**
@@ -60,7 +61,7 @@ interface CosmosBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of an app setting that contains the Cosmos DB connection string to use for this binding.
      */
-    connectionStringSetting: string;
+    connectionStringSetting: pulumi.Input<string>;
 
     /**
      * When set, it customizes the maximum amount of items received per Function call.
@@ -102,11 +103,6 @@ export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedConte
 
 export type CosmosChangeFeedSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], void>, {
     /**
-     * The name of the database we are subscribing to.
-     */
-    databaseName: pulumi.Input<string>;
-
-    /**
      * The name of the collection inside the database we are subscribing to.
      */
     collectionName: pulumi.Input<string>;
@@ -143,8 +139,8 @@ export type CosmosChangeFeedSubscriptionArgs = util.Overwrite<appservice.Callbac
     location?: pulumi.Input<string>;
 }>;
 
-declare module "./account" {
-    interface Account {
+declare module "./sqlDatabase" {
+    interface SqlDatabase {
         /**
          * Creates a new subscription to events fired from Cosmos DB Change Feed to the handler provided, along
          * with options to control the behavior of the subscription.
@@ -154,29 +150,99 @@ declare module "./account" {
     }
 }
 
-Account.prototype.onChange = function(this: Account, name, args, opts) {
+SqlDatabase.prototype.onChange = function(this: cosmosdb.SqlDatabase, name, args, opts) {
     return new CosmosChangeFeedSubscription(name, this, args, opts);
 }
 
 export class CosmosChangeFeedSubscription extends appservice.EventSubscription<CosmosChangeFeedContext, any[], void> {
-    readonly account: Account;
+    readonly database: cosmosdb.SqlDatabase;
 
     constructor(
-        name: string, account: Account,
+        name: string, database: cosmosdb.SqlDatabase,
         args: CosmosChangeFeedSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
-        opts = { parent: account, ...opts };
+        opts = { parent: database, ...opts };
 
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, account.resourceGroupName);
+        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, database.resourceGroupName);
 
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const func = new CosmosChangeFeedFunction(name, {
+            ...args,
+            database
+        });
 
-        const bindings: CosmosBindingDefinition[] = [{
+        super("azure:eventhub:CosmosChangeFeedSubscription", name, func, {
+            ...args,
+            resourceGroupName,
+            location,
+        }, opts);
+
+        this.database = database;
+
+        this.registerOutputs();
+    }
+}
+
+export type CosmosChangeFeedFunctionArgs = util.Overwrite<appservice.CallbackArgs<CosmosChangeFeedContext, any[], void>, {
+    /**
+     * The database we are subscribing to.
+     */
+    database: cosmosdb.SqlDatabase;
+
+    /**
+     * The name of the collection inside the database we are subscribing to.
+     */
+    collectionName: pulumi.Input<string>;
+
+    /**
+     * When set, it customizes the maximum amount of items received per Function call.
+     */
+    maxItemsPerInvocation?: pulumi.Input<number>;
+
+    /**
+     * When set, it tells the Trigger to start reading changes from the beginning of the history of the collection instead of the current time. 
+     * This only works the first time the Trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this to true when 
+     * there are leases already created has no effect.
+     */
+    startFromBeginning?: pulumi.Input<boolean>;
+}>;
+
+/**
+ * Azure Function triggered by a Cosmos DB Change Feed.
+ */
+export class CosmosChangeFeedFunction implements appservice.FunctionArgs {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<CosmosBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly body: Promise<pulumi.runtime.SerializedFunction>;
+
+    /**
+     * Application settings required by the function.
+     */
+    public readonly appSettings: pulumi.Input<{ [key: string]: string }>;
+
+    constructor(name: string, args: CosmosChangeFeedFunctionArgs) {
+        this.name = name;
+        this.body = appservice.serializeFunctionCallback(args);
+
+        args.database.accountName
+
+        const bindingConnectionKey = pulumi.interpolate`${args.database.accountName}ConnectionStringKey`;
+        this.bindings = [{
             name: "items",
             direction: "in",
             type: "cosmosDBTrigger",
             connectionStringSetting: bindingConnectionKey,
-            databaseName: args.databaseName,
+            databaseName: args.database.name,
             collectionName: args.collectionName,
             maxItemsPerInvocation: args.maxItemsPerInvocation,
             startFromBeginning: args.startFromBeginning,
@@ -188,21 +254,12 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
             leaseCollectionPrefix: name,
             createLeaseCollectionIfNotExists: true,
         }];
-
-        // Place the mapping from the well known key name to the Cosmos DB connection string in
-        // the 'app settings' object.
-
-        const appSettings = pulumi.all([args.appSettings, account.connectionStrings]).apply(
-            ([appSettings, connectionStrings]) => ({ ...appSettings, [bindingConnectionKey]: connectionStrings[0] }));
-        super("azure:eventhub:CosmosChangeFeedSubscription", name, bindings, {
-            ...args,
-            resourceGroupName,
-            location,
-            appSettings
-        }, opts);
-
-        this.account = account;
-
-        this.registerOutputs();
+    
+        const account = pulumi.all([args.database.resourceGroupName, args.database.accountName])
+                            .apply(([resourceGroupName, accountName]) =>
+                                cosmosdb.getAccount({ resourceGroupName, name: accountName }));
+    
+        const connectionString =  pulumi.interpolate`AccountEndpoint=https://${args.database.accountName}.documents.azure.com:443/;AccountKey=${account.primaryMasterKey}`;
+        this.appSettings = pulumi.all([bindingConnectionKey, connectionString]).apply(([key, value]) => ({ [key]: value }));
     }
 }

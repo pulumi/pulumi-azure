@@ -9,7 +9,7 @@ const resourceGroup = new azure.core.ResourceGroup("test", {
     location: location,
 });
 
-let db = new cosmosdb.Account("test", {
+let account = new cosmosdb.Account("test", {
     resourceGroupName: resourceGroup.name,
     offerType: "Standard",
     consistencyPolicy: {
@@ -20,8 +20,12 @@ let db = new cosmosdb.Account("test", {
     geoLocations: [{ location, failoverPriority: 0 }],
 });
 
+const db = new azure.cosmosdb.SqlDatabase("testdb", {
+    resourceGroupName: resourceGroup.name,
+    accountName: account.name,
+});
+
 db.onChange("test", {
-    databaseName: "testdb",
     collectionName: "testc",
     callback: async (context, items) => {
         console.log("ctx: " + JSON.stringify(context, null, 4));
