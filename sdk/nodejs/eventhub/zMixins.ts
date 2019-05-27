@@ -220,7 +220,7 @@ export type TopicFunctionArgs = util.Overwrite<appservice.CallbackArgs<TopicCont
      * The Subscription to subscribe the FunctionApp to.  If not present, a new Subscription
      * resource will be created.
      */
-    subscription: Subscription;
+    subscription: Subscription | string;
 
     /**
      * The maximum number of deliveries.  Will default to 10 if not specified.
@@ -256,13 +256,22 @@ export class TopicFunction implements appservice.FunctionArgs {
         this.name = name;
         this.body = appservice.serializeFunctionCallback(args);
 
+        const subscription = typeof args.subscription === "string" 
+            ? new Subscription(name, {
+                resourceGroupName: args.topic.resourceGroupName,
+                namespaceName: args.topic.namespaceName,
+                topicName: args.topic.name,
+                maxDeliveryCount: pulumi.output(args.maxDeliveryCount).apply(c => c === undefined ? 10 : c),
+            }, { parent: args.topic })
+            : args.subscription;
+
         const bindingConnectionKey = pulumi.interpolate`${args.topic.namespaceName}ConnectionStringKey`;
         this.bindings = [{
             name: "topic",
             direction: "in",
             type: "serviceBusTrigger",
             topicName: args.topic.name,
-            subscriptionName: args.subscription.name,
+            subscriptionName: subscription.name,
             connection: bindingConnectionKey,
         }];
     
@@ -433,7 +442,7 @@ export type EventHubFunctionArgs = util.Overwrite<appservice.CallbackArgs<EventH
     /**
      * Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
      */
-    consumerGroup: EventHubConsumerGroup;
+    consumerGroup: EventHubConsumerGroup | string;
 
     /**
      * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
@@ -469,13 +478,21 @@ export class EventHubFunction implements appservice.FunctionArgs {
         this.name = name;
         this.body = appservice.serializeFunctionCallback(args);
 
+        const consumerGroup = typeof args.consumerGroup === "string"
+            ? new EventHubConsumerGroup(name, {
+                resourceGroupName: args.eventHub.resourceGroupName,
+                namespaceName: args.eventHub.namespaceName,
+                eventhubName: args.eventHub.name,
+                }, { parent: args.eventHub })
+            : args.consumerGroup;
+
         const bindingConnectionKey = pulumi.interpolate`${args.eventHub.namespaceName}ConnectionStringKey`;
         this.bindings = [{
             name: "eventHub",
             direction: "in",
             type: "eventHubTrigger",
             eventHubName: args.eventHub.name,
-            consumerGroup: args.consumerGroup.name,
+            consumerGroup: consumerGroup.name,
             cardinality: args.cardinality,
             connection: bindingConnectionKey,
         }];

@@ -385,7 +385,7 @@ export interface FunctionArgs {
     /**
      * Application settings required by the function.
      */
-    appSettings?: pulumi.Input<{ [key: string]: string }>;
+    appSettings?: pulumi.Input<{ [key: string]: any }>;
 
     /**
      * HTTP route to call this function (applies to functions reachable via HTTP).
@@ -431,8 +431,9 @@ async function produceDeploymentPackage(args: MultiFunctionAppArgs): Promise<pul
 }
 
 function combineAppSettings(args: MultiFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
-    const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings) : [];
-    return pulumi.all([args.appSettings, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+    const applicationSetting = args.appSettings || {};
+    const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
+    return pulumi.all([applicationSetting, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
 }
 
 export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
