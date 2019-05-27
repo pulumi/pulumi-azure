@@ -77,10 +77,6 @@ class ApiOperationPolicy(pulumi.CustomResource):
 
         __props__['xml_link'] = xml_link
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ApiOperationPolicy, __self__).__init__(
             'azure:apimanagement/apiOperationPolicy:ApiOperationPolicy',
             resource_name,

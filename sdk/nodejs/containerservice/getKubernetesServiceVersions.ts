@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const current = pulumi.output(azure.KubernetesService({
+ * const current = pulumi.output(azure.containerservice.getKubernetesServiceVersions({
  *     location: "West Europe",
  * }));
  * 
@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesServiceVersionsResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", {
         "location": args.location,
         "versionPrefix": args.versionPrefix,

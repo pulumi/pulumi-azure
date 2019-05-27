@@ -53,10 +53,6 @@ class Workspace(pulumi.CustomResource):
             raise TypeError("Missing required property 'workspace_id'")
         __props__['workspace_id'] = workspace_id
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Workspace, __self__).__init__(
             'azure:securitycenter/workspace:Workspace',
             resource_name,

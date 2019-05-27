@@ -109,13 +109,6 @@ export class BackendAddressPool extends pulumi.CustomResource {
             inputs["backendIpConfigurations"] = undefined /*out*/;
             inputs["loadBalancingRules"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:lb/backendAddressPool:BackendAddressPool", name, inputs, opts);
     }
 }

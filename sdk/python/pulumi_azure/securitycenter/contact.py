@@ -69,10 +69,6 @@ class Contact(pulumi.CustomResource):
             raise TypeError("Missing required property 'phone'")
         __props__['phone'] = phone
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Contact, __self__).__init__(
             'azure:securitycenter/contact:Contact',
             resource_name,

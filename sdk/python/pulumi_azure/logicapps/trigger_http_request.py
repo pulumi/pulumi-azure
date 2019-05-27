@@ -70,10 +70,6 @@ class TriggerHttpRequest(pulumi.CustomResource):
             raise TypeError("Missing required property 'schema'")
         __props__['schema'] = schema
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(TriggerHttpRequest, __self__).__init__(
             'azure:logicapps/triggerHttpRequest:TriggerHttpRequest',
             resource_name,

@@ -172,13 +172,6 @@ export class Job extends pulumi.CustomResource {
             inputs["transformationQuery"] = args ? args.transformationQuery : undefined;
             inputs["jobId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:streamanalytics/job:Job", name, inputs, opts);
     }
 }

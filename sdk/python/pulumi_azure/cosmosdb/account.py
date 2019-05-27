@@ -179,10 +179,6 @@ class Account(pulumi.CustomResource):
         __props__['secondary_readonly_master_key'] = None
         __props__['write_endpoints'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Account, __self__).__init__(
             'azure:cosmosdb/account:Account',
             resource_name,

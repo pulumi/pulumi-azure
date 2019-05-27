@@ -81,10 +81,6 @@ class Credential(pulumi.CustomResource):
             raise TypeError("Missing required property 'username'")
         __props__['username'] = username
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Credential, __self__).__init__(
             'azure:automation/credential:Credential',
             resource_name,

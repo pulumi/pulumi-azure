@@ -83,13 +83,6 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/applicationSecurityGroup:ApplicationSecurityGroup", name, inputs, opts);
     }
 }

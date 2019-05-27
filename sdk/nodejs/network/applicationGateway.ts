@@ -131,8 +131,9 @@ export class ApplicationGateway extends pulumi.CustomResource {
     public readonly customErrorConfigurations!: pulumi.Output<{ customErrorPageUrl: string, id: string, statusCode: string }[] | undefined>;
     /**
      * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
      */
-    public readonly disabledSslProtocols!: pulumi.Output<string[] | undefined>;
+    public readonly disabledSslProtocols!: pulumi.Output<string[]>;
     /**
      * Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      */
@@ -172,11 +173,15 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * One or more `request_routing_rule` blocks as defined below.
      */
-    public readonly requestRoutingRules!: pulumi.Output<{ backendAddressPoolId: string, backendAddressPoolName?: string, backendHttpSettingsId: string, backendHttpSettingsName?: string, httpListenerId: string, httpListenerName: string, id: string, name: string, redirectConfigurationId: string, redirectConfigurationName?: string, ruleType: string, urlPathMapId: string, urlPathMapName?: string }[]>;
+    public readonly requestRoutingRules!: pulumi.Output<{ backendAddressPoolId: string, backendAddressPoolName?: string, backendHttpSettingsId: string, backendHttpSettingsName?: string, httpListenerId: string, httpListenerName: string, id: string, name: string, redirectConfigurationId: string, redirectConfigurationName?: string, rewriteRuleSetId: string, rewriteRuleSetName?: string, ruleType: string, urlPathMapId: string, urlPathMapName?: string }[]>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+     */
+    public readonly rewriteRuleSets!: pulumi.Output<{ id: string, name: string, rewriteRules?: { conditions?: { ignoreCase?: boolean, negate?: boolean, pattern: string, variable: string }[], name: string, requestHeaderConfigurations?: { headerName: string, headerValue: string }[], responseHeaderConfigurations?: { headerName: string, headerValue: string }[], ruleSequence: number }[] }[] | undefined>;
     /**
      * A `sku` block as defined below.
      */
@@ -186,13 +191,17 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly sslCertificates!: pulumi.Output<{ data: string, id: string, name: string, password: string, publicCertData: string }[] | undefined>;
     /**
+     * a `ssl policy` block as defined below.
+     */
+    public readonly sslPolicies!: pulumi.Output<{ cipherSuites?: string[], disabledProtocols: string[], minProtocolVersion?: string, policyName?: string, policyType?: string }[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
      * One or more `url_path_map` blocks as defined below.
      */
-    public readonly urlPathMaps!: pulumi.Output<{ defaultBackendAddressPoolId: string, defaultBackendAddressPoolName?: string, defaultBackendHttpSettingsId: string, defaultBackendHttpSettingsName?: string, defaultRedirectConfigurationId: string, defaultRedirectConfigurationName?: string, id: string, name: string, pathRules: { backendAddressPoolId: string, backendAddressPoolName?: string, backendHttpSettingsId: string, backendHttpSettingsName?: string, id: string, name: string, paths: string[], redirectConfigurationId: string, redirectConfigurationName?: string }[] }[] | undefined>;
+    public readonly urlPathMaps!: pulumi.Output<{ defaultBackendAddressPoolId: string, defaultBackendAddressPoolName?: string, defaultBackendHttpSettingsId: string, defaultBackendHttpSettingsName?: string, defaultRedirectConfigurationId: string, defaultRedirectConfigurationName?: string, defaultRewriteRuleSetId: string, defaultRewriteRuleSetName?: string, id: string, name: string, pathRules: { backendAddressPoolId: string, backendAddressPoolName?: string, backendHttpSettingsId: string, backendHttpSettingsName?: string, id: string, name: string, paths: string[], redirectConfigurationId: string, redirectConfigurationName?: string, rewriteRuleSetId: string, rewriteRuleSetName?: string }[] }[] | undefined>;
     /**
      * A `waf_configuration` block as defined below.
      */
@@ -231,8 +240,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["redirectConfigurations"] = state ? state.redirectConfigurations : undefined;
             inputs["requestRoutingRules"] = state ? state.requestRoutingRules : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["rewriteRuleSets"] = state ? state.rewriteRuleSets : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["sslCertificates"] = state ? state.sslCertificates : undefined;
+            inputs["sslPolicies"] = state ? state.sslPolicies : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["urlPathMaps"] = state ? state.urlPathMaps : undefined;
             inputs["wafConfiguration"] = state ? state.wafConfiguration : undefined;
@@ -283,19 +294,14 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["redirectConfigurations"] = args ? args.redirectConfigurations : undefined;
             inputs["requestRoutingRules"] = args ? args.requestRoutingRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rewriteRuleSets"] = args ? args.rewriteRuleSets : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["sslCertificates"] = args ? args.sslCertificates : undefined;
+            inputs["sslPolicies"] = args ? args.sslPolicies : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             inputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
-        }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
         }
         super("azure:network/applicationGateway:ApplicationGateway", name, inputs, opts);
     }
@@ -327,6 +333,7 @@ export interface ApplicationGatewayState {
     readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<{ customErrorPageUrl: pulumi.Input<string>, id?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>[]>;
     /**
      * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
      */
     readonly disabledSslProtocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -368,11 +375,15 @@ export interface ApplicationGatewayState {
     /**
      * One or more `request_routing_rule` blocks as defined below.
      */
-    readonly requestRoutingRules?: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, httpListenerId?: pulumi.Input<string>, httpListenerName: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, ruleType: pulumi.Input<string>, urlPathMapId?: pulumi.Input<string>, urlPathMapName?: pulumi.Input<string> }>[]>;
+    readonly requestRoutingRules?: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, httpListenerId?: pulumi.Input<string>, httpListenerName: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, rewriteRuleSetId?: pulumi.Input<string>, rewriteRuleSetName?: pulumi.Input<string>, ruleType: pulumi.Input<string>, urlPathMapId?: pulumi.Input<string>, urlPathMapName?: pulumi.Input<string> }>[]>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
+    /**
+     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+     */
+    readonly rewriteRuleSets?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, rewriteRules?: pulumi.Input<pulumi.Input<{ conditions?: pulumi.Input<pulumi.Input<{ ignoreCase?: pulumi.Input<boolean>, negate?: pulumi.Input<boolean>, pattern: pulumi.Input<string>, variable: pulumi.Input<string> }>[]>, name: pulumi.Input<string>, requestHeaderConfigurations?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string> }>[]>, responseHeaderConfigurations?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string> }>[]>, ruleSequence: pulumi.Input<number> }>[]> }>[]>;
     /**
      * A `sku` block as defined below.
      */
@@ -382,13 +393,17 @@ export interface ApplicationGatewayState {
      */
     readonly sslCertificates?: pulumi.Input<pulumi.Input<{ data: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, password: pulumi.Input<string>, publicCertData?: pulumi.Input<string> }>[]>;
     /**
+     * a `ssl policy` block as defined below.
+     */
+    readonly sslPolicies?: pulumi.Input<pulumi.Input<{ cipherSuites?: pulumi.Input<pulumi.Input<string>[]>, disabledProtocols?: pulumi.Input<pulumi.Input<string>[]>, minProtocolVersion?: pulumi.Input<string>, policyName?: pulumi.Input<string>, policyType?: pulumi.Input<string> }>[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * One or more `url_path_map` blocks as defined below.
      */
-    readonly urlPathMaps?: pulumi.Input<pulumi.Input<{ defaultBackendAddressPoolId?: pulumi.Input<string>, defaultBackendAddressPoolName?: pulumi.Input<string>, defaultBackendHttpSettingsId?: pulumi.Input<string>, defaultBackendHttpSettingsName?: pulumi.Input<string>, defaultRedirectConfigurationId?: pulumi.Input<string>, defaultRedirectConfigurationName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, pathRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, paths: pulumi.Input<pulumi.Input<string>[]>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string> }>[]> }>[]>;
+    readonly urlPathMaps?: pulumi.Input<pulumi.Input<{ defaultBackendAddressPoolId?: pulumi.Input<string>, defaultBackendAddressPoolName?: pulumi.Input<string>, defaultBackendHttpSettingsId?: pulumi.Input<string>, defaultBackendHttpSettingsName?: pulumi.Input<string>, defaultRedirectConfigurationId?: pulumi.Input<string>, defaultRedirectConfigurationName?: pulumi.Input<string>, defaultRewriteRuleSetId?: pulumi.Input<string>, defaultRewriteRuleSetName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, pathRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, paths: pulumi.Input<pulumi.Input<string>[]>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, rewriteRuleSetId?: pulumi.Input<string>, rewriteRuleSetName?: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A `waf_configuration` block as defined below.
      */
@@ -425,6 +440,7 @@ export interface ApplicationGatewayArgs {
     readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<{ customErrorPageUrl: pulumi.Input<string>, id?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>[]>;
     /**
      * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+     * > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
      */
     readonly disabledSslProtocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -466,11 +482,15 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `request_routing_rule` blocks as defined below.
      */
-    readonly requestRoutingRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, httpListenerId?: pulumi.Input<string>, httpListenerName: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, ruleType: pulumi.Input<string>, urlPathMapId?: pulumi.Input<string>, urlPathMapName?: pulumi.Input<string> }>[]>;
+    readonly requestRoutingRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, httpListenerId?: pulumi.Input<string>, httpListenerName: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, rewriteRuleSetId?: pulumi.Input<string>, rewriteRuleSetName?: pulumi.Input<string>, ruleType: pulumi.Input<string>, urlPathMapId?: pulumi.Input<string>, urlPathMapName?: pulumi.Input<string> }>[]>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+     */
+    readonly rewriteRuleSets?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, rewriteRules?: pulumi.Input<pulumi.Input<{ conditions?: pulumi.Input<pulumi.Input<{ ignoreCase?: pulumi.Input<boolean>, negate?: pulumi.Input<boolean>, pattern: pulumi.Input<string>, variable: pulumi.Input<string> }>[]>, name: pulumi.Input<string>, requestHeaderConfigurations?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string> }>[]>, responseHeaderConfigurations?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string> }>[]>, ruleSequence: pulumi.Input<number> }>[]> }>[]>;
     /**
      * A `sku` block as defined below.
      */
@@ -480,13 +500,17 @@ export interface ApplicationGatewayArgs {
      */
     readonly sslCertificates?: pulumi.Input<pulumi.Input<{ data: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, password: pulumi.Input<string>, publicCertData?: pulumi.Input<string> }>[]>;
     /**
+     * a `ssl policy` block as defined below.
+     */
+    readonly sslPolicies?: pulumi.Input<pulumi.Input<{ cipherSuites?: pulumi.Input<pulumi.Input<string>[]>, disabledProtocols?: pulumi.Input<pulumi.Input<string>[]>, minProtocolVersion?: pulumi.Input<string>, policyName?: pulumi.Input<string>, policyType?: pulumi.Input<string> }>[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
      * One or more `url_path_map` blocks as defined below.
      */
-    readonly urlPathMaps?: pulumi.Input<pulumi.Input<{ defaultBackendAddressPoolId?: pulumi.Input<string>, defaultBackendAddressPoolName?: pulumi.Input<string>, defaultBackendHttpSettingsId?: pulumi.Input<string>, defaultBackendHttpSettingsName?: pulumi.Input<string>, defaultRedirectConfigurationId?: pulumi.Input<string>, defaultRedirectConfigurationName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, pathRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, paths: pulumi.Input<pulumi.Input<string>[]>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string> }>[]> }>[]>;
+    readonly urlPathMaps?: pulumi.Input<pulumi.Input<{ defaultBackendAddressPoolId?: pulumi.Input<string>, defaultBackendAddressPoolName?: pulumi.Input<string>, defaultBackendHttpSettingsId?: pulumi.Input<string>, defaultBackendHttpSettingsName?: pulumi.Input<string>, defaultRedirectConfigurationId?: pulumi.Input<string>, defaultRedirectConfigurationName?: pulumi.Input<string>, defaultRewriteRuleSetId?: pulumi.Input<string>, defaultRewriteRuleSetName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, pathRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, paths: pulumi.Input<pulumi.Input<string>[]>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, rewriteRuleSetId?: pulumi.Input<string>, rewriteRuleSetName?: pulumi.Input<string> }>[]> }>[]>;
     /**
      * A `waf_configuration` block as defined below.
      */

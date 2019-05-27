@@ -113,13 +113,6 @@ export class Account extends pulumi.CustomResource {
             inputs["dscSecondaryAccessKey"] = undefined /*out*/;
             inputs["dscServerEndpoint"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:automation/account:Account", name, inputs, opts);
     }
 }

@@ -91,10 +91,6 @@ class ActionGroup(pulumi.CustomResource):
 
         __props__['webhook_receivers'] = webhook_receivers
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(ActionGroup, __self__).__init__(
             'azure:monitoring/actionGroup:ActionGroup',
             resource_name,

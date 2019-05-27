@@ -70,10 +70,6 @@ class Firewall(pulumi.CustomResource):
 
         __props__['tags'] = tags
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Firewall, __self__).__init__(
             'azure:network/firewall:Firewall',
             resource_name,

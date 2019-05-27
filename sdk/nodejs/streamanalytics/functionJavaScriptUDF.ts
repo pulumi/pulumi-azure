@@ -117,13 +117,6 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
             inputs["script"] = args ? args.script : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, inputs, opts);
     }
 }

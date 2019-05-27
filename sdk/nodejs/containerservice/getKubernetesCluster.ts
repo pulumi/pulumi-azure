@@ -23,13 +23,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

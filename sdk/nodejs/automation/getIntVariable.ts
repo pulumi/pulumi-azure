@@ -24,13 +24,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getIntVariable(args: GetIntVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetIntVariableResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:automation/getIntVariable:getIntVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,

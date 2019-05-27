@@ -34,10 +34,6 @@ async def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
 
     __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts)
 
     return GetBackendAddressPoolResult(

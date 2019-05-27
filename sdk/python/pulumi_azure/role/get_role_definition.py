@@ -62,10 +62,6 @@ async def get_role_definition(name=None,role_definition_id=None,scope=None,opts=
     __args__['name'] = name
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__, opts=opts)
 
     return GetRoleDefinitionResult(

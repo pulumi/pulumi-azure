@@ -12,13 +12,16 @@ class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, address_spaces=None, dns_servers=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None, id=None):
+    def __init__(__self__, address_spaces=None, address_spaces_collection=None, dns_servers=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None, id=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError("Expected argument 'address_spaces' to be a list")
         __self__.address_spaces = address_spaces
         """
         The list of address spaces used by the virtual network.
         """
+        if address_spaces_collection and not isinstance(address_spaces_collection, list):
+            raise TypeError("Expected argument 'address_spaces_collection' to be a list")
+        __self__.address_spaces_collection = address_spaces_collection
         if dns_servers and not isinstance(dns_servers, list):
             raise TypeError("Expected argument 'dns_servers' to be a list")
         __self__.dns_servers = dns_servers
@@ -58,14 +61,11 @@ async def get_virtual_network(name=None,resource_group_name=None,opts=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:network/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts)
 
     return GetVirtualNetworkResult(
         address_spaces=__ret__.get('addressSpaces'),
+        address_spaces_collection=__ret__.get('addressSpacesCollection'),
         dns_servers=__ret__.get('dnsServers'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),

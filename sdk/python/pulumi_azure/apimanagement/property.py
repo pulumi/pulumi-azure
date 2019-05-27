@@ -88,10 +88,6 @@ class Property(pulumi.CustomResource):
             raise TypeError("Missing required property 'value'")
         __props__['value'] = value
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(Property, __self__).__init__(
             'azure:apimanagement/property:Property',
             resource_name,

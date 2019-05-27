@@ -172,10 +172,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__['fqdn'] = None
         __props__['unique_identifier'] = None
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(WindowsVirtualMachine, __self__).__init__(
             'azure:devtest/windowsVirtualMachine:WindowsVirtualMachine',
             resource_name,

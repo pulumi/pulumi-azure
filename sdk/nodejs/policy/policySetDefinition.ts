@@ -127,13 +127,6 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:policy/policySetDefinition:PolicySetDefinition", name, inputs, opts);
     }
 }

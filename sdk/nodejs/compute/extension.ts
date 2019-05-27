@@ -229,13 +229,6 @@ export class Extension extends pulumi.CustomResource {
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             inputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:compute/extension:Extension", name, inputs, opts);
     }
 }

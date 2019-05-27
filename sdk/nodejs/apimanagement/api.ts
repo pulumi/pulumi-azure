@@ -186,13 +186,6 @@ export class Api extends pulumi.CustomResource {
             inputs["version"] = undefined /*out*/;
             inputs["versionSetId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:apimanagement/api:Api", name, inputs, opts);
     }
 }

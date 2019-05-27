@@ -62,8 +62,10 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["redirectConfigurations"] = nil
 		inputs["requestRoutingRules"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["rewriteRuleSets"] = nil
 		inputs["sku"] = nil
 		inputs["sslCertificates"] = nil
+		inputs["sslPolicies"] = nil
 		inputs["tags"] = nil
 		inputs["urlPathMaps"] = nil
 		inputs["wafConfiguration"] = nil
@@ -86,8 +88,10 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["redirectConfigurations"] = args.RedirectConfigurations
 		inputs["requestRoutingRules"] = args.RequestRoutingRules
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["rewriteRuleSets"] = args.RewriteRuleSets
 		inputs["sku"] = args.Sku
 		inputs["sslCertificates"] = args.SslCertificates
+		inputs["sslPolicies"] = args.SslPolicies
 		inputs["tags"] = args.Tags
 		inputs["urlPathMaps"] = args.UrlPathMaps
 		inputs["wafConfiguration"] = args.WafConfiguration
@@ -123,8 +127,10 @@ func GetApplicationGateway(ctx *pulumi.Context,
 		inputs["redirectConfigurations"] = state.RedirectConfigurations
 		inputs["requestRoutingRules"] = state.RequestRoutingRules
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["rewriteRuleSets"] = state.RewriteRuleSets
 		inputs["sku"] = state.Sku
 		inputs["sslCertificates"] = state.SslCertificates
+		inputs["sslPolicies"] = state.SslPolicies
 		inputs["tags"] = state.Tags
 		inputs["urlPathMaps"] = state.UrlPathMaps
 		inputs["wafConfiguration"] = state.WafConfiguration
@@ -173,6 +179,7 @@ func (r *ApplicationGateway) CustomErrorConfigurations() *pulumi.ArrayOutput {
 }
 
 // A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+// > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
 func (r *ApplicationGateway) DisabledSslProtocols() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["disabledSslProtocols"])
 }
@@ -232,6 +239,11 @@ func (r *ApplicationGateway) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+func (r *ApplicationGateway) RewriteRuleSets() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["rewriteRuleSets"])
+}
+
 // A `sku` block as defined below.
 func (r *ApplicationGateway) Sku() *pulumi.Output {
 	return r.s.State["sku"]
@@ -240,6 +252,11 @@ func (r *ApplicationGateway) Sku() *pulumi.Output {
 // One or more `ssl_certificate` blocks as defined below.
 func (r *ApplicationGateway) SslCertificates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sslCertificates"])
+}
+
+// a `ssl policy` block as defined below.
+func (r *ApplicationGateway) SslPolicies() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["sslPolicies"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -275,6 +292,7 @@ type ApplicationGatewayState struct {
 	// One or more `custom_error_configuration` blocks as defined below.
 	CustomErrorConfigurations interface{}
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	// > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
 	DisabledSslProtocols interface{}
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 interface{}
@@ -298,10 +316,14 @@ type ApplicationGatewayState struct {
 	RequestRoutingRules interface{}
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+	RewriteRuleSets interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
 	// One or more `ssl_certificate` blocks as defined below.
 	SslCertificates interface{}
+	// a `ssl policy` block as defined below.
+	SslPolicies interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// One or more `url_path_map` blocks as defined below.
@@ -325,6 +347,7 @@ type ApplicationGatewayArgs struct {
 	// One or more `custom_error_configuration` blocks as defined below.
 	CustomErrorConfigurations interface{}
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+	// > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
 	DisabledSslProtocols interface{}
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 interface{}
@@ -348,10 +371,14 @@ type ApplicationGatewayArgs struct {
 	RequestRoutingRules interface{}
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
+	// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+	RewriteRuleSets interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
 	// One or more `ssl_certificate` blocks as defined below.
 	SslCertificates interface{}
+	// a `ssl policy` block as defined below.
+	SslPolicies interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 	// One or more `url_path_map` blocks as defined below.

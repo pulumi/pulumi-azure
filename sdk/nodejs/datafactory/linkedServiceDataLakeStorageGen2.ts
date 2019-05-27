@@ -155,13 +155,6 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             inputs["tenant"] = args ? args.tenant : undefined;
             inputs["url"] = args ? args.url : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, inputs, opts);
     }
 }

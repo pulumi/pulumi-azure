@@ -22,13 +22,22 @@ import * as utilities from "../utilities";
  *     name: "acctestRG1",
  * });
  * const testKubernetesCluster = new azure.containerservice.KubernetesCluster("test", {
- *     agentPoolProfile: {
- *         count: 1,
- *         name: "default",
- *         osDiskSizeGb: 30,
- *         osType: "Linux",
- *         vmSize: "Standard_D1_v2",
- *     },
+ *     agentPoolProfiles: [
+ *         {
+ *             count: 1,
+ *             name: "default",
+ *             osDiskSizeGb: 30,
+ *             osType: "Linux",
+ *             vmSize: "Standard_D1_v2",
+ *         },
+ *         {
+ *             count: 1,
+ *             name: "pool2",
+ *             osDiskSizeGb: 30,
+ *             osType: "Linux",
+ *             vmSize: "Standard_D2_v2",
+ *         },
+ *     ],
  *     dnsPrefix: "acctestagent1",
  *     location: testResourceGroup.location,
  *     name: "acctestaks1",
@@ -64,9 +73,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly addonProfile!: pulumi.Output<{ aciConnectorLinux?: { enabled: boolean, subnetName: string }, httpApplicationRouting?: { enabled: boolean, httpApplicationRoutingZoneName: string }, omsAgent?: { enabled: boolean, logAnalyticsWorkspaceId: string } }>;
     /**
-     * An `agent_pool_profile` block.  Currently only one agent pool can exist.
+     * One or more `agent_pool_profile` blocks as defined below.
      */
-    public readonly agentPoolProfile!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb: number, osType?: string, type?: string, vmSize: string, vnetSubnetId?: string }>;
+    public readonly agentPoolProfiles!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb: number, osType?: string, type?: string, vmSize: string, vnetSubnetId?: string }[]>;
     /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
@@ -149,7 +158,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as KubernetesClusterState | undefined;
             inputs["addonProfile"] = state ? state.addonProfile : undefined;
-            inputs["agentPoolProfile"] = state ? state.agentPoolProfile : undefined;
+            inputs["agentPoolProfiles"] = state ? state.agentPoolProfiles : undefined;
             inputs["apiServerAuthorizedIpRanges"] = state ? state.apiServerAuthorizedIpRanges : undefined;
             inputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
@@ -169,8 +178,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as KubernetesClusterArgs | undefined;
-            if (!args || args.agentPoolProfile === undefined) {
-                throw new Error("Missing required property 'agentPoolProfile'");
+            if (!args || args.agentPoolProfiles === undefined) {
+                throw new Error("Missing required property 'agentPoolProfiles'");
             }
             if (!args || args.dnsPrefix === undefined) {
                 throw new Error("Missing required property 'dnsPrefix'");
@@ -182,7 +191,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'servicePrincipal'");
             }
             inputs["addonProfile"] = args ? args.addonProfile : undefined;
-            inputs["agentPoolProfile"] = args ? args.agentPoolProfile : undefined;
+            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
             inputs["apiServerAuthorizedIpRanges"] = args ? args.apiServerAuthorizedIpRanges : undefined;
             inputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             inputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
@@ -201,13 +210,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["nodeResourceGroup"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, inputs, opts);
     }
 }
@@ -221,9 +223,9 @@ export interface KubernetesClusterState {
      */
     readonly addonProfile?: pulumi.Input<{ aciConnectorLinux?: pulumi.Input<{ enabled: pulumi.Input<boolean>, subnetName: pulumi.Input<string> }>, httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
     /**
-     * An `agent_pool_profile` block.  Currently only one agent pool can exist.
+     * One or more `agent_pool_profile` blocks as defined below.
      */
-    readonly agentPoolProfile?: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, type?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
+    readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, type?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>[]>;
     /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */
@@ -303,9 +305,9 @@ export interface KubernetesClusterArgs {
      */
     readonly addonProfile?: pulumi.Input<{ aciConnectorLinux?: pulumi.Input<{ enabled: pulumi.Input<boolean>, subnetName: pulumi.Input<string> }>, httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
     /**
-     * An `agent_pool_profile` block.  Currently only one agent pool can exist.
+     * One or more `agent_pool_profile` blocks as defined below.
      */
-    readonly agentPoolProfile: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, type?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>;
+    readonly agentPoolProfiles: pulumi.Input<pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, type?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>[]>;
     /**
      * The IP ranges to whitelist for incoming traffic to the masters.
      */

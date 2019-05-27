@@ -77,10 +77,6 @@ class IntVariable(pulumi.CustomResource):
 
         __props__['value'] = value
 
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if opts.version is None:
-            opts.version = utilities.get_version()
         super(IntVariable, __self__).__init__(
             'azure:automation/intVariable:IntVariable',
             resource_name,

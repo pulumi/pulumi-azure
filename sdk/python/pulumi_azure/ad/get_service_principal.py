@@ -42,10 +42,6 @@ async def get_service_principal(application_id=None,display_name=None,object_id=
     __args__['applicationId'] = application_id
     __args__['displayName'] = display_name
     __args__['objectId'] = object_id
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__, opts=opts)
 
     return GetServicePrincipalResult(

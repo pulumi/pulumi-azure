@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *     name: "acctestRG1",
  * });
  * const testKubernetesCluster = new azure.containerservice.KubernetesCluster("test", {
- *     agentPoolProfile: {
+ *     agentPoolProfiles: [{
  *         count: 1,
  *         name: "default",
  *         vmSize: "Standard_DS2_v2",
- *     },
+ *     }],
  *     dnsPrefix: "acctestaks1",
  *     location: testResourceGroup.location,
  *     name: "acctestaks1",
@@ -146,13 +146,6 @@ export class Controller extends pulumi.CustomResource {
             inputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
             inputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
             inputs["dataPlaneFqdn"] = undefined /*out*/;
-        }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
         }
         super("azure:devspace/controller:Controller", name, inputs, opts);
     }

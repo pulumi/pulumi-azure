@@ -104,13 +104,6 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["securityRules"] = args ? args.securityRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, inputs, opts);
     }
 }

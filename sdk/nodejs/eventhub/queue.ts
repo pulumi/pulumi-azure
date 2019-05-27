@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage and manage a ServiceBus Queue.
+ * Manage a ServiceBus Queue.
  * 
  * ## Example Usage
  * 
@@ -184,13 +184,6 @@ export class Queue extends pulumi.CustomResource {
             inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
-        }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
         }
         super("azure:eventhub/queue:Queue", name, inputs, opts);
     }

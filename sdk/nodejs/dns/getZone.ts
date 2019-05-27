@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getZone(args: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:dns/getZone:getZone", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

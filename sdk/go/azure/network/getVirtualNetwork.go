@@ -20,6 +20,7 @@ func LookupVirtualNetwork(ctx *pulumi.Context, args *GetVirtualNetworkArgs) (*Ge
 	}
 	return &GetVirtualNetworkResult{
 		AddressSpaces: outputs["addressSpaces"],
+		AddressSpacesCollection: outputs["addressSpacesCollection"],
 		DnsServers: outputs["dnsServers"],
 		Name: outputs["name"],
 		ResourceGroupName: outputs["resourceGroupName"],
@@ -41,6 +42,7 @@ type GetVirtualNetworkArgs struct {
 type GetVirtualNetworkResult struct {
 	// The list of address spaces used by the virtual network.
 	AddressSpaces interface{}
+	AddressSpacesCollection interface{}
 	// The list of DNS servers used by the virtual network.
 	DnsServers interface{}
 	Name interface{}

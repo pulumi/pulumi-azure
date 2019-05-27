@@ -148,13 +148,6 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["elasticPoolProperties"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
-        if (!opts.version) {
-            opts.version = utilities.getVersion();
-        }
         super("azure:mssql/elasticPool:ElasticPool", name, inputs, opts);
     }
 }

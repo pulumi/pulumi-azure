@@ -22,13 +22,6 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    if (!opts) {
-        opts = {}
-    }
-
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
     return pulumi.runtime.invoke("azure:cdn/getProfile:getProfile", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
