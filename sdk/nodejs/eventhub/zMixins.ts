@@ -49,7 +49,7 @@ interface TopicBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of an app setting that contains the Service Bus connection string to use for this binding.
      */
-    connection: string;
+    connection: pulumi.Input<string>;
 }
 
 /**
@@ -191,41 +191,87 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
             maxDeliveryCount: pulumi.output(args.maxDeliveryCount).apply(c => c === undefined ? 10 : c),
         }, opts);
 
-        // The topic binding does not store the Service Bus connection string directly.  Instead, the
-        // connection string is put into the app settings (under whatever key we want). Then, the
-        // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const func = new TopicFunction(name, {
+            ...args,
+            topic,
+            subscription,
+        })
 
-        const bindings: TopicBindingDefinition[] = [{
-            name: "topic",
-            direction: "in",
-            type: "serviceBusTrigger",
-            topicName: topic.name,
-            subscriptionName: subscription.name,
-            connection: bindingConnectionKey,
-        }];
-
-        const namespace = pulumi.all([topic.namespaceName, resourceGroupName])
-                               .apply(([namespaceName, resourceGroupName]) =>
-                                    getServiceBusNamespace({ name: namespaceName, resourceGroupName }));
-
-        // Place the mapping from the well known key name to the Service Bus account connection string in
-        // the 'app settings' object.
-
-        const appSettings = pulumi.all([args.appSettings, namespace.defaultPrimaryConnectionString]).apply(
-            ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
-
-        super("azure:eventhub:TopicEventSubscription", name, bindings, {
+        super("azure:eventhub:TopicEventSubscription", name, func, {
             ...args,
             resourceGroupName,
             location,
-            appSettings
         }, opts);
 
         this.topic = topic;
         this.subscription = subscription;
 
         this.registerOutputs();
+    }
+}
+
+export type TopicFunctionArgs = util.Overwrite<appservice.CallbackArgs<TopicContext, string, void>, {
+    /**
+     * Defines the Service Bus topic to trigger the function.
+     */
+    topic: Topic;
+
+    /**
+     * The Subscription to subscribe the FunctionApp to.  If not present, a new Subscription
+     * resource will be created.
+     */
+    subscription: Subscription;
+
+    /**
+     * The maximum number of deliveries.  Will default to 10 if not specified.
+     */
+    maxDeliveryCount?: pulumi.Input<number>;
+}>;
+
+/**
+ * Azure Function triggered by a Service Bus Topic Subscription.
+ */
+export class TopicFunction implements appservice.FunctionArgs {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<TopicBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly body: Promise<pulumi.runtime.SerializedFunction>;
+
+    /**
+     * Application settings required by the function.
+     */
+    public readonly appSettings: pulumi.Input<{ [key: string]: string }>;
+
+    constructor(name: string, args: TopicFunctionArgs) {
+        this.name = name;
+        this.body = appservice.serializeFunctionCallback(args);
+
+        const bindingConnectionKey = pulumi.interpolate`${args.topic.namespaceName}ConnectionStringKey`;
+        this.bindings = [{
+            name: "topic",
+            direction: "in",
+            type: "serviceBusTrigger",
+            topicName: args.topic.name,
+            subscriptionName: args.subscription.name,
+            connection: bindingConnectionKey,
+        }];
+    
+        const namespace = pulumi.all([args.topic.namespaceName, args.topic.resourceGroupName])
+                               .apply(([namespaceName, resourceGroupName]) =>
+                                    getServiceBusNamespace({ name: namespaceName, resourceGroupName }));
+
+        this.appSettings = pulumi.all([bindingConnectionKey, namespace.defaultPrimaryConnectionString]).apply(
+            ([key, connectionString]) => ({ [key]: connectionString }));
     }
 }
 
@@ -264,7 +310,7 @@ interface EventHubBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of an app setting that contains the Event Hub connection string to use for this binding.
      */
-    connection: string;
+    connection: pulumi.Input<string>;
 }
 
 /**
@@ -359,41 +405,86 @@ export class EventHubSubscription extends appservice.EventSubscription<EventHubC
             eventhubName: eventHub.name,
         }, opts);
 
-        // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
-        // connection string is put into the app settings (under whatever key we want). Then, the
-        // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const func = new EventHubFunction(name, {
+            ...args,
+            eventHub,
+            consumerGroup,
+        })
 
-        const bindings: EventHubBindingDefinition[] = [{
-            name: "eventHub",
-            direction: "in",
-            type: "eventHubTrigger",
-            eventHubName: eventHub.name,
-            consumerGroup: consumerGroup.name,
-            cardinality: args.cardinality,
-            connection: bindingConnectionKey,
-        }];
-
-        const namespace = pulumi.all([eventHub.namespaceName, resourceGroupName])
-                               .apply(([namespaceName, resourceGroupName]) =>
-                                    getEventhubNamespace({ name: namespaceName, resourceGroupName }));
-
-        // Place the mapping from the well known key name to the Event Hubs account connection string in
-        // the 'app settings' object.
-
-        const appSettings = pulumi.all([args.appSettings, namespace.defaultPrimaryConnectionString]).apply(
-            ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
-
-        super("azure:eventhub:EventHubSubscription", name, bindings, {
+        super("azure:eventhub:EventHubSubscription", name, func, {
             ...args,
             resourceGroupName,
             location,
-            appSettings
         }, opts);
 
         this.eventHub = eventHub;
         this.consumerGroup = consumerGroup;
 
         this.registerOutputs();
+    }
+}
+
+export type EventHubFunctionArgs = util.Overwrite<appservice.CallbackArgs<EventHubContext, string, void>, {
+    /**
+     * Event Hub to trigger the function.
+     */
+    eventHub: EventHub;
+    
+    /**
+     * Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
+     */
+    consumerGroup: EventHubConsumerGroup;
+
+    /**
+     * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
+     */
+    cardinality?: pulumi.Input<"many" | "one">;
+}>;
+
+/**
+ * Azure Function triggered by an Event Hub.
+ */
+export class EventHubFunction implements appservice.FunctionArgs {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<EventHubBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly body: Promise<pulumi.runtime.SerializedFunction>;
+
+    /**
+     * Application settings required by the function.
+     */
+    public readonly appSettings: pulumi.Input<{ [key: string]: string }>;
+
+    constructor(name: string, args: EventHubFunctionArgs) {
+        this.name = name;
+        this.body = appservice.serializeFunctionCallback(args);
+
+        const bindingConnectionKey = pulumi.interpolate`${args.eventHub.namespaceName}ConnectionStringKey`;
+        this.bindings = [{
+            name: "eventHub",
+            direction: "in",
+            type: "eventHubTrigger",
+            eventHubName: args.eventHub.name,
+            consumerGroup: args.consumerGroup.name,
+            cardinality: args.cardinality,
+            connection: bindingConnectionKey,
+        }];
+    
+        const namespace = pulumi.all([args.eventHub.namespaceName, args.eventHub.resourceGroupName])
+                               .apply(([namespaceName, resourceGroupName]) =>
+                                    getEventhubNamespace({ name: namespaceName, resourceGroupName }));
+
+        this.appSettings = pulumi.all([bindingConnectionKey, namespace.defaultPrimaryConnectionString]).apply(
+            ([key, connectionString]) => ({ [key]: connectionString }));
     }
 }
