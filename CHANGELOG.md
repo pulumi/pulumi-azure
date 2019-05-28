@@ -1,5 +1,8 @@
 ## 0.18.6 (Unreleased)
 
+## Improvements
+
+- Multiple callback-based serverless functions can be combined into a single Function App (#225)
 
 ## 0.18.5 (Released 26th May, 2019)
 
