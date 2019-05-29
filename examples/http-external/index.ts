@@ -11,4 +11,4 @@ const app = new azure.appservice.MultiFunctionApp("http-ps", {
     }
 });
 
-export const url = test.endpoints.apply(ep => `${ep[0]}HelloPS?name=Pulumi`);
+export const url = app.endpoints.apply(ep => `${ep[0]}HelloPS?name=Pulumi`);

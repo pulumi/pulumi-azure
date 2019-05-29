@@ -1,5 +1,9 @@
 ## 0.18.6 (Unreleased)
 
+## Improvements
+
+- Introduces MultiFunctionApp which can hold several functions or accept an archive.
+
 
 ## 0.18.5 (Released 26th May, 2019)
 
