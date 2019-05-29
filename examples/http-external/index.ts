@@ -1,4 +1,4 @@
-import * as pulumi from "@pulumi/azure";
+import * as pulumi from "@pulumi/pulumi";
 import * as azure from "@pulumi/azure";
 
 const resourceGroup = new azure.core.ResourceGroup('example', { location: 'West US 2' });
