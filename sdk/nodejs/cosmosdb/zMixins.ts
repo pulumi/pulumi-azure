@@ -134,13 +134,6 @@ export type CosmosChangeFeedSubscriptionArgs = util.Overwrite<appservice.Callbac
      * the Topic's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the Topic's ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
 }>;
 
 declare module "./account" {

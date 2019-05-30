@@ -71,6 +71,7 @@ export type Callback<C extends Context<R>, E, R extends Result> = (context: C, e
  */
 export type CallbackFactory<C extends Context<R>, E, R extends Result> = () => Callback<C, E, R>;
 
+/** Arguments to pass either a callback or a callback factory to be used as an Azure Function body. */
 export interface CallbackArgs<C extends Context<R>, E, R extends Result> {
     /**
      * The Javascript function instance to use as the entrypoint for the Azure FunctionApp.  Either
@@ -91,16 +92,80 @@ export interface CallbackArgs<C extends Context<R>, E, R extends Result> {
     callbackFactory?: CallbackFactory<C, E, R>;
 }
 
-export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> = CallbackArgs<C, E, R> & util.Overwrite<FunctionAppArgs, {
+interface FunctionAppArgsBase {
     /**
-     * The name of the resource group in which to create the Function App.
+     * The storage account to use where the zip-file blob for the FunctionApp will be located. If
+     * not provided, a new storage account will create. It will be a 'Standard', 'LRS', 'StorageV2'
+     * account.
      */
-    resourceGroupName: pulumi.Input<string>;
+    readonly account?: storageForTypesOnly.Account;
+
+    /**
+     * A key-value pair of App Settings.
+     */
+    readonly appSettings?: pulumi.Input<{ [key: string]: any; }>;
+
+    /**
+     * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
+     */
+    readonly clientAffinityEnabled?: pulumi.Input<boolean>;
+
+    /**
+     * Options to control which files and packages are included with the serialized FunctionApp code.
+     */
+    readonly codePathOptions?: pulumi.runtime.CodePathOptions;
+
+    /**
+     * An `connection_string` block as defined below.
+     */
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+
+    /**
+     * The container to use where the zip-file blob for the FunctionApp will be located. If not
+     * provided, the root container of the storage account will be used.
+     */
+    readonly container?: storageForTypesOnly.Container;
+
+    /**
+     * Should the built-in logging of this Function App be enabled? Defaults to `true`.
+     */
+    readonly enableBuiltinLogging?: pulumi.Input<boolean>;
+
+    /**
+     * Is the Function App enabled?
+     */
+    readonly enabled?: pulumi.Input<boolean>;
+
+    /**
+     * Host configuration options.
+     */
+    readonly hostSettings?: HostSettings;
+
+    /**
+     * Can the Function App only be accessed via HTTPS? Defaults to `false`.
+     */
+    readonly httpsOnly?: pulumi.Input<boolean>;
+
+    /**
+     * An `identity` block as defined below.
+     */
+    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
 
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
-    location: pulumi.Input<string>;
+    readonly location?: pulumi.Input<string>;
+
+    /**
+     * The name of the Function App.
+     */
+    readonly name?: pulumi.Input<string>;
+
+    /**
+     * Controls the value of WEBSITE_NODE_DEFAULT_VERSION in `appSettings`.  If not provided,
+     * defaults to `8.11.1`.
+     */
+    readonly nodeVersion?: pulumi.Input<string>;
 
     /**
      * The App Service Plan within which to create this Function App. Changing this forces a new
@@ -110,53 +175,31 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> =
      * https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#consumption-plan for
      * more details.
      */
-    plan?: appservice.Plan;
+    readonly plan?: appservice.Plan;
 
     /**
-     * The storage account to use where the zip-file blob for the FunctionApp will be located. If
-     * not provided, a new storage account will create. It will be a 'Standard', 'LRS', 'StorageV2'
-     * account.
+     * The name of the resource group in which to create the Function App.
      */
-    account?: storageForTypesOnly.Account;
+    readonly resourceGroupName: pulumi.Input<string>;
 
     /**
-     * Not used.  The storage connection string is determined based on the ZipBlob that is created
-     * for all the code for the Function.
+     * A `site_config` object as defined below.
      */
-    storageConnectionString?: never;
+    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
 
     /**
-     * Not used, provide [plan] instead.
+     * A mapping of tags to assign to the resource.
      */
-    appServicePlanId?: never;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 
     /**
-     * The container to use where the zip-file blob for the FunctionApp will be located. If not
-     * provided, the root container of the storage account will be used.
+     * The runtime version associated with the Function App. Defaults to `~2`.
      */
-    container?: storageForTypesOnly.Container;
+    readonly version?: pulumi.Input<string>;
+}
 
-    /**
-     * A key-value pair of App Settings.
-     */
-    appSettings?: pulumi.Input<{ [key: string]: any; }>
-
-    /**
-     * Controls the value of WEBSITE_NODE_DEFAULT_VERSION in `appSettings`.  If not provided,
-     * defaults to `8.11.1`.
-     */
-    nodeVersion?: pulumi.Input<string>;
-
-    /**
-     * Options to control which files and packages are included with the serialized FunctionApp code.
-     */
-    codePathOptions?: pulumi.runtime.CodePathOptions;
-
-    /**
-     * Host configuration options.
-     */
-    hostSettings?: HostSettings;
-}>;
+export interface CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> extends CallbackArgs<C, E, R>, FunctionAppArgsBase {
+};
 
 /**
  * The host.json metadata file contains global configuration options that affect all functions for a
@@ -363,7 +406,7 @@ export interface Function {
     route?: pulumi.Input<string>;
 }
 
-export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
+export interface MultiFunctionAppArgs extends FunctionAppArgsBase {
     /**
      * The functions to deploy as parts of this application. Either one of [functions] or [archive] must be provided.
      */
@@ -373,62 +416,7 @@ export type MultiFunctionAppArgs = util.Overwrite<FunctionAppArgs, {
      * The deployment package to deploy as-is. Either one of [functions] or [archive] must be provided.
      */
     archive?: pulumi.Input<pulumi.asset.Archive>;
-
-    /**
-     * The App Service Plan within which to create this Function App. Changing this forces a new
-     * resource to be created.
-     *
-     * If not provided, a default "Consumption" plan will be created.  See:
-     * https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#consumption-plan for
-     * more details.
-     */
-    plan?: appservice.Plan;
-
-    /**
-     * The storage account to use where the zip-file blob for the FunctionApp will be located. If
-     * not provided, a new storage account will create. It will be a 'Standard', 'LRS', 'StorageV2'
-     * account.
-     */
-    account?: storageForTypesOnly.Account;
-
-    /**
-     * The container to use where the zip-file blob for the FunctionApp will be located. If not
-     * provided, the root container of the storage account will be used.
-     */
-    container?: storageForTypesOnly.Container;
-
-    /**
-     * A key-value pair of App Settings.
-     */
-    appSettings?: pulumi.Input<{ [key: string]: any; }>
-
-    /**
-     * Controls the value of WEBSITE_NODE_DEFAULT_VERSION in `appSettings`.  If not provided,
-     * defaults to `8.11.1`.
-     */
-    nodeVersion?: pulumi.Input<string>;
-
-    /**
-     * Options to control which files and packages are included with the serialized FunctionApp code.
-     */
-    codePathOptions?: pulumi.runtime.CodePathOptions;
-
-    /**
-     * The metadata containing global configuration options that affect all functions for the function app.
-     */
-    hostSettings?: HostSettings;
-
-    /**
-     * Not used.  The storage connection string is determined based on the ZipBlob that is created
-     * for all the code for the Function.
-     */
-    storageConnectionString?: never;
-
-    /**
-     * Not used, provide [plan] instead.
-     */
-    appServicePlanId?: never;
-}>;
+};
 
 export class MultiFunctionApp extends pulumi.ComponentResource {
     /**
@@ -525,9 +513,9 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
         this.app = new FunctionApp(name, {
             ...args,
 
-            version: "~2",
             appServicePlanId: plan.id,
             storageConnectionString: account.primaryConnectionString,
+            version: args.version || "~2",
 
             appSettings: combineAppSettings(args).apply(settings => {
                 return {

@@ -139,13 +139,6 @@ export type TopicEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      */
     resourceGroupName?: pulumi.Input<string>;
 
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the Topic's ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
-
     /** 
      * Host settings specific to the Service Bus Topic/Subscription plugin. These values can be provided here, or defaults will 
      * be used in their place. 

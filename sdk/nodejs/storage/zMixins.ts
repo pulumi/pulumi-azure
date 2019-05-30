@@ -173,13 +173,6 @@ export type BlobEventSubscriptionArgs = util.Overwrite<appservice.CallbackFuncti
      * Container's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the Container's ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
 }>;
 
 declare module "./container" {
@@ -355,13 +348,6 @@ export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      * Queue's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the Queue's ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
 
     /** 
      * Host settings specific to the Storage Queue plugin. These values can be provided here, or defaults will 

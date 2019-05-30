@@ -75,13 +75,6 @@ export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppAr
     resourceGroupName?: pulumi.Input<string>;
 
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the provided ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
-
-    /**
      * Defines the route template, controlling to which request URLs your function responds. The
      * default value if none is provided is <functionname>.
      */
