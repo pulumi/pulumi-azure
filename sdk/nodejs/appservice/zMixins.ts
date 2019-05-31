@@ -16,7 +16,7 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as azurefunctions from "@azure/functions";
 
-import { FunctionAppArgs, FunctionApp } from "./functionApp";
+import { FunctionApp } from "./functionApp";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
@@ -439,10 +439,9 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
      * The Function App.
      */
     public readonly app: appservice.FunctionApp;
-    /**
-     * Endpoints of functions reachable via HTTP.
-     */
-    public readonly endpoints: pulumi.Output<{ [functionName: string]: string }>;
+    
+    private readonly rootEndpoint: pulumi.Output<string>;
+    private readonly functions: Function[] | undefined;
 
     constructor(
         name: string,
@@ -530,6 +529,7 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
         this.container = container;
         this.plan = plan;
         this.zipBlob = zipBlob;
+        this.functions = args.functions;
 
         const routePrefix = args.hostSettings 
             && args.hostSettings.extensions 
@@ -537,18 +537,20 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
             && args.hostSettings.extensions.http.routePrefix;
         const rootPath = routePrefix === "" ? "" : `${routePrefix === undefined ? "api" : routePrefix}/`;
 
-        this.endpoints = this.app.defaultHostname.apply(hostName => {
-            const endpoints = <{ [functionName: string]: string }>{};
-            if (args.functions !== undefined) {
-                const functionsWithEndpoints =  args.functions.filter(f => f.route !== undefined);
-                for (const f of functionsWithEndpoints) {
-                    endpoints[f.name] = `https://${hostName}/${rootPath}${f.route}`;
-                }
-            } else {
-                endpoints[0] = `https://${hostName}/${rootPath}`;
-            }
-            return endpoints;
-        });
+        this.rootEndpoint = pulumi.interpolate`https://${this.app.defaultHostname}/${rootPath}`;
+    }
+
+    /** 
+     * Retrieve an endpoint for a given function or the app. 
+     * 
+     * @func The Function to retrieve the endpoint for. Must belong to this Function App. Pass
+     * [undefined] to get the App root endpoint.
+     */
+    public getEndpoint(func?: Function): pulumi.Output<string> {
+        return func === undefined || func.route === undefined
+            // Return a default App endpoint if no Function specified
+            ? this.rootEndpoint
+            : pulumi.interpolate`${this.rootEndpoint}${func.route}`;
     }
 }
 

@@ -134,7 +134,7 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
             resourceGroupName,
         }, opts);
 
-        this.url = this.functionApp.endpoints[name];
+        this.url = pulumi.interpolate`${this.functionApp.getEndpoint()}${args.route || name}`;
 
         this.registerOutputs();
     }
