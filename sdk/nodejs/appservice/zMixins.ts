@@ -441,7 +441,6 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
     public readonly app: appservice.FunctionApp;
     
     private readonly rootEndpoint: pulumi.Output<string>;
-    private readonly functions: Function[] | undefined;
 
     constructor(
         name: string,
@@ -529,7 +528,6 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
         this.container = container;
         this.plan = plan;
         this.zipBlob = zipBlob;
-        this.functions = args.functions;
 
         const routePrefix = args.hostSettings 
             && args.hostSettings.extensions 
