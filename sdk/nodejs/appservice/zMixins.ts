@@ -399,11 +399,6 @@ export interface Function {
      * Application settings required by the function.
      */
     appSettings?: pulumi.Input<{ [key: string]: any }>;
-
-    /**
-     * HTTP route to call this function (applies to functions reachable via HTTP).
-     */
-    route?: pulumi.Input<string>;
 }
 
 export interface MultiFunctionAppArgs extends FunctionAppArgsBase {
@@ -418,7 +413,7 @@ export interface MultiFunctionAppArgs extends FunctionAppArgsBase {
     archive?: pulumi.Input<pulumi.asset.Archive>;
 };
 
-export class MultiFunctionApp extends pulumi.ComponentResource {
+export class MultiFunctionApp extends FunctionApp {
     /**
      * Storage account where the FunctionApp's zipbBlob is uploaded to.
      */
@@ -434,27 +429,23 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
     /**
      * The plan this Function App runs under.
      */
-    public readonly plan: appservice.Plan;
-    /**
-     * The Function App.
+    public readonly plan: appservice.Plan;    
+    /** 
+     * Root HTTP endpoint of the Function App.
      */
-    public readonly app: appservice.FunctionApp;
-    
-    private readonly rootEndpoint: pulumi.Output<string>;
+    public readonly endpoint: pulumi.Output<string>;
 
     constructor(
         name: string,
         args: MultiFunctionAppArgs,
-        opts: pulumi.ComponentResourceOptions = {}) {
-
-        super("azure:appservice:MultiFunctionApp", name, undefined, opts);
+        opts: pulumi.CustomResourceOptions = {}) {
 
         if (!args.functions && !args.archive) {
-            throw new pulumi.ResourceError("One of [functions] or [archive] must be provided.", this);
+            throw new Error("One of [functions] or [archive] must be provided.");
         }
 
         if (args.functions && args.archive) {
-            throw new pulumi.ResourceError("Cannot provide both [functions] and [archive]", this);
+            throw new Error("Cannot provide both [functions] and [archive]");
         }
 
         if (args.functions) {
@@ -462,38 +453,43 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
             const duplicates = names.filter((item, index) => names.indexOf(item) !== index);
             if (duplicates.length > 0) {
                 const msg = [...new Set(duplicates)].map(s => `[${s}]`).join(", ");
-                throw new pulumi.ResourceError(`Function names must be unique within a given Function App. Duplicate functions: ${msg}.`, this);
+                throw new Error(`Function names must be unique within a given Function App. Duplicate functions: ${msg}.`);
             }
         }
 
+        const resourceGroupArgs = {
+            resourceGroupName: args.resourceGroupName,
+            location: args.location,
+        };
+    
         let plan = args.plan;
         if (!plan) {
             plan = new appservice.Plan(name, {
-                resourceGroupName: args.resourceGroupName,
-
+                ...resourceGroupArgs,
+    
                 kind: "FunctionApp",
-
+    
                 sku: {
                     tier: "Dynamic",
                     size: "Y1",
                 },
-            }, { parent: this });
+            }, opts);
         }
-
+    
         const storageMod = <typeof storageForTypesOnly>require("../storage");
         const account = args.account || new storageMod.Account(makeSafeStorageAccountName(name), {
-            resourceGroupName: args.resourceGroupName,
-
+            ...resourceGroupArgs,
+    
             accountKind: "StorageV2",
             accountTier: "Standard",
             accountReplicationType: "LRS",
-        }, { parent: this });
-
+        }, opts);
+    
         const container = args.container || new storageMod.Container(makeSafeStorageContainerName(name), {
             resourceGroupName: args.resourceGroupName,
             storageAccountName: account.name,
             containerAccessType: "private",
-        }, { parent: this });
+        }, opts);
 
         const archive = args.archive !== undefined 
             ? args.archive
@@ -505,16 +501,18 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
             storageContainerName: container.name,
             type: "block",
             content: archive,
-        }, { parent: this });
-
+        }, opts);
+    
         const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);
-        this.app = new FunctionApp(name, {
+    
+        super(name,  {
             ...args,
-
+            ...resourceGroupArgs,
+    
             appServicePlanId: plan.id,
             storageConnectionString: account.primaryConnectionString,
             version: args.version || "~2",
-
+    
             appSettings: combineAppSettings(args).apply(settings => {
                 return {
                     ...settings,
@@ -522,33 +520,43 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
                     WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "8.11.1"),
                 };
             }),
-        }, { parent: this });
+        }, opts);
 
         this.account = account;
         this.container = container;
         this.plan = plan;
         this.zipBlob = zipBlob;
-
+        
         const routePrefix = args.hostSettings 
             && args.hostSettings.extensions 
             && args.hostSettings.extensions.http 
             && args.hostSettings.extensions.http.routePrefix;
         const rootPath = routePrefix === "" ? "" : `${routePrefix === undefined ? "api" : routePrefix}/`;
 
-        this.rootEndpoint = pulumi.interpolate`https://${this.app.defaultHostname}/${rootPath}`;
+        this.endpoint = pulumi.interpolate`https://${this.defaultHostname}/${rootPath}`;
     }
+}
 
-    /** 
-     * Retrieve an endpoint for a given function or the app. 
-     * 
-     * @func The Function to retrieve the endpoint for. Must belong to this Function App. Pass
-     * [undefined] to get the App root endpoint.
-     */
-    public getEndpoint(func?: Function): pulumi.Output<string> {
-        return func === undefined || func.route === undefined
-            // Return a default App endpoint if no Function specified
-            ? this.rootEndpoint
-            : pulumi.interpolate`${this.rootEndpoint}${func.route}`;
+/**
+  * A CallbackFunctionApp is a special type of azure.appservice.FunctionApp that can be created out
+  * of an actual JavaScript function instance.  The function instance will be analyzed and packaged
+  * up (including dependencies) into a form that can be used by AWS Lambda.  See
+  * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
+  * details on this process.
+ */
+export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> extends MultiFunctionApp {
+    constructor(name: string, bindings: pulumi.Input<BindingDefinition[]>,
+                args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
+        const functionsArgs = {
+            ...args,
+            functions: [{
+                name,
+                bindings,
+                body: serializeFunctionCallback(args),
+            }]
+        };
+
+        super(name, functionsArgs, opts);
     }
 }
 
@@ -557,7 +565,7 @@ export class MultiFunctionApp extends pulumi.ComponentResource {
  * azure resource an an FunctionApp that will be triggered when something happens to that resource.
  */
 export abstract class EventSubscription<C extends Context<R>, E, R extends Result> extends pulumi.ComponentResource {
-    public readonly functionApp: MultiFunctionApp;
+    public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
                 bindings: pulumi.Input<BindingDefinition[]>,
@@ -565,16 +573,7 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
-        const multiArgs = {
-            ...args,
-            functions: [{
-                name,
-                bindings,
-                body: serializeFunctionCallback(args),
-                route: name, // this is not entirely correct, will be fixed with a specific implementation of HttpFunction
-            }]
-        };
-        this.functionApp = new MultiFunctionApp(name, multiArgs, { parent: this });
+        this.functionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
     }
 }
 
