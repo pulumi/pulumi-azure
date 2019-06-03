@@ -301,8 +301,7 @@ export interface HostSettings {
  */
 export type BindingDefinition = azurefunctions.BindingDefinition;
 
-/** @internal */
-export function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
+function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
     args: CallbackArgs<C, E, R>): Promise<pulumi.runtime.SerializedFunction> {
 
     if (args.callback && args.callbackFactory) {
@@ -347,7 +346,7 @@ async function produceDeploymentPackage(args: MultiFunctionAppArgs): Promise<pul
             bindings: bs,
         })));
 
-        const body = await func.body;
+        const body = await serializeFunctionCallback(func.callback);
 
         map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
         map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
@@ -391,9 +390,9 @@ export interface Function {
     bindings: pulumi.Input<BindingDefinition[]>;
 
     /**
-     * Serialized function callback.
+     * Function callback.
      */
-    body: Promise<pulumi.runtime.SerializedFunction>;
+    callback: CallbackArgs<Context<any>, any, any>;
 
     /**
      * Application settings required by the function.
@@ -549,10 +548,10 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
                 args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
         const functionsArgs = {
             ...args,
-            functions: [{
+            functions: [<Function>{
                 name,
                 bindings,
-                body: serializeFunctionCallback(args),
+                callback: args,
             }]
         };
 
