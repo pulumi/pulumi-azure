@@ -228,7 +228,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
     }
 }
 
-interface EventHubBindingDefinition extends appservice.BindingDefinition {
+export interface EventHubBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of the property in the context object to bind the actual event to.
      */
