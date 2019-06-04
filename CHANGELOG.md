@@ -1,5 +1,8 @@
 ## 0.18.6 (Unreleased)
 
+## Improvements
+
+- Serverless mixins now support the EventHubTrigger for IoT Hub.
 
 ## 0.18.5 (Released 26th May, 2019)
 
