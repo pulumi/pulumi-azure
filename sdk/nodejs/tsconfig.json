@@ -218,6 +218,7 @@
         "iot/index.ts",
         "iot/ioTHub.ts",
         "iot/sharedAccessPolicy.ts",
+        "iot/zMixins.ts",
         "keyvault/accessPolicy.ts",
         "keyvault/certifiate.ts",
         "keyvault/getAccessPolicy.ts",
