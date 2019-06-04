@@ -81,6 +81,20 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
         return new FirewallNatRuleCollection(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/firewallNatRuleCollection:FirewallNatRuleCollection';
+
+    /**
+     * Returns true if the given object is an instance of FirewallNatRuleCollection.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is FirewallNatRuleCollection {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === FirewallNatRuleCollection.__pulumiType;
+    }
+
     /**
      * Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`.
      */
@@ -148,7 +162,7 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
         }
-        super("azure:network/firewallNatRuleCollection:FirewallNatRuleCollection", name, inputs, opts);
+        super(FirewallNatRuleCollection.__pulumiType, name, inputs, opts);
     }
 }
 

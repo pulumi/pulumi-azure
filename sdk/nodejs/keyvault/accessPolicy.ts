@@ -24,6 +24,20 @@ export class AccessPolicy extends pulumi.CustomResource {
         return new AccessPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:keyvault/accessPolicy:AccessPolicy';
+
+    /**
+     * Returns true if the given object is an instance of AccessPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AccessPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AccessPolicy.__pulumiType;
+    }
+
     /**
      * The object ID of an Application in Azure Active Directory.
      */
@@ -115,7 +129,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultName"] = args ? args.vaultName : undefined;
         }
-        super("azure:keyvault/accessPolicy:AccessPolicy", name, inputs, opts);
+        super(AccessPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

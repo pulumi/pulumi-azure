@@ -48,6 +48,20 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
         return new ActiveDirectoryAdministrator(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator';
+
+    /**
+     * Returns true if the given object is an instance of ActiveDirectoryAdministrator.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ActiveDirectoryAdministrator {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ActiveDirectoryAdministrator.__pulumiType;
+    }
+
     /**
      * The login name of the principal to set as the server administrator
      */
@@ -109,7 +123,7 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
         }
-        super("azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, inputs, opts);
+        super(ActiveDirectoryAdministrator.__pulumiType, name, inputs, opts);
     }
 }
 

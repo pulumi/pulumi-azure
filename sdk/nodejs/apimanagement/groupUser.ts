@@ -40,6 +40,20 @@ export class GroupUser extends pulumi.CustomResource {
         return new GroupUser(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/groupUser:GroupUser';
+
+    /**
+     * Returns true if the given object is an instance of GroupUser.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is GroupUser {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === GroupUser.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
@@ -92,7 +106,7 @@ export class GroupUser extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["userId"] = args ? args.userId : undefined;
         }
-        super("azure:apimanagement/groupUser:GroupUser", name, inputs, opts);
+        super(GroupUser.__pulumiType, name, inputs, opts);
     }
 }
 

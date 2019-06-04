@@ -43,6 +43,20 @@ export class TriggerRecurrence extends pulumi.CustomResource {
         return new TriggerRecurrence(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:logicapps/triggerRecurrence:TriggerRecurrence';
+
+    /**
+     * Returns true if the given object is an instance of TriggerRecurrence.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TriggerRecurrence {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TriggerRecurrence.__pulumiType;
+    }
+
     /**
      * Specifies the Frequency at which this Trigger should be run. Possible values include `Month`, `Week`, `Day`, `Hour`, `Minute` and `Second`.
      */
@@ -92,7 +106,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, inputs, opts);
+        super(TriggerRecurrence.__pulumiType, name, inputs, opts);
     }
 }
 

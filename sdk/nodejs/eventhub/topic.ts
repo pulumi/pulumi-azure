@@ -49,6 +49,20 @@ export class Topic extends pulumi.CustomResource {
         return new Topic(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/topic:Topic';
+
+    /**
+     * Returns true if the given object is an instance of Topic.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Topic {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Topic.__pulumiType;
+    }
+
     /**
      * The ISO 8601 timespan duration of the idle interval after which the
      * Topic is automatically deleted, minimum of 5 minutes.
@@ -175,7 +189,7 @@ export class Topic extends pulumi.CustomResource {
             inputs["status"] = args ? args.status : undefined;
             inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
         }
-        super("azure:eventhub/topic:Topic", name, inputs, opts);
+        super(Topic.__pulumiType, name, inputs, opts);
     }
 }
 

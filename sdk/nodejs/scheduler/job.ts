@@ -175,6 +175,20 @@ export class Job extends pulumi.CustomResource {
         return new Job(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:scheduler/job:Job';
+
+    /**
+     * Returns true if the given object is an instance of Job.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Job {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Job.__pulumiType;
+    }
+
     /**
      * A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
      */
@@ -263,7 +277,7 @@ export class Job extends pulumi.CustomResource {
             inputs["startTime"] = args ? args.startTime : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
-        super("azure:scheduler/job:Job", name, inputs, opts);
+        super(Job.__pulumiType, name, inputs, opts);
     }
 }
 

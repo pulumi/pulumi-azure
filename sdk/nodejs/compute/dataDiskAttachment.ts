@@ -103,6 +103,20 @@ export class DataDiskAttachment extends pulumi.CustomResource {
         return new DataDiskAttachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/dataDiskAttachment:DataDiskAttachment';
+
+    /**
+     * Returns true if the given object is an instance of DataDiskAttachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DataDiskAttachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DataDiskAttachment.__pulumiType;
+    }
+
     /**
      * Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
      */
@@ -167,7 +181,7 @@ export class DataDiskAttachment extends pulumi.CustomResource {
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
             inputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
         }
-        super("azure:compute/dataDiskAttachment:DataDiskAttachment", name, inputs, opts);
+        super(DataDiskAttachment.__pulumiType, name, inputs, opts);
     }
 }
 

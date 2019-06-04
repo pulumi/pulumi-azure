@@ -63,6 +63,20 @@ export class Group extends pulumi.CustomResource {
         return new Group(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:containerservice/group:Group';
+
+    /**
+     * Returns true if the given object is an instance of Group.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Group {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Group.__pulumiType;
+    }
+
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
@@ -172,7 +186,7 @@ export class Group extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
         }
-        super("azure:containerservice/group:Group", name, inputs, opts);
+        super(Group.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -1,5 +1,8 @@
 ## 0.18.6 (Unreleased)
 
+### Improvements
+
+- Added `isInstance` type guards for all Azure resources.
 
 ## 0.18.5 (Released 26th May, 2019)
 

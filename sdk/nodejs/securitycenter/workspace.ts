@@ -46,6 +46,20 @@ export class Workspace extends pulumi.CustomResource {
         return new Workspace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:securitycenter/workspace:Workspace';
+
+    /**
+     * Returns true if the given object is an instance of Workspace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Workspace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Workspace.__pulumiType;
+    }
+
     /**
      * The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
      */
@@ -80,7 +94,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
-        super("azure:securitycenter/workspace:Workspace", name, inputs, opts);
+        super(Workspace.__pulumiType, name, inputs, opts);
     }
 }
 

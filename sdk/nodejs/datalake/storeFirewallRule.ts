@@ -44,6 +44,20 @@ export class StoreFirewallRule extends pulumi.CustomResource {
         return new StoreFirewallRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datalake/storeFirewallRule:StoreFirewallRule';
+
+    /**
+     * Returns true if the given object is an instance of StoreFirewallRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StoreFirewallRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StoreFirewallRule.__pulumiType;
+    }
+
     /**
      * Specifies the name of the Data Lake Store for which the Firewall Rule should take effect.
      */
@@ -102,7 +116,7 @@ export class StoreFirewallRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
-        super("azure:datalake/storeFirewallRule:StoreFirewallRule", name, inputs, opts);
+        super(StoreFirewallRule.__pulumiType, name, inputs, opts);
     }
 }
 

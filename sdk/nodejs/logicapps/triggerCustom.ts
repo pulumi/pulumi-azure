@@ -49,6 +49,20 @@ export class TriggerCustom extends pulumi.CustomResource {
         return new TriggerCustom(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:logicapps/triggerCustom:TriggerCustom';
+
+    /**
+     * Returns true if the given object is an instance of TriggerCustom.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TriggerCustom {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TriggerCustom.__pulumiType;
+    }
+
     /**
      * Specifies the JSON Blob defining the Body of this Custom Trigger.
      */
@@ -89,7 +103,7 @@ export class TriggerCustom extends pulumi.CustomResource {
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("azure:logicapps/triggerCustom:TriggerCustom", name, inputs, opts);
+        super(TriggerCustom.__pulumiType, name, inputs, opts);
     }
 }
 

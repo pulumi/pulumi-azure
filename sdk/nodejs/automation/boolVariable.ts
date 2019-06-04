@@ -47,6 +47,20 @@ export class BoolVariable extends pulumi.CustomResource {
         return new BoolVariable(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:automation/boolVariable:BoolVariable';
+
+    /**
+     * Returns true if the given object is an instance of BoolVariable.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is BoolVariable {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === BoolVariable.__pulumiType;
+    }
+
     /**
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      */
@@ -105,7 +119,7 @@ export class BoolVariable extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:automation/boolVariable:BoolVariable", name, inputs, opts);
+        super(BoolVariable.__pulumiType, name, inputs, opts);
     }
 }
 

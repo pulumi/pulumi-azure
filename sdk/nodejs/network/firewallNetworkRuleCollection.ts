@@ -81,6 +81,20 @@ export class FirewallNetworkRuleCollection extends pulumi.CustomResource {
         return new FirewallNetworkRuleCollection(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection';
+
+    /**
+     * Returns true if the given object is an instance of FirewallNetworkRuleCollection.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is FirewallNetworkRuleCollection {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === FirewallNetworkRuleCollection.__pulumiType;
+    }
+
     /**
      * Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
      */
@@ -148,7 +162,7 @@ export class FirewallNetworkRuleCollection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
         }
-        super("azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection", name, inputs, opts);
+        super(FirewallNetworkRuleCollection.__pulumiType, name, inputs, opts);
     }
 }
 

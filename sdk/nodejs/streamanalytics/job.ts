@@ -51,6 +51,20 @@ export class Job extends pulumi.CustomResource {
         return new Job(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:streamanalytics/job:Job';
+
+    /**
+     * Returns true if the given object is an instance of Job.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Job {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Job.__pulumiType;
+    }
+
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
      */
@@ -172,7 +186,7 @@ export class Job extends pulumi.CustomResource {
             inputs["transformationQuery"] = args ? args.transformationQuery : undefined;
             inputs["jobId"] = undefined /*out*/;
         }
-        super("azure:streamanalytics/job:Job", name, inputs, opts);
+        super(Job.__pulumiType, name, inputs, opts);
     }
 }
 

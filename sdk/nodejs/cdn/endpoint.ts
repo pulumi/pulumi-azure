@@ -55,6 +55,20 @@ export class Endpoint extends pulumi.CustomResource {
         return new Endpoint(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:cdn/endpoint:Endpoint';
+
+    /**
+     * Returns true if the given object is an instance of Endpoint.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Endpoint {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Endpoint.__pulumiType;
+    }
+
     /**
      * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
      */
@@ -179,7 +193,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["hostName"] = undefined /*out*/;
         }
-        super("azure:cdn/endpoint:Endpoint", name, inputs, opts);
+        super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }
 

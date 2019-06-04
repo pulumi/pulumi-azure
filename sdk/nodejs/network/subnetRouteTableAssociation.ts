@@ -62,6 +62,20 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
         return new SubnetRouteTableAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation';
+
+    /**
+     * Returns true if the given object is an instance of SubnetRouteTableAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SubnetRouteTableAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SubnetRouteTableAssociation.__pulumiType;
+    }
+
     /**
      * The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
@@ -96,7 +110,7 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
             inputs["routeTableId"] = args ? args.routeTableId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        super("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, inputs, opts);
+        super(SubnetRouteTableAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

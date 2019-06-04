@@ -49,6 +49,20 @@ export class DatasetMysql extends pulumi.CustomResource {
         return new DatasetMysql(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datafactory/datasetMysql:DatasetMysql';
+
+    /**
+     * Returns true if the given object is an instance of DatasetMysql.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DatasetMysql {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DatasetMysql.__pulumiType;
+    }
+
     /**
      * A map of additional properties to associate with the Data Factory Dataset MySQL.
      */
@@ -140,7 +154,7 @@ export class DatasetMysql extends pulumi.CustomResource {
             inputs["schemaColumns"] = args ? args.schemaColumns : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
-        super("azure:datafactory/datasetMysql:DatasetMysql", name, inputs, opts);
+        super(DatasetMysql.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -49,6 +49,20 @@ export class NsRecord extends pulumi.CustomResource {
         return new NsRecord(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:dns/nsRecord:NsRecord';
+
+    /**
+     * Returns true if the given object is an instance of NsRecord.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NsRecord {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NsRecord.__pulumiType;
+    }
+
     /**
      * The name of the DNS NS Record.
      */
@@ -116,7 +130,7 @@ export class NsRecord extends pulumi.CustomResource {
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
         }
-        super("azure:dns/nsRecord:NsRecord", name, inputs, opts);
+        super(NsRecord.__pulumiType, name, inputs, opts);
     }
 }
 

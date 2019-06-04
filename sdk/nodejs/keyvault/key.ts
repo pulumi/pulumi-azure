@@ -75,6 +75,20 @@ export class Key extends pulumi.CustomResource {
         return new Key(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:keyvault/key:Key';
+
+    /**
+     * Returns true if the given object is an instance of Key.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Key {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Key.__pulumiType;
+    }
+
     /**
      * The RSA public exponent of this Key Vault Key.
      */
@@ -157,7 +171,7 @@ export class Key extends pulumi.CustomResource {
             inputs["n"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        super("azure:keyvault/key:Key", name, inputs, opts);
+        super(Key.__pulumiType, name, inputs, opts);
     }
 }
 

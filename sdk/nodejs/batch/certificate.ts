@@ -61,6 +61,20 @@ export class Certificate extends pulumi.CustomResource {
         return new Certificate(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:batch/certificate:Certificate';
+
+    /**
+     * Returns true if the given object is an instance of Certificate.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Certificate {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Certificate.__pulumiType;
+    }
+
     /**
      * Specifies the name of the Batch account. Changing this forces a new resource to be created.
      */
@@ -146,7 +160,7 @@ export class Certificate extends pulumi.CustomResource {
             inputs["name"] = undefined /*out*/;
             inputs["publicData"] = undefined /*out*/;
         }
-        super("azure:batch/certificate:Certificate", name, inputs, opts);
+        super(Certificate.__pulumiType, name, inputs, opts);
     }
 }
 

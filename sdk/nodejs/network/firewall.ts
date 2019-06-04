@@ -61,6 +61,20 @@ export class Firewall extends pulumi.CustomResource {
         return new Firewall(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/firewall:Firewall';
+
+    /**
+     * Returns true if the given object is an instance of Firewall.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Firewall {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Firewall.__pulumiType;
+    }
+
     /**
      * A `ip_configuration` block as documented below.
      */
@@ -113,7 +127,7 @@ export class Firewall extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:network/firewall:Firewall", name, inputs, opts);
+        super(Firewall.__pulumiType, name, inputs, opts);
     }
 }
 

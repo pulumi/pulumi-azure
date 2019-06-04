@@ -255,6 +255,20 @@ export class ScaleSet extends pulumi.CustomResource {
         return new ScaleSet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/scaleSet:ScaleSet';
+
+    /**
+     * Returns true if the given object is an instance of ScaleSet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ScaleSet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ScaleSet.__pulumiType;
+    }
+
     /**
      * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
      */
@@ -448,7 +462,7 @@ export class ScaleSet extends pulumi.CustomResource {
             inputs["upgradePolicyMode"] = args ? args.upgradePolicyMode : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        super("azure:compute/scaleSet:ScaleSet", name, inputs, opts);
+        super(ScaleSet.__pulumiType, name, inputs, opts);
     }
 }
 

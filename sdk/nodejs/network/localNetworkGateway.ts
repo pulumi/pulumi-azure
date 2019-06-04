@@ -39,6 +39,20 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
         return new LocalNetworkGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/localNetworkGateway:LocalNetworkGateway';
+
+    /**
+     * Returns true if the given object is an instance of LocalNetworkGateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LocalNetworkGateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LocalNetworkGateway.__pulumiType;
+    }
+
     /**
      * The list of string CIDRs representing the
      * address spaces the gateway exposes.
@@ -112,7 +126,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:network/localNetworkGateway:LocalNetworkGateway", name, inputs, opts);
+        super(LocalNetworkGateway.__pulumiType, name, inputs, opts);
     }
 }
 

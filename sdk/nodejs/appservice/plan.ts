@@ -86,6 +86,20 @@ export class Plan extends pulumi.CustomResource {
         return new Plan(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:appservice/plan:Plan';
+
+    /**
+     * Returns true if the given object is an instance of Plan.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Plan {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Plan.__pulumiType;
+    }
+
     /**
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
@@ -171,7 +185,7 @@ export class Plan extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["maximumNumberOfWorkers"] = undefined /*out*/;
         }
-        super("azure:appservice/plan:Plan", name, inputs, opts);
+        super(Plan.__pulumiType, name, inputs, opts);
     }
 }
 

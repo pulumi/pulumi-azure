@@ -41,6 +41,20 @@ export class Workspace extends pulumi.CustomResource {
         return new Workspace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:databricks/workspace:Workspace';
+
+    /**
+     * Returns true if the given object is an instance of Workspace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Workspace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Workspace.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
      */
@@ -105,7 +119,7 @@ export class Workspace extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["managedResourceGroupId"] = undefined /*out*/;
         }
-        super("azure:databricks/workspace:Workspace", name, inputs, opts);
+        super(Workspace.__pulumiType, name, inputs, opts);
     }
 }
 

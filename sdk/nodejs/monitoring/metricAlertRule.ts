@@ -84,6 +84,20 @@ export class MetricAlertRule extends pulumi.CustomResource {
         return new MetricAlertRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:monitoring/metricAlertRule:MetricAlertRule';
+
+    /**
+     * Returns true if the given object is an instance of MetricAlertRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is MetricAlertRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === MetricAlertRule.__pulumiType;
+    }
+
     /**
      * Defines how the metric data is combined over time. Possible values are `Average`, `Minimum`, `Maximum`, `Total`, and `Last`.
      */
@@ -205,7 +219,7 @@ export class MetricAlertRule extends pulumi.CustomResource {
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["webhookAction"] = args ? args.webhookAction : undefined;
         }
-        super("azure:monitoring/metricAlertRule:MetricAlertRule", name, inputs, opts);
+        super(MetricAlertRule.__pulumiType, name, inputs, opts);
     }
 }
 

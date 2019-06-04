@@ -74,6 +74,20 @@ export class Assignment extends pulumi.CustomResource {
         return new Assignment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:policy/assignment:Assignment';
+
+    /**
+     * Returns true if the given object is an instance of Assignment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Assignment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Assignment.__pulumiType;
+    }
+
     /**
      * A description to use for this Policy Assignment. Changing this forces a new resource to be created.
      */
@@ -147,7 +161,7 @@ export class Assignment extends pulumi.CustomResource {
             inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        super("azure:policy/assignment:Assignment", name, inputs, opts);
+        super(Assignment.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -84,6 +84,20 @@ export class KafkaCluster extends pulumi.CustomResource {
         return new KafkaCluster(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:hdinsight/kafkaCluster:KafkaCluster';
+
+    /**
+     * Returns true if the given object is an instance of KafkaCluster.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is KafkaCluster {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === KafkaCluster.__pulumiType;
+    }
+
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
@@ -193,7 +207,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             inputs["httpsEndpoint"] = undefined /*out*/;
             inputs["sshEndpoint"] = undefined /*out*/;
         }
-        super("azure:hdinsight/kafkaCluster:KafkaCluster", name, inputs, opts);
+        super(KafkaCluster.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -43,6 +43,20 @@ export class PublicIpPrefix extends pulumi.CustomResource {
         return new PublicIpPrefix(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/publicIpPrefix:PublicIpPrefix';
+
+    /**
+     * Returns true if the given object is an instance of PublicIpPrefix.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PublicIpPrefix {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PublicIpPrefix.__pulumiType;
+    }
+
     /**
      * The IP address prefix value that was allocated.
      */
@@ -110,7 +124,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["ipPrefix"] = undefined /*out*/;
         }
-        super("azure:network/publicIpPrefix:PublicIpPrefix", name, inputs, opts);
+        super(PublicIpPrefix.__pulumiType, name, inputs, opts);
     }
 }
 

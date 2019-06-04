@@ -60,6 +60,20 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
         return new ExpressRouteCircuitPeering(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering';
+
+    /**
+     * Returns true if the given object is an instance of ExpressRouteCircuitPeering.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ExpressRouteCircuitPeering {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ExpressRouteCircuitPeering.__pulumiType;
+    }
+
     /**
      * The ASN used by Azure.
      */
@@ -167,7 +181,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["primaryAzurePort"] = undefined /*out*/;
             inputs["secondaryAzurePort"] = undefined /*out*/;
         }
-        super("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, inputs, opts);
+        super(ExpressRouteCircuitPeering.__pulumiType, name, inputs, opts);
     }
 }
 
