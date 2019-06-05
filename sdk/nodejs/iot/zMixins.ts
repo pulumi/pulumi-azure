@@ -15,7 +15,21 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as appservice from "../appservice";
 import { IoTHub } from "./ioTHub";
-import { EventHubBindingDefinition, EventHubContext, EventHubCallback, EventHubSubscriptionArgs } from '../eventhub';
+import { ConsumerGroup } from "./consumerGroup";
+import { EventHubBindingDefinition, EventHubContext, EventHubCallback } from '../eventhub';
+import * as util from "../util";
+
+export type IoTHubSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<EventHubContext, any, void>, {
+    /**
+     * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
+     */
+    consumerGroup?: ConsumerGroup;
+
+    /**
+     * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
+     */
+    cardinality?: pulumi.Input<"many" | "one">;
+}>;
 
 declare module "./ioTHub" {
     interface IoTHub {
@@ -24,13 +38,13 @@ declare module "./ioTHub" {
          * with options to control the behavior of the subscription.
          */
         onEvent(
-            name: string, args: EventHubCallback | EventHubSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): IoTHubEventSubscription;
+            name: string, args: EventHubCallback | IoTHubSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): IoTHubEventSubscription;
     }
 }
 
 IoTHub.prototype.onEvent = function(this: IoTHub, name, args, opts) {
     const functionArgs = args instanceof Function
-        ? <EventHubSubscriptionArgs>{ callback: args }
+        ? <IoTHubSubscriptionArgs>{ callback: args }
         : args;
 
     return new IoTHubEventSubscription(name, this, functionArgs, opts);
@@ -41,7 +55,7 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
 
     constructor(
         name: string, iotHub: IoTHub,
-        args: EventHubSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
+        args: IoTHubSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
 
         opts = { parent: iotHub, ...opts };
 
@@ -57,7 +71,7 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
             direction: "in",
             type: "eventHubTrigger",
             eventHubName: iotHub.name,
-            consumerGroup: "$Default", // Other consumer groups will be supported in future version 
+            consumerGroup: args.consumerGroup ? args.consumerGroup.name : "$Default",
             cardinality: args.cardinality,
             connection: bindingConnectionKey,
         }];
