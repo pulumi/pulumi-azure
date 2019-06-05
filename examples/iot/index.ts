@@ -20,5 +20,5 @@ const iotHub = new iot.IoTHub("test", {
 
 iotHub.onEvent("test", async (context, arg) => {
     console.log("ctx: " + JSON.stringify(context, null, 4));
-    console.log("arg: " + JSON.stringify(arg, null, 4));
+    console.log("arg: " + arg);
 });

@@ -14,7 +14,7 @@ declare module "./ioTHub" {
     }
 }
 
-IoTHub.prototype.onEvent = function (this: IoTHub, name, args, opts) {
+IoTHub.prototype.onEvent = function(this: IoTHub, name, args, opts) {
     const functionArgs = args instanceof Function
         ? <EventHubSubscriptionArgs>{ callback: args }
         : args;
