@@ -14,7 +14,7 @@ declare module "./ioTHub" {
     }
 }
 
-IoTHub.prototype.onEvent = function(this: IoTHub, name, args, opts) {
+IoTHub.prototype.onEvent = function (this: IoTHub, name, args, opts) {
     const functionArgs = args instanceof Function
         ? <EventHubSubscriptionArgs>{ callback: args }
         : args;
@@ -52,7 +52,7 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
         // the 'app settings' object.
 
         const appSettings = pulumi.all([args.appSettings, iotHub.eventHubEventsEndpoint]).apply(
-            ([appSettings,eventHubEventsEndpoint]) => ({ ...appSettings, [bindingConnectionKey]: eventHubEventsEndpoint }));
+            ([appSettings, eventHubEventsEndpoint]) => ({ ...appSettings, [bindingConnectionKey]: eventHubEventsEndpoint }));
 
         super("azure:eventhub:IoTHubEventSubscription", name, bindings, {
             ...args,
