@@ -15,7 +15,10 @@ const iotHub = new iot.IoTHub("test", {
         capacity: 1,
         name: "S1",
         tier: "Standard",
-    }
+    }, 
+    fallbackRoute: {
+        enabled: true,
+    },
 });
 
 iotHub.onEvent("test", async (context, arg) => {
