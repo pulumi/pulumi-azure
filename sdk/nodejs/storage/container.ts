@@ -48,6 +48,20 @@ export class Container extends pulumi.CustomResource {
         return new Container(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:storage/container:Container';
+
+    /**
+     * Returns true if the given object is an instance of Container.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Container {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Container.__pulumiType;
+    }
+
     /**
      * The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
      */
@@ -102,7 +116,7 @@ export class Container extends pulumi.CustomResource {
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["properties"] = undefined /*out*/;
         }
-        super("azure:storage/container:Container", name, inputs, opts);
+        super(Container.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -45,6 +45,20 @@ export class StoreFile extends pulumi.CustomResource {
         return new StoreFile(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datalake/storeFile:StoreFile';
+
+    /**
+     * Returns true if the given object is an instance of StoreFile.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StoreFile {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StoreFile.__pulumiType;
+    }
+
     /**
      * Specifies the name of the Data Lake Store for which the File should created.
      */
@@ -88,7 +102,7 @@ export class StoreFile extends pulumi.CustomResource {
             inputs["localFilePath"] = args ? args.localFilePath : undefined;
             inputs["remoteFilePath"] = args ? args.remoteFilePath : undefined;
         }
-        super("azure:datalake/storeFile:StoreFile", name, inputs, opts);
+        super(StoreFile.__pulumiType, name, inputs, opts);
     }
 }
 

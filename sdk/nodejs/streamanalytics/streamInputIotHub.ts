@@ -59,6 +59,20 @@ export class StreamInputIotHub extends pulumi.CustomResource {
         return new StreamInputIotHub(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:streamanalytics/streamInputIotHub:StreamInputIotHub';
+
+    /**
+     * Returns true if the given object is an instance of StreamInputIotHub.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StreamInputIotHub {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StreamInputIotHub.__pulumiType;
+    }
+
     /**
      * The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
      */
@@ -153,7 +167,7 @@ export class StreamInputIotHub extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        super("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", name, inputs, opts);
+        super(StreamInputIotHub.__pulumiType, name, inputs, opts);
     }
 }
 

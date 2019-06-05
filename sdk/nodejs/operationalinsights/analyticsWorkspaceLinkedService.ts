@@ -58,6 +58,20 @@ export class AnalyticsWorkspaceLinkedService extends pulumi.CustomResource {
         return new AnalyticsWorkspaceLinkedService(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:operationalinsights/analyticsWorkspaceLinkedService:AnalyticsWorkspaceLinkedService';
+
+    /**
+     * Returns true if the given object is an instance of AnalyticsWorkspaceLinkedService.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AnalyticsWorkspaceLinkedService {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AnalyticsWorkspaceLinkedService.__pulumiType;
+    }
+
     /**
      * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
      */
@@ -122,7 +136,7 @@ export class AnalyticsWorkspaceLinkedService extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
         }
-        super("azure:operationalinsights/analyticsWorkspaceLinkedService:AnalyticsWorkspaceLinkedService", name, inputs, opts);
+        super(AnalyticsWorkspaceLinkedService.__pulumiType, name, inputs, opts);
     }
 }
 

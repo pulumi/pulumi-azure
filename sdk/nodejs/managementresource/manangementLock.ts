@@ -78,6 +78,20 @@ export class ManangementLock extends pulumi.CustomResource {
         return new ManangementLock(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:managementresource/manangementLock:ManangementLock';
+
+    /**
+     * Returns true if the given object is an instance of ManangementLock.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ManangementLock {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ManangementLock.__pulumiType;
+    }
+
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
      */
@@ -124,7 +138,7 @@ export class ManangementLock extends pulumi.CustomResource {
             inputs["notes"] = args ? args.notes : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        super("azure:managementresource/manangementLock:ManangementLock", name, inputs, opts);
+        super(ManangementLock.__pulumiType, name, inputs, opts);
     }
 }
 

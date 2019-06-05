@@ -91,6 +91,20 @@ export class VirtualMachine extends pulumi.CustomResource {
         return new VirtualMachine(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/virtualMachine:VirtualMachine';
+
+    /**
+     * Returns true if the given object is an instance of VirtualMachine.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualMachine {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualMachine.__pulumiType;
+    }
+
     /**
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -251,7 +265,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        super("azure:compute/virtualMachine:VirtualMachine", name, inputs, opts);
+        super(VirtualMachine.__pulumiType, name, inputs, opts);
     }
 }
 

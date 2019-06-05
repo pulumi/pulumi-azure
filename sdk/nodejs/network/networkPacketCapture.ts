@@ -114,6 +114,20 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
         return new NetworkPacketCapture(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkPacketCapture:NetworkPacketCapture';
+
+    /**
+     * Returns true if the given object is an instance of NetworkPacketCapture.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkPacketCapture {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkPacketCapture.__pulumiType;
+    }
+
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
@@ -196,7 +210,7 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        super("azure:network/networkPacketCapture:NetworkPacketCapture", name, inputs, opts);
+        super(NetworkPacketCapture.__pulumiType, name, inputs, opts);
     }
 }
 

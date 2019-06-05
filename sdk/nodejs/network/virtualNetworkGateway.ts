@@ -99,6 +99,20 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
         return new VirtualNetworkGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/virtualNetworkGateway:VirtualNetworkGateway';
+
+    /**
+     * Returns true if the given object is an instance of VirtualNetworkGateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualNetworkGateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualNetworkGateway.__pulumiType;
+    }
+
     /**
      * If `true`, an active-active Virtual Network Gateway
      * will be created. An active-active gateway requires a `HighPerformance` or an
@@ -225,7 +239,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             inputs["vpnType"] = args ? args.vpnType : undefined;
         }
-        super("azure:network/virtualNetworkGateway:VirtualNetworkGateway", name, inputs, opts);
+        super(VirtualNetworkGateway.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -56,6 +56,20 @@ export class ActionGroup extends pulumi.CustomResource {
         return new ActionGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:monitoring/actionGroup:ActionGroup';
+
+    /**
+     * Returns true if the given object is an instance of ActionGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ActionGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ActionGroup.__pulumiType;
+    }
+
     /**
      * One or more `email_receiver` blocks as defined below.
      */
@@ -126,7 +140,7 @@ export class ActionGroup extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
         }
-        super("azure:monitoring/actionGroup:ActionGroup", name, inputs, opts);
+        super(ActionGroup.__pulumiType, name, inputs, opts);
     }
 }
 

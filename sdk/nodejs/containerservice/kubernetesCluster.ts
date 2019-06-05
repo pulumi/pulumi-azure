@@ -68,6 +68,20 @@ export class KubernetesCluster extends pulumi.CustomResource {
         return new KubernetesCluster(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:containerservice/kubernetesCluster:KubernetesCluster';
+
+    /**
+     * Returns true if the given object is an instance of KubernetesCluster.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is KubernetesCluster {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === KubernetesCluster.__pulumiType;
+    }
+
     /**
      * A `addon_profile` block.
      */
@@ -210,7 +224,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["nodeResourceGroup"] = undefined /*out*/;
         }
-        super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, inputs, opts);
+        super(KubernetesCluster.__pulumiType, name, inputs, opts);
     }
 }
 

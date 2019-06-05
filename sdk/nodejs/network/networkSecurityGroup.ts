@@ -55,6 +55,20 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
         return new NetworkSecurityGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkSecurityGroup:NetworkSecurityGroup';
+
+    /**
+     * Returns true if the given object is an instance of NetworkSecurityGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkSecurityGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkSecurityGroup.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -104,7 +118,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
             inputs["securityRules"] = args ? args.securityRules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:network/networkSecurityGroup:NetworkSecurityGroup", name, inputs, opts);
+        super(NetworkSecurityGroup.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -65,6 +65,20 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         return new ActivityLogAlert(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:monitoring/activityLogAlert:ActivityLogAlert';
+
+    /**
+     * Returns true if the given object is an instance of ActivityLogAlert.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ActivityLogAlert {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ActivityLogAlert.__pulumiType;
+    }
+
     /**
      * One or more `action` blocks as defined below.
      */
@@ -138,7 +152,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             inputs["scopes"] = args ? args.scopes : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:monitoring/activityLogAlert:ActivityLogAlert", name, inputs, opts);
+        super(ActivityLogAlert.__pulumiType, name, inputs, opts);
     }
 }
 

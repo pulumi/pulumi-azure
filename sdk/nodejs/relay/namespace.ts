@@ -43,6 +43,20 @@ export class Namespace extends pulumi.CustomResource {
         return new Namespace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:relay/namespace:Namespace';
+
+    /**
+     * Returns true if the given object is an instance of Namespace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Namespace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Namespace.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
      */
@@ -125,7 +139,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:relay/namespace:Namespace", name, inputs, opts);
+        super(Namespace.__pulumiType, name, inputs, opts);
     }
 }
 

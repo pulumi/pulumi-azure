@@ -62,6 +62,20 @@ export class WebTest extends pulumi.CustomResource {
         return new WebTest(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:appinsights/webTest:WebTest';
+
+    /**
+     * Returns true if the given object is an instance of WebTest.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is WebTest {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === WebTest.__pulumiType;
+    }
+
     /**
      * The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
      */
@@ -169,7 +183,7 @@ export class WebTest extends pulumi.CustomResource {
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["syntheticMonitorId"] = undefined /*out*/;
         }
-        super("azure:appinsights/webTest:WebTest", name, inputs, opts);
+        super(WebTest.__pulumiType, name, inputs, opts);
     }
 }
 

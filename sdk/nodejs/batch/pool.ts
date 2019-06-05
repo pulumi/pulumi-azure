@@ -104,6 +104,20 @@ export class Pool extends pulumi.CustomResource {
         return new Pool(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:batch/pool:Pool';
+
+    /**
+     * Returns true if the given object is an instance of Pool.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Pool {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Pool.__pulumiType;
+    }
+
     /**
      * Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
      */
@@ -216,7 +230,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["storageImageReference"] = args ? args.storageImageReference : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
         }
-        super("azure:batch/pool:Pool", name, inputs, opts);
+        super(Pool.__pulumiType, name, inputs, opts);
     }
 }
 

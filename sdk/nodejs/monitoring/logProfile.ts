@@ -66,6 +66,20 @@ export class LogProfile extends pulumi.CustomResource {
         return new LogProfile(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:monitoring/logProfile:LogProfile';
+
+    /**
+     * Returns true if the given object is an instance of LogProfile.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LogProfile {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LogProfile.__pulumiType;
+    }
+
     /**
      * List of categories of the logs.
      */
@@ -128,7 +142,7 @@ export class LogProfile extends pulumi.CustomResource {
             inputs["servicebusRuleId"] = args ? args.servicebusRuleId : undefined;
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
-        super("azure:monitoring/logProfile:LogProfile", name, inputs, opts);
+        super(LogProfile.__pulumiType, name, inputs, opts);
     }
 }
 

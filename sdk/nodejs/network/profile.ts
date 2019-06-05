@@ -63,6 +63,20 @@ export class Profile extends pulumi.CustomResource {
         return new Profile(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/profile:Profile';
+
+    /**
+     * Returns true if the given object is an instance of Profile.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Profile {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Profile.__pulumiType;
+    }
+
     public readonly containerNetworkInterface!: pulumi.Output<{ ipConfigurations: { name: string, subnetId: string }[], name: string }>;
     /**
      * One or more Resource IDs of Azure Container Network Interfaces.
@@ -118,7 +132,7 @@ export class Profile extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["containerNetworkInterfaceIds"] = undefined /*out*/;
         }
-        super("azure:network/profile:Profile", name, inputs, opts);
+        super(Profile.__pulumiType, name, inputs, opts);
     }
 }
 

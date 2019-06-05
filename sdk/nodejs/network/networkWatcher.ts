@@ -37,6 +37,20 @@ export class NetworkWatcher extends pulumi.CustomResource {
         return new NetworkWatcher(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkWatcher:NetworkWatcher';
+
+    /**
+     * Returns true if the given object is an instance of NetworkWatcher.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkWatcher {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkWatcher.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -80,7 +94,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:network/networkWatcher:NetworkWatcher", name, inputs, opts);
+        super(NetworkWatcher.__pulumiType, name, inputs, opts);
     }
 }
 

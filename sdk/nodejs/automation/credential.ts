@@ -48,6 +48,20 @@ export class Credential extends pulumi.CustomResource {
         return new Credential(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:automation/credential:Credential';
+
+    /**
+     * Returns true if the given object is an instance of Credential.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Credential {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Credential.__pulumiType;
+    }
+
     /**
      * The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
      */
@@ -112,7 +126,7 @@ export class Credential extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
-        super("azure:automation/credential:Credential", name, inputs, opts);
+        super(Credential.__pulumiType, name, inputs, opts);
     }
 }
 

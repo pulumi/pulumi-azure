@@ -49,6 +49,20 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
         return new LinkedServiceDataLakeStorageGen2(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2';
+
+    /**
+     * Returns true if the given object is an instance of LinkedServiceDataLakeStorageGen2.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LinkedServiceDataLakeStorageGen2 {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LinkedServiceDataLakeStorageGen2.__pulumiType;
+    }
+
     /**
      * A map of additional properties to associate with the Data Factory Linked Service MySQL.
      */
@@ -155,7 +169,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             inputs["tenant"] = args ? args.tenant : undefined;
             inputs["url"] = args ? args.url : undefined;
         }
-        super("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, inputs, opts);
+        super(LinkedServiceDataLakeStorageGen2.__pulumiType, name, inputs, opts);
     }
 }
 

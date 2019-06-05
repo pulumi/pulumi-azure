@@ -40,6 +40,20 @@ export class Lab extends pulumi.CustomResource {
         return new Lab(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:devtest/lab:Lab';
+
+    /**
+     * Returns true if the given object is an instance of Lab.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Lab {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Lab.__pulumiType;
+    }
+
     /**
      * The ID of the Storage Account used for Artifact Storage.
      */
@@ -125,7 +139,7 @@ export class Lab extends pulumi.CustomResource {
             inputs["premiumDataDiskStorageAccountId"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        super("azure:devtest/lab:Lab", name, inputs, opts);
+        super(Lab.__pulumiType, name, inputs, opts);
     }
 }
 

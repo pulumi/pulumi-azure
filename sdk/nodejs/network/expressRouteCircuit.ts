@@ -47,6 +47,20 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         return new ExpressRouteCircuit(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/expressRouteCircuit:ExpressRouteCircuit';
+
+    /**
+     * Returns true if the given object is an instance of ExpressRouteCircuit.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ExpressRouteCircuit {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ExpressRouteCircuit.__pulumiType;
+    }
+
     /**
      * Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
      */
@@ -144,7 +158,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             inputs["serviceKey"] = undefined /*out*/;
             inputs["serviceProviderProvisioningState"] = undefined /*out*/;
         }
-        super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, inputs, opts);
+        super(ExpressRouteCircuit.__pulumiType, name, inputs, opts);
     }
 }
 

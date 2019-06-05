@@ -57,6 +57,20 @@ export class ElasticPool extends pulumi.CustomResource {
         return new ElasticPool(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:mssql/elasticPool:ElasticPool';
+
+    /**
+     * Returns true if the given object is an instance of ElasticPool.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ElasticPool {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ElasticPool.__pulumiType;
+    }
+
     public /*out*/ readonly elasticPoolProperties!: pulumi.Output<{ creationDate: string, licenseType: string, maxSizeBytes: number, state: string, zoneRedundant: boolean }>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -148,7 +162,7 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             inputs["elasticPoolProperties"] = undefined /*out*/;
         }
-        super("azure:mssql/elasticPool:ElasticPool", name, inputs, opts);
+        super(ElasticPool.__pulumiType, name, inputs, opts);
     }
 }
 

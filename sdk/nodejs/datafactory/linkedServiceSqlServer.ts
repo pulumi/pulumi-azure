@@ -45,6 +45,20 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
         return new LinkedServiceSqlServer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer';
+
+    /**
+     * Returns true if the given object is an instance of LinkedServiceSqlServer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LinkedServiceSqlServer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LinkedServiceSqlServer.__pulumiType;
+    }
+
     /**
      * A map of additional properties to associate with the Data Factory Linked Service SQL Server.
      */
@@ -124,7 +138,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, inputs, opts);
+        super(LinkedServiceSqlServer.__pulumiType, name, inputs, opts);
     }
 }
 

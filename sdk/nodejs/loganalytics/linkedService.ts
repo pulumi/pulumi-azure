@@ -55,6 +55,20 @@ export class LinkedService extends pulumi.CustomResource {
         return new LinkedService(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:loganalytics/linkedService:LinkedService';
+
+    /**
+     * Returns true if the given object is an instance of LinkedService.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LinkedService {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LinkedService.__pulumiType;
+    }
+
     /**
      * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
      */
@@ -119,7 +133,7 @@ export class LinkedService extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["name"] = undefined /*out*/;
         }
-        super("azure:loganalytics/linkedService:LinkedService", name, inputs, opts);
+        super(LinkedService.__pulumiType, name, inputs, opts);
     }
 }
 

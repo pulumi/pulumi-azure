@@ -73,6 +73,20 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
         return new VirtualNetworkRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:mysql/virtualNetworkRule:VirtualNetworkRule';
+
+    /**
+     * Returns true if the given object is an instance of VirtualNetworkRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualNetworkRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualNetworkRule.__pulumiType;
+    }
+
     /**
      * The name of the MySQL Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
      */
@@ -122,7 +136,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        super("azure:mysql/virtualNetworkRule:VirtualNetworkRule", name, inputs, opts);
+        super(VirtualNetworkRule.__pulumiType, name, inputs, opts);
     }
 }
 
