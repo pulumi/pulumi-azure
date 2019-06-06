@@ -77,10 +77,10 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
         }];
 
         pulumi.all([iotHub.fallbackRoute, iotHub.routes]).apply(([fallbackRoute, routes]) => {
-            if(fallbackRoute && fallbackRoute.enabled){
+            if (fallbackRoute && fallbackRoute.enabled) {
                 return;
             }
-            if(routes && routes.length > 0){
+            if (routes && routes.length > 0) {
                 return;
             }
             throw new pulumi.ResourceError("IoT Hub must have a route or fallback route enabled.", opts.parent);
