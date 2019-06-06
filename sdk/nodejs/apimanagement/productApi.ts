@@ -49,6 +49,20 @@ export class ProductApi extends pulumi.CustomResource {
         return new ProductApi(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/productApi:ProductApi';
+
+    /**
+     * Returns true if the given object is an instance of ProductApi.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProductApi {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProductApi.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
@@ -101,7 +115,7 @@ export class ProductApi extends pulumi.CustomResource {
             inputs["productId"] = args ? args.productId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:apimanagement/productApi:ProductApi", name, inputs, opts);
+        super(ProductApi.__pulumiType, name, inputs, opts);
     }
 }
 

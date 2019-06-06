@@ -43,6 +43,20 @@ export class CNameRecord extends pulumi.CustomResource {
         return new CNameRecord(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:dns/cNameRecord:CNameRecord';
+
+    /**
+     * Returns true if the given object is an instance of CNameRecord.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CNameRecord {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CNameRecord.__pulumiType;
+    }
+
     /**
      * The name of the DNS CNAME Record.
      */
@@ -104,7 +118,7 @@ export class CNameRecord extends pulumi.CustomResource {
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
         }
-        super("azure:dns/cNameRecord:CNameRecord", name, inputs, opts);
+        super(CNameRecord.__pulumiType, name, inputs, opts);
     }
 }
 

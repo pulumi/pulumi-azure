@@ -58,6 +58,20 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
         return new EventHubAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule';
+
+    /**
+     * Returns true if the given object is an instance of EventHubAuthorizationRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EventHubAuthorizationRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EventHubAuthorizationRule.__pulumiType;
+    }
+
     /**
      * Specifies the name of the EventHub. Changing this forces a new resource to be created.
      */
@@ -152,7 +166,7 @@ export class EventHubAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule", name, inputs, opts);
+        super(EventHubAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }
 

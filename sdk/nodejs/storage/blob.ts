@@ -53,6 +53,20 @@ export class Blob extends pulumi.CustomResource {
         return new Blob(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:storage/blob:Blob';
+
+    /**
+     * Returns true if the given object is an instance of Blob.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Blob {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Blob.__pulumiType;
+    }
+
     /**
      * The number of attempts to make per page or block when uploading. Defaults to `1`.
      */
@@ -160,7 +174,7 @@ export class Blob extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["url"] = undefined /*out*/;
         }
-        super("azure:storage/blob:Blob", name, inputs, opts);
+        super(Blob.__pulumiType, name, inputs, opts);
     }
 }
 

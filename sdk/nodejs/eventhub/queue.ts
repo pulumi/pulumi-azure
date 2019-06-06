@@ -47,6 +47,20 @@ export class Queue extends pulumi.CustomResource {
         return new Queue(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/queue:Queue';
+
+    /**
+     * Returns true if the given object is an instance of Queue.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Queue {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Queue.__pulumiType;
+    }
+
     /**
      * The ISO 8601 timespan duration of the idle interval after which the
      * Queue is automatically deleted, minimum of 5 minutes.
@@ -185,7 +199,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["supportOrdering"] = args ? args.supportOrdering : undefined;
         }
-        super("azure:eventhub/queue:Queue", name, inputs, opts);
+        super(Queue.__pulumiType, name, inputs, opts);
     }
 }
 

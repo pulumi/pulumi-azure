@@ -109,6 +109,20 @@ export class SubscriptionRule extends pulumi.CustomResource {
         return new SubscriptionRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/subscriptionRule:SubscriptionRule';
+
+    /**
+     * Returns true if the given object is an instance of SubscriptionRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SubscriptionRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SubscriptionRule.__pulumiType;
+    }
+
     /**
      * Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
      */
@@ -194,7 +208,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
-        super("azure:eventhub/subscriptionRule:SubscriptionRule", name, inputs, opts);
+        super(SubscriptionRule.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -47,6 +47,20 @@ export class ApiOperation extends pulumi.CustomResource {
         return new ApiOperation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/apiOperation:ApiOperation';
+
+    /**
+     * Returns true if the given object is an instance of ApiOperation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApiOperation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApiOperation.__pulumiType;
+    }
+
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
@@ -150,7 +164,7 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["templateParameters"] = args ? args.templateParameters : undefined;
             inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
         }
-        super("azure:apimanagement/apiOperation:ApiOperation", name, inputs, opts);
+        super(ApiOperation.__pulumiType, name, inputs, opts);
     }
 }
 

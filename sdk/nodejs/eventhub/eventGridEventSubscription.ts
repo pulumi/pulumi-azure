@@ -55,6 +55,20 @@ export class EventGridEventSubscription extends pulumi.CustomResource {
         return new EventGridEventSubscription(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/eventGridEventSubscription:EventGridEventSubscription';
+
+    /**
+     * Returns true if the given object is an instance of EventGridEventSubscription.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EventGridEventSubscription {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EventGridEventSubscription.__pulumiType;
+    }
+
     /**
      * Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
      */
@@ -152,7 +166,7 @@ export class EventGridEventSubscription extends pulumi.CustomResource {
             inputs["topicName"] = args ? args.topicName : undefined;
             inputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
         }
-        super("azure:eventhub/eventGridEventSubscription:EventGridEventSubscription", name, inputs, opts);
+        super(EventGridEventSubscription.__pulumiType, name, inputs, opts);
     }
 }
 

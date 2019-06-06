@@ -58,6 +58,20 @@ export class Configuration extends pulumi.CustomResource {
         return new Configuration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:postgresql/configuration:Configuration';
+
+    /**
+     * Returns true if the given object is an instance of Configuration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Configuration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Configuration.__pulumiType;
+    }
+
     /**
      * Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
      */
@@ -107,7 +121,7 @@ export class Configuration extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:postgresql/configuration:Configuration", name, inputs, opts);
+        super(Configuration.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -59,6 +59,20 @@ export class Definition extends pulumi.CustomResource {
         return new Definition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:policy/definition:Definition';
+
+    /**
+     * Returns true if the given object is an instance of Definition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Definition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Definition.__pulumiType;
+    }
+
     /**
      * The description of the policy definition.
      */
@@ -148,7 +162,7 @@ export class Definition extends pulumi.CustomResource {
             inputs["policyRule"] = args ? args.policyRule : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
         }
-        super("azure:policy/definition:Definition", name, inputs, opts);
+        super(Definition.__pulumiType, name, inputs, opts);
     }
 }
 

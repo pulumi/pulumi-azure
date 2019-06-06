@@ -58,6 +58,20 @@ export class KeyVault extends pulumi.CustomResource {
         return new KeyVault(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:keyvault/keyVault:KeyVault';
+
+    /**
+     * Returns true if the given object is an instance of KeyVault.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is KeyVault {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === KeyVault.__pulumiType;
+    }
+
     /**
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
      */
@@ -155,7 +169,7 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultUri"] = undefined /*out*/;
         }
-        super("azure:keyvault/keyVault:KeyVault", name, inputs, opts);
+        super(KeyVault.__pulumiType, name, inputs, opts);
     }
 }
 

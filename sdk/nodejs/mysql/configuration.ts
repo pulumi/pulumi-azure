@@ -58,6 +58,20 @@ export class Configuration extends pulumi.CustomResource {
         return new Configuration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:mysql/configuration:Configuration';
+
+    /**
+     * Returns true if the given object is an instance of Configuration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Configuration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Configuration.__pulumiType;
+    }
+
     /**
      * Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
      */
@@ -107,7 +121,7 @@ export class Configuration extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:mysql/configuration:Configuration", name, inputs, opts);
+        super(Configuration.__pulumiType, name, inputs, opts);
     }
 }
 

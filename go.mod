@@ -21,7 +21,7 @@ require (
 	github.com/pelletier/go-toml v1.3.0 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v0.17.6-0.20190410045519-ef5e148a73c0
-	github.com/pulumi/pulumi-terraform v0.18.2-0.20190522154113-c2798a1b001d
+	github.com/pulumi/pulumi-terraform v0.18.3-0.20190604214533-7ace3e9b5f2d
 	github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709

@@ -67,6 +67,20 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
         return new SubnetNetworkSecurityGroupAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation';
+
+    /**
+     * Returns true if the given object is an instance of SubnetNetworkSecurityGroupAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SubnetNetworkSecurityGroupAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SubnetNetworkSecurityGroupAssociation.__pulumiType;
+    }
+
     /**
      * The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
      */
@@ -101,7 +115,7 @@ export class SubnetNetworkSecurityGroupAssociation extends pulumi.CustomResource
             inputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
             inputs["subnetId"] = args ? args.subnetId : undefined;
         }
-        super("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, inputs, opts);
+        super(SubnetNetworkSecurityGroupAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

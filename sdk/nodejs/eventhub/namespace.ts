@@ -41,6 +41,20 @@ export class Namespace extends pulumi.CustomResource {
         return new Namespace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/namespace:Namespace';
+
+    /**
+     * Returns true if the given object is an instance of Namespace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Namespace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Namespace.__pulumiType;
+    }
+
     /**
      * Specifies the capacity. When `sku` is `Premium` can be `1`, `2` or `4`. When `sku` is `Basic` or `Standard` can be `0` only.
      */
@@ -127,7 +141,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["defaultSecondaryConnectionString"] = undefined /*out*/;
             inputs["defaultSecondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/namespace:Namespace", name, inputs, opts);
+        super(Namespace.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -44,6 +44,20 @@ export class Queue extends pulumi.CustomResource {
         return new Queue(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:storage/queue:Queue';
+
+    /**
+     * Returns true if the given object is an instance of Queue.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Queue {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Queue.__pulumiType;
+    }
+
     /**
      * The name of the storage queue. Must be unique within the storage account the queue is located.
      */
@@ -86,7 +100,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
-        super("azure:storage/queue:Queue", name, inputs, opts);
+        super(Queue.__pulumiType, name, inputs, opts);
     }
 }
 

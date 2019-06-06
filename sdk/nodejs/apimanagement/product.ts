@@ -52,6 +52,20 @@ export class Product extends pulumi.CustomResource {
         return new Product(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/product:Product';
+
+    /**
+     * Returns true if the given object is an instance of Product.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Product {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Product.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
@@ -146,7 +160,7 @@ export class Product extends pulumi.CustomResource {
             inputs["subscriptionsLimit"] = args ? args.subscriptionsLimit : undefined;
             inputs["terms"] = args ? args.terms : undefined;
         }
-        super("azure:apimanagement/product:Product", name, inputs, opts);
+        super(Product.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -77,6 +77,20 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
         return new ProtectionPolicyVM(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM';
+
+    /**
+     * Returns true if the given object is an instance of ProtectionPolicyVM.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProtectionPolicyVM {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProtectionPolicyVM.__pulumiType;
+    }
+
     /**
      * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
      */
@@ -162,7 +176,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
-        super("azure:recoveryservices/protectionPolicyVM:ProtectionPolicyVM", name, inputs, opts);
+        super(ProtectionPolicyVM.__pulumiType, name, inputs, opts);
     }
 }
 

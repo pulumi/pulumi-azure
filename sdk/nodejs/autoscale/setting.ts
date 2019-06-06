@@ -254,6 +254,20 @@ export class Setting extends pulumi.CustomResource {
         return new Setting(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:autoscale/setting:Setting';
+
+    /**
+     * Returns true if the given object is an instance of Setting.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Setting {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Setting.__pulumiType;
+    }
+
     /**
      * Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
      */
@@ -327,7 +341,7 @@ export class Setting extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        super("azure:autoscale/setting:Setting", name, inputs, opts);
+        super(Setting.__pulumiType, name, inputs, opts);
     }
 }
 

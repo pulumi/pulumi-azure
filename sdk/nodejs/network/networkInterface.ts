@@ -57,6 +57,20 @@ export class NetworkInterface extends pulumi.CustomResource {
         return new NetworkInterface(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkInterface:NetworkInterface';
+
+    /**
+     * Returns true if the given object is an instance of NetworkInterface.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkInterface {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkInterface.__pulumiType;
+    }
+
     /**
      * If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set
      */
@@ -172,7 +186,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             inputs["privateIpAddress"] = undefined /*out*/;
             inputs["privateIpAddresses"] = undefined /*out*/;
         }
-        super("azure:network/networkInterface:NetworkInterface", name, inputs, opts);
+        super(NetworkInterface.__pulumiType, name, inputs, opts);
     }
 }
 

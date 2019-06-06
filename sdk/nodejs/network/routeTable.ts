@@ -46,6 +46,20 @@ export class RouteTable extends pulumi.CustomResource {
         return new RouteTable(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/routeTable:RouteTable';
+
+    /**
+     * Returns true if the given object is an instance of RouteTable.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RouteTable {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RouteTable.__pulumiType;
+    }
+
     /**
      * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
      */
@@ -107,7 +121,7 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["subnets"] = undefined /*out*/;
         }
-        super("azure:network/routeTable:RouteTable", name, inputs, opts);
+        super(RouteTable.__pulumiType, name, inputs, opts);
     }
 }
 

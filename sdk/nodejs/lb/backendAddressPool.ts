@@ -54,6 +54,20 @@ export class BackendAddressPool extends pulumi.CustomResource {
         return new BackendAddressPool(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:lb/backendAddressPool:BackendAddressPool';
+
+    /**
+     * Returns true if the given object is an instance of BackendAddressPool.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is BackendAddressPool {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === BackendAddressPool.__pulumiType;
+    }
+
     /**
      * The Backend IP Configurations associated with this Backend Address Pool.
      */
@@ -109,7 +123,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             inputs["backendIpConfigurations"] = undefined /*out*/;
             inputs["loadBalancingRules"] = undefined /*out*/;
         }
-        super("azure:lb/backendAddressPool:BackendAddressPool", name, inputs, opts);
+        super(BackendAddressPool.__pulumiType, name, inputs, opts);
     }
 }
 

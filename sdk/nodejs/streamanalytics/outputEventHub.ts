@@ -62,6 +62,20 @@ export class OutputEventHub extends pulumi.CustomResource {
         return new OutputEventHub(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:streamanalytics/outputEventHub:OutputEventHub';
+
+    /**
+     * Returns true if the given object is an instance of OutputEventHub.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is OutputEventHub {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === OutputEventHub.__pulumiType;
+    }
+
     /**
      * The name of the Event Hub.
      */
@@ -147,7 +161,7 @@ export class OutputEventHub extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        super("azure:streamanalytics/outputEventHub:OutputEventHub", name, inputs, opts);
+        super(OutputEventHub.__pulumiType, name, inputs, opts);
     }
 }
 

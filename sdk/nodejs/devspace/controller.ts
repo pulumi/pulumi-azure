@@ -62,6 +62,20 @@ export class Controller extends pulumi.CustomResource {
         return new Controller(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:devspace/controller:Controller';
+
+    /**
+     * Returns true if the given object is an instance of Controller.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Controller {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Controller.__pulumiType;
+    }
+
     /**
      * DNS name for accessing DataPlane services.
      */
@@ -147,7 +161,7 @@ export class Controller extends pulumi.CustomResource {
             inputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
             inputs["dataPlaneFqdn"] = undefined /*out*/;
         }
-        super("azure:devspace/controller:Controller", name, inputs, opts);
+        super(Controller.__pulumiType, name, inputs, opts);
     }
 }
 

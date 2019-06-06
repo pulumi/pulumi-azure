@@ -121,6 +121,20 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
         return new VirtualNetworkPeering(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/virtualNetworkPeering:VirtualNetworkPeering';
+
+    /**
+     * Returns true if the given object is an instance of VirtualNetworkPeering.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualNetworkPeering {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualNetworkPeering.__pulumiType;
+    }
+
     /**
      * Controls if forwarded traffic from  VMs
      * in the remote virtual network is allowed. Defaults to false.
@@ -208,7 +222,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             inputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
-        super("azure:network/virtualNetworkPeering:VirtualNetworkPeering", name, inputs, opts);
+        super(VirtualNetworkPeering.__pulumiType, name, inputs, opts);
     }
 }
 
