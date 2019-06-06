@@ -38,6 +38,20 @@ export class ManagementGroup extends pulumi.CustomResource {
         return new ManagementGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:managementgroups/managementGroup:ManagementGroup';
+
+    /**
+     * Returns true if the given object is an instance of ManagementGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ManagementGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ManagementGroup.__pulumiType;
+    }
+
     /**
      * A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
      */
@@ -78,7 +92,7 @@ export class ManagementGroup extends pulumi.CustomResource {
             inputs["parentManagementGroupId"] = args ? args.parentManagementGroupId : undefined;
             inputs["subscriptionIds"] = args ? args.subscriptionIds : undefined;
         }
-        super("azure:managementgroups/managementGroup:ManagementGroup", name, inputs, opts);
+        super(ManagementGroup.__pulumiType, name, inputs, opts);
     }
 }
 

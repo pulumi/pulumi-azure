@@ -252,6 +252,20 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         return new AutoscaleSetting(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:monitoring/autoscaleSetting:AutoscaleSetting';
+
+    /**
+     * Returns true if the given object is an instance of AutoscaleSetting.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AutoscaleSetting {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AutoscaleSetting.__pulumiType;
+    }
+
     /**
      * Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
      */
@@ -325,7 +339,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
-        super("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, inputs, opts);
+        super(AutoscaleSetting.__pulumiType, name, inputs, opts);
     }
 }
 

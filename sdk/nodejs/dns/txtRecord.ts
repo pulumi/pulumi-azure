@@ -53,6 +53,20 @@ export class TxtRecord extends pulumi.CustomResource {
         return new TxtRecord(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:dns/txtRecord:TxtRecord';
+
+    /**
+     * Returns true if the given object is an instance of TxtRecord.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TxtRecord {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TxtRecord.__pulumiType;
+    }
+
     /**
      * The name of the DNS TXT Record.
      */
@@ -117,7 +131,7 @@ export class TxtRecord extends pulumi.CustomResource {
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
         }
-        super("azure:dns/txtRecord:TxtRecord", name, inputs, opts);
+        super(TxtRecord.__pulumiType, name, inputs, opts);
     }
 }
 

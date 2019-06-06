@@ -53,6 +53,20 @@ export class ProtectedVM extends pulumi.CustomResource {
         return new ProtectedVM(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:recoveryservices/protectedVM:ProtectedVM';
+
+    /**
+     * Returns true if the given object is an instance of ProtectedVM.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProtectedVM {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProtectedVM.__pulumiType;
+    }
+
     /**
      * Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
      */
@@ -111,7 +125,7 @@ export class ProtectedVM extends pulumi.CustomResource {
             inputs["sourceVmId"] = args ? args.sourceVmId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:recoveryservices/protectedVM:ProtectedVM", name, inputs, opts);
+        super(ProtectedVM.__pulumiType, name, inputs, opts);
     }
 }
 

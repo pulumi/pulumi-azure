@@ -45,6 +45,20 @@ export class AuthorizationServer extends pulumi.CustomResource {
         return new AuthorizationServer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/authorizationServer:AuthorizationServer';
+
+    /**
+     * Returns true if the given object is an instance of AuthorizationServer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AuthorizationServer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AuthorizationServer.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
      */
@@ -196,7 +210,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
             inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
         }
-        super("azure:apimanagement/authorizationServer:AuthorizationServer", name, inputs, opts);
+        super(AuthorizationServer.__pulumiType, name, inputs, opts);
     }
 }
 

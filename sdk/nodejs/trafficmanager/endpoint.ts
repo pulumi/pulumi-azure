@@ -64,6 +64,20 @@ export class Endpoint extends pulumi.CustomResource {
         return new Endpoint(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:trafficmanager/endpoint:Endpoint';
+
+    /**
+     * Returns true if the given object is an instance of Endpoint.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Endpoint {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Endpoint.__pulumiType;
+    }
+
     /**
      * Specifies the Azure location of the Endpoint,
      * this must be specified for Profiles using the `Performance` routing method
@@ -188,7 +202,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["weight"] = args ? args.weight : undefined;
             inputs["endpointMonitorStatus"] = undefined /*out*/;
         }
-        super("azure:trafficmanager/endpoint:Endpoint", name, inputs, opts);
+        super(Endpoint.__pulumiType, name, inputs, opts);
     }
 }
 

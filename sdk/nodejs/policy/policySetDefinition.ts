@@ -57,6 +57,20 @@ export class PolicySetDefinition extends pulumi.CustomResource {
         return new PolicySetDefinition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:policy/policySetDefinition:PolicySetDefinition';
+
+    /**
+     * Returns true if the given object is an instance of PolicySetDefinition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PolicySetDefinition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PolicySetDefinition.__pulumiType;
+    }
+
     /**
      * The description of the policy set definition.
      */
@@ -127,7 +141,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
             inputs["policyType"] = args ? args.policyType : undefined;
         }
-        super("azure:policy/policySetDefinition:PolicySetDefinition", name, inputs, opts);
+        super(PolicySetDefinition.__pulumiType, name, inputs, opts);
     }
 }
 

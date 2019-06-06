@@ -54,6 +54,20 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
         return new NetworkSecurityRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkSecurityRule:NetworkSecurityRule';
+
+    /**
+     * Returns true if the given object is an instance of NetworkSecurityRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkSecurityRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkSecurityRule.__pulumiType;
+    }
+
     /**
      * Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
      */
@@ -196,7 +210,7 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
             inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
         }
-        super("azure:network/networkSecurityRule:NetworkSecurityRule", name, inputs, opts);
+        super(NetworkSecurityRule.__pulumiType, name, inputs, opts);
     }
 }
 

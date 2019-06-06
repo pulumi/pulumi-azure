@@ -40,6 +40,20 @@ export class AvailabilitySet extends pulumi.CustomResource {
         return new AvailabilitySet(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/availabilitySet:AvailabilitySet';
+
+    /**
+     * Returns true if the given object is an instance of AvailabilitySet.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AvailabilitySet {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AvailabilitySet.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -101,7 +115,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:compute/availabilitySet:AvailabilitySet", name, inputs, opts);
+        super(AvailabilitySet.__pulumiType, name, inputs, opts);
     }
 }
 

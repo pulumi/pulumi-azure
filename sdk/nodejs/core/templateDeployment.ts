@@ -109,6 +109,20 @@ export class TemplateDeployment extends pulumi.CustomResource {
         return new TemplateDeployment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:core/templateDeployment:TemplateDeployment';
+
+    /**
+     * Returns true if the given object is an instance of TemplateDeployment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TemplateDeployment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TemplateDeployment.__pulumiType;
+    }
+
     /**
      * Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
      * Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
@@ -177,7 +191,7 @@ export class TemplateDeployment extends pulumi.CustomResource {
             inputs["templateBody"] = args ? args.templateBody : undefined;
             inputs["outputs"] = undefined /*out*/;
         }
-        super("azure:core/templateDeployment:TemplateDeployment", name, inputs, opts);
+        super(TemplateDeployment.__pulumiType, name, inputs, opts);
     }
 }
 

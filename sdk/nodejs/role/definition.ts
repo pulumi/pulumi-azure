@@ -39,6 +39,20 @@ export class Definition extends pulumi.CustomResource {
         return new Definition(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:role/definition:Definition';
+
+    /**
+     * Returns true if the given object is an instance of Definition.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Definition {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Definition.__pulumiType;
+    }
+
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      */
@@ -100,7 +114,7 @@ export class Definition extends pulumi.CustomResource {
             inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        super("azure:role/definition:Definition", name, inputs, opts);
+        super(Definition.__pulumiType, name, inputs, opts);
     }
 }
 

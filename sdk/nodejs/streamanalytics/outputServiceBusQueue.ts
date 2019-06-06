@@ -59,6 +59,20 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
         return new OutputServiceBusQueue(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue';
+
+    /**
+     * Returns true if the given object is an instance of OutputServiceBusQueue.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is OutputServiceBusQueue {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === OutputServiceBusQueue.__pulumiType;
+    }
+
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
@@ -144,7 +158,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        super("azure:streamanalytics/outputServiceBusQueue:OutputServiceBusQueue", name, inputs, opts);
+        super(OutputServiceBusQueue.__pulumiType, name, inputs, opts);
     }
 }
 

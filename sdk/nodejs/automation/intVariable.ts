@@ -47,6 +47,20 @@ export class IntVariable extends pulumi.CustomResource {
         return new IntVariable(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:automation/intVariable:IntVariable';
+
+    /**
+     * Returns true if the given object is an instance of IntVariable.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is IntVariable {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === IntVariable.__pulumiType;
+    }
+
     /**
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      */
@@ -105,7 +119,7 @@ export class IntVariable extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:automation/intVariable:IntVariable", name, inputs, opts);
+        super(IntVariable.__pulumiType, name, inputs, opts);
     }
 }
 

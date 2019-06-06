@@ -42,6 +42,20 @@ export class EventGridTopic extends pulumi.CustomResource {
         return new EventGridTopic(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/eventGridTopic:EventGridTopic';
+
+    /**
+     * Returns true if the given object is an instance of EventGridTopic.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EventGridTopic {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EventGridTopic.__pulumiType;
+    }
+
     /**
      * The Endpoint associated with the EventGrid Topic.
      */
@@ -103,7 +117,7 @@ export class EventGridTopic extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/eventGridTopic:EventGridTopic", name, inputs, opts);
+        super(EventGridTopic.__pulumiType, name, inputs, opts);
     }
 }
 

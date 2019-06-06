@@ -59,6 +59,20 @@ export class NatPool extends pulumi.CustomResource {
         return new NatPool(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:lb/natPool:NatPool';
+
+    /**
+     * Returns true if the given object is an instance of NatPool.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NatPool {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NatPool.__pulumiType;
+    }
+
     /**
      * The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
      */
@@ -150,7 +164,7 @@ export class NatPool extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
-        super("azure:lb/natPool:NatPool", name, inputs, opts);
+        super(NatPool.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -54,6 +54,20 @@ export class Subscription extends pulumi.CustomResource {
         return new Subscription(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/subscription:Subscription';
+
+    /**
+     * Returns true if the given object is an instance of Subscription.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Subscription {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Subscription.__pulumiType;
+    }
+
     /**
      * The idle interval after which the
      * Subscription is automatically deleted, minimum of 5 minutes. Provided in the
@@ -179,7 +193,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
-        super("azure:eventhub/subscription:Subscription", name, inputs, opts);
+        super(Subscription.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -40,6 +40,20 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
         return new ApplicationSecurityGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/applicationSecurityGroup:ApplicationSecurityGroup';
+
+    /**
+     * Returns true if the given object is an instance of ApplicationSecurityGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApplicationSecurityGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApplicationSecurityGroup.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -83,7 +97,7 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:network/applicationSecurityGroup:ApplicationSecurityGroup", name, inputs, opts);
+        super(ApplicationSecurityGroup.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -46,6 +46,20 @@ export class SqlServer extends pulumi.CustomResource {
         return new SqlServer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:sql/sqlServer:SqlServer';
+
+    /**
+     * Returns true if the given object is an instance of SqlServer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SqlServer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SqlServer.__pulumiType;
+    }
+
     /**
      * The administrator login name for the new server. Changing this forces a new resource to be created.
      */
@@ -122,7 +136,7 @@ export class SqlServer extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["fullyQualifiedDomainName"] = undefined /*out*/;
         }
-        super("azure:sql/sqlServer:SqlServer", name, inputs, opts);
+        super(SqlServer.__pulumiType, name, inputs, opts);
     }
 }
 

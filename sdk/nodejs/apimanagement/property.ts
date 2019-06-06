@@ -51,6 +51,20 @@ export class Property extends pulumi.CustomResource {
         return new Property(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/property:Property';
+
+    /**
+     * Returns true if the given object is an instance of Property.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Property {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Property.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service in which the API Management Property should exist. Changing this forces a new resource to be created.
      */
@@ -121,7 +135,7 @@ export class Property extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:apimanagement/property:Property", name, inputs, opts);
+        super(Property.__pulumiType, name, inputs, opts);
     }
 }
 

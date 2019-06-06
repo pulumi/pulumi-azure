@@ -68,6 +68,20 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
         return new WindowsVirtualMachine(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:devtest/windowsVirtualMachine:WindowsVirtualMachine';
+
+    /**
+     * Returns true if the given object is an instance of WindowsVirtualMachine.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is WindowsVirtualMachine {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === WindowsVirtualMachine.__pulumiType;
+    }
+
     /**
      * Can this Virtual Machine be claimed by users? Defaults to `true`.
      */
@@ -219,7 +233,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        super("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, inputs, opts);
+        super(WindowsVirtualMachine.__pulumiType, name, inputs, opts);
     }
 }
 

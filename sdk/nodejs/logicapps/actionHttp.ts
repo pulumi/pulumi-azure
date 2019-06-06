@@ -43,6 +43,20 @@ export class ActionHttp extends pulumi.CustomResource {
         return new ActionHttp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:logicapps/actionHttp:ActionHttp';
+
+    /**
+     * Returns true if the given object is an instance of ActionHttp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ActionHttp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ActionHttp.__pulumiType;
+    }
+
     /**
      * Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
      */
@@ -104,7 +118,7 @@ export class ActionHttp extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["uri"] = args ? args.uri : undefined;
         }
-        super("azure:logicapps/actionHttp:ActionHttp", name, inputs, opts);
+        super(ActionHttp.__pulumiType, name, inputs, opts);
     }
 }
 

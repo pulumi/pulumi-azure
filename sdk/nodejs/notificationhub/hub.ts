@@ -47,6 +47,20 @@ export class Hub extends pulumi.CustomResource {
         return new Hub(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:notificationhub/hub:Hub';
+
+    /**
+     * Returns true if the given object is an instance of Hub.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Hub {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Hub.__pulumiType;
+    }
+
     /**
      * A `apns_credential` block as defined below.
      */
@@ -105,7 +119,7 @@ export class Hub extends pulumi.CustomResource {
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:notificationhub/hub:Hub", name, inputs, opts);
+        super(Hub.__pulumiType, name, inputs, opts);
     }
 }
 

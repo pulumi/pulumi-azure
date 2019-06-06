@@ -43,6 +43,20 @@ export class AaaaRecord extends pulumi.CustomResource {
         return new AaaaRecord(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:dns/aaaaRecord:AaaaRecord';
+
+    /**
+     * Returns true if the given object is an instance of AaaaRecord.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AaaaRecord {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AaaaRecord.__pulumiType;
+    }
+
     /**
      * The name of the DNS AAAA Record.
      */
@@ -104,7 +118,7 @@ export class AaaaRecord extends pulumi.CustomResource {
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
         }
-        super("azure:dns/aaaaRecord:AaaaRecord", name, inputs, opts);
+        super(AaaaRecord.__pulumiType, name, inputs, opts);
     }
 }
 

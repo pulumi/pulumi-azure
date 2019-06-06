@@ -137,6 +137,20 @@ export class Slot extends pulumi.CustomResource {
         return new Slot(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:appservice/slot:Slot';
+
+    /**
+     * Returns true if the given object is an instance of Slot.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Slot {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Slot.__pulumiType;
+    }
+
     /**
      * The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
      */
@@ -252,7 +266,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["defaultSiteHostname"] = undefined /*out*/;
             inputs["siteCredential"] = undefined /*out*/;
         }
-        super("azure:appservice/slot:Slot", name, inputs, opts);
+        super(Slot.__pulumiType, name, inputs, opts);
     }
 }
 

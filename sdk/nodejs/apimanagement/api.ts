@@ -56,6 +56,20 @@ export class Api extends pulumi.CustomResource {
         return new Api(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/api:Api';
+
+    /**
+     * Returns true if the given object is an instance of Api.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Api {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Api.__pulumiType;
+    }
+
     /**
      * The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
      */
@@ -186,7 +200,7 @@ export class Api extends pulumi.CustomResource {
             inputs["version"] = undefined /*out*/;
             inputs["versionSetId"] = undefined /*out*/;
         }
-        super("azure:apimanagement/api:Api", name, inputs, opts);
+        super(Api.__pulumiType, name, inputs, opts);
     }
 }
 

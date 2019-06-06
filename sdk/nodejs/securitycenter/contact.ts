@@ -36,6 +36,20 @@ export class Contact extends pulumi.CustomResource {
         return new Contact(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:securitycenter/contact:Contact';
+
+    /**
+     * Returns true if the given object is an instance of Contact.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Contact {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Contact.__pulumiType;
+    }
+
     /**
      * Whether to send security alerts notifications to the security contact.
      */
@@ -88,7 +102,7 @@ export class Contact extends pulumi.CustomResource {
             inputs["email"] = args ? args.email : undefined;
             inputs["phone"] = args ? args.phone : undefined;
         }
-        super("azure:securitycenter/contact:Contact", name, inputs, opts);
+        super(Contact.__pulumiType, name, inputs, opts);
     }
 }
 

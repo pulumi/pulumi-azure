@@ -43,6 +43,20 @@ export class ApiSchema extends pulumi.CustomResource {
         return new ApiSchema(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/apiSchema:ApiSchema';
+
+    /**
+     * Returns true if the given object is an instance of ApiSchema.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApiSchema {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApiSchema.__pulumiType;
+    }
+
     /**
      * The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
      */
@@ -113,7 +127,7 @@ export class ApiSchema extends pulumi.CustomResource {
             inputs["schemaId"] = args ? args.schemaId : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:apimanagement/apiSchema:ApiSchema", name, inputs, opts);
+        super(ApiSchema.__pulumiType, name, inputs, opts);
     }
 }
 

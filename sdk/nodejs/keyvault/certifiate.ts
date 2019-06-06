@@ -236,6 +236,20 @@ export class Certifiate extends pulumi.CustomResource {
         return new Certifiate(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:keyvault/certifiate:Certifiate';
+
+    /**
+     * Returns true if the given object is an instance of Certifiate.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Certifiate {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Certifiate.__pulumiType;
+    }
+
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
@@ -312,7 +326,7 @@ export class Certifiate extends pulumi.CustomResource {
             inputs["thumbprint"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
-        super("azure:keyvault/certifiate:Certifiate", name, inputs, opts);
+        super(Certifiate.__pulumiType, name, inputs, opts);
     }
 }
 
