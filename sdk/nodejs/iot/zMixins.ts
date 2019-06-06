@@ -76,6 +76,16 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
             connection: bindingConnectionKey,
         }];
 
+        pulumi.all([iotHub.fallbackRoute, iotHub.routes]).apply(([fallbackRoute, routes]) => {
+            if(fallbackRoute.enabled){
+                return;
+            }
+            if(routes && routes.length > 0){
+                return;
+            }
+            throw new pulumi.ResourceError("IoT Hub must have a route or fallback route enabled.", opts.parent);
+        });
+
         // Place the mapping from the well known key name to the Event Hubs account connection string in
         // the 'app settings' object.
 
