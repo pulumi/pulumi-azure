@@ -55,6 +55,20 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
         return new TopicAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule';
+
+    /**
+     * Returns true if the given object is an instance of TopicAuthorizationRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TopicAuthorizationRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TopicAuthorizationRule.__pulumiType;
+    }
+
     /**
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
@@ -146,7 +160,7 @@ export class TopicAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, inputs, opts);
+        super(TopicAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }
 

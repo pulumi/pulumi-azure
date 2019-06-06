@@ -55,6 +55,20 @@ export class Probe extends pulumi.CustomResource {
         return new Probe(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:lb/probe:Probe';
+
+    /**
+     * Returns true if the given object is an instance of Probe.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Probe {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Probe.__pulumiType;
+    }
+
     /**
      * The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5.
      */
@@ -134,7 +148,7 @@ export class Probe extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["loadBalancerRules"] = undefined /*out*/;
         }
-        super("azure:lb/probe:Probe", name, inputs, opts);
+        super(Probe.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -38,6 +38,20 @@ export class Vault extends pulumi.CustomResource {
         return new Vault(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:recoveryservices/vault:Vault';
+
+    /**
+     * Returns true if the given object is an instance of Vault.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Vault {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Vault.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -90,7 +104,7 @@ export class Vault extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:recoveryservices/vault:Vault", name, inputs, opts);
+        super(Vault.__pulumiType, name, inputs, opts);
     }
 }
 

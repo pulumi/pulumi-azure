@@ -49,6 +49,20 @@ export class Database extends pulumi.CustomResource {
         return new Database(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:sql/database:Database';
+
+    /**
+     * Returns true if the given object is an instance of Database.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Database {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Database.__pulumiType;
+    }
+
     /**
      * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
@@ -195,7 +209,7 @@ export class Database extends pulumi.CustomResource {
             inputs["defaultSecondaryLocation"] = undefined /*out*/;
             inputs["encryption"] = undefined /*out*/;
         }
-        super("azure:sql/database:Database", name, inputs, opts);
+        super(Database.__pulumiType, name, inputs, opts);
     }
 }
 

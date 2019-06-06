@@ -49,6 +49,20 @@ export class VirtualNetwork extends pulumi.CustomResource {
         return new VirtualNetwork(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:devtest/virtualNetwork:VirtualNetwork';
+
+    /**
+     * Returns true if the given object is an instance of VirtualNetwork.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualNetwork {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualNetwork.__pulumiType;
+    }
+
     /**
      * A description for the Virtual Network.
      */
@@ -113,7 +127,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        super("azure:devtest/virtualNetwork:VirtualNetwork", name, inputs, opts);
+        super(VirtualNetwork.__pulumiType, name, inputs, opts);
     }
 }
 

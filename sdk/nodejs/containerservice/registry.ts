@@ -46,6 +46,20 @@ export class Registry extends pulumi.CustomResource {
         return new Registry(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:containerservice/registry:Registry';
+
+    /**
+     * Returns true if the given object is an instance of Registry.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Registry {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Registry.__pulumiType;
+    }
+
     /**
      * Specifies whether the admin user is enabled. Defaults to `false`.
      */
@@ -134,7 +148,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["adminUsername"] = undefined /*out*/;
             inputs["loginServer"] = undefined /*out*/;
         }
-        super("azure:containerservice/registry:Registry", name, inputs, opts);
+        super(Registry.__pulumiType, name, inputs, opts);
     }
 }
 

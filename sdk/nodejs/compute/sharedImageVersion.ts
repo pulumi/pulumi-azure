@@ -51,6 +51,20 @@ export class SharedImageVersion extends pulumi.CustomResource {
         return new SharedImageVersion(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/sharedImageVersion:SharedImageVersion';
+
+    /**
+     * Returns true if the given object is an instance of SharedImageVersion.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SharedImageVersion {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SharedImageVersion.__pulumiType;
+    }
+
     /**
      * Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
      */
@@ -136,7 +150,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetRegions"] = args ? args.targetRegions : undefined;
         }
-        super("azure:compute/sharedImageVersion:SharedImageVersion", name, inputs, opts);
+        super(SharedImageVersion.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -56,6 +56,20 @@ export class AuthorizationRule extends pulumi.CustomResource {
         return new AuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:notificationhub/authorizationRule:AuthorizationRule';
+
+    /**
+     * Returns true if the given object is an instance of AuthorizationRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AuthorizationRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AuthorizationRule.__pulumiType;
+    }
+
     /**
      * Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`.
      */
@@ -135,7 +149,7 @@ export class AuthorizationRule extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
         }
-        super("azure:notificationhub/authorizationRule:AuthorizationRule", name, inputs, opts);
+        super(AuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }
 

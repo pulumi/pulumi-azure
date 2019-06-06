@@ -185,6 +185,20 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         return new VirtualNetworkGatewayConnection(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection';
+
+    /**
+     * Returns true if the given object is an instance of VirtualNetworkGatewayConnection.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualNetworkGatewayConnection {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualNetworkGatewayConnection.__pulumiType;
+    }
+
     /**
      * The authorization key associated with the
      * Express Route Circuit. This field is required only if the type is an
@@ -330,7 +344,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
         }
-        super("azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection", name, inputs, opts);
+        super(VirtualNetworkGatewayConnection.__pulumiType, name, inputs, opts);
     }
 }
 

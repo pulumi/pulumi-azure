@@ -49,6 +49,20 @@ export class DatasetPostgresql extends pulumi.CustomResource {
         return new DatasetPostgresql(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datafactory/datasetPostgresql:DatasetPostgresql';
+
+    /**
+     * Returns true if the given object is an instance of DatasetPostgresql.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DatasetPostgresql {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DatasetPostgresql.__pulumiType;
+    }
+
     /**
      * A map of additional properties to associate with the Data Factory Dataset PostgreSQL.
      */
@@ -140,7 +154,7 @@ export class DatasetPostgresql extends pulumi.CustomResource {
             inputs["schemaColumns"] = args ? args.schemaColumns : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
-        super("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, inputs, opts);
+        super(DatasetPostgresql.__pulumiType, name, inputs, opts);
     }
 }
 

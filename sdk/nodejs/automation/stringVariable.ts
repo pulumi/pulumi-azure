@@ -47,6 +47,20 @@ export class StringVariable extends pulumi.CustomResource {
         return new StringVariable(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:automation/stringVariable:StringVariable';
+
+    /**
+     * Returns true if the given object is an instance of StringVariable.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StringVariable {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StringVariable.__pulumiType;
+    }
+
     /**
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      */
@@ -105,7 +119,7 @@ export class StringVariable extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:automation/stringVariable:StringVariable", name, inputs, opts);
+        super(StringVariable.__pulumiType, name, inputs, opts);
     }
 }
 

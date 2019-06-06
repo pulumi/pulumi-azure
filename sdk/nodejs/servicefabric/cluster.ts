@@ -49,6 +49,20 @@ export class Cluster extends pulumi.CustomResource {
         return new Cluster(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:servicefabric/cluster:Cluster';
+
+    /**
+     * Returns true if the given object is an instance of Cluster.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Cluster {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Cluster.__pulumiType;
+    }
+
     /**
      * A List of one or more features which should be enabled, such as `DnsService`.
      */
@@ -191,7 +205,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vmImage"] = args ? args.vmImage : undefined;
             inputs["clusterEndpoint"] = undefined /*out*/;
         }
-        super("azure:servicefabric/cluster:Cluster", name, inputs, opts);
+        super(Cluster.__pulumiType, name, inputs, opts);
     }
 }
 

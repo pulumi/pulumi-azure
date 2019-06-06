@@ -51,6 +51,20 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         return new OpenIdConnectProvider(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider';
+
+    /**
+     * Returns true if the given object is an instance of OpenIdConnectProvider.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is OpenIdConnectProvider {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === OpenIdConnectProvider.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
      */
@@ -133,7 +147,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider", name, inputs, opts);
+        super(OpenIdConnectProvider.__pulumiType, name, inputs, opts);
     }
 }
 

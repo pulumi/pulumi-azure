@@ -79,6 +79,20 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
         return new NetworkInterfaceBackendAddressPoolAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation';
+
+    /**
+     * Returns true if the given object is an instance of NetworkInterfaceBackendAddressPoolAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkInterfaceBackendAddressPoolAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkInterfaceBackendAddressPoolAssociation.__pulumiType;
+    }
+
     /**
      * The ID of the Load Balancer Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
@@ -122,7 +136,7 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
             inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        super("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, inputs, opts);
+        super(NetworkInterfaceBackendAddressPoolAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

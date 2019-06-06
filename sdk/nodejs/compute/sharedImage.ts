@@ -56,6 +56,20 @@ export class SharedImage extends pulumi.CustomResource {
         return new SharedImage(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/sharedImage:SharedImage';
+
+    /**
+     * Returns true if the given object is an instance of SharedImage.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SharedImage {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SharedImage.__pulumiType;
+    }
+
     /**
      * A description of this Shared Image.
      */
@@ -150,7 +164,7 @@ export class SharedImage extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:compute/sharedImage:SharedImage", name, inputs, opts);
+        super(SharedImage.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -83,6 +83,20 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
         return new NetworkInterfaceNatRuleAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation';
+
+    /**
+     * Returns true if the given object is an instance of NetworkInterfaceNatRuleAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkInterfaceNatRuleAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkInterfaceNatRuleAssociation.__pulumiType;
+    }
+
     /**
      * The Name of the IP Configuration within the Network Interface which should be connected to the NAT Rule. Changing this forces a new resource to be created.
      */
@@ -126,7 +140,7 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
             inputs["natRuleId"] = args ? args.natRuleId : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, inputs, opts);
+        super(NetworkInterfaceNatRuleAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

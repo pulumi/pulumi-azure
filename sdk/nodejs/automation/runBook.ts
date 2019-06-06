@@ -53,6 +53,20 @@ export class RunBook extends pulumi.CustomResource {
         return new RunBook(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:automation/runBook:RunBook';
+
+    /**
+     * Returns true if the given object is an instance of RunBook.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is RunBook {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === RunBook.__pulumiType;
+    }
+
     /**
      * The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
      */
@@ -153,7 +167,7 @@ export class RunBook extends pulumi.CustomResource {
             inputs["runbookType"] = args ? args.runbookType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:automation/runBook:RunBook", name, inputs, opts);
+        super(RunBook.__pulumiType, name, inputs, opts);
     }
 }
 

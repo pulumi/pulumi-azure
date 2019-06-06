@@ -111,6 +111,20 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
         return new NetworkConnectionMonitor(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkConnectionMonitor:NetworkConnectionMonitor';
+
+    /**
+     * Returns true if the given object is an instance of NetworkConnectionMonitor.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkConnectionMonitor {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkConnectionMonitor.__pulumiType;
+    }
+
     /**
      * Specifies whether the connection monitor will start automatically once created. Defaults to `true`. Changing this forces a new resource to be created.
      */
@@ -193,7 +207,7 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
             inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:network/networkConnectionMonitor:NetworkConnectionMonitor", name, inputs, opts);
+        super(NetworkConnectionMonitor.__pulumiType, name, inputs, opts);
     }
 }
 

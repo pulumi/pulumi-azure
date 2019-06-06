@@ -69,6 +69,20 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
         return new LinuxVirtualMachine(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:devtest/linuxVirtualMachine:LinuxVirtualMachine';
+
+    /**
+     * Returns true if the given object is an instance of LinuxVirtualMachine.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LinuxVirtualMachine {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LinuxVirtualMachine.__pulumiType;
+    }
+
     /**
      * Can this Virtual Machine be claimed by users? Defaults to `true`.
      */
@@ -223,7 +237,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
-        super("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine", name, inputs, opts);
+        super(LinuxVirtualMachine.__pulumiType, name, inputs, opts);
     }
 }
 

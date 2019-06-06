@@ -87,6 +87,20 @@ export class Assignment extends pulumi.CustomResource {
         return new Assignment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:role/assignment:Assignment';
+
+    /**
+     * Returns true if the given object is an instance of Assignment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Assignment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Assignment.__pulumiType;
+    }
+
     /**
      * A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
      */
@@ -139,7 +153,7 @@ export class Assignment extends pulumi.CustomResource {
             inputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
-        super("azure:role/assignment:Assignment", name, inputs, opts);
+        super(Assignment.__pulumiType, name, inputs, opts);
     }
 }
 

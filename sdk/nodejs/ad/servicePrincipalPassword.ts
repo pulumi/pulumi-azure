@@ -48,6 +48,20 @@ export class ServicePrincipalPassword extends pulumi.CustomResource {
         return new ServicePrincipalPassword(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:ad/servicePrincipalPassword:ServicePrincipalPassword';
+
+    /**
+     * Returns true if the given object is an instance of ServicePrincipalPassword.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ServicePrincipalPassword {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ServicePrincipalPassword.__pulumiType;
+    }
+
     /**
      * The End Date which the Password is valid until, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). Changing this field forces a new resource to be created.
      */
@@ -103,7 +117,7 @@ export class ServicePrincipalPassword extends pulumi.CustomResource {
             inputs["startDate"] = args ? args.startDate : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:ad/servicePrincipalPassword:ServicePrincipalPassword", name, inputs, opts);
+        super(ServicePrincipalPassword.__pulumiType, name, inputs, opts);
     }
 }
 

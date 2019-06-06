@@ -63,6 +63,20 @@ export class AppService extends pulumi.CustomResource {
         return new AppService(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:appservice/appService:AppService';
+
+    /**
+     * Returns true if the given object is an instance of AppService.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AppService {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AppService.__pulumiType;
+    }
+
     /**
      * The ID of the App Service Plan within which to create this App Service.
      */
@@ -196,7 +210,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["siteCredential"] = undefined /*out*/;
             inputs["sourceControl"] = undefined /*out*/;
         }
-        super("azure:appservice/appService:AppService", name, inputs, opts);
+        super(AppService.__pulumiType, name, inputs, opts);
     }
 }
 

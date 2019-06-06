@@ -109,6 +109,20 @@ export class ApplicationGateway extends pulumi.CustomResource {
         return new ApplicationGateway(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/applicationGateway:ApplicationGateway';
+
+    /**
+     * Returns true if the given object is an instance of ApplicationGateway.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApplicationGateway {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApplicationGateway.__pulumiType;
+    }
+
     /**
      * One or more `authentication_certificate` blocks as defined below.
      */
@@ -303,7 +317,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        super("azure:network/applicationGateway:ApplicationGateway", name, inputs, opts);
+        super(ApplicationGateway.__pulumiType, name, inputs, opts);
     }
 }
 

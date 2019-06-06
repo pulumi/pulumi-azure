@@ -70,6 +70,20 @@ export class StreamInputEventHub extends pulumi.CustomResource {
         return new StreamInputEventHub(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:streamanalytics/streamInputEventHub:StreamInputEventHub';
+
+    /**
+     * Returns true if the given object is an instance of StreamInputEventHub.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StreamInputEventHub {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StreamInputEventHub.__pulumiType;
+    }
+
     /**
      * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub.
      */
@@ -164,7 +178,7 @@ export class StreamInputEventHub extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
-        super("azure:streamanalytics/streamInputEventHub:StreamInputEventHub", name, inputs, opts);
+        super(StreamInputEventHub.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -45,6 +45,20 @@ export class ApiPolicy extends pulumi.CustomResource {
         return new ApiPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/apiPolicy:ApiPolicy';
+
+    /**
+     * Returns true if the given object is an instance of ApiPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApiPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApiPolicy.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
@@ -100,7 +114,7 @@ export class ApiPolicy extends pulumi.CustomResource {
             inputs["xmlContent"] = args ? args.xmlContent : undefined;
             inputs["xmlLink"] = args ? args.xmlLink : undefined;
         }
-        super("azure:apimanagement/apiPolicy:ApiPolicy", name, inputs, opts);
+        super(ApiPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

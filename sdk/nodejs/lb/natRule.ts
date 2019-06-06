@@ -58,6 +58,20 @@ export class NatRule extends pulumi.CustomResource {
         return new NatRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:lb/natRule:NatRule';
+
+    /**
+     * Returns true if the given object is an instance of NatRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NatRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NatRule.__pulumiType;
+    }
+
     public /*out*/ readonly backendIpConfigurationId!: pulumi.Output<string>;
     /**
      * The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
@@ -149,7 +163,7 @@ export class NatRule extends pulumi.CustomResource {
             inputs["backendIpConfigurationId"] = undefined /*out*/;
             inputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
-        super("azure:lb/natRule:NatRule", name, inputs, opts);
+        super(NatRule.__pulumiType, name, inputs, opts);
     }
 }
 

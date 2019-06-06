@@ -42,6 +42,20 @@ export class Pipeline extends pulumi.CustomResource {
         return new Pipeline(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datafactory/pipeline:Pipeline';
+
+    /**
+     * Returns true if the given object is an instance of Pipeline.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Pipeline {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Pipeline.__pulumiType;
+    }
+
     /**
      * List of tags that can be used for describing the Data Factory Pipeline.
      */
@@ -106,7 +120,7 @@ export class Pipeline extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["variables"] = args ? args.variables : undefined;
         }
-        super("azure:datafactory/pipeline:Pipeline", name, inputs, opts);
+        super(Pipeline.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -83,6 +83,20 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
         return new InteractiveQueryCluster(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster';
+
+    /**
+     * Returns true if the given object is an instance of InteractiveQueryCluster.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is InteractiveQueryCluster {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === InteractiveQueryCluster.__pulumiType;
+    }
+
     /**
      * Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
      */
@@ -192,7 +206,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             inputs["httpsEndpoint"] = undefined /*out*/;
             inputs["sshEndpoint"] = undefined /*out*/;
         }
-        super("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, inputs, opts);
+        super(InteractiveQueryCluster.__pulumiType, name, inputs, opts);
     }
 }
 

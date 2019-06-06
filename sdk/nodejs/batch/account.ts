@@ -49,6 +49,20 @@ export class Account extends pulumi.CustomResource {
         return new Account(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:batch/account:Account';
+
+    /**
+     * Returns true if the given object is an instance of Account.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Account {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Account.__pulumiType;
+    }
+
     /**
      * The account endpoint used to interact with the Batch service.
      */
@@ -122,7 +136,7 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
         }
-        super("azure:batch/account:Account", name, inputs, opts);
+        super(Account.__pulumiType, name, inputs, opts);
     }
 }
 

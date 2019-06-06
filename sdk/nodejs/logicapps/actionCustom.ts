@@ -56,6 +56,20 @@ export class ActionCustom extends pulumi.CustomResource {
         return new ActionCustom(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:logicapps/actionCustom:ActionCustom';
+
+    /**
+     * Returns true if the given object is an instance of ActionCustom.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ActionCustom {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ActionCustom.__pulumiType;
+    }
+
     /**
      * Specifies the JSON Blob defining the Body of this Custom Action.
      */
@@ -96,7 +110,7 @@ export class ActionCustom extends pulumi.CustomResource {
             inputs["logicAppId"] = args ? args.logicAppId : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("azure:logicapps/actionCustom:ActionCustom", name, inputs, opts);
+        super(ActionCustom.__pulumiType, name, inputs, opts);
     }
 }
 

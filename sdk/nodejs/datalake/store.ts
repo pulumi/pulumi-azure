@@ -39,6 +39,20 @@ export class Store extends pulumi.CustomResource {
         return new Store(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datalake/store:Store';
+
+    /**
+     * Returns true if the given object is an instance of Store.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Store {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Store.__pulumiType;
+    }
+
     /**
      * Is Encryption enabled on this Data Lake Store Account? Possible values are `Enabled` or `Disabled`. Defaults to `Enabled`.
      */
@@ -118,7 +132,7 @@ export class Store extends pulumi.CustomResource {
             inputs["tier"] = args ? args.tier : undefined;
             inputs["endpoint"] = undefined /*out*/;
         }
-        super("azure:datalake/store:Store", name, inputs, opts);
+        super(Store.__pulumiType, name, inputs, opts);
     }
 }
 

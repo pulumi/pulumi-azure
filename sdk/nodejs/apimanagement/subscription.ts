@@ -50,6 +50,20 @@ export class Subscription extends pulumi.CustomResource {
         return new Subscription(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/subscription:Subscription';
+
+    /**
+     * Returns true if the given object is an instance of Subscription.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Subscription {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Subscription.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service where this Subscription should be created. Changing this forces a new resource to be created.
      */
@@ -129,7 +143,7 @@ export class Subscription extends pulumi.CustomResource {
             inputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             inputs["userId"] = args ? args.userId : undefined;
         }
-        super("azure:apimanagement/subscription:Subscription", name, inputs, opts);
+        super(Subscription.__pulumiType, name, inputs, opts);
     }
 }
 

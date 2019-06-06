@@ -51,6 +51,20 @@ export class SrvRecord extends pulumi.CustomResource {
         return new SrvRecord(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:dns/srvRecord:SrvRecord';
+
+    /**
+     * Returns true if the given object is an instance of SrvRecord.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SrvRecord {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SrvRecord.__pulumiType;
+    }
+
     /**
      * The name of the DNS SRV Record.
      */
@@ -115,7 +129,7 @@ export class SrvRecord extends pulumi.CustomResource {
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
         }
-        super("azure:dns/srvRecord:SrvRecord", name, inputs, opts);
+        super(SrvRecord.__pulumiType, name, inputs, opts);
     }
 }
 

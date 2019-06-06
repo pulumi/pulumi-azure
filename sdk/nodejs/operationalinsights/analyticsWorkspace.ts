@@ -39,6 +39,20 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
         return new AnalyticsWorkspace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace';
+
+    /**
+     * Returns true if the given object is an instance of AnalyticsWorkspace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AnalyticsWorkspace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AnalyticsWorkspace.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -121,7 +135,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             inputs["secondarySharedKey"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }
-        super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, inputs, opts);
+        super(AnalyticsWorkspace.__pulumiType, name, inputs, opts);
     }
 }
 

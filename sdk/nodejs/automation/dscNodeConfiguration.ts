@@ -74,6 +74,20 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
         return new DscNodeConfiguration(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:automation/dscNodeConfiguration:DscNodeConfiguration';
+
+    /**
+     * Returns true if the given object is an instance of DscNodeConfiguration.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DscNodeConfiguration {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DscNodeConfiguration.__pulumiType;
+    }
+
     /**
      * The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created.
      */
@@ -126,7 +140,7 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["configurationName"] = undefined /*out*/;
         }
-        super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, inputs, opts);
+        super(DscNodeConfiguration.__pulumiType, name, inputs, opts);
     }
 }
 

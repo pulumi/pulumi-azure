@@ -55,6 +55,20 @@ export class MongoCollection extends pulumi.CustomResource {
         return new MongoCollection(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:cosmosdb/mongoCollection:MongoCollection';
+
+    /**
+     * Returns true if the given object is an instance of MongoCollection.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is MongoCollection {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === MongoCollection.__pulumiType;
+    }
+
     public readonly accountName!: pulumi.Output<string>;
     public readonly databaseName!: pulumi.Output<string>;
     /**
@@ -116,7 +130,7 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardKey"] = args ? args.shardKey : undefined;
         }
-        super("azure:cosmosdb/mongoCollection:MongoCollection", name, inputs, opts);
+        super(MongoCollection.__pulumiType, name, inputs, opts);
     }
 }
 

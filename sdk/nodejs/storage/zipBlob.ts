@@ -17,6 +17,20 @@ export class ZipBlob extends pulumi.CustomResource {
         return new ZipBlob(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:storage/zipBlob:ZipBlob';
+
+    /**
+     * Returns true if the given object is an instance of ZipBlob.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ZipBlob {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ZipBlob.__pulumiType;
+    }
+
     public readonly attempts!: pulumi.Output<number | undefined>;
     public readonly contentType!: pulumi.Output<string | undefined>;
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -81,7 +95,7 @@ export class ZipBlob extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["url"] = undefined /*out*/;
         }
-        super("azure:storage/zipBlob:ZipBlob", name, inputs, opts);
+        super(ZipBlob.__pulumiType, name, inputs, opts);
     }
 }
 

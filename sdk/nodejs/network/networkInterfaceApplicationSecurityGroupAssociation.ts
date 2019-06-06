@@ -65,6 +65,20 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
         return new NetworkInterfaceApplicationSecurityGroupAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation';
+
+    /**
+     * Returns true if the given object is an instance of NetworkInterfaceApplicationSecurityGroupAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkInterfaceApplicationSecurityGroupAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkInterfaceApplicationSecurityGroupAssociation.__pulumiType;
+    }
+
     /**
      * The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
@@ -108,7 +122,7 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
             inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        super("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, inputs, opts);
+        super(NetworkInterfaceApplicationSecurityGroupAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

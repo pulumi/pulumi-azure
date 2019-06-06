@@ -35,6 +35,20 @@ export class SubscriptionPricing extends pulumi.CustomResource {
         return new SubscriptionPricing(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:securitycenter/subscriptionPricing:SubscriptionPricing';
+
+    /**
+     * Returns true if the given object is an instance of SubscriptionPricing.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SubscriptionPricing {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SubscriptionPricing.__pulumiType;
+    }
+
     /**
      * The pricing tier to use. Possible values are `Free` and `Standard`.
      */
@@ -60,7 +74,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
             }
             inputs["tier"] = args ? args.tier : undefined;
         }
-        super("azure:securitycenter/subscriptionPricing:SubscriptionPricing", name, inputs, opts);
+        super(SubscriptionPricing.__pulumiType, name, inputs, opts);
     }
 }
 

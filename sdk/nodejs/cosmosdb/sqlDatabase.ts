@@ -37,6 +37,20 @@ export class SqlDatabase extends pulumi.CustomResource {
         return new SqlDatabase(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:cosmosdb/sqlDatabase:SqlDatabase';
+
+    /**
+     * Returns true if the given object is an instance of SqlDatabase.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SqlDatabase {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SqlDatabase.__pulumiType;
+    }
+
     /**
      * The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created.
      */
@@ -77,7 +91,7 @@ export class SqlDatabase extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:cosmosdb/sqlDatabase:SqlDatabase", name, inputs, opts);
+        super(SqlDatabase.__pulumiType, name, inputs, opts);
     }
 }
 
