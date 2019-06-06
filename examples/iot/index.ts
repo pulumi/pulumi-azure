@@ -20,8 +20,8 @@ const iotHub = new iot.IoTHub("test", {
         source: "DeviceMessages", 
         enabled: true, 
         endpointNames: ["events"],
-        condition: "true"
-    }
+        condition: "true",
+    },
 });
 
 iotHub.onEvent("test", async (context, message) => {
