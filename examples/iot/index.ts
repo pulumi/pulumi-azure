@@ -15,9 +15,12 @@ const iotHub = new iot.IoTHub("test", {
         capacity: 1,
         name: "S1",
         tier: "Standard",
-    }, 
+    },
     fallbackRoute: {
-        enabled: true
+        source: "DeviceMessages", 
+        enabled: true, 
+        endpointNames: ["events"],
+        condition: "true"
     }
 });
 
