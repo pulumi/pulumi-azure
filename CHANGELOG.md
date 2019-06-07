@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add a mixin to allow Location types
+* Add constants for the Azure Location types
 
 ---
 
