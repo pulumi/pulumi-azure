@@ -72,6 +72,29 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * 
+ * ## Example Usage (Windows Container)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "api-rg-pro",
+ * });
+ * const testPlan = new azure.appservice.Plan("test", {
+ *     isXenon: true,
+ *     kind: "xenon",
+ *     location: testResourceGroup.location,
+ *     name: "api-appserviceplan-pro",
+ *     resourceGroupName: testResourceGroup.name,
+ *     sku: {
+ *         size: "PC2",
+ *         tier: "PremiumContainer",
+ *     },
+ * });
+ * ```
  */
 export class Plan extends pulumi.CustomResource {
     /**
@@ -104,6 +127,7 @@ export class Plan extends pulumi.CustomResource {
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
     public readonly appServiceEnvironmentId!: pulumi.Output<string>;
+    public readonly isXenon!: pulumi.Output<boolean | undefined>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
@@ -112,6 +136,10 @@ export class Plan extends pulumi.CustomResource {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+     */
+    public readonly maximumElasticWorkerCount!: pulumi.Output<number>;
     /**
      * The maximum number of workers supported with the App Service Plan's sku.
      */
@@ -155,8 +183,10 @@ export class Plan extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as PlanState | undefined;
             inputs["appServiceEnvironmentId"] = state ? state.appServiceEnvironmentId : undefined;
+            inputs["isXenon"] = state ? state.isXenon : undefined;
             inputs["kind"] = state ? state.kind : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["maximumElasticWorkerCount"] = state ? state.maximumElasticWorkerCount : undefined;
             inputs["maximumNumberOfWorkers"] = state ? state.maximumNumberOfWorkers : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["perSiteScaling"] = state ? state.perSiteScaling : undefined;
@@ -174,8 +204,10 @@ export class Plan extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["appServiceEnvironmentId"] = args ? args.appServiceEnvironmentId : undefined;
+            inputs["isXenon"] = args ? args.isXenon : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
             inputs["properties"] = args ? args.properties : undefined;
@@ -197,6 +229,7 @@ export interface PlanState {
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
     readonly appServiceEnvironmentId?: pulumi.Input<string>;
+    readonly isXenon?: pulumi.Input<boolean>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
@@ -205,6 +238,10 @@ export interface PlanState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+     */
+    readonly maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
      * The maximum number of workers supported with the App Service Plan's sku.
      */
@@ -244,6 +281,7 @@ export interface PlanArgs {
      * The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
      */
     readonly appServiceEnvironmentId?: pulumi.Input<string>;
+    readonly isXenon?: pulumi.Input<boolean>;
     /**
      * The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
      */
@@ -252,6 +290,10 @@ export interface PlanArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+     */
+    readonly maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
      * Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
      */

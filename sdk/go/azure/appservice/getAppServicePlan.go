@@ -19,8 +19,10 @@ func LookupAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs) (*Ge
 		return nil, err
 	}
 	return &GetAppServicePlanResult{
+		IsXenon: outputs["isXenon"],
 		Kind: outputs["kind"],
 		Location: outputs["location"],
+		MaximumElasticWorkerCount: outputs["maximumElasticWorkerCount"],
 		MaximumNumberOfWorkers: outputs["maximumNumberOfWorkers"],
 		Name: outputs["name"],
 		Properties: outputs["properties"],
@@ -41,10 +43,14 @@ type GetAppServicePlanArgs struct {
 
 // A collection of values returned by getAppServicePlan.
 type GetAppServicePlanResult struct {
+	// A flag that indicates if it's a xenon plan (support for Windows Container)
+	IsXenon interface{}
 	// The Operating System type of the App Service Plan
 	Kind interface{}
 	// The Azure location where the App Service Plan exists
 	Location interface{}
+	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+	MaximumElasticWorkerCount interface{}
 	// Maximum number of instances that can be assigned to this App Service plan.
 	MaximumNumberOfWorkers interface{}
 	Name interface{}

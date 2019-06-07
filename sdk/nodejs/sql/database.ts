@@ -68,7 +68,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * Specifies the type of database to create. Defaults to `Default`. See below for the accepted values/
+     * Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface DatabaseState {
      */
     readonly collation?: pulumi.Input<string>;
     /**
-     * Specifies the type of database to create. Defaults to `Default`. See below for the accepted values/
+     * Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
      */
     readonly createMode?: pulumi.Input<string>;
     /**
@@ -310,7 +310,7 @@ export interface DatabaseArgs {
      */
     readonly collation?: pulumi.Input<string>;
     /**
-     * Specifies the type of database to create. Defaults to `Default`. See below for the accepted values/
+     * Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
      */
     readonly createMode?: pulumi.Input<string>;
     /**

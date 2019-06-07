@@ -47,6 +47,10 @@ export interface GetAppServicePlanArgs {
  */
 export interface GetAppServicePlanResult {
     /**
+     * A flag that indicates if it's a xenon plan (support for Windows Container)
+     */
+    readonly isXenon: boolean;
+    /**
      * The Operating System type of the App Service Plan
      */
     readonly kind: string;
@@ -54,6 +58,10 @@ export interface GetAppServicePlanResult {
      * The Azure location where the App Service Plan exists
      */
     readonly location: string;
+    /**
+     * The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+     */
+    readonly maximumElasticWorkerCount: number;
     /**
      * Maximum number of instances that can be assigned to this App Service plan.
      */

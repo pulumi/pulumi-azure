@@ -85,6 +85,9 @@ export class AppService extends pulumi.CustomResource {
      * A key-value pair of App Settings.
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: any}>;
+    /**
+     * A `auth_settings` block as defined below.
+     */
     public readonly authSettings!: pulumi.Output<{ activeDirectory?: { allowedAudiences?: string[], clientId: string, clientSecret?: string }, additionalLoginParams?: {[key: string]: any}, allowedExternalRedirectUrls?: string[], defaultProvider?: string, enabled: boolean, facebook?: { appId: string, appSecret: string, oauthScopes?: string[] }, google?: { clientId: string, clientSecret: string, oauthScopes?: string[] }, issuer?: string, microsoft?: { clientId: string, clientSecret: string, oauthScopes?: string[] }, runtimeVersion?: string, tokenRefreshExtensionHours?: number, tokenStoreEnabled?: boolean, twitter?: { consumerKey: string, consumerSecret: string }, unauthenticatedClientAction?: string }>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -137,7 +140,7 @@ export class AppService extends pulumi.CustomResource {
     /**
      * A `site_config` block as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean }>;
+    public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean, windowsFxVersion: string }>;
     /**
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
@@ -226,6 +229,9 @@ export interface AppServiceState {
      * A key-value pair of App Settings.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * A `auth_settings` block as defined below.
+     */
     readonly authSettings?: pulumi.Input<{ activeDirectory?: pulumi.Input<{ allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>, clientId: pulumi.Input<string>, clientSecret?: pulumi.Input<string> }>, additionalLoginParams?: pulumi.Input<{[key: string]: any}>, allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>, defaultProvider?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, facebook?: pulumi.Input<{ appId: pulumi.Input<string>, appSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, google?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, issuer?: pulumi.Input<string>, microsoft?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, runtimeVersion?: pulumi.Input<string>, tokenRefreshExtensionHours?: pulumi.Input<number>, tokenStoreEnabled?: pulumi.Input<boolean>, twitter?: pulumi.Input<{ consumerKey: pulumi.Input<string>, consumerSecret: pulumi.Input<string> }>, unauthenticatedClientAction?: pulumi.Input<string> }>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -278,7 +284,7 @@ export interface AppServiceState {
     /**
      * A `site_config` block as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean>, windowsFxVersion?: pulumi.Input<string> }>;
     /**
      * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
@@ -305,6 +311,9 @@ export interface AppServiceArgs {
      * A key-value pair of App Settings.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * A `auth_settings` block as defined below.
+     */
     readonly authSettings?: pulumi.Input<{ activeDirectory?: pulumi.Input<{ allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>, clientId: pulumi.Input<string>, clientSecret?: pulumi.Input<string> }>, additionalLoginParams?: pulumi.Input<{[key: string]: any}>, allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>, defaultProvider?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, facebook?: pulumi.Input<{ appId: pulumi.Input<string>, appSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, google?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, issuer?: pulumi.Input<string>, microsoft?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, runtimeVersion?: pulumi.Input<string>, tokenRefreshExtensionHours?: pulumi.Input<number>, tokenStoreEnabled?: pulumi.Input<boolean>, twitter?: pulumi.Input<{ consumerKey: pulumi.Input<string>, consumerSecret: pulumi.Input<string> }>, unauthenticatedClientAction?: pulumi.Input<string> }>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -345,7 +354,7 @@ export interface AppServiceArgs {
     /**
      * A `site_config` block as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean>, windowsFxVersion?: pulumi.Input<string> }>;
     /**
      * A mapping of tags to assign to the resource.
      */

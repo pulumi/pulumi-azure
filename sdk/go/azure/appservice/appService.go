@@ -121,6 +121,7 @@ func (r *AppService) AppSettings() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["appSettings"])
 }
 
+// A `auth_settings` block as defined below.
 func (r *AppService) AuthSettings() *pulumi.Output {
 	return r.s.State["authSettings"]
 }
@@ -211,6 +212,7 @@ type AppServiceState struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
+	// A `auth_settings` block as defined below.
 	AuthSettings interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
@@ -252,6 +254,7 @@ type AppServiceArgs struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
+	// A `auth_settings` block as defined below.
 	AuthSettings interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}

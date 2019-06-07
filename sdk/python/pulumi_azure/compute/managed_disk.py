@@ -48,7 +48,8 @@ class ManagedDisk(pulumi.CustomResource):
     """
     source_resource_id: pulumi.Output[str]
     """
-    ID of an existing managed disk to copy when `create_option` is `Copy`.
+    ID of an existing managed disk to copy `create_option` is `Copy`
+    or the recovery point to restore when `create_option` is `Restore`
     """
     source_uri: pulumi.Output[str]
     """
@@ -86,7 +87,8 @@ class ManagedDisk(pulumi.CustomResource):
                operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create
                the managed disk.
-        :param pulumi.Input[str] source_resource_id: ID of an existing managed disk to copy when `create_option` is `Copy`.
+        :param pulumi.Input[str] source_resource_id: ID of an existing managed disk to copy `create_option` is `Copy`
+               or the recovery point to restore when `create_option` is `Restore`
         :param pulumi.Input[str] source_uri: URI to a valid VHD file to be used when `create_option` is `Import`.
         :param pulumi.Input[str] storage_account_type: The type of storage to use for the managed disk.
                Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
