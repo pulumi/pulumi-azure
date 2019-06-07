@@ -239,6 +239,7 @@
         "lb/outboundRule.ts",
         "lb/probe.ts",
         "lb/rule.ts",
+        "location.ts",
         "loganalytics/index.ts",
         "loganalytics/linkedService.ts",
         "logicapps/actionCustom.ts",
