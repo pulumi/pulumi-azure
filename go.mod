@@ -25,7 +25,7 @@ require (
 	github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709
-	github.com/terraform-providers/terraform-provider-azurerm v1.29.0
+	github.com/terraform-providers/terraform-provider-azurerm v1.30.0
 	github.com/uber/jaeger-client-go v2.16.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.0.0+incompatible // indirect
 	gopkg.in/AlecAivazis/survey.v1 v1.8.2 // indirect
