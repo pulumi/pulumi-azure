@@ -228,7 +228,9 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
     }
 }
 
-interface EventHubBindingDefinition extends appservice.BindingDefinition {
+/** @internal */
+/** This is only exported to be used internally by the /iot/zMixins.ts file */
+export interface EventHubBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of the property in the context object to bind the actual event to.
      */

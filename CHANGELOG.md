@@ -1,9 +1,10 @@
+=======
 CHANGELOG
 =========
 
 ## HEAD (Unreleased)
 * Add TypeScript type guards for each resource class ([7ace3e9b5f](https://github.com/pulumi/pulumi-terraform/commit/7ace3e9b5f2dcd4692b029ba4b80360582d7949a))
-
+* Serverless mixins now support the EventHubTrigger for IoT Hub.
 ---
 
 ## 0.18.5 (2019-05-26)
@@ -35,6 +36,7 @@ CHANGELOG
   4. You can subscribe to `azure.storage.Container` blob events, invoking a FunctionApp containing the code you want, using `container.onBlobEvent(...)`.
   5. You can subscribe to `azure.storage.Queue` events, invoking a FunctionApp containin the code you want, using `queue.onEvent(...)`.
 * The location for each resource attached to a provider instance is now set as part of the provider configuration. This means that the following code from v0.18.0:
+
   ```ts
   const rg = new azure.core.ResourceGroup("rg", { location" EastUS" });
   const sa = new azure.storage.Account("storage", {

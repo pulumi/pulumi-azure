@@ -1040,6 +1040,11 @@ func Provider() tfbridge.ProviderInfo {
 							"zMixins.ts",
 						},
 					},
+					"iot": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
 					"storage": {
 						DestFiles: []string{
 							"zMixins.ts",
