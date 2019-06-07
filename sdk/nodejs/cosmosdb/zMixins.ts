@@ -189,12 +189,14 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
             createLeaseCollectionIfNotExists: true,
         }];
 
+        args.bindings = appservice.mergeBindings(bindings, args.bindings);
+
         // Place the mapping from the well known key name to the Cosmos DB connection string in
         // the 'app settings' object.
 
         const appSettings = pulumi.all([args.appSettings, account.connectionStrings]).apply(
             ([appSettings, connectionStrings]) => ({ ...appSettings, [bindingConnectionKey]: connectionStrings[0] }));
-        super("azure:eventhub:CosmosChangeFeedSubscription", name, bindings, {
+        super("azure:eventhub:CosmosChangeFeedSubscription", name, {
             ...args,
             resourceGroupName,
             location,
