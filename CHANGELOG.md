@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add constants for the Azure Location types
+* Add support for user defined input and output bindings to serverless mixins
 
 ---
 
