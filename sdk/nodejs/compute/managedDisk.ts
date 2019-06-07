@@ -130,7 +130,8 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * ID of an existing managed disk to copy when `create_option` is `Copy`.
+     * ID of an existing managed disk to copy `create_option` is `Copy`
+     * or the recovery point to restore when `create_option` is `Restore`
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -247,7 +248,8 @@ export interface ManagedDiskState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * ID of an existing managed disk to copy when `create_option` is `Copy`.
+     * ID of an existing managed disk to copy `create_option` is `Copy`
+     * or the recovery point to restore when `create_option` is `Restore`
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**
@@ -311,7 +313,8 @@ export interface ManagedDiskArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * ID of an existing managed disk to copy when `create_option` is `Copy`.
+     * ID of an existing managed disk to copy `create_option` is `Copy`
+     * or the recovery point to restore when `create_option` is `Restore`
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**

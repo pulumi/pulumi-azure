@@ -871,6 +871,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_stream_input_iothub":     {Tok: azureResource(azureStreamAnalytics, "StreamInputIotHub")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
+
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
 			"azurerm_azuread_application":       {Tok: azureDataSource(azureAD, "getApplication")},
 			"azurerm_azuread_service_principal": {Tok: azureDataSource(azureAD, "getServicePrincipal")},
@@ -980,10 +981,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_public_ips":                 {Tok: azureDataSource(azureNetwork, "getPublicIPs")},
 			"azurerm_application_security_group": {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
 			"azurerm_recovery_services_vault":    {Tok: azureDataSource(azureRecoveryServices, "getVault")},
-			"azurerm_resource_group":             {Tok: azureDataSource(azureCore, "getResourceGroup")},
-			"azurerm_snapshot":                   {Tok: azureDataSource(azureCompute, "getSnapshot")},
-			"azurerm_subnet":                     {Tok: azureDataSource(azureNetwork, "getSubnet")},
-			"azurerm_route_table":                {Tok: azureDataSource(azureNetwork, "getRouteTable")},
+			"azurerm_redis_cache":                {Tok: azureDataSource(azureRedis, "getCache")},
+
+			"azurerm_resource_group": {Tok: azureDataSource(azureCore, "getResourceGroup")},
+			"azurerm_snapshot":       {Tok: azureDataSource(azureCompute, "getSnapshot")},
+			"azurerm_subnet":         {Tok: azureDataSource(azureNetwork, "getSubnet")},
+			"azurerm_route_table":    {Tok: azureDataSource(azureNetwork, "getRouteTable")},
 			"azurerm_express_route_circuit": {
 				Tok: azureDataSource(azureNetwork, "getExpressRouteCircuit"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -991,6 +994,8 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
+			"azurerm_sql_server":                             {Tok: azureDataSource(azureSQL, "getServer")},
+			"azurerm_virtual_network_gateway_connection":     {Tok: azureDataSource(azureNetwork, "getGatewayConnection")},
 			"azurerm_firewall":                               {Tok: azureDataSource(azureNetwork, "getFirewall")},
 			"azurerm_subscription":                           {Tok: azureDataSource(azureCore, "getSubscription")},
 			"azurerm_policy_definition":                      {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
