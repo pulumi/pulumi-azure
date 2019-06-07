@@ -25,6 +25,7 @@ export * from "./getRouteTable";
 export * from "./getSubnet";
 export * from "./getVirtualNetwork";
 export * from "./getVirtualNetworkGateway";
+export * from "./getVirtualNetworkGatewayConnection";
 export * from "./localNetworkGateway";
 export * from "./networkConnectionMonitor";
 export * from "./networkInterface";

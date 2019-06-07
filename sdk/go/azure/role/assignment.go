@@ -77,7 +77,7 @@ func (r *Assignment) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The ID of the Principal (User or Application) to assign the Role Definition to. Changing this forces a new resource to be created. For an application, make sure to use the "object ID" (and not the "Application ID").
+// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
 func (r *Assignment) PrincipalId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["principalId"])
 }
@@ -101,7 +101,7 @@ func (r *Assignment) Scope() *pulumi.StringOutput {
 type AssignmentState struct {
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name interface{}
-	// The ID of the Principal (User or Application) to assign the Role Definition to. Changing this forces a new resource to be created. For an application, make sure to use the "object ID" (and not the "Application ID").
+	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
 	PrincipalId interface{}
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
 	RoleDefinitionId interface{}
@@ -115,7 +115,7 @@ type AssignmentState struct {
 type AssignmentArgs struct {
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name interface{}
-	// The ID of the Principal (User or Application) to assign the Role Definition to. Changing this forces a new resource to be created. For an application, make sure to use the "object ID" (and not the "Application ID").
+	// The ID of the Principal (User, Group, Service Principal, or Application) to assign the Role Definition to. Changing this forces a new resource to be created. 
 	PrincipalId interface{}
 	// The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
 	RoleDefinitionId interface{}

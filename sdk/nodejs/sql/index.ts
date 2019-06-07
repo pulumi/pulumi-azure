@@ -6,5 +6,6 @@ export * from "./activeDirectoryAdministrator";
 export * from "./database";
 export * from "./elasticPool";
 export * from "./firewallRule";
+export * from "./getServer";
 export * from "./sqlServer";
 export * from "./virtualNetworkRule";

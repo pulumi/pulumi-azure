@@ -25,8 +25,10 @@ func NewPlan(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["appServiceEnvironmentId"] = nil
+		inputs["isXenon"] = nil
 		inputs["kind"] = nil
 		inputs["location"] = nil
+		inputs["maximumElasticWorkerCount"] = nil
 		inputs["name"] = nil
 		inputs["perSiteScaling"] = nil
 		inputs["properties"] = nil
@@ -36,8 +38,10 @@ func NewPlan(ctx *pulumi.Context,
 		inputs["tags"] = nil
 	} else {
 		inputs["appServiceEnvironmentId"] = args.AppServiceEnvironmentId
+		inputs["isXenon"] = args.IsXenon
 		inputs["kind"] = args.Kind
 		inputs["location"] = args.Location
+		inputs["maximumElasticWorkerCount"] = args.MaximumElasticWorkerCount
 		inputs["name"] = args.Name
 		inputs["perSiteScaling"] = args.PerSiteScaling
 		inputs["properties"] = args.Properties
@@ -61,8 +65,10 @@ func GetPlan(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["appServiceEnvironmentId"] = state.AppServiceEnvironmentId
+		inputs["isXenon"] = state.IsXenon
 		inputs["kind"] = state.Kind
 		inputs["location"] = state.Location
+		inputs["maximumElasticWorkerCount"] = state.MaximumElasticWorkerCount
 		inputs["maximumNumberOfWorkers"] = state.MaximumNumberOfWorkers
 		inputs["name"] = state.Name
 		inputs["perSiteScaling"] = state.PerSiteScaling
@@ -94,6 +100,10 @@ func (r *Plan) AppServiceEnvironmentId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["appServiceEnvironmentId"])
 }
 
+func (r *Plan) IsXenon() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["isXenon"])
+}
+
 // The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 func (r *Plan) Kind() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kind"])
@@ -102,6 +112,11 @@ func (r *Plan) Kind() *pulumi.StringOutput {
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *Plan) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
+}
+
+// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+func (r *Plan) MaximumElasticWorkerCount() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["maximumElasticWorkerCount"])
 }
 
 // The maximum number of workers supported with the App Service Plan's sku.
@@ -147,10 +162,13 @@ func (r *Plan) Tags() *pulumi.MapOutput {
 type PlanState struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId interface{}
+	IsXenon interface{}
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+	MaximumElasticWorkerCount interface{}
 	// The maximum number of workers supported with the App Service Plan's sku.
 	MaximumNumberOfWorkers interface{}
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
@@ -172,10 +190,13 @@ type PlanState struct {
 type PlanArgs struct {
 	// The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
 	AppServiceEnvironmentId interface{}
+	IsXenon interface{}
 	// The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
 	Kind interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
+	MaximumElasticWorkerCount interface{}
 	// Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
 	Name interface{}
 	// Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.

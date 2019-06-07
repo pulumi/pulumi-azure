@@ -50,3 +50,4 @@ from .get_route_table import *
 from .get_subnet import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
+from .get_virtual_network_gateway_connection import *

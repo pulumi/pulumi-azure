@@ -13,6 +13,7 @@ class Plan(pulumi.CustomResource):
     """
     The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
     """
+    is_xenon: pulumi.Output[bool]
     kind: pulumi.Output[str]
     """
     The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
@@ -20,6 +21,10 @@ class Plan(pulumi.CustomResource):
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+    """
+    maximum_elastic_worker_count: pulumi.Output[float]
+    """
+    The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
     """
     maximum_number_of_workers: pulumi.Output[float]
     """
@@ -50,7 +55,7 @@ class Plan(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_environment_id=None, kind=None, location=None, name=None, per_site_scaling=None, properties=None, reserved=None, resource_group_name=None, sku=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_environment_id=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, per_site_scaling=None, properties=None, reserved=None, resource_group_name=None, sku=None, tags=None, __name__=None, __opts__=None):
         """
         Manage an App Service Plan component.
         
@@ -59,6 +64,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
         :param pulumi.Input[str] kind: The kind of the App Service Plan to create. Possible values are `Windows` (also available as `App`), `Linux`, `elastic` (for Premium Consumption) and `FunctionApp` (for a Consumption Plan). Defaults to `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] maximum_elastic_worker_count: The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         :param pulumi.Input[str] name: Specifies the name of the App Service Plan component. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`. Defaults to `false`.
@@ -83,9 +89,13 @@ class Plan(pulumi.CustomResource):
 
         __props__['app_service_environment_id'] = app_service_environment_id
 
+        __props__['is_xenon'] = is_xenon
+
         __props__['kind'] = kind
 
         __props__['location'] = location
+
+        __props__['maximum_elastic_worker_count'] = maximum_elastic_worker_count
 
         __props__['name'] = name
 

@@ -144,7 +144,8 @@ func (r *ManagedDisk) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// ID of an existing managed disk to copy when `create_option` is `Copy`.
+// ID of an existing managed disk to copy `create_option` is `Copy`
+// or the recovery point to restore when `create_option` is `Restore`
 func (r *ManagedDisk) SourceResourceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceResourceId"])
 }
@@ -193,7 +194,8 @@ type ManagedDiskState struct {
 	// The name of the resource group in which to create
 	// the managed disk.
 	ResourceGroupName interface{}
-	// ID of an existing managed disk to copy when `create_option` is `Copy`.
+	// ID of an existing managed disk to copy `create_option` is `Copy`
+	// or the recovery point to restore when `create_option` is `Restore`
 	SourceResourceId interface{}
 	// URI to a valid VHD file to be used when `create_option` is `Import`.
 	SourceUri interface{}
@@ -229,7 +231,8 @@ type ManagedDiskArgs struct {
 	// The name of the resource group in which to create
 	// the managed disk.
 	ResourceGroupName interface{}
-	// ID of an existing managed disk to copy when `create_option` is `Copy`.
+	// ID of an existing managed disk to copy `create_option` is `Copy`
+	// or the recovery point to restore when `create_option` is `Restore`
 	SourceResourceId interface{}
 	// URI to a valid VHD file to be used when `create_option` is `Import`.
 	SourceUri interface{}

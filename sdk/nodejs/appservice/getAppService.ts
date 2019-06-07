@@ -95,7 +95,7 @@ export interface GetAppServiceResult {
     /**
      * A `site_config` block as defined below.
      */
-    readonly siteConfigs: { alwaysOn: boolean, appCommandLine: string, cors: { allowedOrigins: string[], supportCredentials: boolean }, defaultDocuments: string[], dotnetFrameworkVersion: string, ftpsState: string, http2Enabled: boolean, ipRestrictions: { ipAddress: string, subnetMask: string }[], javaContainer: string, javaContainerVersion: string, javaVersion: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion: string, pythonVersion: string, remoteDebuggingEnabled: boolean, remoteDebuggingVersion: string, scmType: string, use32BitWorkerProcess: boolean, virtualNetworkName: string, websocketsEnabled: boolean }[];
+    readonly siteConfigs: { alwaysOn: boolean, appCommandLine: string, cors: { allowedOrigins: string[], supportCredentials: boolean }, defaultDocuments: string[], dotnetFrameworkVersion: string, ftpsState: string, http2Enabled: boolean, ipRestrictions: { ipAddress: string, subnetMask: string }[], javaContainer: string, javaContainerVersion: string, javaVersion: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion: string, pythonVersion: string, remoteDebuggingEnabled: boolean, remoteDebuggingVersion: string, scmType: string, use32BitWorkerProcess: boolean, virtualNetworkName: string, websocketsEnabled: boolean, windowsFxVersion: string }[];
     readonly siteCredentials: { password: string, username: string }[];
     readonly sourceControls: { branch: string, repoUrl: string }[];
     /**
