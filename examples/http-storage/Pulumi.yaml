@@ -1,0 +1,3 @@
+name: azure-http-storage
+runtime: nodejs
+description: Work with an http Azure FunctionApp using an storage output binding

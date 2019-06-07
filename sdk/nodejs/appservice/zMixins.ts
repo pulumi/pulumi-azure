@@ -90,6 +90,13 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> =
     callbackFactory?: CallbackFactory<C, E, R>;
 
     /**
+     * The bindings to be used for the function.
+     * See https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings 
+     * for more details
+     */
+    bindings?: pulumi.Input<azurefunctions.BindingDefinition[]>;
+
+    /**
      * The name of the resource group in which to create the Function App.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -252,8 +259,7 @@ export type BindingDefinition = azurefunctions.BindingDefinition;
  */
 function serializeCallback<C extends Context<R>, E, R extends Result>(
         name: string,
-        args: CallbackFunctionAppArgs<C, E, R>,
-        bindings: pulumi.Input<BindingDefinition[]>): pulumi.Output<pulumi.asset.AssetMap> {
+        args: CallbackFunctionAppArgs<C, E, R>): pulumi.Output<pulumi.asset.AssetMap> {
 
     if (args.callback && args.callbackFactory) {
         throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
@@ -270,7 +276,7 @@ function serializeCallback<C extends Context<R>, E, R extends Result>(
     const serializedFunc = pulumi.runtime.serializeFunction(
         func, { isFactoryFunction: !!args.callbackFactory });
 
-    return pulumi.all([bindings, serializedFunc]).apply(async ([bindings, serializedFunc]) => {
+    return pulumi.all([args.bindings, serializedFunc]).apply(async ([bindings, serializedFunc]) => {
         const map: pulumi.asset.AssetMap = {};
         map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
             version: "2.0",
@@ -338,8 +344,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
      */
     public readonly plan: appservice.Plan;
 
-    constructor(name: string, bindings: pulumi.Input<BindingDefinition[]>,
-                args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
+    constructor(name: string, args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
 
         if (!args.resourceGroupName) {
             throw new pulumi.ResourceError("[args.resourceGroupName] must be provided", opts.parent);
@@ -383,7 +388,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
             containerAccessType: "private",
         }, opts);
 
-        const assetMap = serializeCallback(name, args, bindings);
+        const assetMap = serializeCallback(name, args);
         const zipBlob = new storageMod.ZipBlob(name, {
             resourceGroupName: args.resourceGroupName,
             storageAccountName: account.name,
@@ -426,12 +431,11 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
-                bindings: pulumi.Input<BindingDefinition[]>,
                 args: CallbackFunctionAppArgs<C, E, R>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
-        this.functionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
+        this.functionApp = new CallbackFunctionApp(name, args, { parent: this });
     }
 }
 
@@ -469,4 +473,15 @@ export function getResourceGroupNameAndLocation(
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName);
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
+}
+
+/** @internal */
+export function mergeBindings(additionalBindings: BindingDefinition[], bindings?: pulumi.Input<BindingDefinition[]>) : pulumi.Input<BindingDefinition[]>{
+    let merged : pulumi.Input<BindingDefinition[]>;
+    if (bindings) {
+        merged = pulumi.output(bindings!).apply(b => [...b, ...additionalBindings]);
+    }else{
+        merged = additionalBindings;
+    }
+    return merged;
 }

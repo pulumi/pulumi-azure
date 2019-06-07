@@ -204,6 +204,8 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
             connection: bindingConnectionKey,
         }];
 
+        args.bindings = appservice.mergeBindings(bindings, args.bindings);
+
         const namespace = pulumi.all([topic.namespaceName, resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
                                     getServiceBusNamespace({ name: namespaceName, resourceGroupName }));
@@ -214,7 +216,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
         const appSettings = pulumi.all([args.appSettings, namespace.defaultPrimaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
-        super("azure:eventhub:TopicEventSubscription", name, bindings, {
+        super("azure:eventhub:TopicEventSubscription", name, {
             ...args,
             resourceGroupName,
             location,
@@ -374,6 +376,8 @@ export class EventHubSubscription extends appservice.EventSubscription<EventHubC
             cardinality: args.cardinality,
             connection: bindingConnectionKey,
         }];
+        
+        args.bindings = appservice.mergeBindings(bindings, args.bindings);
 
         const namespace = pulumi.all([eventHub.namespaceName, resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
@@ -385,7 +389,7 @@ export class EventHubSubscription extends appservice.EventSubscription<EventHubC
         const appSettings = pulumi.all([args.appSettings, namespace.defaultPrimaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
-        super("azure:eventhub:EventHubSubscription", name, bindings, {
+        super("azure:eventhub:EventHubSubscription", name, {
             ...args,
             resourceGroupName,
             location,

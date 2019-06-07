@@ -228,16 +228,18 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
             connection: bindingConnectionKey,
         }];
 
+        args.bindings = appservice.mergeBindings(bindings, args.bindings);
+
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const account = pulumi.all([resourceGroupName, container.storageAccountName])
-                              .apply(([resourceGroupName, storageAccountName]) =>
-                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
+            .apply(([resourceGroupName, storageAccountName]) =>
+                storage.getAccount({ resourceGroupName, name: storageAccountName }));
 
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
-        super("azure:storage:BlobEventSubscription", name, bindings, {
+        super("azure:storage:BlobEventSubscription", name, {
             ...args,
             appSettings,
             resourceGroupName,
@@ -246,6 +248,34 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
 
         this.registerOutputs();
     }
+}
+
+export interface TableOutputBindingDefinition extends appservice.BindingDefinition {
+    /**
+    * The name of the property in the context object to bind the actual table output to.
+    */
+    name: string;
+
+    /**
+     * The name of the table the output should write to
+     */
+    tableName: pulumi.Input<string>;
+
+    /**
+     * The type of the table binding.  Must be 'table'.
+     */
+    type: "table";
+
+    /**
+     * The direction of the binding.  We only 'support' tables as outputs of functions.
+     */
+    direction: "out";
+
+
+    /**
+     * The storage connection string for the storage account containing the blob.
+     */
+    connection: string;
 }
 
 interface QueueBindingDefinition extends appservice.BindingDefinition {
@@ -334,7 +364,7 @@ export interface QueueHostSettings extends appservice.HostSettings {
             /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
             newBatchThreshold?: number,
         }
-    }    
+    }
 }
 
 /**
@@ -411,6 +441,8 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
             connection: bindingConnectionKey,
         }];
 
+        args.bindings = appservice.mergeBindings(bindings, args.bindings);
+
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const appSettingsOutput = args.appSettings || pulumi.output({});
@@ -418,13 +450,13 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const account = pulumi.all([resourceGroupName, queue.storageAccountName])
-                                .apply(([resourceGroupName, storageAccountName]) =>
-                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
+            .apply(([resourceGroupName, storageAccountName]) =>
+                storage.getAccount({ resourceGroupName, name: storageAccountName }));
 
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
-        super("azure:storage:QueueEventSubscription", name, bindings, {
+        super("azure:storage:QueueEventSubscription", name, {
             ...args,
             resourceGroupName,
             location,

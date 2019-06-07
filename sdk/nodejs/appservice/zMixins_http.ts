@@ -42,13 +42,13 @@ export interface HttpHostSettings extends mod.HostSettings {
         http: {
             /** The route prefix that applies to all routes. Use an empty string to remove the default prefix. */
             routePrefix?: string,
-        
+
             /** The maximum number of outstanding requests that are held at any given time. */
             maxOutstandingRequests?: number,
-        
+
             /** The maximum number of http functions that will be executed in parallel. */
             maxConcurrentRequests?: number,
-        
+
             /**
              * When enabled, this setting causes the request processing pipeline to periodically check system performance 
              * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in 
@@ -57,7 +57,7 @@ export interface HttpHostSettings extends mod.HostSettings {
              */
             dynamicThrottlesEnabled?: boolean,
         }
-    }    
+    }
 }
 
 export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
@@ -116,25 +116,27 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
     public readonly url: pulumi.Output<string>;
 
     constructor(name: string,
-                args: HttpEventSubscriptionArgs,
-                opts: pulumi.CustomResourceOptions = {}) {
+        args: HttpEventSubscriptionArgs,
+        opts: pulumi.CustomResourceOptions = {}) {
 
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
         const bindings: HttpBindingDefinition[] = [{
-                    authLevel: "anonymous",
-                    type: "httpTrigger",
-                    direction: "in",
-                    name: "req",
-                    route: args.route,
-                    methods: args.methods,
-                }, {
-                    type: "http",
-                    direction: "out",
-                    name: "$return",
-                }];
+            authLevel: "anonymous",
+            type: "httpTrigger",
+            direction: "in",
+            name: "req",
+            route: args.route,
+            methods: args.methods,
+        }, {
+            type: "http",
+            direction: "out",
+            name: "$return",
+        }];
 
-        super("azure:appservice:HttpEventSubscription", name, bindings, {
+        args.bindings = mod.mergeBindings(bindings, args.bindings);
+
+        super("azure:appservice:HttpEventSubscription", name, {
             ...args,
             location,
             resourceGroupName,
