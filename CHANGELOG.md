@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update to v1.30.1 of the AzureRM Terraform provider
 
 ---
 
