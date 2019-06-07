@@ -116,8 +116,8 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
     public readonly url: pulumi.Output<string>;
 
     constructor(name: string,
-        args: HttpEventSubscriptionArgs,
-        opts: pulumi.CustomResourceOptions = {}) {
+                args: HttpEventSubscriptionArgs,
+                opts: pulumi.CustomResourceOptions = {}) {
 
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
