@@ -122,22 +122,21 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
         const bindings: HttpBindingDefinition[] = [{
-            authLevel: "anonymous",
-            type: "httpTrigger",
-            direction: "in",
-            name: "req",
-            route: args.route,
-            methods: args.methods,
-        }, {
-            type: "http",
-            direction: "out",
-            name: "$return",
-        }];
-
-        args.bindings = mod.mergeBindings(bindings, args.bindings);
+                    authLevel: "anonymous",
+                    type: "httpTrigger",
+                    direction: "in",
+                    name: "req",
+                    route: args.route,
+                    methods: args.methods,
+                }, {
+                    type: "http",
+                    direction: "out",
+                    name: "$return",
+                }];
 
         super("azure:appservice:HttpEventSubscription", name, {
             ...args,
+            bindings: mod.mergeBindings(bindings, args.bindings),
             location,
             resourceGroupName,
         }, opts);

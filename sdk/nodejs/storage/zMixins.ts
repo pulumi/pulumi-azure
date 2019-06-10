@@ -228,19 +228,18 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
             connection: bindingConnectionKey,
         }];
 
-        args.bindings = appservice.mergeBindings(bindings, args.bindings);
-
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const account = pulumi.all([resourceGroupName, container.storageAccountName])
-                            .apply(([resourceGroupName, storageAccountName]) =>
-                              storage.getAccount({ resourceGroupName, name: storageAccountName }));
+                              .apply(([resourceGroupName, storageAccountName]) =>
+                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
 
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
         super("azure:storage:BlobEventSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             appSettings,
             resourceGroupName,
             location,
@@ -270,7 +269,6 @@ export interface TableOutputBindingDefinition extends appservice.BindingDefiniti
      * The direction of the binding.  We only 'support' tables as outputs of functions.
      */
     direction: "out";
-
 
     /**
      * The storage connection string for the storage account containing the blob.
@@ -441,8 +439,6 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
             connection: bindingConnectionKey,
         }];
 
-        args.bindings = appservice.mergeBindings(bindings, args.bindings);
-
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const appSettingsOutput = args.appSettings || pulumi.output({});
@@ -450,14 +446,15 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const account = pulumi.all([resourceGroupName, queue.storageAccountName])
-                            .apply(([resourceGroupName, storageAccountName]) =>
-                            storage.getAccount({ resourceGroupName, name: storageAccountName }));
+                              .apply(([resourceGroupName, storageAccountName]) =>
+                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
 
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
         super("azure:storage:QueueEventSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             resourceGroupName,
             location,
             appSettings,

@@ -76,8 +76,6 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
             connection: bindingConnectionKey,
         }];
 
-        args.bindings = appservice.mergeBindings(bindings, args.bindings);
-
         pulumi.all([iotHub.fallbackRoute, iotHub.routes]).apply(([fallbackRoute, routes]) => {
             if (fallbackRoute && fallbackRoute.enabled) {
                 return;
@@ -101,6 +99,7 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
 
         super("azure:eventhub:IoTHubEventSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             resourceGroupName,
             location,
             appSettings

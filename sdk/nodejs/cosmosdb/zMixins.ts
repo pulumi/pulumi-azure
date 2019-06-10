@@ -189,8 +189,6 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
             createLeaseCollectionIfNotExists: true,
         }];
 
-        args.bindings = appservice.mergeBindings(bindings, args.bindings);
-
         // Place the mapping from the well known key name to the Cosmos DB connection string in
         // the 'app settings' object.
 
@@ -198,6 +196,7 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
             ([appSettings, connectionStrings]) => ({ ...appSettings, [bindingConnectionKey]: connectionStrings[0] }));
         super("azure:eventhub:CosmosChangeFeedSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             resourceGroupName,
             location,
             appSettings
