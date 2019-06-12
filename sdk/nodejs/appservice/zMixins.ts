@@ -436,6 +436,10 @@ class CombinedFunctionApp extends FunctionApp {
      * The plan this Function App runs under.
      */
     public readonly plan: appservice.Plan;
+    /** 
+     * Root HTTP endpoint of the Function App.
+     */
+    public readonly endpoint: pulumi.Output<string>;
 
     constructor(
         name: string,
@@ -511,6 +515,14 @@ class CombinedFunctionApp extends FunctionApp {
         this.container = container;
         this.plan = plan;
         this.zipBlob = zipBlob;
+
+        const routePrefix = args.hostSettings 
+            && args.hostSettings.extensions 
+            && args.hostSettings.extensions.http 
+            && args.hostSettings.extensions.http.routePrefix;
+        const rootPath = routePrefix === "" ? "" : `${routePrefix === undefined ? "api" : routePrefix}/`;
+
+        this.endpoint = pulumi.interpolate`https://${this.defaultHostname}/${rootPath}`;        
     }
 }
 
@@ -581,14 +593,7 @@ class ArchiveFunctionAppBase extends pulumi.ComponentResource {
         this.zipBlob = app.zipBlob;
         this.plan = app.plan;
         this.functionApp = app;
-        
-        const routePrefix = args.hostSettings 
-            && args.hostSettings.extensions 
-            && args.hostSettings.extensions.http 
-            && args.hostSettings.extensions.http.routePrefix;
-        const rootPath = routePrefix === "" ? "" : `${routePrefix === undefined ? "api" : routePrefix}/`;
-
-        this.endpoint = pulumi.interpolate`https://${app.defaultHostname}/${rootPath}`;
+        this.endpoint = app.endpoint;
     }
 }
 
