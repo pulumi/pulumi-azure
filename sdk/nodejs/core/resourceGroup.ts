@@ -35,6 +35,20 @@ export class ResourceGroup extends pulumi.CustomResource {
         return new ResourceGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:core/resourceGroup:ResourceGroup';
+
+    /**
+     * Returns true if the given object is an instance of ResourceGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ResourceGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ResourceGroup.__pulumiType;
+    }
+
     /**
      * The location where the resource group should be created.
      * For a list of all Azure locations, please consult [this link](http://azure.microsoft.com/en-us/regions/) or run `az account list-locations --output table`.
@@ -71,7 +85,7 @@ export class ResourceGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:core/resourceGroup:ResourceGroup", name, inputs, opts);
+        super(ResourceGroup.__pulumiType, name, inputs, opts);
     }
 }
 

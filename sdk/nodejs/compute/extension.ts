@@ -121,6 +121,20 @@ export class Extension extends pulumi.CustomResource {
         return new Extension(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/extension:Extension';
+
+    /**
+     * Returns true if the given object is an instance of Extension.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Extension {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Extension.__pulumiType;
+    }
+
     /**
      * Specifies if the platform deploys
      * the latest minor version update to the `type_handler_version` specified.
@@ -229,7 +243,7 @@ export class Extension extends pulumi.CustomResource {
             inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             inputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
         }
-        super("azure:compute/extension:Extension", name, inputs, opts);
+        super(Extension.__pulumiType, name, inputs, opts);
     }
 }
 

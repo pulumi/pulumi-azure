@@ -52,6 +52,20 @@ export class Server extends pulumi.CustomResource {
         return new Server(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:mysql/server:Server';
+
+    /**
+     * Returns true if the given object is an instance of Server.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Server {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Server.__pulumiType;
+    }
+
     /**
      * The Administrator Login for the MySQL Server. Changing this forces a new resource to be created.
      */
@@ -155,7 +169,7 @@ export class Server extends pulumi.CustomResource {
             inputs["version"] = args ? args.version : undefined;
             inputs["fqdn"] = undefined /*out*/;
         }
-        super("azure:mysql/server:Server", name, inputs, opts);
+        super(Server.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -37,6 +37,20 @@ export class MongoDatabase extends pulumi.CustomResource {
         return new MongoDatabase(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:cosmosdb/mongoDatabase:MongoDatabase';
+
+    /**
+     * Returns true if the given object is an instance of MongoDatabase.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is MongoDatabase {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === MongoDatabase.__pulumiType;
+    }
+
     /**
      * The name of the Cosmos DB Mongo Database to create the table within. Changing this forces a new resource to be created.
      */
@@ -77,7 +91,7 @@ export class MongoDatabase extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:cosmosdb/mongoDatabase:MongoDatabase", name, inputs, opts);
+        super(MongoDatabase.__pulumiType, name, inputs, opts);
     }
 }
 

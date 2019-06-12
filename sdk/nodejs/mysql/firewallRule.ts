@@ -60,6 +60,20 @@ export class FirewallRule extends pulumi.CustomResource {
         return new FirewallRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:mysql/firewallRule:FirewallRule';
+
+    /**
+     * Returns true if the given object is an instance of FirewallRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is FirewallRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === FirewallRule.__pulumiType;
+    }
+
     /**
      * Specifies the End IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
      */
@@ -118,7 +132,7 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
-        super("azure:mysql/firewallRule:FirewallRule", name, inputs, opts);
+        super(FirewallRule.__pulumiType, name, inputs, opts);
     }
 }
 

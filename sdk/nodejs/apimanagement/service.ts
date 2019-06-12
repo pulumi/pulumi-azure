@@ -43,6 +43,20 @@ export class Service extends pulumi.CustomResource {
         return new Service(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/service:Service';
+
+    /**
+     * Returns true if the given object is an instance of Service.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Service {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Service.__pulumiType;
+    }
+
     /**
      * One or more `additional_location` blocks as defined below.
      */
@@ -114,7 +128,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A `security` block as defined below.
      */
-    public readonly security!: pulumi.Output<{ disableBackendSsl30?: boolean, disableBackendTls10?: boolean, disableBackendTls11?: boolean, disableFrontendSsl30?: boolean, disableFrontendTls10?: boolean, disableFrontendTls11?: boolean, disableTripleDesChipers?: boolean }>;
+    public readonly security!: pulumi.Output<{ disableBackendSsl30?: boolean, disableBackendTls10?: boolean, disableBackendTls11?: boolean, disableFrontendSsl30?: boolean, disableFrontendTls10?: boolean, disableFrontendTls11?: boolean, disableTripleDesChipers: boolean, disableTripleDesCiphers: boolean }>;
     /**
      * A `sign_in` block as defined below.
      */
@@ -203,7 +217,7 @@ export class Service extends pulumi.CustomResource {
             inputs["publicIpAddresses"] = undefined /*out*/;
             inputs["scmUrl"] = undefined /*out*/;
         }
-        super("azure:apimanagement/service:Service", name, inputs, opts);
+        super(Service.__pulumiType, name, inputs, opts);
     }
 }
 
@@ -282,7 +296,7 @@ export interface ServiceState {
     /**
      * A `security` block as defined below.
      */
-    readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean> }>;
+    readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean>, disableTripleDesCiphers?: pulumi.Input<boolean> }>;
     /**
      * A `sign_in` block as defined below.
      */
@@ -352,7 +366,7 @@ export interface ServiceArgs {
     /**
      * A `security` block as defined below.
      */
-    readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean> }>;
+    readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean>, disableTripleDesCiphers?: pulumi.Input<boolean> }>;
     /**
      * A `sign_in` block as defined below.
      */

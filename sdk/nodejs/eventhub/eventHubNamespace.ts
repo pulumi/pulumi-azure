@@ -42,6 +42,20 @@ export class EventHubNamespace extends pulumi.CustomResource {
         return new EventHubNamespace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/eventHubNamespace:EventHubNamespace';
+
+    /**
+     * Returns true if the given object is an instance of EventHubNamespace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EventHubNamespace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EventHubNamespace.__pulumiType;
+    }
+
     /**
      * Is Auto Inflate enabled for the EventHub Namespace?
      */
@@ -144,7 +158,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
             inputs["defaultSecondaryConnectionString"] = undefined /*out*/;
             inputs["defaultSecondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/eventHubNamespace:EventHubNamespace", name, inputs, opts);
+        super(EventHubNamespace.__pulumiType, name, inputs, opts);
     }
 }
 

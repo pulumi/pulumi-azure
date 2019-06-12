@@ -39,6 +39,20 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
         return new DdosProtectionPlan(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/ddosProtectionPlan:DdosProtectionPlan';
+
+    /**
+     * Returns true if the given object is an instance of DdosProtectionPlan.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DdosProtectionPlan {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DdosProtectionPlan.__pulumiType;
+    }
+
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -88,7 +102,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["virtualNetworkIds"] = undefined /*out*/;
         }
-        super("azure:network/ddosProtectionPlan:DdosProtectionPlan", name, inputs, opts);
+        super(DdosProtectionPlan.__pulumiType, name, inputs, opts);
     }
 }
 

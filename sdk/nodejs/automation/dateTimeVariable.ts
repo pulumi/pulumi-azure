@@ -47,6 +47,20 @@ export class DateTimeVariable extends pulumi.CustomResource {
         return new DateTimeVariable(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:automation/dateTimeVariable:DateTimeVariable';
+
+    /**
+     * Returns true if the given object is an instance of DateTimeVariable.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DateTimeVariable {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DateTimeVariable.__pulumiType;
+    }
+
     /**
      * The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
      */
@@ -105,7 +119,7 @@ export class DateTimeVariable extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
-        super("azure:automation/dateTimeVariable:DateTimeVariable", name, inputs, opts);
+        super(DateTimeVariable.__pulumiType, name, inputs, opts);
     }
 }
 

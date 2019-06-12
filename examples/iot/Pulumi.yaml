@@ -1,0 +1,3 @@
+name: azure-iot
+runtime: nodejs
+description: Work with Azure IoT Hubs

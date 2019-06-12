@@ -50,6 +50,20 @@ export class AnalyticsFirewallRule extends pulumi.CustomResource {
         return new AnalyticsFirewallRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule';
+
+    /**
+     * Returns true if the given object is an instance of AnalyticsFirewallRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is AnalyticsFirewallRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === AnalyticsFirewallRule.__pulumiType;
+    }
+
     /**
      * Specifies the name of the Data Lake Analytics for which the Firewall Rule should take effect.
      */
@@ -108,7 +122,7 @@ export class AnalyticsFirewallRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
-        super("azure:datalake/analyticsFirewallRule:AnalyticsFirewallRule", name, inputs, opts);
+        super(AnalyticsFirewallRule.__pulumiType, name, inputs, opts);
     }
 }
 

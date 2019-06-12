@@ -12,7 +12,13 @@ class GetAppServicePlanResult:
     """
     A collection of values returned by getAppServicePlan.
     """
-    def __init__(__self__, kind=None, location=None, maximum_number_of_workers=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, id=None):
+    def __init__(__self__, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, id=None):
+        if is_xenon and not isinstance(is_xenon, bool):
+            raise TypeError("Expected argument 'is_xenon' to be a bool")
+        __self__.is_xenon = is_xenon
+        """
+        A flag that indicates if it's a xenon plan (support for Windows Container)
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -24,6 +30,12 @@ class GetAppServicePlanResult:
         __self__.location = location
         """
         The Azure location where the App Service Plan exists
+        """
+        if maximum_elastic_worker_count and not isinstance(maximum_elastic_worker_count, float):
+            raise TypeError("Expected argument 'maximum_elastic_worker_count' to be a float")
+        __self__.maximum_elastic_worker_count = maximum_elastic_worker_count
+        """
+        The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
         """
         if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
             raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
@@ -73,8 +85,10 @@ async def get_app_service_plan(name=None,resource_group_name=None,opts=None):
     __ret__ = await pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__, opts=opts)
 
     return GetAppServicePlanResult(
+        is_xenon=__ret__.get('isXenon'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
+        maximum_elastic_worker_count=__ret__.get('maximumElasticWorkerCount'),
         maximum_number_of_workers=__ret__.get('maximumNumberOfWorkers'),
         name=__ret__.get('name'),
         properties=__ret__.get('properties'),

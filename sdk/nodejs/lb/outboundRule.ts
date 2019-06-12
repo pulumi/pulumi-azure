@@ -64,6 +64,20 @@ export class OutboundRule extends pulumi.CustomResource {
         return new OutboundRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:lb/outboundRule:OutboundRule';
+
+    /**
+     * Returns true if the given object is an instance of OutboundRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is OutboundRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === OutboundRule.__pulumiType;
+    }
+
     /**
      * The number of outbound ports to be used for NAT.
      */
@@ -146,7 +160,7 @@ export class OutboundRule extends pulumi.CustomResource {
             inputs["protocol"] = args ? args.protocol : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:lb/outboundRule:OutboundRule", name, inputs, opts);
+        super(OutboundRule.__pulumiType, name, inputs, opts);
     }
 }
 

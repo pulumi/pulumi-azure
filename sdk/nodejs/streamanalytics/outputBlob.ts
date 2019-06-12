@@ -64,6 +64,20 @@ export class OutputBlob extends pulumi.CustomResource {
         return new OutputBlob(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:streamanalytics/outputBlob:OutputBlob';
+
+    /**
+     * Returns true if the given object is an instance of OutputBlob.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is OutputBlob {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === OutputBlob.__pulumiType;
+    }
+
     /**
      * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
      */
@@ -167,7 +181,7 @@ export class OutputBlob extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             inputs["timeFormat"] = args ? args.timeFormat : undefined;
         }
-        super("azure:streamanalytics/outputBlob:OutputBlob", name, inputs, opts);
+        super(OutputBlob.__pulumiType, name, inputs, opts);
     }
 }
 

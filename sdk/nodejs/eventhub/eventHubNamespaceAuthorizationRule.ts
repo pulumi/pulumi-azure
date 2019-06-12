@@ -50,6 +50,20 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
         return new EventHubNamespaceAuthorizationRule(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule';
+
+    /**
+     * Returns true if the given object is an instance of EventHubNamespaceAuthorizationRule.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EventHubNamespaceAuthorizationRule {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EventHubNamespaceAuthorizationRule.__pulumiType;
+    }
+
     /**
      * Grants listen access to this this Authorization Rule. Defaults to `false`.
      */
@@ -135,7 +149,7 @@ export class EventHubNamespaceAuthorizationRule extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, inputs, opts);
+        super(EventHubNamespaceAuthorizationRule.__pulumiType, name, inputs, opts);
     }
 }
 

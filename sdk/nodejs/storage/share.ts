@@ -45,6 +45,20 @@ export class Share extends pulumi.CustomResource {
         return new Share(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:storage/share:Share';
+
+    /**
+     * Returns true if the given object is an instance of Share.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Share {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Share.__pulumiType;
+    }
+
     /**
      * The name of the share. Must be unique within the storage account where the share is located.
      */
@@ -99,7 +113,7 @@ export class Share extends pulumi.CustomResource {
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["url"] = undefined /*out*/;
         }
-        super("azure:storage/share:Share", name, inputs, opts);
+        super(Share.__pulumiType, name, inputs, opts);
     }
 }
 

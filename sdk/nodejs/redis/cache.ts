@@ -73,6 +73,20 @@ export class Cache extends pulumi.CustomResource {
         return new Cache(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:redis/cache:Cache';
+
+    /**
+     * Returns true if the given object is an instance of Cache.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Cache {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Cache.__pulumiType;
+    }
+
     /**
      * The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
      */
@@ -223,7 +237,7 @@ export class Cache extends pulumi.CustomResource {
             inputs["secondaryAccessKey"] = undefined /*out*/;
             inputs["sslPort"] = undefined /*out*/;
         }
-        super("azure:redis/cache:Cache", name, inputs, opts);
+        super(Cache.__pulumiType, name, inputs, opts);
     }
 }
 

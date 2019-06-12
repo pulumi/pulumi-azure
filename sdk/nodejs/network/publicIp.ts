@@ -41,6 +41,20 @@ export class PublicIp extends pulumi.CustomResource {
         return new PublicIp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/publicIp:PublicIp';
+
+    /**
+     * Returns true if the given object is an instance of PublicIp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PublicIp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PublicIp.__pulumiType;
+    }
+
     /**
      * Defines the allocation method for this IP address. Possible values are `Static` or `Dynamic`.
      */
@@ -149,7 +163,7 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
         }
-        super("azure:network/publicIp:PublicIp", name, inputs, opts);
+        super(PublicIp.__pulumiType, name, inputs, opts);
     }
 }
 

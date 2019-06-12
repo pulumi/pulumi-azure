@@ -50,6 +50,20 @@ export class EventHub extends pulumi.CustomResource {
         return new EventHub(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:eventhub/eventHub:EventHub';
+
+    /**
+     * Returns true if the given object is an instance of EventHub.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is EventHub {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === EventHub.__pulumiType;
+    }
+
     /**
      * A `capture_description` block as defined below.
      */
@@ -123,7 +137,7 @@ export class EventHub extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["partitionIds"] = undefined /*out*/;
         }
-        super("azure:eventhub/eventHub:EventHub", name, inputs, opts);
+        super(EventHub.__pulumiType, name, inputs, opts);
     }
 }
 

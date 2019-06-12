@@ -18,6 +18,9 @@ class AppService(pulumi.CustomResource):
     A key-value pair of App Settings.
     """
     auth_settings: pulumi.Output[dict]
+    """
+    A `auth_settings` block as defined below.
+    """
     client_affinity_enabled: pulumi.Output[bool]
     """
     Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -92,6 +95,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
         :param pulumi.Input[list] connection_strings: One or more `connection_string` blocks as defined below.

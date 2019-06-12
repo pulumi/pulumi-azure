@@ -47,6 +47,20 @@ export class Snapshot extends pulumi.CustomResource {
         return new Snapshot(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/snapshot:Snapshot';
+
+    /**
+     * Returns true if the given object is an instance of Snapshot.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Snapshot {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Snapshot.__pulumiType;
+    }
+
     /**
      * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
      */
@@ -126,7 +140,7 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
-        super("azure:compute/snapshot:Snapshot", name, inputs, opts);
+        super(Snapshot.__pulumiType, name, inputs, opts);
     }
 }
 

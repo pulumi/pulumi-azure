@@ -20,6 +20,20 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
         return new ApiOperationPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:apimanagement/apiOperationPolicy:ApiOperationPolicy';
+
+    /**
+     * Returns true if the given object is an instance of ApiOperationPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ApiOperationPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ApiOperationPolicy.__pulumiType;
+    }
+
     /**
      * The name of the API Management Service. Changing this forces a new resource to be created.
      */
@@ -81,7 +95,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
             inputs["xmlContent"] = args ? args.xmlContent : undefined;
             inputs["xmlLink"] = args ? args.xmlLink : undefined;
         }
-        super("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, inputs, opts);
+        super(ApiOperationPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

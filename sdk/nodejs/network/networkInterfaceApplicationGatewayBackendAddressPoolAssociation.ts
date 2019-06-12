@@ -122,6 +122,20 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
         return new NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation';
+
+    /**
+     * Returns true if the given object is an instance of NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation.__pulumiType;
+    }
+
     /**
      * The ID of the Application Gateway's Backend Address Pool which this Network Interface which should be connected to. Changing this forces a new resource to be created.
      */
@@ -165,7 +179,7 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
             inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
-        super("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, inputs, opts);
+        super(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation.__pulumiType, name, inputs, opts);
     }
 }
 

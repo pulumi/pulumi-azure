@@ -16,6 +16,7 @@ export * from "./firewallNetworkRuleCollection";
 export * from "./getApplicationSecurityGroup";
 export * from "./getExpressRouteCircuit";
 export * from "./getFirewall";
+export * from "./getGatewayConnection";
 export * from "./getNetworkInterface";
 export * from "./getNetworkSecurityGroup";
 export * from "./getNetworkWatcher";

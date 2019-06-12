@@ -49,6 +49,20 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
         return new SharedAccessPolicy(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:iot/sharedAccessPolicy:SharedAccessPolicy';
+
+    /**
+     * Returns true if the given object is an instance of SharedAccessPolicy.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SharedAccessPolicy {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SharedAccessPolicy.__pulumiType;
+    }
+
     /**
      * Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
      */
@@ -137,7 +151,7 @@ export class SharedAccessPolicy extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = undefined /*out*/;
             inputs["secondaryKey"] = undefined /*out*/;
         }
-        super("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, inputs, opts);
+        super(SharedAccessPolicy.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -63,6 +63,20 @@ export class StreamInputBlob extends pulumi.CustomResource {
         return new StreamInputBlob(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:streamanalytics/streamInputBlob:StreamInputBlob';
+
+    /**
+     * Returns true if the given object is an instance of StreamInputBlob.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is StreamInputBlob {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === StreamInputBlob.__pulumiType;
+    }
+
     /**
      * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
      */
@@ -166,7 +180,7 @@ export class StreamInputBlob extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             inputs["timeFormat"] = args ? args.timeFormat : undefined;
         }
-        super("azure:streamanalytics/streamInputBlob:StreamInputBlob", name, inputs, opts);
+        super(StreamInputBlob.__pulumiType, name, inputs, opts);
     }
 }
 

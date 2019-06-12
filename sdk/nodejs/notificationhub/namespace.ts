@@ -41,6 +41,20 @@ export class Namespace extends pulumi.CustomResource {
         return new Namespace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:notificationhub/namespace:Namespace';
+
+    /**
+     * Returns true if the given object is an instance of Namespace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Namespace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Namespace.__pulumiType;
+    }
+
     /**
      * Is this Notification Hub Namespace enabled? Defaults to `true`.
      */
@@ -108,7 +122,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["servicebusEndpoint"] = undefined /*out*/;
         }
-        super("azure:notificationhub/namespace:Namespace", name, inputs, opts);
+        super(Namespace.__pulumiType, name, inputs, opts);
     }
 }
 

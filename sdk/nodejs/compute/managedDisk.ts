@@ -78,6 +78,20 @@ export class ManagedDisk extends pulumi.CustomResource {
         return new ManagedDisk(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:compute/managedDisk:ManagedDisk';
+
+    /**
+     * Returns true if the given object is an instance of ManagedDisk.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ManagedDisk {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ManagedDisk.__pulumiType;
+    }
+
     /**
      * The method to use when creating the managed disk. Possible values include:
      */
@@ -116,7 +130,8 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * ID of an existing managed disk to copy when `create_option` is `Copy`.
+     * ID of an existing managed disk to copy `create_option` is `Copy`
+     * or the recovery point to restore when `create_option` is `Restore`
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -187,7 +202,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
-        super("azure:compute/managedDisk:ManagedDisk", name, inputs, opts);
+        super(ManagedDisk.__pulumiType, name, inputs, opts);
     }
 }
 
@@ -233,7 +248,8 @@ export interface ManagedDiskState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * ID of an existing managed disk to copy when `create_option` is `Copy`.
+     * ID of an existing managed disk to copy `create_option` is `Copy`
+     * or the recovery point to restore when `create_option` is `Restore`
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**
@@ -297,7 +313,8 @@ export interface ManagedDiskArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * ID of an existing managed disk to copy when `create_option` is `Copy`.
+     * ID of an existing managed disk to copy `create_option` is `Copy`
+     * or the recovery point to restore when `create_option` is `Restore`
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**

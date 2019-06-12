@@ -45,6 +45,20 @@ export class LinkedServicePostgresql extends pulumi.CustomResource {
         return new LinkedServicePostgresql(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql';
+
+    /**
+     * Returns true if the given object is an instance of LinkedServicePostgresql.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is LinkedServicePostgresql {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === LinkedServicePostgresql.__pulumiType;
+    }
+
     /**
      * A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
      */
@@ -124,7 +138,7 @@ export class LinkedServicePostgresql extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, inputs, opts);
+        super(LinkedServicePostgresql.__pulumiType, name, inputs, opts);
     }
 }
 

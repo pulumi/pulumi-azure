@@ -37,6 +37,20 @@ export class CassandraKeyspace extends pulumi.CustomResource {
         return new CassandraKeyspace(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:cosmosdb/cassandraKeyspace:CassandraKeyspace';
+
+    /**
+     * Returns true if the given object is an instance of CassandraKeyspace.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is CassandraKeyspace {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === CassandraKeyspace.__pulumiType;
+    }
+
     /**
      * The name of the Cosmos DB Cassandra KeySpace to create the table within. Changing this forces a new resource to be created.
      */
@@ -77,7 +91,7 @@ export class CassandraKeyspace extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:cosmosdb/cassandraKeyspace:CassandraKeyspace", name, inputs, opts);
+        super(CassandraKeyspace.__pulumiType, name, inputs, opts);
     }
 }
 

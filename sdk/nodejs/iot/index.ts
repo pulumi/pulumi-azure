@@ -5,3 +5,4 @@
 export * from "./consumerGroup";
 export * from "./ioTHub";
 export * from "./sharedAccessPolicy";
+export * from "./zMixins";

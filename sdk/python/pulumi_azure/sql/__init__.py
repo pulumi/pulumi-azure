@@ -9,3 +9,4 @@ from .elastic_pool import *
 from .firewall_rule import *
 from .sql_server import *
 from .virtual_network_rule import *
+from .get_server import *

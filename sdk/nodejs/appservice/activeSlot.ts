@@ -41,6 +41,20 @@ export class ActiveSlot extends pulumi.CustomResource {
         return new ActiveSlot(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:appservice/activeSlot:ActiveSlot';
+
+    /**
+     * Returns true if the given object is an instance of ActiveSlot.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ActiveSlot {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ActiveSlot.__pulumiType;
+    }
+
     /**
      * The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
      */
@@ -84,7 +98,7 @@ export class ActiveSlot extends pulumi.CustomResource {
             inputs["appServiceSlotName"] = args ? args.appServiceSlotName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
-        super("azure:appservice/activeSlot:ActiveSlot", name, inputs, opts);
+        super(ActiveSlot.__pulumiType, name, inputs, opts);
     }
 }
 

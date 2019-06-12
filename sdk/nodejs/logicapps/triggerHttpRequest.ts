@@ -50,6 +50,20 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
         return new TriggerHttpRequest(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'azure:logicapps/triggerHttpRequest:TriggerHttpRequest';
+
+    /**
+     * Returns true if the given object is an instance of TriggerHttpRequest.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is TriggerHttpRequest {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === TriggerHttpRequest.__pulumiType;
+    }
+
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
@@ -102,7 +116,7 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
             inputs["relativePath"] = args ? args.relativePath : undefined;
             inputs["schema"] = args ? args.schema : undefined;
         }
-        super("azure:logicapps/triggerHttpRequest:TriggerHttpRequest", name, inputs, opts);
+        super(TriggerHttpRequest.__pulumiType, name, inputs, opts);
     }
 }
 
