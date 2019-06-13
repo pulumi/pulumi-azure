@@ -12,38 +12,40 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-export let EastAsia:           Location = "eastasia";
-export let SouthEastAsia:      Location = "southeastasia";
-export let CentralUS:          Location = "centralus";
-export let EastUS:             Location = "eastus";
-export let EastUS2:            Location = "eastus2";
-export let WestUS:             Location = "westus";
-export let WestUS2:            Location = "westus2";
-export let NorthCentralUS:     Location = "northcentralus";
-export let SouthCentralUS:     Location = "southcentralus";
-export let NorthEurope:        Location = "northeurope";
-export let WestEurope:         Location = "westeurope";
-export let JapanWest:          Location = "japanwest";
-export let JapanEast:          Location = "japaneast";
-export let BrazilSouth:        Location = "brazilsouth";
-export let AustraliaEast:      Location = "australiaeast";
-export let AustraliaSouthEast: Location = "australiasoutheast";
-export let AustraliaCentral:   Location  = "australiacentral";
-export let AustraliaCentral2:  Location = "australiacentral2";
-export let SouthIndia:         Location = "southindia";
-export let CentralIndia:       Location = "centralindia";
-export let WestIndia:          Location = "westindia";
-export let CanadaCentral:      Location = "canadacentral";
-export let CanadaEast:         Location = "canadaeast";
-export let UKSouth:            Location = "uksouth";
-export let UKWest:             Location = "ukwest";
-export let WestCentralUS:      Location = "westcentralus";
-export let KoreaCentral:       Location = "koreacentral";
-export let KoreaSouth:         Location = "koreasouth";
-export let FranceCentral:      Location = "francecentral";
-export let FranceSouth:        Location = "francesouth";
-export let SouthAfricaNorth:   Location = "southafricanorth";
-export let SouthAfricaWest:    Location = "southafricawest";
+export module Locations {
+    export const EastAsia:           Location = "eastasia";
+    export const SouthEastAsia:      Location = "southeastasia";
+    export const CentralUS:          Location = "centralus";
+    export const EastUS:             Location = "eastus";
+    export const EastUS2:            Location = "eastus2";
+    export const WestUS:             Location = "westus";
+    export const WestUS2:            Location = "westus2";
+    export const NorthCentralUS:     Location = "northcentralus";
+    export const SouthCentralUS:     Location = "southcentralus";
+    export const NorthEurope:        Location = "northeurope";
+    export const WestEurope:         Location = "westeurope";
+    export const JapanWest:          Location = "japanwest";
+    export const JapanEast:          Location = "japaneast";
+    export const BrazilSouth:        Location = "brazilsouth";
+    export const AustraliaEast:      Location = "australiaeast";
+    export const AustraliaSouthEast: Location = "australiasoutheast";
+    export const AustraliaCentral:   Location  = "australiacentral";
+    export const AustraliaCentral2:  Location = "australiacentral2";
+    export const SouthIndia:         Location = "southindia";
+    export const CentralIndia:       Location = "centralindia";
+    export const WestIndia:          Location = "westindia";
+    export const CanadaCentral:      Location = "canadacentral";
+    export const CanadaEast:         Location = "canadaeast";
+    export const UKSouth:            Location = "uksouth";
+    export const UKWest:             Location = "ukwest";
+    export const WestCentralUS:      Location = "westcentralus";
+    export const KoreaCentral:       Location = "koreacentral";
+    export const KoreaSouth:         Location = "koreasouth";
+    export const FranceCentral:      Location = "francecentral";
+    export const FranceSouth:        Location = "francesouth";
+    export const SouthAfricaNorth:   Location = "southafricanorth";
+    export const SouthAfricaWest:    Location = "southafricawest";
+}
 
 export type Location =
     "eastasia"           |
