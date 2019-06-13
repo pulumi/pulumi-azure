@@ -218,6 +218,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
 
         super("azure:eventhub:TopicEventSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             resourceGroupName,
             location,
             appSettings
@@ -391,6 +392,7 @@ export class EventHubSubscription extends appservice.EventSubscription<EventHubC
 
         super("azure:eventhub:EventHubSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             resourceGroupName,
             location,
             appSettings

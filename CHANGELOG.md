@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Add constants for the Azure Location types
 * Add support for user defined input and output bindings to serverless mixins
 
 ---
+
+## 0.18.7 (2019-06-07)
+* Update to v1.30.1 of the AzureRM Terraform provider
 
 ## 0.18.6 (2019-06-07)
 * Add TypeScript type guards for each resource class ([7ace3e9b5f](https://github.com/pulumi/pulumi-terraform/commit/7ace3e9b5f2dcd4692b029ba4b80360582d7949a))

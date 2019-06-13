@@ -233,14 +233,20 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const account = pulumi.all([resourceGroupName, container.storageAccountName])
+<<<<<<< HEAD
                             .apply(([resourceGroupName, storageAccountName]) =>
                               storage.getAccount({ resourceGroupName, name: storageAccountName }));
+=======
+            .apply(([resourceGroupName, storageAccountName]) =>
+                storage.getAccount({ resourceGroupName, name: storageAccountName }));
+>>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
         super("azure:storage:BlobEventSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             appSettings,
             resourceGroupName,
             location,
@@ -271,7 +277,10 @@ export interface TableOutputBindingDefinition extends appservice.BindingDefiniti
      */
     direction: "out";
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
     /**
      * The storage connection string for the storage account containing the blob.
      */
@@ -450,14 +459,20 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const account = pulumi.all([resourceGroupName, queue.storageAccountName])
+<<<<<<< HEAD
                             .apply(([resourceGroupName, storageAccountName]) =>
                             storage.getAccount({ resourceGroupName, name: storageAccountName }));
+=======
+            .apply(([resourceGroupName, storageAccountName]) =>
+                storage.getAccount({ resourceGroupName, name: storageAccountName }));
+>>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
 
         super("azure:storage:QueueEventSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             resourceGroupName,
             location,
             appSettings,
@@ -466,3 +481,39 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
         this.registerOutputs();
     }
 }
+
+interface CallbackFunctionArgsForBinding {
+    bindings?: pulumi.Input<pulumi.Input<appservice.BindingDefinition>[]>,
+    appSettings?: pulumi.Input<{ [key: string]: any; }>
+}
+
+declare module "./account" {
+    interface Account {
+        /**
+         * Creates a new subscription to events fired from Cosmos DB Change Feed to the handler provided, along
+         * with options to control the behavior of the subscription.
+         */
+        bindTableOutput<TArgs extends CallbackFunctionArgsForBinding>(args: TArgs, name: string, tableName: pulumi.Input<string>): TArgs;
+    }
+}
+
+Account.prototype.bindTableOutput = function <TArgs extends CallbackFunctionArgsForBinding>(args: TArgs, name: string, tableName: pulumi.Input<string>) {
+
+    const output: TableOutputBindingDefinition = {
+        "tableName": tableName,
+        "connection": "OutputStorageConnectionString",
+        "name": name,
+        "type": "table",
+        "direction": "out"
+    };
+
+    return {
+        ...args,
+        bindings: appservice.mergeBindings([output], args.bindings),
+        appSettings: {
+            ...args.appSettings,
+            [output.connection]: this.primaryConnectionString
+        }
+    };
+}
+

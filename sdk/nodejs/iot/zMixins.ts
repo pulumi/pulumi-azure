@@ -101,6 +101,7 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
 
         super("azure:eventhub:IoTHubEventSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             resourceGroupName,
             location,
             appSettings

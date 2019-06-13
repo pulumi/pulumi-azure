@@ -94,7 +94,11 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> =
      * See https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings 
      * for more details
      */
+<<<<<<< HEAD
     bindings?: pulumi.Input<azurefunctions.BindingDefinition[]>;
+=======
+    bindings?: pulumi.Input<pulumi.Input<azurefunctions.BindingDefinition>[]>;
+>>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 
     /**
      * The name of the resource group in which to create the Function App.
@@ -200,7 +204,7 @@ export interface HostSettings {
          * A sliding time window used in conjunction with the `healthCheckThreshold` setting.
          * Defaults to 2 minutes.
          */
-        healthCheckWindow:string,
+        healthCheckWindow: string,
         /**
          * Maximum number of times the health check can fail before a host recycle is initiated.  Defaults to `6`.
          */
@@ -258,8 +262,13 @@ export type BindingDefinition = azurefunctions.BindingDefinition;
  * FunctionApps expect.
  */
 function serializeCallback<C extends Context<R>, E, R extends Result>(
+<<<<<<< HEAD
         name: string,
         args: CallbackFunctionAppArgs<C, E, R>): pulumi.Output<pulumi.asset.AssetMap> {
+=======
+    name: string,
+    args: CallbackFunctionAppArgs<C, E, R>): pulumi.Output<pulumi.asset.AssetMap> {
+>>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 
     if (args.callback && args.callbackFactory) {
         throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
@@ -294,7 +303,7 @@ function serializeCallback<C extends Context<R>, E, R extends Result>(
         }));
 
         map[`${name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
-        map[`${name}/handler.js`] = new pulumi.asset.StringAsset(serializedFunc.text);
+            map[`${name}/handler.js`] = new pulumi.asset.StringAsset(serializedFunc.text);
 
         const pathSet = await pulumi.runtime.computeCodePaths(args.codePathOptions);
         for (const [path, value] of pathSet.entries()) {
@@ -431,8 +440,13 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
+<<<<<<< HEAD
                 args: CallbackFunctionAppArgs<C, E, R>,
                 opts: pulumi.ComponentResourceOptions = {}) {
+=======
+        args: CallbackFunctionAppArgs<C, E, R>,
+        opts: pulumi.ComponentResourceOptions = {}) {
+>>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
         super(type, name, undefined, opts);
 
         this.functionApp = new CallbackFunctionApp(name, args, { parent: this });
@@ -460,7 +474,7 @@ interface BaseSubscriptionArgs {
 
 /** @internal */
 export function getResourceGroupNameAndLocation(
-        args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
+    args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
 
     if (args.resourceGroup) {
         return { resourceGroupName: args.resourceGroup.name, location: args.resourceGroup.location };
@@ -476,6 +490,7 @@ export function getResourceGroupNameAndLocation(
 }
 
 /** @internal */
+<<<<<<< HEAD
 export function mergeBindings(additionalBindings: BindingDefinition[], bindings?: pulumi.Input<BindingDefinition[]>) : pulumi.Input<BindingDefinition[]>{
     let merged : pulumi.Input<BindingDefinition[]>;
     if (bindings) {
@@ -484,4 +499,10 @@ export function mergeBindings(additionalBindings: BindingDefinition[], bindings?
         merged = additionalBindings;
     }
     return merged;
+=======
+export function mergeBindings(additionalBindings: BindingDefinition[], bindings?: pulumi.Input<pulumi.Input<BindingDefinition>[]>): pulumi.Input<BindingDefinition[]> {
+    return bindings
+        ? pulumi.output(bindings).apply(b => [...b, ...additionalBindings])
+        : additionalBindings;
+>>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 }

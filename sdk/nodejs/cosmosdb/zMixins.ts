@@ -198,6 +198,7 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
             ([appSettings, connectionStrings]) => ({ ...appSettings, [bindingConnectionKey]: connectionStrings[0] }));
         super("azure:eventhub:CosmosChangeFeedSubscription", name, {
             ...args,
+            bindings: appservice.mergeBindings(bindings, args.bindings),
             resourceGroupName,
             location,
             appSettings
