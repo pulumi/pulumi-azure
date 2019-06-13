@@ -12,4 +12,4 @@ const app = new azure.appservice.ArchiveFunctionApp("http-ps", {
     }
 });
 
-export const url = app.endpoint.apply(ep => `${ep[0]}HelloPS?name=Pulumi`);
+export const url = app.endpoint.apply(ep => `${ep}HelloPS?name=Pulumi`);
