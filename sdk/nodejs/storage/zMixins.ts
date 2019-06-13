@@ -233,13 +233,8 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const account = pulumi.all([resourceGroupName, container.storageAccountName])
-<<<<<<< HEAD
-                            .apply(([resourceGroupName, storageAccountName]) =>
-                              storage.getAccount({ resourceGroupName, name: storageAccountName }));
-=======
             .apply(([resourceGroupName, storageAccountName]) =>
                 storage.getAccount({ resourceGroupName, name: storageAccountName }));
->>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
@@ -277,10 +272,6 @@ export interface TableOutputBindingDefinition extends appservice.BindingDefiniti
      */
     direction: "out";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
     /**
      * The storage connection string for the storage account containing the blob.
      */
@@ -459,13 +450,8 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
         const account = pulumi.all([resourceGroupName, queue.storageAccountName])
-<<<<<<< HEAD
-                            .apply(([resourceGroupName, storageAccountName]) =>
-                            storage.getAccount({ resourceGroupName, name: storageAccountName }));
-=======
             .apply(([resourceGroupName, storageAccountName]) =>
                 storage.getAccount({ resourceGroupName, name: storageAccountName }));
->>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 
         const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
             ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));

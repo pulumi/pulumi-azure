@@ -238,11 +238,6 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
             schedule,
         }];
 
-<<<<<<< HEAD
-        args.bindings = mod.mergeBindings(bindings, args.bindings);
-
-=======
->>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
         super("azure:appservice:TimerSubscription", name, {
             ...args,
             bindings: mod.mergeBindings(bindings, args.bindings),

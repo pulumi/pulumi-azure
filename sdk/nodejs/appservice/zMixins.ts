@@ -94,11 +94,7 @@ export type CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> =
      * See https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings 
      * for more details
      */
-<<<<<<< HEAD
-    bindings?: pulumi.Input<azurefunctions.BindingDefinition[]>;
-=======
     bindings?: pulumi.Input<pulumi.Input<azurefunctions.BindingDefinition>[]>;
->>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 
     /**
      * The name of the resource group in which to create the Function App.
@@ -262,13 +258,8 @@ export type BindingDefinition = azurefunctions.BindingDefinition;
  * FunctionApps expect.
  */
 function serializeCallback<C extends Context<R>, E, R extends Result>(
-<<<<<<< HEAD
-        name: string,
-        args: CallbackFunctionAppArgs<C, E, R>): pulumi.Output<pulumi.asset.AssetMap> {
-=======
     name: string,
     args: CallbackFunctionAppArgs<C, E, R>): pulumi.Output<pulumi.asset.AssetMap> {
->>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 
     if (args.callback && args.callbackFactory) {
         throw new pulumi.RunError("Cannot provide both [callback] and [callbackFactory]");
@@ -440,13 +431,8 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
-<<<<<<< HEAD
-                args: CallbackFunctionAppArgs<C, E, R>,
-                opts: pulumi.ComponentResourceOptions = {}) {
-=======
         args: CallbackFunctionAppArgs<C, E, R>,
         opts: pulumi.ComponentResourceOptions = {}) {
->>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
         super(type, name, undefined, opts);
 
         this.functionApp = new CallbackFunctionApp(name, args, { parent: this });
@@ -490,19 +476,8 @@ export function getResourceGroupNameAndLocation(
 }
 
 /** @internal */
-<<<<<<< HEAD
-export function mergeBindings(additionalBindings: BindingDefinition[], bindings?: pulumi.Input<BindingDefinition[]>) : pulumi.Input<BindingDefinition[]>{
-    let merged : pulumi.Input<BindingDefinition[]>;
-    if (bindings) {
-        merged = pulumi.output(bindings!).apply(b => [...b, ...additionalBindings]);
-    }else{
-        merged = additionalBindings;
-    }
-    return merged;
-=======
 export function mergeBindings(additionalBindings: BindingDefinition[], bindings?: pulumi.Input<pulumi.Input<BindingDefinition>[]>): pulumi.Input<BindingDefinition[]> {
     return bindings
         ? pulumi.output(bindings).apply(b => [...b, ...additionalBindings])
         : additionalBindings;
->>>>>>> 6702d4b943c719b054e7273f1cd20b2f7c262c91
 }
