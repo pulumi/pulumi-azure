@@ -46,7 +46,6 @@ CHANGELOG
   4. You can subscribe to `azure.storage.Container` blob events, invoking a FunctionApp containing the code you want, using `container.onBlobEvent(...)`.
   5. You can subscribe to `azure.storage.Queue` events, invoking a FunctionApp containin the code you want, using `queue.onEvent(...)`.
 * The location for each resource attached to a provider instance is now set as part of the provider configuration. This means that the following code from v0.18.0:
->>>>>>> upstream/master
 
   ```ts
   const rg = new azure.core.ResourceGroup("rg", { location" EastUS" });

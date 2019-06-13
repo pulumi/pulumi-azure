@@ -572,7 +572,7 @@ class ArchiveFunctionAppBase extends pulumi.ComponentResource {
      */
     public readonly plan: appservice.Plan;  
     /**
-     * The plan this Function App runs under.
+     * The Function App which contains the functions from the archive.
      */
     public readonly functionApp: appservice.FunctionApp;   
     /** 
