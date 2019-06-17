@@ -319,7 +319,11 @@ function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
     return pulumi.runtime.serializeFunction(func, { isFactoryFunction: !!args.callbackFactory });
 }
 
-async function produceDeploymentArchive(args: MultiCallbackFunctionAppArgs): Promise<pulumi.asset.AssetArchive> {
+function produceDeploymentArchive(args: MultiCallbackFunctionAppArgs): pulumi.Output<pulumi.asset.Archive> {
+    return pulumi.output(produceDeploymentArchiveAsync(args));
+}
+
+async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs): Promise<pulumi.asset.AssetArchive> {
     const map: pulumi.asset.AssetMap = {};
     map["host.json"] = new pulumi.asset.StringAsset(JSON.stringify({
         version: "2.0",
@@ -609,6 +613,7 @@ export class ArchiveFunctionApp extends PackagedFunctionApp {
                 args: ArchiveFunctionAppArgs,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super("azure:appservice:ArchiveFunctionApp", name, args, opts);
+        this.registerOutputs();
     }
 }
 
@@ -640,6 +645,8 @@ export class MultiCallbackFunctionApp extends PackagedFunctionApp {
             archive: produceDeploymentArchive(args),
             appSettings: combineAppSettings(args),
         }, opts);
+
+        this.registerOutputs();
     }
 }
 
