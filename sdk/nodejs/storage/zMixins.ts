@@ -173,13 +173,6 @@ export type BlobEventSubscriptionArgs = util.Overwrite<appservice.CallbackFuncti
      * Container's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the Container's ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
 }>;
 
 declare module "./container" {
@@ -316,25 +309,26 @@ export interface QueueContext extends appservice.Context<void> {
  *
  * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#host-json
  */
+export interface QueueHostExtensions {
+    /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
+    maxPollingInterval?: string,
+
+    /** The time interval between retries when processing of a message fails. */
+    visibilityTimeout?: string,
+
+    /** The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. */
+    batchSize?: number,
+
+    /** The number of times to try processing a message before moving it to the poison queue. */
+    maxDequeueCount?: number,
+
+    /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
+    newBatchThreshold?: number,
+}
 export interface QueueHostSettings extends appservice.HostSettings {
     extensions?: {
-        queues: {
-            /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
-            maxPollingInterval?: string,
-
-            /** The time interval between retries when processing of a message fails. */
-            visibilityTimeout?: string,
-
-            /** The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. */
-            batchSize?: number,
-
-            /** The number of times to try processing a message before moving it to the poison queue. */
-            maxDequeueCount?: number,
-
-            /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
-            newBatchThreshold?: number,
-        }
-    }    
+        queues: QueueHostExtensions,
+    }
 }
 
 /**
@@ -354,13 +348,6 @@ export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      * Queue's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the Queue's ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
 
     /** 
      * Host settings specific to the Storage Queue plugin. These values can be provided here, or defaults will 

@@ -37,27 +37,28 @@ export type HttpResponse = azureessentials.HttpResponse;
  *
  * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-host-json#http
  */
+export interface HttpHostExtensions {
+    /** The route prefix that applies to all routes. Use an empty string to remove the default prefix. */
+    routePrefix?: string,
+
+    /** The maximum number of outstanding requests that are held at any given time. */
+    maxOutstandingRequests?: number,
+
+    /** The maximum number of http functions that will be executed in parallel. */
+    maxConcurrentRequests?: number,
+
+    /**
+     * When enabled, this setting causes the request processing pipeline to periodically check system performance 
+     * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in 
+     * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return 
+     * to normal levels.
+     */
+    dynamicThrottlesEnabled?: boolean,
+}
 export interface HttpHostSettings extends mod.HostSettings {
     extensions?: {
-        http: {
-            /** The route prefix that applies to all routes. Use an empty string to remove the default prefix. */
-            routePrefix?: string,
-        
-            /** The maximum number of outstanding requests that are held at any given time. */
-            maxOutstandingRequests?: number,
-        
-            /** The maximum number of http functions that will be executed in parallel. */
-            maxConcurrentRequests?: number,
-        
-            /**
-             * When enabled, this setting causes the request processing pipeline to periodically check system performance 
-             * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in 
-             * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return 
-             * to normal levels.
-             */
-            dynamicThrottlesEnabled?: boolean,
-        }
-    }    
+        http: HttpHostExtensions,
+    }
 }
 
 export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
@@ -72,13 +73,6 @@ export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppAr
      * [resourceGroupName] or [resourceGroup] must be supplied.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the provided ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
 
     /**
      * Defines the route template, controlling to which request URLs your function responds. The
@@ -140,12 +134,7 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
             resourceGroupName,
         }, opts);
 
-        const routePrefix = args.hostSettings && args.hostSettings.extensions && args.hostSettings.extensions.http.routePrefix;
-        const rootPath = routePrefix === "" ? "" : `${routePrefix === undefined ? "api" : routePrefix}/`;
-
-        const functionPath = args.route === undefined ? name : `{${args.route}}`;
-
-        this.url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/${rootPath}${functionPath}`;
+        this.url = pulumi.interpolate`${this.functionApp.endpoint}${args.route || name}`;
 
         this.registerOutputs();
     }

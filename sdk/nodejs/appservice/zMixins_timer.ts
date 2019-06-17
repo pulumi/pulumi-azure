@@ -204,13 +204,6 @@ export type TimerSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<T
     resourceGroupName?: pulumi.Input<string>;
 
     /**
-     * Specifies the supported Azure location where the resource exists. Changing this forces a new
-     * resource to be created.  If not supplied, the location of the provided ResourceGroup will be
-     * used.
-     */
-    location?: pulumi.Input<string>;
-
-    /**
      * A CRON expression for the timer schedule, e.g. '0 * * * * *'.
      */
     schedule: pulumi.Input<string | ScheduleArgs>;
