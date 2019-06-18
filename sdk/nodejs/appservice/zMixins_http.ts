@@ -132,36 +132,19 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 /**
  * Azure Function triggered by HTTP requests.
  */
-export class HttpFunction implements mod.Function {
-    /**
-     * Function name.
-     */
-    public readonly name: string;
-
-    /**
-     * An array of function binding definitions.
-     */
-    public readonly bindings: pulumi.Input<HttpBindingDefinition[]>;
-
-    /**
-     * Function callback.
-     */
-    public readonly callback: mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>;
-
+export class HttpFunction extends mod.FunctionBase<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
     constructor(name: string, args: HttpFunctionArgs) {
-        this.name = name;
-        this.bindings = [{
+        super(name, <HttpBindingDefinition>{
             authLevel: "anonymous",
             type: "httpTrigger",
             direction: "in",
             name: "req",
             route: args.route,
             methods: args.methods,
-        }, {
+        }, [{
             type: "http",
             direction: "out",
             name: "$return",
-        }];
-        this.callback = args;
+        }], args);
     }
 }

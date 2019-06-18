@@ -392,7 +392,7 @@ export interface Function {
     /**
      * Function callback.
      */
-    callback: CallbackArgs<any, any, any>;
+    callback: CallbackArgs<Context<any>, any, any>;
 
     /**
      * Application settings required by the function.
@@ -403,6 +403,42 @@ export interface Function {
 // Type guard for Function interface
 function isFunction(object: any): object is Function {
     return 'name' in object && 'bindings' in object && 'callback' in object;
+}
+
+/**
+ * Azure Function base class.
+ */
+export abstract class FunctionBase<C extends Context<R>, E, R extends Result> implements Function {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<BindingDefinition[]>;
+
+    /**
+     * Function callback.
+     */
+    public readonly callback: CallbackArgs<Context<any>, E, R>;
+
+    /**
+     * Application settings required by the function.
+     */
+    public readonly appSettings?: pulumi.Input<{ [key: string]: string }>;
+
+    constructor(name: string, 
+        trigger: pulumi.Input<BindingDefinition>,
+        inputOutputBindings: pulumi.Input<BindingDefinition[]>,
+        callback: CallbackArgs<C, E, R>,
+        appSettings?: pulumi.Input<{ [key: string]: string }>) {
+        this.name = name;
+        this.bindings = pulumi.all([trigger, inputOutputBindings]).apply(([t, iob]) => [t, ...iob]);
+        this.callback = <CallbackArgs<Context<any>, E, R>>callback;
+        this.appSettings = appSettings;
+    }
 }
 
 /**

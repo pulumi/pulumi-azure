@@ -404,46 +404,24 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 /**
  * Azure Function triggered by a Storage Queue.
  */
-export class QueueFunction implements appservice.Function {
-    /**
-     * Function name.
-     */
-    public readonly name: string;
-
-    /**
-     * An array of function binding definitions.
-     */
-    public readonly bindings: pulumi.Input<QueueBindingDefinition[]>;
-
-    /**
-     * Serialized function callback.
-     */
-    public readonly callback: appservice.CallbackArgs<appservice.Context<any>, Buffer, void>;
-
-    /**
-     * Application settings required by the function.
-     */
-    public readonly appSettings: pulumi.Input<{ [key: string]: string }>;
-
+export class QueueFunction extends appservice.FunctionBase<QueueContext, Buffer, void> {
     constructor(name: string, args: QueueFunctionArgs) {
-        this.name = name;
-        this.callback = <appservice.CallbackArgs<appservice.Context<any>, Buffer, void>>args;
-
         const bindingConnectionKey = pulumi.interpolate`${args.queue.storageAccountName}ConnectionStringKey`;
-        this.bindings = [{
+
+        const account = pulumi.all([args.queue.resourceGroupName, args.queue.storageAccountName])
+            .apply(([resourceGroupName, storageAccountName]) =>
+                storage.getAccount({ resourceGroupName, name: storageAccountName }));
+
+        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
+
+        super(name, <QueueBindingDefinition>{
             name: "queue",
             type: "queueTrigger",
             direction: "in",
             dataType: "binary",
             queueName: args.queue.name,
             connection: bindingConnectionKey,
-        }];
-    
-        const account = pulumi.all([args.queue.resourceGroupName, args.queue.storageAccountName])
-                            .apply(([resourceGroupName, storageAccountName]) =>
-                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
-    
-        this.appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
-            ([connectionString, key]) => ({ [key]: connectionString }));
+        }, [], args, appSettings);
     }
 }

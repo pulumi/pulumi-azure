@@ -236,33 +236,16 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
 /**
  * Azure Function triggered on a CRON schedule.
  */
-export class TimerFunction implements mod.Function {
-        /**
-     * Function name.
-     */
-    public readonly name: string;
-
-    /**
-     * An array of function binding definitions.
-     */
-    public readonly bindings: pulumi.Input<TimerBindingDefinition[]>;
-
-    /**
-     * Serialized function callback.
-     */
-    public readonly callback: mod.CallbackArgs<TimerContext, TimerInfo, void>;
-
+export class TimerFunction extends mod.FunctionBase<TimerContext, TimerInfo, void> {
     constructor(name: string, args: TimerFunctionArgs) {
         const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
 
-        this.name = name;
-        this.bindings = [{
+        super(name, <TimerBindingDefinition>{
             type: "timerTrigger",
             direction: "in",
             name: "timer",
             runOnStartup: args.runOnStartup,
             schedule,
-        }];
-        this.callback = args;
+        }, [], args);
     }
 }
