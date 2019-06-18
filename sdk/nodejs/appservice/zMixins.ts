@@ -405,21 +405,6 @@ function isFunction(object: any): object is Function {
     return 'name' in object && 'bindings' in object && 'callback' in object;
 }
 
-/** @internal */
-function makeFunction<C extends Context<R>, E, R extends Result>(
-    name: string, 
-    trigger: pulumi.Input<BindingDefinition>,
-    inputOutputBindings: pulumi.Input<BindingDefinition[]>,
-    callback: CallbackArgs<C, E, R>,
-    appSettings?: pulumi.Input<{ [key: string]: string }>): Function {
-    return {
-        name,
-        bindings: pulumi.all([trigger, inputOutputBindings]).apply(([t, iob]) => [t, ...iob]),
-        callback: <CallbackArgs<Context<any>, E, R>>callback,
-        appSettings,
-    };
-}
-
 /**
  * Azure Function base class.
  */
