@@ -405,6 +405,11 @@ function isFunction(object: any): object is Function {
     return 'name' in object && 'bindings' in object && 'callback' in object;
 }
 
+export interface BindingSettings {
+    readonly binding: pulumi.Input<BindingDefinition>;
+    readonly settings: pulumi.Input<{ [key: string]: any; }>;
+}
+
 /**
  * Azure Function base class.
  */
