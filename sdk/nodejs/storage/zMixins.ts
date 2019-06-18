@@ -415,13 +415,13 @@ export class QueueFunction extends appservice.FunctionBase<QueueContext, Buffer,
         const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
             ([connectionString, key]) => ({ [key]: connectionString }));
 
-        super(name, <QueueBindingDefinition>{
+        super(name, [<QueueBindingDefinition>{
             name: "queue",
             type: "queueTrigger",
             direction: "in",
             dataType: "binary",
             queueName: args.queue.name,
             connection: bindingConnectionKey,
-        }, [], args, appSettings);
+        }], args, appSettings);
     }
 }

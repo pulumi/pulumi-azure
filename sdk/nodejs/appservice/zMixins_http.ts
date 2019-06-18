@@ -134,14 +134,14 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
  */
 export class HttpFunction extends mod.FunctionBase<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
     constructor(name: string, args: HttpFunctionArgs) {
-        super(name, <HttpBindingDefinition>{
+        super(name, [<HttpBindingDefinition>{
             authLevel: "anonymous",
             type: "httpTrigger",
             direction: "in",
             name: "req",
             route: args.route,
             methods: args.methods,
-        }, [{
+        }, {
             type: "http",
             direction: "out",
             name: "$return",

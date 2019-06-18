@@ -240,12 +240,12 @@ export class TimerFunction extends mod.FunctionBase<TimerContext, TimerInfo, voi
     constructor(name: string, args: TimerFunctionArgs) {
         const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
 
-        super(name, <TimerBindingDefinition>{
+        super(name, [<TimerBindingDefinition>{
             type: "timerTrigger",
             direction: "in",
             name: "timer",
             runOnStartup: args.runOnStartup,
             schedule,
-        }, [], args);
+        }], args);
     }
 }
