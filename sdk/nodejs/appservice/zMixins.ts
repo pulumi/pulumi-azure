@@ -408,6 +408,7 @@ function isFunction(object: any): object is Function {
 /**
  * Azure Function base class.
  */
+/** @internal */
 export abstract class FunctionBase<C extends Context<R>, E, R extends Result> implements Function {
     /**
      * Function name.
