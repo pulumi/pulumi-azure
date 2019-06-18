@@ -361,10 +361,10 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
     return new pulumi.asset.AssetArchive(map);
 }
 
-function combineAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
+function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
     const applicationSetting = args.appSettings || {};
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
-    return pulumi.all([applicationSetting, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+    return combineAppSettings([applicationSetting, ...perFunctionSettings]);
 }
 
 function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callback: Callback<C, E, R>) {
@@ -379,6 +379,38 @@ function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callba
         return callback(context, event);
     };
 }
+
+/**
+ * Azure Function Binding with the required corresponding application settings (e.g., a connection string setting).
+ */
+export interface BindingSettings {
+    /**
+     * An input or output binding definition.
+     */
+    readonly binding: pulumi.Input<BindingDefinition>;
+
+    /**
+     * A dictionary of application settings to be applied to the Function App.
+     */
+    readonly settings: pulumi.Input<{ [key: string]: any; }>;
+}
+
+// We might want to merge this into CallbackArgs hierachy when all function types support bindings
+export interface InputOutputsArgs {
+    /**
+     * Input and/or Output bindings.
+     */
+    inputOutputs?: appservice.BindingSettings[];
+}
+
+/**
+ * Type alias for a response coming from an Azure Function callback, which applies to most Function types (HTTP being a notable exception).
+ */
+export type FunctionCallbackDefaultResponse = 
+    // Nothing is returned if a function has no output bindings
+    void | 
+    // A dictionary is returned if a function has output bindings
+    Record<string, any>;
 
 /**
  * Azure Function base class.
@@ -546,7 +578,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
         const parts = createFunctionAppParts(name, {
             ...args,
             archive: produceDeploymentArchive({ ...args, functions }),
-            appSettings: combineAppSettings({ ...args, functions }),
+            appSettings: combineFunctionAppSettings({ ...args, functions }),
         }, opts);
 
         super(name, parts.functionArgs, opts);
@@ -652,7 +684,7 @@ export class MultiCallbackFunctionApp extends PackagedFunctionApp {
         super("azure:appservice:MultiCallbackFunctionApp", name, {
             ...args,
             archive: produceDeploymentArchive(args),
-            appSettings: combineAppSettings(args),
+            appSettings: combineFunctionAppSettings(args),
         }, opts);
 
         this.registerOutputs();
@@ -710,4 +742,19 @@ export function getResourceGroupNameAndLocation(
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName!);
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
+}
+
+/** @internal */
+export function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): pulumi.Output<{[key: string]: string}> {
+    return pulumi.all(settings).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+}
+
+/** @internal */
+export function combineBindingSettings(trigger: appservice.BindingSettings, inputOutputs?: appservice.BindingSettings[]) {
+    const all = [trigger, ...inputOutputs || []];
+
+    const bindings = pulumi.all(all.map(bs => bs.binding));
+    const appSettings = combineAppSettings(all.map(bs => bs.settings));
+
+    return { bindings, appSettings };
 }

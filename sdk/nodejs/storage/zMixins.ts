@@ -260,12 +260,24 @@ interface QueueBindingDefinition extends appservice.BindingDefinition {
     name: string;
 
     /**
+     * The name of the storage queue to listen to.
+     */
+    queueName: pulumi.Input<string>;
+
+    /**
+     * The storage connection string for the storage account containing the queue.
+     */
+    connection: pulumi.Input<string>;
+}
+
+interface QueueTriggerBindingDefinition extends QueueBindingDefinition {
+    /**
      * The type of a queue binding.  Must be 'queueTrigger'.
      */
     type: "queueTrigger";
 
     /**
-     * The direction of the binding.  We only 'support' messages being inputs to functions.
+     * The direction of the binding.  Trigger is about messages being inputs to functions.
      */
     direction: "in";
 
@@ -276,16 +288,18 @@ interface QueueBindingDefinition extends appservice.BindingDefinition {
      * data will be passed into the function.
      */
     dataType: "binary";
+}
+
+interface QueueOutputBindingDefinition extends QueueBindingDefinition {
+    /**
+     * The type of a queue binding.  Must be 'queue'.
+     */
+    type: "queue";
 
     /**
-     * The name of the storage queue to listen to.
+     * The direction of the binding. Output bindings must have 'out'.
      */
-    queueName: pulumi.Input<string>;
-
-    /**
-     * The storage connection string for the storage account containing the queue.
-     */
-    connection: pulumi.Input<string>;
+    direction: "out";
 }
 
 /**
@@ -344,16 +358,16 @@ export interface QueueHostSettings extends appservice.HostSettings {
 /**
  * Signature of the callback that can receive queue notifications.
  */
-export type QueueCallback = appservice.Callback<QueueContext, Buffer, void>;
+export type QueueCallback = appservice.Callback<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse>;
 
-export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, Buffer, void> {
+export interface QueueFunctionArgs extends appservice.InputOutputsArgs, appservice.CallbackArgs<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse> {
     /**
      * Defines the queue to trigger the function.
      */
     queue: Queue;
 };
 
-export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, Buffer, void> {
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse>, appservice.InputOutputsArgs {
     /**
      * The resource group in which to create the event subscription.  If not supplied, the
      * Queue's resource group will be used.
@@ -381,7 +395,16 @@ declare module "./queue" {
          */
         onEvent(
             name: string, args: QueueCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
+
+        /**
+         * Creates an output binding linked to the given queue to be used for an Azure Function.
+         */
+        output(name: string): appservice.BindingSettings;
     }
+}
+
+Queue.prototype.output = function(this: Queue, name) {
+    return new QueueOutputBinding(name, this);
 }
 
 Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
@@ -392,7 +415,7 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
     return new QueueEventSubscription(name, this, functionArgs, opts);
 }
 
-export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, Buffer, void> {
+export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse> {
     constructor(
         name: string, queue: Queue,
         args: QueueEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
@@ -411,27 +434,58 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
     }
 }
 
+// Given a Queue, produce App Settings and a Connection String Key relevant to the Storage Account
+function resolveAccount(queue: Queue) {
+    const connectionKey = pulumi.interpolate`Storage${queue.storageAccountName}ConnectionStringKey`;
+    const account = pulumi.all([queue.resourceGroupName, queue.storageAccountName])
+                        .apply(([resourceGroupName, storageAccountName]) =>
+                            storage.getAccount({ resourceGroupName, name: storageAccountName }));
+
+    const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
+        ([connectionString, key]) => ({ [key]: connectionString }));
+
+    return { connectionKey, settings };
+}
+
 /**
  * Azure Function triggered by a Storage Queue.
  */
-export class QueueFunction extends appservice.Function<QueueContext, Buffer, void> {
+export class QueueFunction extends appservice.Function<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse> {
     constructor(name: string, args: QueueFunctionArgs) {
-        const bindingConnectionKey = pulumi.interpolate`Storage${args.queue.storageAccountName}ConnectionStringKey`;
+        const { connectionKey, settings } = resolveAccount(args.queue);
 
-        const account = pulumi.all([args.queue.resourceGroupName, args.queue.storageAccountName])
-            .apply(([resourceGroupName, storageAccountName]) =>
-                storage.getAccount({ resourceGroupName, name: storageAccountName }));
-
-        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
-            ([connectionString, key]) => ({ [key]: connectionString }));
-
-        super(name, [<QueueBindingDefinition>{
+        const binding: QueueTriggerBindingDefinition = {
             name: "queue",
             type: "queueTrigger",
             direction: "in",
             dataType: "binary",
             queueName: args.queue.name,
-            connection: bindingConnectionKey,
-        }], args, appSettings);
+            connection: connectionKey,
+        };
+
+        const { bindings, appSettings } = appservice.combineBindingSettings({binding, settings}, args.inputOutputs);
+
+        super(name, bindings, args, appSettings);
+    }
+}
+
+/**
+ * Azure Function's output binding that sends messages to a Storage Queue.
+ */
+export class QueueOutputBinding implements appservice.BindingSettings {
+    public readonly binding: pulumi.Input<QueueOutputBindingDefinition>;
+    public readonly settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string, queue: Queue) {
+        const { connectionKey, settings } = resolveAccount(queue);
+
+        this.binding = {
+            name: name,
+            type: "queue",
+            direction: "out",
+            queueName: queue.name,
+            connection: connectionKey,
+        };
+        this.settings = settings;
     }
 }
