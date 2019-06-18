@@ -6,6 +6,7 @@ CHANGELOG
 * Add constants for the Azure Location types
 * Introduce MultiCallbackFunctionApp which can hold several callback functions in the same Function App
 * Introduce ArchiveFunctionApp which accept an archive of an Azure Functions deployment artifact
+* Introduce HttpFunction, TimerFunction, and QueueFunction - to be hosted within MultiCallbackFunctionApp
 
 ---
 

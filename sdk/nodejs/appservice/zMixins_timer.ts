@@ -190,6 +190,18 @@ export interface TimerContext extends mod.Context<void> {
     };
 }
 
+export interface TimerFunctionArgs extends mod.CallbackArgs<TimerContext, TimerInfo, void> {
+    /**
+     * A schedule or a CRON expression for the timer schedule, e.g. '0 * * * * *'.
+     */
+    schedule: pulumi.Input<string | ScheduleArgs>;
+
+    /**
+     * If true, the function is invoked when the runtime starts.
+     */
+    runOnStartup?: pulumi.Input<boolean>;
+};
+
 export type TimerSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<TimerContext, TimerInfo, void>, {
     /**
      * The resource group in which to create the timer subscription. Either [resourceGroupName] or
@@ -202,17 +214,7 @@ export type TimerSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<T
      * [resourceGroupName] or [resourceGroup] must be supplied.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * A CRON expression for the timer schedule, e.g. '0 * * * * *'.
-     */
-    schedule: pulumi.Input<string | ScheduleArgs>;
-
-    /**
-     * If true, the function is invoked when the runtime starts.
-     */
-    runOnStartup?: pulumi.Input<boolean>;
-}>;
+} & TimerFunctionArgs>;
 
 export class TimerSubscription extends mod.EventSubscription<TimerContext, TimerInfo, void> {
     constructor(name: string,
@@ -221,22 +223,46 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
 
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
-        const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
-
-        const bindings: TimerBindingDefinition[] = [{
-            type: "timerTrigger",
-            direction: "in",
-            name: "timer",
-            runOnStartup: args.runOnStartup,
-            schedule,
-        }];
-
-        super("azure:appservice:TimerSubscription", name, bindings, {
+        super("azure:appservice:TimerSubscription", name, new TimerFunction(name, args), {
             ...args,
             location,
             resourceGroupName,
         }, opts);
 
         this.registerOutputs();
+    }
+}
+
+/**
+ * Azure Function triggered on a CRON schedule.
+ */
+export class TimerFunction implements mod.Function {
+        /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<TimerBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly callback: mod.CallbackArgs<TimerContext, TimerInfo, void>;
+
+    constructor(name: string, args: TimerFunctionArgs) {
+        const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
+
+        this.name = name;
+        this.bindings = [{
+            type: "timerTrigger",
+            direction: "in",
+            name: "timer",
+            runOnStartup: args.runOnStartup,
+            schedule,
+        }];
+        this.callback = args;
     }
 }

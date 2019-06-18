@@ -392,12 +392,17 @@ export interface Function {
     /**
      * Function callback.
      */
-    callback: CallbackArgs<Context<any>, any, any>;
+    callback: CallbackArgs<any, any, any>;
 
     /**
      * Application settings required by the function.
      */
     appSettings?: pulumi.Input<{ [key: string]: any }>;
+}
+
+// Type guard for Function interface
+function isFunction(object: any): object is Function {
+    return 'name' in object && 'bindings' in object && 'callback' in object;
 }
 
 /**
@@ -525,19 +530,14 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
      */
     public readonly endpoint: pulumi.Output<string>;
 
-    constructor(name: string, bindings: pulumi.Input<BindingDefinition[]>,
+    constructor(name: string, bindings: pulumi.Input<BindingDefinition[]> | Function,
                 args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
 
+        const functions = isFunction(bindings) ? [bindings] : [<Function>{ name, bindings, callback: args }];
         const parts = createFunctionAppParts(name, {
             ...args,
-            archive: produceDeploymentArchive({
-                ...args,
-                functions: [<Function>{
-                    name,
-                    bindings,
-                    callback: args,
-                }]
-            }),
+            archive: produceDeploymentArchive({ ...args, functions }),
+            appSettings: combineAppSettings({ ...args, functions }),
         }, opts);
 
         super(name, parts.functionArgs, opts);
@@ -658,7 +658,7 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
-                bindings: pulumi.Input<BindingDefinition[]>,
+                bindings: pulumi.Input<BindingDefinition[]> | Function,
                 args: CallbackFunctionAppArgs<C, E, R>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);

@@ -275,7 +275,7 @@ interface QueueBindingDefinition extends appservice.BindingDefinition {
     /**
      * The storage connection string for the storage account containing the queue.
      */
-    connection: string;
+    connection: pulumi.Input<string>;
 }
 
 /**
@@ -336,6 +336,13 @@ export interface QueueHostSettings extends appservice.HostSettings {
  */
 export type QueueCallback = appservice.Callback<QueueContext, Buffer, void>;
 
+export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, Buffer, void> {
+    /**
+     * Defines the queue to trigger the function.
+     */
+    queue: Queue;
+};
+
 export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<QueueContext, Buffer, void>, {
     /**
      * The resource group in which to create the event subscription.  If not supplied, the
@@ -384,40 +391,59 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 
         const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, queue.resourceGroupName);
 
-        // The queue binding does not store the storage connection string directly.  Instead, the
-        // connection string is put into the app settings (under whatever key we want). Then, the
-        // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        super("azure:storage:QueueEventSubscription", name, new QueueFunction(name, { ...args, queue }), {
+            ...args,
+            resourceGroupName,
+            location,
+        }, opts);
 
-        const bindings: QueueBindingDefinition[] = [{
+        this.registerOutputs();
+    }
+}
+
+/**
+ * Azure Function triggered by a Storage Queue.
+ */
+export class QueueFunction implements appservice.Function {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<QueueBindingDefinition[]>;
+
+    /**
+     * Serialized function callback.
+     */
+    public readonly callback: appservice.CallbackArgs<appservice.Context<any>, Buffer, void>;
+
+    /**
+     * Application settings required by the function.
+     */
+    public readonly appSettings: pulumi.Input<{ [key: string]: string }>;
+
+    constructor(name: string, args: QueueFunctionArgs) {
+        this.name = name;
+        this.callback = <appservice.CallbackArgs<appservice.Context<any>, Buffer, void>>args;
+
+        const bindingConnectionKey = pulumi.interpolate`${args.queue.storageAccountName}ConnectionStringKey`;
+        this.bindings = [{
             name: "queue",
             type: "queueTrigger",
             direction: "in",
             dataType: "binary",
-            queueName: queue.name,
+            queueName: args.queue.name,
             connection: bindingConnectionKey,
         }];
-
-        // Place the mapping from the well known key name to the storage account connection string in
-        // the 'app settings' object.
-        const appSettingsOutput = args.appSettings || pulumi.output({});
-
-        // Place the mapping from the well known key name to the storage account connection string in
-        // the 'app settings' object.
-        const account = pulumi.all([resourceGroupName, queue.storageAccountName])
-                                .apply(([resourceGroupName, storageAccountName]) =>
+    
+        const account = pulumi.all([args.queue.resourceGroupName, args.queue.storageAccountName])
+                            .apply(([resourceGroupName, storageAccountName]) =>
                                 storage.getAccount({ resourceGroupName, name: storageAccountName }));
-
-        const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
-            ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
-
-        super("azure:storage:QueueEventSubscription", name, bindings, {
-            ...args,
-            resourceGroupName,
-            location,
-            appSettings,
-        }, opts);
-
-        this.registerOutputs();
+    
+        this.appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
     }
 }

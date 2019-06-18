@@ -61,6 +61,20 @@ export interface HttpHostSettings extends mod.HostSettings {
     }
 }
 
+export interface HttpFunctionArgs extends mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+    /**
+     * Defines the route template, controlling to which request URLs your function responds. The
+     * default value if none is provided is <functionname>.
+     */
+    route?: pulumi.Input<string>;
+
+    /**
+     * An array of the HTTP methods to which the function responds. If not specified, the function
+     * responds to all HTTP methods.
+     */
+    methods?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
 export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
     /**
      * The resource group in which to create the event subscription.  Either [resourceGroupName] or
@@ -74,24 +88,12 @@ export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppAr
      */
     resourceGroupName?: pulumi.Input<string>;
 
-    /**
-     * Defines the route template, controlling to which request URLs your function responds. The
-     * default value if none is provided is <functionname>.
-     */
-    route?: pulumi.Input<string>;
-
-    /**
-     * An array of the HTTP methods to which the function responds. If not specified, the function
-     * responds to all HTTP methods.
-     */
-    methods?: pulumi.Input<pulumi.Input<string>[]>;
-
     /** 
      * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will 
      * be used in their place. 
      */
     hostSettings?: HttpHostSettings;
-}>;
+} & HttpFunctionArgs>;
 
 interface HttpBindingDefinition extends mod.BindingDefinition {
     authLevel?: "anonymous";
@@ -115,20 +117,7 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 
         const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
-        const bindings: HttpBindingDefinition[] = [{
-                    authLevel: "anonymous",
-                    type: "httpTrigger",
-                    direction: "in",
-                    name: "req",
-                    route: args.route,
-                    methods: args.methods,
-                }, {
-                    type: "http",
-                    direction: "out",
-                    name: "$return",
-                }];
-
-        super("azure:appservice:HttpEventSubscription", name, bindings, {
+        super("azure:appservice:HttpEventSubscription", name, new HttpFunction(name, args), {
             ...args,
             location,
             resourceGroupName,
@@ -137,5 +126,42 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
         this.url = pulumi.interpolate`${this.functionApp.endpoint}${args.route || name}`;
 
         this.registerOutputs();
+    }
+}
+
+/**
+ * Azure Function triggered by HTTP requests.
+ */
+export class HttpFunction implements mod.Function {
+    /**
+     * Function name.
+     */
+    public readonly name: string;
+
+    /**
+     * An array of function binding definitions.
+     */
+    public readonly bindings: pulumi.Input<HttpBindingDefinition[]>;
+
+    /**
+     * Function callback.
+     */
+    public readonly callback: mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>;
+
+    constructor(name: string, args: HttpFunctionArgs) {
+        this.name = name;
+        this.bindings = [{
+            authLevel: "anonymous",
+            type: "httpTrigger",
+            direction: "in",
+            name: "req",
+            route: args.route,
+            methods: args.methods,
+        }, {
+            type: "http",
+            direction: "out",
+            name: "$return",
+        }];
+        this.callback = args;
     }
 }
