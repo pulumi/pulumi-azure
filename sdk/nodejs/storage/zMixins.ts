@@ -282,12 +282,12 @@ interface QueueTriggerBindingDefinition extends QueueBindingDefinition {
 
 interface QueueOutputBindingDefinition extends QueueBindingDefinition {
     /**
-     * The type of a queue binding.  Must be 'queueTrigger'.
+     * The type of a queue binding.  Must be 'queueT'.
      */
     type: "queue";
 
     /**
-     * The direction of the binding.  We only 'support' messages being inputs to functions.
+     * The direction of the binding. Output bindings must have 'out'.
      */
     direction: "out";
 }
