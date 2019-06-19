@@ -374,7 +374,7 @@ export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      * Host settings specific to the Storage Queue plugin. These values can be provided here, or defaults will 
      * be used in their place. 
      */
-    hostSettings?: QueueHostSettings; 
+    hostSettings?: QueueHostSettings;
 } & appservice.InputOutputsArgs>;
 
 declare module "./queue" {
@@ -453,7 +453,7 @@ export class QueueFunction extends appservice.FunctionBase<QueueContext, Buffer,
             connection: connectionKey,
         };
 
-        const { bindings, appSettings } = appservice.mergeBindingSettings({binding, settings}, args.inputOutputs);
+        const { bindings, appSettings } = appservice.combineBindingSettings({binding, settings}, args.inputOutputs);
 
         super(name, bindings, args, appSettings);
     }

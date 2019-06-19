@@ -61,7 +61,12 @@ export interface HttpHostSettings extends mod.HostSettings {
     }
 }
 
-export interface HttpFunctionArgs extends mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+/**
+ * HTTP Response that may or may not contain extra output binding data.
+ */
+export type ExtendedHttpResponse = HttpResponse | { response: HttpResponse; [key: string]: any }
+
+export interface HttpFunctionArgs extends mod.InputOutputsArgs, mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     /**
      * Defines the route template, controlling to which request URLs your function responds. The
      * default value if none is provided is <functionname>.
@@ -75,7 +80,7 @@ export interface HttpFunctionArgs extends mod.CallbackArgs<mod.Context<HttpRespo
     methods?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
+export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse>, {
     /**
      * The resource group in which to create the event subscription.  Either [resourceGroupName] or
      * [resourceGroup] must be supplied.
@@ -105,7 +110,7 @@ interface HttpBindingDefinition extends mod.BindingDefinition {
  * An Azure Function exposed via an HTTP endpoint that is implemented on top of a
  * JavaScript/TypeScript callback function.
  */
-export class HttpEventSubscription extends mod.EventSubscription<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+export class HttpEventSubscription extends mod.EventSubscription<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     /**
      * Endpoint where this FunctionApp can be invoked.
      */
@@ -132,19 +137,28 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 /**
  * Azure Function triggered by HTTP requests.
  */
-export class HttpFunction extends mod.FunctionBase<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+export class HttpFunction extends mod.FunctionBase<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     constructor(name: string, args: HttpFunctionArgs) {
-        super(name, [<HttpBindingDefinition>{
+        const inputOutputs = args.inputOutputs || [];
+
+        const trigger = <HttpBindingDefinition>{
             authLevel: "anonymous",
             type: "httpTrigger",
             direction: "in",
             name: "req",
             route: args.route,
             methods: args.methods,
-        }, {
+        };
+
+        const response = <mod.BindingDefinition>{
             type: "http",
             direction: "out",
-            name: "$return",
-        }], args);
+            name: inputOutputs ? "response": "$return",
+        };
+
+        const bindings = pulumi.all(inputOutputs.map(bs => bs.binding)).apply(bs => [trigger, response, ...bs]);
+        const appSettings = mod.combineAppSettings(inputOutputs.map(bs => bs.settings));
+    
+        super(name, bindings, args, appSettings);
     }
 }

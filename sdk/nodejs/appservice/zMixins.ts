@@ -355,10 +355,10 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
     return new pulumi.asset.AssetArchive(map);
 }
 
-function combineAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
+function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
     const applicationSetting = args.appSettings || {};
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
-    return pulumi.all([applicationSetting, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+    return combineAppSettings([applicationSetting, ...perFunctionSettings]);
 }
 
 function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callback: Callback<C, E, R>) {
@@ -604,7 +604,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
         const parts = createFunctionAppParts(name, {
             ...args,
             archive: produceDeploymentArchive({ ...args, functions }),
-            appSettings: combineAppSettings({ ...args, functions }),
+            appSettings: combineFunctionAppSettings({ ...args, functions }),
         }, opts);
 
         super(name, parts.functionArgs, opts);
@@ -710,7 +710,7 @@ export class MultiCallbackFunctionApp extends PackagedFunctionApp {
         super("azure:appservice:MultiCallbackFunctionApp", name, {
             ...args,
             archive: produceDeploymentArchive(args),
-            appSettings: combineAppSettings(args),
+            appSettings: combineFunctionAppSettings(args),
         }, opts);
 
         this.registerOutputs();
@@ -771,11 +771,16 @@ export function getResourceGroupNameAndLocation(
 }
 
 /** @internal */
-export function mergeBindingSettings(trigger: appservice.BindingSettings, inputOutputs?: appservice.BindingSettings[]) {
+export function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): pulumi.Output<{[key: string]: string}> {
+    return pulumi.all(settings).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+}
+
+/** @internal */
+export function combineBindingSettings(trigger: appservice.BindingSettings, inputOutputs?: appservice.BindingSettings[]) {
     const all = [trigger, ...inputOutputs || []];
 
     const bindings = pulumi.all(all.map(bs => bs.binding));
-    const appSettings = pulumi.all(all.map(bs => bs.settings)).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+    const appSettings = combineAppSettings(all.map(bs => bs.settings));
 
     return { bindings, appSettings };
 }
