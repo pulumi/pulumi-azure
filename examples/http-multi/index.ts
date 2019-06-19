@@ -23,7 +23,7 @@ function makeHttpFunction(name: string, callback: azure.appservice.Callback<azur
 
 // Create a Function App containing multiple functions
 const app = new azure.appservice.MultiCallbackFunctionApp("http-multi", {
-    resourceGroupName: resourceGroup.name,
+    resourceGroup,
     functions: [
         makeHttpFunction("F1", async (c, r) => ({ status: 200, body: "Hi from F1" })),
         makeHttpFunction("F2", async (c, r) => ({ status: 200, body: "Hi from F2" }))
