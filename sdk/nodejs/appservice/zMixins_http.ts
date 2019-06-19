@@ -132,7 +132,7 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 /**
  * Azure Function triggered by HTTP requests.
  */
-export class HttpFunction extends mod.FunctionBase<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
     constructor(name: string, args: HttpFunctionArgs) {
         super(name, [<HttpBindingDefinition>{
             authLevel: "anonymous",

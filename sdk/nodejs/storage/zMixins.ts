@@ -404,7 +404,7 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 /**
  * Azure Function triggered by a Storage Queue.
  */
-export class QueueFunction extends appservice.FunctionBase<QueueContext, Buffer, void> {
+export class QueueFunction extends appservice.Function<QueueContext, Buffer, void> {
     constructor(name: string, args: QueueFunctionArgs) {
         const bindingConnectionKey = pulumi.interpolate`${args.queue.storageAccountName}ConnectionStringKey`;
 

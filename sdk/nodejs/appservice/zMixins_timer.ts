@@ -236,7 +236,7 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
 /**
  * Azure Function triggered on a CRON schedule.
  */
-export class TimerFunction extends mod.FunctionBase<TimerContext, TimerInfo, void> {
+export class TimerFunction extends mod.Function<TimerContext, TimerInfo, void> {
     constructor(name: string, args: TimerFunctionArgs) {
         const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
 

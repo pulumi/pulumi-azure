@@ -375,40 +375,9 @@ function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callba
 }
 
 /**
- * Interface to define individual Azure Functions. A function is not deployable by itself: instead, it must be passed
- * to MultiFunctionApp to be deployed as a part of the Azure Function App.
- */
-export interface Function {
-    /**
-     * Azure Function name.
-     */
-    name: string;
-
-    /**
-     * An array of function binding definitions.
-     */
-    bindings: pulumi.Input<BindingDefinition[]>;
-
-    /**
-     * Function callback.
-     */
-    callback: CallbackArgs<Context<any>, any, any>;
-
-    /**
-     * Application settings required by the function.
-     */
-    appSettings?: pulumi.Input<{ [key: string]: any }>;
-}
-
-// Type guard for Function interface
-function isFunction(object: any): object is Function {
-    return 'name' in object && 'bindings' in object && 'callback' in object;
-}
-
-/**
  * Azure Function base class.
  */
-export abstract class FunctionBase<C extends Context<R>, E, R extends Result> implements Function {
+export abstract class Function<C extends Context<R>, E, R extends Result> {
     /**
      * Function name.
      */
@@ -422,7 +391,7 @@ export abstract class FunctionBase<C extends Context<R>, E, R extends Result> im
     /**
      * Function callback.
      */
-    public readonly callback: CallbackArgs<Context<any>, E, R>;
+    public readonly callback: CallbackArgs<C, E, R>;
 
     /**
      * Application settings required by the function.
@@ -435,7 +404,7 @@ export abstract class FunctionBase<C extends Context<R>, E, R extends Result> im
         appSettings?: pulumi.Input<{ [key: string]: string }>) {
         this.name = name;
         this.bindings = bindings;
-        this.callback = <CallbackArgs<Context<any>, E, R>>callback;
+        this.callback = callback;
         this.appSettings = appSettings;
     }
 }
@@ -447,7 +416,7 @@ export interface MultiCallbackFunctionAppArgs extends FunctionAppArgsBase {
     /**
      * The functions to deploy as parts of this application. At least 1 function is required.
      */
-    functions: Function[];
+    functions: Function<any, any, any>[];
 };
 
 /**
@@ -565,10 +534,10 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
      */
     public readonly endpoint: pulumi.Output<string>;
 
-    constructor(name: string, bindings: pulumi.Input<BindingDefinition[]> | Function,
+    constructor(name: string, bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
                 args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
 
-        const functions = isFunction(bindings) ? [bindings] : [<Function>{ name, bindings, callback: args }];
+        const functions = bindingsOrFunc instanceof Function ? [bindingsOrFunc] : [<Function<C, E, R>>{ name, bindings: bindingsOrFunc, callback: args }];
         const parts = createFunctionAppParts(name, {
             ...args,
             archive: produceDeploymentArchive({ ...args, functions }),
@@ -693,12 +662,12 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
-                bindings: pulumi.Input<BindingDefinition[]> | Function,
+                bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
                 args: CallbackFunctionAppArgs<C, E, R>,
                 opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
-        this.functionApp = new CallbackFunctionApp(name, bindings, args, { parent: this });
+        this.functionApp = new CallbackFunctionApp(name, bindingsOrFunc, args, { parent: this });
     }
 }
 
