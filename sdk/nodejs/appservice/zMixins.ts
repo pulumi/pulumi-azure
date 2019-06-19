@@ -699,11 +699,11 @@ export function getResourceGroupNameAndLocation(
         return { resourceGroupName: args.resourceGroup.name, location: args.resourceGroup.location };
     }
 
-    if (!fallbackResourceGroupName) {
+    if (!args.resourceGroupName && !fallbackResourceGroupName) {
         throw new Error("Either [args.resourceGroup] or [args.resourceGroupName] must be provided.");
     }
 
-    const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName);
+    const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName!);
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
 }
