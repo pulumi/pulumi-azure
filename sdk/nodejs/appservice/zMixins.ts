@@ -405,9 +405,27 @@ function isFunction(object: any): object is Function {
     return 'name' in object && 'bindings' in object && 'callback' in object;
 }
 
+/**
+ * Azure Function Binding with the required corresponding application settings (e.g., a connection string setting).
+ */
 export interface BindingSettings {
+    /**
+     * An input or output binding definition.
+     */
     readonly binding: pulumi.Input<BindingDefinition>;
+
+    /**
+     * A dictionary of application settings to be applied to the Function App.
+     */
     readonly settings: pulumi.Input<{ [key: string]: any; }>;
+}
+
+// We might want to merge this into CallbackArgs hierachy when all function types support bindings
+export interface InputOutputsArgs {
+    /**
+     * Input and/or Output bindings.
+     */
+    inputOutputs?: appservice.BindingSettings[];
 }
 
 /**
@@ -741,4 +759,14 @@ export function getResourceGroupNameAndLocation(
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName);
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
+}
+
+/** @internal */
+export function mergeBindingSettings(trigger: appservice.BindingSettings, inputOutputs?: appservice.BindingSettings[]) {
+    const all = [trigger, ...inputOutputs || []];
+
+    const bindings = pulumi.all(all.map(bs => bs.binding));
+    const appSettings = pulumi.all(all.map(bs => bs.settings)).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+
+    return { bindings, appSettings };
 }
