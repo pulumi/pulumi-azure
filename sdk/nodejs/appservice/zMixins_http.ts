@@ -45,9 +45,9 @@ export interface HttpHostExtensions {
     maxConcurrentRequests?: number,
 
     /**
-     * When enabled, this setting causes the request processing pipeline to periodically check system performance 
-     * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in 
-     * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return 
+     * When enabled, this setting causes the request processing pipeline to periodically check system performance
+     * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in
+     * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return
      * to normal levels.
      */
     dynamicThrottlesEnabled?: boolean,
@@ -58,7 +58,7 @@ export interface HttpHostSettings extends mod.HostSettings {
     }
 }
 
-export interface HttpEventSubscriptionArgs extends mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+export interface HttpFunctionArgs extends mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
     /**
      * Defines the route template, controlling to which request URLs your function responds. The
      * default value if none is provided is <functionname>.
@@ -70,10 +70,12 @@ export interface HttpEventSubscriptionArgs extends mod.CallbackFunctionAppArgs<m
      * responds to all HTTP methods.
      */
     methods?: pulumi.Input<pulumi.Input<string>[]>;
+}
 
-    /** 
-     * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will 
-     * be used in their place. 
+export interface HttpEventSubscriptionArgs extends HttpFunctionArgs, mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+    /**
+     * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will
+     * be used in their place.
      */
     hostSettings?: HttpHostSettings;
 };
@@ -97,26 +99,29 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
     constructor(name: string,
                 args: HttpEventSubscriptionArgs,
                 opts: pulumi.CustomResourceOptions = {}) {
-
-        const bindings: HttpBindingDefinition[] = [{
-                    authLevel: "anonymous",
-                    type: "httpTrigger",
-                    direction: "in",
-                    name: "req",
-                    route: args.route,
-                    methods: args.methods,
-                }, {
-                    type: "http",
-                    direction: "out",
-                    name: "$return",
-                }];
-
-        super("azure:appservice:HttpEventSubscription", name, bindings, {
-            ...args,
-        }, opts);
+        super("azure:appservice:HttpEventSubscription", name, new HttpFunction(name, args), args, opts);
 
         this.url = pulumi.interpolate`${this.functionApp.endpoint}${args.route || name}`;
-
         this.registerOutputs();
+    }
+}
+
+/**
+ * Azure Function triggered by HTTP requests.
+ */
+export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+    constructor(name: string, args: HttpFunctionArgs) {
+        super(name, [<HttpBindingDefinition>{
+            authLevel: "anonymous",
+            type: "httpTrigger",
+            direction: "in",
+            name: "req",
+            route: args.route,
+            methods: args.methods,
+        }, {
+            type: "http",
+            direction: "out",
+            name: "$return",
+        }], args);
     }
 }

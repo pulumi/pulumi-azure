@@ -93,13 +93,13 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
 
         // Place the mapping from the well known key name to the Event Hubs account connection string in
         // the 'app settings' object.
-        // The connection string is built from the IoT Hub "event hub compatible endpoint" 
+        // The connection string is built from the IoT Hub "event hub compatible endpoint"
         // and the iothubowner access policy key
         // see https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin
         const appSettings = pulumi.all([args.appSettings, iotHub.eventHubEventsEndpoint, iotHub.sharedAccessPolicies]).apply(
-            ([appSettings, eventHubEventsEndpoint, sharedAccessPolicies]) => ({ 
-                ...appSettings, 
-                [bindingConnectionKey]: `Endpoint=${eventHubEventsEndpoint};SharedAccessKeyName=iothubowner;SharedAccessKey=${sharedAccessPolicies.find(p => p.keyName === "iothubowner")!.primaryKey}` 
+            ([appSettings, eventHubEventsEndpoint, sharedAccessPolicies]) => ({
+                ...appSettings,
+                [bindingConnectionKey]: `Endpoint=${eventHubEventsEndpoint};SharedAccessKeyName=iothubowner;SharedAccessKey=${sharedAccessPolicies.find(p => p.keyName === "iothubowner")!.primaryKey}`
             }));
 
         super("azure:eventhub:IoTHubEventSubscription", name, bindings, {

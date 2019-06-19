@@ -12,6 +12,7 @@ ___NULL___
 * The type of all SubscriptionArgs has changed from Overwrite<T> to interfaces derived from FunctionAppArgsBase. The shape is preserved.
 * Introduce MultiCallbackFunctionApp which can hold several callback functions in the same Function App
 * Introduce ArchiveFunctionApp which accept an archive of an Azure Functions deployment artifact
+* Introduce HttpFunction, TimerFunction, and QueueFunction - to be hosted within MultiCallbackFunctionApp
 
 
 ## 0.18.7 (2019-06-07)
