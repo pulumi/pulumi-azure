@@ -19,9 +19,6 @@ import * as azurefunctions from "@azure/functions";
 
 import * as mod from ".";
 
-import * as core from "../core";
-import * as util from "../util";
-
 /**
  * HTTP request object. Provided to your function when using HttpEventSubscription.
  */
@@ -75,25 +72,13 @@ export interface HttpFunctionArgs extends mod.CallbackArgs<mod.Context<HttpRespo
     methods?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
-    /**
-     * The resource group in which to create the event subscription.  Either [resourceGroupName] or
-     * [resourceGroup] must be supplied.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the event subscription.  Either
-     * [resourceGroupName] or [resourceGroup] must be supplied.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-
-    /** 
+export interface HttpEventSubscriptionArgs extends HttpFunctionArgs, mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+        /** 
      * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will 
      * be used in their place. 
      */
     hostSettings?: HttpHostSettings;
-} & HttpFunctionArgs>;
+};
 
 interface HttpBindingDefinition extends mod.BindingDefinition {
     authLevel?: "anonymous";
@@ -114,14 +99,7 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
     constructor(name: string,
                 args: HttpEventSubscriptionArgs,
                 opts: pulumi.CustomResourceOptions = {}) {
-
-        const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
-
-        super("azure:appservice:HttpEventSubscription", name, new HttpFunction(name, args), {
-            ...args,
-            location,
-            resourceGroupName,
-        }, opts);
+        super("azure:appservice:HttpEventSubscription", name, new HttpFunction(name, args), args, opts);
 
         this.url = pulumi.interpolate`${this.functionApp.endpoint}${args.route || name}`;
 

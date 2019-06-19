@@ -16,9 +16,6 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as mod from ".";
 
-import * as core from "../core";
-import * as util from "../util";
-
 /**
  * Creates an appropriate [Cron](https://en.wikipedia.org/wiki/Cron) format string that can be
  * used as the [recurrence] property of [ScheduleArgs]. Includes a component for seconds.
@@ -193,6 +190,8 @@ export interface TimerContext extends mod.Context<void> {
 export interface TimerFunctionArgs extends mod.CallbackArgs<TimerContext, TimerInfo, void> {
     /**
      * A schedule or a CRON expression for the timer schedule, e.g. '0 * * * * *'.
+    /**
+     * A CRON expression for the timer schedule, e.g. '0 * * * * *'.
      */
     schedule: pulumi.Input<string | ScheduleArgs>;
 
@@ -202,32 +201,14 @@ export interface TimerFunctionArgs extends mod.CallbackArgs<TimerContext, TimerI
     runOnStartup?: pulumi.Input<boolean>;
 };
 
-export type TimerSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<TimerContext, TimerInfo, void>, {
-    /**
-     * The resource group in which to create the timer subscription. Either [resourceGroupName] or
-     * [resourceGroup] must be supplied.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the timer subscription. Either
-     * [resourceGroupName] or [resourceGroup] must be supplied.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-} & TimerFunctionArgs>;
+export interface TimerSubscriptionArgs extends TimerFunctionArgs, mod.CallbackFunctionAppArgs<TimerContext, TimerInfo, void> {
+}
 
 export class TimerSubscription extends mod.EventSubscription<TimerContext, TimerInfo, void> {
     constructor(name: string,
                 args: TimerSubscriptionArgs,
                 opts: pulumi.CustomResourceOptions = {}) {
-
-        const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
-
-        super("azure:appservice:TimerSubscription", name, new TimerFunction(name, args), {
-            ...args,
-            location,
-            resourceGroupName,
-        }, opts);
+        super("azure:appservice:TimerSubscription", name, new TimerFunction(name, args), args, opts);
 
         this.registerOutputs();
     }
@@ -240,12 +221,14 @@ export class TimerFunction extends mod.Function<TimerContext, TimerInfo, void> {
     constructor(name: string, args: TimerFunctionArgs) {
         const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
 
-        super(name, [<TimerBindingDefinition>{
+        const bindings = [<TimerBindingDefinition>{
             type: "timerTrigger",
             direction: "in",
             name: "timer",
             runOnStartup: args.runOnStartup,
             schedule,
-        }], args);
+        }];
+
+        super(name, bindings, args);
     }
 }

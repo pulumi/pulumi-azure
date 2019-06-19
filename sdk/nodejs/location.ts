@@ -45,6 +45,8 @@ export module Locations {
     export const FranceSouth:        Location = "francesouth";
     export const SouthAfricaNorth:   Location = "southafricanorth";
     export const SouthAfricaWest:    Location = "southafricawest";
+    export const UAENorth:           Location = "uaenorth";
+    export const UAECentral:         Location = "uaecentral";
 }
 
 export type Location =
@@ -79,4 +81,6 @@ export type Location =
     "francecentral"      |
     "francesouth"        |
     "southafricanorth"   |
-    "southafricawest"    ;
+    "southafricawest"    |
+    "uaecentral"         |
+    "uaenorth"           ;

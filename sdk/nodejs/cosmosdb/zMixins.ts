@@ -16,8 +16,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { Account } from "./account";
 
 import * as appservice from "../appservice";
-import * as core from "../core";
-import * as util from "../util";
 
 interface CosmosBindingDefinition extends appservice.BindingDefinition {
     /**
@@ -100,7 +98,13 @@ export interface CosmosChangeFeedContext extends appservice.Context<void> {
  */
 export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedContext, any[], void>;
 
-export type CosmosChangeFeedSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], void>, {
+export interface CosmosChangeFeedSubscriptionArgs extends appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], void> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * If none of the two is supplied, the resource group of the Cosmos DB Account will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
     /**
      * The name of the database we are subscribing to.
      */
@@ -122,19 +126,7 @@ export type CosmosChangeFeedSubscriptionArgs = util.Overwrite<appservice.Callbac
      * there are leases already created has no effect.
      */
     startFromBeginning?: pulumi.Input<boolean>;
-
-    /**
-     * The resource group in which to create the event subscription.  If not supplied, the Topic's
-     * resource group will be used.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the event subscription.  If not supplied,
-     * the Topic's resource group will be used.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-}>;
+};
 
 declare module "./account" {
     interface Account {

@@ -17,8 +17,6 @@ import { getServiceBusNamespace, Subscription, Topic } from ".";
 import { EventHub, EventHubConsumerGroup, getEventhubNamespace } from ".";
 
 import * as appservice from "../appservice";
-import * as core from "../core";
-import * as util from "../util";
 
 interface TopicBindingDefinition extends appservice.BindingDefinition {
     /**
@@ -115,7 +113,13 @@ export interface TopicHostSettings extends appservice.HostSettings {
  */
 export type TopicCallback = appservice.Callback<TopicContext, string, void>;
 
-export type TopicEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<TopicContext, any, void>, {
+export interface TopicEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<TopicContext, any, void> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * If none of the two is supplied, the Topic's resource group will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
     /**
      * The Subscription to subscribe the FunctionApp to.  If not present, a new Subscription
      * resource will be created.
@@ -127,24 +131,12 @@ export type TopicEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      */
     maxDeliveryCount?: pulumi.Input<number>;
 
-    /**
-     * The resource group in which to create the event subscription.  If not supplied, the Topic's
-     * resource group will be used.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the event subscription.  If not supplied,
-     * the Topic's resource group will be used.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-
     /** 
      * Host settings specific to the Service Bus Topic/Subscription plugin. These values can be provided here, or defaults will 
      * be used in their place. 
      */
     hostSettings?: TopicHostSettings;
-}>;
+};
 
 declare module "./topic" {
     interface Topic {
@@ -198,7 +190,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<TopicCo
             connection: bindingConnectionKey,
         }];
 
-        const namespace = pulumi.all([topic.namespaceName, resourceGroupName])
+        const namespace = pulumi.all([topic.namespaceName, topic.resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
                                     getServiceBusNamespace({ name: namespaceName, resourceGroupName }));
 
@@ -305,7 +297,13 @@ export interface EventHubContext extends appservice.Context<void> {
  */
 export type EventHubCallback = appservice.Callback<EventHubContext, string, void>;
 
-export type EventHubSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<EventHubContext, any, void>, {
+export interface EventHubSubscriptionArgs extends appservice.CallbackFunctionAppArgs<EventHubContext, any, void> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * If none of the two is supplied, the Event Hub's resource group will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
     /**
      * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
      */
@@ -315,7 +313,7 @@ export type EventHubSubscriptionArgs = util.Overwrite<appservice.CallbackFunctio
      * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
      */
     cardinality?: pulumi.Input<"many" | "one">;
-}>;
+};
 
 declare module "./eventHub" {
     interface EventHub {
@@ -369,7 +367,7 @@ export class EventHubSubscription extends appservice.EventSubscription<EventHubC
             connection: bindingConnectionKey,
         }];
 
-        const namespace = pulumi.all([eventHub.namespaceName, resourceGroupName])
+        const namespace = pulumi.all([eventHub.namespaceName, eventHub.resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
                                     getEventhubNamespace({ name: namespaceName, resourceGroupName }));
 
