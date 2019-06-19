@@ -87,14 +87,14 @@ export interface TopicContext extends appservice.Context<void> {
 export interface ServiceBusHostExtensions extends appservice.HostSettings {
     /** The default PrefetchCount that will be used by the underlying MessageReceiver. */
     prefetchCount?: number,
-    
+
     messageHandlerOptions?: {
         /** Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete. */
         autoComplete?: boolean,
 
-        /** The maximum number of concurrent calls to the callback that the message pump should initiate. 
-         * By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only 
-         * a single queue or topic message at a time, set maxConcurrentCalls to 1. 
+        /** The maximum number of concurrent calls to the callback that the message pump should initiate.
+         * By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only
+         * a single queue or topic message at a time, set maxConcurrentCalls to 1.
          */
         maxConcurrentCalls?: number,
 
@@ -105,7 +105,7 @@ export interface ServiceBusHostExtensions extends appservice.HostSettings {
 export interface TopicHostSettings extends appservice.HostSettings {
     extensions?: {
         serviceBus: ServiceBusHostExtensions,
-    }    
+    }
 }
 
 /**
@@ -131,9 +131,9 @@ export interface TopicEventSubscriptionArgs extends appservice.CallbackFunctionA
      */
     maxDeliveryCount?: pulumi.Input<number>;
 
-    /** 
-     * Host settings specific to the Service Bus Topic/Subscription plugin. These values can be provided here, or defaults will 
-     * be used in their place. 
+    /**
+     * Host settings specific to the Service Bus Topic/Subscription plugin. These values can be provided here, or defaults will
+     * be used in their place.
      */
     hostSettings?: TopicHostSettings;
 };
@@ -238,7 +238,7 @@ export interface EventHubBindingDefinition extends appservice.BindingDefinition 
     eventHubName: pulumi.Input<string>;
 
     /**
-     * An optional property that sets the consumer group used to subscribe to events in the hub. 
+     * An optional property that sets the consumer group used to subscribe to events in the hub.
      * If not present, a new Consumer Group resource will be created.
      */
     consumerGroup?: pulumi.Input<string>;
@@ -266,22 +266,22 @@ export interface EventHubContext extends appservice.Context<void> {
     };
     bindings: { eventHub: string };
     bindingData: {
-        partitionContext: { 
+        partitionContext: {
             consumerGroupName: string;
             eventHubPath: string;
             partitionId: string;
             owner: string;
-            runtimeInformation: { 
+            runtimeInformation: {
                 partitionId: string;
                 lastSequenceNumber: number;
                 lastEnqueuedTimeUtc: string;
                 retrievalTime: string;
             };
-        }, 
+        },
         partitionKey: string;
-        offset: number, 
+        offset: number,
         sequenceNumber: number;
-        enqueuedTimeUtc: string; 
+        enqueuedTimeUtc: string;
         properties: Record<string, any>;
         systemProperties: Record<string, any>;
         sys: {

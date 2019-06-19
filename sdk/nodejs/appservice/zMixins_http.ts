@@ -45,9 +45,9 @@ export interface HttpHostExtensions {
     maxConcurrentRequests?: number,
 
     /**
-     * When enabled, this setting causes the request processing pipeline to periodically check system performance 
-     * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in 
-     * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return 
+     * When enabled, this setting causes the request processing pipeline to periodically check system performance
+     * counters like connections/threads/processes/memory/cpu/etc. and if any of those counters are over a built-in
+     * high threshold (80%), requests will be rejected with a 429 "Too Busy" response until the counter(s) return
      * to normal levels.
      */
     dynamicThrottlesEnabled?: boolean,
@@ -73,9 +73,9 @@ export interface HttpFunctionArgs extends mod.CallbackArgs<mod.Context<HttpRespo
 }
 
 export interface HttpEventSubscriptionArgs extends HttpFunctionArgs, mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
-        /** 
-     * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will 
-     * be used in their place. 
+    /**
+     * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will
+     * be used in their place.
      */
     hostSettings?: HttpHostSettings;
 };
@@ -102,7 +102,6 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
         super("azure:appservice:HttpEventSubscription", name, new HttpFunction(name, args), args, opts);
 
         this.url = pulumi.interpolate`${this.functionApp.endpoint}${args.route || name}`;
-
         this.registerOutputs();
     }
 }

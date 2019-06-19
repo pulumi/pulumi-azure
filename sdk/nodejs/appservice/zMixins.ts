@@ -404,7 +404,7 @@ export abstract class Function<C extends Context<R>, E, R extends Result> {
      */
     public readonly appSettings?: pulumi.Input<{ [key: string]: string }>;
 
-    constructor(name: string, 
+    constructor(name: string,
         bindings: pulumi.Input<BindingDefinition[]>,
         callback: CallbackArgs<C, E, R>,
         appSettings?: pulumi.Input<{ [key: string]: string }>) {

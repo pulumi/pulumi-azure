@@ -350,9 +350,9 @@ export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionA
      */
     resourceGroupName?: pulumi.Input<string>;
 
-    /** 
-     * Host settings specific to the Storage Queue plugin. These values can be provided here, or defaults will 
-     * be used in their place. 
+    /**
+     * Host settings specific to the Storage Queue plugin. These values can be provided here, or defaults will
+     * be used in their place.
      */
     hostSettings?: QueueHostSettings;
 };

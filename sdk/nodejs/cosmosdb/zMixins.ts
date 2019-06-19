@@ -44,13 +44,13 @@ interface CosmosBindingDefinition extends appservice.BindingDefinition {
     collectionName: pulumi.Input<string>;
 
     /**
-     * When set, it adds a prefix to the leases created in the Lease collection for this Function, effectively allowing 
+     * When set, it adds a prefix to the leases created in the Lease collection for this Function, effectively allowing
      * two separate Azure Functions to share the same Lease collection by using different prefixes.
      */
     leaseCollectionPrefix: pulumi.Input<string>;
 
     /**
-     * When set to true, the leases collection is automatically created when it doesn't already exist. 
+     * When set to true, the leases collection is automatically created when it doesn't already exist.
      * The default value is false.
      */
     createLeaseCollectionIfNotExists: boolean;
@@ -66,8 +66,8 @@ interface CosmosBindingDefinition extends appservice.BindingDefinition {
     maxItemsPerInvocation?: pulumi.Input<number>;
 
     /**
-     * When set, it tells the Trigger to start reading changes from the beginning of the history of the collection instead of the current time. 
-     * This only works the first time the Trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this to true when 
+     * When set, it tells the Trigger to start reading changes from the beginning of the history of the collection instead of the current time.
+     * This only works the first time the Trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this to true when
      * there are leases already created has no effect.
      */
     startFromBeginning?: pulumi.Input<boolean>;
@@ -121,8 +121,8 @@ export interface CosmosChangeFeedSubscriptionArgs extends appservice.CallbackFun
     maxItemsPerInvocation?: pulumi.Input<number>;
 
     /**
-     * When set, it tells the Trigger to start reading changes from the beginning of the history of the collection instead of the current time. 
-     * This only works the first time the Trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this to true when 
+     * When set, it tells the Trigger to start reading changes from the beginning of the history of the collection instead of the current time.
+     * This only works the first time the Trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this to true when
      * there are leases already created has no effect.
      */
     startFromBeginning?: pulumi.Input<boolean>;
@@ -165,7 +165,7 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
             collectionName: args.collectionName,
             maxItemsPerInvocation: args.maxItemsPerInvocation,
             startFromBeginning: args.startFromBeginning,
-            
+
             // We take an opiniated approach here: use the default "leases" collection as
             // a shared lease collection for all Cosmos DB triggered functions. With multiple
             // functions, this is both the simplest and the cheapest solution. The collection

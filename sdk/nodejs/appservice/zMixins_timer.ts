@@ -209,7 +209,6 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
                 args: TimerSubscriptionArgs,
                 opts: pulumi.CustomResourceOptions = {}) {
         super("azure:appservice:TimerSubscription", name, new TimerFunction(name, args), args, opts);
-
         this.registerOutputs();
     }
 }
