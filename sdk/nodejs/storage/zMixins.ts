@@ -24,7 +24,6 @@ import { ZipBlob } from "./zipBlob";
 import * as appservice from "../appservice";
 import * as core from "../core";
 import * as storage from "../storage";
-import * as util from "../util";
 
 /**
  * Produce a URL with read-only access to a Storage Blob with a Shared Access Signature (SAS).
@@ -154,7 +153,13 @@ export interface BlobContext extends appservice.Context<void> {
  */
 export type BlobCallback = appservice.Callback<BlobContext, Buffer, void>;
 
-export type BlobEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void>, {
+export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * If none of the two is supplied, the resource group of the Storage Account will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
     /**
      * An optional prefix or suffix to filter down notifications.  See
      * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#trigger---blob-name-patterns
@@ -162,18 +167,7 @@ export type BlobEventSubscriptionArgs = util.Overwrite<appservice.CallbackFuncti
      */
     filterPrefix?: pulumi.Input<string>;
     filterSuffix?: pulumi.Input<string>;
-    /**
-     * The resource group in which to create the event subscription.  If not supplied, the
-     * Container's resource group will be used.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the event subscription.  If not supplied, the
-     * Container's resource group will be used.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-}>;
+};
 
 declare module "./container" {
     interface Container {
@@ -223,7 +217,7 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
 
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
-        const account = pulumi.all([resourceGroupName, container.storageAccountName])
+        const account = pulumi.all([container.resourceGroupName, container.storageAccountName])
                               .apply(([resourceGroupName, storageAccountName]) =>
                                 storage.getAccount({ resourceGroupName, name: storageAccountName }));
 
@@ -336,16 +330,10 @@ export interface QueueHostSettings extends appservice.HostSettings {
  */
 export type QueueCallback = appservice.Callback<QueueContext, Buffer, void>;
 
-export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<QueueContext, Buffer, void>, {
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, Buffer, void> {
     /**
-     * The resource group in which to create the event subscription.  If not supplied, the
-     * Queue's resource group will be used.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the event subscription.  If not supplied, the
-     * Queue's resource group will be used.
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * If none of the two is supplied, the resource group of the Storage Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 
@@ -354,7 +342,7 @@ export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunct
      * be used in their place. 
      */
     hostSettings?: QueueHostSettings;
-}>;
+};
 
 declare module "./queue" {
     interface Queue {
@@ -404,7 +392,7 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 
         // Place the mapping from the well known key name to the storage account connection string in
         // the 'app settings' object.
-        const account = pulumi.all([resourceGroupName, queue.storageAccountName])
+        const account = pulumi.all([queue.resourceGroupName, queue.storageAccountName])
                                 .apply(([resourceGroupName, storageAccountName]) =>
                                 storage.getAccount({ resourceGroupName, name: storageAccountName }));
 

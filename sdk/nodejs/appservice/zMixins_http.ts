@@ -19,9 +19,6 @@ import * as azurefunctions from "@azure/functions";
 
 import * as mod from ".";
 
-import * as core from "../core";
-import * as util from "../util";
-
 /**
  * HTTP request object. Provided to your function when using HttpEventSubscription.
  */
@@ -61,19 +58,7 @@ export interface HttpHostSettings extends mod.HostSettings {
     }
 }
 
-export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse>, {
-    /**
-     * The resource group in which to create the event subscription.  Either [resourceGroupName] or
-     * [resourceGroup] must be supplied.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the event subscription.  Either
-     * [resourceGroupName] or [resourceGroup] must be supplied.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-
+export interface HttpEventSubscriptionArgs extends mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
     /**
      * Defines the route template, controlling to which request URLs your function responds. The
      * default value if none is provided is <functionname>.
@@ -91,7 +76,7 @@ export type HttpEventSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppAr
      * be used in their place. 
      */
     hostSettings?: HttpHostSettings;
-}>;
+};
 
 interface HttpBindingDefinition extends mod.BindingDefinition {
     authLevel?: "anonymous";
@@ -113,8 +98,6 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
                 args: HttpEventSubscriptionArgs,
                 opts: pulumi.CustomResourceOptions = {}) {
 
-        const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
-
         const bindings: HttpBindingDefinition[] = [{
                     authLevel: "anonymous",
                     type: "httpTrigger",
@@ -130,8 +113,6 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 
         super("azure:appservice:HttpEventSubscription", name, bindings, {
             ...args,
-            location,
-            resourceGroupName,
         }, opts);
 
         this.url = pulumi.interpolate`${this.functionApp.endpoint}${args.route || name}`;
