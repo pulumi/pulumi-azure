@@ -3,11 +3,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+___NULL___
+
+---
+
+## 0.18.8 (2019-06-19)
 * Add constants for the Azure Location types
 * Introduce MultiCallbackFunctionApp which can hold several callback functions in the same Function App
 * Introduce ArchiveFunctionApp which accept an archive of an Azure Functions deployment artifact
 
----
 
 ## 0.18.7 (2019-06-07)
 * Update to v1.30.1 of the AzureRM Terraform provider
