@@ -348,16 +348,16 @@ export interface QueueHostSettings extends appservice.HostSettings {
 /**
  * Signature of the callback that can receive queue notifications.
  */
-export type QueueCallback = appservice.Callback<QueueContext, Buffer, void | Record<string, any>>;
+export type QueueCallback = appservice.Callback<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse>;
 
-export interface QueueFunctionArgs extends appservice.InputOutputsArgs, appservice.CallbackArgs<QueueContext, Buffer, void | Record<string, any>> {
+export interface QueueFunctionArgs extends appservice.InputOutputsArgs, appservice.CallbackArgs<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse> {
     /**
      * Defines the queue to trigger the function.
      */
     queue: Queue;
 };
 
-export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<QueueContext, Buffer, void | Record<string, any>>, {
+export type QueueEventSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse>, {
     /**
      * The resource group in which to create the event subscription.  If not supplied, the
      * Queue's resource group will be used.
@@ -405,7 +405,7 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
     return new QueueEventSubscription(name, this, functionArgs, opts);
 }
 
-export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, Buffer, void | Record<string, any>> {
+export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse> {
     constructor(
         name: string, queue: Queue,
         args: QueueEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
@@ -440,7 +440,7 @@ function resolveAccount(queue: Queue) {
 /**
  * Azure Function triggered by a Storage Queue.
  */
-export class QueueFunction extends appservice.FunctionBase<QueueContext, Buffer, void | Record<string, any>> {
+export class QueueFunction extends appservice.FunctionBase<QueueContext, Buffer, appservice.FunctionCallbackDefaultResponse> {
     constructor(name: string, args: QueueFunctionArgs) {
         const { connectionKey, settings } = resolveAccount(args.queue);
 

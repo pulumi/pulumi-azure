@@ -429,6 +429,15 @@ export interface InputOutputsArgs {
 }
 
 /**
+ * Type alias for a response coming from an Azure Function callback, which applies to most Function types (HTTP being a notable exception).
+ */
+export type FunctionCallbackDefaultResponse = 
+    // Nothing is returned if a function has no output bindings
+    void | 
+    // A dictionary is returned if a function has output bindings
+    Record<string, any>;
+
+/**
  * Azure Function base class.
  */
 export abstract class FunctionBase<C extends Context<R>, E, R extends Result> implements Function {

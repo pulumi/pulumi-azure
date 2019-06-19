@@ -1,7 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup('example', { location: 'West US 2' });
+const resourceGroup = new azure.core.ResourceGroup('example', { location: 'UAE North' });
 
 // Create a Function App implemented in PowerShell with source code from 'funcapp' folder
 const app = new azure.appservice.ArchiveFunctionApp("http-ps", {
