@@ -17,9 +17,14 @@ import * as appservice from "../appservice";
 import { IoTHub } from "./ioTHub";
 import { ConsumerGroup } from "./consumerGroup";
 import { EventHubBindingDefinition, EventHubContext, EventHubCallback } from '../eventhub';
-import * as util from "../util";
 
-export type IoTHubSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionAppArgs<EventHubContext, any, void>, {
+export interface IoTHubSubscriptionArgs extends appservice.CallbackFunctionAppArgs<EventHubContext, any, void> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * If none of the two is supplied, the IoT Hub's resource group will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
     /**
      * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
      */
@@ -29,7 +34,7 @@ export type IoTHubSubscriptionArgs = util.Overwrite<appservice.CallbackFunctionA
      * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
      */
     cardinality?: pulumi.Input<"many" | "one">;
-}>;
+};
 
 declare module "./ioTHub" {
     interface IoTHub {
@@ -101,7 +106,7 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
             ...args,
             resourceGroupName,
             location,
-            appSettings
+            appSettings,
         }, opts);
 
         this.iotHub = iotHub;

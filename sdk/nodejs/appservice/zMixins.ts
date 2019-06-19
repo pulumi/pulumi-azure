@@ -178,9 +178,15 @@ interface FunctionAppArgsBase {
     readonly plan?: appservice.Plan;
 
     /**
-     * The name of the resource group in which to create the Function App.
+     * The resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroup?: core.ResourceGroup;
+
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * Either [resourceGroupName] or [resourceGroup] must be supplied.
+     */
+    readonly resourceGroupName?: pulumi.Input<string>;
 
     /**
      * A `site_config` object as defined below.
@@ -429,10 +435,9 @@ function createFunctionAppParts(
         throw new Error("Deployment [archive] must be provided.");
     }
 
-    const resourceGroupArgs = {
-        resourceGroupName: args.resourceGroupName,
-        location: args.location,
-    };
+    const { resourceGroupName, location } = getResourceGroupNameAndLocation(args, undefined);
+
+    const resourceGroupArgs = { resourceGroupName, location };
 
     const plan = args.plan || new appservice.Plan(name, {
         ...resourceGroupArgs,
@@ -455,13 +460,13 @@ function createFunctionAppParts(
     }, opts);
 
     const container = args.container || new storageMod.Container(makeSafeStorageContainerName(name), {
-        resourceGroupName: args.resourceGroupName,
+        resourceGroupName,
         storageAccountName: account.name,
         containerAccessType: "private",
     }, opts);
 
     const zipBlob = new storageMod.ZipBlob(name, {
-        resourceGroupName: args.resourceGroupName,
+        resourceGroupName,
         storageAccountName: account.name,
         storageContainerName: container.name,
         type: "block",

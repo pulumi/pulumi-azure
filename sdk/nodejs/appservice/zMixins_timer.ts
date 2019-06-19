@@ -16,9 +16,6 @@ import * as pulumi from "@pulumi/pulumi";
 
 import * as mod from ".";
 
-import * as core from "../core";
-import * as util from "../util";
-
 /**
  * Creates an appropriate [Cron](https://en.wikipedia.org/wiki/Cron) format string that can be
  * used as the [recurrence] property of [ScheduleArgs]. Includes a component for seconds.
@@ -190,19 +187,7 @@ export interface TimerContext extends mod.Context<void> {
     };
 }
 
-export type TimerSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<TimerContext, TimerInfo, void>, {
-    /**
-     * The resource group in which to create the timer subscription. Either [resourceGroupName] or
-     * [resourceGroup] must be supplied.
-     */
-    resourceGroup?: core.ResourceGroup;
-
-    /**
-     * The name of the resource group in which to create the timer subscription. Either
-     * [resourceGroupName] or [resourceGroup] must be supplied.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-
+export interface TimerSubscriptionArgs extends mod.CallbackFunctionAppArgs<TimerContext, TimerInfo, void> {
     /**
      * A CRON expression for the timer schedule, e.g. '0 * * * * *'.
      */
@@ -212,14 +197,12 @@ export type TimerSubscriptionArgs = util.Overwrite<mod.CallbackFunctionAppArgs<T
      * If true, the function is invoked when the runtime starts.
      */
     runOnStartup?: pulumi.Input<boolean>;
-}>;
+};
 
 export class TimerSubscription extends mod.EventSubscription<TimerContext, TimerInfo, void> {
     constructor(name: string,
                 args: TimerSubscriptionArgs,
                 opts: pulumi.CustomResourceOptions = {}) {
-
-        const { resourceGroupName, location } = mod.getResourceGroupNameAndLocation(args, undefined);
 
         const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
 
@@ -231,11 +214,7 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
             schedule,
         }];
 
-        super("azure:appservice:TimerSubscription", name, bindings, {
-            ...args,
-            location,
-            resourceGroupName,
-        }, opts);
+        super("azure:appservice:TimerSubscription", name, bindings, args, opts);
 
         this.registerOutputs();
     }
