@@ -58,7 +58,7 @@ interface CosmosBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of an app setting that contains the Cosmos DB connection string to use for this binding.
      */
-    connectionStringSetting: string;
+    connectionStringSetting: pulumi.Input<string>;
 
     /**
      * When set, it customizes the maximum amount of items received per Function call.
@@ -177,7 +177,7 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
  */
 export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContext, any[], void> {
     constructor(name: string, args: CosmosDBFunctionArgs) {
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const bindingConnectionKey = pulumi.interpolate`Cosmos${args.account.name}ConnectionKey`;
 
         const bindings: CosmosBindingDefinition[] = [{
             name: "items",
@@ -199,7 +199,8 @@ export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContex
 
         // Place the mapping from the well known key name to the Cosmos DB connection string in
         // the 'app settings' object.
-        const appSettings = args.account.connectionStrings.apply(connectionStrings => ({ [bindingConnectionKey]: connectionStrings[0] }));
+        const appSettings = pulumi.all([args.account.connectionStrings, bindingConnectionKey]).apply(
+            ([connectionStrings, key]) => ({ [key]: connectionStrings[0] }));
 
         super(name, bindings, args, appSettings);
     }

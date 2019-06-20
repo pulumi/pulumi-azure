@@ -140,6 +140,7 @@ export interface BlobContext extends appservice.Context<void> {
             isServerEncrypted: boolean,
         },
         metadata: Record<string, string>,
+        blobName: string,
         sys: {
             methodName: string,
             utcNow: string,
@@ -224,7 +225,7 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
  */
 export class BlobFunction extends appservice.Function<BlobContext, Buffer, void> {
     constructor(name: string, args: BlobFunctionArgs) {
-        const bindingConnectionKey = pulumi.interpolate`${args.container.storageAccountName}ConnectionStringKey`;
+        const bindingConnectionKey = pulumi.interpolate`Storage${args.container.storageAccountName}ConnectionKey`;
 
         const prefix = args.filterPrefix || "";
         const suffix = args.filterSuffix || "";
@@ -415,7 +416,7 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
  */
 export class QueueFunction extends appservice.Function<QueueContext, Buffer, void> {
     constructor(name: string, args: QueueFunctionArgs) {
-        const bindingConnectionKey = pulumi.interpolate`${args.queue.storageAccountName}ConnectionStringKey`;
+        const bindingConnectionKey = pulumi.interpolate`Storage${args.queue.storageAccountName}ConnectionStringKey`;
 
         const account = pulumi.all([args.queue.resourceGroupName, args.queue.storageAccountName])
             .apply(([resourceGroupName, storageAccountName]) =>

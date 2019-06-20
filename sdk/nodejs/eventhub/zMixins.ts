@@ -52,7 +52,7 @@ interface ServiceBusBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of an app setting that contains the Service Bus connection string to use for this binding.
      */
-    connection: string;
+    connection: pulumi.Input<string>;
 }
 
 /**
@@ -268,13 +268,17 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             throw new Error("[subscription] can't be specified in combination with [queue]");
         }
 
+        if (args.topic && !args.subscription) {
+            throw new Error("[subscription] must be specified in combination with [topic]");
+        }
+
         const namespaceName = (args.queue && args.queue.namespaceName) || args.topic!.namespaceName;
         const resourceGroupName = (args.queue && args.queue.resourceGroupName) || args.topic!.resourceGroupName;
 
-        // The topic binding does not store the Service Bus connection string directly.  Instead, the
+        // The binding does not store the Service Bus connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const bindingConnectionKey = pulumi.interpolate`ServiceBus${namespaceName}ConnectionKey`;
 
         const bindings: ServiceBusBindingDefinition[] = [{
             name: "message",
@@ -290,7 +294,8 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
                                .apply(([namespaceName, resourceGroupName]) =>
                                     getServiceBusNamespace({ name: namespaceName, resourceGroupName }));
 
-        const appSettings = namespace.defaultPrimaryConnectionString.apply(connectionString => ({ [bindingConnectionKey]: connectionString }));
+        const appSettings = pulumi.all([namespace.defaultPrimaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
 
         super(name, bindings, args, appSettings);
     }
@@ -333,7 +338,7 @@ export interface EventHubBindingDefinition extends appservice.BindingDefinition 
     /**
      * The name of an app setting that contains the Event Hub connection string to use for this binding.
      */
-    connection: string;
+    connection: pulumi.Input<string>;
 }
 
 /**
@@ -468,7 +473,7 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
         // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const bindingConnectionKey = pulumi.interpolate`EventHub${args.eventHub.namespaceName}ConnectionKey`;
 
         const bindings: EventHubBindingDefinition[] = [{
             name: "eventHub",
@@ -487,7 +492,8 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
         // Place the mapping from the well known key name to the Event Hubs account connection string in
         // the 'app settings' object.
 
-        const appSettings = namespace.defaultPrimaryConnectionString.apply(connectionString => ({ [bindingConnectionKey]: connectionString }));
+        const appSettings = pulumi.all([namespace.defaultPrimaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
 
         super(name, bindings, args, appSettings);
     }

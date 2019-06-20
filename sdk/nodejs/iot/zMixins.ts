@@ -99,7 +99,7 @@ export class IoTHubFunction extends appservice.Function<EventHubContext, string,
        // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const bindingConnectionKey = pulumi.interpolate`IoTHub${args.iotHub.name}ConnectionKey`;
 
         const bindings: EventHubBindingDefinition[] = [{
             name: "eventHub",
@@ -126,9 +126,9 @@ export class IoTHubFunction extends appservice.Function<EventHubContext, string,
         // The connection string is built from the IoT Hub "event hub compatible endpoint"
         // and the iothubowner access policy key
         // see https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin
-        const appSettings = pulumi.all([args.iotHub.eventHubEventsEndpoint, args.iotHub.sharedAccessPolicies]).apply(
-            ([eventHubEventsEndpoint, sharedAccessPolicies]) => ({
-                [bindingConnectionKey]: `Endpoint=${eventHubEventsEndpoint};SharedAccessKeyName=iothubowner;SharedAccessKey=${sharedAccessPolicies.find(p => p.keyName === "iothubowner")!.primaryKey}`
+        const appSettings = pulumi.all([args.iotHub.eventHubEventsEndpoint, args.iotHub.sharedAccessPolicies, bindingConnectionKey]).apply(
+            ([eventHubEventsEndpoint, sharedAccessPolicies, key]) => ({
+                [key]: `Endpoint=${eventHubEventsEndpoint};SharedAccessKeyName=iothubowner;SharedAccessKey=${sharedAccessPolicies.find(p => p.keyName === "iothubowner")!.primaryKey}`
             }));
 
         super(name, bindings, args, appSettings);
