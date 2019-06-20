@@ -191,7 +191,7 @@ export class QueueEventSubscription extends appservice.EventSubscription<Service
 
         super("azure:eventhub:QueueEventSubscription",
             name,
-            new ServiceBusFunction(name, { queue }),
+            new ServiceBusFunction(name, { ...args, queue }),
             { ...args, resourceGroupName, location },
             { parent: queue, ...opts });
 
@@ -240,7 +240,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<Service
 
         super("azure:eventhub:TopicEventSubscription",
             name,
-            new ServiceBusFunction(name, { topic, subscription }),
+            new ServiceBusFunction(name, { ...args, topic, subscription }),
             { ...args, resourceGroupName, location },
             opts);
 
