@@ -105,7 +105,7 @@ interface BlobBindingDefinition extends appservice.BindingDefinition {
     /**
      * The storage connection string for the storage account containing the blob.
      */
-    connection: string;
+    connection: pulumi.Input<string>;
 }
 
 /**
@@ -153,6 +153,21 @@ export interface BlobContext extends appservice.Context<void> {
  */
 export type BlobCallback = appservice.Callback<BlobContext, Buffer, void>;
 
+export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void> {
+    /**
+     * Storage Blob Container to subscribe for events of.
+     */
+    container: Container;
+
+    /**
+     * An optional prefix or suffix to filter down notifications.  See
+     * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#trigger---blob-name-patterns
+     * for more details.
+     */
+    filterPrefix?: pulumi.Input<string>;
+    filterSuffix?: pulumi.Input<string>;
+};
+
 export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
@@ -192,19 +207,28 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
     constructor(
         name: string, container: storage.Container,
         args: BlobEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-
-        opts = { parent: container, ...opts };
-
         const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, container.resourceGroupName);
+
+        super("azure:storage:BlobEventSubscription",
+            name,
+            new BlobFunction(name, { ...args, container }),
+            { ...args, resourceGroupName, location },
+            { parent: container, ...opts });
+
+        this.registerOutputs();
+    }
+}
+
+/**
+ * Azure Function triggered by changes in a Storage Blob Container.
+ */
+export class BlobFunction extends appservice.Function<BlobContext, Buffer, void> {
+    constructor(name: string, args: BlobFunctionArgs) {
+        const bindingConnectionKey = pulumi.interpolate`${args.container.storageAccountName}ConnectionStringKey`;
 
         const prefix = args.filterPrefix || "";
         const suffix = args.filterSuffix || "";
-        const path = pulumi.interpolate`${container.name}/${prefix}{blobName}${suffix}`;
-
-        // The blob binding does not store the storage connection string directly.  Instead, the
-        // connection string is put into the app settings (under whatever key we want). Then, the
-        // .connection property of the binding contains the *name* of that app setting key.
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        const path = pulumi.interpolate`${args.container.name}/${prefix}{blobName}${suffix}`;
 
         const bindings: BlobBindingDefinition[] = [{
             path,
@@ -215,23 +239,14 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
             connection: bindingConnectionKey,
         }];
 
-        // Place the mapping from the well known key name to the storage account connection string in
-        // the 'app settings' object.
-        const account = pulumi.all([container.resourceGroupName, container.storageAccountName])
-                              .apply(([resourceGroupName, storageAccountName]) =>
-                                storage.getAccount({ resourceGroupName, name: storageAccountName }));
+        const account = pulumi.all([args.container.resourceGroupName, args.container.storageAccountName])
+            .apply(([resourceGroupName, storageAccountName]) =>
+                storage.getAccount({ resourceGroupName, name: storageAccountName }));
 
-        const appSettings = pulumi.all([args.appSettings, account.primaryConnectionString]).apply(
-            ([appSettings, connectionString]) => ({ ...appSettings, [bindingConnectionKey]: connectionString }));
+        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
+            ([connectionString, key]) => ({ [key]: connectionString }));
 
-        super("azure:storage:BlobEventSubscription", name, bindings, {
-            ...args,
-            appSettings,
-            resourceGroupName,
-            location,
-        }, opts);
-
-        this.registerOutputs();
+        super(name, bindings, args, appSettings);
     }
 }
 

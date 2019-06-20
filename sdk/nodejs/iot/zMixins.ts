@@ -16,7 +16,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as appservice from "../appservice";
 import { IoTHub } from "./ioTHub";
 import { ConsumerGroup } from "./consumerGroup";
-import { EventHubBindingDefinition, EventHubContext, EventHubCallback } from '../eventhub';
+import { DefaultConsumerGroup, EventHubBindingDefinition, EventHubContext, EventHubCallback } from '../eventhub';
+
+export interface IoTHubFunctionArgs extends appservice.CallbackArgs<EventHubContext, any, void> {
+    /**
+     * IoT Hub to subscribe the Function to.
+     */
+    iotHub: IoTHub;
+
+    /**
+     * Optional Consumer Group to subscribe the Function to. If not present, the default consumer group will be used.
+     */
+    consumerGroup?: ConsumerGroup;
+
+    /**
+     * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
+     */
+    cardinality?: pulumi.Input<"many" | "one">;
+};
 
 export interface IoTHubSubscriptionArgs extends appservice.CallbackFunctionAppArgs<EventHubContext, any, void> {
     /**
@@ -61,12 +78,25 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
     constructor(
         name: string, iotHub: IoTHub,
         args: IoTHubSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-
-        opts = { parent: iotHub, ...opts };
-
         const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, iotHub.resourceGroupName);
 
-        // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
+        super("azure:eventhub:IoTHubEventSubscription",
+            name,
+            new IoTHubFunction(name, { ...args, iotHub }),
+            { ...args, resourceGroupName, location },
+            { parent: iotHub, ...opts });
+
+        this.iotHub = iotHub;
+        this.registerOutputs();
+    }
+}
+
+/**
+ * Azure Function triggered by an IoT Hub.
+ */
+export class IoTHubFunction extends appservice.Function<EventHubContext, string, void> {
+    constructor(name: string, args: IoTHubFunctionArgs) {
+       // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = "BindingConnectionAppSettingsKey";
@@ -75,20 +105,20 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
             name: "eventHub",
             direction: "in",
             type: "eventHubTrigger",
-            eventHubName: iotHub.name,
-            consumerGroup: args.consumerGroup ? args.consumerGroup.name : "$Default",
+            eventHubName: args.iotHub.name,
+            consumerGroup: args.consumerGroup ? args.consumerGroup.name : DefaultConsumerGroup,
             cardinality: args.cardinality,
             connection: bindingConnectionKey,
         }];
 
-        pulumi.all([iotHub.fallbackRoute, iotHub.routes]).apply(([fallbackRoute, routes]) => {
+        pulumi.all([args.iotHub.fallbackRoute, args.iotHub.routes]).apply(([fallbackRoute, routes]) => {
             if (fallbackRoute && fallbackRoute.enabled) {
                 return;
             }
             if (routes && routes.length > 0) {
                 return;
             }
-            throw new pulumi.ResourceError("IoT Hub must have a route or fallback route enabled.", opts.parent);
+            throw new pulumi.ResourceError("IoT Hub must have a route or fallback route enabled.", args.iotHub);
         });
 
         // Place the mapping from the well known key name to the Event Hubs account connection string in
@@ -96,21 +126,11 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
         // The connection string is built from the IoT Hub "event hub compatible endpoint"
         // and the iothubowner access policy key
         // see https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-read-builtin
-        const appSettings = pulumi.all([args.appSettings, iotHub.eventHubEventsEndpoint, iotHub.sharedAccessPolicies]).apply(
-            ([appSettings, eventHubEventsEndpoint, sharedAccessPolicies]) => ({
-                ...appSettings,
+        const appSettings = pulumi.all([args.iotHub.eventHubEventsEndpoint, args.iotHub.sharedAccessPolicies]).apply(
+            ([eventHubEventsEndpoint, sharedAccessPolicies]) => ({
                 [bindingConnectionKey]: `Endpoint=${eventHubEventsEndpoint};SharedAccessKeyName=iothubowner;SharedAccessKey=${sharedAccessPolicies.find(p => p.keyName === "iothubowner")!.primaryKey}`
             }));
 
-        super("azure:eventhub:IoTHubEventSubscription", name, bindings, {
-            ...args,
-            resourceGroupName,
-            location,
-            appSettings,
-        }, opts);
-
-        this.iotHub = iotHub;
-
-        this.registerOutputs();
+        super(name, bindings, args, appSettings);
     }
 }

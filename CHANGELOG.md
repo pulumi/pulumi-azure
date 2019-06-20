@@ -3,7 +3,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Azure Function types for Blob, Service Bus, Event Hub, IoT Hub, and Cosmos DB triggers
+* BREAKING: Types related to ServiceBus Topic subscriptions: TopicContext, TopicHostSettings, and TopicCallback were replaced by more general types ServiceBusContext, ServiceBusHostSettings, and ServiceBusCallback to support queue-based scenarios.
 
 ---
 
