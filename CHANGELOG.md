@@ -4,6 +4,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Azure Function types for Blob, Service Bus, Event Hub, IoT Hub, and Cosmos DB triggers
+* Individual Azure Functions can be created by getEventFunction helpers directly on event sources.
 * BREAKING: Types related to ServiceBus Topic subscriptions: TopicContext, TopicHostSettings, and TopicCallback were replaced by more general types ServiceBusContext, ServiceBusHostSettings, and ServiceBusCallback to support queue-based scenarios.
 
 ---
