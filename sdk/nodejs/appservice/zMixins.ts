@@ -406,9 +406,9 @@ export interface InputOutputsArgs {
 /**
  * Type alias for a response coming from an Azure Function callback, which applies to most Function types (HTTP being a notable exception).
  */
-export type FunctionCallbackDefaultResponse = 
+export type FunctionDefaultResponse =
     // Nothing is returned if a function has no output bindings
-    void | 
+    void |
     // A dictionary is returned if a function has output bindings
     Record<string, any>;
 

@@ -130,7 +130,7 @@ export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRe
         const response = <mod.BindingDefinition>{
             type: "http",
             direction: "out",
-            name: inputOutputs ? "response": "$return",
+            name: inputOutputs.length > 0 ? "response": "$return",
         };
 
         const bindings = pulumi.all(inputOutputs.map(bs => bs.binding)).apply(bs => [trigger, response, ...bs]);
