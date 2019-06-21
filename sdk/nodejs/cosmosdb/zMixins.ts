@@ -58,7 +58,7 @@ interface CosmosBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of an app setting that contains the Cosmos DB connection string to use for this binding.
      */
-    connectionStringSetting: string;
+    connectionStringSetting: pulumi.Input<string>;
 
     /**
      * When set, it customizes the maximum amount of items received per Function call.
@@ -98,13 +98,7 @@ export interface CosmosChangeFeedContext extends appservice.Context<void> {
  */
 export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedContext, any[], void>;
 
-export interface CosmosChangeFeedSubscriptionArgs extends appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], void> {
-    /**
-     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
-     * If none of the two is supplied, the resource group of the Cosmos DB Account will be used.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-
+interface CosmosChangeFeedFunctionSettings {
     /**
      * The name of the database we are subscribing to.
      */
@@ -128,6 +122,21 @@ export interface CosmosChangeFeedSubscriptionArgs extends appservice.CallbackFun
     startFromBeginning?: pulumi.Input<boolean>;
 };
 
+export interface CosmosDBFunctionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackArgs<CosmosChangeFeedContext, any[], void> {
+    /**
+     * CosmosDB Account.
+     */
+    account: Account;
+};
+
+export interface CosmosChangeFeedSubscriptionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], void> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * If none of the two is supplied, the resource group of the Cosmos DB Account will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+};
+
 declare module "./account" {
     interface Account {
         /**
@@ -149,12 +158,26 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
     constructor(
         name: string, account: Account,
         args: CosmosChangeFeedSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-
-        opts = { parent: account, ...opts };
-
         const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, account.resourceGroupName);
 
-        const bindingConnectionKey = "BindingConnectionAppSettingsKey";
+        super("azure:eventhub:CosmosChangeFeedSubscription",
+            name,
+            new CosmosDBFunction(name, { ...args, account }),
+            { ...args, resourceGroupName, location },
+            { parent: account, ...opts });
+
+        this.account = account;
+
+        this.registerOutputs();
+    }
+}
+
+/**
+ * Azure Function triggered by a Cosmos DB Change Feed.
+ */
+export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContext, any[], void> {
+    constructor(name: string, args: CosmosDBFunctionArgs) {
+        const bindingConnectionKey = pulumi.interpolate`Cosmos${args.account.name}ConnectionKey`;
 
         const bindings: CosmosBindingDefinition[] = [{
             name: "items",
@@ -176,18 +199,9 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
 
         // Place the mapping from the well known key name to the Cosmos DB connection string in
         // the 'app settings' object.
+        const appSettings = pulumi.all([args.account.connectionStrings, bindingConnectionKey]).apply(
+            ([connectionStrings, key]) => ({ [key]: connectionStrings[0] }));
 
-        const appSettings = pulumi.all([args.appSettings, account.connectionStrings]).apply(
-            ([appSettings, connectionStrings]) => ({ ...appSettings, [bindingConnectionKey]: connectionStrings[0] }));
-        super("azure:eventhub:CosmosChangeFeedSubscription", name, bindings, {
-            ...args,
-            resourceGroupName,
-            location,
-            appSettings
-        }, opts);
-
-        this.account = account;
-
-        this.registerOutputs();
+        super(name, bindings, args, appSettings);
     }
 }

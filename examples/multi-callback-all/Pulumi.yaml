@@ -1,0 +1,3 @@
+name: azure-multi-callback-all
+runtime: nodejs
+description: An Azure Function App with all types of functions
