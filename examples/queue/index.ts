@@ -25,29 +25,40 @@ const queue2 = new azure.storage.Queue("queue2", {
     storageAccountName: storageAccount.name,
  });
 
+ // A table to store role lookups (has to be filled manually)
+const roles = new azure.storage.Table("roles", {
+    resourceGroupName: resourceGroup.name,
+    storageAccountName: storageAccount.name,
+});
+
 // HTTP Function will send a message to the first queue on each request
 const greeting = new azure.appservice.HttpEventSubscription('greeting', {
-    resourceGroup,    
-    inputOutputs: [queue1.output("queueOut")],
-    callback: async (context, request) => {
-        const name = request.query["name"] || "World";
+    resourceGroup,
+    route: "{name}",
+    inputOutputs: [
+        roles.input("roles", { filter: "name eq '{name}'", take: 1 }),
+        queue1.output("queueOut"),
+    ],
+    callback: async (context, request, roles: any[]) => {
+        const name = context.bindingData.name;
+        const role = roles && roles.length > 0 ? roles[0].role : "Guest";
         return {
             response: {
                 status: 200,
-                body: `Hi ${name}, this is the HTTP response`,
+                body: `Hi ${name} [${role}], this is the HTTP response`,
             },
-            queueOut: `Hi ${name}, this is sent to the queue`,
+            queueOut: { name, role },
         };
     },
 });
- 
+
 // When a new message is added, fire an event and forward the message to the output queue
 queue1.onEvent("NewMessage",  {
     inputOutputs: [queue2.output("queueOut")],
     callback: async (context, msg) => {
-        const text = msg.toString();
+        const person = JSON.parse(msg.toString());
         return {
-            queueOut: `Forwarding ${text}`,
+            queueOut: `${person.name} is assigned to ${person.role}`,
         };
     },
 });
@@ -60,8 +71,11 @@ queue2.onEvent("ForwardedMessage",  {
     },
 });
 
+// The greeting function URL
+export const endpoint = greeting.url;
+
 // The storage account of the queue
-export let storageAccountName = storageAccount.name;
+export const storageAccountName = storageAccount.name;
 
 // The input queue name
-export let queueName = queue1.name;
+export const queueName = queue1.name;

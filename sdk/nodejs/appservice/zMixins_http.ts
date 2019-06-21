@@ -127,13 +127,17 @@ export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRe
             methods: args.methods,
         };
 
-        const response = <mod.BindingDefinition>{
-            type: "http",
-            direction: "out",
-            name: inputOutputs.length > 0 ? "response": "$return",
-        };
+        // There are two modes to return an HTTP response:
+        // 1. When there's no other output bindings, take the returned value of the callback,
+        //    so the binding has to be named '$return' (mandated by Azure Functions)
+        // 2. When there are other output bindings, it's a property of the returned value
+        //    with a fixed name 'response' (picked by us)
+        const response = pulumi.all(inputOutputs.map(b => b.binding))
+            .apply(bs => bs.find(b => b.direction === "out") !== undefined)
+            .apply(v => v ? "response" : "$return")
+            .apply(name => <mod.BindingDefinition>{ type: "http", direction: "out", name });
 
-        const bindings = pulumi.all(inputOutputs.map(bs => bs.binding)).apply(bs => [trigger, response, ...bs]);
+        const bindings = pulumi.all([trigger, response, ...inputOutputs.map(bs => bs.binding)]);
         const appSettings = mod.combineAppSettings(inputOutputs.map(bs => bs.settings));
 
         super(name, bindings, args, appSettings);

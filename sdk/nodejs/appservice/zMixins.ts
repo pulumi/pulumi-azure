@@ -61,7 +61,7 @@ export interface Context<R extends Result> extends azurefunctions.Context {
  * appropriate.  For async functions, `context.done()` does not need to be called, and instead a Promise
  * containing the result can be returned.
  */
-export type Callback<C extends Context<R>, E, R extends Result> = (context: C, event: E) => Promise<R> | void;
+export type Callback<C extends Context<R>, E, R extends Result> = (context: C, event: E, ...inputs: any[]) => Promise<R> | void;
 
 /**
  * CallbackFactory is the signature for a function that will be called once to produce the function
@@ -368,7 +368,7 @@ function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.
 }
 
 function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callback: Callback<C, E, R>) {
-    return (context: C, event: E) => {
+    return (context: C, event: E, ...inputs: any[]) => {
         // Redirect console logging to context logging.
         console.log = context.log;
         console.error = context.log.error;
@@ -376,7 +376,7 @@ function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callba
         // tslint:disable-next-line:no-console
         console.info = context.log.info;
 
-        return callback(context, event);
+        return callback(context, event, ...inputs);
     };
 }
 

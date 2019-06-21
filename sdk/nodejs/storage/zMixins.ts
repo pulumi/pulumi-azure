@@ -19,6 +19,7 @@ import { Blob } from "./blob";
 import { Container } from "./container";
 import { getAccountSAS } from "./getAccountSAS";
 import { Queue } from "./queue";
+import { Table } from "./table";
 import { ZipBlob } from "./zipBlob";
 
 import * as appservice from "../appservice";
@@ -434,10 +435,10 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
     }
 }
 
-// Given a Queue, produce App Settings and a Connection String Key relevant to the Storage Account
-function resolveAccount(queue: Queue) {
-    const connectionKey = pulumi.interpolate`Storage${queue.storageAccountName}ConnectionStringKey`;
-    const account = pulumi.all([queue.resourceGroupName, queue.storageAccountName])
+// Given a Queue or a Table, produce App Settings and a Connection String Key relevant to the Storage Account
+function resolveAccount(container: { storageAccountName: pulumi.Output<string>, resourceGroupName: pulumi.Output<string> }) {
+    const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
+    const account = pulumi.all([container.resourceGroupName, container.storageAccountName])
                         .apply(([resourceGroupName, storageAccountName]) =>
                             storage.getAccount({ resourceGroupName, name: storageAccountName }));
 
@@ -488,4 +489,86 @@ export class QueueOutputBinding implements appservice.BindingSettings {
         };
         this.settings = settings;
     }
+}
+
+interface TableInputBindingDefinition extends appservice.BindingDefinition {
+    /**
+     * The name of the property in the context object to bind the actual table rows to.
+     */
+    name: string;
+
+    /**
+     * The type of a table binding.  Must be 'table'.
+     */
+    type: "table";
+
+    /**
+     * The direction of the binding. Must be 'in' for an input binding.
+     */
+    direction: "in";
+
+    /**
+     * The name of the table.
+     */
+    tableName: pulumi.Input<string>;
+
+    /**
+     * The storage connection string for the storage account containing the blob.
+     */
+    connection: pulumi.Input<string>;
+
+    /**
+     * An OData filter expression for table input.
+     */
+    filter?: pulumi.Input<string>;
+
+    /**
+     * The maximum number of entities to read.
+     */
+    take?: pulumi.Input<number>;
+}
+
+export interface TableInputBindingArgs {
+    /**
+     * An OData filter expression for table input.
+     */
+    filter?: pulumi.Input<string>;
+
+    /**
+     * The maximum number of entities to read.
+     */
+    take?: pulumi.Input<number>;
+};
+
+export class TableInputBinding implements appservice.BindingSettings {
+    public readonly binding: pulumi.Input<TableInputBindingDefinition>;
+    public readonly settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string, table: Table, args?: TableInputBindingArgs) {
+        const { connectionKey, settings } = resolveAccount(table);
+
+        this.binding = {
+            name: name,
+            type: "table",
+            direction: "in",
+            tableName: table.name,
+            connection: connectionKey,
+            filter: args && args.filter,
+            take: args && args.take,
+        };
+        this.settings = settings;
+    }
+}
+
+declare module "./table" {
+    interface Table {
+        /**
+         * Creates an input binding linked to the given table to be used for an Azure Function.
+         */
+        input(name: string, args?: TableInputBindingArgs): appservice.BindingSettings;
+    }
+}
+
+Table.prototype.input = function(this: Table, name, args) {
+    return new TableInputBinding(name, this, args);
 }
