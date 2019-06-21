@@ -98,7 +98,7 @@ export interface CosmosChangeFeedContext extends appservice.Context<void> {
  */
 export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedContext, any[], void>;
 
-interface CosmosChangeFeedFunctionSettings {
+export interface GetCosmosDBFunctionArgs {
     /**
      * The name of the database we are subscribing to.
      */
@@ -122,14 +122,14 @@ interface CosmosChangeFeedFunctionSettings {
     startFromBeginning?: pulumi.Input<boolean>;
 };
 
-export interface CosmosDBFunctionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackArgs<CosmosChangeFeedContext, any[], void> {
+export interface CosmosDBFunctionArgs extends GetCosmosDBFunctionArgs, appservice.CallbackArgs<CosmosChangeFeedContext, any[], void> {
     /**
      * CosmosDB Account.
      */
     account: Account;
 };
 
-export interface CosmosChangeFeedSubscriptionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], void> {
+export interface CosmosChangeFeedSubscriptionArgs extends GetCosmosDBFunctionArgs, appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], void> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the resource group of the Cosmos DB Account will be used.
@@ -145,11 +145,21 @@ declare module "./account" {
          */
         onChange(
             name: string, args: CosmosChangeFeedSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): CosmosChangeFeedSubscription;
+
+        /**
+         * Creates a new Function triggered by messages in the given queue using the callback provided. The Function should be used
+         * as part of a [MultiCallbackFunctionApp].
+         */
+        getChangeFeedFunction(name: string, args: GetCosmosDBFunctionArgs) : CosmosDBFunction;
     }
 }
 
 Account.prototype.onChange = function(this: Account, name, args, opts) {
     return new CosmosChangeFeedSubscription(name, this, args, opts);
+}
+
+Account.prototype.getChangeFeedFunction = function(this: Account, name, args) {
+    return new CosmosDBFunction(name, { ...args, account: this });
 }
 
 export class CosmosChangeFeedSubscription extends appservice.EventSubscription<CosmosChangeFeedContext, any[], void> {

@@ -154,12 +154,7 @@ export interface BlobContext extends appservice.Context<void> {
  */
 export type BlobCallback = appservice.Callback<BlobContext, Buffer, void>;
 
-export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void> {
-    /**
-     * Storage Blob Container to subscribe for events of.
-     */
-    container: Container;
-
+export interface GetBlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void> {
     /**
      * An optional prefix or suffix to filter down notifications.  See
      * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#trigger---blob-name-patterns
@@ -169,30 +164,35 @@ export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, B
     filterSuffix?: pulumi.Input<string>;
 };
 
-export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void> {
+export interface BlobFunctionArgs extends GetBlobFunctionArgs {
+    /**
+     * Storage Blob Container to subscribe for events of.
+     */
+    container: Container;
+};
+
+export interface BlobEventSubscriptionArgs extends GetBlobFunctionArgs, appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the resource group of the Storage Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * An optional prefix or suffix to filter down notifications.  See
-     * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#trigger---blob-name-patterns
-     * for more details.
-     */
-    filterPrefix?: pulumi.Input<string>;
-    filterSuffix?: pulumi.Input<string>;
 };
 
 declare module "./container" {
     interface Container {
         /**
-         * Creates a new subscription to events fired from this Topic to the handler provided, along
+         * Creates a new subscription to events fired from this Container to the handler provided, along
          * with options to control the behavior of the subscription.
          */
         onBlobEvent(
             name: string, args: BlobCallback | BlobEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): BlobEventSubscription;
+
+        /**
+         * Creates a new Function triggered by events in the given Container using the callback provided. The Function should be used
+         * as part of a [MultiCallbackFunctionApp].
+         */
+        getEventFunction(name: string, args: BlobCallback | GetBlobFunctionArgs) : BlobFunction;
     }
 }
 
@@ -202,6 +202,14 @@ Container.prototype.onBlobEvent = function(this: Container, name, args, opts) {
         : args;
 
     return new BlobEventSubscription(name, this, functionArgs, opts);
+}
+
+Container.prototype.getEventFunction = function(this: Container, name, args) {
+    const functionArgs = args instanceof Function
+        ? { callback: args, container: this }
+        : { ...args, container: this };
+
+    return new BlobFunction(name, functionArgs);
 }
 
 export class BlobEventSubscription extends appservice.EventSubscription<BlobContext, Buffer, void> {
@@ -381,6 +389,12 @@ declare module "./queue" {
          */
         onEvent(
             name: string, args: QueueCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
+
+        /**
+         * Creates a new Function triggered by messages in the given queue using the callback provided. The Function should be used
+         * as part of a [MultiCallbackFunctionApp].
+         */
+        getEventFunction(name: string, args: QueueCallback | appservice.CallbackArgs<QueueContext, Buffer, void>) : QueueFunction;
     }
 }
 
@@ -390,6 +404,14 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
         : args;
 
     return new QueueEventSubscription(name, this, functionArgs, opts);
+}
+
+Queue.prototype.getEventFunction = function(this: Queue, name, args) {
+    const functionArgs = args instanceof Function
+        ? { callback: args, queue: this }
+        : { ...args, queue: this };
+
+    return new QueueFunction(name, functionArgs);
 }
 
 export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, Buffer, void> {
