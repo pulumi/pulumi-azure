@@ -143,23 +143,10 @@ export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionA
     resourceGroupName?: pulumi.Input<string>;
 
     /**
-     * The maximum number of deliveries.  Will default to 10 if not specified.
-     */
-    maxDeliveryCount?: pulumi.Input<number>;
-
-    /**
      * Host settings specific to the Service Bus Topic/Subscription plugin. These values can be provided here, or defaults will
      * be used in their place.
      */
     hostSettings?: ServiceBusHostSettings;
-};
-
-export interface TopicEventSubscriptionArgs extends QueueEventSubscriptionArgs {
-    /**
-     * The Subscription to subscribe the FunctionApp to.  If not present, a new Subscription
-     * resource will be created.
-     */
-    subscription?: Subscription;
 };
 
 declare module "./queue" {
@@ -199,6 +186,19 @@ export class QueueEventSubscription extends appservice.EventSubscription<Service
         this.registerOutputs();
     }
 }
+
+export interface TopicEventSubscriptionArgs extends QueueEventSubscriptionArgs {
+    /**
+     * The Subscription to subscribe the FunctionApp to.  If not present, a new Subscription
+     * resource will be created.
+     */
+    subscription?: Subscription;
+
+    /**
+     * The maximum number of deliveries.  Will default to 10 if not specified.
+     */
+    maxDeliveryCount?: pulumi.Input<number>;
+};
 
 declare module "./topic" {
     interface Topic {
