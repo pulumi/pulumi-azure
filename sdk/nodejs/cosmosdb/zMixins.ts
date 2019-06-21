@@ -98,7 +98,7 @@ export interface CosmosChangeFeedContext extends appservice.Context<void> {
  */
 export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedContext, any[], void>;
 
-export interface GetCosmosDBFunctionArgs {
+export interface GetCosmosDBFunctionArgs extends appservice.CallbackArgs<CosmosChangeFeedContext, any[], void> {
     /**
      * The name of the database we are subscribing to.
      */
@@ -122,7 +122,7 @@ export interface GetCosmosDBFunctionArgs {
     startFromBeginning?: pulumi.Input<boolean>;
 };
 
-export interface CosmosDBFunctionArgs extends GetCosmosDBFunctionArgs, appservice.CallbackArgs<CosmosChangeFeedContext, any[], void> {
+export interface CosmosDBFunctionArgs extends GetCosmosDBFunctionArgs {
     /**
      * CosmosDB Account.
      */

@@ -27,12 +27,10 @@ const queue = new azure.storage.Queue("queue", {
     storageAccountName: storageAccount.name,
 });
 
-const storageQueueFunc = new azure.storage.QueueFunction("storage-queue", {
-    queue,
-    callback: async (context, msg) => {
+const storageQueueFunc = queue.getEventFunction("storage-queue",
+    async (context, msg) => {
         console.log(`Received a message ${msg.toString()}`);
-    },
-});
+    });
 
 // Storage Blobs
 const container = new azure.storage.Container("container", {
@@ -41,12 +39,10 @@ const container = new azure.storage.Container("container", {
     name: "blobs",
 });
 
-const blobFunc = new azure.storage.BlobFunction("storage-blob", {
-    container,
-    callback: async (context, contents) => {
+const blobFunc = container.getEventFunction("storage-blob",
+    async (context, contents) => {
         console.log(`Blob '${context.bindingData.blobName}' containing ${contents.toString()}`);
-    },
-});
+    });
 
 // ServiceBus Queue
 const namespace = new azure.eventhub.Namespace("servicebus", {
@@ -59,12 +55,10 @@ const serviceBusQueue = new azure.eventhub.Queue("queue", {
     namespaceName: namespace.name,
 });
 
-const serviceBusQueueFunc = new azure.eventhub.ServiceBusFunction("servicebus-queue", {
-    queue: serviceBusQueue,
-    callback: async (context, msg) => {
+const serviceBusQueueFunc = serviceBusQueue.getEventFunction("servicebus-queue",
+    async (context, msg) => {
         console.log(`Received a message ${msg}`);
-    },
-});
+    });
 
 // Service Bus Topic
 const topic = new azure.eventhub.Topic("topic", {
@@ -79,8 +73,7 @@ const subscription = new azure.eventhub.Subscription("subscription", {
     maxDeliveryCount: 10,
 });
 
-const serviceBusTopicFunc = new azure.eventhub.ServiceBusFunction("servicebus-topic", {
-    topic,
+const serviceBusTopicFunc = topic.getEventFunction("servicebus-topic", {
     subscription,
     callback: async (context, msg) => {
         console.log(`Received a message ${msg}`);
@@ -100,12 +93,10 @@ const eventHub = new azure.eventhub.EventHub("eventhub", {
     messageRetention: 7,
 });
 
-const eventHubFunc = new azure.eventhub.EventHubFunction("eventhub", {
-    eventHub,
-    callback: async (context, msg) => {
+const eventHubFunc = eventHub.getEventFunction("eventhub",
+    async (context, msg) => {
         console.log(`Received a message ${msg}`);
-    },
-});
+    });
 
 // IoT Hub
 const iotHub = new azure.iot.IoTHub("iothub", {
@@ -123,12 +114,10 @@ const iotHub = new azure.iot.IoTHub("iothub", {
     },
 });
 
-const iotHubFunc = new azure.iot.IoTHubFunction("iothub", {
-    iotHub,
-    callback: async (context, msg) => {
+const iotHubFunc = iotHub.getEventFunction("iothub",
+    async (context, msg) => {
         console.log(`Received a message ${msg}`);
-    },
-});
+    });
 
 // Cosmos DB
 const account = new azure.cosmosdb.Account("cosmos", {
@@ -147,8 +136,7 @@ const db = new azure.cosmosdb.SqlDatabase("cosmos-db", {
     accountName: account.name,
 });
 
-const cosmosFunc = new azure.cosmosdb.CosmosDBFunction("cosmos", {
-    account,
+const cosmosFunc = account.getChangeFeedFunction("cosmos", {
     databaseName: db.name,
     collectionName: "items",
     callback: async (context, updates) => {
