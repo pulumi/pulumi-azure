@@ -142,13 +142,16 @@ declare module "./account" {
         /**
          * Creates a new subscription to events fired from Cosmos DB Change Feed to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getChangeFeedFunction] if you
+         * want to compose multiple Functions into the same App manually.
          */
         onChange(
             name: string, args: CosmosChangeFeedSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): CosmosChangeFeedSubscription;
 
         /**
-         * Creates a new Function triggered by messages in the given queue using the callback provided. The Function should be used
-         * as part of a [MultiCallbackFunctionApp].
+         * Creates a new Function triggered by messages in the given queue using the callback provided.
+         * [getChangeFeedFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onChange] if you want to create a Function App with a single Function.
          */
         getChangeFeedFunction(name: string, args: GetCosmosDBFunctionArgs) : CosmosDBFunction;
     }

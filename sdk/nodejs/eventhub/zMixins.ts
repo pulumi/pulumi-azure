@@ -154,13 +154,16 @@ declare module "./queue" {
         /**
          * Creates a new subscription to events fired from this Queue to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getEventFunction] if you
+         * want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: ServiceBusCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
 
         /**
-         * Creates a new Function triggered by messages in the given Queue using the callback provided. The Function should be used
-         * as part of a [MultiCallbackFunctionApp].
+         * Creates a new Function triggered by messages in the given Queue using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
         getEventFunction(name: string, args: ServiceBusCallback | appservice.CallbackArgs<ServiceBusContext, string, void>) : ServiceBusFunction;
     }
@@ -220,13 +223,16 @@ declare module "./topic" {
         /**
          * Creates a new subscription to events fired from this Topic to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getEventFunction] if you
+         * want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: ServiceBusCallback | TopicEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): TopicEventSubscription;
 
         /**
-         * Creates a new Function triggered by messages in the given Topic using the callback provided. The Function should be used
-         * as part of a [MultiCallbackFunctionApp].
+         * Creates a new Function triggered by messages in the given Topic using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
         getEventFunction(name: string, args: GetTopicFunctionArgs) : ServiceBusFunction;
     }
@@ -441,13 +447,16 @@ declare module "./eventHub" {
         /**
          * Subscribes to events logged to this Event Hub to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getEventFunction] if you
+         * want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: EventHubCallback | EventHubSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): EventHubSubscription;
 
         /**
-         * Creates a new Function triggered by events in the given Event Hub using the callback provided. The Function should be used
-         * as part of a [MultiCallbackFunctionApp].
+         * Creates a new Function triggered by events in the given Event Hub using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
         getEventFunction(name: string, args: EventHubCallback | GetEventHubFunctionArgs) : EventHubFunction;
     }

@@ -184,13 +184,16 @@ declare module "./container" {
         /**
          * Creates a new subscription to events fired from this Container to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getEventFunction] if you
+         * want to compose multiple Functions into the same App manually.
          */
         onBlobEvent(
             name: string, args: BlobCallback | BlobEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): BlobEventSubscription;
 
         /**
-         * Creates a new Function triggered by events in the given Container using the callback provided. The Function should be used
-         * as part of a [MultiCallbackFunctionApp].
+         * Creates a new Function triggered by events in the given Container using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
         getEventFunction(name: string, args: BlobCallback | GetBlobFunctionArgs) : BlobFunction;
     }
@@ -386,13 +389,16 @@ declare module "./queue" {
         /**
          * Creates a new subscription to the given queue using the callback provided, along with
          * optional options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getEventFunction] if you
+         * want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: QueueCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
 
         /**
-         * Creates a new Function triggered by messages in the given queue using the callback provided. The Function should be used
-         * as part of a [MultiCallbackFunctionApp].
+         * Creates a new Function triggered by messages in the given queue using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
         getEventFunction(name: string, args: QueueCallback | appservice.CallbackArgs<QueueContext, Buffer, void>) : QueueFunction;
     }
