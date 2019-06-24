@@ -2,7 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./accessTier";
 export * from "./account";
+export * from "./accountKind";
+export * from "./accountReplicationType";
+export * from "./accountTier";
 export * from "./blob";
 export * from "./container";
 export * from "./getAccount";

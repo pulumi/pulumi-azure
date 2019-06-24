@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {AccessTier} from "./accessTier";
+import {AccountKind} from "./accountKind";
+import {AccountReplicationType} from "./accountReplicationType";
+import {AccountTier} from "./accountTier";
+
 /**
  * Manage an Azure Storage Account.
  * 
@@ -430,7 +435,7 @@ export interface AccountState {
     /**
      * Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    readonly accessTier?: pulumi.Input<string | AccessTier>;
     /**
      * The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
      */
@@ -440,15 +445,15 @@ export interface AccountState {
      * `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
      * Defaults to `Storage`.
      */
-    readonly accountKind?: pulumi.Input<string>;
+    readonly accountKind?: pulumi.Input<string | AccountKind>;
     /**
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
      */
-    readonly accountReplicationType?: pulumi.Input<string>;
+    readonly accountReplicationType?: pulumi.Input<string | AccountReplicationType>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
      */
-    readonly accountTier?: pulumi.Input<string>;
+    readonly accountTier?: pulumi.Input<string | AccountTier>;
     readonly accountType?: pulumi.Input<string>;
     /**
      * A `custom_domain` block as documented below.
@@ -634,7 +639,7 @@ export interface AccountArgs {
     /**
      * Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      */
-    readonly accessTier?: pulumi.Input<string>;
+    readonly accessTier?: pulumi.Input<string | AccessTier>;
     /**
      * The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
      */
@@ -644,15 +649,15 @@ export interface AccountArgs {
      * `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
      * Defaults to `Storage`.
      */
-    readonly accountKind?: pulumi.Input<string>;
+    readonly accountKind?: pulumi.Input<string | AccountKind>;
     /**
      * Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
      */
-    readonly accountReplicationType: pulumi.Input<string>;
+    readonly accountReplicationType: pulumi.Input<string | AccountReplicationType>;
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
      */
-    readonly accountTier: pulumi.Input<string>;
+    readonly accountTier: pulumi.Input<string | AccountTier>;
     readonly accountType?: pulumi.Input<string>;
     /**
      * A `custom_domain` block as documented below.

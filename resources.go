@@ -829,7 +829,28 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_signalr_service": {Tok: azureResource(azureSignalr, "Service")},
 
 			// Storage
-			"azurerm_storage_account": {Tok: azureResource(azureStorage, "Account")},
+			"azurerm_storage_account": {
+				Tok: azureResource(azureStorage, "Account"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"account_kind": {
+						Type:     "string",
+						AltTypes: []tokens.Type{azureType(azureStorage+"/accountKind", "AccountKind")},
+					},
+					"account_tier": {
+						Type:     "string",
+						AltTypes: []tokens.Type{azureType(azureStorage+"/accountTier", "AccountTier")},
+					},
+					"account_replication_type": {
+						Type: "string",
+						AltTypes: []tokens.Type{azureType(azureStorage+"/accountReplicationType",
+							"AccountReplicationType")},
+					},
+					"access_tier": {
+						Type:     "string",
+						AltTypes: []tokens.Type{azureType(azureStorage+"/accessTier", "AccessTier")},
+					},
+				},
+			},
 			"azurerm_storage_blob": {
 				Tok: azureResource(azureStorage, "Blob"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1053,6 +1074,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"storage": {
 						DestFiles: []string{
+							"accessTier.ts",
+							"accountKind.ts",
+							"accountReplicationType.ts",
+							"accountTier.ts",
 							"zMixins.ts",
 						},
 					},

@@ -2,8 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
-
+* Adding constants for Azure Storage Account Tier, Kinds, Types and Replication Types
 ---
 
 ## 0.19.0 (2019-06-21)

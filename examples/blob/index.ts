@@ -3,14 +3,14 @@
 import * as azure from "@pulumi/azure";
 
 const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
-    location: "West US 2",
+    location: azure.Locations.WestUS2,
 });
 
 // Create a storage account for our images
 const storageAccount = new azure.storage.Account("storage", {
     resourceGroupName: resourceGroup.name,
-    accountReplicationType: "LRS",
-    accountTier: "Standard",
+    accountReplicationType: azure.storage.AccountReplicationTypes.LRS,
+    accountTier: azure.storage.AccountTiers.Standard,
 });
 
 // And a container to use to upload images into
