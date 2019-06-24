@@ -36,7 +36,7 @@ const greeting = new azure.appservice.HttpEventSubscription('greeting', {
     resourceGroup,
     route: "{name}",
     inputOutputs: [
-        roles.input("roles", { filter: "name eq '{name}'", take: 1 }),
+        roles.input("roles", { partitionKey: "{name}" }),
         queue1.output("queueOut"),
     ],
     callback: async (context, request, roles: any[]) => {

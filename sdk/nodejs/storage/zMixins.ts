@@ -518,6 +518,16 @@ interface TableInputBindingDefinition extends appservice.BindingDefinition {
     connection: pulumi.Input<string>;
 
     /**
+     * The partition key of the table entity.
+     */
+    partitionKey?: string;
+
+    /**
+     * The row key of the table entity.
+     */
+    rowKey?: string;
+
+    /**
      * An OData filter expression for table input.
      */
     filter?: pulumi.Input<string>;
@@ -529,6 +539,16 @@ interface TableInputBindingDefinition extends appservice.BindingDefinition {
 }
 
 export interface TableInputBindingArgs {
+    /**
+     * The partition key of the table entity.
+     */
+    partitionKey?: string;
+
+    /**
+     * The row key of the table entity.
+     */
+    rowKey?: string;
+
     /**
      * An OData filter expression for table input.
      */
@@ -553,8 +573,7 @@ export class TableInputBinding implements appservice.BindingSettings {
             direction: "in",
             tableName: table.name,
             connection: connectionKey,
-            filter: args && args.filter,
-            take: args && args.take,
+            ...args,
         };
         this.settings = settings;
     }
