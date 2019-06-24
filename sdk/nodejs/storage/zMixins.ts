@@ -491,7 +491,7 @@ export class QueueOutputBinding implements appservice.BindingSettings {
     }
 }
 
-interface TableInputBindingDefinition extends appservice.BindingDefinition {
+interface TableBindingDefinition extends appservice.BindingDefinition {
     /**
      * The name of the property in the context object to bind the actual table rows to.
      */
@@ -501,11 +501,6 @@ interface TableInputBindingDefinition extends appservice.BindingDefinition {
      * The type of a table binding.  Must be 'table'.
      */
     type: "table";
-
-    /**
-     * The direction of the binding. Must be 'in' for an input binding.
-     */
-    direction: "in";
 
     /**
      * The name of the table.
@@ -526,6 +521,13 @@ interface TableInputBindingDefinition extends appservice.BindingDefinition {
      * The row key of the table entity.
      */
     rowKey?: string;
+}
+
+interface TableInputBindingDefinition extends TableBindingDefinition {
+    /**
+     * The direction of the binding. Must be 'in' for an input binding.
+     */
+    direction: "in";
 
     /**
      * An OData filter expression for table input.
@@ -536,6 +538,13 @@ interface TableInputBindingDefinition extends appservice.BindingDefinition {
      * The maximum number of entities to read.
      */
     take?: pulumi.Input<number>;
+}
+
+interface TableOutputBindingDefinition extends TableBindingDefinition {
+    /**
+     * The direction of the binding. Must be 'out' for an output binding.
+     */
+    direction: "out";
 }
 
 export interface TableInputBindingArgs {
@@ -579,15 +588,42 @@ export class TableInputBinding implements appservice.BindingSettings {
     }
 }
 
+export class TableOutputBinding implements appservice.BindingSettings {
+    public readonly binding: pulumi.Input<TableOutputBindingDefinition>;
+    public readonly settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string, table: Table) {
+        const { connectionKey, settings } = resolveAccount(table);
+
+        this.binding = {
+            name: name,
+            type: "table",
+            direction: "out",
+            tableName: table.name,
+            connection: connectionKey,
+        };
+        this.settings = settings;
+    }
+}
+
 declare module "./table" {
     interface Table {
         /**
          * Creates an input binding linked to the given table to be used for an Azure Function.
          */
         input(name: string, args?: TableInputBindingArgs): appservice.BindingSettings;
+
+        /**
+         * Creates an output binding linked to the given table to be used for an Azure Function.
+         */
+        output(name: string): appservice.BindingSettings;
     }
 }
 
 Table.prototype.input = function(this: Table, name, args) {
     return new TableInputBinding(name, this, args);
+}
+
+Table.prototype.output = function(this: Table, name) {
+    return new TableOutputBinding(name, this);
 }

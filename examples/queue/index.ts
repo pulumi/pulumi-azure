@@ -25,29 +25,21 @@ const queue2 = new azure.storage.Queue("queue2", {
     storageAccountName: storageAccount.name,
  });
 
- // A table to store role lookups (has to be filled manually)
-const roles = new azure.storage.Table("roles", {
-    resourceGroupName: resourceGroup.name,
-    storageAccountName: storageAccount.name,
-});
-
 // HTTP Function will send a message to the first queue on each request
 const greeting = new azure.appservice.HttpEventSubscription('greeting', {
     resourceGroup,
     route: "{name}",
     inputOutputs: [
-        roles.input("roles", { partitionKey: "{name}" }),
         queue1.output("queueOut"),
     ],
-    callback: async (context, request, roles: any[]) => {
+    callback: async (context, request) => {
         const name = context.bindingData.name;
-        const role = roles && roles.length > 0 ? roles[0].role : "Guest";
         return {
             response: {
                 status: 200,
-                body: `Hi ${name} [${role}], this is the HTTP response`,
+                body: `Hi ${name}, this is the HTTP response`,
             },
-            queueOut: { name, role },
+            queueOut: { name },
         };
     },
 });
@@ -58,7 +50,7 @@ queue1.onEvent("NewMessage",  {
     callback: async (context, msg) => {
         const person = JSON.parse(msg.toString());
         return {
-            queueOut: `${person.name} is assigned to ${person.role}`,
+            queueOut: `${person.name} was welcomed`,
         };
     },
 });
