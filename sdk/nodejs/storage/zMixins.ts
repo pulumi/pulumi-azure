@@ -81,24 +81,6 @@ interface BlobBindingDefinition extends appservice.BindingDefinition {
     name: string;
 
     /**
-     * The type of a blob binding.  Must be 'blobTrigger'.
-     */
-    type: "blobTrigger";
-
-    /**
-     * The direction of the binding.  We only 'support' blobs being inputs to functions.
-     */
-    direction: "in";
-
-    /**
-     * How we want the blob represented when passed into the callback.  We specify 'binary'
-     * so that all data is passed in as a buffer.  Otherwise, Azure will attempt to sniff
-     * the content and convert it accordingly.  This gives us a consistent way to know what
-     * data will be passed into the function.
-     */
-    dataType: "binary";
-
-    /**
      * The path to the blob we want to create a trigger for.
      */
     path: pulumi.Input<string>;
@@ -107,6 +89,38 @@ interface BlobBindingDefinition extends appservice.BindingDefinition {
      * The storage connection string for the storage account containing the blob.
      */
     connection: pulumi.Input<string>;
+
+    /**
+     * How we want the blob represented when passed into the callback.  We specify 'binary'
+     * so that all data is passed in as a buffer.  Otherwise, Azure will attempt to sniff
+     * the content and convert it accordingly.  This gives us a consistent way to know what
+     * data will be passed into the function.
+     */
+    dataType: "binary";
+}
+
+interface BlobTriggerDefinition extends BlobBindingDefinition {
+    /**
+     * The type of a blob binding.  Must be 'blobTrigger'.
+     */
+    type: "blobTrigger";
+
+    /**
+     * The direction of the binding.  We only 'support' blobs being inputs to functions.
+     */
+    direction: "in";
+}
+
+export interface BlobInputBindingDefinition extends BlobBindingDefinition {
+    /**
+     * The type of a blob binding. Must be 'blob'.
+     */
+    type: "blob";
+
+    /**
+     * The direction of the binding. Must be set to 'in' for an input binding.
+     */
+    direction: "in";
 }
 
 /**
@@ -194,6 +208,11 @@ declare module "./container" {
          */
         onBlobEvent(
             name: string, args: BlobCallback | BlobEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): BlobEventSubscription;
+
+        /**
+         * Creates an input binding linked to the given Blob Container to be used for an Azure Function.
+         */
+        input(name: string, args: BlobInputBindingArgs): appservice.BindingSettings;
     }
 }
 
@@ -205,6 +224,9 @@ Container.prototype.onBlobEvent = function(this: Container, name, args, opts) {
     return new BlobEventSubscription(name, this, functionArgs, opts);
 }
 
+Container.prototype.input = function(this: Container, name, args) {
+    return new BlobInputBinding(name, this, args);
+}
 export class BlobEventSubscription extends appservice.EventSubscription<BlobContext, Buffer, void> {
     constructor(
         name: string, container: storage.Container,
@@ -232,7 +254,7 @@ export class BlobFunction extends appservice.Function<BlobContext, Buffer, void>
         const suffix = args.filterSuffix || "";
         const path = pulumi.interpolate`${args.container.name}/${prefix}{blobName}${suffix}`;
 
-        const bindings: BlobBindingDefinition[] = [{
+        const bindings: BlobTriggerDefinition[] = [{
             path,
             name: "blob",
             type: "blobTrigger",
@@ -251,6 +273,41 @@ export class BlobFunction extends appservice.Function<BlobContext, Buffer, void>
         super(name, bindings, args, appSettings);
     }
 }
+
+export interface BlobInputBindingArgs {
+    /**
+     * Blob name to retrieve. May contain a binding expression to bind to a value from a trigger.
+     */
+    readonly blobName: pulumi.Input<string>;
+}
+
+export class BlobInputBinding implements appservice.BindingSettings {
+    public readonly binding: pulumi.Input<BlobInputBindingDefinition>;
+    public readonly settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string, container: Container, args: BlobInputBindingArgs) {
+        const { connectionKey, settings } = resolveAccount(container);
+
+        const path = pulumi.interpolate`${container.name}/${args.blobName}`;
+
+        this.binding = {
+            name: name,
+            type: "blob",
+            direction: "in",
+            dataType: "binary",
+            path,
+            connection: connectionKey,
+        };
+        this.settings = settings;
+    }
+}
+
+// NOTE
+// We do not support BlobOutputBinding, because its current implementation in Azure Functions at Node.js is not great.
+// Basically, it's not possible to control the exact content and metadata of the output blob:
+// - https://github.com/Azure/azure-functions-host/issues/4608
+// - https://github.com/Azure/azure-functions-host/issues/364
+
 
 interface QueueBindingDefinition extends appservice.BindingDefinition {
     /**
