@@ -1,12 +1,15 @@
-=======
 CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Azure Function types for Blob, Service Bus, Event Hub, IoT Hub, and Cosmos DB triggers
-* BREAKING: Types related to ServiceBus Topic subscriptions: TopicContext, TopicHostSettings, and TopicCallback were replaced by more general types ServiceBusContext, ServiceBusHostSettings, and ServiceBusCallback to support queue-based scenarios.
+___NULL___
 
 ---
+
+## 0.19.0 (2019-06-21)
+* BREAKING: Types related to ServiceBus Topic subscriptions: TopicContext, TopicHostSettings, and TopicCallback were replaced by more general types ServiceBusContext, ServiceBusHostSettings, and ServiceBusCallback to support queue-based scenarios.
+* Update to pulumi-terraform@3635bed3a5 which stops maps containing `.` being treated as nested maps.
+* Azure Function types for Blob, Service Bus, Event Hub, IoT Hub, and Cosmos DB triggers
 
 ## 0.18.8 (2019-06-19)
 * Add constants for the Azure Location types
