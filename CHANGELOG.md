@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Support Input and Output bindings for callback-based Azure Functions (HTTP and Storage Queue/Blob/Table only)
 
 ---
 

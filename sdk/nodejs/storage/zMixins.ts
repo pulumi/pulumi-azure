@@ -169,7 +169,7 @@ export interface BlobContext extends appservice.Context<void> {
  */
 export type BlobCallback = appservice.Callback<BlobContext, Buffer, void>;
 
-export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void> {
+export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void>, appservice.InputOutputsArgs {
     /**
      * Storage Blob Container to subscribe for events of.
      */
@@ -184,7 +184,7 @@ export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, B
     filterSuffix?: pulumi.Input<string>;
 };
 
-export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void> {
+export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void>, appservice.InputOutputsArgs {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the resource group of the Storage Account will be used.
@@ -248,27 +248,22 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
  */
 export class BlobFunction extends appservice.Function<BlobContext, Buffer, void> {
     constructor(name: string, args: BlobFunctionArgs) {
-        const bindingConnectionKey = pulumi.interpolate`Storage${args.container.storageAccountName}ConnectionKey`;
+        const { connectionKey, settings } = resolveAccount(args.container);
 
         const prefix = args.filterPrefix || "";
         const suffix = args.filterSuffix || "";
         const path = pulumi.interpolate`${args.container.name}/${prefix}{blobName}${suffix}`;
 
-        const bindings: BlobTriggerDefinition[] = [{
+        const binding: BlobTriggerDefinition = {
             path,
             name: "blob",
             type: "blobTrigger",
             direction: "in",
             dataType: "binary",
-            connection: bindingConnectionKey,
-        }];
+            connection: connectionKey,
+        };
 
-        const account = pulumi.all([args.container.resourceGroupName, args.container.storageAccountName])
-            .apply(([resourceGroupName, storageAccountName]) =>
-                storage.getAccount({ resourceGroupName, name: storageAccountName }));
-
-        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
-            ([connectionString, key]) => ({ [key]: connectionString }));
+        const { bindings, appSettings } = appservice.combineBindingSettings({binding, settings}, args.inputOutputs);
 
         super(name, bindings, args, appSettings);
     }
@@ -418,7 +413,7 @@ export interface QueueHostSettings extends appservice.HostSettings {
  */
 export type QueueCallback = appservice.Callback<QueueContext, Buffer, appservice.FunctionDefaultResponse>;
 
-export interface QueueFunctionArgs extends appservice.InputOutputsArgs, appservice.CallbackArgs<QueueContext, Buffer, appservice.FunctionDefaultResponse> {
+export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, Buffer, appservice.FunctionDefaultResponse>, appservice.InputOutputsArgs {
     /**
      * Defines the queue to trigger the function.
      */
