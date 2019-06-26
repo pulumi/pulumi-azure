@@ -14,7 +14,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 import { TemplateDeployment } from "../core/templateDeployment";
-import { Insights } from "../appinsights";
 
 export interface PartPosition {
     x: number,
@@ -23,65 +22,16 @@ export interface PartPosition {
     rowSpan: number
 }
 
-/** @internal */
 export interface PartMetadata {
-    [key: string]: any,
-    parameters(): { [key: string]: { type: string } }
-    parameterValues(): { [key: string]: any }
+    /** @internal */
+    parametrize(partIndex: number): void;
+    /** @internal */
+    parameters(partIndex: number): { [key: string]: { type: string } }
+    /** @internal */
+    parameterValues(partIndex: number): { [key: string]: any }
 }
 
-export class ApplicationInsightsQueryPartMetadata implements PartMetadata {
-
-    private asset = {
-        idInputName: "ComponentId",
-        type: "ApplicationInsights"
-    };
-
-    private settings = {
-        content: {
-            Query: ""
-        }
-    };
-
-    private inputs: { name: string, value: any }[] = [];
-
-    private type = "Extension/AppInsightsExtension/PartType/AnalyticsPart";
-
-    constructor(private insights: Insights, title: string, query: string) {
-        this.settings.content.Query = query;
-
-        this.inputs.push({
-            name: "ComponentId", value: {
-                "SubscriptionId": "[subscription().subscriptionId]",
-                "ResourceGroup": "[parameters('ai-resourceGroup')]",
-                "Name": "[parameters('ai-name')]",
-                "ResourceId": "[parameters('ai-id')]"
-            }
-        });
-
-        this.inputs.push({ name: "Query", value: query });
-        this.inputs.push({ name: "PartTitle", value: title });
-
-    }
-
-    parameters() {
-        return {
-            "ai-resourceGroup": {type: "string"},
-            "ai-name": {type: "string"},
-            "ai-id": { type: "string" }
-        }
-    }
-
-    parameterValues() {
-        return {
-            "ai-resourceGroup": this.insights.resourceGroupName,
-            "ai-name": this.insights.name,
-            "ai-id": this.insights.id
-        }
-    }
-}
-
-interface Part {
+export interface Part {
     position: PartPosition;
     metadata: PartMetadata;
 }
@@ -112,14 +62,19 @@ export interface DashboardArgs {
 
 export class Dashboard {
 
-    constructor(name: string, args: DashboardArgs) {
+    constructor(name: pulumi.Input<string>, args: DashboardArgs) {
 
         var parameters: any = {};
         var parameterValues: any = {};
+        let partIndex = 0;
         args.lenses.forEach(l => l.parts.forEach(p => {
-            parameters = { ...parameters, ...p.metadata.parameters() };
-            parameterValues = { ...parameterValues, ...p.metadata.parameterValues() };
+            p.metadata.parametrize(partIndex);
+            parameters = { ...parameters, ...p.metadata.parameters(partIndex) };
+            parameterValues = { ...parameterValues, ...p.metadata.parameterValues(partIndex) };
+            partIndex++;
         }));
+        parameters["dashboard-name"] = { type: "string" };
+        parameterValues["dashboard-name"] = name;
 
         if (args.location) {
             parameters["location"] = { type: "string" };
@@ -138,30 +93,32 @@ export class Dashboard {
             lenses[i.toString()] = lense;
         });
 
-        var template = new TemplateDeployment(name, {
-            resourceGroupName: args.resourceGroupName,
-            templateBody: JSON.stringify({
-                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": parameters,
-                "resources": [
-                    {
-                        "type": "Microsoft.Portal/dashboards",
-                        "apiVersion": "2015-08-01-preview",
-                        "name": "[concat(uniquestring(resourceGroup().id), 'dashboard')]",
-                        "tags": {
-                            "hidden-title": args.title
-                        },
-                        "location": args.location ? "[parameters('location')]" : "[resourceGroup().location]",
-                        "properties": {
-                            "lenses": lenses,
-                            "metadata": this.metadata
+        pulumi.all([name]).apply(([n]) => {
+            var template = new TemplateDeployment(n, {
+                resourceGroupName: args.resourceGroupName,
+                templateBody: JSON.stringify({
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": parameters,
+                    "resources": [
+                        {
+                            "type": "Microsoft.Portal/dashboards",
+                            "apiVersion": "2015-08-01-preview",
+                            "name": "[parameters('dashboard-name')]",
+                            "tags": {
+                                "hidden-title": args.title
+                            },
+                            "location": args.location ? "[parameters('location')]" : "[resourceGroup().location]",
+                            "properties": {
+                                "lenses": lenses,
+                                "metadata": this.metadata
+                            }
                         }
-                    }
-                ]
-            }),
-            parameters: parameterValues,
-            deploymentMode: "Incremental"
+                    ]
+                }),
+                parameters: parameterValues,
+                deploymentMode: "Incremental"
+            });
         });
     }
 

@@ -6,3 +6,4 @@ export * from "./apiKey";
 export * from "./getInsights";
 export * from "./insights";
 export * from "./webTest";
+export * from "./zMixins";

@@ -1029,6 +1029,11 @@ func Provider() tfbridge.ProviderInfo {
 					"util.ts",
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
+					"appinsights": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
 					"appservice": {
 						DestFiles: []string{
 							"zMixins.ts",
@@ -1047,6 +1052,11 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 					"iot": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
+					"monitoring": {
 						DestFiles: []string{
 							"zMixins.ts",
 						},
