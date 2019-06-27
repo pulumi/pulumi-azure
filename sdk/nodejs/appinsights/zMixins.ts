@@ -93,7 +93,7 @@ Insights.prototype.createDashboardPart = function (this: Insights, title: string
         x: 0,
         y: 0,
         rowSpan: 4,
-        colSpan: 4
+        colSpan: 5
     }
     return {
         position,
