@@ -1,5 +1,6 @@
 import * as azure from '@pulumi/azure';
 import { HttpRequest } from '@pulumi/azure/appservice';
+import * as m from '@pulumi/azure/appinsights/zMixins';
 import query from './query';
 
 const resourceGroup = new azure.core.ResourceGroup('example', { location: 'West US 2' });
@@ -30,7 +31,7 @@ const greeting = new azure.appservice.HttpEventSubscription('greeting', {
 
 const dashboard = new azure.monitoring.Dashboard("dashboard", {
   resourceGroupName: resourceGroup.name,
-  title: "cheds pulumi dashboard",
+  title: "Monitoring dashboard",
   lenses: [
     new azure.monitoring.Lense([
       appInsights.createDashboardPart("Request statistics", query, [{ name: "ControlType", value: "AnalyticsDonut" }])
