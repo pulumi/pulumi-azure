@@ -17,6 +17,8 @@ import { Insights } from './insights';
 
 class ApplicationInsightsQueryPartMetadata implements PartMetadata {
 
+    private insights: () => Insights;
+
     private asset = {
         idInputName: "ComponentId",
         type: "ApplicationInsights"
@@ -32,10 +34,11 @@ class ApplicationInsightsQueryPartMetadata implements PartMetadata {
 
     /** @internal */
     constructor(
-        private insights: Insights,
+        insights: Insights,
         private title: string,
         private query: string,
         private inputs?: { name: string, value: any }[]) {
+            this.insights = () => insights;
     }
 
     /** @internal */
@@ -68,9 +71,9 @@ class ApplicationInsightsQueryPartMetadata implements PartMetadata {
     /** @internal */
     parameterValues(partIndex: number) {
         const paramerts: any = {};
-        paramerts[`ai-rg-${partIndex}`] = this.insights.resourceGroupName;
-        paramerts[`ai-name-${partIndex}`] = this.insights.name;
-        paramerts[`ai-id-${partIndex}`] = this.insights.id;
+        paramerts[`ai-rg-${partIndex}`] = this.insights().resourceGroupName;
+        paramerts[`ai-name-${partIndex}`] = this.insights().name;
+        paramerts[`ai-id-${partIndex}`] = this.insights().id;
         return paramerts;
     }
 }
@@ -97,3 +100,5 @@ Insights.prototype.createDashboardPart = function (this: Insights, title: string
         metadata: new ApplicationInsightsQueryPartMetadata(this, title, query, inputs)
     }
 }
+
+export const dummy = 3;
