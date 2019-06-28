@@ -70,9 +70,7 @@ import * as utilities from "../utilities";
  *     location: testResourceGroup.location,
  *     name: "keyvaultcertexample",
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "standard",
- *     },
+ *     skuName: "standard",
  *     tags: {
  *         environment: "Production",
  *     },
@@ -166,9 +164,7 @@ import * as utilities from "../utilities";
  *     location: testResourceGroup.location,
  *     name: "keyvaultcertexample",
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "standard",
- *     },
+ *     skuName: "standard",
  *     tags: {
  *         environment: "Production",
  *     },

@@ -54,6 +54,10 @@ export class AccessPolicy extends pulumi.CustomResource {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     public readonly keyPermissions!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the id of the Key Vault resource. Changing this
+     * forces a new resource to be created.
+     */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
      * The object ID of a user, service principal or security
@@ -153,6 +157,10 @@ export interface AccessPolicyState {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     readonly keyPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the id of the Key Vault resource. Changing this
+     * forces a new resource to be created.
+     */
     readonly keyVaultId?: pulumi.Input<string>;
     /**
      * The object ID of a user, service principal or security
@@ -208,6 +216,10 @@ export interface AccessPolicyArgs {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     readonly keyPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the id of the Key Vault resource. Changing this
+     * forces a new resource to be created.
+     */
     readonly keyVaultId?: pulumi.Input<string>;
     /**
      * The object ID of a user, service principal or security

@@ -68,13 +68,17 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly addOnFeatures!: pulumi.Output<string[] | undefined>;
     /**
-     * An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+     * An `azure_active_directory` block as defined below.
      */
     public readonly azureActiveDirectory!: pulumi.Output<{ clientApplicationId: string, clusterApplicationId: string, tenantId: string } | undefined>;
     /**
-     * A `certificate` block as defined below.
+     * A `certificate` block as defined below. Conflicts with `certificate_common_names`.
      */
     public readonly certificate!: pulumi.Output<{ thumbprint: string, thumbprintSecondary?: string, x509StoreName: string } | undefined>;
+    /**
+     * A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+     */
+    public readonly certificateCommonNames!: pulumi.Output<{ commonNames: { certificateCommonName: string, certificateIssuerThumbprint?: string }[], x509StoreName: string } | undefined>;
     /**
      * One or two `client_certificate_thumbprint` blocks as defined below.
      */
@@ -151,6 +155,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["addOnFeatures"] = state ? state.addOnFeatures : undefined;
             inputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
+            inputs["certificateCommonNames"] = state ? state.certificateCommonNames : undefined;
             inputs["clientCertificateThumbprints"] = state ? state.clientCertificateThumbprints : undefined;
             inputs["clusterCodeVersion"] = state ? state.clusterCodeVersion : undefined;
             inputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
@@ -189,6 +194,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
             inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
             inputs["certificate"] = args ? args.certificate : undefined;
+            inputs["certificateCommonNames"] = args ? args.certificateCommonNames : undefined;
             inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
             inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
             inputs["diagnosticsConfig"] = args ? args.diagnosticsConfig : undefined;
@@ -218,13 +224,17 @@ export interface ClusterState {
      */
     readonly addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+     * An `azure_active_directory` block as defined below.
      */
     readonly azureActiveDirectory?: pulumi.Input<{ clientApplicationId: pulumi.Input<string>, clusterApplicationId: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
     /**
-     * A `certificate` block as defined below.
+     * A `certificate` block as defined below. Conflicts with `certificate_common_names`.
      */
     readonly certificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
+    /**
+     * A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+     */
+    readonly certificateCommonNames?: pulumi.Input<{ commonNames: pulumi.Input<pulumi.Input<{ certificateCommonName: pulumi.Input<string>, certificateIssuerThumbprint?: pulumi.Input<string> }>[]>, x509StoreName: pulumi.Input<string> }>;
     /**
      * One or two `client_certificate_thumbprint` blocks as defined below.
      */
@@ -296,13 +306,17 @@ export interface ClusterArgs {
      */
     readonly addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+     * An `azure_active_directory` block as defined below.
      */
     readonly azureActiveDirectory?: pulumi.Input<{ clientApplicationId: pulumi.Input<string>, clusterApplicationId: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
     /**
-     * A `certificate` block as defined below.
+     * A `certificate` block as defined below. Conflicts with `certificate_common_names`.
      */
     readonly certificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
+    /**
+     * A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+     */
+    readonly certificateCommonNames?: pulumi.Input<{ commonNames: pulumi.Input<pulumi.Input<{ certificateCommonName: pulumi.Input<string>, certificateIssuerThumbprint?: pulumi.Input<string> }>[]>, x509StoreName: pulumi.Input<string> }>;
     /**
      * One or two `client_certificate_thumbprint` blocks as defined below.
      */

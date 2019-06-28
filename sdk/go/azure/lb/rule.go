@@ -40,6 +40,7 @@ func NewRule(ctx *pulumi.Context,
 	if args == nil {
 		inputs["backendAddressPoolId"] = nil
 		inputs["backendPort"] = nil
+		inputs["disableOutboundSnat"] = nil
 		inputs["enableFloatingIp"] = nil
 		inputs["frontendIpConfigurationName"] = nil
 		inputs["frontendPort"] = nil
@@ -54,6 +55,7 @@ func NewRule(ctx *pulumi.Context,
 	} else {
 		inputs["backendAddressPoolId"] = args.BackendAddressPoolId
 		inputs["backendPort"] = args.BackendPort
+		inputs["disableOutboundSnat"] = args.DisableOutboundSnat
 		inputs["enableFloatingIp"] = args.EnableFloatingIp
 		inputs["frontendIpConfigurationName"] = args.FrontendIpConfigurationName
 		inputs["frontendPort"] = args.FrontendPort
@@ -82,6 +84,7 @@ func GetRule(ctx *pulumi.Context,
 	if state != nil {
 		inputs["backendAddressPoolId"] = state.BackendAddressPoolId
 		inputs["backendPort"] = state.BackendPort
+		inputs["disableOutboundSnat"] = state.DisableOutboundSnat
 		inputs["enableFloatingIp"] = state.EnableFloatingIp
 		inputs["frontendIpConfigurationId"] = state.FrontendIpConfigurationId
 		inputs["frontendIpConfigurationName"] = state.FrontendIpConfigurationName
@@ -120,6 +123,11 @@ func (r *Rule) BackendAddressPoolId() *pulumi.StringOutput {
 // The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 func (r *Rule) BackendPort() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["backendPort"])
+}
+
+// Indicates whether outbound snat is disabled or enabled. Default false.
+func (r *Rule) DisableOutboundSnat() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["disableOutboundSnat"])
 }
 
 // Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
@@ -186,6 +194,8 @@ type RuleState struct {
 	BackendAddressPoolId interface{}
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort interface{}
+	// Indicates whether outbound snat is disabled or enabled. Default false.
+	DisableOutboundSnat interface{}
 	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
 	EnableFloatingIp interface{}
 	FrontendIpConfigurationId interface{}
@@ -216,6 +226,8 @@ type RuleArgs struct {
 	BackendAddressPoolId interface{}
 	// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
 	BackendPort interface{}
+	// Indicates whether outbound snat is disabled or enabled. Default false.
+	DisableOutboundSnat interface{}
 	// Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
 	EnableFloatingIp interface{}
 	// The name of the frontend IP configuration to which the rule is associated.

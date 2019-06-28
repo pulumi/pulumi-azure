@@ -89,7 +89,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
@@ -173,7 +173,7 @@ export interface ServiceState {
      */
     readonly sku?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }
@@ -207,7 +207,7 @@ export interface ServiceArgs {
      */
     readonly sku: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

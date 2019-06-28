@@ -17,6 +17,10 @@ class Rule(pulumi.CustomResource):
     """
     The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
     """
+    disable_outbound_snat: pulumi.Output[bool]
+    """
+    Indicates whether outbound snat is disabled or enabled. Default false.
+    """
     enable_floating_ip: pulumi.Output[bool]
     """
     Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
@@ -59,7 +63,7 @@ class Rule(pulumi.CustomResource):
     """
     The name of the resource group in which to create the resource.
     """
-    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backend_address_pool_id=None, backend_port=None, disable_outbound_snat=None, enable_floating_ip=None, frontend_ip_configuration_name=None, frontend_port=None, idle_timeout_in_minutes=None, load_distribution=None, loadbalancer_id=None, location=None, name=None, probe_id=None, protocol=None, resource_group_name=None, __name__=None, __opts__=None):
         """
         Manages a Load Balancer Rule.
         
@@ -69,6 +73,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_id: A reference to a Backend Address Pool over which this Load Balancing Rule operates.
         :param pulumi.Input[float] backend_port: The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        :param pulumi.Input[bool] disable_outbound_snat: Indicates whether outbound snat is disabled or enabled. Default false.
         :param pulumi.Input[bool] enable_floating_ip: Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
         :param pulumi.Input[str] frontend_ip_configuration_name: The name of the frontend IP configuration to which the rule is associated.
         :param pulumi.Input[float] frontend_port: The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
@@ -100,6 +105,8 @@ class Rule(pulumi.CustomResource):
         if backend_port is None:
             raise TypeError("Missing required property 'backend_port'")
         __props__['backend_port'] = backend_port
+
+        __props__['disable_outbound_snat'] = disable_outbound_snat
 
         __props__['enable_floating_ip'] = enable_floating_ip
 

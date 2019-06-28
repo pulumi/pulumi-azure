@@ -6,6 +6,28 @@ import * as utilities from "../utilities";
 
 /**
  * Manages an API Management API Operation Policy
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleApiOperation = new azure.apimanagement.ApiOperation("example", {});
+ * const exampleApiOperationPolicy = new azure.apimanagement.ApiOperationPolicy("example", {
+ *     apiManagementName: exampleApiOperation.apiManagementName,
+ *     apiName: exampleApiOperation.apiName,
+ *     operationId: exampleApiOperation.operationId,
+ *     resourceGroupName: exampleApiOperation.resourceGroupName,
+ *     xmlContent: `<policies>
+ *   <inbound>
+ *     <find-and-replace from="xyz" to="abc" />
+ *   </inbound>
+ * </policies>
+ * `,
+ * });
+ * ```
  */
 export class ApiOperationPolicy extends pulumi.CustomResource {
     /**

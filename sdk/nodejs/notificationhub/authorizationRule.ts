@@ -22,9 +22,7 @@ import * as utilities from "../utilities";
  *     name: "myappnamespace",
  *     namespaceType: "NotificationHub",
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "Free",
- *     },
+ *     skuName: "Free",
  * });
  * const testHub = new azure.notificationhub.Hub("test", {
  *     location: testResourceGroup.location,

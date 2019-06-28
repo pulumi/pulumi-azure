@@ -85,6 +85,7 @@ func (r *MongoCollection) AccountName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountName"])
 }
 
+// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 func (r *MongoCollection) DatabaseName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["databaseName"])
 }
@@ -104,7 +105,7 @@ func (r *MongoCollection) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 func (r *MongoCollection) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -117,6 +118,7 @@ func (r *MongoCollection) ShardKey() *pulumi.StringOutput {
 // Input properties used for looking up and filtering MongoCollection resources.
 type MongoCollectionState struct {
 	AccountName interface{}
+	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName interface{}
 	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
 	DefaultTtlSeconds interface{}
@@ -124,7 +126,7 @@ type MongoCollectionState struct {
 	Indexes interface{}
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name interface{}
-	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// The name of the key to partition on for sharding. There must not be any other unique index keys. 
 	ShardKey interface{}
@@ -133,6 +135,7 @@ type MongoCollectionState struct {
 // The set of arguments for constructing a MongoCollection resource.
 type MongoCollectionArgs struct {
 	AccountName interface{}
+	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	DatabaseName interface{}
 	// The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
 	DefaultTtlSeconds interface{}
@@ -140,7 +143,7 @@ type MongoCollectionArgs struct {
 	Indexes interface{}
 	// Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
 	Name interface{}
-	// The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+	// The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// The name of the key to partition on for sharding. There must not be any other unique index keys. 
 	ShardKey interface{}

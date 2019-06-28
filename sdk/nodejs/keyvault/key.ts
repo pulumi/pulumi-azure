@@ -38,9 +38,7 @@ import * as utilities from "../utilities";
  *     location: testResourceGroup.location,
  *     name: "keyvaultkeyexample",
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "premium",
- *     },
+ *     skuName: "premium",
  *     tags: {
  *         environment: "Production",
  *     },
@@ -90,6 +88,10 @@ export class Key extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+     */
+    public readonly curve!: pulumi.Output<string>;
+    /**
      * The RSA public exponent of this Key Vault Key.
      */
     public /*out*/ readonly e!: pulumi.Output<string>;
@@ -98,15 +100,15 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly keyOpts!: pulumi.Output<string[]>;
     /**
-     * Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
+     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      */
-    public readonly keySize!: pulumi.Output<number>;
+    public readonly keySize!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
     public readonly keyType!: pulumi.Output<string>;
     /**
-     * The ID of the Key Vault where the Key should be created.
+     * The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
@@ -126,6 +128,14 @@ export class Key extends pulumi.CustomResource {
      * The current version of the Key Vault Key.
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
+    /**
+     * The EC X component of this Key Vault Key.
+     */
+    public /*out*/ readonly x!: pulumi.Output<string>;
+    /**
+     * The EC Y component of this Key Vault Key.
+     */
+    public /*out*/ readonly y!: pulumi.Output<string>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -139,6 +149,7 @@ export class Key extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as KeyState | undefined;
+            inputs["curve"] = state ? state.curve : undefined;
             inputs["e"] = state ? state.e : undefined;
             inputs["keyOpts"] = state ? state.keyOpts : undefined;
             inputs["keySize"] = state ? state.keySize : undefined;
@@ -149,17 +160,17 @@ export class Key extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
             inputs["version"] = state ? state.version : undefined;
+            inputs["x"] = state ? state.x : undefined;
+            inputs["y"] = state ? state.y : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
             if (!args || args.keyOpts === undefined) {
                 throw new Error("Missing required property 'keyOpts'");
             }
-            if (!args || args.keySize === undefined) {
-                throw new Error("Missing required property 'keySize'");
-            }
             if (!args || args.keyType === undefined) {
                 throw new Error("Missing required property 'keyType'");
             }
+            inputs["curve"] = args ? args.curve : undefined;
             inputs["keyOpts"] = args ? args.keyOpts : undefined;
             inputs["keySize"] = args ? args.keySize : undefined;
             inputs["keyType"] = args ? args.keyType : undefined;
@@ -170,6 +181,8 @@ export class Key extends pulumi.CustomResource {
             inputs["e"] = undefined /*out*/;
             inputs["n"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
+            inputs["x"] = undefined /*out*/;
+            inputs["y"] = undefined /*out*/;
         }
         super(Key.__pulumiType, name, inputs, opts);
     }
@@ -180,6 +193,10 @@ export class Key extends pulumi.CustomResource {
  */
 export interface KeyState {
     /**
+     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+     */
+    readonly curve?: pulumi.Input<string>;
+    /**
      * The RSA public exponent of this Key Vault Key.
      */
     readonly e?: pulumi.Input<string>;
@@ -188,15 +205,15 @@ export interface KeyState {
      */
     readonly keyOpts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
+     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      */
     readonly keySize?: pulumi.Input<number>;
     /**
-     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
     readonly keyType?: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault where the Key should be created.
+     * The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
      */
     readonly keyVaultId?: pulumi.Input<string>;
     /**
@@ -216,6 +233,14 @@ export interface KeyState {
      * The current version of the Key Vault Key.
      */
     readonly version?: pulumi.Input<string>;
+    /**
+     * The EC X component of this Key Vault Key.
+     */
+    readonly x?: pulumi.Input<string>;
+    /**
+     * The EC Y component of this Key Vault Key.
+     */
+    readonly y?: pulumi.Input<string>;
 }
 
 /**
@@ -223,19 +248,23 @@ export interface KeyState {
  */
 export interface KeyArgs {
     /**
+     * Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+     */
+    readonly curve?: pulumi.Input<string>;
+    /**
      * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
      */
     readonly keyOpts: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
+     * Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
      */
-    readonly keySize: pulumi.Input<number>;
+    readonly keySize?: pulumi.Input<number>;
     /**
-     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
     readonly keyType: pulumi.Input<string>;
     /**
-     * The ID of the Key Vault where the Key should be created.
+     * The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
      */
     readonly keyVaultId?: pulumi.Input<string>;
     /**

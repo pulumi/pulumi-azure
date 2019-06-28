@@ -7,6 +7,7 @@ from .function_java_script_udf import *
 from .job import *
 from .output_blob import *
 from .output_event_hub import *
+from .output_mssql import *
 from .output_service_bus_queue import *
 from .stream_input_blob import *
 from .stream_input_event_hub import *

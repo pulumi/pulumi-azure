@@ -76,6 +76,7 @@ export interface GetKeyVaultResult {
      * A `sku` block as described below.
      */
     readonly sku: { name: string };
+    readonly skuName: string;
     /**
      * A mapping of tags assigned to the Key Vault.
      */

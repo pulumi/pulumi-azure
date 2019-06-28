@@ -37,6 +37,10 @@ class Route(pulumi.CustomResource):
         """
         Manages a Route within a Route Table.
         
+        > **NOTE on Route Tables and Routes:** Terraform currently
+        provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
+        At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
+        
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies, such as `10.1.0.0/16`

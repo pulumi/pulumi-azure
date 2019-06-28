@@ -19,14 +19,12 @@ func NewKey(ctx *pulumi.Context,
 	if args == nil || args.KeyOpts == nil {
 		return nil, errors.New("missing required argument 'KeyOpts'")
 	}
-	if args == nil || args.KeySize == nil {
-		return nil, errors.New("missing required argument 'KeySize'")
-	}
 	if args == nil || args.KeyType == nil {
 		return nil, errors.New("missing required argument 'KeyType'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["curve"] = nil
 		inputs["keyOpts"] = nil
 		inputs["keySize"] = nil
 		inputs["keyType"] = nil
@@ -35,6 +33,7 @@ func NewKey(ctx *pulumi.Context,
 		inputs["tags"] = nil
 		inputs["vaultUri"] = nil
 	} else {
+		inputs["curve"] = args.Curve
 		inputs["keyOpts"] = args.KeyOpts
 		inputs["keySize"] = args.KeySize
 		inputs["keyType"] = args.KeyType
@@ -46,6 +45,8 @@ func NewKey(ctx *pulumi.Context,
 	inputs["e"] = nil
 	inputs["n"] = nil
 	inputs["version"] = nil
+	inputs["x"] = nil
+	inputs["y"] = nil
 	s, err := ctx.RegisterResource("azure:keyvault/key:Key", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -59,6 +60,7 @@ func GetKey(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *KeyState, opts ...pulumi.ResourceOpt) (*Key, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["curve"] = state.Curve
 		inputs["e"] = state.E
 		inputs["keyOpts"] = state.KeyOpts
 		inputs["keySize"] = state.KeySize
@@ -69,6 +71,8 @@ func GetKey(ctx *pulumi.Context,
 		inputs["tags"] = state.Tags
 		inputs["vaultUri"] = state.VaultUri
 		inputs["version"] = state.Version
+		inputs["x"] = state.X
+		inputs["y"] = state.Y
 	}
 	s, err := ctx.ReadResource("azure:keyvault/key:Key", name, id, inputs, opts...)
 	if err != nil {
@@ -87,6 +91,11 @@ func (r *Key) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+func (r *Key) Curve() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["curve"])
+}
+
 // The RSA public exponent of this Key Vault Key.
 func (r *Key) E() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["e"])
@@ -97,17 +106,17 @@ func (r *Key) KeyOpts() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["keyOpts"])
 }
 
-// Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
+// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 func (r *Key) KeySize() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["keySize"])
 }
 
-// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 func (r *Key) KeyType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyType"])
 }
 
-// The ID of the Key Vault where the Key should be created.
+// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
 func (r *Key) KeyVaultId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
@@ -136,17 +145,29 @@ func (r *Key) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
 }
 
+// The EC X component of this Key Vault Key.
+func (r *Key) X() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["x"])
+}
+
+// The EC Y component of this Key Vault Key.
+func (r *Key) Y() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["y"])
+}
+
 // Input properties used for looking up and filtering Key resources.
 type KeyState struct {
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+	Curve interface{}
 	// The RSA public exponent of this Key Vault Key.
 	E interface{}
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts interface{}
-	// Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
+	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize interface{}
-	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType interface{}
-	// The ID of the Key Vault where the Key should be created.
+	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
 	KeyVaultId interface{}
 	// The RSA modulus of this Key Vault Key.
 	N interface{}
@@ -157,17 +178,23 @@ type KeyState struct {
 	VaultUri interface{}
 	// The current version of the Key Vault Key.
 	Version interface{}
+	// The EC X component of this Key Vault Key.
+	X interface{}
+	// The EC Y component of this Key Vault Key.
+	Y interface{}
 }
 
 // The set of arguments for constructing a Key resource.
 type KeyArgs struct {
+	// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+	Curve interface{}
 	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
 	KeyOpts interface{}
-	// Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
+	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize interface{}
-	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType interface{}
-	// The ID of the Key Vault where the Key should be created.
+	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
 	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
 	Name interface{}
