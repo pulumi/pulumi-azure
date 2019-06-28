@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to v1.31.0 of the AzureRM Terraform provider
+___NULL___
+
 
 ---
+
+## 0.19.1 (2019-06-28)
+* Update to v1.31.0 of the AzureRM Terraform provider
 
 ## 0.19.0 (2019-06-21)
 * BREAKING: Types related to ServiceBus Topic subscriptions: TopicContext, TopicHostSettings, and TopicCallback were replaced by more general types ServiceBusContext, ServiceBusHostSettings, and ServiceBusCallback to support queue-based scenarios.
