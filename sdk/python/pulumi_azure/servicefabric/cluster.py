@@ -15,11 +15,15 @@ class Cluster(pulumi.CustomResource):
     """
     azure_active_directory: pulumi.Output[dict]
     """
-    An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
+    An `azure_active_directory` block as defined below.
     """
     certificate: pulumi.Output[dict]
     """
-    A `certificate` block as defined below.
+    A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+    """
+    certificate_common_names: pulumi.Output[dict]
+    """
+    A `certificate_common_names` block as defined below. Conflicts with `certificate`.
     """
     client_certificate_thumbprints: pulumi.Output[list]
     """
@@ -81,15 +85,16 @@ class Cluster(pulumi.CustomResource):
     """
     Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None, __name__=None, __opts__=None):
         """
         Manage a Service Fabric Cluster.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] add_on_features: A List of one or more features which should be enabled, such as `DnsService`.
-        :param pulumi.Input[dict] azure_active_directory: An `azure_active_directory` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] certificate: A `certificate` block as defined below.
+        :param pulumi.Input[dict] azure_active_directory: An `azure_active_directory` block as defined below.
+        :param pulumi.Input[dict] certificate: A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+        :param pulumi.Input[dict] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
         :param pulumi.Input[list] client_certificate_thumbprints: One or two `client_certificate_thumbprint` blocks as defined below.
         :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
         :param pulumi.Input[dict] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
@@ -125,6 +130,8 @@ class Cluster(pulumi.CustomResource):
         __props__['azure_active_directory'] = azure_active_directory
 
         __props__['certificate'] = certificate
+
+        __props__['certificate_common_names'] = certificate_common_names
 
         __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
 

@@ -26,6 +26,10 @@ class AccessPolicy(pulumi.CustomResource):
     `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
     """
     key_vault_id: pulumi.Output[str]
+    """
+    Specifies the id of the Key Vault resource. Changing this
+    forces a new resource to be created.
+    """
     object_id: pulumi.Output[str]
     """
     The object ID of a user, service principal or security
@@ -75,6 +79,8 @@ class AccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[list] key_permissions: List of key permissions, must be one or more from
                the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
                `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
+        :param pulumi.Input[str] key_vault_id: Specifies the id of the Key Vault resource. Changing this
+               forces a new resource to be created.
         :param pulumi.Input[str] object_id: The object ID of a user, service principal or security
                group in the Azure Active Directory tenant for the vault. The object ID must
                be unique for the list of access policies. Changing this forces a new resource

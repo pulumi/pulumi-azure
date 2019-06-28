@@ -81,6 +81,10 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly backendPort!: pulumi.Output<number>;
     /**
+     * Indicates whether outbound snat is disabled or enabled. Default false.
+     */
+    public readonly disableOutboundSnat!: pulumi.Output<boolean | undefined>;
+    /**
      * Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
      */
     public readonly enableFloatingIp!: pulumi.Output<boolean | undefined>;
@@ -137,6 +141,7 @@ export class Rule extends pulumi.CustomResource {
             const state = argsOrState as RuleState | undefined;
             inputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             inputs["backendPort"] = state ? state.backendPort : undefined;
+            inputs["disableOutboundSnat"] = state ? state.disableOutboundSnat : undefined;
             inputs["enableFloatingIp"] = state ? state.enableFloatingIp : undefined;
             inputs["frontendIpConfigurationId"] = state ? state.frontendIpConfigurationId : undefined;
             inputs["frontendIpConfigurationName"] = state ? state.frontendIpConfigurationName : undefined;
@@ -171,6 +176,7 @@ export class Rule extends pulumi.CustomResource {
             }
             inputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
             inputs["backendPort"] = args ? args.backendPort : undefined;
+            inputs["disableOutboundSnat"] = args ? args.disableOutboundSnat : undefined;
             inputs["enableFloatingIp"] = args ? args.enableFloatingIp : undefined;
             inputs["frontendIpConfigurationName"] = args ? args.frontendIpConfigurationName : undefined;
             inputs["frontendPort"] = args ? args.frontendPort : undefined;
@@ -200,6 +206,10 @@ export interface RuleState {
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
     readonly backendPort?: pulumi.Input<number>;
+    /**
+     * Indicates whether outbound snat is disabled or enabled. Default false.
+     */
+    readonly disableOutboundSnat?: pulumi.Input<boolean>;
     /**
      * Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
      */
@@ -256,6 +266,10 @@ export interface RuleArgs {
      * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
      */
     readonly backendPort: pulumi.Input<number>;
+    /**
+     * Indicates whether outbound snat is disabled or enabled. Default false.
+     */
+    readonly disableOutboundSnat?: pulumi.Input<boolean>;
     /**
      * Floating IP is pertinent to failover scenarios: a "floating” IP is reassigned to a secondary server in case the primary server fails. Floating IP is required for SQL AlwaysOn.
      */

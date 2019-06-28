@@ -77,6 +77,7 @@ const (
 	azureOperationalInsights = "operationalinsights" // Operational Insights
 	azurePostgresql          = "postgresql"          // Postgress SQL
 	azurePolicy              = "policy"              // Policy
+	azurePrivateDNS          = "privatedns"          // Private DNS
 	azureRecoveryServices    = "recoveryservices"    // Recovery Services
 	azureRedis               = "redis"               // RedisCache
 	azureRelay               = "relay"               // Relay
@@ -530,6 +531,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_servicebus_topic_authorization_rule": {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
 
 			// IoT Resources
+			"azurerm_iot_dps":             {Tok: azureResource(azureIot, "Dps")},
+			"azurerm_iot_dps_certificate": {Tok: azureResource(azureIot, "Certificate")},
 			"azurerm_iothub": {Tok: azureResource(azureIot, "IoTHub"),
 				Docs: &tfbridge.DocInfo{
 					Source: "iothub.html.markdown",
@@ -605,8 +608,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logic_app_workflow":             {Tok: azureResource(azureLogicApps, "Workflow")},
 
 			// MariaDB
-			"azurerm_mariadb_database": {Tok: azureResource(azureMariaDB, "Database")},
-			"azurerm_mariadb_server":   {Tok: azureResource(azureMariaDB, "Server")},
+			"azurerm_mariadb_database":      {Tok: azureResource(azureMariaDB, "Database")},
+			"azurerm_mariadb_firewall_rule": {Tok: azureResource(azureMariaDB, "FirewallRule")},
+			"azurerm_mariadb_server":        {Tok: azureResource(azureMariaDB, "Server")},
 
 			// Notification Hub
 			"azurerm_notification_hub":                    {Tok: azureResource(azureNotificationHub, "Hub")},
@@ -674,6 +678,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_assignment":     {Tok: azureResource(azurePolicy, "Assignment")},
 			"azurerm_policy_definition":     {Tok: azureResource(azurePolicy, "Definition")},
 			"azurerm_policy_set_definition": {Tok: azureResource(azurePolicy, "PolicySetDefinition")},
+
+			// Private Dns
+			"azurerm_private_dns_zone": {Tok: azureResource(azurePrivateDNS, "Zone")},
 
 			// SQL
 			"azurerm_sql_elasticpool":   {Tok: azureResource(azureSQL, "ElasticPool")},
@@ -865,6 +872,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_job":                     {Tok: azureResource(azureStreamAnalytics, "Job")},
 			"azurerm_stream_analytics_output_blob":             {Tok: azureResource(azureStreamAnalytics, "OutputBlob")},
 			"azurerm_stream_analytics_output_eventhub":         {Tok: azureResource(azureStreamAnalytics, "OutputEventHub")},
+			"azurerm_stream_analytics_output_mssql":            {Tok: azureResource(azureStreamAnalytics, "OutputMssql")},
 			"azurerm_stream_analytics_output_servicebus_queue": {Tok: azureResource(azureStreamAnalytics, "OutputServiceBusQueue")},
 			"azurerm_stream_analytics_stream_input_blob":       {Tok: azureResource(azureStreamAnalytics, "StreamInputBlob")},
 			"azurerm_stream_analytics_stream_input_eventhub":   {Tok: azureResource(azureStreamAnalytics, "StreamInputEventHub")},

@@ -22,9 +22,7 @@ import * as utilities from "../utilities";
  *     name: "myappnamespace",
  *     namespaceType: "NotificationHub",
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "Free",
- *     },
+ *     skuName: "Free",
  * });
  * ```
  */
@@ -80,9 +78,13 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly servicebusEndpoint!: pulumi.Output<string>;
     /**
-     * A `sku` block as defined below.
+     * ) A `sku` block as described below.
      */
     public readonly sku!: pulumi.Output<{ name: string }>;
+    /**
+     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     */
+    public readonly skuName!: pulumi.Output<string>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -103,6 +105,7 @@ export class Namespace extends pulumi.CustomResource {
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["servicebusEndpoint"] = state ? state.servicebusEndpoint : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["skuName"] = state ? state.skuName : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
             if (!args || args.namespaceType === undefined) {
@@ -111,15 +114,13 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
-                throw new Error("Missing required property 'sku'");
-            }
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceType"] = args ? args.namespaceType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["skuName"] = args ? args.skuName : undefined;
             inputs["servicebusEndpoint"] = undefined /*out*/;
         }
         super(Namespace.__pulumiType, name, inputs, opts);
@@ -155,9 +156,13 @@ export interface NamespaceState {
      */
     readonly servicebusEndpoint?: pulumi.Input<string>;
     /**
-     * A `sku` block as defined below.
+     * ) A `sku` block as described below.
      */
     readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    /**
+     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     */
+    readonly skuName?: pulumi.Input<string>;
 }
 
 /**
@@ -185,7 +190,11 @@ export interface NamespaceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `sku` block as defined below.
+     * ) A `sku` block as described below.
      */
-    readonly sku: pulumi.Input<{ name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    /**
+     * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+     */
+    readonly skuName?: pulumi.Input<string>;
 }

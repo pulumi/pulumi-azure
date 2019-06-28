@@ -36,6 +36,7 @@ func NewAppService(ctx *pulumi.Context,
 		inputs["httpsOnly"] = nil
 		inputs["identity"] = nil
 		inputs["location"] = nil
+		inputs["logs"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["siteConfig"] = nil
@@ -51,6 +52,7 @@ func NewAppService(ctx *pulumi.Context,
 		inputs["httpsOnly"] = args.HttpsOnly
 		inputs["identity"] = args.Identity
 		inputs["location"] = args.Location
+		inputs["logs"] = args.Logs
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["siteConfig"] = args.SiteConfig
@@ -85,6 +87,7 @@ func GetAppService(ctx *pulumi.Context,
 		inputs["httpsOnly"] = state.HttpsOnly
 		inputs["identity"] = state.Identity
 		inputs["location"] = state.Location
+		inputs["logs"] = state.Logs
 		inputs["name"] = state.Name
 		inputs["outboundIpAddresses"] = state.OutboundIpAddresses
 		inputs["possibleOutboundIpAddresses"] = state.PossibleOutboundIpAddresses
@@ -166,6 +169,11 @@ func (r *AppService) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
+// A `logs` block as defined below.
+func (r *AppService) Logs() *pulumi.Output {
+	return r.s.State["logs"]
+}
+
 // Specifies the name of the App Service. Changing this forces a new resource to be created.
 func (r *AppService) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -230,6 +238,8 @@ type AppServiceState struct {
 	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// A `logs` block as defined below.
+	Logs interface{}
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
@@ -270,6 +280,8 @@ type AppServiceArgs struct {
 	Identity interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
+	// A `logs` block as defined below.
+	Logs interface{}
 	// Specifies the name of the App Service. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which to create the App Service.

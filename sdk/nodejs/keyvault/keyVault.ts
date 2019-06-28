@@ -35,9 +35,7 @@ import * as utilities from "../utilities";
  *         defaultAction: "Deny",
  *     },
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "standard",
- *     },
+ *     skuName: "standard",
  *     tags: {
  *         environment: "Production",
  *     },
@@ -105,15 +103,19 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * An SKU block as described below.
+     * ) A `sku` block as described below.
      */
-    public readonly sku!: pulumi.Output<{ name: string }>;
+    public readonly sku!: pulumi.Output<{ name?: string }>;
+    /**
+     * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+     */
+    public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
     public readonly tenantId!: pulumi.Output<string>;
     /**
@@ -142,6 +144,7 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["networkAcls"] = state ? state.networkAcls : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tenantId"] = state ? state.tenantId : undefined;
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
@@ -149,9 +152,6 @@ export class KeyVault extends pulumi.CustomResource {
             const args = argsOrState as KeyVaultArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if (!args || args.sku === undefined) {
-                throw new Error("Missing required property 'sku'");
             }
             if (!args || args.tenantId === undefined) {
                 throw new Error("Missing required property 'tenantId'");
@@ -165,6 +165,7 @@ export class KeyVault extends pulumi.CustomResource {
             inputs["networkAcls"] = args ? args.networkAcls : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
             inputs["vaultUri"] = undefined /*out*/;
@@ -210,15 +211,19 @@ export interface KeyVaultState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * An SKU block as described below.
+     * ) A `sku` block as described below.
      */
-    readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<{ name?: pulumi.Input<string> }>;
+    /**
+     * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+     */
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
     readonly tenantId?: pulumi.Input<string>;
     /**
@@ -264,15 +269,19 @@ export interface KeyVaultArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * An SKU block as described below.
+     * ) A `sku` block as described below.
      */
-    readonly sku: pulumi.Input<{ name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<{ name?: pulumi.Input<string> }>;
+    /**
+     * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+     */
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+     * The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
      */
     readonly tenantId: pulumi.Input<string>;
 }

@@ -110,6 +110,8 @@ func (r *AccessPolicy) KeyPermissions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["keyPermissions"])
 }
 
+// Specifies the id of the Key Vault resource. Changing this
+// forces a new resource to be created.
 func (r *AccessPolicy) KeyVaultId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
@@ -164,6 +166,8 @@ type AccessPolicyState struct {
 	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
 	KeyPermissions interface{}
+	// Specifies the id of the Key Vault resource. Changing this
+	// forces a new resource to be created.
 	KeyVaultId interface{}
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must
@@ -199,6 +203,8 @@ type AccessPolicyArgs struct {
 	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
 	KeyPermissions interface{}
+	// Specifies the id of the Key Vault resource. Changing this
+	// forces a new resource to be created.
 	KeyVaultId interface{}
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must

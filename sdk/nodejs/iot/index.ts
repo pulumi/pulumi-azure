@@ -2,7 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./certificate";
 export * from "./consumerGroup";
+export * from "./dps";
 export * from "./ioTHub";
 export * from "./sharedAccessPolicy";
 export * from "./zMixins";

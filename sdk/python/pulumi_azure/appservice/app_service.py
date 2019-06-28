@@ -53,6 +53,10 @@ class AppService(pulumi.CustomResource):
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
+    logs: pulumi.Output[dict]
+    """
+    A `logs` block as defined below.
+    """
     name: pulumi.Output[str]
     """
     Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -85,7 +89,7 @@ class AppService(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an App Service (within an App Service Plan).
         
@@ -103,6 +107,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[dict] identity: A Managed Service Identity block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
         :param pulumi.Input[dict] site_config: A `site_config` block as defined below.
@@ -144,6 +149,8 @@ class AppService(pulumi.CustomResource):
         __props__['identity'] = identity
 
         __props__['location'] = location
+
+        __props__['logs'] = logs
 
         __props__['name'] = name
 

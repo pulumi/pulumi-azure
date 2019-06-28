@@ -122,6 +122,10 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * A `logs` block as defined below.
+     */
+    public readonly logs!: pulumi.Output<{ applicationLogs?: { azureBlobStorage?: { level: string, retentionInDays: number, sasUrl: string } } }>;
+    /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -177,6 +181,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["httpsOnly"] = state ? state.httpsOnly : undefined;
             inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
+            inputs["logs"] = state ? state.logs : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["outboundIpAddresses"] = state ? state.outboundIpAddresses : undefined;
             inputs["possibleOutboundIpAddresses"] = state ? state.possibleOutboundIpAddresses : undefined;
@@ -203,6 +208,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["httpsOnly"] = args ? args.httpsOnly : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["logs"] = args ? args.logs : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
@@ -265,6 +271,10 @@ export interface AppServiceState {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `logs` block as defined below.
+     */
+    readonly logs?: pulumi.Input<{ applicationLogs?: pulumi.Input<{ azureBlobStorage?: pulumi.Input<{ level: pulumi.Input<string>, retentionInDays: pulumi.Input<number>, sasUrl: pulumi.Input<string> }> }> }>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
@@ -343,6 +353,10 @@ export interface AppServiceArgs {
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * A `logs` block as defined below.
+     */
+    readonly logs?: pulumi.Input<{ applicationLogs?: pulumi.Input<{ azureBlobStorage?: pulumi.Input<{ level: pulumi.Input<string>, retentionInDays: pulumi.Input<number>, sasUrl: pulumi.Input<string> }> }> }>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */

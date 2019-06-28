@@ -12,7 +12,7 @@ class GetKeyVaultResult:
     """
     A collection of values returned by getKeyVault.
     """
-    def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, resource_group_name=None, sku=None, tags=None, tenant_id=None, vault_uri=None, id=None):
+    def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, resource_group_name=None, sku=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None, id=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError("Expected argument 'access_policies' to be a list")
         __self__.access_policies = access_policies
@@ -61,6 +61,9 @@ class GetKeyVaultResult:
         """
         A `sku` block as described below.
         """
+        if sku_name and not isinstance(sku_name, str):
+            raise TypeError("Expected argument 'sku_name' to be a str")
+        __self__.sku_name = sku_name
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -106,6 +109,7 @@ async def get_key_vault(name=None,resource_group_name=None,opts=None):
         network_acls=__ret__.get('networkAcls'),
         resource_group_name=__ret__.get('resourceGroupName'),
         sku=__ret__.get('sku'),
+        sku_name=__ret__.get('skuName'),
         tags=__ret__.get('tags'),
         tenant_id=__ret__.get('tenantId'),
         vault_uri=__ret__.get('vaultUri'),
