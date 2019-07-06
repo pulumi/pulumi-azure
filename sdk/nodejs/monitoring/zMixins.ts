@@ -57,13 +57,60 @@ export interface DashboardArgs {
     */
     readonly title: string;
 
+    /**
+     * Specifies the lenses that form the actual dashboard content
+     */
     readonly lenses: Lense[];
 }
 
-export class Dashboard {
+class DashboardPart extends pulumi.ComponentResource {
+    constructor(part: Part, index: number, lense: DashboardLense) {
+        const name = lense.name + "-part-" + index;
+        super("azure:monitoring:DashboardPart", name, { parent: lense });
 
-    constructor(name: pulumi.Input<string>, args: DashboardArgs) {
+        this.name = name;
+        this.index = index;
+        this.template = part;
 
+        this.registerOutputs({ name: this.name, index: this.index, template: this.template });
+    }
+
+    public readonly name: string;
+    public readonly index: number;
+    public readonly template: Part;
+}
+
+class DashboardLense extends pulumi.ComponentResource {
+    constructor(lense: Lense, index: number, dashboard: Dashboard) {
+        const name = dashboard.name + "-lense-" + index;
+        super("azure:monitoring:DashboardLense", name, { parent: dashboard });
+
+        this.name = name;
+        this.index = index;
+        this.parts = lense.parts.map((p, i) => new DashboardPart(p, i, this));
+
+        this.template = {
+            order: index.toString(),
+            parts: {}
+        };
+        this.parts.forEach((p) => {
+            this.template.parts[p.index.toString()] = p.template
+        });
+
+        this.registerOutputs({ parts: this.parts, name: this.name, index: this.index });
+    }
+
+    public readonly name: string;
+    public readonly index: number;
+    public readonly parts: DashboardPart[];
+    public readonly template: { order: string, parts: { [partIndex: string]: Part } };
+}
+
+export class Dashboard extends pulumi.ComponentResource {
+
+    constructor(name: string, args: DashboardArgs) {
+        super("azure:monitoring:Dashboard", name, {});
+        this.name = name;
         var parameters: any = {};
         var parameterValues: any = {};
         let partIndex = 0;
@@ -81,46 +128,47 @@ export class Dashboard {
             parameterValues["location"] = args.location;
         }
 
-        const lenses: any = {};
-        args.lenses.forEach((l, i) => {
-            const lense = {
-                order: i.toString(),
-                parts: <any>{}
-            };
-            l.parts.forEach((p, pi) => {
-                lense.parts[pi.toString()] = p
-            });
-            lenses[i.toString()] = lense;
+        const lenses = args.lenses.map((l, i) => new DashboardLense(l, i, this));
+        const lensesTemplate: any = {};
+        lenses.forEach((l) => {
+            lensesTemplate[l.index.toString()] = l.template;
         });
 
-        pulumi.all([name]).apply(([n]) => {
-            var template = new TemplateDeployment(n, {
-                resourceGroupName: args.resourceGroupName,
-                templateBody: JSON.stringify({
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": parameters,
-                    "resources": [
-                        {
-                            "type": "Microsoft.Portal/dashboards",
-                            "apiVersion": "2015-08-01-preview",
-                            "name": "[parameters('dashboard-name')]",
-                            "tags": {
-                                "hidden-title": args.title
-                            },
-                            "location": args.location ? "[parameters('location')]" : "[resourceGroup().location]",
-                            "properties": {
-                                "lenses": lenses,
-                                "metadata": this.metadata
-                            }
+        var template = new TemplateDeployment(name, {
+            resourceGroupName: args.resourceGroupName,
+            templateBody: JSON.stringify({
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": parameters,
+                "resources": [
+                    {
+                        "type": "Microsoft.Portal/dashboards",
+                        "apiVersion": "2015-08-01-preview",
+                        "name": "[parameters('dashboard-name')]",
+                        "tags": {
+                            "hidden-title": args.title
+                        },
+                        "location": args.location ? "[parameters('location')]" : "[resourceGroup().location]",
+                        "properties": {
+                            "lenses": lensesTemplate,
+                            "metadata": this.metadata
                         }
-                    ]
-                }),
-                parameters: parameterValues,
-                deploymentMode: "Incremental"
+                    }
+                ]
+            }),
+            parameters: parameterValues,
+            deploymentMode: "Incremental"
+        }, {
+                parent: this
             });
+
+        this.registerOutputs({
+            template,
+            name
         });
     }
+
+    public readonly name: string;
 
     private metadata = {
         "model": {
