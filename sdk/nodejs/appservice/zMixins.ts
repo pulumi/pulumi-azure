@@ -15,6 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import * as azurefunctions from "@azure/functions";
+import { AzureServiceClient } from "@azure/ms-rest-azure-js";
 
 import { FunctionApp } from "./functionApp";
 
@@ -196,7 +197,7 @@ interface FunctionAppArgsBase {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{ [key: string]: any }>;
 
     /**
      * The runtime version associated with the Function App. Defaults to `~2`.
@@ -248,7 +249,7 @@ export interface HostSettings {
          * A sliding time window used in conjunction with the `healthCheckThreshold` setting.
          * Defaults to 2 minutes.
          */
-        healthCheckWindow:string,
+        healthCheckWindow: string,
         /**
          * Maximum number of times the health check can fail before a host recycle is initiated.  Defaults to `6`.
          */
@@ -355,13 +356,13 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
         const body = await serializeFunctionCallback(func.callback);
 
         map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
-        map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
+            map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
     }
 
     return new pulumi.asset.AssetArchive(map);
 }
 
-function combineAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
+function combineAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{ [key: string]: string }> {
     const applicationSetting = args.appSettings || {};
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
     return pulumi.all([applicationSetting, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
@@ -436,9 +437,9 @@ export interface ArchiveFunctionAppArgs extends FunctionAppArgsBase {
 };
 
 function createFunctionAppParts(
-        name: string,
-        args: ArchiveFunctionAppArgs,
-        opts: pulumi.CustomResourceOptions = {}) {
+    name: string,
+    args: ArchiveFunctionAppArgs,
+    opts: pulumi.CustomResourceOptions = {}) {
 
     if (!args.archive) {
         throw new Error("Deployment [archive] must be provided.");
@@ -540,7 +541,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
     public readonly endpoint: pulumi.Output<string>;
 
     constructor(name: string, bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
-                args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
+        args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
 
         const functions = bindingsOrFunc instanceof Function ? [bindingsOrFunc] : [<Function<C, E, R>>{ name, bindings: bindingsOrFunc, callback: args }];
         const parts = createFunctionAppParts(name, {
@@ -594,10 +595,10 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
      */
     public readonly endpoint: pulumi.Output<string>;
 
-    constructor(type:string,
-                name: string,
-                args: ArchiveFunctionAppArgs,
-                opts: pulumi.ComponentResourceOptions = {}) {
+    constructor(type: string,
+        name: string,
+        args: ArchiveFunctionAppArgs,
+        opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
         const parentOpts = { parent: this };
@@ -619,8 +620,8 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
  */
 export class ArchiveFunctionApp extends PackagedFunctionApp {
     constructor(name: string,
-                args: ArchiveFunctionAppArgs,
-                opts: pulumi.ComponentResourceOptions = {}) {
+        args: ArchiveFunctionAppArgs,
+        opts: pulumi.ComponentResourceOptions = {}) {
         super("azure:appservice:ArchiveFunctionApp", name, args, opts);
         this.registerOutputs();
     }
@@ -635,8 +636,8 @@ export class ArchiveFunctionApp extends PackagedFunctionApp {
  */
 export class MultiCallbackFunctionApp extends PackagedFunctionApp {
     constructor(name: string,
-                args: MultiCallbackFunctionAppArgs,
-                opts: pulumi.ComponentResourceOptions = {}) {
+        args: MultiCallbackFunctionAppArgs,
+        opts: pulumi.ComponentResourceOptions = {}) {
 
         if (args.functions.length == 0) {
             throw new Error("At least one function must be provided.");
@@ -667,9 +668,9 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
-                bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
-                args: CallbackFunctionAppArgs<C, E, R>,
-                opts: pulumi.ComponentResourceOptions = {}) {
+        bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
+        args: CallbackFunctionAppArgs<C, E, R>,
+        opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
         this.functionApp = new CallbackFunctionApp(name, bindingsOrFunc, args, { parent: this });
@@ -697,7 +698,7 @@ interface BaseSubscriptionArgs {
 
 /** @internal */
 export function getResourceGroupNameAndLocation(
-        args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
+    args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
 
     if (args.resourceGroup) {
         return { resourceGroupName: args.resourceGroup.name, location: args.resourceGroup.location };
@@ -710,4 +711,58 @@ export function getResourceGroupNameAndLocation(
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName!);
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
+}
+
+/**
+ * Keys associated with a Function App.
+ */
+export interface FunctionHostKeys {
+    /** Master key. */
+    masterKey: string;
+    /** A dictionary of system keys, e.g. for Durable Functions or Event Grid. */
+    systemKeys: { [key: string]: string };
+    /** Default function keys. */
+    functionKeys: FunctionKeys;
+}
+
+/**
+ * Keys associated with a single Function.
+ */
+export interface FunctionKeys {
+    default: string;
+    [key: string]: string;
+}
+
+declare module "./functionApp" {
+    interface FunctionApp {
+        /**
+         * Retrieve the keys associated with the Function App.
+         */
+        listHostKeys(): pulumi.Output<FunctionHostKeys>;
+
+        /**
+         * Retrieve the keys associated with the given Function.
+         */
+        listFunctionKeys(functionName: pulumi.Input<string>): pulumi.Output<FunctionKeys>;
+    }
+}
+
+FunctionApp.prototype.listHostKeys = function (this: FunctionApp) {
+    return this.id.apply(async id => {
+        const credentials = await core.getServiceClientCredentials();
+        const client = new AzureServiceClient(credentials);
+        const url = `https://management.azure.com${id}/host/default/listkeys?api-version=2018-02-01`;
+        const response = await client.sendRequest({ method: "POST", url });
+        return <FunctionHostKeys>response.parsedBody;
+    })
+}
+
+FunctionApp.prototype.listFunctionKeys = function (this: FunctionApp, functionName) {
+    return pulumi.all([this.id, functionName]).apply(async ([id, name]) => {
+        const credentials = await core.getServiceClientCredentials();
+        const client = new AzureServiceClient(credentials);
+        const url = `https://management.azure.com${id}/functions/${name}/listkeys?api-version=2018-02-01`;
+        const response = await client.sendRequest({ method: "POST", url });
+        return <FunctionKeys>response.parsedBody;
+    })
 }

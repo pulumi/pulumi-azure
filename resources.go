@@ -1044,6 +1044,11 @@ func Provider() tfbridge.ProviderInfo {
 							"zMixins_timer.ts",
 						},
 					},
+					"core": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
 					"cosmosdb": {
 						DestFiles: []string{
 							"zMixins.ts",
