@@ -2,8 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
-
+* Introduce `listHostKeys` and `listFunctionKeys` mix-in functions to retrieve Azure Functions management keys
 
 ---
 
