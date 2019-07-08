@@ -8,7 +8,6 @@ require (
 	github.com/coreos/bbolt v1.3.1-coreos.1 // indirect
 	github.com/djherbis/times v1.2.0 // indirect
 	github.com/gofrs/flock v0.7.1 // indirect
-	github.com/googleapis/gax-go v2.0.2+incompatible // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181103185306-d547d1d9531e // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/aws-sdk-go-base v0.3.0 // indirect
@@ -20,8 +19,8 @@ require (
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/pelletier/go-toml v1.3.0 // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/pulumi/pulumi v0.17.6-0.20190410045519-ef5e148a73c0
-	github.com/pulumi/pulumi-terraform v0.18.3
+	github.com/pulumi/pulumi v0.17.22-0.20190702185104-ebceea93a5da
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20190703150544-a9a9ca8157ca
 	github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709
