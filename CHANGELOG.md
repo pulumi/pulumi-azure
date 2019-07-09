@@ -2,7 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* BREAKING: Default data type of a Storage Queue-triggered Callback Function is changed from 'binary' to 'string'.
+  This means that the type of second argument of a callback changes from 'Buffer' to 'string' or 'object' depending on the payload.
+  To restore the past behavior, pass `dataType: "binary"` to the arguments of `QueueFunction` class or `queue.onEvent` function.
 
 
 ---

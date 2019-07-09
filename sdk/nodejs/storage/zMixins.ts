@@ -64,7 +64,7 @@ export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulum
                     create: false,
                     update: false,
                     process: false,
-                }
+                },
             });
 
             return `https://${accountName}.blob.core.windows.net/${containerName}/${blobName}${sas.sas}`;
@@ -171,8 +171,8 @@ export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, B
 
 export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void> {
     /**
-     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
-     * If none of the two is supplied, the resource group of the Storage Account will be used.
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
+     * over [resourceGroupName]. If none of the two is supplied, the resource group of the Storage Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 
@@ -183,7 +183,7 @@ export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAp
      */
     filterPrefix?: pulumi.Input<string>;
     filterSuffix?: pulumi.Input<string>;
-};
+}
 
 declare module "./container" {
     interface Container {
@@ -270,12 +270,10 @@ interface QueueBindingDefinition extends appservice.BindingDefinition {
     direction: "in";
 
     /**
-     * How we want the message represented when passed into the callback.  We specify 'binary'
-     * so that all data is passed in as a buffer.  Otherwise, Azure will attempt to sniff
-     * the content and convert it accordingly. This gives us a consistent way to know what
-     * data will be passed into the function.
+     * How we want the message represented when passed into the callback. 'binary' passes messages as a Buffer,
+     * while 'string' passes either a string, or a parsed object if the string is a valid JSON literal.
      */
-    dataType: "binary";
+    dataType: "binary" | "string";
 
     /**
      * The name of the storage queue to listen to.
@@ -321,39 +319,46 @@ export interface QueueContext extends appservice.Context<void> {
  */
 export interface QueueHostExtensions {
     /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
-    maxPollingInterval?: string,
+    maxPollingInterval?: string;
 
     /** The time interval between retries when processing of a message fails. */
-    visibilityTimeout?: string,
+    visibilityTimeout?: string;
 
     /** The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. */
-    batchSize?: number,
+    batchSize?: number;
 
     /** The number of times to try processing a message before moving it to the poison queue. */
-    maxDequeueCount?: number,
+    maxDequeueCount?: number;
 
     /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
-    newBatchThreshold?: number,
+    newBatchThreshold?: number;
 }
 export interface QueueHostSettings extends appservice.HostSettings {
     extensions?: {
         queues: QueueHostExtensions,
-    }
+    };
 }
 
 /**
  * Signature of the callback that can receive queue notifications.
  */
-export type QueueCallback = appservice.Callback<QueueContext, Buffer, void>;
+export type QueueCallback = appservice.Callback<QueueContext, any, void>;
 
-export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, Buffer, void> {
+export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, any, void> {
     /**
      * Defines the queue to trigger the function.
      */
     queue: Queue;
-};
 
-export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, Buffer, void> {
+    /**
+     * Specify 'string' to get messages as a string, or a parsed object if the message is a valid JSON literal.
+     * Specify 'binary' for all data to be passed in as a Buffer.
+     * Default is 'string'.
+     */
+    dataType?: "binary" | "string";
+}
+
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, any, void> {
     /**
      * The resource group in which to create the event subscription.  If not supplied, the
      * Queue's resource group will be used.
@@ -371,6 +376,13 @@ export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionA
      * be used in their place.
      */
     hostSettings?: QueueHostSettings;
+
+    /**
+     * Specify 'string' to get messages as a string, or a parsed object if the message is a valid JSON literal.
+     * Specify 'binary' for all data to be passed in as a Buffer.
+     * Default is 'string'.
+     */
+    dataType?: "binary" | "string";
 };
 
 declare module "./queue" {
@@ -392,7 +404,7 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
     return new QueueEventSubscription(name, this, functionArgs, opts);
 }
 
-export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, Buffer, void> {
+export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, any, void> {
     constructor(
         name: string, queue: Queue,
         args: QueueEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
@@ -414,7 +426,7 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 /**
  * Azure Function triggered by a Storage Queue.
  */
-export class QueueFunction extends appservice.Function<QueueContext, Buffer, void> {
+export class QueueFunction extends appservice.Function<QueueContext, any, void> {
     constructor(name: string, args: QueueFunctionArgs) {
         const bindingConnectionKey = pulumi.interpolate`Storage${args.queue.storageAccountName}ConnectionStringKey`;
 
@@ -429,7 +441,7 @@ export class QueueFunction extends appservice.Function<QueueContext, Buffer, voi
             name: "queue",
             type: "queueTrigger",
             direction: "in",
-            dataType: "binary",
+            dataType: args.dataType || "string",
             queueName: args.queue.name,
             connection: bindingConnectionKey,
         }], args, appSettings);

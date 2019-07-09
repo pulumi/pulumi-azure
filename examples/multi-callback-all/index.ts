@@ -30,7 +30,7 @@ const queue = new azure.storage.Queue("queue", {
 const storageQueueFunc = new azure.storage.QueueFunction("storage-queue", {
     queue,
     callback: async (context, msg) => {
-        console.log(`Received a message ${msg.toString()}`);
+        console.log(`Received a message ${msg}`);
     },
 });
 
