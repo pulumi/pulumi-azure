@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import * as msnodeauth from "@azure/ms-rest-nodeauth";
 import { ServiceClientCredentials } from "@azure/ms-rest-js";
+import * as msnodeauth from "@azure/ms-rest-nodeauth";
 import * as config from "../config";
 
 /**
@@ -26,7 +26,8 @@ export async function getServiceClientCredentials(): Promise<ServiceClientCreden
     if (config.useMsi) {
         credentials = await msnodeauth.loginWithAppServiceMSI({ msiEndpoint: config.msiEndpoint });
     } else if (config.clientId && config.clientSecret && config.tenantId) {
-        credentials = await msnodeauth.loginWithServicePrincipalSecret(config.clientId, config.clientSecret, config.tenantId);
+        credentials = await msnodeauth.loginWithServicePrincipalSecret(
+            config.clientId, config.clientSecret, config.tenantId);
     } else {
         // `create()` will throw an error if the Az CLI is not installed or `az login` has never been run.
         credentials = await msnodeauth.AzureCliCredentials.create();
