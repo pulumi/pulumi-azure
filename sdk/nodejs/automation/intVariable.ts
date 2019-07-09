@@ -33,6 +33,8 @@ import * as utilities from "../utilities";
  *     value: 1234,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_int.html.markdown.
  */
 export class IntVariable extends pulumi.CustomResource {
     /**

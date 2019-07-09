@@ -11,6 +11,8 @@ import (
 // Manages a LoadBalancer Probe Resource.
 // 
 // > **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_probe.html.markdown.
 type Probe struct {
 	s *pulumi.ResourceState
 }

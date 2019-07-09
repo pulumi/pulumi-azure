@@ -90,6 +90,8 @@ import * as utilities from "../utilities";
  *     vmSize: "Standard_A1",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
  */
 export class Pool extends pulumi.CustomResource {
     /**

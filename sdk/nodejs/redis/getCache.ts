@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  * export const hostname = example.hostname;
  * export const primaryAccessKey = example.primaryAccessKey;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
  */
 export function getCache(args: GetCacheArgs, opts?: pulumi.InvokeOptions): Promise<GetCacheResult> {
     return pulumi.runtime.invoke("azure:redis/getCache:getCache", {

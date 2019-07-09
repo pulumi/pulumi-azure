@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  *     vmImage: "Windows",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/service_fabric_cluster.html.markdown.
  */
 export class Cluster extends pulumi.CustomResource {
     /**

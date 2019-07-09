@@ -9,6 +9,8 @@ import (
 )
 
 // Manage a custom virtual machine image that can be used to create virtual machines.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
 type Image struct {
 	s *pulumi.ResourceState
 }

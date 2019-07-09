@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "tfex-resource_group",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.html.markdown.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
     return pulumi.runtime.invoke("azure:recoveryservices/getVault:getVault", {

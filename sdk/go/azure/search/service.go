@@ -9,6 +9,8 @@ import (
 )
 
 // Allows you to manage an Azure Search Service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
 type Service struct {
 	s *pulumi.ResourceState
 }

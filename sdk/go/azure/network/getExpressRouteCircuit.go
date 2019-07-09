@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing ExpressRoute circuit.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
 func LookupExpressRouteCircuit(ctx *pulumi.Context, args *GetExpressRouteCircuitArgs) (*GetExpressRouteCircuitResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

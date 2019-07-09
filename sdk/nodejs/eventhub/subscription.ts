@@ -4,43 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manage a ServiceBus Subscription.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- *     name: "tfex-servicebus-subscription",
- * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     name: "tfex_sevicebus_namespace",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "terraform",
- *     },
- * });
- * const exampleTopic = new azure.eventhub.Topic("example", {
- *     enablePartitioning: true,
- *     name: "tfex_sevicebus_topic",
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleSubscription = new azure.eventhub.Subscription("example", {
- *     maxDeliveryCount: 1,
- *     name: "tfex_sevicebus_subscription",
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     topicName: exampleTopic.name,
- * });
- * ```
- */
 export class Subscription extends pulumi.CustomResource {
     /**
      * Get an existing Subscription resource's state with the given name, ID, and optional extra

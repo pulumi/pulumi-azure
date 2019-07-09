@@ -11,6 +11,8 @@ import (
 // Manage a Linked Service (connection) between a SQL Server and Azure Data Factory.
 // 
 // > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_sql_server.html.markdown.
 type LinkedServiceSqlServer struct {
 	s *pulumi.ResourceState
 }

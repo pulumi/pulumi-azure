@@ -9,6 +9,8 @@ import (
 )
 
 // Enables you to manage DNS AAAA Records within Azure DNS.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_aaaa_record.html.markdown.
 type AaaaRecord struct {
 	s *pulumi.ResourceState
 }

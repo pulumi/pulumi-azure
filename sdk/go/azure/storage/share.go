@@ -9,6 +9,8 @@ import (
 )
 
 // Manage an Azure Storage File Share.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
 type Share struct {
 	s *pulumi.ResourceState
 }

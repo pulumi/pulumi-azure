@@ -41,6 +41,8 @@ class GetNetworkWatcherResult:
 async def get_network_watcher(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Network Watcher.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_watcher.html.markdown.
     """
     __args__ = dict()
 

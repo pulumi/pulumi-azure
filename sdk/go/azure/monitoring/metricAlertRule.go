@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a [metric-based alert rule](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) in Azure Monitor.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alertrule.html.markdown.
 type MetricAlertRule struct {
 	s *pulumi.ResourceState
 }

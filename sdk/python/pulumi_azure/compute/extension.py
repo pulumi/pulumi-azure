@@ -97,6 +97,8 @@ class Extension(pulumi.CustomResource):
                use, available versions can be found using the Azure CLI.
         :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine. Changing
                this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -59,6 +59,8 @@ class GetSubscriptionResult:
 async def get_subscription(subscription_id=None,opts=None):
     """
     Use this data source to access information about an existing Subscription.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
     """
     __args__ = dict()
 

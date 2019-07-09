@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Table within a Cosmos DB Account.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_table.html.markdown.
 type Table struct {
 	s *pulumi.ResourceState
 }

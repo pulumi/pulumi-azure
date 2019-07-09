@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing DNS Zone.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dns_zone.html.markdown.
 func LookupZone(ctx *pulumi.Context, args *GetZoneArgs) (*GetZoneResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing API Management Product.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
 func LookupProduct(ctx *pulumi.Context, args *GetProductArgs) (*GetProductResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

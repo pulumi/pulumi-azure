@@ -122,6 +122,8 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] status: The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
                supports ordering. Defaults to false.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

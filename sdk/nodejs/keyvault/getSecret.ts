@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  * 
  * export const secretValue = test.value;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
     return pulumi.runtime.invoke("azure:keyvault/getSecret:getSecret", {

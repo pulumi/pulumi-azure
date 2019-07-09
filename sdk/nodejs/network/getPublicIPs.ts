@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "pip-test",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
  */
 export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> {
     return pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {

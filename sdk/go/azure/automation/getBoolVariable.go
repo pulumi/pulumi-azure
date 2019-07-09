@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Automation Bool Variable.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
 func LookupBoolVariable(ctx *pulumi.Context, args *GetBoolVariableArgs) (*GetBoolVariableResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

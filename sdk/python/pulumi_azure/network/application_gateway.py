@@ -142,6 +142,8 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[dict] waf_configuration: A `waf_configuration` block as defined below.
         :param pulumi.Input[list] zones: A collection of availability zones to spread the Application Gateway over.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

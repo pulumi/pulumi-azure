@@ -95,6 +95,8 @@ class GetPoolResult:
 async def get_pool(account_name=None,certificates=None,name=None,resource_group_name=None,start_task=None,opts=None):
     """
     Use this data source to access information about an existing Batch pool
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
     """
     __args__ = dict()
 

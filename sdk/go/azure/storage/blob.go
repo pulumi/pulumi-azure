@@ -9,6 +9,8 @@ import (
 )
 
 // Manage an Azure Storage Blob.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
 type Blob struct {
 	s *pulumi.ResourceState
 }

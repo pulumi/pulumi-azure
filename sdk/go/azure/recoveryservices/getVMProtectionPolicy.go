@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Recovery Services VM Protection Policy.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_protection_policy_vm.html.markdown.
 func LookupVMProtectionPolicy(ctx *pulumi.Context, args *GetVMProtectionPolicyArgs) (*GetVMProtectionPolicyResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

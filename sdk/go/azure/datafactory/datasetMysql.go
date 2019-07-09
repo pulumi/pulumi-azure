@@ -9,6 +9,8 @@ import (
 )
 
 // Manage a MySQL Dataset inside a Azure Data Factory.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
 type DatasetMysql struct {
 	s *pulumi.ResourceState
 }

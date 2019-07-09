@@ -63,6 +63,8 @@ import * as utilities from "../utilities";
  * export const readTelemetryApiKey = readTelemetry.apiKey;
  * export const writeAnnotationsApiKey = writeAnnotations.apiKey;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_api_key.html.markdown.
  */
 export class ApiKey extends pulumi.CustomResource {
     /**

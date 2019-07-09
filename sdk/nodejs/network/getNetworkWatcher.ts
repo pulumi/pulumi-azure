@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const networkWatcherId = test.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_watcher.html.markdown.
  */
 export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
     return pulumi.runtime.invoke("azure:network/getNetworkWatcher:getNetworkWatcher", {

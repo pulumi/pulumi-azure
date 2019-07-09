@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const dataLakeStoreId = test.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
  */
 export function getStore(args: GetStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetStoreResult> {
     return pulumi.runtime.invoke("azure:datalake/getStore:getStore", {

@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  * 
  * export const variableId = example.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_datetime.html.markdown.
  */
 export function getDateTimeVariable(args: GetDateTimeVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetDateTimeVariableResult> {
     return pulumi.runtime.invoke("azure:automation/getDateTimeVariable:getDateTimeVariable", {

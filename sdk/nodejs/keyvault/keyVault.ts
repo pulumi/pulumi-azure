@@ -42,6 +42,8 @@ import * as utilities from "../utilities";
  *     tenantId: "d6e396d0-5584-41dc-9fc0-268df99bc610",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
  */
 export class KeyVault extends pulumi.CustomResource {
     /**

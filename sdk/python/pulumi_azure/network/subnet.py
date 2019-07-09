@@ -47,11 +47,7 @@ class Subnet(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, address_prefix=None, delegations=None, ip_configurations=None, name=None, network_security_group_id=None, resource_group_name=None, route_table_id=None, service_endpoints=None, virtual_network_name=None, __name__=None, __opts__=None):
         """
-        Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
-        
-        > **NOTE on Virtual Networks and Subnet's:** Terraform currently
-        provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
-        At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+        Create a Subnet resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -64,6 +60,8 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to associate with the subnet.
         :param pulumi.Input[list] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql` and `Microsoft.Storage`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

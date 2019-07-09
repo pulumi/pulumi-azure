@@ -52,6 +52,8 @@ class JobCollection(pulumi.CustomResource):
         :param pulumi.Input[str] sku: Sets the Job Collection's pricing level's SKU. Possible values include: `Standard`, `Free`, `P10Premium`, `P20Premium`.
         :param pulumi.Input[str] state: Sets Job Collection's state. Possible values include: `Enabled`, `Disabled`, `Suspended`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job_collection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

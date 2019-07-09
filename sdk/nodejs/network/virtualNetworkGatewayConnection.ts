@@ -171,6 +171,8 @@ import * as utilities from "../utilities";
  *     virtualNetworkGatewayId: usVirtualNetworkGateway.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
  */
 export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**

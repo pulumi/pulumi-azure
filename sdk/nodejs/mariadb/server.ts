@@ -40,6 +40,8 @@ import * as utilities from "../utilities";
  *     version: "10.2",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_server.html.markdown.
  */
 export class Server extends pulumi.CustomResource {
     /**

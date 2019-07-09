@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     state: "enabled",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job_collection.html.markdown.
  */
 export class JobCollection extends pulumi.CustomResource {
     /**

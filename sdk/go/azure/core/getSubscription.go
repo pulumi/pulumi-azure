@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Subscription.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
 func LookupSubscription(ctx *pulumi.Context, args *GetSubscriptionArgs) (*GetSubscriptionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

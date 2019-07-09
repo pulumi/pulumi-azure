@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const cdnProfileId = test.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.
  */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
     return pulumi.runtime.invoke("azure:cdn/getProfile:getProfile", {

@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing CDN Profile.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.
 func LookupProfile(ctx *pulumi.Context, args *GetProfileArgs) (*GetProfileResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

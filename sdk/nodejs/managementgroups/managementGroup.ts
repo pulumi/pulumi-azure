@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  *     subscriptionIds: [current.subscriptionId],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**

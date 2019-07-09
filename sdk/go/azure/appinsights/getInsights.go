@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Application Insights component.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
 func LookupInsights(ctx *pulumi.Context, args *GetInsightsArgs) (*GetInsightsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

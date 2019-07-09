@@ -218,6 +218,8 @@ import * as utilities from "../utilities";
  *     name: "generated-cert",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
  */
 export class Certifiate extends pulumi.CustomResource {
     /**

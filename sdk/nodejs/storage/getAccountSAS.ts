@@ -62,6 +62,8 @@ import * as utilities from "../utilities";
  * 
  * export const sasUrlQueryString = test.sas;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
     return pulumi.runtime.invoke("azure:storage/getAccountSAS:getAccountSAS", {
@@ -79,9 +81,6 @@ export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getAccountSAS.
  */
 export interface GetAccountSASArgs {
-    /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a terraform created `azurerm_storage_account` resource.
-     */
     readonly connectionString: string;
     /**
      * The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.

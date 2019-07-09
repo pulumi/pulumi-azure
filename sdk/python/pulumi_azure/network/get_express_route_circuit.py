@@ -65,6 +65,8 @@ class GetExpressRouteCircuitResult:
 async def get_express_route_circuit(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing ExpressRoute circuit.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
     """
     __args__ = dict()
 

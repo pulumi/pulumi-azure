@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Windows Virtual Machine within a Dev Test Lab.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_windows_virtual_machine.html.markdown.
 type WindowsVirtualMachine struct {
 	s *pulumi.ResourceState
 }

@@ -76,6 +76,8 @@ import * as utilities from "../utilities";
  *     storageConnectionString: testAccount.primaryConnectionString,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
  */
 export class FunctionApp extends pulumi.CustomResource {
     /**

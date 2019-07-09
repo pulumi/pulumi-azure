@@ -63,6 +63,8 @@ import * as utilities from "../utilities";
  *     timezone: "UTC",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_policy_vm.html.markdown.
  */
 export class ProtectionPolicyVM extends pulumi.CustomResource {
     /**

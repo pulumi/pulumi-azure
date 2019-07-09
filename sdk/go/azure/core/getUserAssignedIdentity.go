@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing User Assigned Identity.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
 func LookupUserAssignedIdentity(ctx *pulumi.Context, args *GetUserAssignedIdentityArgs) (*GetUserAssignedIdentityResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

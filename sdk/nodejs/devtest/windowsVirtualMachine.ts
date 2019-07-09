@@ -54,6 +54,8 @@ import * as utilities from "../utilities";
  *     username: "exampleuser99",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_windows_virtual_machine.html.markdown.
  */
 export class WindowsVirtualMachine extends pulumi.CustomResource {
     /**

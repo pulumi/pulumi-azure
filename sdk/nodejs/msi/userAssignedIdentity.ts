@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: test.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.html.markdown.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**

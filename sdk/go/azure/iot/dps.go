@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an IoT Device Provisioning Service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iot_dps.html.markdown.
 type Dps struct {
 	s *pulumi.ResourceState
 }

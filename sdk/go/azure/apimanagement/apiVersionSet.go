@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an API Version Set within a API Management Service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_version_set.html.markdown.
 type ApiVersionSet struct {
 	s *pulumi.ResourceState
 }

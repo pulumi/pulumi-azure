@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  * 
  * export const variableId = example.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_string.html.markdown.
  */
 export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetStringVariableResult> {
     return pulumi.runtime.invoke("azure:automation/getStringVariable:getStringVariable", {

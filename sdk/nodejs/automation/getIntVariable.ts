@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  * 
  * export const variableId = example.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_int.html.markdown.
  */
 export function getIntVariable(args: GetIntVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetIntVariableResult> {
     return pulumi.runtime.invoke("azure:automation/getIntVariable:getIntVariable", {

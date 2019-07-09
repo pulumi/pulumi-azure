@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an IoT Device Provisioning Service Certificate.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iot_dps_certificate.html.markdown.
 type Certificate struct {
 	s *pulumi.ResourceState
 }

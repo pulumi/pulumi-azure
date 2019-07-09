@@ -68,6 +68,8 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider.
         :param pulumi.Input[dict] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const virtualMachineId = test.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
     return pulumi.runtime.invoke("azure:compute/getVirtualMachine:getVirtualMachine", {

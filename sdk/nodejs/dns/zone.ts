@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  *     zoneType: "Private",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_zone.html.markdown.
  */
 export class Zone extends pulumi.CustomResource {
     /**

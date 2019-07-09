@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "test",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     return pulumi.runtime.invoke("azure:batch/getPool:getPool", {

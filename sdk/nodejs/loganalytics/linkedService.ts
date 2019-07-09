@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  *     workspaceName: testAnalyticsWorkspace.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_linked_service.html.markdown.
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

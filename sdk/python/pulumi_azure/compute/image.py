@@ -61,6 +61,8 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

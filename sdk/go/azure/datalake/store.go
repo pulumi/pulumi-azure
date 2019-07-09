@@ -9,6 +9,8 @@ import (
 )
 
 // Manage an Azure Data Lake Store.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store.html.markdown.
 type Store struct {
 	s *pulumi.ResourceState
 }

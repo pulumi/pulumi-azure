@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Key Vault Key.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
 type Key struct {
 	s *pulumi.ResourceState
 }

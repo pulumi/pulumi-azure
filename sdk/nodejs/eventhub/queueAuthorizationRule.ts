@@ -4,45 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Authorization Rule for a ServiceBus Queue.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- *     name: "terraform-servicebus",
- * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     name: "tfex_sevicebus_namespace",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "terraform",
- *     },
- * });
- * const exampleQueue = new azure.eventhub.Queue("example", {
- *     enablePartitioning: true,
- *     name: "tfex_servicebus_queue",
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * const exampleQueueAuthorizationRule = new azure.eventhub.QueueAuthorizationRule("example", {
- *     listen: true,
- *     manage: false,
- *     name: "examplerule",
- *     namespaceName: exampleNamespace.name,
- *     queueName: exampleQueue.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     send: true,
- * });
- * ```
- */
 export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing QueueAuthorizationRule resource's state with the given name, ID, and optional extra

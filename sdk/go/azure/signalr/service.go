@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an Azure SignalR service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/signalr_service.html.markdown.
 type Service struct {
 	s *pulumi.ResourceState
 }

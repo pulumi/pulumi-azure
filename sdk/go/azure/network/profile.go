@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an Azure Network Profile.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_profile.html.markdown.
 type Profile struct {
 	s *pulumi.ResourceState
 }
