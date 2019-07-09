@@ -355,8 +355,8 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
 
         const body = await serializeFunctionCallback(func.callback);
 
-        map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
-            map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
+        map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`);
+        map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
     }
 
     return new pulumi.asset.AssetArchive(map);
@@ -436,10 +436,9 @@ export interface ArchiveFunctionAppArgs extends FunctionAppArgsBase {
     archive: pulumi.Input<pulumi.asset.Archive>;
 };
 
-function createFunctionAppParts(
-    name: string,
-    args: ArchiveFunctionAppArgs,
-    opts: pulumi.CustomResourceOptions = {}) {
+function createFunctionAppParts(name: string,
+                                args: ArchiveFunctionAppArgs,
+                                opts: pulumi.CustomResourceOptions = {}) {
 
     if (!args.archive) {
         throw new Error("Deployment [archive] must be provided.");
@@ -541,7 +540,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
     public readonly endpoint: pulumi.Output<string>;
 
     constructor(name: string, bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
-        args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
+                args: CallbackFunctionAppArgs<C, E, R>, opts: pulumi.CustomResourceOptions = {}) {
 
         const functions = bindingsOrFunc instanceof Function ? [bindingsOrFunc] : [<Function<C, E, R>>{ name, bindings: bindingsOrFunc, callback: args }];
         const parts = createFunctionAppParts(name, {
@@ -596,9 +595,9 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
     public readonly endpoint: pulumi.Output<string>;
 
     constructor(type: string,
-        name: string,
-        args: ArchiveFunctionAppArgs,
-        opts: pulumi.ComponentResourceOptions = {}) {
+                name: string,
+                args: ArchiveFunctionAppArgs,
+                opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
         const parentOpts = { parent: this };
@@ -636,8 +635,8 @@ export class ArchiveFunctionApp extends PackagedFunctionApp {
  */
 export class MultiCallbackFunctionApp extends PackagedFunctionApp {
     constructor(name: string,
-        args: MultiCallbackFunctionAppArgs,
-        opts: pulumi.ComponentResourceOptions = {}) {
+                args: MultiCallbackFunctionAppArgs,
+                opts: pulumi.ComponentResourceOptions = {}) {
 
         if (args.functions.length == 0) {
             throw new Error("At least one function must be provided.");
@@ -668,9 +667,9 @@ export abstract class EventSubscription<C extends Context<R>, E, R extends Resul
     public readonly functionApp: CallbackFunctionApp<C, E, R>;
 
     constructor(type: string, name: string,
-        bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
-        args: CallbackFunctionAppArgs<C, E, R>,
-        opts: pulumi.ComponentResourceOptions = {}) {
+                bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
+                args: CallbackFunctionAppArgs<C, E, R>,
+                opts: pulumi.ComponentResourceOptions = {}) {
         super(type, name, undefined, opts);
 
         this.functionApp = new CallbackFunctionApp(name, bindingsOrFunc, args, { parent: this });
@@ -698,7 +697,7 @@ interface BaseSubscriptionArgs {
 
 /** @internal */
 export function getResourceGroupNameAndLocation(
-    args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
+        args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
 
     if (args.resourceGroup) {
         return { resourceGroupName: args.resourceGroup.name, location: args.resourceGroup.location };
