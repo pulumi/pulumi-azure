@@ -619,8 +619,8 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
  */
 export class ArchiveFunctionApp extends PackagedFunctionApp {
     constructor(name: string,
-        args: ArchiveFunctionAppArgs,
-        opts: pulumi.ComponentResourceOptions = {}) {
+                args: ArchiveFunctionAppArgs,
+                opts: pulumi.ComponentResourceOptions = {}) {
         super("azure:appservice:ArchiveFunctionApp", name, args, opts);
         this.registerOutputs();
     }
@@ -737,31 +737,51 @@ declare module "./functionApp" {
         /**
          * Retrieve the keys associated with the Function App.
          */
-        listHostKeys(): pulumi.Output<FunctionHostKeys>;
+        getHostKeys(): pulumi.Output<FunctionHostKeys>;
 
         /**
          * Retrieve the keys associated with the given Function.
          */
-        listFunctionKeys(functionName: pulumi.Input<string>): pulumi.Output<FunctionKeys>;
+        getFunctionKeys(functionName: pulumi.Input<string>): pulumi.Output<FunctionKeys>;
     }
 }
 
-FunctionApp.prototype.listHostKeys = function (this: FunctionApp) {
+FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
     return this.id.apply(async id => {
         const credentials = await core.getServiceClientCredentials();
         const client = new AzureServiceClient(credentials);
         const url = `https://management.azure.com${id}/host/default/listkeys?api-version=2018-02-01`;
-        const response = await client.sendRequest({ method: "POST", url });
-        return <FunctionHostKeys>response.parsedBody;
-    })
-}
 
-FunctionApp.prototype.listFunctionKeys = function (this: FunctionApp, functionName) {
+        const response = await client.sendRequest({ method: "POST", url });
+        if (response.status >= 400) {
+            throw new Error(`Failed to retrieve the host keys: ${response.bodyAsText}`);
+        }
+
+        const body = response.parsedBody;
+        if (body.masterKey === undefined || body.systemKeys === undefined || body.functionKeys === undefined) {
+            throw new Error(`Wrong shape of the host keys response: ${response.bodyAsText}`);
+        }
+
+        return body as FunctionHostKeys;
+    });
+};
+
+FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {
     return pulumi.all([this.id, functionName]).apply(async ([id, name]) => {
         const credentials = await core.getServiceClientCredentials();
         const client = new AzureServiceClient(credentials);
         const url = `https://management.azure.com${id}/functions/${name}/listkeys?api-version=2018-02-01`;
+
         const response = await client.sendRequest({ method: "POST", url });
-        return <FunctionKeys>response.parsedBody;
-    })
-}
+        if (response.status >= 400) {
+            throw new Error(`Failed to retrieve the function keys: ${response.bodyAsText}`);
+        }
+
+        const body = response.parsedBody;
+        if (body.default === undefined) {
+            throw new Error(`Wrong shape of the function keys response: ${response.bodyAsText}`);
+        }
+
+        return body as FunctionKeys;
+    });
+};

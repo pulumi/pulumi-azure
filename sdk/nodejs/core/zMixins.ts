@@ -29,8 +29,7 @@ export async function getServiceClientCredentials(): Promise<ServiceClientCreden
         credentials = await msnodeauth.loginWithServicePrincipalSecret(config.clientId, config.clientSecret, config.tenantId);
     } else {
         // `create()` will throw an error if the Az CLI is not installed or `az login` has never been run.
-        const cliCredentials = await msnodeauth.AzureCliCredentials.create();
-        credentials = cliCredentials;
+        credentials = await msnodeauth.AzureCliCredentials.create();
     }
 
     return credentials;
