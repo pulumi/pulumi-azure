@@ -71,6 +71,8 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

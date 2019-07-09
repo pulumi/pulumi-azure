@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_mysql.html.markdown.
  */
 export class LinkedServiceMysql extends pulumi.CustomResource {
     /**

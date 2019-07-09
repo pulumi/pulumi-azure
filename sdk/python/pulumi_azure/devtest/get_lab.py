@@ -83,6 +83,8 @@ class GetLabResult:
 async def get_lab(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Dev Test Lab.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
     """
     __args__ = dict()
 

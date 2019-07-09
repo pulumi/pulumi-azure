@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id;
  * export const customRoleDefinitionId = customRoleDefinition.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};

@@ -40,6 +40,8 @@ class TriggerHttpRequest(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] relative_path: Specifies the Relative Path used for this Request.
         :param pulumi.Input[str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_http_request.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

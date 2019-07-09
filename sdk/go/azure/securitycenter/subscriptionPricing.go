@@ -13,6 +13,8 @@ import (
 // > **NOTE:** This resource requires the `Owner` permission on the Subscription.
 // 
 // > **NOTE:** Deletion of this resource does not change or reset the pricing tier to `Free`
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_subscription_pricing.html.markdown.
 type SubscriptionPricing struct {
 	s *pulumi.ResourceState
 }

@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Notification Hub within a Notification Hub Namespace.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub.html.markdown.
 type Hub struct {
 	s *pulumi.ResourceState
 }

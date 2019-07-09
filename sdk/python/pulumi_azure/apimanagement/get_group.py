@@ -56,6 +56,8 @@ class GetGroupResult:
 async def get_group(api_management_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing API Management Group.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
     """
     __args__ = dict()
 

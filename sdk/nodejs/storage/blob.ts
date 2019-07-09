@@ -39,6 +39,8 @@ import * as utilities from "../utilities";
  *     type: "page",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
  */
 export class Blob extends pulumi.CustomResource {
     /**

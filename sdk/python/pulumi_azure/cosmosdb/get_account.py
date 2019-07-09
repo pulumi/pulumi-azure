@@ -137,6 +137,8 @@ class GetAccountResult:
 async def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
     """
     __args__ = dict()
 

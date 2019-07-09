@@ -9,6 +9,8 @@ import (
 )
 
 // A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
 type Endpoint struct {
 	s *pulumi.ResourceState
 }

@@ -41,6 +41,8 @@ class GetPublicIPsResult:
 async def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about a set of existing Public IP Addresses.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
     """
     __args__ = dict()
 

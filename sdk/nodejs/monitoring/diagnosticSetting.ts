@@ -44,6 +44,8 @@ import * as utilities from "../utilities";
  *     targetResourceId: testKeyVault.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_diagnostic_setting.html.markdown.
  */
 export class DiagnosticSetting extends pulumi.CustomResource {
     /**

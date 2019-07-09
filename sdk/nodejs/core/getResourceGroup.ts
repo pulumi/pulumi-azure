@@ -25,6 +25,8 @@ import * as utilities from "../utilities";
  *     storageAccountType: "Standard_LRS",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
  */
 export function getResourceGroup(args: GetResourceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGroupResult> {
     return pulumi.runtime.invoke("azure:core/getResourceGroup:getResourceGroup", {

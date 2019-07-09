@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Image.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
 func LookupImage(ctx *pulumi.Context, args *GetImageArgs) (*GetImageResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

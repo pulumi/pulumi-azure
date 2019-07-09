@@ -85,6 +85,8 @@ import * as utilities from "../utilities";
  *     vpnType: "RouteBased",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
  */
 export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**

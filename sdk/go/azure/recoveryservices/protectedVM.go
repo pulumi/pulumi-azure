@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an Recovery Protected VM.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protected_vm.html.markdown.
 type ProtectedVM struct {
 	s *pulumi.ResourceState
 }

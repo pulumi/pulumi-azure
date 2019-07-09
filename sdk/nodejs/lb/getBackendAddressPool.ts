@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  * 
  * export const backendAddressPoolId = testBackendAddressPool.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
  */
 export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {
     return pulumi.runtime.invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", {

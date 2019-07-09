@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const logAnalyticsWorkspaceId = test.workspaceId;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
  */
 export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> {
     return pulumi.runtime.invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", {

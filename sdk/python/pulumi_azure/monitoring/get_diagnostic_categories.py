@@ -38,6 +38,8 @@ class GetDiagnosticCategoriesResult:
 async def get_diagnostic_categories(resource_id=None,opts=None):
     """
     Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
     """
     __args__ = dict()
 

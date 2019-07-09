@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const eventhubNamespaceId = test.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
  */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> {
     return pulumi.runtime.invoke("azure:eventhub/getEventhubNamespace:getEventhubNamespace", {

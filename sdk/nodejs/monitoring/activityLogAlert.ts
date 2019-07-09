@@ -4,54 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Activity Log Alert within Azure Monitor.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const mainResourceGroup = new azure.core.ResourceGroup("main", {
- *     location: "West US",
- *     name: "example-resources",
- * });
- * const mainActionGroup = new azure.monitoring.ActionGroup("main", {
- *     name: "example-actiongroup",
- *     resourceGroupName: mainResourceGroup.name,
- *     shortName: "p0action",
- *     webhookReceivers: [{
- *         name: "callmyapi",
- *         serviceUri: "http://example.com/alert",
- *     }],
- * });
- * const toMonitor = new azure.storage.Account("to_monitor", {
- *     accountReplicationType: "GRS",
- *     accountTier: "Standard",
- *     location: mainResourceGroup.location,
- *     name: "examplesa",
- *     resourceGroupName: mainResourceGroup.name,
- * });
- * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("main", {
- *     actions: [{
- *         actionGroupId: mainActionGroup.id,
- *         webhookProperties: {
- *             from: "terraform",
- *         },
- *     }],
- *     criteria: {
- *         category: "Recommendation",
- *         operationName: "Microsoft.Storage/storageAccounts/write",
- *         resourceId: toMonitor.id,
- *     },
- *     description: "This alert will monitor a specific storage account updates.",
- *     name: "example-activitylogalert",
- *     resourceGroupName: mainResourceGroup.name,
- *     scopes: [mainResourceGroup.id],
- * });
- * ```
- */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * Get an existing ActivityLogAlert resource's state with the given name, ID, and optional extra

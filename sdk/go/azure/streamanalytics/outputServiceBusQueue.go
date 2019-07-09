@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Stream Analytics Output to a ServiceBus Queue.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_queue.html.markdown.
 type OutputServiceBusQueue struct {
 	s *pulumi.ResourceState
 }

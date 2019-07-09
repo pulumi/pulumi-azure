@@ -70,6 +70,8 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[list] responses: One or more `response` blocks as defined below.
         :param pulumi.Input[list] template_parameters: One or more `template_parameter` blocks as defined below.
         :param pulumi.Input[str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

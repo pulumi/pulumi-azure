@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Logger within an API Management Service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
 type Logger struct {
 	s *pulumi.ResourceState
 }

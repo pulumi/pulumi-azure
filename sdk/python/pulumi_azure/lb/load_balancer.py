@@ -53,6 +53,8 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

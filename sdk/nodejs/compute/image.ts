@@ -47,6 +47,8 @@ import * as utilities from "../utilities";
  *     sourceVirtualMachineId: "{vm_id}",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
  */
 export class Image extends pulumi.CustomResource {
     /**

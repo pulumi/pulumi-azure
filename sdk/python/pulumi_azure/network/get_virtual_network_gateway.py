@@ -99,6 +99,8 @@ class GetVirtualNetworkGatewayResult:
 async def get_virtual_network_gateway(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Network Gateway.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway.html.markdown.
     """
     __args__ = dict()
 

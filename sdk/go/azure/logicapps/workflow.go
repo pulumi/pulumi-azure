@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Logic App Workflow.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_workflow.html.markdown.
 type Workflow struct {
 	s *pulumi.ResourceState
 }

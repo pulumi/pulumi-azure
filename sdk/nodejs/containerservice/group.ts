@@ -4,52 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manage as an Azure Container Group instance.
- * 
- * ## Example Usage
- * 
- * This example provisions a Basic Container. Other examples of the `azurerm_container_group` resource can be found in [the `./examples/container-instance` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/container-instance).
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- *     name: "example-resources",
- * });
- * const exampleGroup = new azure.containerservice.Group("example", {
- *     containers: [
- *         {
- *             cpu: 0.5,
- *             image: "microsoft/aci-helloworld:latest",
- *             memory: 1.5,
- *             name: "hello-world",
- *             ports: [{
- *                 port: 443,
- *                 protocol: "TCP",
- *             }],
- *         },
- *         {
- *             cpu: 0.5,
- *             image: "microsoft/aci-tutorial-sidecar",
- *             memory: 1.5,
- *             name: "sidecar",
- *         },
- *     ],
- *     dnsNameLabel: "aci-label",
- *     ipAddressType: "public",
- *     location: exampleResourceGroup.location,
- *     name: "example-continst",
- *     osType: "Linux",
- *     resourceGroupName: exampleResourceGroup.name,
- *     tags: {
- *         environment: "testing",
- *     },
- * });
- * ```
- */
 export class Group extends pulumi.CustomResource {
     /**
      * Get an existing Group resource's state with the given name, ID, and optional extra

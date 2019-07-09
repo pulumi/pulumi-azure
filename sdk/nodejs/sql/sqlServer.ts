@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     version: "12.0",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_server.html.markdown.
  */
 export class SqlServer extends pulumi.CustomResource {
     /**

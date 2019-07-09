@@ -49,6 +49,8 @@ class LinkedService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_name: Name of the Log Analytics Workspace that will contain the linkedServices resource. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_linked_service.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

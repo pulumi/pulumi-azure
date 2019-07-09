@@ -11,6 +11,8 @@ import (
 // Manages an AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
 // 
 // > **NOTE:** This resource has been deprecated in favour of the `azurerm_monitor_autoscale_setting` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/autoscale_setting.html.markdown.
 type Setting struct {
 	s *pulumi.ResourceState
 }

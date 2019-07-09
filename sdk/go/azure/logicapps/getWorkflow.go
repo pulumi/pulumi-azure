@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Logic App Workflow.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
 func LookupWorkflow(ctx *pulumi.Context, args *GetWorkflowArgs) (*GetWorkflowResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

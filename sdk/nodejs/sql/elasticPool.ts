@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  * ```
  * 
  * > **NOTE on `azurerm_sql_elasticpool`:** -  The values of `edition`, `dtu`, and `pool_size` must be consistent with the [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). Any inconsistent argument configuration will be rejected.
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_elasticpool.html.markdown.
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**

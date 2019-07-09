@@ -9,6 +9,8 @@ import (
 )
 
 // Manage a ServiceBus Namespace.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace.html.markdown.
 type Namespace struct {
 	s *pulumi.ResourceState
 }

@@ -39,6 +39,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_authorization.html.markdown.
  */
 export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**

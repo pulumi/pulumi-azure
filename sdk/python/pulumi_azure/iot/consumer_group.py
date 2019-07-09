@@ -35,6 +35,8 @@ class ConsumerGroup(pulumi.CustomResource):
         :param pulumi.Input[str] iothub_name: The name of the IoT Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of this Consumer Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT hub. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_consumer_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

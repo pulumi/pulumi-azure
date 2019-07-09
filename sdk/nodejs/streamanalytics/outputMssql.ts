@@ -49,6 +49,8 @@ import * as utilities from "../utilities";
  *     user: exampleSqlServer.administratorLogin,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_mssql.html.markdown.
  */
 export class OutputMssql extends pulumi.CustomResource {
     /**

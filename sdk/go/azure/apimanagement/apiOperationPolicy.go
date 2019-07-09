@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an API Management API Operation Policy
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation_policy.html.markdown.
 type ApiOperationPolicy struct {
 	s *pulumi.ResourceState
 }

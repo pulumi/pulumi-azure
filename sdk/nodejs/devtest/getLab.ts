@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const uniqueIdentifier = test.uniqueIdentifier;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
  */
 export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
     return pulumi.runtime.invoke("azure:devtest/getLab:getLab", {

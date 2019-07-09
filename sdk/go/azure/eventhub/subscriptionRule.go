@@ -9,6 +9,8 @@ import (
 )
 
 // Manage a ServiceBus Subscription Rule.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
 type SubscriptionRule struct {
 	s *pulumi.ResourceState
 }

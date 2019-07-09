@@ -88,6 +88,8 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                already has a gateway. Defaults to `false`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network. Changing
                this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_peering.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

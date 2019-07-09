@@ -41,6 +41,8 @@ class GetKubernetesServiceVersionsResult:
 async def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None):
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
     """
     __args__ = dict()
 

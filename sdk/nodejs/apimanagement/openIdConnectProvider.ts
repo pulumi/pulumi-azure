@@ -4,40 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an OpenID Connect Provider within a API Management Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West Europe",
- *     name: "example-resources",
- * });
- * const testService = new azure.apimanagement.Service("test", {
- *     location: testResourceGroup.location,
- *     name: "example-apim",
- *     publisherEmail: "company@terraform.io",
- *     publisherName: "My Company",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
- * });
- * const testOpenIdConnectProvider = new azure.apimanagement.OpenIdConnectProvider("test", {
- *     apiManagementName: testService.name,
- *     clientId: "00001111-2222-3333-4444-555566667777",
- *     displayName: "Example Provider",
- *     metadataEndpoint: "https://example.com/example",
- *     name: "example-provider",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * ```
- */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
      * Get an existing OpenIdConnectProvider resource's state with the given name, ID, and optional extra

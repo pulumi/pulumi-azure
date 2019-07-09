@@ -52,6 +52,8 @@ class Subscription(pulumi.CustomResource):
         :param pulumi.Input[str] state: The state of this Subscription. Possible values are `Active`, `Cancelled`, `Expired`, `Rejected`, `Submitted` and `Suspended`. Defaults to `Submitted`.
         :param pulumi.Input[str] subscription_id: An Identifier which should used as the ID of this Subscription. If not specified a new Subscription ID will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_id: The ID of the User which should be assigned to this Subscription. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_subscription.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

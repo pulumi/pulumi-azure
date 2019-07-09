@@ -62,6 +62,8 @@ class LinkedServicePostgresql(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service PostgreSQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[dict] parameters: A map of parameters to associate with the Data Factory Linked Service PostgreSQL.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Linked Service PostgreSQL. Changing this forces a new resource
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_linked_service_postgresql.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  * export const availableSubscriptions = available.subscriptions;
  * export const firstAvailableSubscriptionDisplayName = available.subscriptions[0].displayName;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
  */
 export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
     args = args || {};

@@ -73,6 +73,8 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_kafka_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

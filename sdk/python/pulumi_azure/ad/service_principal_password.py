@@ -31,11 +31,7 @@ class ServicePrincipalPassword(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, end_date=None, key_id=None, service_principal_id=None, start_date=None, value=None, __name__=None, __opts__=None):
         """
-        Manages a Password associated with a Service Principal within Azure Active Directory.
-        
-        > **NOTE:** The Azure Active Directory resources have been split out into [a new AzureAD Provider](http://terraform.io/docs/providers/azuread/index.html) - as such the AzureAD resources within the AzureRM Provider are deprecated and will be removed in the next major version (2.0). Information on how to migrate from the existing resources to the new AzureAD Provider can be found here.
-        
-        > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
+        Create a ServicePrincipalPassword resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -44,6 +40,8 @@ class ServicePrincipalPassword(pulumi.CustomResource):
         :param pulumi.Input[str] service_principal_id: The ID of the Service Principal for which this password should be created. Changing this field forces a new resource to be created.
         :param pulumi.Input[str] start_date: The Start Date which the Password is valid from, formatted as a RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn't specified, the current date is used.  Changing this field forces a new resource to be created.
         :param pulumi.Input[str] value: The Password for this Service Principal.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_service_principal_password.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

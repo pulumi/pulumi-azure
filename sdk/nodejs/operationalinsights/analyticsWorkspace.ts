@@ -25,6 +25,8 @@ import * as utilities from "../utilities";
  *     sku: "PerGB2018",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_workspace.html.markdown.
  */
 export class AnalyticsWorkspace extends pulumi.CustomResource {
     /**

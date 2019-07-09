@@ -113,6 +113,8 @@ class Subscription(pulumi.CustomResource):
                create the namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic to create
                this Subscription in. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

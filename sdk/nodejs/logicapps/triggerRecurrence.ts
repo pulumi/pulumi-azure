@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  *     name: "run-every-day",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_trigger_recurrence.html.markdown.
  */
 export class TriggerRecurrence extends pulumi.CustomResource {
     /**

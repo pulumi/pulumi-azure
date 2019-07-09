@@ -26,6 +26,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_security_group.html.markdown.
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**

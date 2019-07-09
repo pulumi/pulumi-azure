@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  * 
  * export const jobCollectionState = azurerm_scheduler_job_collection_jobs.state;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/scheduler_job_collection.html.markdown.
  */
 export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
     return pulumi.runtime.invoke("azure:scheduler/getJobCollection:getJobCollection", {

@@ -65,6 +65,8 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
         :param pulumi.Input[float] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
         :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

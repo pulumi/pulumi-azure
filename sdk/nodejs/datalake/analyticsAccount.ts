@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_analytics_account.html.markdown.
  */
 export class AnalyticsAccount extends pulumi.CustomResource {
     /**

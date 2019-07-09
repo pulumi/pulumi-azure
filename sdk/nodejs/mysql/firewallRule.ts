@@ -46,6 +46,8 @@ import * as utilities from "../utilities";
  *     startIpAddress: "40.112.0.0",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_firewall_rule.html.markdown.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

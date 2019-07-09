@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
  */
 export class EventGridEventSubscription extends pulumi.CustomResource {
     /**

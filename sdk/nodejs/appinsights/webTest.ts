@@ -48,6 +48,8 @@ import * as utilities from "../utilities";
  * export const webtestProvisioningState = testApplicationInsightsWebtest.provisioningState;
  * export const webtestsSyntheticId = testApplicationInsightsWebtest.syntheticMonitorId;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
  */
 export class WebTest extends pulumi.CustomResource {
     /**

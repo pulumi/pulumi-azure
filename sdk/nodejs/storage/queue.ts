@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  *     storageAccountName: testAccount.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_queue.html.markdown.
  */
 export class Queue extends pulumi.CustomResource {
     /**

@@ -38,6 +38,8 @@ class GetVMProtectionPolicyResult:
 async def get_vm_protection_policy(name=None,recovery_vault_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Recovery Services VM Protection Policy.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_protection_policy_vm.html.markdown.
     """
     __args__ = dict()
 

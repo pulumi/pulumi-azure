@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a connection in an existing Virtual Network Gateway.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
 type VirtualNetworkGatewayConnection struct {
 	s *pulumi.ResourceState
 }

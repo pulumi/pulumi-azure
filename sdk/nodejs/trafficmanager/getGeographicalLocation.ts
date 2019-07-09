@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  * 
  * export const locationCode = test.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
  */
 export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetGeographicalLocationResult> {
     return pulumi.runtime.invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", {

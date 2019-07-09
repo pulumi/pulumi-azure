@@ -73,6 +73,8 @@ import * as utilities from "../utilities";
  *     scope: primary.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
  */
 export class Assignment extends pulumi.CustomResource {
     /**

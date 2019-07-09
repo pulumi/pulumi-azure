@@ -30,6 +30,8 @@ class NetworkInterfaceApplicationSecurityGroupAssociation(pulumi.CustomResource)
         :param pulumi.Input[str] application_security_group_id: The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Application Security Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_application_security_group_association.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

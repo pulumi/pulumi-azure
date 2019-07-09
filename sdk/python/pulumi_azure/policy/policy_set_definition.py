@@ -57,6 +57,8 @@ class PolicySetDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
         :param pulumi.Input[str] policy_definitions: The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_set_definition.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

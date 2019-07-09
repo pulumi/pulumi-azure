@@ -40,6 +40,8 @@ class ProductPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] xml_content: The XML Content for this Policy.
         :param pulumi.Input[str] xml_link: A link to a Policy XML Document, which must be publicly available.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

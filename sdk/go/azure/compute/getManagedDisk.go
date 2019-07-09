@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Managed Disk.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
 func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManagedDiskResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

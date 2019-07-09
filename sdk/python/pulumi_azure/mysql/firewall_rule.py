@@ -40,6 +40,8 @@ class FirewallRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: Specifies the name of the MySQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_ip_address: Specifies the Start IP Address associated with this Firewall Rule. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_firewall_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

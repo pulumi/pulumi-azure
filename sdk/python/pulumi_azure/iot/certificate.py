@@ -35,6 +35,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] iot_dps_name: The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iot_dps_certificate.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

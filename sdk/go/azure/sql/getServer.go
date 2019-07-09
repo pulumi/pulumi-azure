@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing SQL Azure Database Server.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
 func LookupServer(ctx *pulumi.Context, args *GetServerArgs) (*GetServerResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/private_dns_zone.html.markdown.
  */
 export class Zone extends pulumi.CustomResource {
     /**

@@ -10,6 +10,8 @@ import (
 // Use this data source to access information about an existing Scheduler Job Collection.
 // 
 // > **NOTE:** Support for Scheduler Job Collections has been deprecated by Microsoft in favour of Logic Apps ([more information can be found at this link](https://docs.microsoft.com/en-us/azure/scheduler/migrate-from-scheduler-to-logic-apps)) - as such we plan to remove support for this data source as a part of version 2.0 of the AzureRM Provider.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/scheduler_job_collection.html.markdown.
 func LookupJobCollection(ctx *pulumi.Context, args *GetJobCollectionArgs) (*GetJobCollectionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

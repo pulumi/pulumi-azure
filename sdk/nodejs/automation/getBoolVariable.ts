@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  * 
  * export const variableId = example.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
  */
 export function getBoolVariable(args: GetBoolVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetBoolVariableResult> {
     return pulumi.runtime.invoke("azure:automation/getBoolVariable:getBoolVariable", {

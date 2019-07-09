@@ -124,6 +124,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
                options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

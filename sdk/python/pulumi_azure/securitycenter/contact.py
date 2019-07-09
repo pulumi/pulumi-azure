@@ -37,6 +37,8 @@ class Contact(pulumi.CustomResource):
         :param pulumi.Input[bool] alerts_to_admins: Whether to send security alerts notifications to subscription admins.
         :param pulumi.Input[str] email: The email of the Security Center Contact.
         :param pulumi.Input[str] phone: The phone number of the Security Center Contact.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -4,41 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an API Management Product.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West Europe",
- *     name: "example-resources",
- * });
- * const testService = new azure.apimanagement.Service("test", {
- *     location: testResourceGroup.location,
- *     name: "example-apim",
- *     publisherEmail: "company@terraform.io",
- *     publisherName: "My Company",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
- * });
- * const testProduct = new azure.apimanagement.Product("test", {
- *     apiManagementName: testService.name,
- *     approvalRequired: true,
- *     displayName: "Test Product",
- *     productId: "test-product",
- *     published: true,
- *     resourceGroupName: testResourceGroup.name,
- *     subscriptionRequired: true,
- * });
- * ```
- */
 export class Product extends pulumi.CustomResource {
     /**
      * Get an existing Product resource's state with the given name, ID, and optional extra

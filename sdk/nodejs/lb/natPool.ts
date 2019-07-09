@@ -45,6 +45,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
  */
 export class NatPool extends pulumi.CustomResource {
     /**

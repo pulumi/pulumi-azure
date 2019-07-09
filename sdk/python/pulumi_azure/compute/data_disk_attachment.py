@@ -49,6 +49,8 @@ class DataDiskAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] managed_disk_id: The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_data_disk_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -61,6 +61,8 @@ import * as utilities from "../utilities";
  *     value: "szechuan",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_secret.html.markdown.
  */
 export class Secret extends pulumi.CustomResource {
     /**

@@ -34,6 +34,8 @@ class Queue(pulumi.CustomResource):
                create the storage queue. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage queue.
                Changing this forces a new resource to be created.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_queue.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

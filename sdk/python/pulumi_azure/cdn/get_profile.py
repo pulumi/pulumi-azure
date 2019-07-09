@@ -47,6 +47,8 @@ class GetProfileResult:
 async def get_profile(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing CDN Profile.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cdn_profile.html.markdown.
     """
     __args__ = dict()
 
