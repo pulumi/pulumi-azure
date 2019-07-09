@@ -7,6 +7,10 @@ ___NULL___
 
 ---
 
+## 0.19.2 (2019-07-09)
+* Fix detailed diffs with nested computed values.
+* Communicate detailed information about the difference between a resource's desired and actual state during a Pulumi update
+
 ## 0.19.1 (2019-06-28)
 * Update to v1.31.0 of the AzureRM Terraform provider
 
