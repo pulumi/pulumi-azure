@@ -23,7 +23,7 @@ const values = new azure.storage.Table("values", {
 const getFunc = new azure.appservice.HttpEventSubscription('get-value', {
     resourceGroup,
     route: "{key}",
-    inputOutputs: [
+    inputs: [
         values.input("entry", { partitionKey: "test", rowKey: "{key}" }),
     ],
     callback: async (context, request, entry) => {
@@ -38,7 +38,7 @@ const getFunc = new azure.appservice.HttpEventSubscription('get-value', {
 const addFunc = new azure.appservice.HttpEventSubscription('add-value', {
     resourceGroup,
     methods: ["POST"],
-    inputOutputs: [
+    outputs: [
         values.output("entry"),
     ],
     callback: async (context, request) => {
