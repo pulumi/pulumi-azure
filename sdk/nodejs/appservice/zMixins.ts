@@ -308,6 +308,26 @@ export interface HostSettings {
  */
 export type BindingDefinition = azurefunctions.BindingDefinition;
 
+/**
+ * Base interface for input bindings.
+ */
+export interface InputBindingDefinition extends BindingDefinition {
+    /**
+     * The direction of the binding. Must be 'in' for an input binding.
+     */
+    direction: "in";
+}
+
+/**
+ * Base interface for output bindings.
+ */
+export interface OutputBindingDefinition extends BindingDefinition {
+    /**
+     * The direction of the binding. Must be 'out' for an output binding.
+     */
+    direction: "out";
+}
+
 function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
     args: CallbackArgs<C, E, R>): Promise<pulumi.runtime.SerializedFunction> {
 
@@ -384,11 +404,11 @@ function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callba
 /**
  * Azure Function Binding with the required corresponding application settings (e.g., a connection string setting).
  */
-export interface BindingSettings {
+export interface BindingSettings<T extends BindingDefinition> {
     /**
-     * An input or output binding definition.
+     * A binding definition.
      */
-    readonly binding: pulumi.Input<BindingDefinition>;
+    readonly binding: pulumi.Input<T>;
 
     /**
      * A dictionary of application settings to be applied to the Function App.
@@ -396,22 +416,31 @@ export interface BindingSettings {
     readonly settings: pulumi.Input<{ [key: string]: any; }>;
 }
 
+export type InputBindingSettings = BindingSettings<InputBindingDefinition>;
+export type OutputBindingSettings = BindingSettings<OutputBindingDefinition>;
+
 // We might want to merge this into CallbackArgs hierachy when all function types support bindings
 export interface InputOutputsArgs {
     /**
-     * Input and/or Output bindings.
+     * Input bindings.
      */
-    inputOutputs?: appservice.BindingSettings[];
+    inputs?: InputBindingSettings[];
+
+    /**
+     * Output bindings.
+     */
+    outputs?: OutputBindingSettings[];
 }
 
 /**
- * Type alias for a response coming from an Azure Function callback, which applies to most Function types (HTTP being a notable exception).
+ * Type alias for a response coming from an Azure Function callback, which applies to most Function types
+ * (HTTP being a notable exception).
+ * 'void' is returned when a Function has no output bindings.
+ * For each output binding, the callback should define a property in the response record with the property
+ * name matching the binding name. For instance, for an output binding called 'myoutput', the response could
+ * be '{ myoutput: "My Value" }'.
  */
-export type FunctionDefaultResponse =
-    // Nothing is returned if a function has no output bindings
-    void |
-    // A dictionary is returned if a function has output bindings
-    Record<string, any>;
+export type FunctionDefaultResponse = void | Record<string, any>;
 
 /**
  * Azure Function base class.
@@ -750,8 +779,10 @@ export function combineAppSettings(settings: pulumi.Input<{[key: string]: string
 }
 
 /** @internal */
-export function combineBindingSettings(trigger: appservice.BindingSettings, inputOutputs?: appservice.BindingSettings[]) {
-    const all = [trigger, ...inputOutputs || []];
+export function combineBindingSettings(trigger: BindingSettings<BindingDefinition>,
+                                       inputs?: InputBindingSettings[],
+                                       outputs?: OutputBindingSettings[]) {
+    const all = [trigger, ...inputs || [], ...outputs || []];
 
     const bindings = pulumi.all(all.map(bs => bs.binding));
     const appSettings = combineAppSettings(all.map(bs => bs.settings));

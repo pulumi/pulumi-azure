@@ -44,7 +44,7 @@ const sampleFile = new azure.storage.Blob("test.html", {
 const fileServer = new azure.appservice.HttpEventSubscription("file-server", {
     resourceGroup,
     route: "{name}",
-    inputOutputs: [
+    inputs: [
         storageContainer.input("blob", { blobName: "{name}" }),
     ],
     callback: async (context, req, blob) => {

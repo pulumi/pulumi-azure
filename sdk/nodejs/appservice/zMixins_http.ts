@@ -61,7 +61,7 @@ export interface HttpHostSettings extends mod.HostSettings {
 /**
  * HTTP Response that may or may not contain extra output binding data.
  */
-export type ExtendedHttpResponse = HttpResponse | { response: HttpResponse; [key: string]: any }
+export type ExtendedHttpResponse = HttpResponse | { response: HttpResponse; [key: string]: any };
 
 export interface HttpFunctionArgs extends mod.InputOutputsArgs, mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     /**
@@ -116,15 +116,16 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
  */
 export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     constructor(name: string, args: HttpFunctionArgs) {
-        const inputOutputs = args.inputOutputs || [];
-
-        const trigger = <HttpBindingDefinition>{
-            authLevel: "anonymous",
-            type: "httpTrigger",
-            direction: "in",
-            name: "req",
-            route: args.route,
-            methods: args.methods,
+        const trigger = {
+            binding: <HttpBindingDefinition>{
+                authLevel: "anonymous",
+                type: "httpTrigger",
+                direction: "in",
+                name: "req",
+                route: args.route,
+                methods: args.methods,
+            },
+            settings: {},
         };
 
         // There are two modes to return an HTTP response:
@@ -132,13 +133,17 @@ export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRe
         //    so the binding has to be named '$return' (mandated by Azure Functions)
         // 2. When there are other output bindings, it's a property of the returned value
         //    with a fixed name 'response' (picked by us)
-        const response = pulumi.all(inputOutputs.map(b => b.binding))
-            .apply(bs => bs.find(b => b.direction === "out") !== undefined)
-            .apply(v => v ? "response" : "$return")
-            .apply(name => <mod.BindingDefinition>{ type: "http", direction: "out", name });
+        const response = {
+            binding: <mod.OutputBindingDefinition>{
+                type: "http",
+                direction: "out",
+                name: args.outputs && args.outputs.length > 0 ? "response" : "$return",
+            },
+            settings: {},
+        };
 
-        const bindings = pulumi.all([trigger, response, ...inputOutputs.map(bs => bs.binding)]);
-        const appSettings = mod.combineAppSettings(inputOutputs.map(bs => bs.settings));
+        const { bindings, appSettings } =
+            mod.combineBindingSettings(trigger, args.inputs, [response, ...args.outputs || []]);
 
         super(name, bindings, args, appSettings);
     }

@@ -212,7 +212,7 @@ declare module "./container" {
         /**
          * Creates an input binding linked to the given Blob Container to be used for an Azure Function.
          */
-        input(name: string, args: BlobInputBindingArgs): appservice.BindingSettings;
+        input(name: string, args: BlobInputBindingArgs): appservice.InputBindingSettings;
     }
 }
 
@@ -263,7 +263,8 @@ export class BlobFunction extends appservice.Function<BlobContext, Buffer, void>
             connection: connectionKey,
         };
 
-        const { bindings, appSettings } = appservice.combineBindingSettings({binding, settings}, args.inputOutputs);
+        const { bindings, appSettings } =
+            appservice.combineBindingSettings({binding, settings}, args.inputs, args.outputs);
 
         super(name, bindings, args, appSettings);
     }
@@ -276,7 +277,7 @@ export interface BlobInputBindingArgs {
     readonly blobName: pulumi.Input<string>;
 }
 
-export class BlobInputBinding implements appservice.BindingSettings {
+export class BlobInputBinding implements appservice.InputBindingSettings {
     public readonly binding: pulumi.Input<BlobInputBindingDefinition>;
     public readonly settings: pulumi.Input<{ [key: string]: any; }>;
 
@@ -452,7 +453,7 @@ declare module "./queue" {
         /**
          * Creates an output binding linked to the given queue to be used for an Azure Function.
          */
-        output(name: string): appservice.BindingSettings;
+        output(name: string): appservice.OutputBindingSettings;
     }
 }
 
@@ -516,7 +517,8 @@ export class QueueFunction extends appservice.Function<QueueContext, Buffer, app
             connection: connectionKey,
         };
 
-        const { bindings, appSettings } = appservice.combineBindingSettings({binding, settings}, args.inputOutputs);
+        const { bindings, appSettings } =
+            appservice.combineBindingSettings({binding, settings}, args.inputs, args.outputs);
 
         super(name, bindings, args, appSettings);
     }
@@ -525,7 +527,7 @@ export class QueueFunction extends appservice.Function<QueueContext, Buffer, app
 /**
  * Azure Function's output binding that sends messages to a Storage Queue.
  */
-export class QueueOutputBinding implements appservice.BindingSettings {
+export class QueueOutputBinding implements appservice.OutputBindingSettings {
     public readonly binding: pulumi.Input<QueueOutputBindingDefinition>;
     public readonly settings: pulumi.Input<{ [key: string]: any; }>;
 
@@ -619,9 +621,9 @@ export interface TableInputBindingArgs {
      * The maximum number of entities to read.
      */
     take?: pulumi.Input<number>;
-};
+}
 
-export class TableInputBinding implements appservice.BindingSettings {
+export class TableInputBinding implements appservice.InputBindingSettings {
     public readonly binding: pulumi.Input<TableInputBindingDefinition>;
     public readonly settings: pulumi.Input<{ [key: string]: any; }>;
 
@@ -640,7 +642,7 @@ export class TableInputBinding implements appservice.BindingSettings {
     }
 }
 
-export class TableOutputBinding implements appservice.BindingSettings {
+export class TableOutputBinding implements appservice.OutputBindingSettings {
     public readonly binding: pulumi.Input<TableOutputBindingDefinition>;
     public readonly settings: pulumi.Input<{ [key: string]: any; }>;
 
@@ -663,19 +665,19 @@ declare module "./table" {
         /**
          * Creates an input binding linked to the given table to be used for an Azure Function.
          */
-        input(name: string, args?: TableInputBindingArgs): appservice.BindingSettings;
+        input(name: string, args?: TableInputBindingArgs): appservice.InputBindingSettings;
 
         /**
          * Creates an output binding linked to the given table to be used for an Azure Function.
          */
-        output(name: string): appservice.BindingSettings;
+        output(name: string): appservice.OutputBindingSettings;
     }
 }
 
 Table.prototype.input = function(this: Table, name, args) {
     return new TableInputBinding(name, this, args);
-}
+};
 
 Table.prototype.output = function(this: Table, name) {
     return new TableOutputBinding(name, this);
-}
+};

@@ -29,7 +29,7 @@ const queue2 = new azure.storage.Queue("queue2", {
 const greeting = new azure.appservice.HttpEventSubscription('greeting', {
     resourceGroup,
     route: "{name}",
-    inputOutputs: [
+    outputs: [
         queue1.output("queueOut"),
     ],
     callback: async (context, request) => {
@@ -46,7 +46,7 @@ const greeting = new azure.appservice.HttpEventSubscription('greeting', {
 
 // When a new message is added, fire an event and forward the message to the output queue
 queue1.onEvent("NewMessage",  {
-    inputOutputs: [queue2.output("queueOut")],
+    outputs: [queue2.output("queueOut")],
     callback: async (context, msg) => {
         const person = JSON.parse(msg.toString());
         return {
