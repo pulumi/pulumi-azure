@@ -15,6 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import * as azurefunctions from "@azure/functions";
+import { AzureServiceClient } from "@azure/ms-rest-azure-js";
 
 import { FunctionApp } from "./functionApp";
 
@@ -196,7 +197,7 @@ interface FunctionAppArgsBase {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{ [key: string]: any }>;
 
     /**
      * The runtime version associated with the Function App. Defaults to `~2`.
@@ -248,7 +249,7 @@ export interface HostSettings {
          * A sliding time window used in conjunction with the `healthCheckThreshold` setting.
          * Defaults to 2 minutes.
          */
-        healthCheckWindow:string,
+        healthCheckWindow: string,
         /**
          * Maximum number of times the health check can fail before a host recycle is initiated.  Defaults to `6`.
          */
@@ -354,14 +355,14 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
 
         const body = await serializeFunctionCallback(func.callback);
 
-        map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
+        map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`);
         map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
     }
 
     return new pulumi.asset.AssetArchive(map);
 }
 
-function combineAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
+function combineAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{ [key: string]: string }> {
     const applicationSetting = args.appSettings || {};
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
     return pulumi.all([applicationSetting, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
@@ -435,10 +436,9 @@ export interface ArchiveFunctionAppArgs extends FunctionAppArgsBase {
     archive: pulumi.Input<pulumi.asset.Archive>;
 };
 
-function createFunctionAppParts(
-        name: string,
-        args: ArchiveFunctionAppArgs,
-        opts: pulumi.CustomResourceOptions = {}) {
+function createFunctionAppParts(name: string,
+                                args: ArchiveFunctionAppArgs,
+                                opts: pulumi.CustomResourceOptions = {}) {
 
     if (!args.archive) {
         throw new Error("Deployment [archive] must be provided.");
@@ -594,7 +594,7 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
      */
     public readonly endpoint: pulumi.Output<string>;
 
-    constructor(type:string,
+    constructor(type: string,
                 name: string,
                 args: ArchiveFunctionAppArgs,
                 opts: pulumi.ComponentResourceOptions = {}) {
@@ -711,3 +711,77 @@ export function getResourceGroupNameAndLocation(
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
 }
+
+/**
+ * Keys associated with a Function App.
+ */
+export interface FunctionHostKeys {
+    /** Master key. */
+    masterKey: string;
+    /** A dictionary of system keys, e.g. for Durable Functions or Event Grid. */
+    systemKeys: { [key: string]: string };
+    /** Default function keys. */
+    functionKeys: FunctionKeys;
+}
+
+/**
+ * Keys associated with a single Function.
+ */
+export interface FunctionKeys {
+    default: string;
+    [key: string]: string;
+}
+
+declare module "./functionApp" {
+    interface FunctionApp {
+        /**
+         * Retrieve the keys associated with the Function App.
+         */
+        getHostKeys(): pulumi.Output<FunctionHostKeys>;
+
+        /**
+         * Retrieve the keys associated with the given Function.
+         */
+        getFunctionKeys(functionName: pulumi.Input<string>): pulumi.Output<FunctionKeys>;
+    }
+}
+
+FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
+    return this.id.apply(async id => {
+        const credentials = await core.getServiceClientCredentials();
+        const client = new AzureServiceClient(credentials);
+        const url = `https://management.azure.com${id}/host/default/listkeys?api-version=2018-02-01`;
+
+        const response = await client.sendRequest({ method: "POST", url });
+        if (response.status >= 400) {
+            throw new Error(`Failed to retrieve the host keys: ${response.bodyAsText}`);
+        }
+
+        const body = response.parsedBody;
+        if (body.masterKey === undefined || body.systemKeys === undefined || body.functionKeys === undefined) {
+            throw new Error(`Wrong shape of the host keys response: ${response.bodyAsText}`);
+        }
+
+        return body as FunctionHostKeys;
+    });
+};
+
+FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {
+    return pulumi.all([this.id, functionName]).apply(async ([id, functionName]) => {
+        const credentials = await core.getServiceClientCredentials();
+        const client = new AzureServiceClient(credentials);
+        const url = `https://management.azure.com${id}/functions/${functionName}/listkeys?api-version=2018-02-01`;
+
+        const response = await client.sendRequest({ method: "POST", url });
+        if (response.status >= 400) {
+            throw new Error(`Failed to retrieve the function keys: ${response.bodyAsText}`);
+        }
+
+        const body = response.parsedBody;
+        if (body.default === undefined) {
+            throw new Error(`Wrong shape of the function keys response: ${response.bodyAsText}`);
+        }
+
+        return body as FunctionKeys;
+    });
+};

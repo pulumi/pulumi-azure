@@ -1028,6 +1028,8 @@ func Provider() tfbridge.ProviderInfo {
 			Dependencies: map[string]string{
 				"@pulumi/pulumi":                "^0.17.12",
 				"@azure/functions":              "^1.0.3",
+				"@azure/ms-rest-azure-js":       "^1.3.8",
+				"@azure/ms-rest-nodeauth":       "^2.0.2",
 				"azure-functions-ts-essentials": "^1.3.2",
 			},
 			Overlay: &tfbridge.OverlayInfo{
@@ -1042,6 +1044,11 @@ func Provider() tfbridge.ProviderInfo {
 							"zMixins.ts",
 							"zMixins_http.ts",
 							"zMixins_timer.ts",
+						},
+					},
+					"core": {
+						DestFiles: []string{
+							"zMixins.ts",
 						},
 					},
 					"cosmosdb": {

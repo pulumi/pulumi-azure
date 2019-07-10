@@ -132,6 +132,7 @@
         "core/index.ts",
         "core/resourceGroup.ts",
         "core/templateDeployment.ts",
+        "core/zMixins.ts",
         "cosmosdb/account.ts",
         "cosmosdb/cassandraKeyspace.ts",
         "cosmosdb/getAccount.ts",

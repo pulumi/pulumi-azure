@@ -5,9 +5,13 @@ CHANGELOG
 * BREAKING: Default data type of a Storage Queue-triggered Callback Function is changed from 'binary' to 'string'.
   This means that the type of second argument of a callback changes from 'Buffer' to 'string' or 'object' depending on the payload.
   To restore the past behavior, pass `dataType: "binary"` to the arguments of `QueueFunction` class or `queue.onEvent` function.
-
+* Introduce `listHostKeys` and `listFunctionKeys` mix-in functions to retrieve Azure Functions management keys
 
 ---
+
+## 0.19.2 (2019-07-09)
+* Fix detailed diffs with nested computed values.
+* Communicate detailed information about the difference between a resource's desired and actual state during a Pulumi update
 
 ## 0.19.1 (2019-06-28)
 * Update to v1.31.0 of the AzureRM Terraform provider

@@ -9,3 +9,4 @@ export * from "./getSubscriptions";
 export * from "./getUserAssignedIdentity";
 export * from "./resourceGroup";
 export * from "./templateDeployment";
+export * from "./zMixins";
