@@ -767,10 +767,10 @@ FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
 };
 
 FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {
-    return pulumi.all([this.id, functionName]).apply(async ([id, name]) => {
+    return pulumi.all([this.id, functionName]).apply(async ([id, functionName]) => {
         const credentials = await core.getServiceClientCredentials();
         const client = new AzureServiceClient(credentials);
-        const url = `https://management.azure.com${id}/functions/${name}/listkeys?api-version=2018-02-01`;
+        const url = `https://management.azure.com${id}/functions/${functionName}/listkeys?api-version=2018-02-01`;
 
         const response = await client.sendRequest({ method: "POST", url });
         if (response.status >= 400) {
