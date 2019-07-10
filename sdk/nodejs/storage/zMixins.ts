@@ -169,7 +169,8 @@ export interface BlobContext extends appservice.Context<void> {
  */
 export type BlobCallback = appservice.Callback<BlobContext, Buffer, void>;
 
-export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void>, appservice.InputOutputsArgs {
+export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void>,
+                                          appservice.InputOutputsArgs {
     /**
      * Storage Blob Container to subscribe for events of.
      */
@@ -184,10 +185,11 @@ export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, B
     filterSuffix?: pulumi.Input<string>;
 };
 
-export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void>, appservice.InputOutputsArgs {
+export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void>,
+                                                   appservice.InputOutputsArgs {
     /**
-     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
-     * If none of the two is supplied, the resource group of the Storage Account will be used.
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
+     * over [resourceGroupName]. If none of the two is supplied, the resource group of the Storage Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 
@@ -206,8 +208,9 @@ declare module "./container" {
          * Creates a new subscription to events fired from this Topic to the handler provided, along
          * with options to control the behavior of the subscription.
          */
-        onBlobEvent(
-            name: string, args: BlobCallback | BlobEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): BlobEventSubscription;
+        onBlobEvent(name: string,
+                    args: BlobCallback | BlobEventSubscriptionArgs,
+                    opts?: pulumi.ComponentResourceOptions): BlobEventSubscription;
 
         /**
          * Creates an input binding linked to the given Blob Container to be used for an Azure Function.
@@ -222,16 +225,18 @@ Container.prototype.onBlobEvent = function(this: Container, name, args, opts) {
         : args;
 
     return new BlobEventSubscription(name, this, functionArgs, opts);
-}
+};
 
 Container.prototype.input = function(this: Container, name, args) {
     return new BlobInputBinding(name, this, args);
-}
+};
+
 export class BlobEventSubscription extends appservice.EventSubscription<BlobContext, Buffer, void> {
     constructor(
         name: string, container: storage.Container,
         args: BlobEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, container.resourceGroupName);
+        const { resourceGroupName, location } =
+            appservice.getResourceGroupNameAndLocation(args, container.resourceGroupName);
 
         super("azure:storage:BlobEventSubscription",
             name,
@@ -287,7 +292,7 @@ export class BlobInputBinding implements appservice.InputBindingSettings {
         const path = pulumi.interpolate`${container.name}/${args.blobName}`;
 
         this.binding = {
-            name: name,
+            name,
             type: "blob",
             direction: "in",
             dataType: "binary",
@@ -385,23 +390,27 @@ export interface QueueContext extends appservice.Context<void> {
 /**
  * Host settings specific to the Storage Queue plugin.
  *
- * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#host-json
+ * For more details see
+ * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#host-json
  */
 export interface QueueHostExtensions {
     /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
-    maxPollingInterval?: string,
+    maxPollingInterval?: string;
 
     /** The time interval between retries when processing of a message fails. */
-    visibilityTimeout?: string,
+    visibilityTimeout?: string;
 
     /** The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. */
-    batchSize?: number,
+    batchSize?: number;
 
     /** The number of times to try processing a message before moving it to the poison queue. */
-    maxDequeueCount?: number,
+    maxDequeueCount?: number;
 
-    /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
-    newBatchThreshold?: number,
+    /**
+     * Whenever the number of messages being processed concurrently gets down to this number, the runtime
+     * retrieves another batch.
+     */
+    newBatchThreshold?: number;
 }
 export interface QueueHostSettings extends appservice.HostSettings {
     extensions?: {
@@ -414,14 +423,16 @@ export interface QueueHostSettings extends appservice.HostSettings {
  */
 export type QueueCallback = appservice.Callback<QueueContext, Buffer, appservice.FunctionDefaultResponse>;
 
-export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, Buffer, appservice.FunctionDefaultResponse>, appservice.InputOutputsArgs {
+export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, Buffer, appservice.FunctionDefaultResponse>,
+                                           appservice.InputOutputsArgs {
     /**
      * Defines the queue to trigger the function.
      */
     queue: Queue;
 };
 
-export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, Buffer, appservice.FunctionDefaultResponse>, appservice.InputOutputsArgs {
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, Buffer, appservice.FunctionDefaultResponse>,
+                                                    appservice.InputOutputsArgs {
     /**
      * The resource group in which to create the event subscription.  If not supplied, the
      * Queue's resource group will be used.
@@ -429,8 +440,8 @@ export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionA
     resourceGroup?: core.ResourceGroup;
 
     /**
-     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
-     * If none of the two is supplied, the resource group of the Storage Account will be used.
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
+     * over [resourceGroupName]. If none of the two is supplied, the resource group of the Storage Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 
@@ -447,8 +458,9 @@ declare module "./queue" {
          * Creates a new subscription to the given queue using the callback provided, along with
          * optional options to control the behavior of the subscription.
          */
-        onEvent(
-            name: string, args: QueueCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
+        onEvent(name: string,
+                args: QueueCallback | QueueEventSubscriptionArgs,
+                opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
 
         /**
          * Creates an output binding linked to the given queue to be used for an Azure Function.
@@ -535,7 +547,7 @@ export class QueueOutputBinding implements appservice.OutputBindingSettings {
         const { connectionKey, settings } = resolveAccount(queue);
 
         this.binding = {
-            name: name,
+            name,
             type: "queue",
             direction: "out",
             queueName: queue.name,
@@ -631,7 +643,7 @@ export class TableInputBinding implements appservice.InputBindingSettings {
         const { connectionKey, settings } = resolveAccount(table);
 
         this.binding = {
-            name: name,
+            name,
             type: "table",
             direction: "in",
             tableName: table.name,
@@ -650,7 +662,7 @@ export class TableOutputBinding implements appservice.OutputBindingSettings {
         const { connectionKey, settings } = resolveAccount(table);
 
         this.binding = {
-            name: name,
+            name,
             type: "table",
             direction: "out",
             tableName: table.name,
