@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an API Management User.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_user.html.markdown.
 type User struct {
 	s *pulumi.ResourceState
 }

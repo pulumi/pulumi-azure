@@ -50,6 +50,8 @@ class Property(pulumi.CustomResource):
         :param pulumi.Input[bool] secret: Specifies whether the API Management Property is secret. Valid values are `true` or `false`. The default value is `false`.
         :param pulumi.Input[list] tags: A list of tags to be applied to the API Management Property.
         :param pulumi.Input[str] value: The value of this API Management Property.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_property.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

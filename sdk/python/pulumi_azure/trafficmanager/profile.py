@@ -80,6 +80,8 @@ class Profile(pulumi.CustomResource):
                - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
                - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
                - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

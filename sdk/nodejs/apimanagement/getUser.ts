@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  * 
  * export const notes = test.notes;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
     return pulumi.runtime.invoke("azure:apimanagement/getUser:getUser", {

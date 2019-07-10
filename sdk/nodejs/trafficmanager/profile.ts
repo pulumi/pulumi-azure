@@ -47,6 +47,8 @@ import * as utilities from "../utilities";
  * ## Notes
  * 
  * The Traffic Manager is created with the location `global`.
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
  */
 export class Profile extends pulumi.CustomResource {
     /**

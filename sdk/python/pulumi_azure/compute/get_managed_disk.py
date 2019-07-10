@@ -74,6 +74,8 @@ class GetManagedDiskResult:
 async def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Managed Disk.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
     """
     __args__ = dict()
 

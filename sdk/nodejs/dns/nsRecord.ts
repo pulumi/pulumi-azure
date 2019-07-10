@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  *     zoneName: testZone.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_ns_record.html.markdown.
  */
 export class NsRecord extends pulumi.CustomResource {
     /**

@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  * 
  * export const logProfileStorageAccountId = test.storageAccountId;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
  */
 export function getLogProfile(args: GetLogProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLogProfileResult> {
     return pulumi.runtime.invoke("azure:monitoring/getLogProfile:getLogProfile", {

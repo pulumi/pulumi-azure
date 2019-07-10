@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Automation Account.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_account.html.markdown.
 type Account struct {
 	s *pulumi.ResourceState
 }
@@ -19,21 +21,20 @@ func NewAccount(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
+		inputs["skuName"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
+		inputs["skuName"] = args.SkuName
 		inputs["tags"] = args.Tags
 	}
 	inputs["dscPrimaryAccessKey"] = nil
@@ -59,6 +60,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
+		inputs["skuName"] = state.SkuName
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:automation/account:Account", name, id, inputs, opts...)
@@ -98,7 +100,7 @@ func (r *Account) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The SKU name of the account - only `Basic` is supported at this time. Defaults to `Basic`.
+// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 func (r *Account) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -108,9 +110,14 @@ func (r *Account) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `sku` block as defined below.
+// ) A `sku` block as described below.
 func (r *Account) Sku() *pulumi.Output {
 	return r.s.State["sku"]
+}
+
+// The SKU name of the account - only `Basic` is supported at this time.
+func (r *Account) SkuName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -128,12 +135,14 @@ type AccountState struct {
 	DscServerEndpoint interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The SKU name of the account - only `Basic` is supported at this time. Defaults to `Basic`.
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as defined below.
+	// ) A `sku` block as described below.
 	Sku interface{}
+	// The SKU name of the account - only `Basic` is supported at this time.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
@@ -142,12 +151,14 @@ type AccountState struct {
 type AccountArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The SKU name of the account - only `Basic` is supported at this time. Defaults to `Basic`.
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 	Name interface{}
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as defined below.
+	// ) A `sku` block as described below.
 	Sku interface{}
+	// The SKU name of the account - only `Basic` is supported at this time.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

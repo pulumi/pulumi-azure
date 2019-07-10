@@ -9,6 +9,8 @@ import (
 )
 
 // Manage an Azure Storage Container.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
 type Container struct {
 	s *pulumi.ResourceState
 }

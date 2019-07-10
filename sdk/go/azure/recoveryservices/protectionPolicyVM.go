@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an Recovery Services VM Protection Policy.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_policy_vm.html.markdown.
 type ProtectionPolicyVM struct {
 	s *pulumi.ResourceState
 }

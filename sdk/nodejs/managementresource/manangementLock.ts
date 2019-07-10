@@ -64,6 +64,8 @@ import * as utilities from "../utilities";
  *     scope: testPublicIp.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock.html.markdown.
  */
 export class ManangementLock extends pulumi.CustomResource {
     /**

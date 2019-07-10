@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a HDInsight RServer Cluster.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_rserver_cluster.html.markdown.
 type RServerCluster struct {
 	s *pulumi.ResourceState
 }

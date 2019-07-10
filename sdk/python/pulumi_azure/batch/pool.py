@@ -81,6 +81,8 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[dict] start_task: A `start_task` block that describes the start task settings for the Batch pool.
         :param pulumi.Input[dict] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

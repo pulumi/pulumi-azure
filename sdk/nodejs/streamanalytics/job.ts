@@ -37,6 +37,8 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_job.html.markdown.
  */
 export class Job extends pulumi.CustomResource {
     /**

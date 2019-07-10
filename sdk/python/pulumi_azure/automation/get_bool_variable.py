@@ -50,6 +50,8 @@ class GetBoolVariableResult:
 async def get_bool_variable(automation_account_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Automation Bool Variable.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
     """
     __args__ = dict()
 

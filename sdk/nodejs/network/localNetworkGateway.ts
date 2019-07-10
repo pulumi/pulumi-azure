@@ -25,6 +25,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: test.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
  */
 export class LocalNetworkGateway extends pulumi.CustomResource {
     /**

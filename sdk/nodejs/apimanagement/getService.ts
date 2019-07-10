@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const apiManagementId = test.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management.html.markdown.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     return pulumi.runtime.invoke("azure:apimanagement/getService:getService", {

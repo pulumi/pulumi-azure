@@ -11,6 +11,8 @@ import (
 // Manages a MariaDB Server.
 // 
 // > **NOTE** MariaDB Server is currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-us/updates/mariadb-public-preview/).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_server.html.markdown.
 type Server struct {
 	s *pulumi.ResourceState
 }

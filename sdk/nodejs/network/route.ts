@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Route within a Route Table.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- *     name: "acceptanceTestResourceGroup1",
- * });
- * const testRouteTable = new azure.network.RouteTable("test", {
- *     location: testResourceGroup.location,
- *     name: "acceptanceTestRouteTable1",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testRoute = new azure.network.Route("test", {
- *     addressPrefix: "10.1.0.0/16",
- *     name: "acceptanceTestRoute1",
- *     nextHopType: "vnetlocal",
- *     resourceGroupName: testResourceGroup.name,
- *     routeTableName: testRouteTable.name,
- * });
- * ```
- */
 export class Route extends pulumi.CustomResource {
     /**
      * Get an existing Route resource's state with the given name, ID, and optional extra

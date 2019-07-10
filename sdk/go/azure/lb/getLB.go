@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Load Balancer
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb.html.markdown.
 func LookupLB(ctx *pulumi.Context, args *GetLBArgs) (*GetLBResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

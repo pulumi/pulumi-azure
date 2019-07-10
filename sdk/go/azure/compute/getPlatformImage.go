@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about a Platform Image.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
 func LookupPlatformImage(ctx *pulumi.Context, args *GetPlatformImageArgs) (*GetPlatformImageResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

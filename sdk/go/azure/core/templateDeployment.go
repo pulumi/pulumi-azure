@@ -8,15 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage a template deployment of resources
-// 
-// > **Note on ARM Template Deployments:** Due to the way the underlying Azure API is designed, Terraform can only manage the deployment of the ARM Template - and not any resources which are created by it.
-// This means that when deleting the `azurerm_template_deployment` resource, Terraform will only remove the reference to the deployment, whilst leaving any resources created by that ARM Template Deployment.
-// One workaround for this is to use a unique Resource Group for each ARM Template Deployment, which means deleting the Resource Group would contain any resources created within it - however this isn't ideal. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
-// 
-// ## Note
-// 
-// Terraform does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/en-us/rest/api/resources/deployments#Deployments_Delete).
 type TemplateDeployment struct {
 	s *pulumi.ResourceState
 }
@@ -85,9 +76,6 @@ func (r *TemplateDeployment) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
-// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
-// specified within the template, and Terraform will not be aware of this.
 func (r *TemplateDeployment) DeploymentMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deploymentMode"])
 }
@@ -126,9 +114,6 @@ func (r *TemplateDeployment) TemplateBody() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering TemplateDeployment resources.
 type TemplateDeploymentState struct {
-	// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
-	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
-	// specified within the template, and Terraform will not be aware of this.
 	DeploymentMode interface{}
 	// Specifies the name of the template deployment. Changing this forces a
 	// new resource to be created.
@@ -148,9 +133,6 @@ type TemplateDeploymentState struct {
 
 // The set of arguments for constructing a TemplateDeployment resource.
 type TemplateDeploymentArgs struct {
-	// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
-	// Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not
-	// specified within the template, and Terraform will not be aware of this.
 	DeploymentMode interface{}
 	// Specifies the name of the template deployment. Changing this forces a
 	// new resource to be created.

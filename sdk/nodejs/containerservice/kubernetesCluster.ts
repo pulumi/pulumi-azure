@@ -4,57 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
- * 
- * > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- * 
- * ## Example Usage
- * 
- * This example provisions a basic Managed Kubernetes Cluster. Other examples of the `azurerm_kubernetes_cluster` resource can be found in [the `./examples/kubernetes` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/kubernetes)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "East US",
- *     name: "acctestRG1",
- * });
- * const testKubernetesCluster = new azure.containerservice.KubernetesCluster("test", {
- *     agentPoolProfiles: [
- *         {
- *             count: 1,
- *             name: "default",
- *             osDiskSizeGb: 30,
- *             osType: "Linux",
- *             vmSize: "Standard_D1_v2",
- *         },
- *         {
- *             count: 1,
- *             name: "pool2",
- *             osDiskSizeGb: 30,
- *             osType: "Linux",
- *             vmSize: "Standard_D2_v2",
- *         },
- *     ],
- *     dnsPrefix: "acctestagent1",
- *     location: testResourceGroup.location,
- *     name: "acctestaks1",
- *     resourceGroupName: testResourceGroup.name,
- *     servicePrincipal: {
- *         clientId: "00000000-0000-0000-0000-000000000000",
- *         clientSecret: "00000000000000000000000000000000",
- *     },
- *     tags: {
- *         Environment: "Production",
- *     },
- * });
- * 
- * export const clientCertificate = testKubernetesCluster.kubeConfig.clientCertificate;
- * export const kubeConfig = testKubernetesCluster.kubeConfigRaw;
- * ```
- */
 export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * Get an existing KubernetesCluster resource's state with the given name, ID, and optional extra

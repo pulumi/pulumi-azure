@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const location = test.location;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
  */
 export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> {
     return pulumi.runtime.invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", {

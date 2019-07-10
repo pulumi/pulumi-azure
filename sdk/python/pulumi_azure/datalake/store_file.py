@@ -33,6 +33,8 @@ class StoreFile(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Specifies the name of the Data Lake Store for which the File should created.
         :param pulumi.Input[str] local_file_path: The path to the local file to be added to the Data Lake Store.
         :param pulumi.Input[str] remote_file_path: The path created for the file on the Data Lake Store.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_lake_store_file.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

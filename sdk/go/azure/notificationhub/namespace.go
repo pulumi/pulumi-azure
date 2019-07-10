@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Notification Hub Namespace.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_namespace.html.markdown.
 type Namespace struct {
 	s *pulumi.ResourceState
 }
@@ -22,9 +24,6 @@ func NewNamespace(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["enabled"] = nil
@@ -33,6 +32,7 @@ func NewNamespace(ctx *pulumi.Context,
 		inputs["namespaceType"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
+		inputs["skuName"] = nil
 	} else {
 		inputs["enabled"] = args.Enabled
 		inputs["location"] = args.Location
@@ -40,6 +40,7 @@ func NewNamespace(ctx *pulumi.Context,
 		inputs["namespaceType"] = args.NamespaceType
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
+		inputs["skuName"] = args.SkuName
 	}
 	inputs["servicebusEndpoint"] = nil
 	s, err := ctx.RegisterResource("azure:notificationhub/namespace:Namespace", name, true, inputs, opts...)
@@ -62,6 +63,7 @@ func GetNamespace(ctx *pulumi.Context,
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["servicebusEndpoint"] = state.ServicebusEndpoint
 		inputs["sku"] = state.Sku
+		inputs["skuName"] = state.SkuName
 	}
 	s, err := ctx.ReadResource("azure:notificationhub/namespace:Namespace", name, id, inputs, opts...)
 	if err != nil {
@@ -110,9 +112,14 @@ func (r *Namespace) ServicebusEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["servicebusEndpoint"])
 }
 
-// A `sku` block as defined below.
+// ) A `sku` block as described below.
 func (r *Namespace) Sku() *pulumi.Output {
 	return r.s.State["sku"]
+}
+
+// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+func (r *Namespace) SkuName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // Input properties used for looking up and filtering Namespace resources.
@@ -129,8 +136,10 @@ type NamespaceState struct {
 	ResourceGroupName interface{}
 	// The ServiceBus Endpoint for this Notification Hub Namespace.
 	ServicebusEndpoint interface{}
-	// A `sku` block as defined below.
+	// ) A `sku` block as described below.
 	Sku interface{}
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	SkuName interface{}
 }
 
 // The set of arguments for constructing a Namespace resource.
@@ -145,6 +154,8 @@ type NamespaceArgs struct {
 	NamespaceType interface{}
 	// The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `sku` block as defined below.
+	// ) A `sku` block as described below.
 	Sku interface{}
+	// The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+	SkuName interface{}
 }

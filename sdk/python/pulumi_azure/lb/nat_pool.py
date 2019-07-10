@@ -59,6 +59,8 @@ class NatPool(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the NAT pool.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp` or `Tcp`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_nat_pool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

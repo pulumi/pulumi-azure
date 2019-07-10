@@ -107,6 +107,8 @@ import * as utilities from "../utilities";
  *     virtualMachineName: testVirtualMachine.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
  */
 export class Extension extends pulumi.CustomResource {
     /**

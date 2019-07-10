@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  * 
  * export const displayName = test.displayName;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {

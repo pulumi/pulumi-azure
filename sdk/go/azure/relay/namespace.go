@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an Azure Relay Namespace.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
 type Namespace struct {
 	s *pulumi.ResourceState
 }
@@ -19,21 +21,20 @@ func NewNamespace(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
+		inputs["skuName"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
+		inputs["skuName"] = args.SkuName
 		inputs["tags"] = args.Tags
 	}
 	inputs["metricId"] = nil
@@ -63,6 +64,7 @@ func GetNamespace(ctx *pulumi.Context,
 		inputs["secondaryConnectionString"] = state.SecondaryConnectionString
 		inputs["secondaryKey"] = state.SecondaryKey
 		inputs["sku"] = state.Sku
+		inputs["skuName"] = state.SkuName
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:relay/namespace:Namespace", name, id, inputs, opts...)
@@ -122,9 +124,14 @@ func (r *Namespace) SecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secondaryKey"])
 }
 
-// A `sku` block as defined below.
+// ) A `sku` block as described below.
 func (r *Namespace) Sku() *pulumi.Output {
 	return r.s.State["sku"]
+}
+
+// The name of the SKU to use. At this time the only supported value is `Standard`.
+func (r *Namespace) SkuName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -150,8 +157,10 @@ type NamespaceState struct {
 	SecondaryConnectionString interface{}
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	SecondaryKey interface{}
-	// A `sku` block as defined below.
+	// ) A `sku` block as described below.
 	Sku interface{}
+	// The name of the SKU to use. At this time the only supported value is `Standard`.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
@@ -164,8 +173,10 @@ type NamespaceArgs struct {
 	Name interface{}
 	// The name of the resource group in which to create the Azure Relay Namespace.
 	ResourceGroupName interface{}
-	// A `sku` block as defined below.
+	// ) A `sku` block as described below.
 	Sku interface{}
+	// The name of the SKU to use. At this time the only supported value is `Standard`.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

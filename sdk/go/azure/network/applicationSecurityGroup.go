@@ -9,6 +9,8 @@ import (
 )
 
 // Manage an Application Security Group.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_security_group.html.markdown.
 type ApplicationSecurityGroup struct {
 	s *pulumi.ResourceState
 }

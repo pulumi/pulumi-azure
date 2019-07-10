@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Virtual Network Gateway Connection.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway_connection.html.markdown.
 func LookupGatewayConnection(ctx *pulumi.Context, args *GetGatewayConnectionArgs) (*GetGatewayConnectionResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

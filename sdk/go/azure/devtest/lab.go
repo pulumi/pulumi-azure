@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Dev Test Lab.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_lab.html.markdown.
 type Lab struct {
 	s *pulumi.ResourceState
 }

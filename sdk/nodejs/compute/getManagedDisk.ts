@@ -86,6 +86,8 @@ import * as utilities from "../utilities";
  *     vmSize: "Standard_DS1_v2",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
  */
 export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> {
     return pulumi.runtime.invoke("azure:compute/getManagedDisk:getManagedDisk", {

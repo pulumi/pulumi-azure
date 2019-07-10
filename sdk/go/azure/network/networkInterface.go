@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Network Interface located in a Virtual Network, usually attached to a Virtual Machine.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
 type NetworkInterface struct {
 	s *pulumi.ResourceState
 }

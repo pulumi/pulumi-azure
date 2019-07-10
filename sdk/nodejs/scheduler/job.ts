@@ -161,6 +161,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_example.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job.html.markdown.
  */
 export class Job extends pulumi.CustomResource {
     /**

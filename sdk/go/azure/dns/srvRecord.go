@@ -9,6 +9,8 @@ import (
 )
 
 // Enables you to manage DNS SRV Records within Azure DNS.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_srv_record.html.markdown.
 type SrvRecord struct {
 	s *pulumi.ResourceState
 }

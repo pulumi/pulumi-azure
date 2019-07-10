@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a MariaDB Database within a MariaDB Server
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_database.html.markdown.
 type Database struct {
 	s *pulumi.ResourceState
 }

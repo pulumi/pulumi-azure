@@ -9,6 +9,8 @@ import (
 )
 
 // Sets a PostgreSQL Configuration value on a PostgreSQL Server.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_configuration.html.markdown.
 type Configuration struct {
 	s *pulumi.ResourceState
 }

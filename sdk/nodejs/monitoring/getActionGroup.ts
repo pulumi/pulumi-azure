@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Use this data source to access the properties of an Action Group.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const example = pulumi.output(azure.monitoring.getActionGroup({
- *     name: "tfex-actiongroup",
- *     resourceGroupName: "terraform-example-rg",
- * }));
- * 
- * export const actionGroupId = example.id;
- * ```
- */
 export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetActionGroupResult> {
     return pulumi.runtime.invoke("azure:monitoring/getActionGroup:getActionGroup", {
         "name": args.name,

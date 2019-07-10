@@ -60,6 +60,8 @@ import * as utilities from "../utilities";
  *     scope: testResourceGroup.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_assignment.html.markdown.
  */
 export class Assignment extends pulumi.CustomResource {
     /**

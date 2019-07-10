@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an HTTP Action within a Logic App Workflow
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_http.html.markdown.
 type ActionHttp struct {
 	s *pulumi.ResourceState
 }

@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Mongo Database within a Cosmos DB Account.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_database.html.markdown.
 type MongoDatabase struct {
 	s *pulumi.ResourceState
 }

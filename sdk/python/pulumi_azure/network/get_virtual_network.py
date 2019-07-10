@@ -56,6 +56,8 @@ class GetVirtualNetworkResult:
 async def get_virtual_network(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Network.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network.html.markdown.
     """
     __args__ = dict()
 

@@ -80,6 +80,8 @@ class EventGridEventSubscription(pulumi.CustomResource):
         :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
         :param pulumi.Input[str] topic_name: Specifies the name of the topic to associate with the event subscription.
         :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

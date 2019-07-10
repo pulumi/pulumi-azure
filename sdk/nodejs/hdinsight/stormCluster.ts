@@ -69,6 +69,8 @@ import * as utilities from "../utilities";
  *     tier: "Standard",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_storm_cluster.html.markdown.
  */
 export class StormCluster extends pulumi.CustomResource {
     /**

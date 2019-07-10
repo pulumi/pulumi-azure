@@ -60,6 +60,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * }, {dependsOn: [exampleDscConfiguration]});
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_dsc_nodeconfiguration.html.markdown.
  */
 export class DscNodeConfiguration extends pulumi.CustomResource {
     /**

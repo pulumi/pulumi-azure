@@ -48,6 +48,8 @@ import * as utilities from "../utilities";
  *     subnetId: testSubnet.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_route_table_association.html.markdown.
  */
 export class SubnetRouteTableAssociation extends pulumi.CustomResource {
     /**

@@ -46,9 +46,7 @@ import * as utilities from "../utilities";
  *     location: testResourceGroup.location,
  *     name: server.hex.apply(hex => sprintf.sprintf("%s%s", "kv", hex)),
  *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "premium",
- *     },
+ *     skuName: "premium",
  *     tags: {
  *         environment: "Production",
  *     },
@@ -63,6 +61,8 @@ import * as utilities from "../utilities";
  *     value: "szechuan",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_secret.html.markdown.
  */
 export class Secret extends pulumi.CustomResource {
     /**

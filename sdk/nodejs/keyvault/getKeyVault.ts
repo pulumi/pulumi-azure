@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const vaultUri = test.vaultUri;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
     return pulumi.runtime.invoke("azure:keyvault/getKeyVault:getKeyVault", {
@@ -76,6 +78,7 @@ export interface GetKeyVaultResult {
      * A `sku` block as described below.
      */
     readonly sku: { name: string };
+    readonly skuName: string;
     /**
      * A mapping of tags assigned to the Key Vault.
      */

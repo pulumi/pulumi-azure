@@ -4,32 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages an Azure Relay Namespace.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West Europe",
- *     name: "example-resources",
- * });
- * const testNamespace = new azure.relay.Namespace("test", {
- *     location: testResourceGroup.location,
- *     name: "example-relay",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         name: "Standard",
- *     },
- *     tags: {
- *         source: "terraform",
- *     },
- * });
- * ```
- */
 export class Namespace extends pulumi.CustomResource {
     /**
      * Get an existing Namespace resource's state with the given name, ID, and optional extra
@@ -90,9 +64,13 @@ export class Namespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryKey!: pulumi.Output<string>;
     /**
-     * A `sku` block as defined below.
+     * ) A `sku` block as described below.
      */
     public readonly sku!: pulumi.Output<{ name: string }>;
+    /**
+     * The name of the SKU to use. At this time the only supported value is `Standard`.
+     */
+    public readonly skuName!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -119,19 +97,18 @@ export class Namespace extends pulumi.CustomResource {
             inputs["secondaryConnectionString"] = state ? state.secondaryConnectionString : undefined;
             inputs["secondaryKey"] = state ? state.secondaryKey : undefined;
             inputs["sku"] = state ? state.sku : undefined;
+            inputs["skuName"] = state ? state.skuName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as NamespaceArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (!args || args.sku === undefined) {
-                throw new Error("Missing required property 'sku'");
-            }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["skuName"] = args ? args.skuName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["metricId"] = undefined /*out*/;
             inputs["primaryConnectionString"] = undefined /*out*/;
@@ -180,9 +157,13 @@ export interface NamespaceState {
      */
     readonly secondaryKey?: pulumi.Input<string>;
     /**
-     * A `sku` block as defined below.
+     * ) A `sku` block as described below.
      */
     readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    /**
+     * The name of the SKU to use. At this time the only supported value is `Standard`.
+     */
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -206,9 +187,13 @@ export interface NamespaceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `sku` block as defined below.
+     * ) A `sku` block as described below.
      */
-    readonly sku: pulumi.Input<{ name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    /**
+     * The name of the SKU to use. At this time the only supported value is `Standard`.
+     */
+    readonly skuName?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

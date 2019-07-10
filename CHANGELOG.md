@@ -3,8 +3,16 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Support Input and Output bindings for callback-based Azure Functions (HTTP and Storage Queue/Blob/Table only)
+* Introduce `listHostKeys` and `listFunctionKeys` mix-in functions to retrieve Azure Functions management keys
 
 ---
+
+## 0.19.2 (2019-07-09)
+* Fix detailed diffs with nested computed values.
+* Communicate detailed information about the difference between a resource's desired and actual state during a Pulumi update
+
+## 0.19.1 (2019-06-28)
+* Update to v1.31.0 of the AzureRM Terraform provider
 
 ## 0.19.0 (2019-06-21)
 * BREAKING: Types related to ServiceBus Topic subscriptions: TopicContext, TopicHostSettings, and TopicCallback were replaced by more general types ServiceBusContext, ServiceBusHostSettings, and ServiceBusCallback to support queue-based scenarios.

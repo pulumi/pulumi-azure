@@ -47,6 +47,8 @@ class GetVaultResult:
 async def get_vault(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Recovery Services Vault.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.html.markdown.
     """
     __args__ = dict()
 

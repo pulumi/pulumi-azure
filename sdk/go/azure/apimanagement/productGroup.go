@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an API Management Product Assignment to a Group.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_group.html.markdown.
 type ProductGroup struct {
 	s *pulumi.ResourceState
 }

@@ -69,6 +69,8 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: testNetworkInterface.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_nat_rule_association.html.markdown.
  */
 export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
     /**

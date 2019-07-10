@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Notification Hub Namespace.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub_namespace.html.markdown.
 func LookupNamespace(ctx *pulumi.Context, args *GetNamespaceArgs) (*GetNamespaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

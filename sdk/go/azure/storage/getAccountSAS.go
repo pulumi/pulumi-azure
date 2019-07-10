@@ -13,6 +13,8 @@ import (
 // 
 // Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
 // and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
 func LookupAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs) (*GetAccountSASResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -43,7 +45,6 @@ func LookupAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs) (*GetAccount
 
 // A collection of arguments for invoking getAccountSAS.
 type GetAccountSASArgs struct {
-	// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a terraform created `azurerm_storage_account` resource.
 	ConnectionString interface{}
 	// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
 	Expiry interface{}

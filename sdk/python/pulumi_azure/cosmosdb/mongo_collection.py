@@ -11,6 +11,9 @@ from .. import utilities, tables
 class MongoCollection(pulumi.CustomResource):
     account_name: pulumi.Output[str]
     database_name: pulumi.Output[str]
+    """
+    The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+    """
     default_ttl_seconds: pulumi.Output[float]
     """
     The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
@@ -25,7 +28,7 @@ class MongoCollection(pulumi.CustomResource):
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+    The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
     """
     shard_key: pulumi.Output[str]
     """
@@ -37,11 +40,14 @@ class MongoCollection(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] database_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[float] default_ttl_seconds: The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
         :param pulumi.Input[list] indexes: One or more `indexes` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. 
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

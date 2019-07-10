@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Data Lake Store.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/data_lake_store.html.markdown.
 func LookupStore(ctx *pulumi.Context, args *GetStoreArgs) (*GetStoreResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

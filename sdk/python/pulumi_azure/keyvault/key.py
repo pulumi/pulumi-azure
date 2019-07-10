@@ -9,6 +9,10 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Key(pulumi.CustomResource):
+    curve: pulumi.Output[str]
+    """
+    Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+    """
     e: pulumi.Output[str]
     """
     The RSA public exponent of this Key Vault Key.
@@ -19,15 +23,15 @@ class Key(pulumi.CustomResource):
     """
     key_size: pulumi.Output[float]
     """
-    Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
+    Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
     """
     key_type: pulumi.Output[str]
     """
-    Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+    Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
     """
     key_vault_id: pulumi.Output[str]
     """
-    The ID of the Key Vault where the Key should be created.
+    The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
     """
     n: pulumi.Output[str]
     """
@@ -46,18 +50,29 @@ class Key(pulumi.CustomResource):
     """
     The current version of the Key Vault Key.
     """
-    def __init__(__self__, resource_name, opts=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, tags=None, vault_uri=None, __name__=None, __opts__=None):
+    x: pulumi.Output[str]
+    """
+    The EC X component of this Key Vault Key.
+    """
+    y: pulumi.Output[str]
+    """
+    The EC Y component of this Key Vault Key.
+    """
+    def __init__(__self__, resource_name, opts=None, curve=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, tags=None, vault_uri=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Key.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[list] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
-        :param pulumi.Input[float] key_size: Specifies the Size of the Key to create in bytes. For example, 1024 or 2048. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created.
+        :param pulumi.Input[float] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,12 +89,12 @@ class Key(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['curve'] = curve
+
         if key_opts is None:
             raise TypeError("Missing required property 'key_opts'")
         __props__['key_opts'] = key_opts
 
-        if key_size is None:
-            raise TypeError("Missing required property 'key_size'")
         __props__['key_size'] = key_size
 
         if key_type is None:
@@ -97,6 +112,8 @@ class Key(pulumi.CustomResource):
         __props__['e'] = None
         __props__['n'] = None
         __props__['version'] = None
+        __props__['x'] = None
+        __props__['y'] = None
 
         super(Key, __self__).__init__(
             'azure:keyvault/key:Key',

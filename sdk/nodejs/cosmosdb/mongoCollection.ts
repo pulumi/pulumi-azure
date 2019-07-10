@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleAccount.resourceGroupName,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
  */
 export class MongoCollection extends pulumi.CustomResource {
     /**
@@ -70,6 +72,9 @@ export class MongoCollection extends pulumi.CustomResource {
     }
 
     public readonly accountName!: pulumi.Output<string>;
+    /**
+     * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     */
     public readonly databaseName!: pulumi.Output<string>;
     /**
      * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
@@ -84,7 +89,7 @@ export class MongoCollection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -139,6 +144,9 @@ export class MongoCollection extends pulumi.CustomResource {
  */
 export interface MongoCollectionState {
     readonly accountName?: pulumi.Input<string>;
+    /**
+     * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     */
     readonly databaseName?: pulumi.Input<string>;
     /**
      * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
@@ -153,7 +161,7 @@ export interface MongoCollectionState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -167,6 +175,9 @@ export interface MongoCollectionState {
  */
 export interface MongoCollectionArgs {
     readonly accountName: pulumi.Input<string>;
+    /**
+     * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     */
     readonly databaseName: pulumi.Input<string>;
     /**
      * The default Time To Live in seconds. If the value is `-1` items are not automatically expired.
@@ -181,7 +192,7 @@ export interface MongoCollectionArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
+     * The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

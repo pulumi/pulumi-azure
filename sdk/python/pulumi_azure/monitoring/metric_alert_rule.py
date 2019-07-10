@@ -85,6 +85,8 @@ class MetricAlertRule(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[float] threshold: The threshold value that activates the alert.
         :param pulumi.Input[dict] webhook_action: A `webhook_action` block as defined below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alertrule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

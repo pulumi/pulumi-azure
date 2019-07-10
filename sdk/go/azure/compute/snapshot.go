@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Disk Snapshot.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
 type Snapshot struct {
 	s *pulumi.ResourceState
 }

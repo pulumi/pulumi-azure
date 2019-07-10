@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     phone: "+1-555-555-5555",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_contact.html.markdown.
  */
 export class Contact extends pulumi.CustomResource {
     /**

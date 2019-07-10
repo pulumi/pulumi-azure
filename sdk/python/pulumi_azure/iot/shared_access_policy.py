@@ -66,6 +66,8 @@ class SharedAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[bool] registry_write: Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub_shared_access_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

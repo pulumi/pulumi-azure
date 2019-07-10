@@ -61,6 +61,7 @@ import * as utilities from "../utilities";
  *     location: testrg.location,
  *     name: "storageaccountname",
  *     networkRules: {
+ *         defaultAction: "Deny",
  *         ipRules: ["100.0.0.1"],
  *         virtualNetworkSubnetIds: [testSubnet.id],
  *     },
@@ -70,6 +71,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -158,7 +161,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A `network_rules` block as documented below.
      */
-    public readonly networkRules!: pulumi.Output<{ bypasses: string[], ipRules?: string[], virtualNetworkSubnetIds?: string[] } | undefined>;
+    public readonly networkRules!: pulumi.Output<{ bypasses: string[], defaultAction?: string, ipRules: string[], virtualNetworkSubnetIds: string[] } | undefined>;
     /**
      * The primary access key for the storage account.
      */
@@ -487,7 +490,7 @@ export interface AccountState {
     /**
      * A `network_rules` block as documented below.
      */
-    readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, defaultAction?: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * The primary access key for the storage account.
      */
@@ -691,7 +694,7 @@ export interface AccountArgs {
     /**
      * A `network_rules` block as documented below.
      */
-    readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, defaultAction?: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
      * The name of the resource group in which to
      * create the storage account. Changing this forces a new resource to be created.

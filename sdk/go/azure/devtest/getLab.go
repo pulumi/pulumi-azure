@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Dev Test Lab.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/dev_test_lab.html.markdown.
 func LookupLab(ctx *pulumi.Context, args *GetLabArgs) (*GetLabResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

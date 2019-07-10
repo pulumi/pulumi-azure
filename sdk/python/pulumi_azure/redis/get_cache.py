@@ -122,6 +122,8 @@ class GetCacheResult:
 async def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Redis Cache
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
     """
     __args__ = dict()
 

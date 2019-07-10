@@ -9,6 +9,8 @@ import (
 )
 
 // Sets a MySQL Configuration value on a MySQL Server.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mysql_configuration.html.markdown.
 type Configuration struct {
 	s *pulumi.ResourceState
 }
