@@ -38,6 +38,8 @@ import * as utilities from "../utilities";
  *     version: "9.5",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_server.html.markdown.
  */
 export class Server extends pulumi.CustomResource {
     /**

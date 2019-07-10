@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manages a Route within a Route Table.
 type Route struct {
 	s *pulumi.ResourceState
 }

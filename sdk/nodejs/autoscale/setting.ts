@@ -240,6 +240,8 @@ import * as utilities from "../utilities";
  *     targetResourceId: testScaleSet.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/autoscale_setting.html.markdown.
  */
 export class Setting extends pulumi.CustomResource {
     /**

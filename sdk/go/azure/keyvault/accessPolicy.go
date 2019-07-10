@@ -13,6 +13,8 @@ import (
 // > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 // 
 // > **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_access_policy.html.markdown.
 type AccessPolicy struct {
 	s *pulumi.ResourceState
 }
@@ -110,6 +112,8 @@ func (r *AccessPolicy) KeyPermissions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["keyPermissions"])
 }
 
+// Specifies the id of the Key Vault resource. Changing this
+// forces a new resource to be created.
 func (r *AccessPolicy) KeyVaultId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
@@ -164,6 +168,8 @@ type AccessPolicyState struct {
 	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
 	KeyPermissions interface{}
+	// Specifies the id of the Key Vault resource. Changing this
+	// forces a new resource to be created.
 	KeyVaultId interface{}
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must
@@ -199,6 +205,8 @@ type AccessPolicyArgs struct {
 	// the following: `backup`, `create`, `decrypt`, `delete`, `encrypt`, `get`, `import`, `list`, `purge`,
 	// `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
 	KeyPermissions interface{}
+	// Specifies the id of the Key Vault resource. Changing this
+	// forces a new resource to be created.
 	KeyVaultId interface{}
 	// The object ID of a user, service principal or security
 	// group in the Azure Active Directory tenant for the vault. The object ID must

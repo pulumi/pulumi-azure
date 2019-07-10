@@ -30,13 +30,6 @@ class GetServicePrincipalResult:
         """
 
 async def get_service_principal(application_id=None,display_name=None,object_id=None,opts=None):
-    """
-    Gets information about an existing Service Principal associated with an Application within Azure Active Directory.
-    
-    > **NOTE:** The Azure Active Directory resources have been split out into [a new AzureAD Provider](http://terraform.io/docs/providers/azuread/index.html) - as such the AzureAD resources within the AzureRM Provider are deprecated and will be removed in the next major version (2.0). Information on how to migrate from the existing resources to the new AzureAD Provider can be found here.
-    
-    > **NOTE:** If you're authenticating using a Service Principal then it must have permissions to both `Read and write all applications` and `Sign in and read user profile` within the `Windows Azure Active Directory` API.
-    """
     __args__ = dict()
 
     __args__['applicationId'] = application_id

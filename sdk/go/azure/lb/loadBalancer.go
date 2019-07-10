@@ -9,6 +9,8 @@ import (
 )
 
 // Manage a Load Balancer Resource.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
 type LoadBalancer struct {
 	s *pulumi.ResourceState
 }
@@ -76,7 +78,7 @@ func (r *LoadBalancer) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A `frontend_ip_configuration` block as documented below.
+// One or multiple `frontend_ip_configuration` blocks as documented below.
 func (r *LoadBalancer) FrontendIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
@@ -118,7 +120,7 @@ func (r *LoadBalancer) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type LoadBalancerState struct {
-	// A `frontend_ip_configuration` block as documented below.
+	// One or multiple `frontend_ip_configuration` blocks as documented below.
 	FrontendIpConfigurations interface{}
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location interface{}
@@ -138,7 +140,7 @@ type LoadBalancerState struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	// A `frontend_ip_configuration` block as documented below.
+	// One or multiple `frontend_ip_configuration` blocks as documented below.
 	FrontendIpConfigurations interface{}
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location interface{}

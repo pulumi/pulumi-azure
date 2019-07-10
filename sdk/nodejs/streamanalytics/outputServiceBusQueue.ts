@@ -45,6 +45,8 @@ import * as utilities from "../utilities";
  *     streamAnalyticsJobName: exampleJob.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_servicebus_queue.html.markdown.
  */
 export class OutputServiceBusQueue extends pulumi.CustomResource {
     /**

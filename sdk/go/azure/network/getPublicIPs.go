@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about a set of existing Public IP Addresses.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
 func LookupPublicIPs(ctx *pulumi.Context, args *GetPublicIPsArgs) (*GetPublicIPsResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

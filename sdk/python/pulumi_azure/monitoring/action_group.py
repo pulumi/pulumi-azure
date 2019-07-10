@@ -55,6 +55,8 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[list] sms_receivers: One or more `sms_receiver ` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] webhook_receivers: One or more `webhook_receiver ` blocks as defined below.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

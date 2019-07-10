@@ -43,13 +43,17 @@ class Namespace(pulumi.CustomResource):
     """
     sku: pulumi.Output[dict]
     """
-    A `sku` block as defined below.
+    ) A `sku` block as described below.
+    """
+    sku_name: pulumi.Output[str]
+    """
+    The name of the SKU to use. At this time the only supported value is `Standard`.
     """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, sku_name=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an Azure Relay Namespace.
         
@@ -58,8 +62,11 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure Relay Namespace.
-        :param pulumi.Input[dict] sku: A `sku` block as defined below.
+        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
+        :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,9 +91,9 @@ class Namespace(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
-        if sku is None:
-            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
+
+        __props__['sku_name'] = sku_name
 
         __props__['tags'] = tags
 

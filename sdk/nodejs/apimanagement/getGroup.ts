@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  * 
  * export const groupType = test.type;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     return pulumi.runtime.invoke("azure:apimanagement/getGroup:getGroup", {

@@ -4,50 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a certificate in an Azure Batch account.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "westeurope",
- *     name: "testbatch",
- * });
- * const testStorageAccount = new azure.storage.Account("test", {
- *     accountReplicationType: "LRS",
- *     accountTier: "Standard",
- *     location: testResourceGroup.location,
- *     name: "teststorage",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * const testAccount = new azure.batch.Account("test", {
- *     location: testResourceGroup.location,
- *     name: "testbatchaccount",
- *     poolAllocationMode: "BatchService",
- *     resourceGroupName: testResourceGroup.name,
- *     storageAccountId: testStorageAccount.id,
- *     tags: {
- *         env: "test",
- *     },
- * });
- * const testCertificate = new azure.batch.Certificate("test", {
- *     accountName: testAccount.name,
- *     certificate: (() => {
- *         throw "tf2pulumi error: NYI: call to filebase64";
- *         return (() => { throw "NYI: call to filebase64"; })();
- *     })(),
- *     format: "Pfx",
- *     password: "terraform",
- *     resourceGroupName: testResourceGroup.name,
- *     thumbprint: "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
- *     thumbprintAlgorithm: "SHA1",
- * });
- * ```
- */
 export class Certificate extends pulumi.CustomResource {
     /**
      * Get an existing Certificate resource's state with the given name, ID, and optional extra

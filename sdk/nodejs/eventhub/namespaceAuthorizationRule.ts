@@ -4,38 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- *     name: "terraform-servicebus",
- * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
- *     location: exampleResourceGroup.location,
- *     name: "tfex_sevicebus_namespace",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- *     tags: {
- *         source: "terraform",
- *     },
- * });
- * const exampleNamespaceAuthorizationRule = new azure.eventhub.NamespaceAuthorizationRule("example", {
- *     listen: true,
- *     manage: false,
- *     name: "examplerule",
- *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     send: true,
- * });
- * ```
- */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing NamespaceAuthorizationRule resource's state with the given name, ID, and optional extra

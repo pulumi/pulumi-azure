@@ -4,53 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Traffic Manager Endpoint.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * import * as random from "@pulumi/random";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West US",
- *     name: "trafficmanagerendpointTest",
- * });
- * const server = new random.RandomId("server", {
- *     byteLength: 8,
- *     keepers: {
- *         azi_id: 1,
- *     },
- * });
- * const testProfile = new azure.trafficmanager.Profile("test", {
- *     dnsConfigs: [{
- *         relativeName: server.hex,
- *         ttl: 100,
- *     }],
- *     monitorConfigs: [{
- *         path: "/",
- *         port: 80,
- *         protocol: "http",
- *     }],
- *     name: server.hex,
- *     resourceGroupName: testResourceGroup.name,
- *     tags: {
- *         environment: "Production",
- *     },
- *     trafficRoutingMethod: "Weighted",
- * });
- * const testEndpoint = new azure.trafficmanager.Endpoint("test", {
- *     name: server.hex,
- *     profileName: testProfile.name,
- *     resourceGroupName: testResourceGroup.name,
- *     target: "terraform.io",
- *     type: "externalEndpoints",
- *     weight: 100,
- * });
- * ```
- */
 export class Endpoint extends pulumi.CustomResource {
     /**
      * Get an existing Endpoint resource's state with the given name, ID, and optional extra

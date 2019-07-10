@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a Custom Action within a Logic App Workflow
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_custom.html.markdown.
 type ActionCustom struct {
 	s *pulumi.ResourceState
 }

@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing EventHub Namespace.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
 func LookupEventhubNamespace(ctx *pulumi.Context, args *GetEventhubNamespaceArgs) (*GetEventhubNamespaceResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

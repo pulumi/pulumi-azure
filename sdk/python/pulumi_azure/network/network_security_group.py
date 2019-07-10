@@ -31,11 +31,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, security_rules=None, tags=None, __name__=None, __opts__=None):
         """
-        Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.
-        
-        > **NOTE on Network Security Groups and Network Security Rules:** Terraform currently
-        provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
-        At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
+        Create a NetworkSecurityGroup resource with the given unique name, props, and options.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -44,6 +40,8 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
         :param pulumi.Input[list] security_rules: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

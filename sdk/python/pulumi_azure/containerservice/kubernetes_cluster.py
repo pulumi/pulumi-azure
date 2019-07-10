@@ -106,6 +106,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

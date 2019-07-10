@@ -3,6 +3,8 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .dps import *
+from .certificate import *
 from .io_t_hub import *
 from .consumer_group import *
 from .shared_access_policy import *

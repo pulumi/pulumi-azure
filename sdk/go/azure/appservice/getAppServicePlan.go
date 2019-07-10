@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/app_service_plan.html.markdown.
 func LookupAppServicePlan(ctx *pulumi.Context, args *GetAppServicePlanArgs) (*GetAppServicePlanResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

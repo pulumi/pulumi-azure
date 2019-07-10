@@ -9,6 +9,8 @@ import (
 )
 
 // Manage an Azure Storage Table.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
 type Table struct {
 	s *pulumi.ResourceState
 }

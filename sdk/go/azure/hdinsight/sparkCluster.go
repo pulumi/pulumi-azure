@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a HDInsight Spark Cluster.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_spark_cluster.html.markdown.
 type SparkCluster struct {
 	s *pulumi.ResourceState
 }

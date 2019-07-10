@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a HDInsight Kafka Cluster.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_kafka_cluster.html.markdown.
 type KafkaCluster struct {
 	s *pulumi.ResourceState
 }

@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Recovery Services Vault.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_vault.html.markdown.
 func LookupVault(ctx *pulumi.Context, args *GetVaultArgs) (*GetVaultResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

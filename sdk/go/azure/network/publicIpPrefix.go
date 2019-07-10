@@ -11,6 +11,8 @@ import (
 // Manage a Public IP Prefix.
 // 
 // > **NOTE** Public IP Prefix are currently in Public Preview. You can find more information about [Public IP Preifx Preview here](https://docs.microsoft.com/en-us/azure/virtual-network/public-ip-address-prefix).
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/public_ip_prefix.html.markdown.
 type PublicIpPrefix struct {
 	s *pulumi.ResourceState
 }

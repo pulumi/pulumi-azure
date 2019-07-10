@@ -11,6 +11,8 @@ import (
 // Associates a Network Security Group with a Subnet within a Virtual Network.
 // 
 // > **NOTE:** Subnet `<->` Network Security Group associations currently need to be configured on both this resource and using the `network_security_group_id` field on the `azurerm_subnet` resource. The next major version of the AzureRM Provider (2.0) will remove the `network_security_group_id` field from the `azurerm_subnet` resource such that this resource is used to link resources in future.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet_network_security_group_association.html.markdown.
 type SubnetNetworkSecurityGroupAssociation struct {
 	s *pulumi.ResourceState
 }

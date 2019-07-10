@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_workflow.html.markdown.
  */
 export class Workflow extends pulumi.CustomResource {
     /**

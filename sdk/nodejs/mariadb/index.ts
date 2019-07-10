@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./database";
+export * from "./firewallRule";
 export * from "./server";

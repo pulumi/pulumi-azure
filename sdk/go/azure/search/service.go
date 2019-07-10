@@ -9,6 +9,8 @@ import (
 )
 
 // Allows you to manage an Azure Search Service.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/search_service.html.markdown.
 type Service struct {
 	s *pulumi.ResourceState
 }
@@ -122,7 +124,7 @@ func (r *Service) Sku() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sku"])
 }
 
-// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+// A mapping of tags to assign to the resource.
 func (r *Service) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
@@ -145,7 +147,7 @@ type ServiceState struct {
 	SecondaryKey interface{}
 	// Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
 	Sku interface{}
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
 
@@ -163,6 +165,6 @@ type ServiceArgs struct {
 	ResourceGroupName interface{}
 	// Valid values are `free` and `standard`. `standard2` and `standard3` are also valid, but can only be used when it's enabled on the backend by Microsoft support. `free` provisions the service in shared clusters. `standard` provisions the service in dedicated clusters.  Changing this forces a new resource to be created.
 	Sku interface{}
-	// A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

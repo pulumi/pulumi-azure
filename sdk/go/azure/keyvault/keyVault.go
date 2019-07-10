@@ -11,6 +11,8 @@ import (
 // Manages a Key Vault.
 // 
 // > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
 type KeyVault struct {
 	s *pulumi.ResourceState
 }
@@ -20,9 +22,6 @@ func NewKeyVault(ctx *pulumi.Context,
 	name string, args *KeyVaultArgs, opts ...pulumi.ResourceOpt) (*KeyVault, error) {
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
-	}
-	if args == nil || args.Sku == nil {
-		return nil, errors.New("missing required argument 'Sku'")
 	}
 	if args == nil || args.TenantId == nil {
 		return nil, errors.New("missing required argument 'TenantId'")
@@ -38,6 +37,7 @@ func NewKeyVault(ctx *pulumi.Context,
 		inputs["networkAcls"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
+		inputs["skuName"] = nil
 		inputs["tags"] = nil
 		inputs["tenantId"] = nil
 	} else {
@@ -50,6 +50,7 @@ func NewKeyVault(ctx *pulumi.Context,
 		inputs["networkAcls"] = args.NetworkAcls
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
+		inputs["skuName"] = args.SkuName
 		inputs["tags"] = args.Tags
 		inputs["tenantId"] = args.TenantId
 	}
@@ -76,6 +77,7 @@ func GetKeyVault(ctx *pulumi.Context,
 		inputs["networkAcls"] = state.NetworkAcls
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
+		inputs["skuName"] = state.SkuName
 		inputs["tags"] = state.Tags
 		inputs["tenantId"] = state.TenantId
 		inputs["vaultUri"] = state.VaultUri
@@ -137,9 +139,14 @@ func (r *KeyVault) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// An SKU block as described below.
+// ) A `sku` block as described below.
 func (r *KeyVault) Sku() *pulumi.Output {
 	return r.s.State["sku"]
+}
+
+// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+func (r *KeyVault) SkuName() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["skuName"])
 }
 
 // A mapping of tags to assign to the resource.
@@ -147,7 +154,7 @@ func (r *KeyVault) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 func (r *KeyVault) TenantId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["tenantId"])
 }
@@ -175,11 +182,13 @@ type KeyVaultState struct {
 	NetworkAcls interface{}
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// An SKU block as described below.
+	// ) A `sku` block as described below.
 	Sku interface{}
+	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId interface{}
 	// The URI of the Key Vault, used for performing operations on keys and secrets.
 	VaultUri interface{}
@@ -203,10 +212,12 @@ type KeyVaultArgs struct {
 	NetworkAcls interface{}
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// An SKU block as described below.
+	// ) A `sku` block as described below.
 	Sku interface{}
+	// The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
+	SkuName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+	// The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
 	TenantId interface{}
 }

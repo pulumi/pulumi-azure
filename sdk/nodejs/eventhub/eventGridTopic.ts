@@ -28,6 +28,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
  */
 export class EventGridTopic extends pulumi.CustomResource {
     /**

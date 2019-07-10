@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  *     resourceId: testKeyVault.id,
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_diagnostic_categories.html.markdown.
  */
 export function getDiagnosticCategories(args: GetDiagnosticCategoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticCategoriesResult> {
     return pulumi.runtime.invoke("azure:monitoring/getDiagnosticCategories:getDiagnosticCategories", {

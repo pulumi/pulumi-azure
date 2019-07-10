@@ -54,6 +54,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password to access the certificate's private key. This must and can only be specified when `format` is `Pfx`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The thumbprint of the certificate. At this time the only supported value is 'SHA1'.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_certificate.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

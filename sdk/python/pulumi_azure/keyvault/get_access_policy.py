@@ -44,6 +44,8 @@ class GetAccessPolicyResult:
 async def get_access_policy(name=None,opts=None):
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
     """
     __args__ = dict()
 

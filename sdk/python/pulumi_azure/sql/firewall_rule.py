@@ -42,6 +42,8 @@ class FirewallRule(pulumi.CustomResource):
                create the sql server.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the Firewall Rule.
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_firewall_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

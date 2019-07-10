@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const loginServer = test.loginServer;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.html.markdown.
  */
 export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryResult> {
     return pulumi.runtime.invoke("azure:containerservice/getRegistry:getRegistry", {

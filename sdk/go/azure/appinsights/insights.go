@@ -9,6 +9,8 @@ import (
 )
 
 // Manage an Application Insights component.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights.html.markdown.
 type Insights struct {
 	s *pulumi.ResourceState
 }

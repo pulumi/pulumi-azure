@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Container Registry.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/container_registry.html.markdown.
 func LookupRegistry(ctx *pulumi.Context, args *GetRegistryArgs) (*GetRegistryResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an Authorization Rule for a ServiceBus Queue.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule.html.markdown.
 type QueueAuthorizationRule struct {
 	s *pulumi.ResourceState
 }

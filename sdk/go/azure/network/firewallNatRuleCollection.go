@@ -9,6 +9,8 @@ import (
 )
 
 // Manages a NAT Rule Collection within an Azure Firewall.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_nat_rule_collection.html.markdown.
 type FirewallNatRuleCollection struct {
 	s *pulumi.ResourceState
 }

@@ -65,6 +65,8 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_policy_vm.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

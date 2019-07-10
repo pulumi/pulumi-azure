@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  * }));
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
  */
 export function getSharedImageVersion(args: GetSharedImageVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageVersionResult> {
     return pulumi.runtime.invoke("azure:compute/getSharedImageVersion:getSharedImageVersion", {

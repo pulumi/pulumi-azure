@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  *     zoneName: testZone.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_mx_record.html.markdown.
  */
 export class MxRecord extends pulumi.CustomResource {
     /**

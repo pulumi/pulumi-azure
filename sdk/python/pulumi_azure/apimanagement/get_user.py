@@ -62,6 +62,8 @@ class GetUserResult:
 async def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts=None):
     """
     Use this data source to access information about an existing API Management User.
+
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
     """
     __args__ = dict()
 

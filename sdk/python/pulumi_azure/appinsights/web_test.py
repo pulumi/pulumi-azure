@@ -75,6 +75,8 @@ class WebTest(pulumi.CustomResource):
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[float] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

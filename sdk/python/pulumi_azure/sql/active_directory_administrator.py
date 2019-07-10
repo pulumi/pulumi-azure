@@ -40,6 +40,8 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_active_directory_administrator.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

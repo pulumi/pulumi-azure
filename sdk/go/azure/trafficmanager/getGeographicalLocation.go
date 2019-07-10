@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
 func LookupGeographicalLocation(ctx *pulumi.Context, args *GetGeographicalLocationArgs) (*GetGeographicalLocationResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -11,7 +11,7 @@ from .. import utilities, tables
 class LoadBalancer(pulumi.CustomResource):
     frontend_ip_configurations: pulumi.Output[list]
     """
-    A `frontend_ip_configuration` block as documented below.
+    One or multiple `frontend_ip_configuration` blocks as documented below.
     """
     location: pulumi.Output[str]
     """
@@ -47,12 +47,14 @@ class LoadBalancer(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] frontend_ip_configurations: A `frontend_ip_configuration` block as documented below.
+        :param pulumi.Input[list] frontend_ip_configurations: One or multiple `frontend_ip_configuration` blocks as documented below.
         :param pulumi.Input[str] location: Specifies the supported Azure Region where the Load Balancer should be created.
         :param pulumi.Input[str] name: Specifies the name of the frontend ip configuration.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

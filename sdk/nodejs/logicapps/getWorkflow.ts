@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const accessEndpoint = test.accessEndpoint;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
     return pulumi.runtime.invoke("azure:logicapps/getWorkflow:getWorkflow", {

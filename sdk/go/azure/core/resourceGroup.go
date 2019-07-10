@@ -8,6 +8,8 @@ import (
 )
 
 // Manages a resource group on Azure.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/resource_group.html.markdown.
 type ResourceGroup struct {
 	s *pulumi.ResourceState
 }

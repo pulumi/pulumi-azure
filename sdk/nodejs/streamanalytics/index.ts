@@ -7,6 +7,7 @@ export * from "./getJob";
 export * from "./job";
 export * from "./outputBlob";
 export * from "./outputEventHub";
+export * from "./outputMssql";
 export * from "./outputServiceBusQueue";
 export * from "./streamInputBlob";
 export * from "./streamInputEventHub";

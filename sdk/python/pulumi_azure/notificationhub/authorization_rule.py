@@ -58,6 +58,8 @@ class AuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] notification_hub_name: The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_authorization_rule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

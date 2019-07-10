@@ -141,6 +141,8 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

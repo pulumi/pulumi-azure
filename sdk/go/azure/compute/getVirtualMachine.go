@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Virtual Machine.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
 func LookupVirtualMachine(ctx *pulumi.Context, args *GetVirtualMachineArgs) (*GetVirtualMachineResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

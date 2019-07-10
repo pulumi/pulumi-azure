@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const networkInterfaceId = test.id;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_interface.html.markdown.
  */
 export function getNetworkInterface(args: GetNetworkInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfaceResult> {
     return pulumi.runtime.invoke("azure:network/getNetworkInterface:getNetworkInterface", {

@@ -52,6 +52,8 @@ import * as utilities from "../utilities";
  *     storageAccountId: testAccount.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_log_profile.html.markdown.
  */
 export class LogProfile extends pulumi.CustomResource {
     /**

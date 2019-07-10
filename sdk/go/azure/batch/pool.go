@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an Azure Batch pool.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
 type Pool struct {
 	s *pulumi.ResourceState
 }

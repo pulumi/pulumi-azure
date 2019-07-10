@@ -43,7 +43,11 @@ class KeyVault(pulumi.CustomResource):
     """
     sku: pulumi.Output[dict]
     """
-    An SKU block as described below.
+    ) A `sku` block as described below.
+    """
+    sku_name: pulumi.Output[str]
+    """
+    The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
     """
     tags: pulumi.Output[dict]
     """
@@ -51,13 +55,13 @@ class KeyVault(pulumi.CustomResource):
     """
     tenant_id: pulumi.Output[str]
     """
-    The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+    The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
     """
     vault_uri: pulumi.Output[str]
     """
     The URI of the Key Vault, used for performing operations on keys and secrets.
     """
-    def __init__(__self__, resource_name, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, resource_group_name=None, sku=None, tags=None, tenant_id=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, location=None, name=None, network_acls=None, resource_group_name=None, sku=None, sku_name=None, tags=None, tenant_id=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault.
         
@@ -73,9 +77,12 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
-        :param pulumi.Input[dict] sku: An SKU block as described below.
+        :param pulumi.Input[dict] sku: ) A `sku` block as described below.
+        :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+        :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,9 +117,9 @@ class KeyVault(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
-        if sku is None:
-            raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
+
+        __props__['sku_name'] = sku_name
 
         __props__['tags'] = tags
 

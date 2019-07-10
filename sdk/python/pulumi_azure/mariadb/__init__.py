@@ -4,4 +4,5 @@
 
 # Export this package's modules as members:
 from .database import *
+from .firewall_rule import *
 from .server import *

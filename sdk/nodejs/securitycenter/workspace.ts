@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     workspaceId: exampleAnalyticsWorkspace.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/security_center_workspace.html.markdown.
  */
 export class Workspace extends pulumi.CustomResource {
     /**

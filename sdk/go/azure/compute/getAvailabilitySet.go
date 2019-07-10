@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Availability Set.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/availability_set.html.markdown.
 func LookupAvailabilitySet(ctx *pulumi.Context, args *GetAvailabilitySetArgs) (*GetAvailabilitySetResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

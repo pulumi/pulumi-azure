@@ -47,6 +47,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: rg.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_account.html.markdown.
  */
 export class Account extends pulumi.CustomResource {
     /**

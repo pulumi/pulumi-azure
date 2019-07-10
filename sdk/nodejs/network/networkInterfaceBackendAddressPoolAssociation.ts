@@ -65,6 +65,8 @@ import * as utilities from "../utilities";
  *     networkInterfaceId: testNetworkInterface.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface_backend_address_pool_association.html.markdown.
  */
 export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.CustomResource {
     /**

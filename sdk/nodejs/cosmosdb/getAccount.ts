@@ -20,6 +20,8 @@ import * as utilities from "../utilities";
  * 
  * export const cosmosdbAccountEndpoint = azurerm_cosmosdb_account_jobs.endpoint;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     return pulumi.runtime.invoke("azure:cosmosdb/getAccount:getAccount", {

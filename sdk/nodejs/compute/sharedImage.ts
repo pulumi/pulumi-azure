@@ -42,6 +42,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
  */
 export class SharedImage extends pulumi.CustomResource {
     /**

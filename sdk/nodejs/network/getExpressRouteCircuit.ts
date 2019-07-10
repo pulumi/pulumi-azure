@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  * export const expressRouteCircuitId = test.id;
  * export const serviceKey = test.serviceKey;
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/express_route_circuit.html.markdown.
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
     return pulumi.runtime.invoke("azure:network/getExpressRouteCircuit:getExpressRouteCircuit", {

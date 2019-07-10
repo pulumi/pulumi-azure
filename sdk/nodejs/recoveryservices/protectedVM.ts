@@ -39,6 +39,8 @@ import * as utilities from "../utilities";
  *     sourceVmId: azurerm_virtual_machine_example.id,
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protected_vm.html.markdown.
  */
 export class ProtectedVM extends pulumi.CustomResource {
     /**

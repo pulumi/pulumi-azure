@@ -9,6 +9,8 @@ import (
 )
 
 // Manages an API Management User Assignment to a Group.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_group_user.html.markdown.
 type GroupUser struct {
 	s *pulumi.ResourceState
 }

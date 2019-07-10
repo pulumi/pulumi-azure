@@ -72,6 +72,8 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[dict] retry: A `retry` block defining how to retry as described below.
         :param pulumi.Input[str] start_time: The time the first instance of the job is to start running at.
         :param pulumi.Input[str] state: The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

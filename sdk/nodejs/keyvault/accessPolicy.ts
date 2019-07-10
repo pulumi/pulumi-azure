@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
  * > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
  * 
  * > **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_access_policy.html.markdown.
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**
@@ -54,6 +56,10 @@ export class AccessPolicy extends pulumi.CustomResource {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     public readonly keyPermissions!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the id of the Key Vault resource. Changing this
+     * forces a new resource to be created.
+     */
     public readonly keyVaultId!: pulumi.Output<string>;
     /**
      * The object ID of a user, service principal or security
@@ -153,6 +159,10 @@ export interface AccessPolicyState {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     readonly keyPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the id of the Key Vault resource. Changing this
+     * forces a new resource to be created.
+     */
     readonly keyVaultId?: pulumi.Input<string>;
     /**
      * The object ID of a user, service principal or security
@@ -208,6 +218,10 @@ export interface AccessPolicyArgs {
      * `recover`, `restore`, `sign`, `unwrapKey`, `update`, `verify` and `wrapKey`.
      */
     readonly keyPermissions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the id of the Key Vault resource. Changing this
+     * forces a new resource to be created.
+     */
     readonly keyVaultId?: pulumi.Input<string>;
     /**
      * The object ID of a user, service principal or security

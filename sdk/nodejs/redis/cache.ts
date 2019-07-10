@@ -4,62 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Manages a Redis Cache.
- * 
- * ## Example Usage
- * 
- * This example provisions a Standard Redis Cache. Other examples of the `azurerm_redis_cache` resource can be found in [the `./examples/redis-cache` directory within the Github Repository](https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples/redis-cache)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West Europe",
- *     name: "example-resources",
- * });
- * // NOTE: the Name used for Redis needs to be globally unique
- * const exampleCache = new azure.redis.Cache("example", {
- *     capacity: 2,
- *     enableNonSslPort: false,
- *     family: "C",
- *     location: exampleResourceGroup.location,
- *     minimumTlsVersion: "1.2",
- *     name: "example-cache",
- *     redisConfiguration: {},
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Standard",
- * });
- * ```
- * 
- * ## Default Redis Configuration Values
- * 
- * | Redis Value                     | Basic        | Standard     | Premium      |
- * | ------------------------------- | ------------ | ------------ | ------------ |
- * | enable_authentication           | true         | true         | true         |
- * | maxmemory_reserved              | 2            | 50           | 200          |
- * | maxfragmentationmemory_reserved | 2            | 50           | 200          |
- * | maxmemory_delta                 | 2            | 50           | 200          |
- * | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
- * 
- * > **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
- * 
- * ---
- * 
- * A `patch_schedule` block supports the following:
- * 
- * * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
- * 
- * * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
- * 
- * > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
- * 
- * ## Relevant Links
- * 
- *  - [Azure Redis Cache: SKU specific configuration limitations](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#advanced-settings)
- *  - [Redis: Available Configuration Settings](http://redis.io/topics/config)
- */
 export class Cache extends pulumi.CustomResource {
     /**
      * Get an existing Cache resource's state with the given name, ID, and optional extra

@@ -8,6 +8,8 @@ import (
 )
 
 // Use this data source to access information about an existing Key Vault.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault.html.markdown.
 func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {
@@ -28,6 +30,7 @@ func LookupKeyVault(ctx *pulumi.Context, args *GetKeyVaultArgs) (*GetKeyVaultRes
 		NetworkAcls: outputs["networkAcls"],
 		ResourceGroupName: outputs["resourceGroupName"],
 		Sku: outputs["sku"],
+		SkuName: outputs["skuName"],
 		Tags: outputs["tags"],
 		TenantId: outputs["tenantId"],
 		VaultUri: outputs["vaultUri"],
@@ -61,6 +64,7 @@ type GetKeyVaultResult struct {
 	ResourceGroupName interface{}
 	// A `sku` block as described below.
 	Sku interface{}
+	SkuName interface{}
 	// A mapping of tags assigned to the Key Vault.
 	Tags interface{}
 	// The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
