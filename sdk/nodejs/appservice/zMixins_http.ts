@@ -60,6 +60,9 @@ export interface HttpHostSettings extends mod.HostSettings {
 
 /**
  * HTTP Response that may or may not contain extra output binding data.
+ * For each output binding, the callback should define a property in the response record with the property
+ * name matching the binding name. For instance, for an output binding called 'myoutput', the response could
+ * be '{ response: { status: 200, body: "My Response" }, myoutput: "My Value" }'.
  */
 export type ExtendedHttpResponse = HttpResponse | { response: HttpResponse; [key: string]: any };
 
