@@ -58,7 +58,15 @@ export interface HttpHostSettings extends mod.HostSettings {
     }
 }
 
-export interface HttpFunctionArgs extends mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+/**
+ * HTTP Response that may or may not contain extra output binding data.
+ * For each output binding, the callback should define a property in the response record with the property
+ * name matching the binding name. For instance, for an output binding called 'myoutput', the response could
+ * be '{ response: { status: 200, body: "My Response" }, myoutput: "My Value" }'.
+ */
+export type ExtendedHttpResponse = HttpResponse | { response: HttpResponse; [key: string]: any };
+
+export interface HttpFunctionArgs extends mod.InputOutputsArgs, mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     /**
      * Defines the route template, controlling to which request URLs your function responds. The
      * default value if none is provided is <functionname>.
@@ -72,7 +80,7 @@ export interface HttpFunctionArgs extends mod.CallbackArgs<mod.Context<HttpRespo
     methods?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
-export interface HttpEventSubscriptionArgs extends HttpFunctionArgs, mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+export interface HttpEventSubscriptionArgs extends HttpFunctionArgs, mod.CallbackFunctionAppArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     /**
      * Host settings specific to the HTTP plugin. These values can be provided here, or defaults will
      * be used in their place.
@@ -90,7 +98,7 @@ interface HttpBindingDefinition extends mod.BindingDefinition {
  * An Azure Function exposed via an HTTP endpoint that is implemented on top of a
  * JavaScript/TypeScript callback function.
  */
-export class HttpEventSubscription extends mod.EventSubscription<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+export class HttpEventSubscription extends mod.EventSubscription<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     /**
      * Endpoint where this FunctionApp can be invoked.
      */
@@ -109,19 +117,37 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 /**
  * Azure Function triggered by HTTP requests.
  */
-export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRequest, HttpResponse> {
+export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     constructor(name: string, args: HttpFunctionArgs) {
-        super(name, [<HttpBindingDefinition>{
-            authLevel: "anonymous",
-            type: "httpTrigger",
-            direction: "in",
-            name: "req",
-            route: args.route,
-            methods: args.methods,
-        }, {
-            type: "http",
-            direction: "out",
-            name: "$return",
-        }], args);
+        const trigger = {
+            binding: <HttpBindingDefinition>{
+                authLevel: "anonymous",
+                type: "httpTrigger",
+                direction: "in",
+                name: "req",
+                route: args.route,
+                methods: args.methods,
+            },
+            settings: {},
+        };
+
+        // There are two modes to return an HTTP response:
+        // 1. When there's no other output bindings, take the returned value of the callback,
+        //    so the binding has to be named '$return' (mandated by Azure Functions)
+        // 2. When there are other output bindings, it's a property of the returned value
+        //    with a fixed name 'response' (picked by us)
+        const response = {
+            binding: <mod.OutputBindingDefinition>{
+                type: "http",
+                direction: "out",
+                name: args.outputs && args.outputs.length > 0 ? "response" : "$return",
+            },
+            settings: {},
+        };
+
+        const { bindings, appSettings } =
+            mod.combineBindingSettings(trigger, args.inputs, [response, ...args.outputs || []]);
+
+        super(name, bindings, args, appSettings);
     }
 }

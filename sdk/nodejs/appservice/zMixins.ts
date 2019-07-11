@@ -15,6 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import * as azurefunctions from "@azure/functions";
+import { AzureServiceClient } from "@azure/ms-rest-azure-js";
 
 import { FunctionApp } from "./functionApp";
 
@@ -61,7 +62,7 @@ export interface Context<R extends Result> extends azurefunctions.Context {
  * appropriate.  For async functions, `context.done()` does not need to be called, and instead a Promise
  * containing the result can be returned.
  */
-export type Callback<C extends Context<R>, E, R extends Result> = (context: C, event: E) => Promise<R> | void;
+export type Callback<C extends Context<R>, E, R extends Result> = (context: C, event: E, ...inputs: any[]) => Promise<R> | void;
 
 /**
  * CallbackFactory is the signature for a function that will be called once to produce the function
@@ -196,7 +197,7 @@ interface FunctionAppArgsBase {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{ [key: string]: any }>;
 
     /**
      * The runtime version associated with the Function App. Defaults to `~2`.
@@ -248,7 +249,7 @@ export interface HostSettings {
          * A sliding time window used in conjunction with the `healthCheckThreshold` setting.
          * Defaults to 2 minutes.
          */
-        healthCheckWindow:string,
+        healthCheckWindow: string,
         /**
          * Maximum number of times the health check can fail before a host recycle is initiated.  Defaults to `6`.
          */
@@ -307,6 +308,26 @@ export interface HostSettings {
  */
 export type BindingDefinition = azurefunctions.BindingDefinition;
 
+/**
+ * Base interface for input bindings.
+ */
+export interface InputBindingDefinition extends BindingDefinition {
+    /**
+     * The direction of the binding. Must be 'in' for an input binding.
+     */
+    direction: "in";
+}
+
+/**
+ * Base interface for output bindings.
+ */
+export interface OutputBindingDefinition extends BindingDefinition {
+    /**
+     * The direction of the binding. Must be 'out' for an output binding.
+     */
+    direction: "out";
+}
+
 function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
     args: CallbackArgs<C, E, R>): Promise<pulumi.runtime.SerializedFunction> {
 
@@ -354,21 +375,21 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
 
         const body = await serializeFunctionCallback(func.callback);
 
-        map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`),
+        map[`${func.name}/index.js`] = new pulumi.asset.StringAsset(`module.exports = require("./handler").handler`);
         map[`${func.name}/handler.js`] = new pulumi.asset.StringAsset(body.text);
     }
 
     return new pulumi.asset.AssetArchive(map);
 }
 
-function combineAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{[key: string]: string}> {
+function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{ [key: string]: string }> {
     const applicationSetting = args.appSettings || {};
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
-    return pulumi.all([applicationSetting, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+    return combineAppSettings([applicationSetting, ...perFunctionSettings]);
 }
 
 function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callback: Callback<C, E, R>) {
-    return (context: C, event: E) => {
+    return (context: C, event: E, ...inputs: any[]) => {
         // Redirect console logging to context logging.
         console.log = context.log;
         console.error = context.log.error;
@@ -376,9 +397,50 @@ function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callba
         // tslint:disable-next-line:no-console
         console.info = context.log.info;
 
-        return callback(context, event);
+        return callback(context, event, ...inputs);
     };
 }
+
+/**
+ * Azure Function Binding with the required corresponding application settings (e.g., a connection string setting).
+ */
+export interface BindingSettings<T extends BindingDefinition> {
+    /**
+     * A binding definition.
+     */
+    readonly binding: pulumi.Input<T>;
+
+    /**
+     * A dictionary of application settings to be applied to the Function App.
+     */
+    readonly settings: pulumi.Input<{ [key: string]: any; }>;
+}
+
+export type InputBindingSettings = BindingSettings<InputBindingDefinition>;
+export type OutputBindingSettings = BindingSettings<OutputBindingDefinition>;
+
+// We might want to merge this into CallbackArgs hierachy when all function types support bindings
+export interface InputOutputsArgs {
+    /**
+     * Input bindings.
+     */
+    inputs?: InputBindingSettings[];
+
+    /**
+     * Output bindings.
+     */
+    outputs?: OutputBindingSettings[];
+}
+
+/**
+ * Type alias for a response coming from an Azure Function callback, which applies to most Function types
+ * (HTTP being a notable exception).
+ * 'void' is returned when a Function has no output bindings.
+ * For each output binding, the callback should define a property in the response record with the property
+ * name matching the binding name. For instance, for an output binding called 'myoutput', the response could
+ * be '{ myoutput: "My Value" }'.
+ */
+export type FunctionDefaultResponse = void | Record<string, any>;
 
 /**
  * Azure Function base class.
@@ -435,10 +497,9 @@ export interface ArchiveFunctionAppArgs extends FunctionAppArgsBase {
     archive: pulumi.Input<pulumi.asset.Archive>;
 };
 
-function createFunctionAppParts(
-        name: string,
-        args: ArchiveFunctionAppArgs,
-        opts: pulumi.CustomResourceOptions = {}) {
+function createFunctionAppParts(name: string,
+                                args: ArchiveFunctionAppArgs,
+                                opts: pulumi.CustomResourceOptions = {}) {
 
     if (!args.archive) {
         throw new Error("Deployment [archive] must be provided.");
@@ -546,7 +607,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
         const parts = createFunctionAppParts(name, {
             ...args,
             archive: produceDeploymentArchive({ ...args, functions }),
-            appSettings: combineAppSettings({ ...args, functions }),
+            appSettings: combineFunctionAppSettings({ ...args, functions }),
         }, opts);
 
         super(name, parts.functionArgs, opts);
@@ -594,7 +655,7 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
      */
     public readonly endpoint: pulumi.Output<string>;
 
-    constructor(type:string,
+    constructor(type: string,
                 name: string,
                 args: ArchiveFunctionAppArgs,
                 opts: pulumi.ComponentResourceOptions = {}) {
@@ -652,7 +713,7 @@ export class MultiCallbackFunctionApp extends PackagedFunctionApp {
         super("azure:appservice:MultiCallbackFunctionApp", name, {
             ...args,
             archive: produceDeploymentArchive(args),
-            appSettings: combineAppSettings(args),
+            appSettings: combineFunctionAppSettings(args),
         }, opts);
 
         this.registerOutputs();
@@ -711,3 +772,94 @@ export function getResourceGroupNameAndLocation(
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
 }
+
+/** @internal */
+export function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): pulumi.Output<{[key: string]: string}> {
+    return pulumi.all(settings).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+}
+
+/** @internal */
+export function combineBindingSettings(trigger: BindingSettings<BindingDefinition>,
+                                       inputs?: InputBindingSettings[],
+                                       outputs?: OutputBindingSettings[]) {
+    const all = [trigger, ...inputs || [], ...outputs || []];
+
+    const bindings = pulumi.all(all.map(bs => bs.binding));
+    const appSettings = combineAppSettings(all.map(bs => bs.settings));
+
+    return { bindings, appSettings };
+}
+
+/**
+ * Keys associated with a Function App.
+ */
+export interface FunctionHostKeys {
+    /** Master key. */
+    masterKey: string;
+    /** A dictionary of system keys, e.g. for Durable Functions or Event Grid. */
+    systemKeys: { [key: string]: string };
+    /** Default function keys. */
+    functionKeys: FunctionKeys;
+}
+
+/**
+ * Keys associated with a single Function.
+ */
+export interface FunctionKeys {
+    default: string;
+    [key: string]: string;
+}
+
+declare module "./functionApp" {
+    interface FunctionApp {
+        /**
+         * Retrieve the keys associated with the Function App.
+         */
+        getHostKeys(): pulumi.Output<FunctionHostKeys>;
+
+        /**
+         * Retrieve the keys associated with the given Function.
+         */
+        getFunctionKeys(functionName: pulumi.Input<string>): pulumi.Output<FunctionKeys>;
+    }
+}
+
+FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
+    return this.id.apply(async id => {
+        const credentials = await core.getServiceClientCredentials();
+        const client = new AzureServiceClient(credentials);
+        const url = `https://management.azure.com${id}/host/default/listkeys?api-version=2018-02-01`;
+
+        const response = await client.sendRequest({ method: "POST", url });
+        if (response.status >= 400) {
+            throw new Error(`Failed to retrieve the host keys: ${response.bodyAsText}`);
+        }
+
+        const body = response.parsedBody;
+        if (body.masterKey === undefined || body.systemKeys === undefined || body.functionKeys === undefined) {
+            throw new Error(`Wrong shape of the host keys response: ${response.bodyAsText}`);
+        }
+
+        return body as FunctionHostKeys;
+    });
+};
+
+FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {
+    return pulumi.all([this.id, functionName]).apply(async ([id, functionName]) => {
+        const credentials = await core.getServiceClientCredentials();
+        const client = new AzureServiceClient(credentials);
+        const url = `https://management.azure.com${id}/functions/${functionName}/listkeys?api-version=2018-02-01`;
+
+        const response = await client.sendRequest({ method: "POST", url });
+        if (response.status >= 400) {
+            throw new Error(`Failed to retrieve the function keys: ${response.bodyAsText}`);
+        }
+
+        const body = response.parsedBody;
+        if (body.default === undefined) {
+            throw new Error(`Wrong shape of the function keys response: ${response.bodyAsText}`);
+        }
+
+        return body as FunctionKeys;
+    });
+};

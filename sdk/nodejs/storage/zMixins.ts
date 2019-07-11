@@ -19,6 +19,7 @@ import { Blob } from "./blob";
 import { Container } from "./container";
 import { getAccountSAS } from "./getAccountSAS";
 import { Queue } from "./queue";
+import { Table } from "./table";
 import { ZipBlob } from "./zipBlob";
 
 import * as appservice from "../appservice";
@@ -80,24 +81,6 @@ interface BlobBindingDefinition extends appservice.BindingDefinition {
     name: string;
 
     /**
-     * The type of a blob binding.  Must be 'blobTrigger'.
-     */
-    type: "blobTrigger";
-
-    /**
-     * The direction of the binding.  We only 'support' blobs being inputs to functions.
-     */
-    direction: "in";
-
-    /**
-     * How we want the blob represented when passed into the callback.  We specify 'binary'
-     * so that all data is passed in as a buffer.  Otherwise, Azure will attempt to sniff
-     * the content and convert it accordingly.  This gives us a consistent way to know what
-     * data will be passed into the function.
-     */
-    dataType: "binary";
-
-    /**
      * The path to the blob we want to create a trigger for.
      */
     path: pulumi.Input<string>;
@@ -106,6 +89,38 @@ interface BlobBindingDefinition extends appservice.BindingDefinition {
      * The storage connection string for the storage account containing the blob.
      */
     connection: pulumi.Input<string>;
+
+    /**
+     * How we want the blob represented when passed into the callback.  We specify 'binary'
+     * so that all data is passed in as a buffer.  Otherwise, Azure will attempt to sniff
+     * the content and convert it accordingly.  This gives us a consistent way to know what
+     * data will be passed into the function.
+     */
+    dataType: "binary";
+}
+
+interface BlobTriggerDefinition extends BlobBindingDefinition {
+    /**
+     * The type of a blob binding.  Must be 'blobTrigger'.
+     */
+    type: "blobTrigger";
+
+    /**
+     * The direction of the binding.  We only 'support' blobs being inputs to functions.
+     */
+    direction: "in";
+}
+
+export interface BlobInputBindingDefinition extends BlobBindingDefinition {
+    /**
+     * The type of a blob binding. Must be 'blob'.
+     */
+    type: "blob";
+
+    /**
+     * The direction of the binding. Must be set to 'in' for an input binding.
+     */
+    direction: "in";
 }
 
 /**
@@ -154,7 +169,8 @@ export interface BlobContext extends appservice.Context<void> {
  */
 export type BlobCallback = appservice.Callback<BlobContext, Buffer, void>;
 
-export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void> {
+export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void>,
+                                          appservice.InputOutputsArgs {
     /**
      * Storage Blob Container to subscribe for events of.
      */
@@ -169,7 +185,8 @@ export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, B
     filterSuffix?: pulumi.Input<string>;
 };
 
-export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void> {
+export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void>,
+                                                   appservice.InputOutputsArgs {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
      * over [resourceGroupName]. If none of the two is supplied, the resource group of the Storage Account will be used.
@@ -191,8 +208,14 @@ declare module "./container" {
          * Creates a new subscription to events fired from this Topic to the handler provided, along
          * with options to control the behavior of the subscription.
          */
-        onBlobEvent(
-            name: string, args: BlobCallback | BlobEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): BlobEventSubscription;
+        onBlobEvent(name: string,
+                    args: BlobCallback | BlobEventSubscriptionArgs,
+                    opts?: pulumi.ComponentResourceOptions): BlobEventSubscription;
+
+        /**
+         * Creates an input binding linked to the given Blob Container to be used for an Azure Function.
+         */
+        input(name: string, args: BlobInputBindingArgs): appservice.InputBindingSettings;
     }
 }
 
@@ -202,13 +225,18 @@ Container.prototype.onBlobEvent = function(this: Container, name, args, opts) {
         : args;
 
     return new BlobEventSubscription(name, this, functionArgs, opts);
-}
+};
+
+Container.prototype.input = function(this: Container, name, args) {
+    return new BlobInputBinding(name, this, args);
+};
 
 export class BlobEventSubscription extends appservice.EventSubscription<BlobContext, Buffer, void> {
     constructor(
         name: string, container: storage.Container,
         args: BlobEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, container.resourceGroupName);
+        const { resourceGroupName, location } =
+            appservice.getResourceGroupNameAndLocation(args, container.resourceGroupName);
 
         super("azure:storage:BlobEventSubscription",
             name,
@@ -225,31 +253,62 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
  */
 export class BlobFunction extends appservice.Function<BlobContext, Buffer, void> {
     constructor(name: string, args: BlobFunctionArgs) {
-        const bindingConnectionKey = pulumi.interpolate`Storage${args.container.storageAccountName}ConnectionKey`;
+        const { connectionKey, settings } = resolveAccount(args.container);
 
         const prefix = args.filterPrefix || "";
         const suffix = args.filterSuffix || "";
         const path = pulumi.interpolate`${args.container.name}/${prefix}{blobName}${suffix}`;
 
-        const bindings: BlobBindingDefinition[] = [{
+        const binding: BlobTriggerDefinition = {
             path,
             name: "blob",
             type: "blobTrigger",
             direction: "in",
             dataType: "binary",
-            connection: bindingConnectionKey,
-        }];
+            connection: connectionKey,
+        };
 
-        const account = pulumi.all([args.container.resourceGroupName, args.container.storageAccountName])
-            .apply(([resourceGroupName, storageAccountName]) =>
-                storage.getAccount({ resourceGroupName, name: storageAccountName }));
-
-        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
-            ([connectionString, key]) => ({ [key]: connectionString }));
+        const { bindings, appSettings } =
+            appservice.combineBindingSettings({binding, settings}, args.inputs, args.outputs);
 
         super(name, bindings, args, appSettings);
     }
 }
+
+export interface BlobInputBindingArgs {
+    /**
+     * Blob name to retrieve. May contain a binding expression to bind to a value from a trigger.
+     */
+    readonly blobName: pulumi.Input<string>;
+}
+
+export class BlobInputBinding implements appservice.InputBindingSettings {
+    public readonly binding: pulumi.Input<BlobInputBindingDefinition>;
+    public readonly settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string, container: Container, args: BlobInputBindingArgs) {
+        const { connectionKey, settings } = resolveAccount(container);
+
+        const path = pulumi.interpolate`${container.name}/${args.blobName}`;
+
+        this.binding = {
+            name,
+            type: "blob",
+            direction: "in",
+            dataType: "binary",
+            path,
+            connection: connectionKey,
+        };
+        this.settings = settings;
+    }
+}
+
+// NOTE
+// We do not support BlobOutputBinding, because its current implementation in Azure Functions at Node.js is not great.
+// Basically, it's not possible to control the exact content and metadata of the output blob:
+// - https://github.com/Azure/azure-functions-host/issues/4608
+// - https://github.com/Azure/azure-functions-host/issues/364
+
 
 interface QueueBindingDefinition extends appservice.BindingDefinition {
     /**
@@ -260,22 +319,6 @@ interface QueueBindingDefinition extends appservice.BindingDefinition {
     name: string;
 
     /**
-     * The type of a queue binding.  Must be 'queueTrigger'.
-     */
-    type: "queueTrigger";
-
-    /**
-     * The direction of the binding.  We only 'support' messages being inputs to functions.
-     */
-    direction: "in";
-
-    /**
-     * How we want the message represented when passed into the callback. 'binary' passes messages as a Buffer,
-     * while 'string' passes either a string, or a parsed object if the string is a valid JSON literal.
-     */
-    dataType: "binary" | "string";
-
-    /**
      * The name of the storage queue to listen to.
      */
     queueName: pulumi.Input<string>;
@@ -284,6 +327,36 @@ interface QueueBindingDefinition extends appservice.BindingDefinition {
      * The storage connection string for the storage account containing the queue.
      */
     connection: pulumi.Input<string>;
+}
+
+interface QueueTriggerBindingDefinition extends QueueBindingDefinition {
+    /**
+     * The type of a queue binding.  Must be 'queueTrigger'.
+     */
+    type: "queueTrigger";
+
+    /**
+     * The direction of the binding.  Trigger is about messages being inputs to functions.
+     */
+    direction: "in";
+
+    /**
+     * How we want the message represented when passed into the callback. 'binary' passes messages as a Buffer,
+     * while 'string' passes either a string, or a parsed object if the string is a valid JSON literal.
+     */
+    dataType: "binary" | "string";
+}
+
+interface QueueOutputBindingDefinition extends QueueBindingDefinition {
+    /**
+     * The type of a queue binding.  Must be 'queue'.
+     */
+    type: "queue";
+
+    /**
+     * The direction of the binding. Output bindings must have 'out'.
+     */
+    direction: "out";
 }
 
 /**
@@ -315,7 +388,8 @@ export interface QueueContext extends appservice.Context<void> {
 /**
  * Host settings specific to the Storage Queue plugin.
  *
- * For more details see https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#host-json
+ * For more details see
+ * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#host-json
  */
 export interface QueueHostExtensions {
     /** The maximum interval between queue polls. Minimum is 00:00:00.100 (100 ms). */
@@ -330,7 +404,10 @@ export interface QueueHostExtensions {
     /** The number of times to try processing a message before moving it to the poison queue. */
     maxDequeueCount?: number;
 
-    /** Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch. */
+    /**
+     * Whenever the number of messages being processed concurrently gets down to this number, the runtime
+     * retrieves another batch.
+     */
     newBatchThreshold?: number;
 }
 export interface QueueHostSettings extends appservice.HostSettings {
@@ -342,9 +419,10 @@ export interface QueueHostSettings extends appservice.HostSettings {
 /**
  * Signature of the callback that can receive queue notifications.
  */
-export type QueueCallback = appservice.Callback<QueueContext, any, void>;
+export type QueueCallback = appservice.Callback<QueueContext, any, appservice.FunctionDefaultResponse>;
 
-export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, any, void> {
+export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, any, appservice.FunctionDefaultResponse>,
+                                           appservice.InputOutputsArgs {
     /**
      * Defines the queue to trigger the function.
      */
@@ -358,7 +436,8 @@ export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext,
     dataType?: "binary" | "string";
 }
 
-export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, any, void> {
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, any, appservice.FunctionDefaultResponse>,
+                                                    appservice.InputOutputsArgs {
     /**
      * The resource group in which to create the event subscription.  If not supplied, the
      * Queue's resource group will be used.
@@ -366,8 +445,8 @@ export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionA
     resourceGroup?: core.ResourceGroup;
 
     /**
-     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
-     * If none of the two is supplied, the resource group of the Storage Account will be used.
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
+     * over [resourceGroupName]. If none of the two is supplied, the resource group of the Storage Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 
@@ -391,9 +470,19 @@ declare module "./queue" {
          * Creates a new subscription to the given queue using the callback provided, along with
          * optional options to control the behavior of the subscription.
          */
-        onEvent(
-            name: string, args: QueueCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
+        onEvent(name: string,
+                args: QueueCallback | QueueEventSubscriptionArgs,
+                opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
+
+        /**
+         * Creates an output binding linked to the given queue to be used for an Azure Function.
+         */
+        output(name: string): appservice.OutputBindingSettings;
     }
+}
+
+Queue.prototype.output = function(this: Queue, name) {
+    return new QueueOutputBinding(name, this);
 }
 
 Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
@@ -404,7 +493,7 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
     return new QueueEventSubscription(name, this, functionArgs, opts);
 }
 
-export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, any, void> {
+export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, any, appservice.FunctionDefaultResponse> {
     constructor(
         name: string, queue: Queue,
         args: QueueEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
@@ -423,27 +512,196 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
     }
 }
 
+// Given a Queue or a Table, produce App Settings and a Connection String Key relevant to the Storage Account
+function resolveAccount(container: { storageAccountName: pulumi.Output<string>, resourceGroupName: pulumi.Output<string> }) {
+    const connectionKey = pulumi.interpolate`Storage${container.storageAccountName}ConnectionStringKey`;
+    const account = pulumi.all([container.resourceGroupName, container.storageAccountName])
+                        .apply(([resourceGroupName, storageAccountName]) =>
+                            storage.getAccount({ resourceGroupName, name: storageAccountName }));
+
+    const settings = pulumi.all([account.primaryConnectionString, connectionKey]).apply(
+        ([connectionString, key]) => ({ [key]: connectionString }));
+
+    return { connectionKey, settings };
+}
+
 /**
  * Azure Function triggered by a Storage Queue.
  */
-export class QueueFunction extends appservice.Function<QueueContext, any, void> {
+export class QueueFunction extends appservice.Function<QueueContext, any, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: QueueFunctionArgs) {
-        const bindingConnectionKey = pulumi.interpolate`Storage${args.queue.storageAccountName}ConnectionStringKey`;
+        const { connectionKey, settings } = resolveAccount(args.queue);
 
-        const account = pulumi.all([args.queue.resourceGroupName, args.queue.storageAccountName])
-            .apply(([resourceGroupName, storageAccountName]) =>
-                storage.getAccount({ resourceGroupName, name: storageAccountName }));
-
-        const appSettings = pulumi.all([account.primaryConnectionString, bindingConnectionKey]).apply(
-            ([connectionString, key]) => ({ [key]: connectionString }));
-
-        super(name, [<QueueBindingDefinition>{
+        const binding: QueueTriggerBindingDefinition = {
             name: "queue",
             type: "queueTrigger",
             direction: "in",
             dataType: args.dataType || "string",
             queueName: args.queue.name,
-            connection: bindingConnectionKey,
-        }], args, appSettings);
+            connection: connectionKey,
+        };
+
+        const { bindings, appSettings } =
+            appservice.combineBindingSettings({binding, settings}, args.inputs, args.outputs);
+
+        super(name, bindings, args, appSettings);
     }
 }
+
+/**
+ * Azure Function's output binding that sends messages to a Storage Queue.
+ */
+export class QueueOutputBinding implements appservice.OutputBindingSettings {
+    public readonly binding: pulumi.Input<QueueOutputBindingDefinition>;
+    public readonly settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string, queue: Queue) {
+        const { connectionKey, settings } = resolveAccount(queue);
+
+        this.binding = {
+            name,
+            type: "queue",
+            direction: "out",
+            queueName: queue.name,
+            connection: connectionKey,
+        };
+        this.settings = settings;
+    }
+}
+
+interface TableBindingDefinition extends appservice.BindingDefinition {
+    /**
+     * The name of the property in the context object to bind the actual table rows to.
+     */
+    name: string;
+
+    /**
+     * The type of a table binding.  Must be 'table'.
+     */
+    type: "table";
+
+    /**
+     * The name of the table.
+     */
+    tableName: pulumi.Input<string>;
+
+    /**
+     * The storage connection string for the storage account containing the blob.
+     */
+    connection: pulumi.Input<string>;
+
+    /**
+     * The partition key of the table entity.
+     */
+    partitionKey?: string;
+
+    /**
+     * The row key of the table entity.
+     */
+    rowKey?: string;
+}
+
+interface TableInputBindingDefinition extends TableBindingDefinition {
+    /**
+     * The direction of the binding. Must be 'in' for an input binding.
+     */
+    direction: "in";
+
+    /**
+     * An OData filter expression for table input.
+     */
+    filter?: pulumi.Input<string>;
+
+    /**
+     * The maximum number of entities to read.
+     */
+    take?: pulumi.Input<number>;
+}
+
+interface TableOutputBindingDefinition extends TableBindingDefinition {
+    /**
+     * The direction of the binding. Must be 'out' for an output binding.
+     */
+    direction: "out";
+}
+
+export interface TableInputBindingArgs {
+    /**
+     * The partition key of the table entity.
+     */
+    partitionKey?: string;
+
+    /**
+     * The row key of the table entity.
+     */
+    rowKey?: string;
+
+    /**
+     * An OData filter expression for table input.
+     */
+    filter?: pulumi.Input<string>;
+
+    /**
+     * The maximum number of entities to read.
+     */
+    take?: pulumi.Input<number>;
+}
+
+export class TableInputBinding implements appservice.InputBindingSettings {
+    public readonly binding: pulumi.Input<TableInputBindingDefinition>;
+    public readonly settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string, table: Table, args?: TableInputBindingArgs) {
+        const { connectionKey, settings } = resolveAccount(table);
+
+        this.binding = {
+            name,
+            type: "table",
+            direction: "in",
+            tableName: table.name,
+            connection: connectionKey,
+            ...args,
+        };
+        this.settings = settings;
+    }
+}
+
+export class TableOutputBinding implements appservice.OutputBindingSettings {
+    public readonly binding: pulumi.Input<TableOutputBindingDefinition>;
+    public readonly settings: pulumi.Input<{ [key: string]: any; }>;
+
+    constructor(name: string, table: Table) {
+        const { connectionKey, settings } = resolveAccount(table);
+
+        this.binding = {
+            name,
+            type: "table",
+            direction: "out",
+            tableName: table.name,
+            connection: connectionKey,
+        };
+        this.settings = settings;
+    }
+}
+
+declare module "./table" {
+    interface Table {
+        /**
+         * Creates an input binding linked to the given table to be used for an Azure Function.
+         */
+        input(name: string, args?: TableInputBindingArgs): appservice.InputBindingSettings;
+
+        /**
+         * Creates an output binding linked to the given table to be used for an Azure Function.
+         */
+        output(name: string): appservice.OutputBindingSettings;
+    }
+}
+
+Table.prototype.input = function(this: Table, name, args) {
+    return new TableInputBinding(name, this, args);
+};
+
+Table.prototype.output = function(this: Table, name) {
+    return new TableOutputBinding(name, this);
+};
