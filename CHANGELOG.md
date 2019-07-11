@@ -2,6 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Support Input and Output bindings for callback-based Azure Functions (HTTP and Storage Queue/Blob/Table only)
 * Introduce `listHostKeys` and `listFunctionKeys` mix-in functions to retrieve Azure Functions management keys
 
 ---

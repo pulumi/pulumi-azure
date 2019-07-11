@@ -51,6 +51,12 @@ func TestExamples(t *testing.T) {
 				assert.Equal(t, body, "Hello World!")
 			}),
 		}),
+		base.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "blob"),
+			ExtraRuntimeValidation: validateAPITest(func(body string) {
+				assert.Equal(t, body, "A File from Blob Storage")
+			}),
+		}),
 	}
 
 	longTests := []integration.ProgramTestOptions{

@@ -62,7 +62,7 @@ export interface Context<R extends Result> extends azurefunctions.Context {
  * appropriate.  For async functions, `context.done()` does not need to be called, and instead a Promise
  * containing the result can be returned.
  */
-export type Callback<C extends Context<R>, E, R extends Result> = (context: C, event: E) => Promise<R> | void;
+export type Callback<C extends Context<R>, E, R extends Result> = (context: C, event: E, ...inputs: any[]) => Promise<R> | void;
 
 /**
  * CallbackFactory is the signature for a function that will be called once to produce the function
@@ -308,6 +308,26 @@ export interface HostSettings {
  */
 export type BindingDefinition = azurefunctions.BindingDefinition;
 
+/**
+ * Base interface for input bindings.
+ */
+export interface InputBindingDefinition extends BindingDefinition {
+    /**
+     * The direction of the binding. Must be 'in' for an input binding.
+     */
+    direction: "in";
+}
+
+/**
+ * Base interface for output bindings.
+ */
+export interface OutputBindingDefinition extends BindingDefinition {
+    /**
+     * The direction of the binding. Must be 'out' for an output binding.
+     */
+    direction: "out";
+}
+
 function serializeFunctionCallback<C extends Context<R>, E, R extends Result>(
     args: CallbackArgs<C, E, R>): Promise<pulumi.runtime.SerializedFunction> {
 
@@ -362,14 +382,14 @@ async function produceDeploymentArchiveAsync(args: MultiCallbackFunctionAppArgs)
     return new pulumi.asset.AssetArchive(map);
 }
 
-function combineAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{ [key: string]: string }> {
+function combineFunctionAppSettings(args: MultiCallbackFunctionAppArgs): pulumi.Output<{ [key: string]: string }> {
     const applicationSetting = args.appSettings || {};
     const perFunctionSettings = args.functions !== undefined ? args.functions.map(c => c.appSettings || {}) : [];
-    return pulumi.all([applicationSetting, ...perFunctionSettings]).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+    return combineAppSettings([applicationSetting, ...perFunctionSettings]);
 }
 
 function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callback: Callback<C, E, R>) {
-    return (context: C, event: E) => {
+    return (context: C, event: E, ...inputs: any[]) => {
         // Redirect console logging to context logging.
         console.log = context.log;
         console.error = context.log.error;
@@ -377,9 +397,50 @@ function redirectConsoleOutput<C extends Context<R>, E, R extends Result>(callba
         // tslint:disable-next-line:no-console
         console.info = context.log.info;
 
-        return callback(context, event);
+        return callback(context, event, ...inputs);
     };
 }
+
+/**
+ * Azure Function Binding with the required corresponding application settings (e.g., a connection string setting).
+ */
+export interface BindingSettings<T extends BindingDefinition> {
+    /**
+     * A binding definition.
+     */
+    readonly binding: pulumi.Input<T>;
+
+    /**
+     * A dictionary of application settings to be applied to the Function App.
+     */
+    readonly settings: pulumi.Input<{ [key: string]: any; }>;
+}
+
+export type InputBindingSettings = BindingSettings<InputBindingDefinition>;
+export type OutputBindingSettings = BindingSettings<OutputBindingDefinition>;
+
+// We might want to merge this into CallbackArgs hierachy when all function types support bindings
+export interface InputOutputsArgs {
+    /**
+     * Input bindings.
+     */
+    inputs?: InputBindingSettings[];
+
+    /**
+     * Output bindings.
+     */
+    outputs?: OutputBindingSettings[];
+}
+
+/**
+ * Type alias for a response coming from an Azure Function callback, which applies to most Function types
+ * (HTTP being a notable exception).
+ * 'void' is returned when a Function has no output bindings.
+ * For each output binding, the callback should define a property in the response record with the property
+ * name matching the binding name. For instance, for an output binding called 'myoutput', the response could
+ * be '{ myoutput: "My Value" }'.
+ */
+export type FunctionDefaultResponse = void | Record<string, any>;
 
 /**
  * Azure Function base class.
@@ -546,7 +607,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
         const parts = createFunctionAppParts(name, {
             ...args,
             archive: produceDeploymentArchive({ ...args, functions }),
-            appSettings: combineAppSettings({ ...args, functions }),
+            appSettings: combineFunctionAppSettings({ ...args, functions }),
         }, opts);
 
         super(name, parts.functionArgs, opts);
@@ -652,7 +713,7 @@ export class MultiCallbackFunctionApp extends PackagedFunctionApp {
         super("azure:appservice:MultiCallbackFunctionApp", name, {
             ...args,
             archive: produceDeploymentArchive(args),
-            appSettings: combineAppSettings(args),
+            appSettings: combineFunctionAppSettings(args),
         }, opts);
 
         this.registerOutputs();
@@ -710,6 +771,23 @@ export function getResourceGroupNameAndLocation(
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName!);
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
+}
+
+/** @internal */
+export function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): pulumi.Output<{[key: string]: string}> {
+    return pulumi.all(settings).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
+}
+
+/** @internal */
+export function combineBindingSettings(trigger: BindingSettings<BindingDefinition>,
+                                       inputs?: InputBindingSettings[],
+                                       outputs?: OutputBindingSettings[]) {
+    const all = [trigger, ...inputs || [], ...outputs || []];
+
+    const bindings = pulumi.all(all.map(bs => bs.binding));
+    const appSettings = combineAppSettings(all.map(bs => bs.settings));
+
+    return { bindings, appSettings };
 }
 
 /**
