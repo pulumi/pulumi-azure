@@ -65,7 +65,7 @@ export function signedBlobReadUrl(blob: Blob | ZipBlob, account: Account): pulum
                     create: false,
                     update: false,
                     process: false,
-                }
+                },
             });
 
             return `https://${accountName}.blob.core.windows.net/${containerName}/${blobName}${sas.sas}`;
@@ -200,7 +200,7 @@ export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAp
      */
     filterPrefix?: pulumi.Input<string>;
     filterSuffix?: pulumi.Input<string>;
-};
+}
 
 declare module "./container" {
     interface Container {
@@ -341,12 +341,10 @@ interface QueueTriggerBindingDefinition extends QueueBindingDefinition {
     direction: "in";
 
     /**
-     * How we want the message represented when passed into the callback.  We specify 'binary'
-     * so that all data is passed in as a buffer.  Otherwise, Azure will attempt to sniff
-     * the content and convert it accordingly. This gives us a consistent way to know what
-     * data will be passed into the function.
+     * How we want the message represented when passed into the callback. 'binary' passes messages as a Buffer,
+     * while 'string' passes either a string, or a parsed object if the string is a valid JSON literal.
      */
-    dataType: "binary";
+    dataType: "binary" | "string";
 }
 
 interface QueueOutputBindingDefinition extends QueueBindingDefinition {
@@ -415,23 +413,30 @@ export interface QueueHostExtensions {
 export interface QueueHostSettings extends appservice.HostSettings {
     extensions?: {
         queues: QueueHostExtensions,
-    }
+    };
 }
 
 /**
  * Signature of the callback that can receive queue notifications.
  */
-export type QueueCallback = appservice.Callback<QueueContext, Buffer, appservice.FunctionDefaultResponse>;
+export type QueueCallback = appservice.Callback<QueueContext, any, appservice.FunctionDefaultResponse>;
 
-export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, Buffer, appservice.FunctionDefaultResponse>,
+export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, any, appservice.FunctionDefaultResponse>,
                                            appservice.InputOutputsArgs {
     /**
      * Defines the queue to trigger the function.
      */
     queue: Queue;
-};
 
-export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, Buffer, appservice.FunctionDefaultResponse>,
+    /**
+     * Specify 'string' to get messages as a string, or a parsed object if the message is a valid JSON literal.
+     * Specify 'binary' for all data to be passed in as a Buffer.
+     * Default is 'string'.
+     */
+    dataType?: "binary" | "string";
+}
+
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, any, appservice.FunctionDefaultResponse>,
                                                     appservice.InputOutputsArgs {
     /**
      * The resource group in which to create the event subscription.  If not supplied, the
@@ -450,6 +455,13 @@ export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionA
      * be used in their place.
      */
     hostSettings?: QueueHostSettings;
+
+    /**
+     * Specify 'string' to get messages as a string, or a parsed object if the message is a valid JSON literal.
+     * Specify 'binary' for all data to be passed in as a Buffer.
+     * Default is 'string'.
+     */
+    dataType?: "binary" | "string";
 };
 
 declare module "./queue" {
@@ -481,7 +493,7 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
     return new QueueEventSubscription(name, this, functionArgs, opts);
 }
 
-export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, Buffer, appservice.FunctionDefaultResponse> {
+export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, any, appservice.FunctionDefaultResponse> {
     constructor(
         name: string, queue: Queue,
         args: QueueEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
@@ -516,7 +528,7 @@ function resolveAccount(container: { storageAccountName: pulumi.Output<string>, 
 /**
  * Azure Function triggered by a Storage Queue.
  */
-export class QueueFunction extends appservice.Function<QueueContext, Buffer, appservice.FunctionDefaultResponse> {
+export class QueueFunction extends appservice.Function<QueueContext, any, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: QueueFunctionArgs) {
         const { connectionKey, settings } = resolveAccount(args.queue);
 
@@ -524,7 +536,7 @@ export class QueueFunction extends appservice.Function<QueueContext, Buffer, app
             name: "queue",
             type: "queueTrigger",
             direction: "in",
-            dataType: "binary",
+            dataType: args.dataType || "string",
             queueName: args.queue.name,
             connection: connectionKey,
         };
