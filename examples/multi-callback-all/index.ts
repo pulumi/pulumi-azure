@@ -29,7 +29,7 @@ const queue = new azure.storage.Queue("queue", {
 
 const storageQueueFunc = queue.getEventFunction("storage-queue",
     async (context, msg) => {
-        console.log(`Received a message ${msg.toString()}`);
+        console.log(`Received a message ${msg}`);
     });
 
 // Storage Blobs

@@ -2,6 +2,10 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* BREAKING: Default data type of a Storage Queue-triggered Callback Function is changed from 'binary' to 'string'.
+  This means that the type of second argument of a callback changes from 'Buffer' to 'string' or 'object' depending on the payload.
+  To restore the past behavior, pass `dataType: "binary"` to the arguments of `QueueFunction` class or `queue.onEvent` function.
+* Support Input and Output bindings for callback-based Azure Functions (HTTP and Storage Queue/Blob/Table only)
 * Introduce `listHostKeys` and `listFunctionKeys` mix-in functions to retrieve Azure Functions management keys
 * Individual Azure Functions can be created by getEventFunction helpers directly on event sources.
 
