@@ -26,7 +26,7 @@ const queue2 = new azure.storage.Queue("queue2", {
  });
 
 // HTTP Function will send a message to the first queue on each request
-const greeting = new azure.appservice.HttpEventSubscription('greeting', {
+const greeting = new azure.appservice.HttpEventSubscription("greeting", {
     resourceGroup,
     route: "{name}",
     outputs: [
@@ -47,8 +47,7 @@ const greeting = new azure.appservice.HttpEventSubscription('greeting', {
 // When a new message is added, fire an event and forward the message to the output queue
 queue1.onEvent("NewMessage",  {
     outputs: [queue2.output("queueOut")],
-    callback: async (context, msg) => {
-        const person = JSON.parse(msg.toString());
+    callback: async (context, person) => {
         return {
             queueOut: `${person.name} was welcomed`,
         };
@@ -58,8 +57,7 @@ queue1.onEvent("NewMessage",  {
 // When a message is forwarded, fire another event
 queue2.onEvent("ForwardedMessage",  {
     callback: async (context, msg) => {
-        const text = msg.toString();
-        console.log(text);
+        console.log(msg);
     },
 });
 
