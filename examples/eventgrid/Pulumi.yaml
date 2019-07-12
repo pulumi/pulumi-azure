@@ -1,0 +1,3 @@
+name: azure-eventgrid
+runtime: nodejs
+description: Azure Functions triggered by Azure Event Grid
