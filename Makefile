@@ -20,11 +20,6 @@ build:: provider tfgen install_plugins
 	for LANGUAGE in "nodejs" "python" "go" ; do \
 		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
-	# TODO: We should fix pulumi-terraform so it does not generate these files
-	# which differ only by case from actual resources.
-	rm ${PACKDIR}/go/azure/appservice/appservice.go
-	rm ${PACKDIR}/go/azure/eventhub/eventhub.go
-	rm ${PACKDIR}/go/azure/keyvault/keyvault.go
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
 		yarn run tsc && \
