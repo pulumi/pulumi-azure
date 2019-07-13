@@ -5,7 +5,7 @@ Pulumi then uses to drive the Azure API.
 
 If this is your first time using this package, these two resources may be helpful:
 
-* [Azure Getting Started Guide](https://pulumi.com/docs/quickstart/azure): Get up and running quickly.
+* [Azure Getting Started Guide](https://www.pulumi.com/docs/quickstart/azure): Get up and running quickly.
 * [Azure Pulumi Setup Documentation](https://www.pulumi.com/docs/quickstart/azure/configure/): How to configure Pulumi
     for use with your Azure account.
 
