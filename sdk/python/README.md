@@ -1,7 +1,7 @@
 The Microsoft Azure provider package offers support for all Azure services and their properties.
 Services are exposed as types from modules such as `appinsights`, `compute`, and `storage`, among many others. Using this
 package allows you to programmatically declare instances of any Azure services using infrastructure as code, which
-Pulumi then uses to drive the Azure Resource Manager (ARM) API.
+Pulumi then uses to drive the Azure API.
 
 If this is your first time using this package, these two resources may be helpful:
 
