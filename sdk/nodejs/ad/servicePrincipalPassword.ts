@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_service_principal_password.html.markdown.
+ */
 export class ServicePrincipalPassword extends pulumi.CustomResource {
     /**
      * Get an existing ServicePrincipalPassword resource's state with the given name, ID, and optional extra
