@@ -205,8 +205,17 @@ interface FunctionAppArgsBase {
     readonly version?: pulumi.Input<string>;
 }
 
-export interface CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> extends CallbackArgs<C, E, R>, FunctionAppArgsBase {
-};
+/**
+ * Base arguments for all Azure Function components that are passed to MultiFunctionCallbackApp.
+ */
+export interface CallbackFunctionArgs<C extends Context<R>, E, R extends Result> extends InputOutputsArgs, CallbackArgs<C, E, R> {
+}
+
+/**
+ * Base arguments for all single-Function subscription apps.
+ */
+export interface CallbackFunctionAppArgs<C extends Context<R>, E, R extends Result> extends CallbackFunctionArgs<C, E, R>, FunctionAppArgsBase {
+}
 
 /**
  * The host.json metadata file contains global configuration options that affect all functions for a
@@ -467,12 +476,14 @@ export abstract class Function<C extends Context<R>, E, R extends Result> {
     public readonly appSettings?: pulumi.Input<{ [key: string]: string }>;
 
     constructor(name: string,
-        bindings: pulumi.Input<BindingDefinition[]>,
-        callback: CallbackArgs<C, E, R>,
-        appSettings?: pulumi.Input<{ [key: string]: string }>) {
+                trigger: pulumi.Input<InputBindingDefinition>,
+                args: CallbackFunctionArgs<C, E, R>,
+                settings?: pulumi.Input<{ [key: string]: string }>) {
+        const triggerSettings = { binding: trigger, settings: settings || {} };
+        const { bindings, appSettings } = combineBindingSettings(triggerSettings, args.inputs, args.outputs);
         this.name = name;
         this.bindings = bindings;
-        this.callback = callback;
+        this.callback = args;
         this.appSettings = appSettings;
     }
 }
@@ -773,13 +784,11 @@ export function getResourceGroupNameAndLocation(
     return { resourceGroupName, location: getResult.location };
 }
 
-/** @internal */
-export function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): pulumi.Output<{[key: string]: string}> {
+function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): pulumi.Output<{[key: string]: string}> {
     return pulumi.all(settings).apply(items => items.reduce((a, b) => ({ ...a, ...b }), {}));
 }
 
-/** @internal */
-export function combineBindingSettings(trigger: BindingSettings<BindingDefinition>,
+function combineBindingSettings(trigger: BindingSettings<BindingDefinition>,
                                        inputs?: InputBindingSettings[],
                                        outputs?: OutputBindingSettings[]) {
     const all = [trigger, ...inputs || [], ...outputs || []];

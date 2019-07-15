@@ -169,7 +169,7 @@ export interface TimerInfo {
 /**
  * Data that will be passed along in the context object to the timer callback.
  */
-export interface TimerContext extends mod.Context<void> {
+export interface TimerContext extends mod.Context<mod.FunctionDefaultResponse> {
     invocationId: string;
     executionContext: {
         invocationId: string;
@@ -187,11 +187,9 @@ export interface TimerContext extends mod.Context<void> {
     };
 }
 
-export interface TimerFunctionArgs extends mod.CallbackArgs<TimerContext, TimerInfo, void> {
+export interface TimerFunctionArgs extends mod.CallbackFunctionArgs<TimerContext, TimerInfo, mod.FunctionDefaultResponse> {
     /**
      * A schedule or a CRON expression for the timer schedule, e.g. '0 * * * * *'.
-    /**
-     * A CRON expression for the timer schedule, e.g. '0 * * * * *'.
      */
     schedule: pulumi.Input<string | ScheduleArgs>;
 
@@ -201,10 +199,10 @@ export interface TimerFunctionArgs extends mod.CallbackArgs<TimerContext, TimerI
     runOnStartup?: pulumi.Input<boolean>;
 };
 
-export interface TimerSubscriptionArgs extends TimerFunctionArgs, mod.CallbackFunctionAppArgs<TimerContext, TimerInfo, void> {
+export interface TimerSubscriptionArgs extends TimerFunctionArgs, mod.CallbackFunctionAppArgs<TimerContext, TimerInfo, mod.FunctionDefaultResponse> {
 }
 
-export class TimerSubscription extends mod.EventSubscription<TimerContext, TimerInfo, void> {
+export class TimerSubscription extends mod.EventSubscription<TimerContext, TimerInfo, mod.FunctionDefaultResponse> {
     constructor(name: string,
                 args: TimerSubscriptionArgs,
                 opts: pulumi.CustomResourceOptions = {}) {
@@ -216,18 +214,18 @@ export class TimerSubscription extends mod.EventSubscription<TimerContext, Timer
 /**
  * Azure Function triggered on a CRON schedule.
  */
-export class TimerFunction extends mod.Function<TimerContext, TimerInfo, void> {
+export class TimerFunction extends mod.Function<TimerContext, TimerInfo, mod.FunctionDefaultResponse> {
     constructor(name: string, args: TimerFunctionArgs) {
         const schedule = pulumi.output(args.schedule).apply(s => typeof s === "string" ? s : cronExpression(s));
 
-        const bindings = [<TimerBindingDefinition>{
+        const trigger = {
             type: "timerTrigger",
             direction: "in",
             name: "timer",
             runOnStartup: args.runOnStartup,
             schedule,
-        }];
+        } as TimerBindingDefinition;
 
-        super(name, bindings, args);
+        super(name, trigger, args);
     }
 }
