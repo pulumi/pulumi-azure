@@ -126,7 +126,7 @@ export interface BlobInputBindingDefinition extends BlobBindingDefinition {
 /**
  * Data that will be passed along in the context object to the BlobCallback.
  */
-export interface BlobContext extends appservice.Context<void> {
+export interface BlobContext extends appservice.Context<appservice.FunctionDefaultResponse> {
     executionContext: {
         invocationId: string;
         functionName: string;
@@ -167,10 +167,9 @@ export interface BlobContext extends appservice.Context<void> {
 /**
  * Signature of the callback that can receive blob notifications.
  */
-export type BlobCallback = appservice.Callback<BlobContext, Buffer, void>;
+export type BlobCallback = appservice.Callback<BlobContext, Buffer, appservice.FunctionDefaultResponse>;
 
-export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, void>,
-                                          appservice.InputOutputsArgs {
+export interface BlobFunctionArgs extends appservice.CallbackFunctionArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     /**
      * Storage Blob Container to subscribe for events of.
      */
@@ -185,8 +184,7 @@ export interface BlobFunctionArgs extends appservice.CallbackArgs<BlobContext, B
     filterSuffix?: pulumi.Input<string>;
 };
 
-export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, void>,
-                                                   appservice.InputOutputsArgs {
+export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
      * over [resourceGroupName]. If none of the two is supplied, the resource group of the Storage Account will be used.
@@ -231,7 +229,7 @@ Container.prototype.input = function(this: Container, name, args) {
     return new BlobInputBinding(name, this, args);
 };
 
-export class BlobEventSubscription extends appservice.EventSubscription<BlobContext, Buffer, void> {
+export class BlobEventSubscription extends appservice.EventSubscription<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     constructor(
         name: string, container: storage.Container,
         args: BlobEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
@@ -251,7 +249,7 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
 /**
  * Azure Function triggered by changes in a Storage Blob Container.
  */
-export class BlobFunction extends appservice.Function<BlobContext, Buffer, void> {
+export class BlobFunction extends appservice.Function<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: BlobFunctionArgs) {
         const { connectionKey, settings } = resolveAccount(args.container);
 
@@ -259,7 +257,7 @@ export class BlobFunction extends appservice.Function<BlobContext, Buffer, void>
         const suffix = args.filterSuffix || "";
         const path = pulumi.interpolate`${args.container.name}/${prefix}{blobName}${suffix}`;
 
-        const binding: BlobTriggerDefinition = {
+        const trigger: BlobTriggerDefinition = {
             path,
             name: "blob",
             type: "blobTrigger",
@@ -268,10 +266,7 @@ export class BlobFunction extends appservice.Function<BlobContext, Buffer, void>
             connection: connectionKey,
         };
 
-        const { bindings, appSettings } =
-            appservice.combineBindingSettings({binding, settings}, args.inputs, args.outputs);
-
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args, settings);
     }
 }
 
@@ -362,7 +357,7 @@ interface QueueOutputBindingDefinition extends QueueBindingDefinition {
 /**
  * Data that will be passed along in the context object to the QueueContext.
  */
-export interface QueueContext extends appservice.Context<void> {
+export interface QueueContext extends appservice.Context<appservice.FunctionDefaultResponse> {
     executionContext: {
         invocationId: string;
         functionName: string;
@@ -421,8 +416,7 @@ export interface QueueHostSettings extends appservice.HostSettings {
  */
 export type QueueCallback = appservice.Callback<QueueContext, any, appservice.FunctionDefaultResponse>;
 
-export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext, any, appservice.FunctionDefaultResponse>,
-                                           appservice.InputOutputsArgs {
+export interface QueueFunctionArgs extends appservice.CallbackFunctionArgs<QueueContext, any, appservice.FunctionDefaultResponse> {
     /**
      * Defines the queue to trigger the function.
      */
@@ -436,8 +430,7 @@ export interface QueueFunctionArgs extends appservice.CallbackArgs<QueueContext,
     dataType?: "binary" | "string";
 }
 
-export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, any, appservice.FunctionDefaultResponse>,
-                                                    appservice.InputOutputsArgs {
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<QueueContext, any, appservice.FunctionDefaultResponse> {
     /**
      * The resource group in which to create the event subscription.  If not supplied, the
      * Queue's resource group will be used.
@@ -532,7 +525,7 @@ export class QueueFunction extends appservice.Function<QueueContext, any, appser
     constructor(name: string, args: QueueFunctionArgs) {
         const { connectionKey, settings } = resolveAccount(args.queue);
 
-        const binding: QueueTriggerBindingDefinition = {
+        const trigger: QueueTriggerBindingDefinition = {
             name: "queue",
             type: "queueTrigger",
             direction: "in",
@@ -541,10 +534,7 @@ export class QueueFunction extends appservice.Function<QueueContext, any, appser
             connection: connectionKey,
         };
 
-        const { bindings, appSettings } =
-            appservice.combineBindingSettings({binding, settings}, args.inputs, args.outputs);
-
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args, settings);
     }
 }
 

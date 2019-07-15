@@ -66,7 +66,7 @@ export interface HttpHostSettings extends mod.HostSettings {
  */
 export type ExtendedHttpResponse = HttpResponse | { response: HttpResponse; [key: string]: any };
 
-export interface HttpFunctionArgs extends mod.InputOutputsArgs, mod.CallbackArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
+export interface HttpFunctionArgs extends mod.CallbackFunctionArgs<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     /**
      * Defines the route template, controlling to which request URLs your function responds. The
      * default value if none is provided is <functionname>.
@@ -120,16 +120,13 @@ export class HttpEventSubscription extends mod.EventSubscription<mod.Context<Htt
 export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRequest, ExtendedHttpResponse> {
     constructor(name: string, args: HttpFunctionArgs) {
         const trigger = {
-            binding: <HttpBindingDefinition>{
-                authLevel: "anonymous",
-                type: "httpTrigger",
-                direction: "in",
-                name: "req",
-                route: args.route,
-                methods: args.methods,
-            },
-            settings: {},
-        };
+            authLevel: "anonymous",
+            type: "httpTrigger",
+            direction: "in",
+            name: "req",
+            route: args.route,
+            methods: args.methods,
+        } as mod.InputBindingDefinition;
 
         // There are two modes to return an HTTP response:
         // 1. When there's no other output bindings, take the returned value of the callback,
@@ -137,17 +134,20 @@ export class HttpFunction extends mod.Function<mod.Context<HttpResponse>, HttpRe
         // 2. When there are other output bindings, it's a property of the returned value
         //    with a fixed name 'response' (picked by us)
         const response = {
-            binding: <mod.OutputBindingDefinition>{
+            binding: {
                 type: "http",
                 direction: "out",
                 name: args.outputs && args.outputs.length > 0 ? "response" : "$return",
-            },
+            } as mod.OutputBindingDefinition,
             settings: {},
         };
 
-        const { bindings, appSettings } =
-            mod.combineBindingSettings(trigger, args.inputs, [response, ...args.outputs || []]);
+        // Include HTTP response into the list of output bindings
+        const extendedArgs = {
+            ...args,
+            outputs: [response, ...args.outputs || []],
+        };
 
-        super(name, bindings, args, appSettings);
+        super(name, trigger, extendedArgs);
     }
 }

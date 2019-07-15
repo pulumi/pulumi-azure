@@ -58,7 +58,7 @@ interface ServiceBusBindingDefinition extends appservice.BindingDefinition {
 /**
  * Data that will be passed along in the context object to the ServiceBusCallback.
  */
-export interface ServiceBusContext extends appservice.Context<void> {
+export interface ServiceBusContext extends appservice.Context<appservice.FunctionDefaultResponse> {
     invocationId: string;
     executionContext: {
         invocationId: string;
@@ -116,9 +116,9 @@ export interface ServiceBusHostSettings extends appservice.HostSettings {
 /**
  * Signature of the callback that can receive queue and topic notifications.
  */
-export type ServiceBusCallback = appservice.Callback<ServiceBusContext, string, void>;
+export type ServiceBusCallback = appservice.Callback<ServiceBusContext, string, appservice.FunctionDefaultResponse>;
 
-export interface ServiceBusFunctionArgs extends appservice.CallbackArgs<ServiceBusContext, string, void> {
+export interface ServiceBusFunctionArgs extends appservice.CallbackFunctionArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
      * The ServiceBus Queue to subscribe to.
      */
@@ -135,7 +135,7 @@ export interface ServiceBusFunctionArgs extends appservice.CallbackArgs<ServiceB
     subscription?: Subscription;
 };
 
-export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<ServiceBusContext, string, void> {
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the Queue's resource group will be used.
@@ -168,7 +168,7 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
     return new QueueEventSubscription(name, this, functionArgs, opts);
 }
 
-export class QueueEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, void> {
+export class QueueEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     readonly queue: Queue;
 
     constructor(
@@ -219,7 +219,7 @@ Topic.prototype.onEvent = function(this: Topic, name, args, opts) {
     return new TopicEventSubscription(name, this, functionArgs, opts);
 }
 
-export class TopicEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, void> {
+export class TopicEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     readonly topic: Topic;
     readonly subscription: Subscription;
 
@@ -254,7 +254,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<Service
 /**
  * Azure Function triggered by a ServiceBus Topic.
  */
-export class ServiceBusFunction extends appservice.Function<ServiceBusContext, string, void> {
+export class ServiceBusFunction extends appservice.Function<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: ServiceBusFunctionArgs) {
         if (!args.queue && !args.topic) {
             throw new Error("Either [queue] or [topic] has to be specified");
@@ -280,7 +280,7 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = pulumi.interpolate`ServiceBus${namespaceName}ConnectionKey`;
 
-        const bindings: ServiceBusBindingDefinition[] = [{
+        const trigger = {
             name: "message",
             direction: "in",
             type: "serviceBusTrigger",
@@ -288,7 +288,7 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             topicName: args.topic && args.topic.name,
             subscriptionName: args.subscription && args.subscription.name,
             connection: bindingConnectionKey,
-        }];
+        } as ServiceBusBindingDefinition;
 
         const namespace = pulumi.all([namespaceName, resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
@@ -297,7 +297,7 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
         const appSettings = pulumi.all([namespace.defaultPrimaryConnectionString, bindingConnectionKey]).apply(
             ([connectionString, key]) => ({ [key]: connectionString }));
 
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args, appSettings);
     }
 }
 
@@ -344,7 +344,7 @@ export interface EventHubBindingDefinition extends appservice.BindingDefinition 
 /**
  * Data that will be passed along in the context object to the EventHubCallback.
  */
-export interface EventHubContext extends appservice.Context<void> {
+export interface EventHubContext extends appservice.Context<appservice.FunctionDefaultResponse> {
     invocationId: string;
     executionContext: {
         invocationId: string;
@@ -382,9 +382,9 @@ export interface EventHubContext extends appservice.Context<void> {
 /**
  * Signature of the callback that can receive event hub notifications.
  */
-export type EventHubCallback = appservice.Callback<EventHubContext, string, void>;
+export type EventHubCallback = appservice.Callback<EventHubContext, string, appservice.FunctionDefaultResponse>;
 
-export interface EventHubFunctionArgs extends appservice.CallbackArgs<EventHubContext, any, void> {
+export interface EventHubFunctionArgs extends appservice.CallbackFunctionArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * Event Hub to subscribe the Function to.
      */
@@ -401,7 +401,7 @@ export interface EventHubFunctionArgs extends appservice.CallbackArgs<EventHubCo
     cardinality?: pulumi.Input<"many" | "one">;
 };
 
-export interface EventHubSubscriptionArgs extends appservice.CallbackFunctionAppArgs<EventHubContext, any, void> {
+export interface EventHubSubscriptionArgs extends appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the Event Hub's resource group will be used.
@@ -438,7 +438,7 @@ EventHub.prototype.onEvent = function(this: EventHub, name, args, opts) {
     return new EventHubSubscription(name, this, functionArgs, opts);
 }
 
-export class EventHubSubscription extends appservice.EventSubscription<EventHubContext, string, void> {
+export class EventHubSubscription extends appservice.EventSubscription<EventHubContext, string, appservice.FunctionDefaultResponse> {
     readonly eventHub: EventHub;
     readonly consumerGroup?: EventHubConsumerGroup;
 
@@ -468,14 +468,14 @@ export const DefaultConsumerGroup = "$Default";
 /**
  * Azure Function triggered by an Event Hub.
  */
-export class EventHubFunction extends appservice.Function<EventHubContext, string, void> {
+export class EventHubFunction extends appservice.Function<EventHubContext, string, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: EventHubFunctionArgs) {
         // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = pulumi.interpolate`EventHub${args.eventHub.namespaceName}ConnectionKey`;
 
-        const bindings: EventHubBindingDefinition[] = [{
+        const trigger = {
             name: "eventHub",
             direction: "in",
             type: "eventHubTrigger",
@@ -483,7 +483,7 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
             consumerGroup: args.consumerGroup !== undefined ? args.consumerGroup.name : DefaultConsumerGroup,
             cardinality: args.cardinality,
             connection: bindingConnectionKey,
-        }];
+        } as EventHubBindingDefinition;
 
         const namespace = pulumi.all([args.eventHub.namespaceName, args.eventHub.resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
@@ -491,10 +491,9 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
 
         // Place the mapping from the well known key name to the Event Hubs account connection string in
         // the 'app settings' object.
-
         const appSettings = pulumi.all([namespace.defaultPrimaryConnectionString, bindingConnectionKey]).apply(
             ([connectionString, key]) => ({ [key]: connectionString }));
 
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args, appSettings);
     }
 }

@@ -76,7 +76,7 @@ interface CosmosBindingDefinition extends appservice.BindingDefinition {
 /**
  * Data that will be passed along in the context object to the CosmosCallback.
  */
-export interface CosmosChangeFeedContext extends appservice.Context<void> {
+export interface CosmosChangeFeedContext extends appservice.Context<appservice.FunctionDefaultResponse> {
     invocationId: string;
     executionContext: {
         invocationId: string;
@@ -96,7 +96,7 @@ export interface CosmosChangeFeedContext extends appservice.Context<void> {
 /**
  * Signature of the callback that can receive Cosmos Change Feed notifications.
  */
-export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedContext, any[], void>;
+export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse>;
 
 interface CosmosChangeFeedFunctionSettings {
     /**
@@ -122,14 +122,14 @@ interface CosmosChangeFeedFunctionSettings {
     startFromBeginning?: pulumi.Input<boolean>;
 };
 
-export interface CosmosDBFunctionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackArgs<CosmosChangeFeedContext, any[], void> {
+export interface CosmosDBFunctionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackFunctionArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
     /**
      * CosmosDB Account.
      */
     account: Account;
 };
 
-export interface CosmosChangeFeedSubscriptionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], void> {
+export interface CosmosChangeFeedSubscriptionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the resource group of the Cosmos DB Account will be used.
@@ -152,7 +152,7 @@ Account.prototype.onChange = function(this: Account, name, args, opts) {
     return new CosmosChangeFeedSubscription(name, this, args, opts);
 }
 
-export class CosmosChangeFeedSubscription extends appservice.EventSubscription<CosmosChangeFeedContext, any[], void> {
+export class CosmosChangeFeedSubscription extends appservice.EventSubscription<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
     readonly account: Account;
 
     constructor(
@@ -175,11 +175,11 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
 /**
  * Azure Function triggered by a Cosmos DB Change Feed.
  */
-export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContext, any[], void> {
+export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
     constructor(name: string, args: CosmosDBFunctionArgs) {
         const bindingConnectionKey = pulumi.interpolate`Cosmos${args.account.name}ConnectionKey`;
 
-        const bindings: CosmosBindingDefinition[] = [{
+        const trigger = {
             name: "items",
             direction: "in",
             type: "cosmosDBTrigger",
@@ -195,13 +195,14 @@ export class CosmosDBFunction extends appservice.Function<CosmosChangeFeedContex
             // will be auto-created if it doesn't exist yet.
             leaseCollectionPrefix: name,
             createLeaseCollectionIfNotExists: true,
-        }];
+        } as CosmosBindingDefinition;
 
         // Place the mapping from the well known key name to the Cosmos DB connection string in
         // the 'app settings' object.
-        const appSettings = pulumi.all([args.account.connectionStrings, bindingConnectionKey]).apply(
-            ([connectionStrings, key]) => ({ [key]: connectionStrings[0] }));
+        const appSettings =
+            pulumi.all([args.account.connectionStrings, bindingConnectionKey]).apply(
+                ([connectionStrings, key]) => ({ [key]: connectionStrings[0] }));
 
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args, appSettings);
     }
 }
