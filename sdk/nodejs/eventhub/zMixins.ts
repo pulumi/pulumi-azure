@@ -18,8 +18,8 @@ import { EventHub, EventHubConsumerGroup, getEventhubNamespace } from ".";
 
 import * as eventgrid from "azure-eventgrid/lib/models";
 import * as appservice from "../appservice";
-import { Account } from "../storage";
 import { ResourceGroup } from "../core";
+import { Account } from "../storage";
 import { EventGridEventSubscription } from "./eventGridEventSubscription";
 
 interface ServiceBusBindingDefinition extends appservice.BindingDefinition {
