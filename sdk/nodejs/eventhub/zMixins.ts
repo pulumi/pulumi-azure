@@ -635,7 +635,7 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
               opts);
 
         const keys = pulumi.output(this.functionApp.getHostKeys());
-        const key = keys.apply(keys => keys.systemKeys["eventgrid_extension"]);
+        const key = keys.systemKeys["eventgrid_extension"];
         const url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/runtime/webhooks/eventgrid?functionName=${name}&code=${key}`;
 
         this.subscription = new EventGridEventSubscription(name, {
