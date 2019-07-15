@@ -547,8 +547,7 @@ export interface EventGridContext<T> extends appservice.Context<appservice.Funct
     };
 }
 
-export interface EventGridFunctionArgs<T> extends appservice.InputOutputsArgs,
-                                                  appservice.CallbackArgs<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
+export interface EventGridFunctionArgs<T> extends appservice.CallbackFunctionArgs<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
 }
 
 /**
@@ -557,23 +556,16 @@ export interface EventGridFunctionArgs<T> extends appservice.InputOutputsArgs,
 export class EventGridFunction<T> extends appservice.Function<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: EventGridFunctionArgs<T>) {
         const trigger = {
-            binding: {
-                name: "message",
-                direction: "in",
-                type: "eventGridTrigger",
-            } as EventGridBindingDefinition,
-            settings: {},
-        };
+            name: "message",
+            direction: "in",
+            type: "eventGridTrigger",
+        } as appservice.InputBindingDefinition;
 
-        const { bindings, appSettings } =
-            appservice.combineBindingSettings(trigger, args.inputs, args.outputs);
-
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args);
     }
 }
 
-export interface EventGridCallbackSubscriptionArgs<T> extends appservice.InputOutputsArgs,
-                                                              appservice.CallbackFunctionAppArgs<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
+export interface EventGridCallbackSubscriptionArgs<T> extends appservice.CallbackFunctionAppArgs<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
      * over [resourceGroupName]. If none of the two is supplied, the Queue's resource group will be used.

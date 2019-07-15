@@ -789,8 +789,8 @@ function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): 
 }
 
 function combineBindingSettings(trigger: BindingSettings<BindingDefinition>,
-                                       inputs?: InputBindingSettings[],
-                                       outputs?: OutputBindingSettings[]) {
+                                inputs?: InputBindingSettings[],
+                                outputs?: OutputBindingSettings[]) {
     const all = [trigger, ...inputs || [], ...outputs || []];
 
     const bindings = pulumi.all(all.map(bs => bs.binding));
