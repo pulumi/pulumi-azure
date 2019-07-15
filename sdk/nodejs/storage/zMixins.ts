@@ -707,39 +707,3 @@ Table.prototype.input = function(this: Table, name, args) {
 Table.prototype.output = function(this: Table, name) {
     return new TableOutputBinding(name, this);
 };
-
-declare module "./account" {
-    interface Account {
-        /**
-         * Creates a new subscription to events fired to the handler provided from Event Grid
-         * whenever a new Blob is created in any container of the Storage Account.
-         */
-        onGridBlobCreated(name: string,
-                          args: eventhub.EventGridCallbackSubscriptionArgs<eventgrid.StorageBlobCreatedEventData>,
-                          opts?: pulumi.ComponentResourceOptions,
-                         ): eventhub.EventGridCallbackSubscription<eventgrid.StorageBlobCreatedEventData>;
-
-        /**
-         * Creates a new subscription to events fired to the handler provided from Event Grid
-         * whenever a Blob is deleted from any container of the Storage Account.
-         */
-        onGridBlobDeleted(name: string,
-                          args: eventhub.EventGridCallbackSubscriptionArgs<eventgrid.StorageBlobDeletedEventData>,
-                          opts?: pulumi.ComponentResourceOptions,
-                         ): eventhub.EventGridCallbackSubscription<eventgrid.StorageBlobDeletedEventData>;
-    }
-}
-
-Account.prototype.onGridBlobCreated = function(this: Account, name, args, opts) {
-    return new eventhub.EventGridCallbackSubscription(name, this, {
-        ...args,
-        includedEventTypes: ["Microsoft.Storage.BlobCreated"],
-    }, { parent: this, ...opts });
-};
-
-Account.prototype.onGridBlobDeleted = function(this: Account, name, args, opts) {
-    return new eventhub.EventGridCallbackSubscription(name, this, {
-        ...args,
-        includedEventTypes: ["Microsoft.Storage.BlobDeleted"],
-    }, { parent: this, ...opts });
-};

@@ -7,7 +7,8 @@ const resourceGroup = new azure.core.ResourceGroup("eveentgrid-rg", {
 });
 
 // Subscribe to events in resource group, e.g. when a new resource is created
-resourceGroup.onGridEvent("OnResourceChange", {
+azure.eventhub.events.onResourceGroupEvent("OnResourceChange", {
+    resourceGroup,
     callback: async (context, event) => {
         context.log(`Subject: ${event.subject}`);
         context.log(`Event Type: ${event.eventType}`);
@@ -24,7 +25,8 @@ const storageAccount = new azure.storage.Account("eventgridsa", {
 });
 
 // Subscribe to creation of JPG files in any container of this storage account
-storageAccount.onGridBlobCreated("OnNewBlob", {
+azure.eventhub.events.onGridBlobCreated("OnNewBlob", {
+    storageAccount,
     subjectFilter: {
         caseSensitive: false,
         subjectEndsWith: ".jpg",
@@ -43,7 +45,8 @@ const logQueue = new azure.storage.Queue("log", {
 
 // Subscribe to deletion of any files from any container of this storage account and
 // log all event data to a storage queue
-storageAccount.onGridBlobDeleted("OnDeletedBlob", {
+azure.eventhub.events.onGridBlobDeleted("OnDeletedBlob", {
+    storageAccount,
     outputs: [logQueue.output("log")],
     callback: async (context, event) => {
         context.log(`Subject: ${event.subject}`);

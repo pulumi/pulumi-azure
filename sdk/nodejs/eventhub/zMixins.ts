@@ -18,6 +18,7 @@ import { EventHub, EventHubConsumerGroup, getEventhubNamespace } from ".";
 
 import * as eventgrid from "azure-eventgrid/lib/models";
 import * as appservice from "../appservice";
+import { Account } from "../storage";
 import { ResourceGroup } from "../core";
 import { EventGridEventSubscription } from "./eventGridEventSubscription";
 
@@ -648,6 +649,16 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
     }
 }
 
+export interface StorageAccountEventGridCallbackSubscriptionArgs<T> extends EventGridCallbackSubscriptionArgs<T> {
+    /**
+     * Storage Account to subscribe to. Event Grid events for this account trigger the callback execution.
+     */
+    readonly storageAccount: Account;
+}
+
+/**
+ * Possible types of Event Grid events for a Resource Group.
+ */
 type ResourceGroupEvent =
     eventgrid.ResourceActionCancelData |
     eventgrid.ResourceActionFailureData |
@@ -659,22 +670,51 @@ type ResourceGroupEvent =
     eventgrid.ResourceWriteFailureData |
     eventgrid.ResourceWriteSuccessData;
 
-// This can't be placed in core mixins because that would lead to circular references in core-appservice-eventhub
-declare module "../core/resourceGroup" {
-    interface ResourceGroup {
-        /**
-         * Creates a new subscription to events fired to the handler provided from Event Grid
-         * on any Resource event within the resource group.
-         */
-        onGridEvent(name: string,
-                    args: EventGridCallbackSubscriptionArgs<ResourceGroupEvent>,
-                    opts?: pulumi.ComponentResourceOptions,
-                   ): EventGridCallbackSubscription<ResourceGroupEvent>;
-    }
+export interface ResourceGroupEventGridCallbackSubscriptionArgs extends EventGridCallbackSubscriptionArgs<ResourceGroupEvent> {
+    /**
+     * Resource Group to subscribe to. Event Grid events for this resource group trigger the callback execution.
+     */
+    readonly resourceGroup: ResourceGroup;
 }
 
-ResourceGroup.prototype.onGridEvent = function(this: ResourceGroup, name, args, opts) {
-    return new EventGridCallbackSubscription(
-        name, { id: this.id, resourceGroupName: this.name },
-        args, { parent: this, ...opts });
-};
+/**
+ * Contains hooks to subscribe to different kinds of Event Grid events.
+ */
+export namespace events {
+    /**
+     * Creates a new subscription to events fired from Event Grid. The callback is executed whenever
+     * a new Blob is created in a container of the Storage Account.
+     */
+    export function onGridBlobCreated(name: string,
+                                      args: StorageAccountEventGridCallbackSubscriptionArgs<eventgrid.StorageBlobCreatedEventData>,
+                                      opts?: pulumi.ComponentResourceOptions): EventGridCallbackSubscription<eventgrid.StorageBlobCreatedEventData> {
+        return new EventGridCallbackSubscription(
+            name, args.storageAccount, { ...args, includedEventTypes: ["Microsoft.Storage.BlobCreated"] },
+            { parent: args.storageAccount, ...opts });
+
+    }
+
+    /**
+     * Creates a new subscription to events fired from Event Grid. The callback is executed whenever
+     * a Blob is deleted from a container of the Storage Account.
+     */
+    export function onGridBlobDeleted(name: string,
+                                      args: StorageAccountEventGridCallbackSubscriptionArgs<eventgrid.StorageBlobDeletedEventData>,
+                                      opts?: pulumi.ComponentResourceOptions): EventGridCallbackSubscription<eventgrid.StorageBlobDeletedEventData> {
+        return new EventGridCallbackSubscription(
+            name, args.storageAccount, { ...args, includedEventTypes: ["Microsoft.Storage.BlobDeleted"] },
+            { parent: args.storageAccount, ...opts });
+    }
+
+    /**
+     * Creates a new subscription to events fired from Event Grid. The callback is executed whenever
+     * an event associated with the Resource Group fires.
+     */
+    export function onResourceGroupEvent(name: string,
+                                         args: ResourceGroupEventGridCallbackSubscriptionArgs,
+                                         opts?: pulumi.ComponentResourceOptions): EventGridCallbackSubscription<ResourceGroupEvent> {
+        return new EventGridCallbackSubscription(
+            name, { id: args.resourceGroup.id, resourceGroupName: args.resourceGroup.name },
+            args, { parent: args.resourceGroup, ...opts });
+    };
+}
