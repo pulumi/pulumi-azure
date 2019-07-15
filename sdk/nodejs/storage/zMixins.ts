@@ -13,6 +13,7 @@
 // limitations under the License.
 
 import * as pulumi from "@pulumi/pulumi";
+import * as eventgrid from "azure-eventgrid/lib/models";
 
 import { Account } from "./account";
 import { Blob } from "./blob";
@@ -24,6 +25,7 @@ import { ZipBlob } from "./zipBlob";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
+import * as eventhub from "../eventhub";
 import * as storage from "../storage";
 
 /**
