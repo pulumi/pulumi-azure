@@ -24,12 +24,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
  */
-export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
-    return pulumi.runtime.invoke("azure:apimanagement/getProduct:getProduct", {
+export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> & GetProductResult {
+    const promise: Promise<GetProductResult> = pulumi.runtime.invoke("azure:apimanagement/getProduct:getProduct", {
         "apiManagementName": args.apiManagementName,
         "productId": args.productId,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

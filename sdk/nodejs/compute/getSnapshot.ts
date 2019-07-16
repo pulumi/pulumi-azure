@@ -21,11 +21,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
  */
-export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
-    return pulumi.runtime.invoke("azure:compute/getSnapshot:getSnapshot", {
+export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> & GetSnapshotResult {
+    const promise: Promise<GetSnapshotResult> = pulumi.runtime.invoke("azure:compute/getSnapshot:getSnapshot", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

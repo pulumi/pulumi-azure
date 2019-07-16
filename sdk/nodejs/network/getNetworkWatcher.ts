@@ -23,11 +23,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/network_watcher.html.markdown.
  */
-export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> {
-    return pulumi.runtime.invoke("azure:network/getNetworkWatcher:getNetworkWatcher", {
+export function getNetworkWatcher(args: GetNetworkWatcherArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkWatcherResult> & GetNetworkWatcherResult {
+    const promise: Promise<GetNetworkWatcherResult> = pulumi.runtime.invoke("azure:network/getNetworkWatcher:getNetworkWatcher", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

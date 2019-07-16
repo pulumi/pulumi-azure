@@ -25,11 +25,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/scheduler_job_collection.html.markdown.
  */
-export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> {
-    return pulumi.runtime.invoke("azure:scheduler/getJobCollection:getJobCollection", {
+export function getJobCollection(args: GetJobCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobCollectionResult> & GetJobCollectionResult {
+    const promise: Promise<GetJobCollectionResult> = pulumi.runtime.invoke("azure:scheduler/getJobCollection:getJobCollection", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

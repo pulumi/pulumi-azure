@@ -24,12 +24,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image.html.markdown.
  */
-export function getSharedImage(args: GetSharedImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageResult> {
-    return pulumi.runtime.invoke("azure:compute/getSharedImage:getSharedImage", {
+export function getSharedImage(args: GetSharedImageArgs, opts?: pulumi.InvokeOptions): Promise<GetSharedImageResult> & GetSharedImageResult {
+    const promise: Promise<GetSharedImageResult> = pulumi.runtime.invoke("azure:compute/getSharedImage:getSharedImage", {
         "galleryName": args.galleryName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

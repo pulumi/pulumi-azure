@@ -22,11 +22,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
  */
-export function getPolicyDefintion(args: GetPolicyDefintionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionResult> {
-    return pulumi.runtime.invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", {
+export function getPolicyDefintion(args: GetPolicyDefintionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyDefintionResult> & GetPolicyDefintionResult {
+    const promise: Promise<GetPolicyDefintionResult> = pulumi.runtime.invoke("azure:policy/getPolicyDefintion:getPolicyDefintion", {
         "displayName": args.displayName,
         "managementGroupId": args.managementGroupId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

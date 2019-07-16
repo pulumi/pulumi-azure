@@ -24,11 +24,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
  */
-export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> {
-    return pulumi.runtime.invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", {
+export function getKubernetesCluster(args: GetKubernetesClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesClusterResult> & GetKubernetesClusterResult {
+    const promise: Promise<GetKubernetesClusterResult> = pulumi.runtime.invoke("azure:containerservice/getKubernetesCluster:getKubernetesCluster", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

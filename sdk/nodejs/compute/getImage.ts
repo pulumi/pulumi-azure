@@ -23,13 +23,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
  */
-export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> {
-    return pulumi.runtime.invoke("azure:compute/getImage:getImage", {
+export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promise<GetImageResult> & GetImageResult {
+    const promise: Promise<GetImageResult> = pulumi.runtime.invoke("azure:compute/getImage:getImage", {
         "name": args.name,
         "nameRegex": args.nameRegex,
         "resourceGroupName": args.resourceGroupName,
         "sortDescending": args.sortDescending,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

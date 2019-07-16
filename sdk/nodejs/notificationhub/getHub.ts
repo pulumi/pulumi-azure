@@ -24,12 +24,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
  */
-export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
-    return pulumi.runtime.invoke("azure:notificationhub/getHub:getHub", {
+export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> & GetHubResult {
+    const promise: Promise<GetHubResult> = pulumi.runtime.invoke("azure:notificationhub/getHub:getHub", {
         "name": args.name,
         "namespaceName": args.namespaceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

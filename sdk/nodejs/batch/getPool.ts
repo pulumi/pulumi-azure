@@ -22,14 +22,16 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
  */
-export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
-    return pulumi.runtime.invoke("azure:batch/getPool:getPool", {
+export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> & GetPoolResult {
+    const promise: Promise<GetPoolResult> = pulumi.runtime.invoke("azure:batch/getPool:getPool", {
         "accountName": args.accountName,
         "certificates": args.certificates,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "startTask": args.startTask,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**

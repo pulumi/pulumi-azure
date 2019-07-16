@@ -27,11 +27,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
  */
-export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {
-    return pulumi.runtime.invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", {
+export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> & GetBackendAddressPoolResult {
+    const promise: Promise<GetBackendAddressPoolResult> = pulumi.runtime.invoke("azure:lb/getBackendAddressPool:getBackendAddressPool", {
         "loadbalancerId": args.loadbalancerId,
         "name": args.name,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise);
 }
 
 /**
