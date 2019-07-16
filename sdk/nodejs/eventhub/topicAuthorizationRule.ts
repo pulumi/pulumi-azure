@@ -4,6 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule.html.markdown.
+ */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**
      * Get an existing TopicAuthorizationRule resource's state with the given name, ID, and optional extra
