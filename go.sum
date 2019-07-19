@@ -601,6 +601,8 @@ github.com/pulumi/pulumi-terraform v0.18.4-0.20190712224712-f106438be1cf h1:9F1m
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190712224712-f106438be1cf/go.mod h1:5QshR5Q/a3gJiSPx1d+AblvcvfJCYC7255q8DtnvJv4=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190716112909-08d502e9b427 h1:zCNael1dbtaWcWWXdoxChRaFaXeKDu2F4dycNr/rT5A=
 github.com/pulumi/pulumi-terraform v0.18.4-0.20190716112909-08d502e9b427/go.mod h1:HZZfntNPhurepaYfYpimuN4KGSuEJm6/EUOopwS8oUM=
+github.com/pulumi/pulumi-terraform v0.18.4-0.20190719221554-98fabcf5067b h1:Ov3gaKYgWAFAoaGe2+oZdytlnQcgnTB5gSB3LaZY9Xw=
+github.com/pulumi/pulumi-terraform v0.18.4-0.20190719221554-98fabcf5067b/go.mod h1:HZZfntNPhurepaYfYpimuN4KGSuEJm6/EUOopwS8oUM=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190411072213-10e8f9c34cd8 h1:YOfQ1P9DvJoi9JmXMiYkgwGCcOvlw2t3btEoU3q8sL0=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190411072213-10e8f9c34cd8/go.mod h1:SfLvk7M3ulg33lqkqquv0E5x5Tor/WyRb83pxKlaEfw=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190417123607-dd01e8265e07 h1:442fNOJsZfXycAPgxmgopppt1M1UwSAbhIc7V7WjGTE=
