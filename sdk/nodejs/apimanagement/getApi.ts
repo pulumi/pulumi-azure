@@ -25,13 +25,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
  */
-export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
-    return pulumi.runtime.invoke("azure:apimanagement/getApi:getApi", {
+export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> & GetApiResult {
+    const promise: Promise<GetApiResult> = pulumi.runtime.invoke("azure:apimanagement/getApi:getApi", {
         "apiManagementName": args.apiManagementName,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
         "revision": args.revision,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

@@ -22,10 +22,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
-export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
-    return pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
+export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> & GetManagementGroupResult {
+    const promise: Promise<GetManagementGroupResult> = pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
         "groupId": args.groupId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

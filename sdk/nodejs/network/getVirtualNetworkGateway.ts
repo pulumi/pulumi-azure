@@ -23,11 +23,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_network_gateway.html.markdown.
  */
-export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
-    return pulumi.runtime.invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", {
+export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> & GetVirtualNetworkGatewayResult {
+    const promise: Promise<GetVirtualNetworkGatewayResult> = pulumi.runtime.invoke("azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

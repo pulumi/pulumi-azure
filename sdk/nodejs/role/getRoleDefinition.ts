@@ -37,13 +37,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
  */
-export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
+export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> & GetRoleDefinitionResult {
     args = args || {};
-    return pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
+    const promise: Promise<GetRoleDefinitionResult> = pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
         "name": args.name,
         "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

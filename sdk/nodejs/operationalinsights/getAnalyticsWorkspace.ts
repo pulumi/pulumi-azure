@@ -23,11 +23,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/log_analytics_workspace.html.markdown.
  */
-export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> {
-    return pulumi.runtime.invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", {
+export function getAnalyticsWorkspace(args: GetAnalyticsWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAnalyticsWorkspaceResult> & GetAnalyticsWorkspaceResult {
+    const promise: Promise<GetAnalyticsWorkspaceResult> = pulumi.runtime.invoke("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

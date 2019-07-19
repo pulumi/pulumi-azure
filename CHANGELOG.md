@@ -8,6 +8,7 @@ CHANGELOG
 * Support Input and Output bindings for callback-based Azure Functions (all triggers, but inputs and outputs to/from Queue/Blob/Table only)
 * Introduce `listHostKeys` and `listFunctionKeys` mix-in functions to retrieve Azure Functions management keys
 * Event Grid as a trigger for callback-based Azure Functions
+* Upgrade to pulumi-terraform@98fabcf506
 
 ---
 

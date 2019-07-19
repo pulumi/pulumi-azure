@@ -24,10 +24,12 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/builtin_role_definition.html.markdown.
  */
-export function getBuiltinRoleDefinition(args: GetBuiltinRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuiltinRoleDefinitionResult> {
-    return pulumi.runtime.invoke("azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition", {
+export function getBuiltinRoleDefinition(args: GetBuiltinRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuiltinRoleDefinitionResult> & GetBuiltinRoleDefinitionResult {
+    const promise: Promise<GetBuiltinRoleDefinitionResult> = pulumi.runtime.invoke("azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition", {
         "name": args.name,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
