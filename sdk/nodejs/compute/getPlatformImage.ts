@@ -25,13 +25,15 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
  */
-export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> {
-    return pulumi.runtime.invoke("azure:compute/getPlatformImage:getPlatformImage", {
+export function getPlatformImage(args: GetPlatformImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPlatformImageResult> & GetPlatformImageResult {
+    const promise: Promise<GetPlatformImageResult> = pulumi.runtime.invoke("azure:compute/getPlatformImage:getPlatformImage", {
         "location": args.location,
         "offer": args.offer,
         "publisher": args.publisher,
         "sku": args.sku,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

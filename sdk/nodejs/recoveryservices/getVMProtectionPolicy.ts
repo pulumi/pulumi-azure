@@ -22,12 +22,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_protection_policy_vm.html.markdown.
  */
-export function getVMProtectionPolicy(args: GetVMProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetVMProtectionPolicyResult> {
-    return pulumi.runtime.invoke("azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy", {
+export function getVMProtectionPolicy(args: GetVMProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetVMProtectionPolicyResult> & GetVMProtectionPolicyResult {
+    const promise: Promise<GetVMProtectionPolicyResult> = pulumi.runtime.invoke("azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy", {
         "name": args.name,
         "recoveryVaultName": args.recoveryVaultName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**
