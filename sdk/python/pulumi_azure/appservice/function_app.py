@@ -17,6 +17,10 @@ class FunctionApp(pulumi.CustomResource):
     """
     A key-value pair of App Settings.
     """
+    auth_settings: pulumi.Output[dict]
+    """
+    A `auth_settings` block as defined below.
+    """
     client_affinity_enabled: pulumi.Output[bool]
     """
     Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
@@ -89,7 +93,7 @@ class FunctionApp(pulumi.CustomResource):
     """
     The runtime version associated with the Function App. Defaults to `~1`.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enable_builtin_logging=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, storage_connection_string=None, tags=None, version=None, __name__=None, __opts__=None):
         """
         Manages a Function App.
         
@@ -97,6 +101,7 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Function App. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[bool] enable_builtin_logging: Should the built-in logging of this Function App be enabled? Defaults to `true`.
@@ -133,6 +138,8 @@ class FunctionApp(pulumi.CustomResource):
         __props__['app_service_plan_id'] = app_service_plan_id
 
         __props__['app_settings'] = app_settings
+
+        __props__['auth_settings'] = auth_settings
 
         __props__['client_affinity_enabled'] = client_affinity_enabled
 

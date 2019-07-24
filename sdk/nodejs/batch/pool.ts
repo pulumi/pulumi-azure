@@ -168,7 +168,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
      */
-    public readonly storageImageReference!: pulumi.Output<{ id?: string, offer: string, publisher: string, sku: string, version: string }>;
+    public readonly storageImageReference!: pulumi.Output<{ id?: string, offer?: string, publisher?: string, sku?: string, version?: string }>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */
@@ -288,7 +288,7 @@ export interface PoolState {
     /**
      * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
      */
-    readonly storageImageReference?: pulumi.Input<{ id?: pulumi.Input<string>, offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
+    readonly storageImageReference?: pulumi.Input<{ id?: pulumi.Input<string>, offer?: pulumi.Input<string>, publisher?: pulumi.Input<string>, sku?: pulumi.Input<string>, version?: pulumi.Input<string> }>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */
@@ -347,7 +347,7 @@ export interface PoolArgs {
     /**
      * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
      */
-    readonly storageImageReference: pulumi.Input<{ id?: pulumi.Input<string>, offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
+    readonly storageImageReference: pulumi.Input<{ id?: pulumi.Input<string>, offer?: pulumi.Input<string>, publisher?: pulumi.Input<string>, sku?: pulumi.Input<string>, version?: pulumi.Input<string> }>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */

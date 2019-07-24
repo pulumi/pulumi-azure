@@ -58,6 +58,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["frontendPorts"] = nil
 		inputs["gatewayIpConfigurations"] = nil
 		inputs["httpListeners"] = nil
+		inputs["identity"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["probes"] = nil
@@ -84,6 +85,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["frontendPorts"] = args.FrontendPorts
 		inputs["gatewayIpConfigurations"] = args.GatewayIpConfigurations
 		inputs["httpListeners"] = args.HttpListeners
+		inputs["identity"] = args.Identity
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["probes"] = args.Probes
@@ -123,6 +125,7 @@ func GetApplicationGateway(ctx *pulumi.Context,
 		inputs["frontendPorts"] = state.FrontendPorts
 		inputs["gatewayIpConfigurations"] = state.GatewayIpConfigurations
 		inputs["httpListeners"] = state.HttpListeners
+		inputs["identity"] = state.Identity
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["probes"] = state.Probes
@@ -209,6 +212,11 @@ func (r *ApplicationGateway) GatewayIpConfigurations() *pulumi.ArrayOutput {
 // One or more `http_listener` blocks as defined below.
 func (r *ApplicationGateway) HttpListeners() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["httpListeners"])
+}
+
+// A `identity` block.
+func (r *ApplicationGateway) Identity() *pulumi.Output {
+	return r.s.State["identity"]
 }
 
 // The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -306,6 +314,8 @@ type ApplicationGatewayState struct {
 	GatewayIpConfigurations interface{}
 	// One or more `http_listener` blocks as defined below.
 	HttpListeners interface{}
+	// A `identity` block.
+	Identity interface{}
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -361,6 +371,8 @@ type ApplicationGatewayArgs struct {
 	GatewayIpConfigurations interface{}
 	// One or more `http_listener` blocks as defined below.
 	HttpListeners interface{}
+	// A `identity` block.
+	Identity interface{}
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Application Gateway. Changing this forces a new resource to be created.

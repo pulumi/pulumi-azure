@@ -36,6 +36,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["accountTier"] = nil
 		inputs["accountType"] = nil
 		inputs["customDomain"] = nil
+		inputs["enableAdvancedThreatProtection"] = nil
 		inputs["enableBlobEncryption"] = nil
 		inputs["enableFileEncryption"] = nil
 		inputs["enableHttpsTrafficOnly"] = nil
@@ -44,6 +45,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["networkRules"] = nil
+		inputs["queueProperties"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["tags"] = nil
 	} else {
@@ -54,6 +56,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["accountTier"] = args.AccountTier
 		inputs["accountType"] = args.AccountType
 		inputs["customDomain"] = args.CustomDomain
+		inputs["enableAdvancedThreatProtection"] = args.EnableAdvancedThreatProtection
 		inputs["enableBlobEncryption"] = args.EnableBlobEncryption
 		inputs["enableFileEncryption"] = args.EnableFileEncryption
 		inputs["enableHttpsTrafficOnly"] = args.EnableHttpsTrafficOnly
@@ -62,6 +65,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["networkRules"] = args.NetworkRules
+		inputs["queueProperties"] = args.QueueProperties
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["tags"] = args.Tags
 	}
@@ -117,6 +121,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["accountTier"] = state.AccountTier
 		inputs["accountType"] = state.AccountType
 		inputs["customDomain"] = state.CustomDomain
+		inputs["enableAdvancedThreatProtection"] = state.EnableAdvancedThreatProtection
 		inputs["enableBlobEncryption"] = state.EnableBlobEncryption
 		inputs["enableFileEncryption"] = state.EnableFileEncryption
 		inputs["enableHttpsTrafficOnly"] = state.EnableHttpsTrafficOnly
@@ -141,6 +146,7 @@ func GetAccount(ctx *pulumi.Context,
 		inputs["primaryTableHost"] = state.PrimaryTableHost
 		inputs["primaryWebEndpoint"] = state.PrimaryWebEndpoint
 		inputs["primaryWebHost"] = state.PrimaryWebHost
+		inputs["queueProperties"] = state.QueueProperties
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["secondaryAccessKey"] = state.SecondaryAccessKey
 		inputs["secondaryBlobConnectionString"] = state.SecondaryBlobConnectionString
@@ -177,7 +183,7 @@ func (r *Account) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 func (r *Account) AccessTier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accessTier"])
 }
@@ -187,9 +193,7 @@ func (r *Account) AccountEncryptionSource() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountEncryptionSource"])
 }
 
-// Defines the Kind of account. Valid options are `Storage`,
-// `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-// Defaults to `Storage`.
+// Defines the Kind of account. Valid options are `Storage`, `StorageV2`,  `BlobStorage`, and `FileStorage`. Changing this forces a new resource to be created. Defaults to `Storage`.
 func (r *Account) AccountKind() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountKind"])
 }
@@ -199,7 +203,7 @@ func (r *Account) AccountReplicationType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountReplicationType"])
 }
 
-// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
+// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 func (r *Account) AccountTier() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountTier"])
 }
@@ -211,6 +215,11 @@ func (r *Account) AccountType() *pulumi.StringOutput {
 // A `custom_domain` block as documented below.
 func (r *Account) CustomDomain() *pulumi.Output {
 	return r.s.State["customDomain"]
+}
+
+// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+func (r *Account) EnableAdvancedThreatProtection() *pulumi.BoolOutput {
+	return (*pulumi.BoolOutput)(r.s.State["enableAdvancedThreatProtection"])
 }
 
 // Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
@@ -239,8 +248,7 @@ func (r *Account) IsHnsEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["isHnsEnabled"])
 }
 
-// Specifies the supported Azure location where the
-// resource exists. Changing this forces a new resource to be created.
+// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (r *Account) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
@@ -335,8 +343,12 @@ func (r *Account) PrimaryWebHost() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["primaryWebHost"])
 }
 
-// The name of the resource group in which to
-// create the storage account. Changing this forces a new resource to be created.
+// A Queue Property block as defined below.
+func (r *Account) QueueProperties() *pulumi.Output {
+	return r.s.State["queueProperties"]
+}
+
+// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 func (r *Account) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
@@ -428,21 +440,21 @@ func (r *Account) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Account resources.
 type AccountState struct {
-	// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier interface{}
 	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
 	AccountEncryptionSource interface{}
-	// Defines the Kind of account. Valid options are `Storage`,
-	// `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-	// Defaults to `Storage`.
+	// Defines the Kind of account. Valid options are `Storage`, `StorageV2`,  `BlobStorage`, and `FileStorage`. Changing this forces a new resource to be created. Defaults to `Storage`.
 	AccountKind interface{}
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
 	AccountReplicationType interface{}
-	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
+	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier interface{}
 	AccountType interface{}
 	// A `custom_domain` block as documented below.
 	CustomDomain interface{}
+	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+	EnableAdvancedThreatProtection interface{}
 	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 	EnableBlobEncryption interface{}
 	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
@@ -454,8 +466,7 @@ type AccountState struct {
 	Identity interface{}
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled interface{}
-	// Specifies the supported Azure location where the
-	// resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 	Name interface{}
@@ -493,8 +504,9 @@ type AccountState struct {
 	PrimaryWebEndpoint interface{}
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost interface{}
-	// The name of the resource group in which to
-	// create the storage account. Changing this forces a new resource to be created.
+	// A Queue Property block as defined below.
+	QueueProperties interface{}
+	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// The secondary access key for the storage account.
 	SecondaryAccessKey interface{}
@@ -534,21 +546,21 @@ type AccountState struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
 	AccessTier interface{}
 	// The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
 	AccountEncryptionSource interface{}
-	// Defines the Kind of account. Valid options are `Storage`,
-	// `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-	// Defaults to `Storage`.
+	// Defines the Kind of account. Valid options are `Storage`, `StorageV2`,  `BlobStorage`, and `FileStorage`. Changing this forces a new resource to be created. Defaults to `Storage`.
 	AccountKind interface{}
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
 	AccountReplicationType interface{}
-	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
+	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	AccountTier interface{}
 	AccountType interface{}
 	// A `custom_domain` block as documented below.
 	CustomDomain interface{}
+	// Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+	EnableAdvancedThreatProtection interface{}
 	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 	EnableBlobEncryption interface{}
 	// Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
@@ -560,15 +572,15 @@ type AccountArgs struct {
 	Identity interface{}
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	IsHnsEnabled interface{}
-	// Specifies the supported Azure location where the
-	// resource exists. Changing this forces a new resource to be created.
+	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 	Name interface{}
 	// A `network_rules` block as documented below.
 	NetworkRules interface{}
-	// The name of the resource group in which to
-	// create the storage account. Changing this forces a new resource to be created.
+	// A Queue Property block as defined below.
+	QueueProperties interface{}
+	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

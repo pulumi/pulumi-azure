@@ -21,6 +21,10 @@ class Slot(pulumi.CustomResource):
     """
     A key-value pair of App Settings.
     """
+    auth_settings: pulumi.Output[dict]
+    """
+    A `auth_settings` block as defined below.
+    """
     client_affinity_enabled: pulumi.Output[bool]
     """
     Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
@@ -69,7 +73,7 @@ class Slot(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an App Service Slot (within an App Service).
         
@@ -80,6 +84,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
@@ -117,6 +122,8 @@ class Slot(pulumi.CustomResource):
         __props__['app_service_plan_id'] = app_service_plan_id
 
         __props__['app_settings'] = app_settings
+
+        __props__['auth_settings'] = auth_settings
 
         __props__['client_affinity_enabled'] = client_affinity_enabled
 

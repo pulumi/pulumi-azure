@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Azure Storage Queue.
+ * Manages a Queue within an Azure Storage Account.
  * 
  * ## Example Usage
  * 
@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "westus",
+ *     location: "West Europe",
  *     name: "example-resources",
  * });
  * const testAccount = new azure.storage.Account("test", {
@@ -61,17 +61,19 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the storage queue. Must be unique within the storage account the queue is located.
+     * A mapping of MetaData which should be assigned to this Storage Queue.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
+     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the storage queue. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the storage queue.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies the storage account in which to create the storage queue.
-     * Changing this forces a new resource to be created.
+     * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
 
@@ -87,17 +89,16 @@ export class Queue extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as QueueState | undefined;
+            inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageAccountName"] = state ? state.storageAccountName : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             if (!args || args.storageAccountName === undefined) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
@@ -111,17 +112,19 @@ export class Queue extends pulumi.CustomResource {
  */
 export interface QueueState {
     /**
-     * The name of the storage queue. Must be unique within the storage account the queue is located.
+     * A mapping of MetaData which should be assigned to this Storage Queue.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the storage queue. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the storage queue.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage queue.
-     * Changing this forces a new resource to be created.
+     * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      */
     readonly storageAccountName?: pulumi.Input<string>;
 }
@@ -131,17 +134,19 @@ export interface QueueState {
  */
 export interface QueueArgs {
     /**
-     * The name of the storage queue. Must be unique within the storage account the queue is located.
+     * A mapping of MetaData which should be assigned to this Storage Queue.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the storage queue. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the storage queue.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies the storage account in which to create the storage queue.
-     * Changing this forces a new resource to be created.
+     * Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
      */
     readonly storageAccountName: pulumi.Input<string>;
 }

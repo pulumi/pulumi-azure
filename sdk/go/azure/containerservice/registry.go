@@ -30,6 +30,7 @@ func NewRegistry(ctx *pulumi.Context,
 		inputs["georeplicationLocations"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
+		inputs["networkRuleSet"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["storageAccount"] = nil
@@ -40,6 +41,7 @@ func NewRegistry(ctx *pulumi.Context,
 		inputs["georeplicationLocations"] = args.GeoreplicationLocations
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
+		inputs["networkRuleSet"] = args.NetworkRuleSet
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["sku"] = args.Sku
 		inputs["storageAccount"] = args.StorageAccount
@@ -69,6 +71,7 @@ func GetRegistry(ctx *pulumi.Context,
 		inputs["location"] = state.Location
 		inputs["loginServer"] = state.LoginServer
 		inputs["name"] = state.Name
+		inputs["networkRuleSet"] = state.NetworkRuleSet
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["sku"] = state.Sku
 		inputs["storageAccount"] = state.StorageAccount
@@ -127,6 +130,11 @@ func (r *Registry) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// A `network_rule_set` block as documented below.
+func (r *Registry) NetworkRuleSet() *pulumi.Output {
+	return r.s.State["networkRuleSet"]
+}
+
 // The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 func (r *Registry) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
@@ -167,6 +175,8 @@ type RegistryState struct {
 	LoginServer interface{}
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 	Name interface{}
+	// A `network_rule_set` block as documented below.
+	NetworkRuleSet interface{}
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
@@ -188,6 +198,8 @@ type RegistryArgs struct {
 	Location interface{}
 	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 	Name interface{}
+	// A `network_rule_set` block as documented below.
+	NetworkRuleSet interface{}
 	// The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.

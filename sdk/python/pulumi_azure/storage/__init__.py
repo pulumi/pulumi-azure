@@ -8,7 +8,9 @@ from .blob import *
 from .container import *
 from .queue import *
 from .share import *
+from .share_directory import *
 from .table import *
+from .table_entity import *
 from .zip_blob import *
 from .get_account import *
 from .get_account_sas import *

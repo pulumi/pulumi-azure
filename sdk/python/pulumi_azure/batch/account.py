@@ -13,6 +13,10 @@ class Account(pulumi.CustomResource):
     """
     The account endpoint used to interact with the Batch service.
     """
+    key_vault_reference: pulumi.Output[dict]
+    """
+    A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+    """
     location: pulumi.Output[str]
     """
     Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -45,12 +49,13 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, pool_allocation_mode=None, resource_group_name=None, storage_account_id=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, key_vault_reference=None, location=None, name=None, pool_allocation_mode=None, resource_group_name=None, storage_account_id=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an Azure Batch account.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
@@ -74,6 +79,8 @@ class Account(pulumi.CustomResource):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
+
+        __props__['key_vault_reference'] = key_vault_reference
 
         __props__['location'] = location
 

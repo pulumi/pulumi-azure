@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     name: "tf-test-appinsights",
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const testApplicationInsightsWebtest = new azure.ApplicationInsightsWebtest("test", {
+ * const testWebTest = new azure.appinsights.WebTest("test", {
  *     applicationInsightsId: testInsights.id,
  *     configuration: `<WebTest Name="WebTest1" Id="ABD48585-0831-40CB-9069-682EA6BB3583" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="" ResultsLocale="">
  *   <Items>
@@ -44,9 +44,9 @@ import * as utilities from "../utilities";
  *     timeout: 60,
  * });
  * 
- * export const webtestId = testApplicationInsightsWebtest.id;
- * export const webtestProvisioningState = testApplicationInsightsWebtest.provisioningState;
- * export const webtestsSyntheticId = testApplicationInsightsWebtest.syntheticMonitorId;
+ * export const webtestId = testWebTest.id;
+ * export const webtestProvisioningState = testWebTest.provisioningState;
+ * export const webtestsSyntheticId = testWebTest.syntheticMonitorId;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.

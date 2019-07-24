@@ -21,6 +21,7 @@ class AppService(pulumi.CustomResource):
     """
     A `auth_settings` block as defined below.
     """
+    backup: pulumi.Output[dict]
     client_affinity_enabled: pulumi.Output[bool]
     """
     Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -85,11 +86,15 @@ class AppService(pulumi.CustomResource):
     """
     A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
     """
+    storage_accounts: pulumi.Output[list]
+    """
+    One or more `storage_account` blocks as defined below.
+    """
     tags: pulumi.Output[dict]
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, backup=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, storage_accounts=None, tags=None, __name__=None, __opts__=None):
         """
         Manages an App Service (within an App Service Plan).
         
@@ -111,6 +116,7 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
         :param pulumi.Input[dict] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[list] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
@@ -138,6 +144,8 @@ class AppService(pulumi.CustomResource):
 
         __props__['auth_settings'] = auth_settings
 
+        __props__['backup'] = backup
+
         __props__['client_affinity_enabled'] = client_affinity_enabled
 
         __props__['client_cert_enabled'] = client_cert_enabled
@@ -161,6 +169,8 @@ class AppService(pulumi.CustomResource):
         __props__['resource_group_name'] = resource_group_name
 
         __props__['site_config'] = site_config
+
+        __props__['storage_accounts'] = storage_accounts
 
         __props__['tags'] = tags
 

@@ -23,6 +23,7 @@ func NewAccount(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["keyVaultReference"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["poolAllocationMode"] = nil
@@ -30,6 +31,7 @@ func NewAccount(ctx *pulumi.Context,
 		inputs["storageAccountId"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["keyVaultReference"] = args.KeyVaultReference
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["poolAllocationMode"] = args.PoolAllocationMode
@@ -54,6 +56,7 @@ func GetAccount(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["accountEndpoint"] = state.AccountEndpoint
+		inputs["keyVaultReference"] = state.KeyVaultReference
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["poolAllocationMode"] = state.PoolAllocationMode
@@ -83,6 +86,11 @@ func (r *Account) ID() *pulumi.IDOutput {
 // The account endpoint used to interact with the Batch service.
 func (r *Account) AccountEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountEndpoint"])
+}
+
+// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+func (r *Account) KeyVaultReference() *pulumi.Output {
+	return r.s.State["keyVaultReference"]
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -129,6 +137,8 @@ func (r *Account) Tags() *pulumi.MapOutput {
 type AccountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint interface{}
+	// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	KeyVaultReference interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
@@ -149,6 +159,8 @@ type AccountState struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	KeyVaultReference interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Batch account. Changing this forces a new resource to be created.

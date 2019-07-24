@@ -16,6 +16,7 @@ package azure
 
 import (
 	"fmt"
+	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
 	"strings"
 	"unicode"
 
@@ -28,7 +29,6 @@ import (
 	"github.com/pulumi/pulumi/pkg/tokens"
 	"github.com/pulumi/pulumi/pkg/util/contract"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm"
-	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
 )
 
 // all of the Azure token components used below.
@@ -39,6 +39,7 @@ const (
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
 	azureAD                  = "ad"                  // Active Directory (AAD)
 	azureAPIManagement       = "apimanagement"       // API Management
+	azureAnalysisServices    = "analysisservices"    // AnalysisServices
 	azureAppInsights         = "appinsights"         // AppInsights
 	azureAppService          = "appservice"          // App Service
 	azureAutomation          = "automation"          // Automatio
@@ -67,6 +68,7 @@ const (
 	azureMessaging           = "eventhub"            // Event Hub
 	azureMgmtResource        = "managementresource"  // Management Resource
 	azureManagementGroups    = "managementgroups"    // Management Groups
+	azureMaps                = "azureMaps"           // Maps
 	azureMediaServices       = "mediaservices"       // Media Services
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMSI                 = "msi"                 // Managed Service Identity (MSI)
@@ -262,6 +264,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_property":                {Tok: azureResource(azureAPIManagement, "Property")},
 			"azurerm_api_management_subscription":            {Tok: azureResource(azureAPIManagement, "Subscription")},
 			"azurerm_api_management_user":                    {Tok: azureResource(azureAPIManagement, "User")},
+			"azurerm_api_management_backend":                 {Tok: azureResource(azureAPIManagement, "Backend")},
 
 			// AppInsights
 			"azurerm_application_insights":         {Tok: azureResource(azureAppInsights, "Insights")},
@@ -374,6 +377,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
 			"azurerm_batch_certificate": {Tok: azureResource(azureBatch, "Certificate")},
 			"azurerm_batch_pool":        {Tok: azureResource(azureBatch, "Pool")},
+			"azurerm_batch_application": {Tok: azureResource(azureBatch, "Application")},
 
 			// Core
 			"azurerm_resource_group": {
@@ -680,7 +684,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_set_definition": {Tok: azureResource(azurePolicy, "PolicySetDefinition")},
 
 			// Private Dns
-			"azurerm_private_dns_zone": {Tok: azureResource(azurePrivateDNS, "Zone")},
+			"azurerm_private_dns_zone":     {Tok: azureResource(azurePrivateDNS, "Zone")},
+			"azurerm_private_dns_a_record": {Tok: azureResource(azurePrivateDNS, "ARecord")},
 
 			// SQL
 			"azurerm_sql_elasticpool":   {Tok: azureResource(azureSQL, "ElasticPool")},
@@ -866,6 +871,8 @@ func Provider() tfbridge.ProviderInfo {
 					// Max length of a table name is 63.
 					azureName: AutoNameWithMaxLength(azureName, 63),
 				}},
+			"azurerm_storage_share_directory": {Tok: azureResource(azureStorage, "ShareDirectory")},
+			"azurerm_storage_table_entity":    {Tok: azureResource(azureStorage, "TableEntity")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {Tok: azureResource(azureStreamAnalytics, "FunctionJavaScriptUDF")},
@@ -877,6 +884,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_stream_input_blob":       {Tok: azureResource(azureStreamAnalytics, "StreamInputBlob")},
 			"azurerm_stream_analytics_stream_input_eventhub":   {Tok: azureResource(azureStreamAnalytics, "StreamInputEventHub")},
 			"azurerm_stream_analytics_stream_input_iothub":     {Tok: azureResource(azureStreamAnalytics, "StreamInputIotHub")},
+
+			// Maps
+			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
+
+			// Analysis Services
+			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 
@@ -1020,6 +1033,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_hdinsight_cluster":                      {Tok: azureDataSource(azureHdInsight, "getCluster")},
 			"azurerm_stream_analytics_job":                   {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
 			"azurerm_user_assigned_identity":                 {Tok: azureDataSource(azureCore, "getUserAssignedIdentity")},
+			"azurerm_maps_account":                           {Tok: azureDataSource(azureMaps, "getAccount")},
+			"azurerm_mssql_elasticpool":                      {Tok: azureDataSource(azureMSSQL, "getElasticpool")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

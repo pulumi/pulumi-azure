@@ -11,7 +11,7 @@ from .. import utilities, tables
 class Account(pulumi.CustomResource):
     access_tier: pulumi.Output[str]
     """
-    Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+    Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
     """
     account_encryption_source: pulumi.Output[str]
     """
@@ -19,9 +19,7 @@ class Account(pulumi.CustomResource):
     """
     account_kind: pulumi.Output[str]
     """
-    Defines the Kind of account. Valid options are `Storage`,
-    `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-    Defaults to `Storage`.
+    Defines the Kind of account. Valid options are `Storage`, `StorageV2`,  `BlobStorage`, and `FileStorage`. Changing this forces a new resource to be created. Defaults to `Storage`.
     """
     account_replication_type: pulumi.Output[str]
     """
@@ -29,12 +27,16 @@ class Account(pulumi.CustomResource):
     """
     account_tier: pulumi.Output[str]
     """
-    Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
+    Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
     """
     account_type: pulumi.Output[str]
     custom_domain: pulumi.Output[dict]
     """
     A `custom_domain` block as documented below.
+    """
+    enable_advanced_threat_protection: pulumi.Output[bool]
+    """
+    Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
     """
     enable_blob_encryption: pulumi.Output[bool]
     """
@@ -59,8 +61,7 @@ class Account(pulumi.CustomResource):
     """
     location: pulumi.Output[str]
     """
-    Specifies the supported Azure location where the
-    resource exists. Changing this forces a new resource to be created.
+    Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
     """
     name: pulumi.Output[str]
     """
@@ -134,10 +135,13 @@ class Account(pulumi.CustomResource):
     """
     The hostname with port if applicable for web storage in the primary location.
     """
+    queue_properties: pulumi.Output[dict]
+    """
+    A Queue Property block as defined below.
+    """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to
-    create the storage account. Changing this forces a new resource to be created.
+    The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
     """
     secondary_access_key: pulumi.Output[str]
     """
@@ -207,32 +211,30 @@ class Account(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_advanced_threat_protection=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
         """
         Manage an Azure Storage Account.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+        :param pulumi.Input[str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
         :param pulumi.Input[str] account_encryption_source: The Encryption Source for this Storage Account. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`. Defaults to `Microsoft.Storage`.
-        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `Storage`,
-               `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-               Defaults to `Storage`.
+        :param pulumi.Input[str] account_kind: Defines the Kind of account. Valid options are `Storage`, `StorageV2`,  `BlobStorage`, and `FileStorage`. Changing this forces a new resource to be created. Defaults to `Storage`.
         :param pulumi.Input[str] account_replication_type: Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS` and `ZRS`.
-        :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
+        :param pulumi.Input[str] account_tier: Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] custom_domain: A `custom_domain` block as documented below.
+        :param pulumi.Input[bool] enable_advanced_threat_protection: Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
         :param pulumi.Input[bool] enable_blob_encryption: Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
         :param pulumi.Input[bool] enable_file_encryption: Boolean flag which controls if Encryption Services are enabled for File storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
         :param pulumi.Input[bool] enable_https_traffic_only: Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/storage-require-secure-transfer/)
                for more information.
         :param pulumi.Input[dict] identity: A Managed Service Identity block as defined below.
         :param pulumi.Input[bool] is_hns_enabled: Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
-        :param pulumi.Input[str] location: Specifies the supported Azure location where the
-               resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
         :param pulumi.Input[dict] network_rules: A `network_rules` block as documented below.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the storage account. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] queue_properties: A Queue Property block as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
@@ -270,6 +272,8 @@ class Account(pulumi.CustomResource):
 
         __props__['custom_domain'] = custom_domain
 
+        __props__['enable_advanced_threat_protection'] = enable_advanced_threat_protection
+
         __props__['enable_blob_encryption'] = enable_blob_encryption
 
         __props__['enable_file_encryption'] = enable_file_encryption
@@ -285,6 +289,8 @@ class Account(pulumi.CustomResource):
         __props__['name'] = name
 
         __props__['network_rules'] = network_rules
+
+        __props__['queue_properties'] = queue_properties
 
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")

@@ -9,6 +9,7 @@ export * from "./apiPolicy";
 export * from "./apiSchema";
 export * from "./apiVersionSet";
 export * from "./authorizationServer";
+export * from "./backend";
 export * from "./certificate";
 export * from "./getApi";
 export * from "./getGroup";

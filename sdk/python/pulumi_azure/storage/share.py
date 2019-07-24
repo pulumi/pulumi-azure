@@ -9,6 +9,14 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Share(pulumi.CustomResource):
+    acls: pulumi.Output[list]
+    """
+    One or more `acl` blocks as defined below.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    A mapping of MetaData for this File Share.
+    """
     name: pulumi.Output[str]
     """
     The name of the share. Must be unique within the storage account where the share is located.
@@ -29,14 +37,16 @@ class Share(pulumi.CustomResource):
     """
     url: pulumi.Output[str]
     """
-    The URL of the share
+    The URL of the File Share
     """
-    def __init__(__self__, resource_name, opts=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acls=None, metadata=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Storage File Share.
+        Manages a File Share within Azure Storage.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[dict] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
         :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
@@ -61,12 +71,14 @@ class Share(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['acls'] = acls
+
+        __props__['metadata'] = metadata
+
         __props__['name'] = name
 
         __props__['quota'] = quota
 
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if storage_account_name is None:

@@ -11,6 +11,7 @@ from .api_policy import *
 from .api_schema import *
 from .api_version_set import *
 from .authorization_server import *
+from .backend import *
 from .certificate import *
 from .group import *
 from .group_user import *

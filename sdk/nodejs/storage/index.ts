@@ -9,6 +9,8 @@ export * from "./getAccount";
 export * from "./getAccountSAS";
 export * from "./queue";
 export * from "./share";
+export * from "./shareDirectory";
 export * from "./table";
+export * from "./tableEntity";
 export * from "./zMixins";
 export * from "./zipBlob";

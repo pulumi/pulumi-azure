@@ -70,7 +70,7 @@ export class ProtectedVM extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+     * Specifies the id of the backup policy to use.
      */
     public readonly backupPolicyId!: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class ProtectedVM extends pulumi.CustomResource {
  */
 export interface ProtectedVMState {
     /**
-     * Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+     * Specifies the id of the backup policy to use.
      */
     readonly backupPolicyId?: pulumi.Input<string>;
     /**
@@ -162,7 +162,7 @@ export interface ProtectedVMState {
  */
 export interface ProtectedVMArgs {
     /**
-     * Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+     * Specifies the id of the backup policy to use.
      */
     readonly backupPolicyId: pulumi.Input<string>;
     /**

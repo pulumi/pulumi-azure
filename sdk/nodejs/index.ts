@@ -8,11 +8,13 @@ export * from "./util";
 
 // Export sub-modules:
 import * as ad from "./ad/index";
+import * as analysisservices from "./analysisservices/index";
 import * as apimanagement from "./apimanagement/index";
 import * as appinsights from "./appinsights/index";
 import * as appservice from "./appservice/index";
 import * as automation from "./automation/index";
 import * as autoscale from "./autoscale/index";
+import * as azureMaps from "./azureMaps/index";
 import * as batch from "./batch/index";
 import * as cdn from "./cdn/index";
 import * as cognitive from "./cognitive/index";
@@ -62,4 +64,4 @@ import * as sql from "./sql/index";
 import * as storage from "./storage/index";
 import * as streamanalytics from "./streamanalytics/index";
 import * as trafficmanager from "./trafficmanager/index";
-export {ad, apimanagement, appinsights, appservice, automation, autoscale, batch, cdn, cognitive, compute, config, containerservice, core, cosmosdb, databricks, datafactory, datalake, ddosprotection, devspace, devtest, dns, eventhub, hdinsight, iot, keyvault, lb, loganalytics, logicapps, managementgroups, managementresource, mariadb, mediaservices, monitoring, msi, mssql, mysql, network, notificationhub, operationalinsights, policy, postgresql, privatedns, recoveryservices, redis, relay, role, scheduler, search, securitycenter, servicefabric, signalr, sql, storage, streamanalytics, trafficmanager};
+export {ad, analysisservices, apimanagement, appinsights, appservice, automation, autoscale, azureMaps, batch, cdn, cognitive, compute, config, containerservice, core, cosmosdb, databricks, datafactory, datalake, ddosprotection, devspace, devtest, dns, eventhub, hdinsight, iot, keyvault, lb, loganalytics, logicapps, managementgroups, managementresource, mariadb, mediaservices, monitoring, msi, mssql, mysql, network, notificationhub, operationalinsights, policy, postgresql, privatedns, recoveryservices, redis, relay, role, scheduler, search, securitycenter, servicefabric, signalr, sql, storage, streamanalytics, trafficmanager};

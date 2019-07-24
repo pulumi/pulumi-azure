@@ -43,10 +43,12 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["networkProfile"] = nil
+		inputs["nodeResourceGroup"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["roleBasedAccessControl"] = nil
 		inputs["servicePrincipal"] = nil
 		inputs["tags"] = nil
+		inputs["windowsProfile"] = nil
 	} else {
 		inputs["addonProfile"] = args.AddonProfile
 		inputs["agentPoolProfiles"] = args.AgentPoolProfiles
@@ -57,17 +59,18 @@ func NewKubernetesCluster(ctx *pulumi.Context,
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["networkProfile"] = args.NetworkProfile
+		inputs["nodeResourceGroup"] = args.NodeResourceGroup
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["roleBasedAccessControl"] = args.RoleBasedAccessControl
 		inputs["servicePrincipal"] = args.ServicePrincipal
 		inputs["tags"] = args.Tags
+		inputs["windowsProfile"] = args.WindowsProfile
 	}
 	inputs["fqdn"] = nil
 	inputs["kubeAdminConfig"] = nil
 	inputs["kubeAdminConfigRaw"] = nil
 	inputs["kubeConfig"] = nil
 	inputs["kubeConfigRaw"] = nil
-	inputs["nodeResourceGroup"] = nil
 	s, err := ctx.RegisterResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
@@ -100,6 +103,7 @@ func GetKubernetesCluster(ctx *pulumi.Context,
 		inputs["roleBasedAccessControl"] = state.RoleBasedAccessControl
 		inputs["servicePrincipal"] = state.ServicePrincipal
 		inputs["tags"] = state.Tags
+		inputs["windowsProfile"] = state.WindowsProfile
 	}
 	s, err := ctx.ReadResource("azure:containerservice/kubernetesCluster:KubernetesCluster", name, id, inputs, opts...)
 	if err != nil {
@@ -118,7 +122,6 @@ func (r *KubernetesCluster) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A `addon_profile` block.
 func (r *KubernetesCluster) AddonProfile() *pulumi.Output {
 	return r.s.State["addonProfile"]
 }
@@ -128,7 +131,6 @@ func (r *KubernetesCluster) AgentPoolProfiles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["agentPoolProfiles"])
 }
 
-// The IP ranges to whitelist for incoming traffic to the masters.
 func (r *KubernetesCluster) ApiServerAuthorizedIpRanges() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["apiServerAuthorizedIpRanges"])
 }
@@ -163,12 +165,10 @@ func (r *KubernetesCluster) KubeConfigRaw() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kubeConfigRaw"])
 }
 
-// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 func (r *KubernetesCluster) KubernetesVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["kubernetesVersion"])
 }
 
-// A `linux_profile` block.
 func (r *KubernetesCluster) LinuxProfile() *pulumi.Output {
 	return r.s.State["linuxProfile"]
 }
@@ -183,7 +183,6 @@ func (r *KubernetesCluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A `network_profile` block.
 func (r *KubernetesCluster) NetworkProfile() *pulumi.Output {
 	return r.s.State["networkProfile"]
 }
@@ -198,7 +197,6 @@ func (r *KubernetesCluster) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `role_based_access_control` block. Changing this forces a new resource to be created.
 func (r *KubernetesCluster) RoleBasedAccessControl() *pulumi.Output {
 	return r.s.State["roleBasedAccessControl"]
 }
@@ -208,18 +206,19 @@ func (r *KubernetesCluster) ServicePrincipal() *pulumi.Output {
 	return r.s.State["servicePrincipal"]
 }
 
-// A mapping of tags to assign to the resource.
 func (r *KubernetesCluster) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+func (r *KubernetesCluster) WindowsProfile() *pulumi.Output {
+	return r.s.State["windowsProfile"]
+}
+
 // Input properties used for looking up and filtering KubernetesCluster resources.
 type KubernetesClusterState struct {
-	// A `addon_profile` block.
 	AddonProfile interface{}
 	// One or more `agent_pool_profile` blocks as defined below.
 	AgentPoolProfiles interface{}
-	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
@@ -233,54 +232,46 @@ type KubernetesClusterState struct {
 	KubeConfig interface{}
 	// Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
 	KubeConfigRaw interface{}
-	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion interface{}
-	// A `linux_profile` block.
 	LinuxProfile interface{}
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `network_profile` block.
 	NetworkProfile interface{}
 	// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
 	NodeResourceGroup interface{}
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `role_based_access_control` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl interface{}
 	// A `service_principal` block as documented below.
 	ServicePrincipal interface{}
-	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	WindowsProfile interface{}
 }
 
 // The set of arguments for constructing a KubernetesCluster resource.
 type KubernetesClusterArgs struct {
-	// A `addon_profile` block.
 	AddonProfile interface{}
 	// One or more `agent_pool_profile` blocks as defined below.
 	AgentPoolProfiles interface{}
-	// The IP ranges to whitelist for incoming traffic to the masters.
 	ApiServerAuthorizedIpRanges interface{}
 	// DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
 	DnsPrefix interface{}
-	// Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
 	KubernetesVersion interface{}
-	// A `linux_profile` block.
 	LinuxProfile interface{}
 	// The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `network_profile` block.
 	NetworkProfile interface{}
+	// The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+	NodeResourceGroup interface{}
 	// Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `role_based_access_control` block. Changing this forces a new resource to be created.
 	RoleBasedAccessControl interface{}
 	// A `service_principal` block as documented below.
 	ServicePrincipal interface{}
-	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	WindowsProfile interface{}
 }

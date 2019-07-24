@@ -31,6 +31,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 	if args == nil {
 		inputs["appServicePlanId"] = nil
 		inputs["appSettings"] = nil
+		inputs["authSettings"] = nil
 		inputs["clientAffinityEnabled"] = nil
 		inputs["connectionStrings"] = nil
 		inputs["enableBuiltinLogging"] = nil
@@ -47,6 +48,7 @@ func NewFunctionApp(ctx *pulumi.Context,
 	} else {
 		inputs["appServicePlanId"] = args.AppServicePlanId
 		inputs["appSettings"] = args.AppSettings
+		inputs["authSettings"] = args.AuthSettings
 		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
 		inputs["connectionStrings"] = args.ConnectionStrings
 		inputs["enableBuiltinLogging"] = args.EnableBuiltinLogging
@@ -81,6 +83,7 @@ func GetFunctionApp(ctx *pulumi.Context,
 	if state != nil {
 		inputs["appServicePlanId"] = state.AppServicePlanId
 		inputs["appSettings"] = state.AppSettings
+		inputs["authSettings"] = state.AuthSettings
 		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
 		inputs["connectionStrings"] = state.ConnectionStrings
 		inputs["defaultHostname"] = state.DefaultHostname
@@ -125,6 +128,11 @@ func (r *FunctionApp) AppServicePlanId() *pulumi.StringOutput {
 // A key-value pair of App Settings.
 func (r *FunctionApp) AppSettings() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["appSettings"])
+}
+
+// A `auth_settings` block as defined below.
+func (r *FunctionApp) AuthSettings() *pulumi.Output {
+	return r.s.State["authSettings"]
 }
 
 // Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
@@ -223,6 +231,8 @@ type FunctionAppState struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
+	// A `auth_settings` block as defined below.
+	AuthSettings interface{}
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// An `connection_string` block as defined below.
@@ -267,6 +277,8 @@ type FunctionAppArgs struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
+	// A `auth_settings` block as defined below.
+	AuthSettings interface{}
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// An `connection_string` block as defined below.
