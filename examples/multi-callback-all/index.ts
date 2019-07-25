@@ -36,7 +36,6 @@ const storageQueueFunc = new azure.storage.QueueFunction("storage-queue", {
 
 // Storage Blobs
 const container = new azure.storage.Container("container", {
-    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
     name: "blobs",
 });
