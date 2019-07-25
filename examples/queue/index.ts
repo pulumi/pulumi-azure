@@ -15,15 +15,13 @@ const storageAccount = new azure.storage.Account("storage", {
 
 // And an input queue to send messages into
 const queue1 = new azure.storage.Queue("queue1", {
-   resourceGroupName: resourceGroup.name,
    storageAccountName: storageAccount.name,
 });
 
 // And an input queue to send messages into
 const queue2 = new azure.storage.Queue("queue2", {
-    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
- });
+});
 
 // HTTP Function will send a message to the first queue on each request
 const greeting = new azure.appservice.HttpEventSubscription("greeting", {

@@ -23,7 +23,6 @@ const storageAccount = new azure.storage.Account("storage", {
 });
 
 const queue = new azure.storage.Queue("queue", {
-    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
 });
 

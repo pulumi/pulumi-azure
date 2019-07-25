@@ -15,7 +15,6 @@ const storageAccount = new azure.storage.Account("storage", {
 
  // A table to store value lookups
 const values = new azure.storage.Table("values", {
-    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
 });
 

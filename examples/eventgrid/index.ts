@@ -39,7 +39,6 @@ azure.eventhub.events.onGridBlobCreated("OnNewBlob", {
 
 // A queue to log events to
 const logQueue = new azure.storage.Queue("log", {
-    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
 });
 
