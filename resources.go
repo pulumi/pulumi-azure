@@ -127,8 +127,8 @@ func boolRef(b bool) *bool {
 type cloudShellProfile struct {
 	useMSI         bool
 	msiEndpoint    string
-	subscriptionId string
-	tenantId       string
+	subscriptionID string
+	tenantID       string
 }
 
 // Azure Cloud Shell is a special case in terms of config: it provides authentication via
@@ -161,8 +161,8 @@ func detectCloudShell() cloudShellProfile {
 			return cloudShellProfile{
 				useMSI:         true,
 				msiEndpoint:    msiEndpoint,
-				subscriptionId: subscription.ID,
-				tenantId:       subscription.TenantID,
+				subscriptionID: subscription.ID,
+				tenantID:       subscription.TenantID,
 			}
 		}
 	}
@@ -196,7 +196,7 @@ func Provider() tfbridge.ProviderInfo {
 		Config: map[string]*tfbridge.SchemaInfo{
 			"subscription_id": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   cloudShell.subscriptionId,
+					Value:   cloudShell.subscriptionID,
 					EnvVars: []string{"ARM_SUBSCRIPTION_ID"},
 				},
 			},
@@ -208,7 +208,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"tenant_id": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   cloudShell.tenantId,
+					Value:   cloudShell.tenantID,
 					EnvVars: []string{"ARM_TENANT_ID"},
 				},
 			},
