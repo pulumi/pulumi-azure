@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	git.apache.org/thrift.git v0.12.0 // indirect
+	github.com/Azure/go-autorest v11.7.0+incompatible
 	github.com/chzyer/logex v1.1.11-0.20160617073814-96a4d311aa9b // indirect
 	github.com/coreos/bbolt v1.3.1-coreos.1 // indirect
 	github.com/djherbis/times v1.2.0 // indirect
