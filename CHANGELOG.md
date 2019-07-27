@@ -136,3 +136,25 @@ ___
 ## 0.16.4 (2019-11-13)
 * Support Python 3.6 and higher, instead of only Python 3.7
 
+## 0.16.3 (2018-10-24)
+* Update to the v1.17.0 version of the Azure Provider [pulumi/pulumi-azure#137](https://github.com/pulumi/pulumi-azure/pull/137)
+* Fix an issue where the provider could fail with an error about a Go type converison failing [pulumi/pulumi-azure#138](https://github.com/pulumi/pulumi-azure/pull/138)
+
+## 0.16.0 (2018-10-12)
+* Adopted `v1.15.0` of the AzureRM Terraform Provider. [pulumi/pulumi-azure#125](https://github.com/pulumi/pulumi-azure/pull/125)
+* Many improvements to autoname generation to match Azure resource name requirements.
+* **[Breaking Change]** Fix name of `azure.role.Assignment` from previous `azure.role.assignment`. [pulumi/pulumi-azure#127](https://github.com/pulumi/pulumi-azure/pull/127)
+
+## 0.15.2 (2018-09-10)
+* Consume newer terraform-provider from upstream. [pulumi/pulumi-azure#93](https://github.com/pulumi/pulumi-azure/pull/93)
+* Fix name limit for azure container groups. [pulumi/pulumi-azure#94](https://github.com/pulumi/pulumi-azure/pull/94)
+* Support provider configuration and property values provided by environment variaibles. [pulumi/pulumi-azure#98](https://github.com/pulumi/pulumi-azure/pull/98)
+
+## 0.15.0 (2018-08-13)
+* Adopted `terraform-provider-azurerm` version 1.12.0, with new support for Azure Service Fabric, Azure Notification Hubs, Azure Data Lake, and much more.
+
+## 0.14.2 (2018-07-20)
+* Only apply AutoName to inputs ([pulumi/pulumi-azure#78](https://github.com/pulumi/pulumi-azure/pull/78)). Terraform properties named `name` but are not inputs do not have auto naming applied to them.
+
+## 0.14.1 (2018-07-03)
+* The result of calls to data sources now include an `id` property. Special thanks to [@Frassle](https://github.com/Frassle) for adding this support in [pulumi/pulumi-terraform#189](https://github.com/pulumi/pulumi-terraform/pull/189).
