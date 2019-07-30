@@ -113,6 +113,13 @@ export class Zone extends pulumi.CustomResource {
             inputs["maxNumberOfVirtualNetworkLinksWithRegistration"] = undefined /*out*/;
             inputs["numberOfRecordSets"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Zone.__pulumiType, name, inputs, opts);
     }
 }

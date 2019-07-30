@@ -133,6 +133,13 @@ export class DscConfiguration extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["state"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DscConfiguration.__pulumiType, name, inputs, opts);
     }
 }

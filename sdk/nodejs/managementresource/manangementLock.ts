@@ -140,6 +140,13 @@ export class ManangementLock extends pulumi.CustomResource {
             inputs["notes"] = args ? args.notes : undefined;
             inputs["scope"] = args ? args.scope : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ManangementLock.__pulumiType, name, inputs, opts);
     }
 }

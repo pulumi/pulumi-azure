@@ -214,6 +214,13 @@ export class PacketCapture extends pulumi.CustomResource {
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PacketCapture.__pulumiType, name, inputs, opts);
     }
 }

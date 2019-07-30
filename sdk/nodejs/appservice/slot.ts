@@ -268,6 +268,13 @@ export class Slot extends pulumi.CustomResource {
             inputs["defaultSiteHostname"] = undefined /*out*/;
             inputs["siteCredential"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Slot.__pulumiType, name, inputs, opts);
     }
 }

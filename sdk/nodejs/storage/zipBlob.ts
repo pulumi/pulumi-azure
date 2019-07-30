@@ -95,6 +95,13 @@ export class ZipBlob extends pulumi.CustomResource {
             inputs["type"] = args ? args.type : undefined;
             inputs["url"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ZipBlob.__pulumiType, name, inputs, opts);
     }
 }

@@ -127,6 +127,13 @@ export class ProtectedVM extends pulumi.CustomResource {
             inputs["sourceVmId"] = args ? args.sourceVmId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ProtectedVM.__pulumiType, name, inputs, opts);
     }
 }

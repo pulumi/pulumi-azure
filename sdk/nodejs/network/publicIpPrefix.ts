@@ -126,6 +126,13 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             inputs["zones"] = args ? args.zones : undefined;
             inputs["ipPrefix"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PublicIpPrefix.__pulumiType, name, inputs, opts);
     }
 }

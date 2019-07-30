@@ -123,6 +123,13 @@ export class Insights extends pulumi.CustomResource {
             inputs["appId"] = undefined /*out*/;
             inputs["instrumentationKey"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Insights.__pulumiType, name, inputs, opts);
     }
 }

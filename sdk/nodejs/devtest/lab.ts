@@ -141,6 +141,13 @@ export class Lab extends pulumi.CustomResource {
             inputs["premiumDataDiskStorageAccountId"] = undefined /*out*/;
             inputs["uniqueIdentifier"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Lab.__pulumiType, name, inputs, opts);
     }
 }

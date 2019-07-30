@@ -104,6 +104,13 @@ export class StoreFile extends pulumi.CustomResource {
             inputs["localFilePath"] = args ? args.localFilePath : undefined;
             inputs["remoteFilePath"] = args ? args.remoteFilePath : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(StoreFile.__pulumiType, name, inputs, opts);
     }
 }

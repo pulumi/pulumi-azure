@@ -119,6 +119,13 @@ export class SubscriptionRule extends pulumi.CustomResource {
             inputs["subscriptionName"] = args ? args.subscriptionName : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SubscriptionRule.__pulumiType, name, inputs, opts);
     }
 }

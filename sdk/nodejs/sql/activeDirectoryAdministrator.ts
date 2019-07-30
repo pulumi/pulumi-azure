@@ -125,6 +125,13 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["tenantId"] = args ? args.tenantId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ActiveDirectoryAdministrator.__pulumiType, name, inputs, opts);
     }
 }

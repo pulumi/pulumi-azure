@@ -150,6 +150,13 @@ export class Probe extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["loadBalancerRules"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Probe.__pulumiType, name, inputs, opts);
     }
 }

@@ -232,6 +232,13 @@ export class Pool extends pulumi.CustomResource {
             inputs["storageImageReference"] = args ? args.storageImageReference : undefined;
             inputs["vmSize"] = args ? args.vmSize : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Pool.__pulumiType, name, inputs, opts);
     }
 }

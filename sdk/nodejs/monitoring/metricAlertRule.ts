@@ -221,6 +221,13 @@ export class MetricAlertRule extends pulumi.CustomResource {
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["webhookAction"] = args ? args.webhookAction : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(MetricAlertRule.__pulumiType, name, inputs, opts);
     }
 }

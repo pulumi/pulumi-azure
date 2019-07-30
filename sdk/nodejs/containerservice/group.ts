@@ -143,6 +143,13 @@ export class Group extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Group.__pulumiType, name, inputs, opts);
     }
 }

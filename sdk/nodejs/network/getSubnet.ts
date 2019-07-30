@@ -25,6 +25,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> & GetSubnetResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetSubnetResult> = pulumi.runtime.invoke("azure:network/getSubnet:getSubnet", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

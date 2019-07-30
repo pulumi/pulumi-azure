@@ -160,6 +160,13 @@ export class FirewallApplicationRuleCollection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rules"] = args ? args.rules : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(FirewallApplicationRuleCollection.__pulumiType, name, inputs, opts);
     }
 }

@@ -21,7 +21,7 @@ import (
 	"unicode"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
-	"github.com/hashicorp/terraform/config"
+	"github.com/hashicorp/terraform/config/hcl2shim"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
 	"github.com/pkg/errors"
@@ -1194,7 +1194,7 @@ func Provider() tfbridge.ProviderInfo {
 								// we special logic to propagate likewise unknown location values.
 								if rg, has := res.Properties["resourceGroupName"]; has {
 									if rg.IsComputed() || rg.IsOutput() {
-										return config.UnknownVariableValue, nil
+										return hcl2shim.UnknownVariableValue, nil
 									}
 									if rg.IsString() {
 										rgName := rg.StringValue()
@@ -1211,7 +1211,7 @@ func Provider() tfbridge.ProviderInfo {
 												return nil, err
 											}
 											if rgData.Id() == "" {
-												rgRegion = config.UnknownVariableValue
+												rgRegion = hcl2shim.UnknownVariableValue
 											} else {
 												rgRegion = azure.NormalizeLocation(rgData.Get("location"))
 											}

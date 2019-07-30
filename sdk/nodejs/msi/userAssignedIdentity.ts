@@ -111,6 +111,13 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             inputs["clientId"] = undefined /*out*/;
             inputs["principalId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(UserAssignedIdentity.__pulumiType, name, inputs, opts);
     }
 }

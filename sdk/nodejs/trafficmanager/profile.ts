@@ -164,6 +164,13 @@ export class Profile extends pulumi.CustomResource {
             inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
             inputs["fqdn"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Profile.__pulumiType, name, inputs, opts);
     }
 }

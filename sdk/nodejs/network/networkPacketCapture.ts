@@ -212,6 +212,13 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
             inputs["storageLocation"] = args ? args.storageLocation : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NetworkPacketCapture.__pulumiType, name, inputs, opts);
     }
 }

@@ -164,6 +164,13 @@ export class Schedule extends pulumi.CustomResource {
             inputs["timezone"] = args ? args.timezone : undefined;
             inputs["weekDays"] = args ? args.weekDays : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Schedule.__pulumiType, name, inputs, opts);
     }
 }

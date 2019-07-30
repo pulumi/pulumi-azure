@@ -160,6 +160,13 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(OutputServiceBusQueue.__pulumiType, name, inputs, opts);
     }
 }

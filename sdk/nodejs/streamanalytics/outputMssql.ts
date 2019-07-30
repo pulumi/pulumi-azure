@@ -161,6 +161,13 @@ export class OutputMssql extends pulumi.CustomResource {
             inputs["table"] = args ? args.table : undefined;
             inputs["user"] = args ? args.user : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(OutputMssql.__pulumiType, name, inputs, opts);
     }
 }

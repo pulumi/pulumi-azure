@@ -76,6 +76,13 @@ export class SubscriptionPricing extends pulumi.CustomResource {
             }
             inputs["tier"] = args ? args.tier : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SubscriptionPricing.__pulumiType, name, inputs, opts);
     }
 }

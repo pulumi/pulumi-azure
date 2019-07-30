@@ -118,6 +118,13 @@ export class TriggerHttpRequest extends pulumi.CustomResource {
             inputs["relativePath"] = args ? args.relativePath : undefined;
             inputs["schema"] = args ? args.schema : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(TriggerHttpRequest.__pulumiType, name, inputs, opts);
     }
 }

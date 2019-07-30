@@ -94,6 +94,13 @@ export class ManagementGroup extends pulumi.CustomResource {
             inputs["parentManagementGroupId"] = args ? args.parentManagementGroupId : undefined;
             inputs["subscriptionIds"] = args ? args.subscriptionIds : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ManagementGroup.__pulumiType, name, inputs, opts);
     }
 }

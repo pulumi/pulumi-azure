@@ -251,6 +251,13 @@ export class FunctionApp extends pulumi.CustomResource {
             inputs["possibleOutboundIpAddresses"] = undefined /*out*/;
             inputs["siteCredential"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(FunctionApp.__pulumiType, name, inputs, opts);
     }
 }

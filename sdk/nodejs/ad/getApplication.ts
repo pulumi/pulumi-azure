@@ -9,6 +9,13 @@ import * as utilities from "../utilities";
  */
 export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> & GetApplicationResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetApplicationResult> = pulumi.runtime.invoke("azure:ad/getApplication:getApplication", {
         "name": args.name,
         "objectId": args.objectId,

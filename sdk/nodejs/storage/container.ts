@@ -118,6 +118,13 @@ export class Container extends pulumi.CustomResource {
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["properties"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Container.__pulumiType, name, inputs, opts);
     }
 }

@@ -113,6 +113,13 @@ export class Subnet extends pulumi.CustomResource {
             inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Subnet.__pulumiType, name, inputs, opts);
     }
 }

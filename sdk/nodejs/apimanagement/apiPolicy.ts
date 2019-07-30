@@ -116,6 +116,13 @@ export class ApiPolicy extends pulumi.CustomResource {
             inputs["xmlContent"] = args ? args.xmlContent : undefined;
             inputs["xmlLink"] = args ? args.xmlLink : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ApiPolicy.__pulumiType, name, inputs, opts);
     }
 }

@@ -128,6 +128,13 @@ export class Service extends pulumi.CustomResource {
             inputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

@@ -165,6 +165,13 @@ export class PublicIp extends pulumi.CustomResource {
             inputs["fqdn"] = undefined /*out*/;
             inputs["ipAddress"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PublicIp.__pulumiType, name, inputs, opts);
     }
 }

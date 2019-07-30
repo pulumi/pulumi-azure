@@ -120,6 +120,13 @@ export class Workflow extends pulumi.CustomResource {
             inputs["workflowVersion"] = args ? args.workflowVersion : undefined;
             inputs["accessEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Workflow.__pulumiType, name, inputs, opts);
     }
 }

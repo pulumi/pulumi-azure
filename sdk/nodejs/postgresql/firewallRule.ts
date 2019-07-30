@@ -135,6 +135,13 @@ export class FirewallRule extends pulumi.CustomResource {
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(FirewallRule.__pulumiType, name, inputs, opts);
     }
 }

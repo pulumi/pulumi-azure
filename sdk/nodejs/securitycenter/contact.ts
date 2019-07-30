@@ -104,6 +104,13 @@ export class Contact extends pulumi.CustomResource {
             inputs["email"] = args ? args.email : undefined;
             inputs["phone"] = args ? args.phone : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Contact.__pulumiType, name, inputs, opts);
     }
 }

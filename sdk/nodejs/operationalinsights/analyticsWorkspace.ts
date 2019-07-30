@@ -137,6 +137,13 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             inputs["secondarySharedKey"] = undefined /*out*/;
             inputs["workspaceId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AnalyticsWorkspace.__pulumiType, name, inputs, opts);
     }
 }

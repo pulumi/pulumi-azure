@@ -166,6 +166,13 @@ export class ApiOperation extends pulumi.CustomResource {
             inputs["templateParameters"] = args ? args.templateParameters : undefined;
             inputs["urlTemplate"] = args ? args.urlTemplate : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ApiOperation.__pulumiType, name, inputs, opts);
     }
 }

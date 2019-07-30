@@ -135,6 +135,13 @@ export class MongoCollection extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shardKey"] = args ? args.shardKey : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(MongoCollection.__pulumiType, name, inputs, opts);
     }
 }

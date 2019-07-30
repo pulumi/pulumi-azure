@@ -165,6 +165,13 @@ export class ElasticPool extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["creationDate"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ElasticPool.__pulumiType, name, inputs, opts);
     }
 }

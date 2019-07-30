@@ -51,6 +51,13 @@ export class Provider extends pulumi.ProviderResource {
             inputs["tenantId"] = (args ? args.tenantId : undefined) || (utilities.getEnv("ARM_TENANT_ID") || "");
             inputs["useMsi"] = pulumi.output((args ? args.useMsi : undefined) || (utilities.getEnvBoolean("ARM_USE_MSI") || false)).apply(JSON.stringify);
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Provider.__pulumiType, name, inputs, opts);
     }
 }

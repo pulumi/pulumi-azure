@@ -212,6 +212,13 @@ export class AuthorizationServer extends pulumi.CustomResource {
             inputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
             inputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AuthorizationServer.__pulumiType, name, inputs, opts);
     }
 }

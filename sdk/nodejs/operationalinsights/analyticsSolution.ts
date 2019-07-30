@@ -140,6 +140,13 @@ export class AnalyticsSolution extends pulumi.CustomResource {
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
             inputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AnalyticsSolution.__pulumiType, name, inputs, opts);
     }
 }

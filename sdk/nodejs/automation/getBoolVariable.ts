@@ -26,6 +26,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
  */
 export function getBoolVariable(args: GetBoolVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetBoolVariableResult> & GetBoolVariableResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetBoolVariableResult> = pulumi.runtime.invoke("azure:automation/getBoolVariable:getBoolVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,

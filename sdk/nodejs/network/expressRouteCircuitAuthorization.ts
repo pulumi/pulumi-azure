@@ -123,6 +123,13 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             inputs["authorizationKey"] = undefined /*out*/;
             inputs["authorizationUseStatus"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ExpressRouteCircuitAuthorization.__pulumiType, name, inputs, opts);
     }
 }
