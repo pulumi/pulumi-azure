@@ -4,6 +4,7 @@ CHANGELOG
 ## HEAD (Unreleased)
 * Update pulumi-terraform to 9b56bd2a9d
 * Out-of-the-box Azure Cloud Shell support ([#74](https://github.com/pulumi/pulumi-azure/issues/74))
+* Add constants for Azure AppService Plan Kind types.
 ___
 
 ## 0.19.3 (2019-07-22)
