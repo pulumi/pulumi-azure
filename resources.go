@@ -350,6 +350,10 @@ func Provider() tfbridge.ProviderInfo {
 					// Max length of an app service plan name is 40.
 					// This was discovered directly through the portal.
 					azureName: AutoNameWithMaxLength(azureName, 40),
+					"kind": {
+						Type:     "string",
+						AltTypes: []tokens.Type{azureType(azureAppService+"/kind", "Kind")},
+					},
 				}},
 			"azurerm_app_service_slot":        {Tok: azureResource(azureAppService, "Slot")},
 			"azurerm_app_service_active_slot": {Tok: azureResource(azureAppService, "ActiveSlot")},
@@ -1094,6 +1098,7 @@ func Provider() tfbridge.ProviderInfo {
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"appservice": {
 						DestFiles: []string{
+							"kind.ts",
 							"zMixins.ts",
 							"zMixins_http.ts",
 							"zMixins_timer.ts",

@@ -57,6 +57,7 @@
         "appservice/getAppService.ts",
         "appservice/getAppServicePlan.ts",
         "appservice/index.ts",
+        "appservice/kind.ts",
         "appservice/plan.ts",
         "appservice/slot.ts",
         "appservice/zMixins.ts",

@@ -8,6 +8,7 @@ export * from "./customHostnameBinding";
 export * from "./functionApp";
 export * from "./getAppService";
 export * from "./getAppServicePlan";
+export * from "./kind";
 export * from "./plan";
 export * from "./slot";
 export * from "./zMixins";
