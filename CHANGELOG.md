@@ -6,6 +6,8 @@ CHANGELOG
 * Update Terraform dependency to v0.12.5.
 * Out-of-the-box Azure Cloud Shell support ([#74](https://github.com/pulumi/pulumi-azure/issues/74))
 * Add constants for Azure AppService Plan Kind types.
+* Individual Azure Functions can be created by getEventFunction helpers directly on event sources.
+
 ___
 
 ## 0.19.3 (2019-07-22)

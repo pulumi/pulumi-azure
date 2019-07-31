@@ -137,7 +137,7 @@ export interface ServiceBusFunctionArgs extends appservice.CallbackFunctionArgs<
      * The ServiceBus Subscription to subscribe the Function to.
      */
     subscription?: Subscription;
-};
+}
 
 export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
@@ -151,16 +151,25 @@ export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionA
      * be used in their place.
      */
     hostSettings?: ServiceBusHostSettings;
-};
+}
 
 declare module "./queue" {
     interface Queue {
         /**
          * Creates a new subscription to events fired from this Queue to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it.
+         * Use [getEventFunction] if you want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: ServiceBusCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
+
+        /**
+         * Creates a new Function triggered by messages in the given Queue using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
+         */
+        getEventFunction(name: string, args: ServiceBusCallback | appservice.CallbackFunctionArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse>): ServiceBusFunction;
     }
 }
 
@@ -171,6 +180,14 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
 
     return new QueueEventSubscription(name, this, functionArgs, opts);
 }
+
+Queue.prototype.getEventFunction = function(this: Queue, name, args) {
+    const functionArgs = args instanceof Function
+        ? { callback: args, queue: this }
+        : { ...args, queue: this };
+
+    return new ServiceBusFunction(name, functionArgs);
+};
 
 export class QueueEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     readonly queue: Queue;
@@ -191,27 +208,37 @@ export class QueueEventSubscription extends appservice.EventSubscription<Service
     }
 }
 
-export interface TopicEventSubscriptionArgs extends QueueEventSubscriptionArgs {
+export interface GetTopicFunctionArgs extends appservice.CallbackFunctionArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
-     * The Subscription to subscribe the FunctionApp to.  If not present, a new Subscription
-     * resource will be created.
+     * The ServiceBus Subscription to subscribe the Function to.
      */
     subscription?: Subscription;
+}
 
+export interface TopicEventSubscriptionArgs extends GetTopicFunctionArgs, QueueEventSubscriptionArgs {
     /**
      * The maximum number of deliveries.  Will default to 10 if not specified.
      */
     maxDeliveryCount?: pulumi.Input<number>;
-};
+}
 
 declare module "./topic" {
     interface Topic {
         /**
          * Creates a new subscription to events fired from this Topic to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it.
+         * Use [getEventFunction] if you want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: ServiceBusCallback | TopicEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): TopicEventSubscription;
+
+        /**
+         * Creates a new Function triggered by messages in the given Topic using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
+         */
+        getEventFunction(name: string, args: GetTopicFunctionArgs): ServiceBusFunction;
     }
 }
 
@@ -222,6 +249,10 @@ Topic.prototype.onEvent = function(this: Topic, name, args, opts) {
 
     return new TopicEventSubscription(name, this, functionArgs, opts);
 }
+
+Topic.prototype.getEventFunction = function(this: Topic, name, args) {
+    return new ServiceBusFunction(name, { ...args, topic: this });
+};
 
 export class TopicEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     readonly topic: Topic;
@@ -388,12 +419,7 @@ export interface EventHubContext extends appservice.Context<appservice.FunctionD
  */
 export type EventHubCallback = appservice.Callback<EventHubContext, string, appservice.FunctionDefaultResponse>;
 
-export interface EventHubFunctionArgs extends appservice.CallbackFunctionArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
-    /**
-     * Event Hub to subscribe the Function to.
-     */
-    eventHub: EventHub;
-
+export interface GetEventHubFunctionArgs extends appservice.CallbackFunctionArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
      */
@@ -403,34 +429,40 @@ export interface EventHubFunctionArgs extends appservice.CallbackFunctionArgs<Ev
      * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
      */
     cardinality?: pulumi.Input<"many" | "one">;
-};
+}
 
-export interface EventHubSubscriptionArgs extends appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
+export interface EventHubFunctionArgs extends GetEventHubFunctionArgs {
+    /**
+     * Event Hub to subscribe the Function to.
+     */
+    eventHub: EventHub;
+}
+
+export interface EventHubSubscriptionArgs extends GetEventHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the Event Hub's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
-     */
-    consumerGroup?: EventHubConsumerGroup;
-
-    /**
-     * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
-     */
-    cardinality?: pulumi.Input<"many" | "one">;
-};
+}
 
 declare module "./eventHub" {
     interface EventHub {
         /**
          * Subscribes to events logged to this Event Hub to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it.
+         * Use [getEventFunction] if you want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: EventHubCallback | EventHubSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): EventHubSubscription;
+
+        /**
+         * Creates a new Function triggered by events in the given Event Hub using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
+         */
+        getEventFunction(name: string, args: EventHubCallback | GetEventHubFunctionArgs): EventHubFunction;
     }
 }
 
@@ -440,7 +472,15 @@ EventHub.prototype.onEvent = function(this: EventHub, name, args, opts) {
         : args;
 
     return new EventHubSubscription(name, this, functionArgs, opts);
-}
+};
+
+EventHub.prototype.getEventFunction = function(this: EventHub, name, args) {
+    const functionArgs = args instanceof Function
+        ? { callback: args, eventHub: this }
+        : { ...args, eventHub: this };
+
+    return new EventHubFunction(name, functionArgs);
+};
 
 export class EventHubSubscription extends appservice.EventSubscription<EventHubContext, string, appservice.FunctionDefaultResponse> {
     readonly eventHub: EventHub;

@@ -171,28 +171,7 @@ export interface BlobContext extends appservice.Context<appservice.FunctionDefau
  */
 export type BlobCallback = appservice.Callback<BlobContext, Buffer, appservice.FunctionDefaultResponse>;
 
-export interface BlobFunctionArgs extends appservice.CallbackFunctionArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
-    /**
-     * Storage Blob Container to subscribe for events of.
-     */
-    container: Container;
-
-    /**
-     * An optional prefix or suffix to filter down notifications.  See
-     * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#trigger---blob-name-patterns
-     * for more details.
-     */
-    filterPrefix?: pulumi.Input<string>;
-    filterSuffix?: pulumi.Input<string>;
-};
-
-export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
-    /**
-     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
-     * over [resourceGroupName]. If none of the two is supplied, the resource group of the Storage Account will be used.
-     */
-    resourceGroupName?: pulumi.Input<string>;
-
+export interface GetBlobFunctionArgs extends appservice.CallbackFunctionArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     /**
      * An optional prefix or suffix to filter down notifications.  See
      * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#trigger---blob-name-patterns
@@ -202,15 +181,40 @@ export interface BlobEventSubscriptionArgs extends appservice.CallbackFunctionAp
     filterSuffix?: pulumi.Input<string>;
 }
 
+export interface BlobFunctionArgs extends GetBlobFunctionArgs {
+    /**
+     * Storage Blob Container to subscribe for events of.
+     */
+    container: Container;
+}
+
+export interface BlobEventSubscriptionArgs extends GetBlobFunctionArgs,
+                                                   appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
+     * If none of the two is supplied, the resource group of the Storage Account will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+}
+
 declare module "./container" {
     interface Container {
         /**
-         * Creates a new subscription to events fired from this Topic to the handler provided, along
+         * Creates a new subscription to events fired from this Container to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it.
+         * Use [getEventFunction] if you want to compose multiple Functions into the same App manually.
          */
         onBlobEvent(name: string,
                     args: BlobCallback | BlobEventSubscriptionArgs,
                     opts?: pulumi.ComponentResourceOptions): BlobEventSubscription;
+
+        /**
+         * Creates a new Function triggered by events in the given Container using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
+         */
+        getEventFunction(name: string, args: BlobCallback | GetBlobFunctionArgs): BlobFunction;
 
         /**
          * Creates an input binding linked to the given Blob Container to be used for an Azure Function.
@@ -230,6 +234,14 @@ Container.prototype.onBlobEvent = function(this: Container, name, args, opts) {
 Container.prototype.input = function(this: Container, name, args) {
     return new BlobInputBinding(name, this, args);
 };
+
+Container.prototype.getEventFunction = function(this: Container, name, args) {
+    const functionArgs = args instanceof Function
+        ? { callback: args, container: this }
+        : { ...args, container: this };
+
+    return new BlobFunction(name, functionArgs);
+}
 
 export class BlobEventSubscription extends appservice.EventSubscription<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     constructor(
@@ -464,10 +476,19 @@ declare module "./queue" {
         /**
          * Creates a new subscription to the given queue using the callback provided, along with
          * optional options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it.
+         * Use [getEventFunction] if you want to compose multiple Functions into the same App manually.
          */
         onEvent(name: string,
                 args: QueueCallback | QueueEventSubscriptionArgs,
                 opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
+
+        /**
+         * Creates a new Function triggered by messages in the given queue using the callback provided.
+         * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
+         * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
+         */
+        getEventFunction(name: string, args: QueueCallback | appservice.CallbackFunctionArgs<QueueContext, any, appservice.FunctionDefaultResponse>): QueueFunction;
 
         /**
          * Creates an output binding linked to the given queue to be used for an Azure Function.
@@ -486,6 +507,14 @@ Queue.prototype.onEvent = function(this: Queue, name, args, opts) {
         : args;
 
     return new QueueEventSubscription(name, this, functionArgs, opts);
+}
+
+Queue.prototype.getEventFunction = function(this: Queue, name, args) {
+    const functionArgs = args instanceof Function
+        ? { callback: args, queue: this }
+        : { ...args, queue: this };
+
+    return new QueueFunction(name, functionArgs);
 }
 
 export class QueueEventSubscription extends appservice.EventSubscription<QueueContext, any, appservice.FunctionDefaultResponse> {

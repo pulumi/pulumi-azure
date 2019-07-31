@@ -18,7 +18,7 @@ import { IoTHub } from "./ioTHub";
 import { ConsumerGroup } from "./consumerGroup";
 import { DefaultConsumerGroup, EventHubBindingDefinition, EventHubContext, EventHubCallback } from '../eventhub';
 
-export interface IoTHubFunctionArgs extends appservice.CallbackFunctionArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
+export interface GetIoTHubFunctionArgs extends appservice.CallbackFunctionArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * IoT Hub to subscribe the Function to.
      */
@@ -33,25 +33,22 @@ export interface IoTHubFunctionArgs extends appservice.CallbackFunctionArgs<Even
      * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
      */
     cardinality?: pulumi.Input<"many" | "one">;
-};
+}
 
-export interface IoTHubSubscriptionArgs extends appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
+export interface IoTHubFunctionArgs extends GetIoTHubFunctionArgs {
     /**
-     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
-     * If none of the two is supplied, the IoT Hub's resource group will be used.
+     * IoT Hub to subscribe the Function to.
+     */
+    iotHub: IoTHub;
+}
+
+export interface IoTHubSubscriptionArgs extends GetIoTHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
+     * over [resourceGroupName]. If none of the two is supplied, the IoT Hub's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-
-    /**
-     * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
-     */
-    consumerGroup?: ConsumerGroup;
-
-    /**
-     * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
-     */
-    cardinality?: pulumi.Input<"many" | "one">;
-};
+}
 
 declare module "./ioTHub" {
     interface IoTHub {
@@ -61,6 +58,12 @@ declare module "./ioTHub" {
          */
         onEvent(
             name: string, args: EventHubCallback | IoTHubSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): IoTHubEventSubscription;
+
+        /**
+         * Creates a new Function triggered by events in the given IoT Hub using the callback provided.
+         * The Function should be used as part of a [MultiCallbackFunctionApp].
+         */
+        getEventFunction(name: string, args: EventHubCallback | GetIoTHubFunctionArgs): IoTHubFunction;
     }
 }
 
@@ -70,7 +73,15 @@ IoTHub.prototype.onEvent = function(this: IoTHub, name, args, opts) {
         : args;
 
     return new IoTHubEventSubscription(name, this, functionArgs, opts);
-}
+};
+
+IoTHub.prototype.getEventFunction = function(this: IoTHub, name, args) {
+    const functionArgs = args instanceof Function
+        ? { callback: args, iotHub: this }
+        : { ...args, iotHub: this };
+
+    return new IoTHubFunction(name, functionArgs);
+};
 
 export class IoTHubEventSubscription extends appservice.EventSubscription<EventHubContext, string, appservice.FunctionDefaultResponse> {
     readonly iotHub: IoTHub;

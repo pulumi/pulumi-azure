@@ -98,7 +98,7 @@ export interface CosmosChangeFeedContext extends appservice.Context<appservice.F
  */
 export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse>;
 
-interface CosmosChangeFeedFunctionSettings {
+export interface GetCosmosDBFunctionArgs extends appservice.CallbackFunctionArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
     /**
      * The name of the database we are subscribing to.
      */
@@ -120,36 +120,50 @@ interface CosmosChangeFeedFunctionSettings {
      * there are leases already created has no effect.
      */
     startFromBeginning?: pulumi.Input<boolean>;
-};
+}
 
-export interface CosmosDBFunctionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackFunctionArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
+export interface CosmosDBFunctionArgs extends GetCosmosDBFunctionArgs {
     /**
      * CosmosDB Account.
      */
     account: Account;
-};
+}
 
-export interface CosmosChangeFeedSubscriptionArgs extends CosmosChangeFeedFunctionSettings, appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
+export interface CosmosChangeFeedSubscriptionArgs extends GetCosmosDBFunctionArgs, appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the resource group of the Cosmos DB Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-};
+}
 
 declare module "./account" {
     interface Account {
         /**
          * Creates a new subscription to events fired from Cosmos DB Change Feed to the handler provided, along
          * with options to control the behavior of the subscription.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getChangeFeedFunction] if you
+         * want to compose multiple Functions into the same App manually.
          */
         onChange(
             name: string, args: CosmosChangeFeedSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): CosmosChangeFeedSubscription;
+
+        /**
+         * Creates a new Function triggered by messages in the given queue using the callback provided.
+         * [getChangeFeedFunction] creates no Azure resources automatically: the returned Function should be used as
+         * part of a [MultiCallbackFunctionApp]. Use [onChange] if you want to create a Function App with a single
+         * Function.
+         */
+        getChangeFeedFunction(name: string, args: GetCosmosDBFunctionArgs): CosmosDBFunction;
     }
 }
 
 Account.prototype.onChange = function(this: Account, name, args, opts) {
     return new CosmosChangeFeedSubscription(name, this, args, opts);
+}
+
+Account.prototype.getChangeFeedFunction = function(this: Account, name, args) {
+    return new CosmosDBFunction(name, { ...args, account: this });
 }
 
 export class CosmosChangeFeedSubscription extends appservice.EventSubscription<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
