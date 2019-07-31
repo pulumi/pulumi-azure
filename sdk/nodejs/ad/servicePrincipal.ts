@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_service_principal.html.markdown.
  */
+/** @deprecated The azure/ad module has moved to a dedicated Pulumi azuread package */
 export class ServicePrincipal extends pulumi.CustomResource {
     /**
      * Get an existing ServicePrincipal resource's state with the given name, ID, and optional extra
@@ -17,6 +18,7 @@ export class ServicePrincipal extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ServicePrincipalState, opts?: pulumi.CustomResourceOptions): ServicePrincipal {
+        pulumi.log.warn("ServicePrincipal is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
         return new ServicePrincipal(name, <any>state, { ...opts, id: id });
     }
 
@@ -50,8 +52,11 @@ export class ServicePrincipal extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The azure/ad module has moved to a dedicated Pulumi azuread package */
     constructor(name: string, args: ServicePrincipalArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated The azure/ad module has moved to a dedicated Pulumi azuread package */
     constructor(name: string, argsOrState?: ServicePrincipalArgs | ServicePrincipalState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ServicePrincipal is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ServicePrincipalState | undefined;

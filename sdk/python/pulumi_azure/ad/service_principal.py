@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
+warnings.warn("The azure/ad module has moved to a dedicated Pulumi azuread package", DeprecationWarning)
 class ServicePrincipal(pulumi.CustomResource):
     application_id: pulumi.Output[str]
     """
@@ -17,6 +18,7 @@ class ServicePrincipal(pulumi.CustomResource):
     """
     The Display Name of the Azure Active Directory Application associated with this Service Principal.
     """
+    warnings.warn("The azure/ad module has moved to a dedicated Pulumi azuread package", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, application_id=None, __name__=None, __opts__=None):
         """
         Create a ServicePrincipal resource with the given unique name, props, and options.
@@ -27,6 +29,7 @@ class ServicePrincipal(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_service_principal.html.markdown.
         """
+        pulumi.log.warn("service_principal is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -48,6 +51,10 @@ class ServicePrincipal(pulumi.CustomResource):
 
         __props__['display_name'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ServicePrincipal, __self__).__init__(
             'azure:ad/servicePrincipal:ServicePrincipal',
             resource_name,

@@ -165,6 +165,10 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__['kube_config_raw'] = None
         __props__['node_resource_group'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(KubernetesCluster, __self__).__init__(
             'azure:containerservice/kubernetesCluster:KubernetesCluster',
             resource_name,

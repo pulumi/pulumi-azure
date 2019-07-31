@@ -81,6 +81,10 @@ async def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace', __args__, opts=opts)
 
     return GetAnalyticsWorkspaceResult(

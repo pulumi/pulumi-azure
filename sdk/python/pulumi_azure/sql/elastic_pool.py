@@ -119,6 +119,10 @@ class ElasticPool(pulumi.CustomResource):
 
         __props__['creation_date'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ElasticPool, __self__).__init__(
             'azure:sql/elasticPool:ElasticPool',
             resource_name,

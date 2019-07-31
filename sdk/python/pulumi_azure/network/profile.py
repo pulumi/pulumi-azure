@@ -74,6 +74,10 @@ class Profile(pulumi.CustomResource):
 
         __props__['container_network_interface_ids'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Profile, __self__).__init__(
             'azure:network/profile:Profile',
             resource_name,

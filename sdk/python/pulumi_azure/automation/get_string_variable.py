@@ -58,6 +58,10 @@ async def get_string_variable(automation_account_name=None,name=None,resource_gr
     __args__['automationAccountName'] = automation_account_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:automation/getStringVariable:getStringVariable', __args__, opts=opts)
 
     return GetStringVariableResult(

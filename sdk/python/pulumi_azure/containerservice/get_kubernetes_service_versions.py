@@ -48,6 +48,10 @@ async def get_kubernetes_service_versions(location=None,version_prefix=None,opts
 
     __args__['location'] = location
     __args__['versionPrefix'] = version_prefix
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts)
 
     return GetKubernetesServiceVersionsResult(

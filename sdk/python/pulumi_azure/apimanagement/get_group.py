@@ -64,6 +64,10 @@ async def get_group(api_management_name=None,name=None,resource_group_name=None,
     __args__['apiManagementName'] = api_management_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getGroup:getGroup', __args__, opts=opts)
 
     return GetGroupResult(

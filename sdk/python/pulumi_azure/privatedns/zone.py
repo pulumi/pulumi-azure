@@ -77,6 +77,10 @@ class Zone(pulumi.CustomResource):
         __props__['max_number_of_virtual_network_links_with_registration'] = None
         __props__['number_of_record_sets'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Zone, __self__).__init__(
             'azure:privatedns/zone:Zone',
             resource_name,

@@ -50,6 +50,10 @@ async def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,re
     __args__['attached'] = attached
     __args__['namePrefix'] = name_prefix
     __args__['resourceGroupName'] = resource_group_name
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts)
 
     return GetPublicIPsResult(

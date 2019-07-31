@@ -78,6 +78,10 @@ async def get_policy_defintion(display_name=None,management_group_id=None,opts=N
 
     __args__['displayName'] = display_name
     __args__['managementGroupId'] = management_group_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts)
 
     return GetPolicyDefintionResult(

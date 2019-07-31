@@ -7,7 +7,9 @@ import * as utilities from "../utilities";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_application.html.markdown.
  */
+/** @deprecated The azure/ad module has moved to a dedicated Pulumi azuread package */
 export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> & GetApplicationResult {
+    pulumi.log.warn("getApplication is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
     args = args || {};
     if (!opts) {
         opts = {}

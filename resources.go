@@ -282,9 +282,18 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// Active Directory (AAD)
-			"azurerm_azuread_application":                {Tok: azureResource(azureAD, "Application")},
-			"azurerm_azuread_service_principal":          {Tok: azureResource(azureAD, "ServicePrincipal")},
-			"azurerm_azuread_service_principal_password": {Tok: azureResource(azureAD, "ServicePrincipalPassword")},
+			"azurerm_azuread_application": {
+				Tok:                azureResource(azureAD, "Application"),
+				DeprecationMessage: "The azure/ad module has moved to a dedicated Pulumi azuread package",
+			},
+			"azurerm_azuread_service_principal": {
+				Tok:                azureResource(azureAD, "ServicePrincipal"),
+				DeprecationMessage: "The azure/ad module has moved to a dedicated Pulumi azuread package",
+			},
+			"azurerm_azuread_service_principal_password": {
+				Tok:                azureResource(azureAD, "ServicePrincipalPassword"),
+				DeprecationMessage: "The azure/ad module has moved to a dedicated Pulumi azuread package",
+			},
 
 			// API Mannagement
 			"azurerm_api_management": {
@@ -936,9 +945,15 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 
-			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
-			"azurerm_azuread_application":       {Tok: azureDataSource(azureAD, "getApplication")},
-			"azurerm_azuread_service_principal": {Tok: azureDataSource(azureAD, "getServicePrincipal")},
+			"azurerm_application_insights": {Tok: azureDataSource(azureAppInsights, "getInsights")},
+			"azurerm_azuread_application": {
+				Tok:                azureDataSource(azureAD, "getApplication"),
+				DeprecationMessage: "The azure/ad module has moved to a dedicated Pulumi azuread package",
+			},
+			"azurerm_azuread_service_principal": {
+				Tok:                azureDataSource(azureAD, "getServicePrincipal"),
+				DeprecationMessage: "The azure/ad module has moved to a dedicated Pulumi azuread package",
+			},
 			"azurerm_api_management": {
 				Tok: azureDataSource(azureAPIManagement, "getService"),
 				Fields: map[string]*tfbridge.SchemaInfo{

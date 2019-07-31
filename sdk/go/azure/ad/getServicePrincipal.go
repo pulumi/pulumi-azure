@@ -8,6 +8,7 @@ import (
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_service_principal.html.markdown.
+// Deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package
 func LookupServicePrincipal(ctx *pulumi.Context, args *GetServicePrincipalArgs) (*GetServicePrincipalResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

@@ -7,6 +7,7 @@ CHANGELOG
 * Out-of-the-box Azure Cloud Shell support ([#74](https://github.com/pulumi/pulumi-azure/issues/74))
 * Add constants for Azure AppService Plan Kind types.
 * Individual Azure Functions can be created by getEventFunction helpers directly on event sources.
+* Add deprecation messages to Azuread resources as they have moved to new provider.
 
 ___
 

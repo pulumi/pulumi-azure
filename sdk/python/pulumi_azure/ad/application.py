@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
+warnings.warn("The azure/ad module has moved to a dedicated Pulumi azuread package", DeprecationWarning)
 class Application(pulumi.CustomResource):
     application_id: pulumi.Output[str]
     """
@@ -37,6 +38,7 @@ class Application(pulumi.CustomResource):
     """
     A list of URLs that user tokens are sent to for sign in, or the redirect URIs that OAuth 2.0 authorization codes and access tokens are sent to.
     """
+    warnings.warn("The azure/ad module has moved to a dedicated Pulumi azuread package", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, available_to_other_tenants=None, homepage=None, identifier_uris=None, name=None, oauth2_allow_implicit_flow=None, reply_urls=None, __name__=None, __opts__=None):
         """
         Create a Application resource with the given unique name, props, and options.
@@ -52,6 +54,7 @@ class Application(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_application.html.markdown.
         """
+        pulumi.log.warn("application is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -81,6 +84,10 @@ class Application(pulumi.CustomResource):
 
         __props__['application_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Application, __self__).__init__(
             'azure:ad/application:Application',
             resource_name,

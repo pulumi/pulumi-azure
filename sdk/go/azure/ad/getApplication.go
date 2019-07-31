@@ -8,6 +8,7 @@ import (
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_application.html.markdown.
+// Deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package
 func LookupApplication(ctx *pulumi.Context, args *GetApplicationArgs) (*GetApplicationResult, error) {
 	inputs := make(map[string]interface{})
 	if args != nil {

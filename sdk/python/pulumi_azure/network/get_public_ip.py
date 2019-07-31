@@ -89,6 +89,10 @@ async def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,
     __args__['resourceGroupName'] = resource_group_name
     __args__['tags'] = tags
     __args__['zones'] = zones
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:network/getPublicIP:getPublicIP', __args__, opts=opts)
 
     return GetPublicIPResult(

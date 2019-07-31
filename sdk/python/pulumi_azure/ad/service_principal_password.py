@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
+warnings.warn("The azure/ad module has moved to a dedicated Pulumi azuread package", DeprecationWarning)
 class ServicePrincipalPassword(pulumi.CustomResource):
     end_date: pulumi.Output[str]
     """
@@ -29,6 +30,7 @@ class ServicePrincipalPassword(pulumi.CustomResource):
     """
     The Password for this Service Principal.
     """
+    warnings.warn("The azure/ad module has moved to a dedicated Pulumi azuread package", DeprecationWarning)
     def __init__(__self__, resource_name, opts=None, end_date=None, key_id=None, service_principal_id=None, start_date=None, value=None, __name__=None, __opts__=None):
         """
         Create a ServicePrincipalPassword resource with the given unique name, props, and options.
@@ -43,6 +45,7 @@ class ServicePrincipalPassword(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_service_principal_password.html.markdown.
         """
+        pulumi.log.warn("service_principal_password is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -74,6 +77,10 @@ class ServicePrincipalPassword(pulumi.CustomResource):
             raise TypeError("Missing required property 'value'")
         __props__['value'] = value
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ServicePrincipalPassword, __self__).__init__(
             'azure:ad/servicePrincipalPassword:ServicePrincipalPassword',
             resource_name,

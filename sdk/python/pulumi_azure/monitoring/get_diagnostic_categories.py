@@ -44,6 +44,10 @@ async def get_diagnostic_categories(resource_id=None,opts=None):
     __args__ = dict()
 
     __args__['resourceId'] = resource_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts)
 
     return GetDiagnosticCategoriesResult(

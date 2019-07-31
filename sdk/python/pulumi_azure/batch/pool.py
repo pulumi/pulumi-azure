@@ -137,6 +137,10 @@ class Pool(pulumi.CustomResource):
             raise TypeError("Missing required property 'vm_size'")
         __props__['vm_size'] = vm_size
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Pool, __self__).__init__(
             'azure:batch/pool:Pool',
             resource_name,

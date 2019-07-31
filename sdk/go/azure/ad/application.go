@@ -8,11 +8,13 @@ import (
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_application.html.markdown.
+// Deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package
 type Application struct {
 	s *pulumi.ResourceState
 }
 
 // NewApplication registers a new resource with the given unique name, arguments, and options.
+// Deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package
 func NewApplication(ctx *pulumi.Context,
 	name string, args *ApplicationArgs, opts ...pulumi.ResourceOpt) (*Application, error) {
 	inputs := make(map[string]interface{})
@@ -41,6 +43,7 @@ func NewApplication(ctx *pulumi.Context,
 
 // GetApplication gets an existing Application resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
+// Deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package
 func GetApplication(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ApplicationState, opts ...pulumi.ResourceOpt) (*Application, error) {
 	inputs := make(map[string]interface{})

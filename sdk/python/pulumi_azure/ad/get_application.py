@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
+warnings.warn("The azure/ad module has moved to a dedicated Pulumi azuread package", DeprecationWarning)
 class GetApplicationResult:
     """
     A collection of values returned by getApplication.
@@ -66,10 +67,15 @@ async def get_application(name=None,object_id=None,opts=None):
     """
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_application.html.markdown.
     """
+    pulumi.log.warn("get_application is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
     __args__ = dict()
 
     __args__['name'] = name
     __args__['objectId'] = object_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__, opts=opts)
 
     return GetApplicationResult(

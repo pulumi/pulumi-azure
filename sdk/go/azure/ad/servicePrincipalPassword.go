@@ -9,11 +9,13 @@ import (
 )
 
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_service_principal_password.html.markdown.
+// Deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package
 type ServicePrincipalPassword struct {
 	s *pulumi.ResourceState
 }
 
 // NewServicePrincipalPassword registers a new resource with the given unique name, arguments, and options.
+// Deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package
 func NewServicePrincipalPassword(ctx *pulumi.Context,
 	name string, args *ServicePrincipalPasswordArgs, opts ...pulumi.ResourceOpt) (*ServicePrincipalPassword, error) {
 	if args == nil || args.EndDate == nil {
@@ -48,6 +50,7 @@ func NewServicePrincipalPassword(ctx *pulumi.Context,
 
 // GetServicePrincipalPassword gets an existing ServicePrincipalPassword resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
+// Deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package
 func GetServicePrincipalPassword(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ServicePrincipalPasswordState, opts ...pulumi.ResourceOpt) (*ServicePrincipalPassword, error) {
 	inputs := make(map[string]interface{})

@@ -171,6 +171,10 @@ class NetworkSecurityRule(pulumi.CustomResource):
 
         __props__['source_port_ranges'] = source_port_ranges
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(NetworkSecurityRule, __self__).__init__(
             'azure:network/networkSecurityRule:NetworkSecurityRule',
             resource_name,

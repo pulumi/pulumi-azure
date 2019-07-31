@@ -85,6 +85,10 @@ class LogProfile(pulumi.CustomResource):
 
         __props__['storage_account_id'] = storage_account_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LogProfile, __self__).__init__(
             'azure:monitoring/logProfile:LogProfile',
             resource_name,

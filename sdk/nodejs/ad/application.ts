@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/azuread_application.html.markdown.
  */
+/** @deprecated The azure/ad module has moved to a dedicated Pulumi azuread package */
 export class Application extends pulumi.CustomResource {
     /**
      * Get an existing Application resource's state with the given name, ID, and optional extra
@@ -17,6 +18,7 @@ export class Application extends pulumi.CustomResource {
      * @param state Any extra arguments used during the lookup.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ApplicationState, opts?: pulumi.CustomResourceOptions): Application {
+        pulumi.log.warn("Application is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
         return new Application(name, <any>state, { ...opts, id: id });
     }
 
@@ -70,8 +72,11 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated The azure/ad module has moved to a dedicated Pulumi azuread package */
     constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated The azure/ad module has moved to a dedicated Pulumi azuread package */
     constructor(name: string, argsOrState?: ApplicationArgs | ApplicationState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Application is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ApplicationState | undefined;

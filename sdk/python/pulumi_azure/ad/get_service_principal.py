@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
+warnings.warn("The azure/ad module has moved to a dedicated Pulumi azuread package", DeprecationWarning)
 class GetServicePrincipalResult:
     """
     A collection of values returned by getServicePrincipal.
@@ -33,11 +34,16 @@ async def get_service_principal(application_id=None,display_name=None,object_id=
     """
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_service_principal.html.markdown.
     """
+    pulumi.log.warn("get_service_principal is deprecated: The azure/ad module has moved to a dedicated Pulumi azuread package")
     __args__ = dict()
 
     __args__['applicationId'] = application_id
     __args__['displayName'] = display_name
     __args__['objectId'] = object_id
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
     __ret__ = await pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__, opts=opts)
 
     return GetServicePrincipalResult(

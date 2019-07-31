@@ -106,6 +106,10 @@ class Policy(pulumi.CustomResource):
             raise TypeError("Missing required property 'threshold'")
         __props__['threshold'] = threshold
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Policy, __self__).__init__(
             'azure:devtest/policy:Policy',
             resource_name,
