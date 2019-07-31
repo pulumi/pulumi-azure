@@ -150,10 +150,11 @@ declare module "./account" {
 
         /**
          * Creates a new Function triggered by messages in the given queue using the callback provided.
-         * [getChangeFeedFunction] creates no Azure resources automatically: the returned Function should be used as part of
-         * a [MultiCallbackFunctionApp]. Use [onChange] if you want to create a Function App with a single Function.
+         * [getChangeFeedFunction] creates no Azure resources automatically: the returned Function should be used as
+         * part of a [MultiCallbackFunctionApp]. Use [onChange] if you want to create a Function App with a single
+         * Function.
          */
-        getChangeFeedFunction(name: string, args: GetCosmosDBFunctionArgs) : CosmosDBFunction;
+        getChangeFeedFunction(name: string, args: GetCosmosDBFunctionArgs): CosmosDBFunction;
     }
 }
 

@@ -158,8 +158,8 @@ declare module "./queue" {
         /**
          * Creates a new subscription to events fired from this Queue to the handler provided, along
          * with options to control the behavior of the subscription.
-         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getEventFunction] if you
-         * want to compose multiple Functions into the same App manually.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it.
+         * Use [getEventFunction] if you want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: ServiceBusCallback | QueueEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): QueueEventSubscription;
@@ -169,7 +169,7 @@ declare module "./queue" {
          * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
          * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
-        getEventFunction(name: string, args: ServiceBusCallback | appservice.CallbackArgs<ServiceBusContext, string, void>) : ServiceBusFunction;
+        getEventFunction(name: string, args: ServiceBusCallback | appservice.CallbackFunctionArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse>): ServiceBusFunction;
     }
 }
 
@@ -227,8 +227,8 @@ declare module "./topic" {
         /**
          * Creates a new subscription to events fired from this Topic to the handler provided, along
          * with options to control the behavior of the subscription.
-         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getEventFunction] if you
-         * want to compose multiple Functions into the same App manually.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it.
+         * Use [getEventFunction] if you want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: ServiceBusCallback | TopicEventSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): TopicEventSubscription;
@@ -238,7 +238,7 @@ declare module "./topic" {
          * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
          * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
-        getEventFunction(name: string, args: GetTopicFunctionArgs) : ServiceBusFunction;
+        getEventFunction(name: string, args: GetTopicFunctionArgs): ServiceBusFunction;
     }
 }
 
@@ -451,8 +451,8 @@ declare module "./eventHub" {
         /**
          * Subscribes to events logged to this Event Hub to the handler provided, along
          * with options to control the behavior of the subscription.
-         * A dedicated Function App is created behind the scenes with a single Azure Function in it. Use [getEventFunction] if you
-         * want to compose multiple Functions into the same App manually.
+         * A dedicated Function App is created behind the scenes with a single Azure Function in it.
+         * Use [getEventFunction] if you want to compose multiple Functions into the same App manually.
          */
         onEvent(
             name: string, args: EventHubCallback | EventHubSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): EventHubSubscription;
@@ -462,7 +462,7 @@ declare module "./eventHub" {
          * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
          * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
-        getEventFunction(name: string, args: EventHubCallback | GetEventHubFunctionArgs) : EventHubFunction;
+        getEventFunction(name: string, args: EventHubCallback | GetEventHubFunctionArgs): EventHubFunction;
     }
 }
 

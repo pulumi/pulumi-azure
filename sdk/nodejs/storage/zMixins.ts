@@ -488,7 +488,7 @@ declare module "./queue" {
          * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
          * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
-        getEventFunction(name: string, args: QueueCallback | appservice.CallbackFunctionArgs<QueueContext, any, void>): QueueFunction;
+        getEventFunction(name: string, args: QueueCallback | appservice.CallbackFunctionArgs<QueueContext, any, appservice.FunctionDefaultResponse>): QueueFunction;
 
         /**
          * Creates an output binding linked to the given queue to be used for an Azure Function.

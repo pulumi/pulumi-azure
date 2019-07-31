@@ -44,8 +44,8 @@ export interface IoTHubFunctionArgs extends GetIoTHubFunctionArgs {
 
 export interface IoTHubSubscriptionArgs extends GetIoTHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
-     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
-     * If none of the two is supplied, the IoT Hub's resource group will be used.
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
+     * over [resourceGroupName]. If none of the two is supplied, the IoT Hub's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
 }
@@ -60,10 +60,10 @@ declare module "./ioTHub" {
             name: string, args: EventHubCallback | IoTHubSubscriptionArgs, opts?: pulumi.ComponentResourceOptions): IoTHubEventSubscription;
 
         /**
-         * Creates a new Function triggered by events in the given IoT Hub using the callback provided. The Function should be used
-         * as part of a [MultiCallbackFunctionApp].
+         * Creates a new Function triggered by events in the given IoT Hub using the callback provided.
+         * The Function should be used as part of a [MultiCallbackFunctionApp].
          */
-        getEventFunction(name: string, args: EventHubCallback | GetIoTHubFunctionArgs) : IoTHubFunction;
+        getEventFunction(name: string, args: EventHubCallback | GetIoTHubFunctionArgs): IoTHubFunction;
     }
 }
 
