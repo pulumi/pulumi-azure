@@ -18,7 +18,7 @@ import { IoTHub } from "./ioTHub";
 import { ConsumerGroup } from "./consumerGroup";
 import { DefaultConsumerGroup, EventHubBindingDefinition, EventHubContext, EventHubCallback } from '../eventhub';
 
-export interface GetIoTHubFunctionArgs extends appservice.CallbackArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
+export interface GetIoTHubFunctionArgs extends appservice.CallbackFunctionArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * IoT Hub to subscribe the Function to.
      */
@@ -33,14 +33,14 @@ export interface GetIoTHubFunctionArgs extends appservice.CallbackArgs<EventHubC
      * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
      */
     cardinality?: pulumi.Input<"many" | "one">;
-};
+}
 
 export interface IoTHubFunctionArgs extends GetIoTHubFunctionArgs {
     /**
      * IoT Hub to subscribe the Function to.
      */
     iotHub: IoTHub;
-};
+}
 
 export interface IoTHubSubscriptionArgs extends GetIoTHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
@@ -48,7 +48,7 @@ export interface IoTHubSubscriptionArgs extends GetIoTHubFunctionArgs, appservic
      * If none of the two is supplied, the IoT Hub's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-};
+}
 
 declare module "./ioTHub" {
     interface IoTHub {
@@ -73,7 +73,7 @@ IoTHub.prototype.onEvent = function(this: IoTHub, name, args, opts) {
         : args;
 
     return new IoTHubEventSubscription(name, this, functionArgs, opts);
-}
+};
 
 IoTHub.prototype.getEventFunction = function(this: IoTHub, name, args) {
     const functionArgs = args instanceof Function
@@ -81,7 +81,7 @@ IoTHub.prototype.getEventFunction = function(this: IoTHub, name, args) {
         : { ...args, iotHub: this };
 
     return new IoTHubFunction(name, functionArgs);
-}
+};
 
 export class IoTHubEventSubscription extends appservice.EventSubscription<EventHubContext, string, appservice.FunctionDefaultResponse> {
     readonly iotHub: IoTHub;

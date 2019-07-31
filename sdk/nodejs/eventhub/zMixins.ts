@@ -137,7 +137,7 @@ export interface ServiceBusFunctionArgs extends appservice.CallbackFunctionArgs<
      * The ServiceBus Subscription to subscribe the Function to.
      */
     subscription?: Subscription;
-};
+}
 
 export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
@@ -151,7 +151,7 @@ export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionA
      * be used in their place.
      */
     hostSettings?: ServiceBusHostSettings;
-};
+}
 
 declare module "./queue" {
     interface Queue {
@@ -187,7 +187,7 @@ Queue.prototype.getEventFunction = function(this: Queue, name, args) {
         : { ...args, queue: this };
 
     return new ServiceBusFunction(name, functionArgs);
-}
+};
 
 export class QueueEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     readonly queue: Queue;
@@ -208,19 +208,19 @@ export class QueueEventSubscription extends appservice.EventSubscription<Service
     }
 }
 
-export interface GetTopicFunctionArgs extends appservice.CallbackArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
+export interface GetTopicFunctionArgs extends appservice.CallbackFunctionArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
      * The ServiceBus Subscription to subscribe the Function to.
      */
     subscription?: Subscription;
-};
+}
 
 export interface TopicEventSubscriptionArgs extends GetTopicFunctionArgs, QueueEventSubscriptionArgs {
     /**
      * The maximum number of deliveries.  Will default to 10 if not specified.
      */
     maxDeliveryCount?: pulumi.Input<number>;
-};
+}
 
 declare module "./topic" {
     interface Topic {
@@ -252,7 +252,7 @@ Topic.prototype.onEvent = function(this: Topic, name, args, opts) {
 
 Topic.prototype.getEventFunction = function(this: Topic, name, args) {
     return new ServiceBusFunction(name, { ...args, topic: this });
-}
+};
 
 export class TopicEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     readonly topic: Topic;
@@ -419,7 +419,7 @@ export interface EventHubContext extends appservice.Context<appservice.FunctionD
  */
 export type EventHubCallback = appservice.Callback<EventHubContext, string, appservice.FunctionDefaultResponse>;
 
-export interface GetEventHubFunctionArgs extends appservice.CallbackArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
+export interface GetEventHubFunctionArgs extends appservice.CallbackFunctionArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
      */
@@ -429,14 +429,14 @@ export interface GetEventHubFunctionArgs extends appservice.CallbackArgs<EventHu
      * Set to 'many' in order to enable batching. If omitted or set to 'one', single message passed to function.
      */
     cardinality?: pulumi.Input<"many" | "one">;
-};
+}
 
 export interface EventHubFunctionArgs extends GetEventHubFunctionArgs {
     /**
      * Event Hub to subscribe the Function to.
      */
     eventHub: EventHub;
-};
+}
 
 export interface EventHubSubscriptionArgs extends GetEventHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
@@ -444,7 +444,7 @@ export interface EventHubSubscriptionArgs extends GetEventHubFunctionArgs, appse
      * If none of the two is supplied, the Event Hub's resource group will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-};
+}
 
 declare module "./eventHub" {
     interface EventHub {
@@ -472,7 +472,7 @@ EventHub.prototype.onEvent = function(this: EventHub, name, args, opts) {
         : args;
 
     return new EventHubSubscription(name, this, functionArgs, opts);
-}
+};
 
 EventHub.prototype.getEventFunction = function(this: EventHub, name, args) {
     const functionArgs = args instanceof Function
@@ -480,7 +480,7 @@ EventHub.prototype.getEventFunction = function(this: EventHub, name, args) {
         : { ...args, eventHub: this };
 
     return new EventHubFunction(name, functionArgs);
-}
+};
 
 export class EventHubSubscription extends appservice.EventSubscription<EventHubContext, string, appservice.FunctionDefaultResponse> {
     readonly eventHub: EventHub;

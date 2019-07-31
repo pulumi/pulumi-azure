@@ -171,8 +171,7 @@ export interface BlobContext extends appservice.Context<appservice.FunctionDefau
  */
 export type BlobCallback = appservice.Callback<BlobContext, Buffer, appservice.FunctionDefaultResponse>;
 
-export interface GetBlobFunctionArgs extends appservice.CallbackArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse>,
-                                          appservice.InputOutputsArgs {
+export interface GetBlobFunctionArgs extends appservice.CallbackFunctionArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     /**
      * An optional prefix or suffix to filter down notifications.  See
      * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#trigger---blob-name-patterns
@@ -180,24 +179,23 @@ export interface GetBlobFunctionArgs extends appservice.CallbackArgs<BlobContext
      */
     filterPrefix?: pulumi.Input<string>;
     filterSuffix?: pulumi.Input<string>;
-};
+}
 
 export interface BlobFunctionArgs extends GetBlobFunctionArgs {
     /**
      * Storage Blob Container to subscribe for events of.
      */
     container: Container;
-};
+}
 
 export interface BlobEventSubscriptionArgs extends GetBlobFunctionArgs,
-                                                   appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse>,
-                                                   appservice.InputOutputsArgs {
+                                                   appservice.CallbackFunctionAppArgs<BlobContext, Buffer, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the resource group of the Storage Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-};
+}
 
 declare module "./container" {
     interface Container {
@@ -216,7 +214,7 @@ declare module "./container" {
          * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
          * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
-        getEventFunction(name: string, args: BlobCallback | GetBlobFunctionArgs) : BlobFunction;
+        getEventFunction(name: string, args: BlobCallback | GetBlobFunctionArgs): BlobFunction;
 
         /**
          * Creates an input binding linked to the given Blob Container to be used for an Azure Function.
@@ -490,7 +488,7 @@ declare module "./queue" {
          * [getEventFunction] creates no Azure resources automatically: the returned Function should be used as part of
          * a [MultiCallbackFunctionApp]. Use [onEvent] if you want to create a Function App with a single Function.
          */
-        getEventFunction(name: string, args: QueueCallback | appservice.CallbackArgs<QueueContext, any, void>) : QueueFunction;
+        getEventFunction(name: string, args: QueueCallback | appservice.CallbackFunctionArgs<QueueContext, any, void>): QueueFunction;
 
         /**
          * Creates an output binding linked to the given queue to be used for an Azure Function.

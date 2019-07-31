@@ -98,7 +98,7 @@ export interface CosmosChangeFeedContext extends appservice.Context<appservice.F
  */
 export type CosmosChangeFeedCallback = appservice.Callback<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse>;
 
-export interface GetCosmosDBFunctionArgs extends appservice.CallbackArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
+export interface GetCosmosDBFunctionArgs extends appservice.CallbackFunctionArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
     /**
      * The name of the database we are subscribing to.
      */
@@ -120,14 +120,14 @@ export interface GetCosmosDBFunctionArgs extends appservice.CallbackArgs<CosmosC
      * there are leases already created has no effect.
      */
     startFromBeginning?: pulumi.Input<boolean>;
-};
+}
 
 export interface CosmosDBFunctionArgs extends GetCosmosDBFunctionArgs {
     /**
      * CosmosDB Account.
      */
     account: Account;
-};
+}
 
 export interface CosmosChangeFeedSubscriptionArgs extends GetCosmosDBFunctionArgs, appservice.CallbackFunctionAppArgs<CosmosChangeFeedContext, any[], appservice.FunctionDefaultResponse> {
     /**
@@ -135,7 +135,7 @@ export interface CosmosChangeFeedSubscriptionArgs extends GetCosmosDBFunctionArg
      * If none of the two is supplied, the resource group of the Cosmos DB Account will be used.
      */
     resourceGroupName?: pulumi.Input<string>;
-};
+}
 
 declare module "./account" {
     interface Account {
