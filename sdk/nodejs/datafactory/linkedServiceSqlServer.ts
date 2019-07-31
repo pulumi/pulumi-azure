@@ -140,6 +140,13 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(LinkedServiceSqlServer.__pulumiType, name, inputs, opts);
     }
 }

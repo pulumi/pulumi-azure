@@ -183,6 +183,13 @@ export class DataDiskAttachment extends pulumi.CustomResource {
             inputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
             inputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DataDiskAttachment.__pulumiType, name, inputs, opts);
     }
 }

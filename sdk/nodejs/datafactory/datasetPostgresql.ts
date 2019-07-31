@@ -156,6 +156,13 @@ export class DatasetPostgresql extends pulumi.CustomResource {
             inputs["schemaColumns"] = args ? args.schemaColumns : undefined;
             inputs["tableName"] = args ? args.tableName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DatasetPostgresql.__pulumiType, name, inputs, opts);
     }
 }

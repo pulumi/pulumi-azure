@@ -115,6 +115,13 @@ export class Share extends pulumi.CustomResource {
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
             inputs["url"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Share.__pulumiType, name, inputs, opts);
     }
 }

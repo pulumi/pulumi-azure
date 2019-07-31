@@ -124,6 +124,13 @@ export class AnalyticsFirewallRule extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AnalyticsFirewallRule.__pulumiType, name, inputs, opts);
     }
 }

@@ -102,6 +102,13 @@ export class Table extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Table.__pulumiType, name, inputs, opts);
     }
 }

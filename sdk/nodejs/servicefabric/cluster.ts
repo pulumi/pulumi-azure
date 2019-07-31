@@ -213,6 +213,13 @@ export class Cluster extends pulumi.CustomResource {
             inputs["vmImage"] = args ? args.vmImage : undefined;
             inputs["clusterEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Cluster.__pulumiType, name, inputs, opts);
     }
 }

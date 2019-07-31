@@ -137,6 +137,13 @@ export class Property extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Property.__pulumiType, name, inputs, opts);
     }
 }

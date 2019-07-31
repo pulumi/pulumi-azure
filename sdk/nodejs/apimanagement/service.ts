@@ -194,6 +194,13 @@ export class Service extends pulumi.CustomResource {
             inputs["publicIpAddresses"] = undefined /*out*/;
             inputs["scmUrl"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Service.__pulumiType, name, inputs, opts);
     }
 }

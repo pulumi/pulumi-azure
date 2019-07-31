@@ -142,6 +142,13 @@ export class Snapshot extends pulumi.CustomResource {
             inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Snapshot.__pulumiType, name, inputs, opts);
     }
 }

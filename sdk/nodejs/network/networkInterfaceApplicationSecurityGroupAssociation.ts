@@ -124,6 +124,13 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
             inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NetworkInterfaceApplicationSecurityGroupAssociation.__pulumiType, name, inputs, opts);
     }
 }

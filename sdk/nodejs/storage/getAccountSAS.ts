@@ -66,6 +66,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> & GetAccountSASResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetAccountSASResult> = pulumi.runtime.invoke("azure:storage/getAccountSAS:getAccountSAS", {
         "connectionString": args.connectionString,
         "expiry": args.expiry,

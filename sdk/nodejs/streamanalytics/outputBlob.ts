@@ -183,6 +183,13 @@ export class OutputBlob extends pulumi.CustomResource {
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
             inputs["timeFormat"] = args ? args.timeFormat : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(OutputBlob.__pulumiType, name, inputs, opts);
     }
 }

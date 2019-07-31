@@ -422,6 +422,13 @@ export class Account extends pulumi.CustomResource {
             inputs["secondaryWebEndpoint"] = undefined /*out*/;
             inputs["secondaryWebHost"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

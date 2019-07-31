@@ -121,6 +121,13 @@ export class BoolVariable extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["value"] = args ? args.value : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(BoolVariable.__pulumiType, name, inputs, opts);
     }
 }

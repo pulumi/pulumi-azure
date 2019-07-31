@@ -100,6 +100,13 @@ export class ActiveSlot extends pulumi.CustomResource {
             inputs["appServiceSlotName"] = args ? args.appServiceSlotName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ActiveSlot.__pulumiType, name, inputs, opts);
     }
 }

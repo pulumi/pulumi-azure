@@ -194,6 +194,13 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["zones"] = args ? args.zones : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VirtualMachine.__pulumiType, name, inputs, opts);
     }
 }

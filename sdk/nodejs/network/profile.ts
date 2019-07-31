@@ -134,6 +134,13 @@ export class Profile extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["containerNetworkInterfaceIds"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Profile.__pulumiType, name, inputs, opts);
     }
 }

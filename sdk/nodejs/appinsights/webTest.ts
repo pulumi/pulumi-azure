@@ -185,6 +185,13 @@ export class WebTest extends pulumi.CustomResource {
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["syntheticMonitorId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(WebTest.__pulumiType, name, inputs, opts);
     }
 }

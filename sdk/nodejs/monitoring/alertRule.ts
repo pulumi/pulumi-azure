@@ -223,6 +223,13 @@ export class AlertRule extends pulumi.CustomResource {
             inputs["threshold"] = args ? args.threshold : undefined;
             inputs["webhookAction"] = args ? args.webhookAction : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AlertRule.__pulumiType, name, inputs, opts);
     }
 }

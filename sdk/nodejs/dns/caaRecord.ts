@@ -98,6 +98,13 @@ export class CaaRecord extends pulumi.CustomResource {
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["zoneName"] = args ? args.zoneName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(CaaRecord.__pulumiType, name, inputs, opts);
     }
 }

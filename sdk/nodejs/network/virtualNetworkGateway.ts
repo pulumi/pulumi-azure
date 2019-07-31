@@ -241,6 +241,13 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             inputs["vpnClientConfiguration"] = args ? args.vpnClientConfiguration : undefined;
             inputs["vpnType"] = args ? args.vpnType : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VirtualNetworkGateway.__pulumiType, name, inputs, opts);
     }
 }

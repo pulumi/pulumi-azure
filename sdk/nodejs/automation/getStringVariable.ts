@@ -26,6 +26,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_string.html.markdown.
  */
 export function getStringVariable(args: GetStringVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetStringVariableResult> & GetStringVariableResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetStringVariableResult> = pulumi.runtime.invoke("azure:automation/getStringVariable:getStringVariable", {
         "automationAccountName": args.automationAccountName,
         "name": args.name,

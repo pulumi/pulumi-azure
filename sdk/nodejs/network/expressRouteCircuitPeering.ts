@@ -183,6 +183,13 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             inputs["primaryAzurePort"] = undefined /*out*/;
             inputs["secondaryAzurePort"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ExpressRouteCircuitPeering.__pulumiType, name, inputs, opts);
     }
 }

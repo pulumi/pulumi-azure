@@ -346,6 +346,13 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
             inputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VirtualNetworkGatewayConnection.__pulumiType, name, inputs, opts);
     }
 }

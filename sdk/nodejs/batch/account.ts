@@ -138,6 +138,13 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryAccessKey"] = undefined /*out*/;
             inputs["secondaryAccessKey"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Account.__pulumiType, name, inputs, opts);
     }
 }

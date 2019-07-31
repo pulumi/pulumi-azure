@@ -176,6 +176,13 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
             inputs["sourcePortRange"] = args ? args.sourcePortRange : undefined;
             inputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NetworkSecurityRule.__pulumiType, name, inputs, opts);
     }
 }

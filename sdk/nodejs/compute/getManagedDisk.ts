@@ -90,6 +90,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
  */
 export function getManagedDisk(args: GetManagedDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedDiskResult> & GetManagedDiskResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetManagedDiskResult> = pulumi.runtime.invoke("azure:compute/getManagedDisk:getManagedDisk", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

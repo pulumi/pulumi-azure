@@ -96,6 +96,13 @@ export class Workspace extends pulumi.CustomResource {
             inputs["scope"] = args ? args.scope : undefined;
             inputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Workspace.__pulumiType, name, inputs, opts);
     }
 }

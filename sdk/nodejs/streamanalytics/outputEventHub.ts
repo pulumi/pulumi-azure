@@ -163,6 +163,13 @@ export class OutputEventHub extends pulumi.CustomResource {
             inputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
             inputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(OutputEventHub.__pulumiType, name, inputs, opts);
     }
 }

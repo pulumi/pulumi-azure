@@ -23,6 +23,13 @@ import * as utilities from "../utilities";
  */
 export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> & GetSubscriptionsResult {
     args = args || {};
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetSubscriptionsResult> = pulumi.runtime.invoke("azure:core/getSubscriptions:getSubscriptions", {
         "displayNameContains": args.displayNameContains,
         "displayNamePrefix": args.displayNamePrefix,

@@ -128,6 +128,13 @@ export class Credential extends pulumi.CustomResource {
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Credential.__pulumiType, name, inputs, opts);
     }
 }

@@ -24,6 +24,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
  */
 export function getKubernetesServiceVersions(args: GetKubernetesServiceVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetKubernetesServiceVersionsResult> & GetKubernetesServiceVersionsResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetKubernetesServiceVersionsResult> = pulumi.runtime.invoke("azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions", {
         "location": args.location,
         "versionPrefix": args.versionPrefix,

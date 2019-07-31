@@ -217,6 +217,13 @@ export class RServerCluster extends pulumi.CustomResource {
             inputs["httpsEndpoint"] = undefined /*out*/;
             inputs["sshEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(RServerCluster.__pulumiType, name, inputs, opts);
     }
 }

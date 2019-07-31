@@ -138,6 +138,13 @@ export class NetworkInterfaceBackendAddressPoolAssociation extends pulumi.Custom
             inputs["ipConfigurationName"] = args ? args.ipConfigurationName : undefined;
             inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(NetworkInterfaceBackendAddressPoolAssociation.__pulumiType, name, inputs, opts);
     }
 }

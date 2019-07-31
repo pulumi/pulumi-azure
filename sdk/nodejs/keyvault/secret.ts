@@ -149,6 +149,13 @@ export class Secret extends pulumi.CustomResource {
             inputs["vaultUri"] = args ? args.vaultUri : undefined;
             inputs["version"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Secret.__pulumiType, name, inputs, opts);
     }
 }

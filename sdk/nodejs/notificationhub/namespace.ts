@@ -125,6 +125,13 @@ export class Namespace extends pulumi.CustomResource {
             inputs["skuName"] = args ? args.skuName : undefined;
             inputs["servicebusEndpoint"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Namespace.__pulumiType, name, inputs, opts);
     }
 }

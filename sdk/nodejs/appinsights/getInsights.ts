@@ -24,6 +24,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_insights.html.markdown.
  */
 export function getInsights(args: GetInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetInsightsResult> & GetInsightsResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetInsightsResult> = pulumi.runtime.invoke("azure:appinsights/getInsights:getInsights", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,

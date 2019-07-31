@@ -22,6 +22,13 @@ import * as utilities from "../utilities";
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
  */
 export function getPublicIPs(args: GetPublicIPsArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPsResult> & GetPublicIPsResult {
+    if (!opts) {
+        opts = {}
+    }
+
+    if (!opts.version) {
+        opts.version = utilities.getVersion();
+    }
     const promise: Promise<GetPublicIPsResult> = pulumi.runtime.invoke("azure:network/getPublicIPs:getPublicIPs", {
         "allocationType": args.allocationType,
         "attached": args.attached,

@@ -164,6 +164,13 @@ export class Api extends pulumi.CustomResource {
             inputs["version"] = undefined /*out*/;
             inputs["versionSetId"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Api.__pulumiType, name, inputs, opts);
     }
 }

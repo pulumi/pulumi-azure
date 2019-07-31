@@ -341,6 +341,13 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(AutoscaleSetting.__pulumiType, name, inputs, opts);
     }
 }

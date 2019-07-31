@@ -176,6 +176,13 @@ export class KubernetesCluster extends pulumi.CustomResource {
             inputs["kubeConfigRaw"] = undefined /*out*/;
             inputs["nodeResourceGroup"] = undefined /*out*/;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(KubernetesCluster.__pulumiType, name, inputs, opts);
     }
 }
