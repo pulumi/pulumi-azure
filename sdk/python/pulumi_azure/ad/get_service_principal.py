@@ -30,6 +30,9 @@ class GetServicePrincipalResult:
         """
 
 async def get_service_principal(application_id=None,display_name=None,object_id=None,opts=None):
+    """
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_service_principal.html.markdown.
+    """
     __args__ = dict()
 
     __args__['applicationId'] = application_id

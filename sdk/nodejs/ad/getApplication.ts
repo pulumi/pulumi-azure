@@ -4,12 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
+/**
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_application.html.markdown.
+ */
+export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> & GetApplicationResult {
     args = args || {};
-    return pulumi.runtime.invoke("azure:ad/getApplication:getApplication", {
+    const promise: Promise<GetApplicationResult> = pulumi.runtime.invoke("azure:ad/getApplication:getApplication", {
         "name": args.name,
         "objectId": args.objectId,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

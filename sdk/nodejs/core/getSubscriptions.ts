@@ -21,12 +21,14 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
  */
-export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> {
+export function getSubscriptions(args?: GetSubscriptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionsResult> & GetSubscriptionsResult {
     args = args || {};
-    return pulumi.runtime.invoke("azure:core/getSubscriptions:getSubscriptions", {
+    const promise: Promise<GetSubscriptionsResult> = pulumi.runtime.invoke("azure:core/getSubscriptions:getSubscriptions", {
         "displayNameContains": args.displayNameContains,
         "displayNamePrefix": args.displayNamePrefix,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

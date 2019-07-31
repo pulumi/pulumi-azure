@@ -63,6 +63,9 @@ class GetApplicationResult:
         """
 
 async def get_application(name=None,object_id=None,opts=None):
+    """
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_application.html.markdown.
+    """
     __args__ = dict()
 
     __args__['name'] = name

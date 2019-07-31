@@ -16,7 +16,11 @@ import * as pulumi from "@pulumi/pulumi";
 import { getServiceBusNamespace, Queue, Subscription, Topic } from ".";
 import { EventHub, EventHubConsumerGroup, getEventhubNamespace } from ".";
 
+import * as eventgrid from "azure-eventgrid/lib/models";
 import * as appservice from "../appservice";
+import { ResourceGroup } from "../core";
+import { Account } from "../storage";
+import { EventGridEventSubscription } from "./eventGridEventSubscription";
 
 interface ServiceBusBindingDefinition extends appservice.BindingDefinition {
     /**
@@ -58,7 +62,7 @@ interface ServiceBusBindingDefinition extends appservice.BindingDefinition {
 /**
  * Data that will be passed along in the context object to the ServiceBusCallback.
  */
-export interface ServiceBusContext extends appservice.Context<void> {
+export interface ServiceBusContext extends appservice.Context<appservice.FunctionDefaultResponse> {
     invocationId: string;
     executionContext: {
         invocationId: string;
@@ -116,9 +120,9 @@ export interface ServiceBusHostSettings extends appservice.HostSettings {
 /**
  * Signature of the callback that can receive queue and topic notifications.
  */
-export type ServiceBusCallback = appservice.Callback<ServiceBusContext, string, void>;
+export type ServiceBusCallback = appservice.Callback<ServiceBusContext, string, appservice.FunctionDefaultResponse>;
 
-export interface ServiceBusFunctionArgs extends appservice.CallbackArgs<ServiceBusContext, string, void> {
+export interface ServiceBusFunctionArgs extends appservice.CallbackFunctionArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
      * The ServiceBus Queue to subscribe to.
      */
@@ -135,7 +139,7 @@ export interface ServiceBusFunctionArgs extends appservice.CallbackArgs<ServiceB
     subscription?: Subscription;
 };
 
-export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<ServiceBusContext, string, void> {
+export interface QueueEventSubscriptionArgs extends appservice.CallbackFunctionAppArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the Queue's resource group will be used.
@@ -185,7 +189,7 @@ Queue.prototype.getEventFunction = function(this: Queue, name, args) {
     return new ServiceBusFunction(name, functionArgs);
 }
 
-export class QueueEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, void> {
+export class QueueEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     readonly queue: Queue;
 
     constructor(
@@ -204,7 +208,7 @@ export class QueueEventSubscription extends appservice.EventSubscription<Service
     }
 }
 
-export interface GetTopicFunctionArgs extends appservice.CallbackArgs<ServiceBusContext, string, void> {
+export interface GetTopicFunctionArgs extends appservice.CallbackArgs<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     /**
      * The ServiceBus Subscription to subscribe the Function to.
      */
@@ -250,7 +254,7 @@ Topic.prototype.getEventFunction = function(this: Topic, name, args) {
     return new ServiceBusFunction(name, { ...args, topic: this });
 }
 
-export class TopicEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, void> {
+export class TopicEventSubscription extends appservice.EventSubscription<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     readonly topic: Topic;
     readonly subscription: Subscription;
 
@@ -285,7 +289,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<Service
 /**
  * Azure Function triggered by a ServiceBus Topic.
  */
-export class ServiceBusFunction extends appservice.Function<ServiceBusContext, string, void> {
+export class ServiceBusFunction extends appservice.Function<ServiceBusContext, string, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: ServiceBusFunctionArgs) {
         if (!args.queue && !args.topic) {
             throw new Error("Either [queue] or [topic] has to be specified");
@@ -311,7 +315,7 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = pulumi.interpolate`ServiceBus${namespaceName}ConnectionKey`;
 
-        const bindings: ServiceBusBindingDefinition[] = [{
+        const trigger = {
             name: "message",
             direction: "in",
             type: "serviceBusTrigger",
@@ -319,7 +323,7 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
             topicName: args.topic && args.topic.name,
             subscriptionName: args.subscription && args.subscription.name,
             connection: bindingConnectionKey,
-        }];
+        } as ServiceBusBindingDefinition;
 
         const namespace = pulumi.all([namespaceName, resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
@@ -328,7 +332,7 @@ export class ServiceBusFunction extends appservice.Function<ServiceBusContext, s
         const appSettings = pulumi.all([namespace.defaultPrimaryConnectionString, bindingConnectionKey]).apply(
             ([connectionString, key]) => ({ [key]: connectionString }));
 
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args, appSettings);
     }
 }
 
@@ -375,7 +379,7 @@ export interface EventHubBindingDefinition extends appservice.BindingDefinition 
 /**
  * Data that will be passed along in the context object to the EventHubCallback.
  */
-export interface EventHubContext extends appservice.Context<void> {
+export interface EventHubContext extends appservice.Context<appservice.FunctionDefaultResponse> {
     invocationId: string;
     executionContext: {
         invocationId: string;
@@ -413,9 +417,9 @@ export interface EventHubContext extends appservice.Context<void> {
 /**
  * Signature of the callback that can receive event hub notifications.
  */
-export type EventHubCallback = appservice.Callback<EventHubContext, string, void>;
+export type EventHubCallback = appservice.Callback<EventHubContext, string, appservice.FunctionDefaultResponse>;
 
-export interface GetEventHubFunctionArgs extends appservice.CallbackArgs<EventHubContext, any, void> {
+export interface GetEventHubFunctionArgs extends appservice.CallbackArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * Optional Consumer Group to subscribe the FunctionApp to. If not present, the default consumer group will be used.
      */
@@ -434,7 +438,7 @@ export interface EventHubFunctionArgs extends GetEventHubFunctionArgs {
     eventHub: EventHub;
 };
 
-export interface EventHubSubscriptionArgs extends GetEventHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, void> {
+export interface EventHubSubscriptionArgs extends GetEventHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the Event Hub's resource group will be used.
@@ -478,7 +482,7 @@ EventHub.prototype.getEventFunction = function(this: EventHub, name, args) {
     return new EventHubFunction(name, functionArgs);
 }
 
-export class EventHubSubscription extends appservice.EventSubscription<EventHubContext, string, void> {
+export class EventHubSubscription extends appservice.EventSubscription<EventHubContext, string, appservice.FunctionDefaultResponse> {
     readonly eventHub: EventHub;
     readonly consumerGroup?: EventHubConsumerGroup;
 
@@ -508,14 +512,14 @@ export const DefaultConsumerGroup = "$Default";
 /**
  * Azure Function triggered by an Event Hub.
  */
-export class EventHubFunction extends appservice.Function<EventHubContext, string, void> {
+export class EventHubFunction extends appservice.Function<EventHubContext, string, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: EventHubFunctionArgs) {
         // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = pulumi.interpolate`EventHub${args.eventHub.namespaceName}ConnectionKey`;
 
-        const bindings: EventHubBindingDefinition[] = [{
+        const trigger = {
             name: "eventHub",
             direction: "in",
             type: "eventHubTrigger",
@@ -523,7 +527,7 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
             consumerGroup: args.consumerGroup !== undefined ? args.consumerGroup.name : DefaultConsumerGroup,
             cardinality: args.cardinality,
             connection: bindingConnectionKey,
-        }];
+        } as EventHubBindingDefinition;
 
         const namespace = pulumi.all([args.eventHub.namespaceName, args.eventHub.resourceGroupName])
                                .apply(([namespaceName, resourceGroupName]) =>
@@ -531,10 +535,217 @@ export class EventHubFunction extends appservice.Function<EventHubContext, strin
 
         // Place the mapping from the well known key name to the Event Hubs account connection string in
         // the 'app settings' object.
-
         const appSettings = pulumi.all([namespace.defaultPrimaryConnectionString, bindingConnectionKey]).apply(
             ([connectionString, key]) => ({ [key]: connectionString }));
 
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args, appSettings);
     }
+}
+
+interface EventGridBindingDefinition extends appservice.BindingDefinition {
+    /**
+     * The name of the property in the context object to bind the actual Event Grid message to.
+     */
+    name: string;
+
+    /**
+     * The type of a binding. Must be 'eventGridTrigger'.
+     */
+    type: "eventGridTrigger";
+
+    /**
+     * The direction of the binding.  We only support queues and topics being inputs to functions.
+     */
+    direction: "in";
+}
+
+/**
+ * Event that will be passed along to the EventGridCallback.
+ */
+export interface EventGridEvent<T> extends eventgrid.EventGridEvent {
+    data: T;
+}
+
+/**
+ * Data that will be passed along in the context object to the EventGridCallback.
+ */
+export interface EventGridContext<T> extends appservice.Context<appservice.FunctionDefaultResponse> {
+    invocationId: string;
+    executionContext: {
+        invocationId: string;
+        functionName: string;
+        functionDirectory: string;
+    };
+    bindings: { message: EventGridEvent<T> };
+    bindingData: {
+        data: T,
+        sys: {
+            methodName: string;
+            utcNow: string;
+        },
+        invocationId: string;
+    };
+}
+
+export interface EventGridFunctionArgs<T> extends appservice.CallbackFunctionArgs<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
+}
+
+/**
+ * Azure Function triggered by a Event Grid Topic.
+ */
+export class EventGridFunction<T> extends appservice.Function<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
+    constructor(name: string, args: EventGridFunctionArgs<T>) {
+        const trigger = {
+            name: "message",
+            direction: "in",
+            type: "eventGridTrigger",
+        } as appservice.InputBindingDefinition;
+
+        super(name, trigger, args);
+    }
+}
+
+export interface EventGridCallbackSubscriptionArgs<T> extends appservice.CallbackFunctionAppArgs<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
+    /**
+     * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence
+     * over [resourceGroupName]. If none of the two is supplied, the Queue's resource group will be used.
+     */
+    resourceGroupName?: pulumi.Input<string>;
+
+    /**
+     * A list of applicable event types that need to be part of the event subscription.
+     */
+    readonly includedEventTypes?: pulumi.Input<pulumi.Input<string>[]>;
+
+    /**
+     * A retry policy block as defined below.
+     */
+    readonly retryPolicy?: pulumi.Input<{ eventTimeToLive: pulumi.Input<number>, maxDeliveryAttempts: pulumi.Input<number> }>;
+
+    /**
+     * A subject filter block as defined below.
+     */
+    readonly subjectFilter?: pulumi.Input<{ caseSensitive?: pulumi.Input<boolean>, subjectBeginsWith?: pulumi.Input<string>, subjectEndsWith?: pulumi.Input<string> }>;
+}
+
+/**
+ * Resource properties to scope an Event Grid subscription to. The shape fits most Azure resources,
+ * so they can be passed directly.
+ */
+export interface EventGridScope {
+    /**
+     * Resource group name to create subscription at, if another resource group is not explicitly
+     * passed in subscription arguments.
+     */
+    resourceGroupName: pulumi.Input<string>;
+
+    /**
+     * Azure Resource ID.
+     */
+    id: pulumi.Input<string>;
+}
+
+/**
+ * A callback-based subscription to events coming from Event Grid. Creates an Azure Function and
+ * an Event Grid Event Subscription with the webhook URL pointing to the Azure Function.
+ */
+export class EventGridCallbackSubscription<T> extends appservice.EventSubscription<EventGridContext<T>, EventGridEvent<T>, appservice.FunctionDefaultResponse> {
+    public readonly subscription: EventGridEventSubscription;
+
+    constructor(name: string,
+                scope: EventGridScope,
+                args: EventGridCallbackSubscriptionArgs<T>,
+                opts: pulumi.ComponentResourceOptions = {}) {
+
+        const { resourceGroupName, location } =
+            appservice.getResourceGroupNameAndLocation(args, pulumi.output(scope.resourceGroupName));
+
+        super("azure:eventhub:EventGridCallbackSubscription",
+              name,
+              new EventGridFunction(name, args),
+              { ...args, resourceGroupName, location },
+              opts);
+
+        const keys = pulumi.output(this.functionApp.getHostKeys());
+        const key = keys.systemKeys["eventgrid_extension"];
+        const url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/runtime/webhooks/eventgrid?functionName=${name}&code=${key}`;
+
+        this.subscription = new EventGridEventSubscription(name, {
+            webhookEndpoint: { url },
+            scope: scope.id,
+            ...args,
+        }, { ...opts, parent: this });
+
+        this.registerOutputs();
+    }
+}
+
+export interface StorageAccountEventGridCallbackSubscriptionArgs<T> extends EventGridCallbackSubscriptionArgs<T> {
+    /**
+     * Storage Account to subscribe to. Event Grid events for this account trigger the callback execution.
+     */
+    readonly storageAccount: Account;
+}
+
+/**
+ * Possible types of Event Grid events for a Resource Group.
+ */
+type ResourceGroupEvent =
+    eventgrid.ResourceActionCancelData |
+    eventgrid.ResourceActionFailureData |
+    eventgrid.ResourceActionSuccessData |
+    eventgrid.ResourceDeleteCancelData |
+    eventgrid.ResourceDeleteFailureData |
+    eventgrid.ResourceDeleteSuccessData |
+    eventgrid.ResourceWriteCancelData |
+    eventgrid.ResourceWriteFailureData |
+    eventgrid.ResourceWriteSuccessData;
+
+export interface ResourceGroupEventGridCallbackSubscriptionArgs extends EventGridCallbackSubscriptionArgs<ResourceGroupEvent> {
+    /**
+     * Resource Group to subscribe to. Event Grid events for this resource group trigger the callback execution.
+     */
+    readonly resourceGroup: ResourceGroup;
+}
+
+/**
+ * Contains hooks to subscribe to different kinds of Event Grid events.
+ */
+export namespace events {
+    /**
+     * Creates a new subscription to events fired from Event Grid. The callback is executed whenever
+     * a new Blob is created in a container of the Storage Account.
+     */
+    export function onGridBlobCreated(name: string,
+                                      args: StorageAccountEventGridCallbackSubscriptionArgs<eventgrid.StorageBlobCreatedEventData>,
+                                      opts?: pulumi.ComponentResourceOptions): EventGridCallbackSubscription<eventgrid.StorageBlobCreatedEventData> {
+        return new EventGridCallbackSubscription(
+            name, args.storageAccount, { ...args, includedEventTypes: ["Microsoft.Storage.BlobCreated"] },
+            { parent: args.storageAccount, ...opts });
+
+    }
+
+    /**
+     * Creates a new subscription to events fired from Event Grid. The callback is executed whenever
+     * a Blob is deleted from a container of the Storage Account.
+     */
+    export function onGridBlobDeleted(name: string,
+                                      args: StorageAccountEventGridCallbackSubscriptionArgs<eventgrid.StorageBlobDeletedEventData>,
+                                      opts?: pulumi.ComponentResourceOptions): EventGridCallbackSubscription<eventgrid.StorageBlobDeletedEventData> {
+        return new EventGridCallbackSubscription(
+            name, args.storageAccount, { ...args, includedEventTypes: ["Microsoft.Storage.BlobDeleted"] },
+            { parent: args.storageAccount, ...opts });
+    }
+
+    /**
+     * Creates a new subscription to events fired from Event Grid. The callback is executed whenever
+     * an event associated with the Resource Group fires.
+     */
+    export function onResourceGroupEvent(name: string,
+                                         args: ResourceGroupEventGridCallbackSubscriptionArgs,
+                                         opts?: pulumi.ComponentResourceOptions): EventGridCallbackSubscription<ResourceGroupEvent> {
+        return new EventGridCallbackSubscription(
+            name, { id: args.resourceGroup.id, resourceGroupName: args.resourceGroup.name },
+            args, { parent: args.resourceGroup, ...opts });
+    };
 }

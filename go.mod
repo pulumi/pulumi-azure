@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	git.apache.org/thrift.git v0.12.0 // indirect
+	github.com/Azure/go-autorest v11.7.0+incompatible
 	github.com/chzyer/logex v1.1.11-0.20160617073814-96a4d311aa9b // indirect
 	github.com/coreos/bbolt v1.3.1-coreos.1 // indirect
 	github.com/djherbis/times v1.2.0 // indirect
@@ -19,8 +20,8 @@ require (
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/pelletier/go-toml v1.3.0 // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/pulumi/pulumi v0.17.22-0.20190702185104-ebceea93a5da
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190709052202-629f7c54269d
+	github.com/pulumi/pulumi v0.17.26-0.20190723034217-ed5b8437d126
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20190729191528-9b56bd2a9dc0
 	github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709

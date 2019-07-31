@@ -16,9 +16,11 @@ package azure
 
 import (
 	"fmt"
+	"os"
 	"strings"
 	"unicode"
 
+	"github.com/Azure/go-autorest/autorest/azure/cli"
 	"github.com/hashicorp/terraform/config"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/terraform"
@@ -122,6 +124,52 @@ func boolRef(b bool) *bool {
 	return &b
 }
 
+type cloudShellProfile struct {
+	useMSI         bool
+	msiEndpoint    string
+	subscriptionID string
+	tenantID       string
+}
+
+// Azure Cloud Shell is a special case in terms of config: it provides authentication via
+// an MSI endpoint, but it also has Azure CLI installed. Therefore, to make Pulumi CLI work
+// out of the box with no actions required from a user, we combine the MSI endpoint authentication
+// with retrieving the subscription information from the current profile. If both are found,
+// we switch the provider to the endpoint/subscriptoin by default.
+func detectCloudShell() cloudShellProfile {
+	negative := cloudShellProfile{
+		useMSI: false,
+	}
+
+	msiEndpoint := os.Getenv("MSI_ENDPOINT")
+	if msiEndpoint == "" {
+		return negative
+	}
+
+	profilePath, err := cli.ProfilePath()
+	if err != nil {
+		return negative
+	}
+
+	profile, err := cli.LoadProfile(profilePath)
+	if err != nil {
+		return negative
+	}
+
+	for _, subscription := range profile.Subscriptions {
+		if subscription.IsDefault {
+			return cloudShellProfile{
+				useMSI:         true,
+				msiEndpoint:    msiEndpoint,
+				subscriptionID: subscription.ID,
+				tenantID:       subscription.TenantID,
+			}
+		}
+	}
+
+	return negative
+}
+
 // Provider returns additional overlaid schema and metadata associated with the azure package.
 //
 // nolint: lll
@@ -132,6 +180,10 @@ func Provider() tfbridge.ProviderInfo {
 	)
 
 	p := azurerm.Provider().(*schema.Provider)
+
+	// Adjust the defaults if running in Azure Cloud Shell.
+	// Environment variables still take preference, e.g. USE_MSI=false disables the MSI endpoint.
+	cloudShell := detectCloudShell()
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
@@ -144,7 +196,7 @@ func Provider() tfbridge.ProviderInfo {
 		Config: map[string]*tfbridge.SchemaInfo{
 			"subscription_id": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "",
+					Value:   cloudShell.subscriptionID,
 					EnvVars: []string{"ARM_SUBSCRIPTION_ID"},
 				},
 			},
@@ -156,7 +208,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"tenant_id": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "",
+					Value:   cloudShell.tenantID,
 					EnvVars: []string{"ARM_TENANT_ID"},
 				},
 			},
@@ -204,13 +256,13 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"use_msi": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   false,
+					Value:   cloudShell.useMSI,
 					EnvVars: []string{"ARM_USE_MSI"},
 				},
 			},
 			"msi_endpoint": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "",
+					Value:   cloudShell.msiEndpoint,
 					EnvVars: []string{"ARM_MSI_ENDPOINT"},
 				},
 			},
@@ -298,6 +350,10 @@ func Provider() tfbridge.ProviderInfo {
 					// Max length of an app service plan name is 40.
 					// This was discovered directly through the portal.
 					azureName: AutoNameWithMaxLength(azureName, 40),
+					"kind": {
+						Type:     "string",
+						AltTypes: []tokens.Type{azureType(azureAppService+"/kind", "Kind")},
+					},
 				}},
 			"azurerm_app_service_slot":        {Tok: azureResource(azureAppService, "Slot")},
 			"azurerm_app_service_active_slot": {Tok: azureResource(azureAppService, "ActiveSlot")},
@@ -1026,10 +1082,11 @@ func Provider() tfbridge.ProviderInfo {
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
 			},
 			Dependencies: map[string]string{
-				"@pulumi/pulumi":                "^0.17.12",
+				"@pulumi/pulumi":                "^0.17.25",
+				"azure-eventgrid":               "^1.6.0",
 				"@azure/functions":              "^1.0.3",
-				"@azure/ms-rest-azure-js":       "^1.3.8",
-				"@azure/ms-rest-nodeauth":       "^2.0.2",
+				"@azure/ms-rest-azure-js":       "^2.0.0",
+				"@azure/ms-rest-nodeauth":       "^2.0.3",
 				"azure-functions-ts-essentials": "^1.3.2",
 			},
 			Overlay: &tfbridge.OverlayInfo{
@@ -1041,6 +1098,7 @@ func Provider() tfbridge.ProviderInfo {
 				Modules: map[string]*tfbridge.OverlayInfo{
 					"appservice": {
 						DestFiles: []string{
+							"kind.ts",
 							"zMixins.ts",
 							"zMixins_http.ts",
 							"zMixins_timer.ts",

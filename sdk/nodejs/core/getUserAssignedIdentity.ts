@@ -24,11 +24,13 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
  */
-export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> {
-    return pulumi.runtime.invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", {
+export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> & GetUserAssignedIdentityResult {
+    const promise: Promise<GetUserAssignedIdentityResult> = pulumi.runtime.invoke("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
+
+    return pulumi.utils.liftProperties(promise, opts);
 }
 
 /**

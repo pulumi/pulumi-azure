@@ -18,7 +18,12 @@ import { IoTHub } from "./ioTHub";
 import { ConsumerGroup } from "./consumerGroup";
 import { DefaultConsumerGroup, EventHubBindingDefinition, EventHubContext, EventHubCallback } from '../eventhub';
 
-export interface GetIoTHubFunctionArgs extends appservice.CallbackArgs<EventHubContext, any, void> {
+export interface GetIoTHubFunctionArgs extends appservice.CallbackArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
+    /**
+     * IoT Hub to subscribe the Function to.
+     */
+    iotHub: IoTHub;
+
     /**
      * Optional Consumer Group to subscribe the Function to. If not present, the default consumer group will be used.
      */
@@ -37,7 +42,7 @@ export interface IoTHubFunctionArgs extends GetIoTHubFunctionArgs {
     iotHub: IoTHub;
 };
 
-export interface IoTHubSubscriptionArgs extends GetIoTHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, void> {
+export interface IoTHubSubscriptionArgs extends GetIoTHubFunctionArgs, appservice.CallbackFunctionAppArgs<EventHubContext, any, appservice.FunctionDefaultResponse> {
     /**
      * The name of the resource group in which to create the event subscription. [resourceGroup] takes precedence over [resourceGroupName].
      * If none of the two is supplied, the IoT Hub's resource group will be used.
@@ -78,7 +83,7 @@ IoTHub.prototype.getEventFunction = function(this: IoTHub, name, args) {
     return new IoTHubFunction(name, functionArgs);
 }
 
-export class IoTHubEventSubscription extends appservice.EventSubscription<EventHubContext, string, void> {
+export class IoTHubEventSubscription extends appservice.EventSubscription<EventHubContext, string, appservice.FunctionDefaultResponse> {
     readonly iotHub: IoTHub;
 
     constructor(
@@ -100,14 +105,14 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
 /**
  * Azure Function triggered by an IoT Hub.
  */
-export class IoTHubFunction extends appservice.Function<EventHubContext, string, void> {
+export class IoTHubFunction extends appservice.Function<EventHubContext, string, appservice.FunctionDefaultResponse> {
     constructor(name: string, args: IoTHubFunctionArgs) {
        // The event hub binding does not store the Event Hubs connection string directly.  Instead, the
         // connection string is put into the app settings (under whatever key we want). Then, the
         // .connection property of the binding contains the *name* of that app setting key.
         const bindingConnectionKey = pulumi.interpolate`IoTHub${args.iotHub.name}ConnectionKey`;
 
-        const bindings: EventHubBindingDefinition[] = [{
+        const trigger = {
             name: "eventHub",
             direction: "in",
             type: "eventHubTrigger",
@@ -115,7 +120,7 @@ export class IoTHubFunction extends appservice.Function<EventHubContext, string,
             consumerGroup: args.consumerGroup ? args.consumerGroup.name : DefaultConsumerGroup,
             cardinality: args.cardinality,
             connection: bindingConnectionKey,
-        }];
+        } as EventHubBindingDefinition;
 
         pulumi.all([args.iotHub.fallbackRoute, args.iotHub.routes]).apply(([fallbackRoute, routes]) => {
             if (fallbackRoute && fallbackRoute.enabled) {
@@ -137,6 +142,6 @@ export class IoTHubFunction extends appservice.Function<EventHubContext, string,
                 [key]: `Endpoint=${eventHubEventsEndpoint};SharedAccessKeyName=iothubowner;SharedAccessKey=${sharedAccessPolicies.find(p => p.keyName === "iothubowner")!.primaryKey}`
             }));
 
-        super(name, bindings, args, appSettings);
+        super(name, trigger, args, appSettings);
     }
 }
