@@ -75,6 +75,10 @@ export interface GetSubscriptionResult {
      */
     readonly subscriptionId: string;
     /**
+     * The subscription tenant ID.
+     */
+    readonly tenantId: string;
+    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

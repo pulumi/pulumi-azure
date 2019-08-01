@@ -97,7 +97,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("test", {
- *     backendAddressPoolId: azurerm_application_gateway_test.backendAddressPool.0.id,
+ *     backendAddressPoolId: network.backendAddressPools[0].id,
  *     ipConfigurationName: "testconfiguration1",
  *     networkInterfaceId: testNetworkInterface.id,
  * });

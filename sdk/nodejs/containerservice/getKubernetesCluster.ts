@@ -65,7 +65,7 @@ export interface GetKubernetesClusterResult {
     /**
      * An `agent_pool_profile` block as documented below.
      */
-    readonly agentPoolProfiles: { count: number, dnsPrefix: string, maxPods: number, name: string, osDiskSizeGb: number, osType: string, type: string, vmSize: string, vnetSubnetId: string }[];
+    readonly agentPoolProfiles: { availabilityZones: string[], count: number, dnsPrefix: string, enableAutoScaling: boolean, maxCount: number, maxPods: number, minCount: number, name: string, nodeTaints?: string[], osDiskSizeGb: number, osType: string, type: string, vmSize: string, vnetSubnetId: string }[];
     /**
      * The DNS Prefix of the managed Kubernetes cluster.
      */
@@ -109,7 +109,7 @@ export interface GetKubernetesClusterResult {
     /**
      * A `network_profile` block as documented below.
      */
-    readonly networkProfiles: { dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, networkPolicy: string, podCidr: string, serviceCidr: string }[];
+    readonly networkProfiles: { dnsServiceIp: string, dockerBridgeCidr: string, loadBalancerSku: string, networkPlugin: string, networkPolicy: string, podCidr: string, serviceCidr: string }[];
     /**
      * Auto-generated Resource Group containing AKS Cluster resources.
      */
@@ -127,6 +127,10 @@ export interface GetKubernetesClusterResult {
      * A mapping of tags assigned to this resource.
      */
     readonly tags: {[key: string]: any};
+    /**
+     * A `windows_profile` block as documented below.
+     */
+    readonly windowsProfiles: { adminUsername: string }[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

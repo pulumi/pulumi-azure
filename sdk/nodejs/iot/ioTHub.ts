@@ -24,6 +24,12 @@ import * as utilities from "../utilities";
  *     name: "teststa",
  *     resourceGroupName: testResourceGroup.name,
  * });
+ * const testContainer = new azure.storage.Container("test", {
+ *     containerAccessType: "private",
+ *     name: "test",
+ *     resourceGroupName: testResourceGroup.name,
+ *     storageAccountName: testAccount.name,
+ * });
  * const testIoTHub = new azure.iot.IoTHub("test", {
  *     endpoints: [{
  *         batchFrequencyInSeconds: 60,
@@ -37,6 +43,15 @@ import * as utilities from "../utilities";
  *     }],
  *     fallbackRoute: {
  *         enabled: true,
+ *     },
+ *     fileUpload: {
+ *         connectionString: testAccount.primaryBlobConnectionString,
+ *         containerName: testContainer.name,
+ *         defaultTtl: "PT1H",
+ *         lockDuration: "PT1M",
+ *         maxDeliveryCount: 10,
+ *         notifications: true,
+ *         sasTtl: "PT1H",
  *     },
  *     location: testResourceGroup.location,
  *     name: "test",
@@ -56,12 +71,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         purpose: "testing",
  *     },
- * });
- * const testContainer = new azure.storage.Container("test", {
- *     containerAccessType: "private",
- *     name: "test",
- *     resourceGroupName: testResourceGroup.name,
- *     storageAccountName: testAccount.name,
  * });
  * ```
  *
@@ -119,6 +128,10 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly fallbackRoute!: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], source?: string }>;
     /**
+     * A `file_upload` block as defined below.
+     */
+    public readonly fileUpload!: pulumi.Output<{ connectionString: string, containerName: string, defaultTtl: string, lockDuration: string, maxDeliveryCount?: number, notifications?: boolean, sasTtl: string } | undefined>;
+    /**
      * The hostname of the IotHub Resource.
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
@@ -174,6 +187,7 @@ export class IoTHub extends pulumi.CustomResource {
             inputs["eventHubOperationsEndpoint"] = state ? state.eventHubOperationsEndpoint : undefined;
             inputs["eventHubOperationsPath"] = state ? state.eventHubOperationsPath : undefined;
             inputs["fallbackRoute"] = state ? state.fallbackRoute : undefined;
+            inputs["fileUpload"] = state ? state.fileUpload : undefined;
             inputs["hostname"] = state ? state.hostname : undefined;
             inputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
             inputs["location"] = state ? state.location : undefined;
@@ -194,6 +208,7 @@ export class IoTHub extends pulumi.CustomResource {
             }
             inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["fallbackRoute"] = args ? args.fallbackRoute : undefined;
+            inputs["fileUpload"] = args ? args.fileUpload : undefined;
             inputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -249,6 +264,10 @@ export interface IoTHubState {
      */
     readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
     /**
+     * A `file_upload` block as defined below.
+     */
+    readonly fileUpload?: pulumi.Input<{ connectionString: pulumi.Input<string>, containerName: pulumi.Input<string>, defaultTtl?: pulumi.Input<string>, lockDuration?: pulumi.Input<string>, maxDeliveryCount?: pulumi.Input<number>, notifications?: pulumi.Input<boolean>, sasTtl?: pulumi.Input<string> }>;
+    /**
      * The hostname of the IotHub Resource.
      */
     readonly hostname?: pulumi.Input<string>;
@@ -299,6 +318,10 @@ export interface IoTHubArgs {
      * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
     readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
+    /**
+     * A `file_upload` block as defined below.
+     */
+    readonly fileUpload?: pulumi.Input<{ connectionString: pulumi.Input<string>, containerName: pulumi.Input<string>, defaultTtl?: pulumi.Input<string>, lockDuration?: pulumi.Input<string>, maxDeliveryCount?: pulumi.Input<number>, notifications?: pulumi.Input<boolean>, sasTtl?: pulumi.Input<string> }>;
     /**
      * One or more `ip_filter_rule` blocks as defined below.
      */

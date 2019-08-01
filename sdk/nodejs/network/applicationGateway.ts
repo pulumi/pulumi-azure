@@ -171,6 +171,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly httpListeners!: pulumi.Output<{ customErrorConfigurations?: { customErrorPageUrl: string, id: string, statusCode: string }[], frontendIpConfigurationId: string, frontendIpConfigurationName: string, frontendPortId: string, frontendPortName: string, hostName?: string, id: string, name: string, protocol: string, requireSni?: boolean, sslCertificateId: string, sslCertificateName?: string }[]>;
     /**
+     * A `identity` block.
+     */
+    public readonly identity!: pulumi.Output<{ identityIds: string, type?: string }>;
+    /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -250,6 +254,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["frontendPorts"] = state ? state.frontendPorts : undefined;
             inputs["gatewayIpConfigurations"] = state ? state.gatewayIpConfigurations : undefined;
             inputs["httpListeners"] = state ? state.httpListeners : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["probes"] = state ? state.probes : undefined;
@@ -304,6 +309,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["frontendPorts"] = args ? args.frontendPorts : undefined;
             inputs["gatewayIpConfigurations"] = args ? args.gatewayIpConfigurations : undefined;
             inputs["httpListeners"] = args ? args.httpListeners : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["probes"] = args ? args.probes : undefined;
@@ -379,6 +385,10 @@ export interface ApplicationGatewayState {
      * One or more `http_listener` blocks as defined below.
      */
     readonly httpListeners?: pulumi.Input<pulumi.Input<{ customErrorConfigurations?: pulumi.Input<pulumi.Input<{ customErrorPageUrl: pulumi.Input<string>, id?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>[]>, frontendIpConfigurationId?: pulumi.Input<string>, frontendIpConfigurationName: pulumi.Input<string>, frontendPortId?: pulumi.Input<string>, frontendPortName: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, protocol: pulumi.Input<string>, requireSni?: pulumi.Input<boolean>, sslCertificateId?: pulumi.Input<string>, sslCertificateName?: pulumi.Input<string> }>[]>;
+    /**
+     * A `identity` block.
+     */
+    readonly identity?: pulumi.Input<{ identityIds: pulumi.Input<string>, type?: pulumi.Input<string> }>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -486,6 +496,10 @@ export interface ApplicationGatewayArgs {
      * One or more `http_listener` blocks as defined below.
      */
     readonly httpListeners: pulumi.Input<pulumi.Input<{ customErrorConfigurations?: pulumi.Input<pulumi.Input<{ customErrorPageUrl: pulumi.Input<string>, id?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>[]>, frontendIpConfigurationId?: pulumi.Input<string>, frontendIpConfigurationName: pulumi.Input<string>, frontendPortId?: pulumi.Input<string>, frontendPortName: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, protocol: pulumi.Input<string>, requireSni?: pulumi.Input<boolean>, sslCertificateId?: pulumi.Input<string>, sslCertificateName?: pulumi.Input<string> }>[]>;
+    /**
+     * A `identity` block.
+     */
+    readonly identity?: pulumi.Input<{ identityIds: pulumi.Input<string>, type?: pulumi.Input<string> }>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */

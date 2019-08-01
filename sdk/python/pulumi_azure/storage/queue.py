@@ -9,31 +9,32 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Queue(pulumi.CustomResource):
+    metadata: pulumi.Output[dict]
+    """
+    A mapping of MetaData which should be assigned to this Storage Queue.
+    """
     name: pulumi.Output[str]
     """
-    The name of the storage queue. Must be unique within the storage account the queue is located.
+    The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to
-    create the storage queue. Changing this forces a new resource to be created.
+    The name of the resource group in which to create the storage queue.
     """
     storage_account_name: pulumi.Output[str]
     """
-    Specifies the storage account in which to create the storage queue.
-    Changing this forces a new resource to be created.
+    Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, storage_account_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, metadata=None, name=None, resource_group_name=None, storage_account_name=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Storage Queue.
+        Manages a Queue within an Azure Storage Account.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The name of the storage queue. Must be unique within the storage account the queue is located.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the storage queue. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage queue.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] metadata: A mapping of MetaData which should be assigned to this Storage Queue.
+        :param pulumi.Input[str] name: The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage queue.
+        :param pulumi.Input[str] storage_account_name: Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_queue.html.markdown.
         """
@@ -52,10 +53,10 @@ class Queue(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['metadata'] = metadata
+
         __props__['name'] = name
 
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
         if storage_account_name is None:

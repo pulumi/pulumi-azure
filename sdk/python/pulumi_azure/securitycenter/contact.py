@@ -67,8 +67,6 @@ class Contact(pulumi.CustomResource):
             raise TypeError("Missing required property 'email'")
         __props__['email'] = email
 
-        if phone is None:
-            raise TypeError("Missing required property 'phone'")
         __props__['phone'] = phone
 
         super(Contact, __self__).__init__(

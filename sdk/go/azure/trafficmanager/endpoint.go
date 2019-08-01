@@ -29,6 +29,7 @@ func NewEndpoint(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["customHeaders"] = nil
 		inputs["endpointLocation"] = nil
 		inputs["endpointStatus"] = nil
 		inputs["geoMappings"] = nil
@@ -37,11 +38,13 @@ func NewEndpoint(ctx *pulumi.Context,
 		inputs["priority"] = nil
 		inputs["profileName"] = nil
 		inputs["resourceGroupName"] = nil
+		inputs["subnets"] = nil
 		inputs["target"] = nil
 		inputs["targetResourceId"] = nil
 		inputs["type"] = nil
 		inputs["weight"] = nil
 	} else {
+		inputs["customHeaders"] = args.CustomHeaders
 		inputs["endpointLocation"] = args.EndpointLocation
 		inputs["endpointStatus"] = args.EndpointStatus
 		inputs["geoMappings"] = args.GeoMappings
@@ -50,6 +53,7 @@ func NewEndpoint(ctx *pulumi.Context,
 		inputs["priority"] = args.Priority
 		inputs["profileName"] = args.ProfileName
 		inputs["resourceGroupName"] = args.ResourceGroupName
+		inputs["subnets"] = args.Subnets
 		inputs["target"] = args.Target
 		inputs["targetResourceId"] = args.TargetResourceId
 		inputs["type"] = args.Type
@@ -69,6 +73,7 @@ func GetEndpoint(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *EndpointState, opts ...pulumi.ResourceOpt) (*Endpoint, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["customHeaders"] = state.CustomHeaders
 		inputs["endpointLocation"] = state.EndpointLocation
 		inputs["endpointMonitorStatus"] = state.EndpointMonitorStatus
 		inputs["endpointStatus"] = state.EndpointStatus
@@ -78,6 +83,7 @@ func GetEndpoint(ctx *pulumi.Context,
 		inputs["priority"] = state.Priority
 		inputs["profileName"] = state.ProfileName
 		inputs["resourceGroupName"] = state.ResourceGroupName
+		inputs["subnets"] = state.Subnets
 		inputs["target"] = state.Target
 		inputs["targetResourceId"] = state.TargetResourceId
 		inputs["type"] = state.Type
@@ -98,6 +104,11 @@ func (r *Endpoint) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Endpoint) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// One or more `custom_header` blocks as defined below
+func (r *Endpoint) CustomHeaders() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["customHeaders"])
 }
 
 // Specifies the Azure location of the Endpoint,
@@ -159,6 +170,11 @@ func (r *Endpoint) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
+// One or more `subnet` blocks as defined below
+func (r *Endpoint) Subnets() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["subnets"])
+}
+
 // The FQDN DNS name of the target. This argument must be
 // provided for an endpoint of type `externalEndpoints`, for other types it
 // will be computed.
@@ -190,6 +206,8 @@ func (r *Endpoint) Weight() *pulumi.IntOutput {
 
 // Input properties used for looking up and filtering Endpoint resources.
 type EndpointState struct {
+	// One or more `custom_header` blocks as defined below
+	CustomHeaders interface{}
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
@@ -222,6 +240,8 @@ type EndpointState struct {
 	// The name of the resource group in which to
 	// create the Traffic Manager endpoint.
 	ResourceGroupName interface{}
+	// One or more `subnet` blocks as defined below
+	Subnets interface{}
 	// The FQDN DNS name of the target. This argument must be
 	// provided for an endpoint of type `externalEndpoints`, for other types it
 	// will be computed.
@@ -243,6 +263,8 @@ type EndpointState struct {
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
+	// One or more `custom_header` blocks as defined below
+	CustomHeaders interface{}
 	// Specifies the Azure location of the Endpoint,
 	// this must be specified for Profiles using the `Performance` routing method
 	// if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
@@ -274,6 +296,8 @@ type EndpointArgs struct {
 	// The name of the resource group in which to
 	// create the Traffic Manager endpoint.
 	ResourceGroupName interface{}
+	// One or more `subnet` blocks as defined below
+	Subnets interface{}
 	// The FQDN DNS name of the target. This argument must be
 	// provided for an endpoint of type `externalEndpoints`, for other types it
 	// will be computed.

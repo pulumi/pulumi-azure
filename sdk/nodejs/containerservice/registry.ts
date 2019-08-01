@@ -91,6 +91,10 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * A `network_rule_set` block as documented below.
+     */
+    public readonly networkRuleSet!: pulumi.Output<{ defaultAction?: string, ipRules?: { action: string, ipRange: string }[] }>;
+    /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -127,6 +131,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["location"] = state ? state.location : undefined;
             inputs["loginServer"] = state ? state.loginServer : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkRuleSet"] = state ? state.networkRuleSet : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["sku"] = state ? state.sku : undefined;
             inputs["storageAccount"] = state ? state.storageAccount : undefined;
@@ -141,6 +146,7 @@ export class Registry extends pulumi.CustomResource {
             inputs["georeplicationLocations"] = args ? args.georeplicationLocations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["storageAccount"] = args ? args.storageAccount : undefined;
@@ -194,6 +200,10 @@ export interface RegistryState {
      */
     readonly name?: pulumi.Input<string>;
     /**
+     * A `network_rule_set` block as documented below.
+     */
+    readonly networkRuleSet?: pulumi.Input<{ defaultAction?: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, ipRange: pulumi.Input<string> }>[]> }>;
+    /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -232,6 +242,10 @@ export interface RegistryArgs {
      * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * A `network_rule_set` block as documented below.
+     */
+    readonly networkRuleSet?: pulumi.Input<{ defaultAction?: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, ipRange: pulumi.Input<string> }>[]> }>;
     /**
      * The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
      */
