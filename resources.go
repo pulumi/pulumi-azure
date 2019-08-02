@@ -74,7 +74,6 @@ const (
 	azureMariaDB             = "mariadb"             // MariaDB
 	azureMessaging           = "eventhub"            // Event Hub
 	azureMgmtResource        = "managementresource"  // Management Resource
-	azureManagementGroups    = "managementgroups"    // Management Groups
 	azureMediaServices       = "mediaservices"       // Media Services
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMSSQL               = "mssql"               // MS Sql
@@ -99,8 +98,9 @@ const (
 	azureTrafficManager      = "trafficmanager"      // Traffic Manager
 
 	// Legacy Module Names
-	azureLegacyRole = "role" // Azure Role
-	azureLegacyMSI  = "msi"  // Managed Service Identity (MSI)
+	azureLegacyRole             = "role"             // Azure Role
+	azureLegacyMSI              = "msi"              // Managed Service Identity (MSI)
+	azureLegacyManagementGroups = "managementgroups" // Management Groups
 )
 
 // azureMember manufactures a type token for the Azure package and the given module and type.
@@ -686,9 +686,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_sql_database":       {Tok: azureResource(azureCosmosDB, "SqlDatabase")},
 			"azurerm_cosmosdb_table":              {Tok: azureResource(azureCosmosDB, "Table")},
 
-			// Management Groups
-			"azurerm_management_group": {Tok: azureResource(azureManagementGroups, "ManagementGroup")},
-
 			// Management Resource
 			"azurerm_management_lock": {Tok: azureResource(azureMgmtResource, "ManangementLock")},
 
@@ -991,7 +988,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_log_analytics_workspace":       {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
 			"azurerm_logic_app_workflow":            {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
-			"azurerm_management_group":              {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
 			"azurerm_monitor_action_group":          {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
 			"azurerm_monitor_diagnostic_categories": {Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories")},
 			"azurerm_monitor_log_profile":           {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
@@ -1382,4 +1378,10 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 	)
 	renameDataSourceWithAlias("azurerm_user_assigned_identity", "getUserAssignedIdentity", azureCore,
 		azureAuthorization, nil)
+
+	// Migrate azureLegacyManagementGroups -> azureManagementResources
+	renameResourceWithAlias("azurerm_management_group", "ManagementGroup", azureLegacyManagementGroups,
+		azureMgmtResource, nil)
+	renameDataSourceWithAlias("azurerm_management_group", "getManagementGroup", azureLegacyManagementGroups,
+		azureMgmtResource, nil)
 }

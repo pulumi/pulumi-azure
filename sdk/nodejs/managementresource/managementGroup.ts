@@ -14,26 +14,18 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = pulumi.output(azure.core.getSubscription({}));
-<<<<<<< HEAD
- * const exampleParent = new azure.managementgroups.ManagementGroup("exampleParent", {
- *     displayName: "ParentGroup",
- *     subscriptionIds: [current.subscriptionId],
- * });
- * const exampleChild = new azure.managementgroups.ManagementGroup("exampleChild", {
-=======
  * const exampleParent = new azure.managementresource.ManagementGroup("example_parent", {
  *     displayName: "ParentGroup",
  *     subscriptionIds: [current.subscriptionId],
  * });
  * const exampleChild = new azure.managementresource.ManagementGroup("example_child", {
->>>>>>> c2bec0e... Migrate azurerm_management_group to the managementresource module
  *     displayName: "ChildGroup",
  *     parentManagementGroupId: exampleParent.id,
  *     subscriptionIds: [current.subscriptionId],
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**
@@ -49,7 +41,7 @@ export class ManagementGroup extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:managementgroups/managementGroup:ManagementGroup';
+    public static readonly __pulumiType = 'azure:managementresource/managementGroup:ManagementGroup';
 
     /**
      * Returns true if the given object is an instance of ManagementGroup.  This is designed to work even
@@ -63,7 +55,7 @@ export class ManagementGroup extends pulumi.CustomResource {
     }
 
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+     * A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -109,6 +101,8 @@ export class ManagementGroup extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure:managementgroups/managementGroup:ManagementGroup" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(ManagementGroup.__pulumiType, name, inputs, opts);
     }
 }
@@ -118,7 +112,7 @@ export class ManagementGroup extends pulumi.CustomResource {
  */
 export interface ManagementGroupState {
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+     * A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
      */
     readonly displayName?: pulumi.Input<string>;
     /**
@@ -140,7 +134,7 @@ export interface ManagementGroupState {
  */
 export interface ManagementGroupArgs {
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
+     * A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
      */
     readonly displayName?: pulumi.Input<string>;
     /**

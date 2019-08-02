@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * export const displayName = test.displayName;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> & GetManagementGroupResult {
     if (!opts) {
@@ -30,7 +30,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetManagementGroupResult> = pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
+    const promise: Promise<GetManagementGroupResult> = pulumi.runtime.invoke("azure:managementresource/getManagementGroup:getManagementGroup", {
         "groupId": args.groupId,
     }, opts);
 

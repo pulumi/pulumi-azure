@@ -40,34 +40,19 @@ class GetManagementGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-class AwaitableGetManagementGroupResult(GetManagementGroupResult):
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return GetManagementGroupResult(
-            display_name=self.display_name,
-            group_id=self.group_id,
-            parent_management_group_id=self.parent_management_group_id,
-            subscription_ids=self.subscription_ids,
-            id=self.id)
 
-def get_management_group(group_id=None,opts=None):
+async def get_management_group(group_id=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group_legacy.html.markdown.
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
     """
     __args__ = dict()
 
     __args__['groupId'] = group_id
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:managementresource/getManagementGroup:getManagementGroup', __args__, opts=opts)
 
-    return AwaitableGetManagementGroupResult(
+    return GetManagementGroupResult(
         display_name=__ret__.get('displayName'),
         group_id=__ret__.get('groupId'),
         parent_management_group_id=__ret__.get('parentManagementGroupId'),
