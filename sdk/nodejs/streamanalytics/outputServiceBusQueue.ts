@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *     name: "example-job",
  *     resourceGroupName: name,
  * }));
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
  *     name: "example-namespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const exampleQueue = new azure.eventhub.Queue("example", {
+ * const exampleQueue = new azure.servicebus.Queue("example", {
  *     enablePartitioning: true,
  *     name: "example-queue",
  *     namespaceName: exampleNamespace.name,

@@ -10,7 +10,7 @@ import (
 
 // Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule_legacy.html.markdown.
 type TopicAuthorizationRule struct {
 	s *pulumi.ResourceState
 }

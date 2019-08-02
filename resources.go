@@ -72,7 +72,8 @@ const (
 	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
 	azureMariaDB             = "mariadb"             // MariaDB
-	azureMessaging           = "eventhub"            // Event Hub
+	azureEventGrid           = "eventgrid"           // Event Grid
+	azureEventHub            = "eventhub"            // Event Hub
 	azureMgmtResource        = "managementresource"  // Management Resource
 	azureMediaServices       = "mediaservices"       // Media Services
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
@@ -89,6 +90,7 @@ const (
 	azureRelay               = "relay"               // Relay
 	azureScheduler           = "scheduler"           // Scheduler
 	azureSecurityCenter      = "securitycenter"      // Security Center
+	azureServiceBus          = "servicebus"          // ServiceBus
 	azureServiceFabric       = "servicefabric"       // Service Fabric
 	azureSearch              = "search"              // Search
 	azureSignalr             = "signalr"             // SignalR
@@ -545,41 +547,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_hdinsight_spark_cluster":             {Tok: azureResource(azureHdInsight, "SparkCluster")},
 			"azurerm_hdinsight_storm_cluster":             {Tok: azureResource(azureHdInsight, "StormCluster")},
 
-			// Messaging
-			"azurerm_eventgrid_domain":                      {Tok: azureResource(azureMessaging, "EventGridDomain")},
-			"azurerm_eventgrid_event_subscription":          {Tok: azureResource(azureMessaging, "EventGridEventSubscription")},
-			"azurerm_eventgrid_topic":                       {Tok: azureResource(azureMessaging, "EventGridTopic")},
-			"azurerm_eventhub":                              {Tok: azureResource(azureMessaging, "EventHub")},
-			"azurerm_eventhub_authorization_rule":           {Tok: azureResource(azureMessaging, "EventHubAuthorizationRule")},
-			"azurerm_eventhub_consumer_group":               {Tok: azureResource(azureMessaging, "EventHubConsumerGroup")},
-			"azurerm_eventhub_namespace":                    {Tok: azureResource(azureMessaging, "EventHubNamespace")},
-			"azurerm_eventhub_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "EventHubNamespaceAuthorizationRule")},
-			"azurerm_servicebus_namespace": {
-				Tok: azureResource(azureMessaging, "Namespace"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
-					// Max length of a servicehub namespace is 50.
-					azureName: AutoNameWithMaxLength(azureName, 50),
-				}},
-			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "NamespaceAuthorizationRule")},
-			"azurerm_servicebus_queue": {
-				Tok: azureResource(azureMessaging, "Queue"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
-					// Max length of a servicehub queue is 260.
-					azureName: AutoNameWithMaxLength(azureName, 260),
-				}},
-			"azurerm_servicebus_queue_authorization_rule": {Tok: azureResource(azureMessaging, "QueueAuthorizationRule")},
-			"azurerm_servicebus_subscription":             {Tok: azureResource(azureMessaging, "Subscription")},
-			"azurerm_servicebus_subscription_rule":        {Tok: azureResource(azureMessaging, "SubscriptionRule")},
-			"azurerm_servicebus_topic": {
-				Tok: azureResource(azureMessaging, "Topic"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
-					// Max length of a servicehub topic is 260.
-					azureName: AutoNameWithMaxLength(azureName, 260),
-				}},
-			"azurerm_servicebus_topic_authorization_rule": {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
+			// EventHub
+			"azurerm_eventhub":                              {Tok: azureResource(azureEventHub, "EventHub")},
+			"azurerm_eventhub_authorization_rule":           {Tok: azureResource(azureEventHub, "EventHubAuthorizationRule")},
+			"azurerm_eventhub_consumer_group":               {Tok: azureResource(azureEventHub, "EventHubConsumerGroup")},
+			"azurerm_eventhub_namespace":                    {Tok: azureResource(azureEventHub, "EventHubNamespace")},
+			"azurerm_eventhub_namespace_authorization_rule": {Tok: azureResource(azureEventHub, "EventHubNamespaceAuthorizationRule")},
 
 			// IoT Resources
 			"azurerm_iot_dps":             {Tok: azureResource(azureIot, "Dps")},
@@ -968,9 +941,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_account":             {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":              {Tok: azureDataSource(azureDatalake, "getStore")},
 			"azurerm_dev_test_lab":                 {Tok: azureDataSource(azureDevTest, "getLab")},
-			"azurerm_eventhub_namespace":           {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
+			"azurerm_eventhub_namespace":           {Tok: azureDataSource(azureEventHub, "getEventhubNamespace")},
 			"azurerm_image":                        {Tok: azureDataSource(azureCompute, "getImage")},
-			"azurerm_servicebus_namespace":         {Tok: azureDataSource(azureMessaging, "getServiceBusNamespace")},
 			"azurerm_shared_image":                 {Tok: azureDataSource(azureCompute, "getSharedImage")},
 			"azurerm_shared_image_gallery":         {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
 			"azurerm_shared_image_version":         {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
@@ -1384,4 +1356,51 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 		azureMgmtResource, nil)
 	renameDataSourceWithAlias("azurerm_management_group", "getManagementGroup", azureLegacyManagementGroups,
 		azureMgmtResource, nil)
+
+	// Migrate `azurerm_event_grid_*` to new EventGrid Mod
+	renameResourceWithAlias("azurerm_eventgrid_domain", "Domain", azureEventHub, azureEventGrid, nil)
+	renameResourceWithAlias("azurerm_eventgrid_event_subscription", "EventSubscription", azureEventHub,
+		azureEventGrid, nil)
+	renameResourceWithAlias("azurerm_eventgrid_topic", "EventGridTopic", azureEventHub, azureEventGrid, nil)
+
+	// Migrate `azurerm_servicebus_*` to new ServiceBus Mod
+	renameResourceWithAlias("azurerm_servicebus_namespace", "Namespace", azureEventHub, azureServiceBus,
+		&tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
+				// Max length of a servicehub namespace is 50.
+				azureName: AutoNameWithMaxLength(azureName, 50),
+			},
+		},
+	)
+	renameResourceWithAlias("azurerm_servicebus_namespace_authorization_rule", "NamespaceAuthorizationRule",
+		azureEventHub, azureServiceBus, nil)
+	renameResourceWithAlias("azurerm_servicebus_queue", "Queue", azureEventHub, azureServiceBus,
+		&tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
+				// Max length of a servicehub queue is 260.
+				azureName: AutoNameWithMaxLength(azureName, 260),
+			},
+		},
+	)
+	renameResourceWithAlias("azurerm_servicebus_queue_authorization_rule", "QueueAuthorizationRule",
+		azureEventHub, azureServiceBus, nil)
+	renameResourceWithAlias("azurerm_servicebus_subscription", "Subscription",
+		azureEventHub, azureServiceBus, nil)
+	renameResourceWithAlias("azurerm_servicebus_subscription_rule", "SubscriptionRule",
+		azureEventHub, azureServiceBus, nil)
+	renameResourceWithAlias("azurerm_servicebus_topic", "Topic", azureEventHub, azureServiceBus,
+		&tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
+				// Max length of a servicehub topic is 260.
+				azureName: AutoNameWithMaxLength(azureName, 260),
+			},
+		},
+	)
+	renameResourceWithAlias("azurerm_servicebus_topic_authorization_rule", "TopicAuthorizationRule",
+		azureEventHub, azureServiceBus, nil)
+	renameDataSourceWithAlias("azurerm_servicebus_namespace", "getServiceBusNamespace",
+		azureEventHub, azureServiceBus, nil)
 }

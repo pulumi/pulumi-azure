@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     location: "West US 2",
  *     name: "resourceGroup1",
  * });
- * const testEventGridTopic = new azure.eventhub.EventGridTopic("test", {
+ * const testEventGridTopic = new azure.eventgrid.EventGridTopic("test", {
  *     location: testResourceGroup.location,
  *     name: "my-eventgrid-topic",
  *     resourceGroupName: testResourceGroup.name,
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic_legacy.html.markdown.
  */
 export class EventGridTopic extends pulumi.CustomResource {
     /**
