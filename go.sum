@@ -678,6 +678,8 @@ github.com/pulumi/terraform-provider-azurerm v0.0.0-20190517190919-b42838183131 
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190517190919-b42838183131/go.mod h1:QyaKu+Mb4xsp4MgQ2htW4xd+f+x52H7c8GoMKPtVtWM=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190526025255-339e6934dd35 h1:baQEHJqFT4il/9JN6+1gf5dk66QJWemFbz8Vt845t2Y=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190526025255-339e6934dd35/go.mod h1:ZWIvltGJ+Q1tvxQjvn/h4q1ONwvaBlAyxO1py8CYQCE=
+github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802205635-509cc1c361f3 h1:bvawCO8a1IDIwWmd6KrbIHlIxIczBWGBvG6whcSDR9U=
+github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802205635-509cc1c361f3/go.mod h1:KYDjv/NgatzEQGeWGHiZr0u0lZa7G3qxzPx+ssSsqTk=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54/go.mod h1:1NF/j951kWm+ZnRXpOkBqweImgwhlzFVwTA4A0V7TEU=
 github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f h1:N8s7WFwKdWQhzTd6VD4vrX+azBEmIDKEVVHDaEMQv9c=

@@ -35,7 +35,11 @@ class Route(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, address_prefix=None, name=None, next_hop_in_ip_address=None, next_hop_type=None, resource_group_name=None, route_table_name=None, __name__=None, __opts__=None):
         """
-        Create a Route resource with the given unique name, props, and options.
+        Manages a Route within a Route Table.
+        
+        > **NOTE on Route Tables and Routes:** This provider currently
+        provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
+        At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

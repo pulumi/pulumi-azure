@@ -5,6 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a string variable in Azure Automation
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ *     name: "tfex-example-rg",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     location: exampleResourceGroup.location,
+ *     name: "tfex-example-account",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         name: "Basic",
+ *     },
+ * });
+ * const exampleStringVariable = new azure.automation.StringVariable("example", {
+ *     automationAccountName: exampleAccount.name,
+ *     name: "tfex-example-var",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     value: "Hello, World Basic Test.",
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_variable_string.html.markdown.
  */
 export class StringVariable extends pulumi.CustomResource {
