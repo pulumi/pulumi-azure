@@ -5,6 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Route within a Route Table.
+ * 
+ * > **NOTE on Route Tables and Routes:** This provider currently
+ * provides both a standalone Route resource, and allows for Routes to be defined in-line within the Route Table resource.
+ * At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const testRouteTable = new azure.network.RouteTable("test", {
+ *     location: testResourceGroup.location,
+ *     name: "acceptanceTestRouteTable1",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testRoute = new azure.network.Route("test", {
+ *     addressPrefix: "10.1.0.0/16",
+ *     name: "acceptanceTestRoute1",
+ *     nextHopType: "vnetlocal",
+ *     resourceGroupName: testResourceGroup.name,
+ *     routeTableName: testRouteTable.name,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route.html.markdown.
  */
 export class Route extends pulumi.CustomResource {

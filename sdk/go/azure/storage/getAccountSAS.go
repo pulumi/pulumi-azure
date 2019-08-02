@@ -45,6 +45,7 @@ func LookupAccountSAS(ctx *pulumi.Context, args *GetAccountSASArgs) (*GetAccount
 
 // A collection of arguments for invoking getAccountSAS.
 type GetAccountSASArgs struct {
+	// The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azurerm_storage_account` resource.
 	ConnectionString interface{}
 	// The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
 	Expiry interface{}

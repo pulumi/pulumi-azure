@@ -5,6 +5,67 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a virtual network including any configured subnets. Each subnet can
+ * optionally be configured with a security group to be associated with the subnet.
+ * 
+ * > **NOTE on Virtual Networks and Subnet's:** This provider currently
+ * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
+ * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const testPlan = new azure.ddosprotection.Plan("test", {
+ *     location: testResourceGroup.location,
+ *     name: "ddospplan1",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("test", {
+ *     location: testResourceGroup.location,
+ *     name: "acceptanceTestSecurityGroup1",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     ddosProtectionPlan: {
+ *         enable: true,
+ *         id: testPlan.id,
+ *     },
+ *     dnsServers: [
+ *         "10.0.0.4",
+ *         "10.0.0.5",
+ *     ],
+ *     location: testResourceGroup.location,
+ *     name: "virtualNetwork1",
+ *     resourceGroupName: testResourceGroup.name,
+ *     subnets: [
+ *         {
+ *             addressPrefix: "10.0.1.0/24",
+ *             name: "subnet1",
+ *         },
+ *         {
+ *             addressPrefix: "10.0.2.0/24",
+ *             name: "subnet2",
+ *         },
+ *         {
+ *             addressPrefix: "10.0.3.0/24",
+ *             name: "subnet3",
+ *             securityGroup: testNetworkSecurityGroup.id,
+ *         },
+ *     ],
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network.html.markdown.
  */
 export class VirtualNetwork extends pulumi.CustomResource {

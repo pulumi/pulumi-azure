@@ -5,6 +5,43 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
+ * 
+ * > **NOTE on Virtual Networks and Subnet's:** This provider currently
+ * provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
+ * At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West US",
+ *     name: "acceptanceTestResourceGroup1",
+ * });
+ * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: testResourceGroup.location,
+ *     name: "acceptanceTestVirtualNetwork1",
+ *     resourceGroupName: testResourceGroup.name,
+ * });
+ * const testSubnet = new azure.network.Subnet("test", {
+ *     addressPrefix: "10.0.1.0/24",
+ *     delegations: [{
+ *         name: "acctestdelegation",
+ *         serviceDelegation: {
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *             name: "Microsoft.ContainerInstance/containerGroups",
+ *         },
+ *     }],
+ *     name: "testsubnet",
+ *     resourceGroupName: testResourceGroup.name,
+ *     virtualNetworkName: testVirtualNetwork.name,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
  */
 export class Subnet extends pulumi.CustomResource {

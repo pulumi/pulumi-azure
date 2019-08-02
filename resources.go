@@ -1085,8 +1085,8 @@ func Provider() tfbridge.ProviderInfo {
 				"@pulumi/pulumi":                "^0.17.25",
 				"azure-eventgrid":               "^1.6.0",
 				"@azure/functions":              "^1.0.3",
-				"@azure/ms-rest-azure-js":       "^2.0.0",
-				"@azure/ms-rest-nodeauth":       "^2.0.3",
+				"@azure/ms-rest-azure-js":       "^2.0.1",
+				"@azure/ms-rest-nodeauth":       "^3.0.0",
 				"azure-functions-ts-essentials": "^1.3.2",
 			},
 			Overlay: &tfbridge.OverlayInfo{
