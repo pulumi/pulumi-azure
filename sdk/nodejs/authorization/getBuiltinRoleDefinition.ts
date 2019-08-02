@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azure.role.Definition` data source instead.
+ * Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.
  * 
- * > **NOTE:** The this datasource has been deprecated in favour of `azure.role.Definition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
+ * > **NOTE:** The this datasource has been deprecated in favour of `azurerm_role_definition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
  * 
  * ## Example Usage
  * 
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * export const contributorRoleDefinitionId = contributor.id;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/builtin_role_definition_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/builtin_role_definition.html.markdown.
  */
 export function getBuiltinRoleDefinition(args: GetBuiltinRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuiltinRoleDefinitionResult> & GetBuiltinRoleDefinitionResult {
     if (!opts) {
@@ -32,7 +32,7 @@ export function getBuiltinRoleDefinition(args: GetBuiltinRoleDefinitionArgs, opt
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetBuiltinRoleDefinitionResult> = pulumi.runtime.invoke("azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition", {
+    const promise: Promise<GetBuiltinRoleDefinitionResult> = pulumi.runtime.invoke("azure:authorization/getBuiltinRoleDefinition:getBuiltinRoleDefinition", {
         "name": args.name,
     }, opts);
 

@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
  */
 export class Assignment extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class Assignment extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:role/assignment:Assignment';
+    public static readonly __pulumiType = 'azure:authorization/assignment:Assignment';
 
     /**
      * Returns true if the given object is an instance of Assignment.  This is designed to work even
@@ -112,11 +112,11 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
      */
     public readonly roleDefinitionName!: pulumi.Output<string>;
     /**
@@ -162,6 +162,8 @@ export class Assignment extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure:role/assignment:Assignment" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(Assignment.__pulumiType, name, inputs, opts);
     }
 }
@@ -179,11 +181,11 @@ export interface AssignmentState {
      */
     readonly principalId?: pulumi.Input<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
      */
     readonly roleDefinitionName?: pulumi.Input<string>;
     /**
@@ -205,11 +207,11 @@ export interface AssignmentArgs {
      */
     readonly principalId: pulumi.Input<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
      */
     readonly roleDefinitionName?: pulumi.Input<string>;
     /**

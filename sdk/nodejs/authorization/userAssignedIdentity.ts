@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.html.markdown.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
@@ -40,7 +40,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:msi/userAssignedIdentity:UserAssignedIdentity';
+    public static readonly __pulumiType = 'azure:authorization/userAssignedIdentity:UserAssignedIdentity';
 
     /**
      * Returns true if the given object is an instance of UserAssignedIdentity.  This is designed to work even
@@ -118,6 +118,8 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
+        const aliasOpts = { aliases: [{ type: "azure:msi/userAssignedIdentity:UserAssignedIdentity" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
         super(UserAssignedIdentity.__pulumiType, name, inputs, opts);
     }
 }

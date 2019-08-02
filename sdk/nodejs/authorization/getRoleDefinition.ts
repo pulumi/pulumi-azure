@@ -26,11 +26,7 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: roleDefinitionId,
  *     scope: primary.id,
  * }));
-<<<<<<< HEAD
- * const customByname = pulumi.all([customDefinition.name, primary]).apply(([name, primary]) => azure.role.getRoleDefinition({
-=======
  * const custom_byname = pulumi.all([customDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinition({
->>>>>>> 41612c6... Migrate the azurerm_role_ and azurerm_user_ resources to new Authorization package
  *     name: name,
  *     scope: primary.id,
  * }));
@@ -39,7 +35,7 @@ import * as utilities from "../utilities";
  * export const customRoleDefinitionId = customRoleDefinition.id;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> & GetRoleDefinitionResult {
     args = args || {};
@@ -50,7 +46,7 @@ export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.In
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetRoleDefinitionResult> = pulumi.runtime.invoke("azure:role/getRoleDefinition:getRoleDefinition", {
+    const promise: Promise<GetRoleDefinitionResult> = pulumi.runtime.invoke("azure:authorization/getRoleDefinition:getRoleDefinition", {
         "name": args.name,
         "roleDefinitionId": args.roleDefinitionId,
         "scope": args.scope,

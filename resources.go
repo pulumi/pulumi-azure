@@ -33,6 +33,11 @@ import (
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
 )
 
+const (
+	azureName     = "name"
+	azureLocation = "location"
+)
+
 // all of the Azure token components used below.
 const (
 	// packages:
@@ -44,6 +49,7 @@ const (
 	azureAppInsights         = "appinsights"         // AppInsights
 	azureAppService          = "appservice"          // App Service
 	azureAutomation          = "automation"          // Automatio
+	azureAuthorization       = "authorization"       // Authorization
 	azureAutoscale           = "autoscale"           // Autoscale
 	azureBatch               = "batch"               // Batch
 	azureCDN                 = "cdn"                 // CDN
@@ -71,7 +77,6 @@ const (
 	azureManagementGroups    = "managementgroups"    // Management Groups
 	azureMediaServices       = "mediaservices"       // Media Services
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
-	azureMSI                 = "msi"                 // Managed Service Identity (MSI)
 	azureMSSQL               = "mssql"               // MS Sql
 	azureMySQL               = "mysql"               // MySql
 	azureNetwork             = "network"             // Networking
@@ -83,7 +88,6 @@ const (
 	azureRecoveryServices    = "recoveryservices"    // Recovery Services
 	azureRedis               = "redis"               // RedisCache
 	azureRelay               = "relay"               // Relay
-	azureRole                = "role"                // Azure Role
 	azureScheduler           = "scheduler"           // Scheduler
 	azureSecurityCenter      = "securitycenter"      // Security Center
 	azureServiceFabric       = "servicefabric"       // Service Fabric
@@ -93,6 +97,10 @@ const (
 	azureStorage             = "storage"             // Storage
 	azureStreamAnalytics     = "streamanalytics"     // StreamAnalytics
 	azureTrafficManager      = "trafficmanager"      // Traffic Manager
+
+	// Legacy Module Names
+	azureLegacyRole = "role" // Azure Role
+	azureLegacyMSI  = "msi"  // Managed Service Identity (MSI)
 )
 
 // azureMember manufactures a type token for the Azure package and the given module and type.
@@ -174,11 +182,6 @@ func detectCloudShell() cloudShellProfile {
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	const (
-		azureName     = "name"
-		azureLocation = "location"
-	)
-
 	p := azurerm.Provider().(*schema.Provider)
 
 	// Adjust the defaults if running in Azure Cloud Shell.
@@ -390,15 +393,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Autoscale
 			"azurerm_autoscale_setting": {Tok: azureResource(azureAutoscale, "Setting")},
 
-			// Authorization
-			"azurerm_role_assignment": {
-				Tok: azureResource(azureRole, "Assignment"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Suppress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
-					azureName: {Name: azureName},
-				},
-			},
-			"azurerm_role_definition": {Tok: azureResource(azureRole, "Definition")},
+			// Authorization resources are now organized in the `renameLegacyModules` func.
 
 			// Azure Container Service
 			"azurerm_container_registry": {
@@ -690,9 +685,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_mongo_database":     {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
 			"azurerm_cosmosdb_sql_database":       {Tok: azureResource(azureCosmosDB, "SqlDatabase")},
 			"azurerm_cosmosdb_table":              {Tok: azureResource(azureCosmosDB, "Table")},
-
-			// Managed Service Identity (MSI)
-			"azurerm_user_assigned_identity": {Tok: azureResource(azureMSI, "UserAssignedIdentity")},
 
 			// Management Groups
 			"azurerm_management_group": {Tok: azureResource(azureManagementGroups, "ManagementGroup")},
@@ -1065,8 +1057,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_definition":                      {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
 			"azurerm_platform_image":                         {Tok: azureDataSource(azureCompute, "getPlatformImage")},
 			"azurerm_managed_disk":                           {Tok: azureDataSource(azureCompute, "getManagedDisk")},
-			"azurerm_role_definition":                        {Tok: azureDataSource(azureRole, "getRoleDefinition")},
-			"azurerm_builtin_role_definition":                {Tok: azureDataSource(azureRole, "getBuiltinRoleDefinition")},
 			"azurerm_recovery_services_protection_policy_vm": {Tok: azureDataSource(azureRecoveryServices, "getVMProtectionPolicy")},
 			"azurerm_scheduler_job_collection":               {Tok: azureDataSource(azureScheduler, "getJobCollection")},
 			"azurerm_storage_account":                        {Tok: azureDataSource(azureStorage, "getAccount")},
@@ -1075,7 +1065,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine":                        {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
 			"azurerm_hdinsight_cluster":                      {Tok: azureDataSource(azureHdInsight, "getCluster")},
 			"azurerm_stream_analytics_job":                   {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
-			"azurerm_user_assigned_identity":                 {Tok: azureDataSource(azureCore, "getUserAssignedIdentity")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
@@ -1138,6 +1127,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 	}
+
+	renameLegacyModules(&prov)
 
 	// TODO[pulumi/pulumi#280]: Until we can pass an Archive as an Asset, create a resource type
 	// specifically for uploading ZIP blobs to Azure storage.
@@ -1292,4 +1283,103 @@ func FromName(options AutoNameOptions) func(res *tfbridge.PulumiResource) (inter
 		}
 		return vs, nil
 	}
+}
+
+func renameLegacyModules(prov *tfbridge.ProviderInfo) {
+
+	renameResourceWithAlias := func(
+		tfName string,
+		tokName string,
+		legacyModule string,
+		currentModule string,
+		info *tfbridge.ResourceInfo) {
+
+		legacyTFName := tfName + "_legacy"
+
+		if info == nil {
+			info = &tfbridge.ResourceInfo{}
+		}
+		legacyInfo := *info
+		currentInfo := *info
+
+		legacyInfo.Tok = azureResource(legacyModule, tokName)
+		legacyType := legacyInfo.Tok.String()
+		currentInfo.Tok = azureResource(currentModule, tokName)
+		currentInfo.Aliases = []tfbridge.AliasInfo{
+			{Type: &legacyType},
+		}
+
+		if legacyInfo.Docs == nil {
+			legacyInfo.Docs = &tfbridge.DocInfo{
+				Source: tfName[len("azurerm_"):] + ".html.markdown",
+			}
+		}
+
+		prov.Resources[tfName] = &currentInfo
+		prov.Resources[legacyTFName] = &legacyInfo
+		prov.P.ResourcesMap[legacyTFName] = prov.P.ResourcesMap[tfName]
+	}
+
+	renameDataSourceWithAlias := func(
+		tfName string,
+		tokName string,
+		legacyModule string,
+		currentModule string,
+		info *tfbridge.DataSourceInfo) {
+
+		legacyTFName := tfName + "_legacy"
+
+		if info == nil {
+			info = &tfbridge.DataSourceInfo{}
+		}
+		legacyInfo := *info
+		currentInfo := *info
+
+		legacyInfo.Tok = azureDataSource(legacyModule, tokName)
+		currentInfo.Tok = azureDataSource(currentModule, tokName)
+
+		if legacyInfo.Docs == nil {
+			legacyInfo.Docs = &tfbridge.DocInfo{
+				Source: tfName[len("azurerm_"):] + ".html.markdown",
+			}
+		}
+
+		prov.DataSources[tfName] = &currentInfo
+		prov.DataSources[legacyTFName] = &legacyInfo
+		prov.P.DataSourcesMap[legacyTFName] = prov.P.DataSourcesMap[tfName]
+	}
+
+	// New Authorization Mod - this combines the old MSI and Role Modules
+	renameResourceWithAlias("azurerm_role_assignment", "Assignment", azureLegacyRole, azureAuthorization,
+		&tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// Suppress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
+				azureName: {Name: azureName},
+			},
+		},
+	)
+	renameResourceWithAlias("azurerm_role_definition", "Definition", azureLegacyRole, azureAuthorization, nil)
+	renameResourceWithAlias("azurerm_user_assigned_identity", "UserAssignedIdentity", azureLegacyMSI,
+		azureAuthorization, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "user_assigned_identity.markdown",
+			},
+		},
+	)
+	renameDataSourceWithAlias("azurerm_role_definition", "getRoleDefinition",
+		azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "role_definition.markdown",
+			},
+		},
+	)
+	renameDataSourceWithAlias("azurerm_builtin_role_definition", "getBuiltinRoleDefinition",
+		azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "builtin_role_definition.markdown",
+			},
+		},
+	)
+	renameDataSourceWithAlias("azurerm_user_assigned_identity", "getUserAssignedIdentity", azureCore,
+		azureAuthorization, nil)
 }

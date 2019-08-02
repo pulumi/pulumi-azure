@@ -79,6 +79,16 @@ func TestExamples(t *testing.T) {
 		}),
 		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventhub-py")}),
 		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "datasource-py")}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "msi-renamed-to-authorization"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      "step2",
+					Additive: true,
+					ExpectNoChanges: true,
+				},
+			},
+		}),
 	}
 
 	longTests := []integration.ProgramTestOptions{

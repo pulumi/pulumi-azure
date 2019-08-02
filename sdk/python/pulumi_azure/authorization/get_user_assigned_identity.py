@@ -49,37 +49,20 @@ class GetUserAssignedIdentityResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return GetUserAssignedIdentityResult(
-            client_id=self.client_id,
-            location=self.location,
-            name=self.name,
-            principal_id=self.principal_id,
-            resource_group_name=self.resource_group_name,
-            tags=self.tags,
-            id=self.id)
 
-def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
+async def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing User Assigned Identity.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity_legacy.html.markdown.
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
     """
     __args__ = dict()
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:core/getUserAssignedIdentity:getUserAssignedIdentity', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity', __args__, opts=opts)
 
-    return AwaitableGetUserAssignedIdentityResult(
+    return GetUserAssignedIdentityResult(
         client_id=__ret__.get('clientId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
