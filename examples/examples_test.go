@@ -20,6 +20,11 @@ func TestExamples(t *testing.T) {
 	if environ == "" {
 		t.Skipf("Skipping test due to missing ARM_ENVIRONMENT variable")
 	}
+	azureLocation := os.Getenv("ARM_LOCATION")
+	if azureLocation == "" {
+		azureLocation = "westus"
+		fmt.Println("Defaulting ARM_LOCATION to 'westus'.  You can override using the ARM_LOCATION variable")
+	}
 	cwd, err := os.Getwd()
 	if !assert.NoError(t, err, "expected a valid working directory: %v", err) {
 		return
@@ -29,6 +34,7 @@ func TestExamples(t *testing.T) {
 	base := integration.ProgramTestOptions{
 		Config: map[string]string{
 			"azure:environment": environ,
+			"azure:location":    azureLocation,
 		},
 		Dependencies: []string{
 			"@pulumi/azure",
