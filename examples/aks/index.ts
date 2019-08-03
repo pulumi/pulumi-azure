@@ -8,9 +8,7 @@ const sshPublicKey = config.require("sshPublicKey");
 const clientId = config.require("clientId");
 const clientSecret = config.require("clientSecret");
 
-const resourceGroup = new azure.core.ResourceGroup("aks", {
-    location: "East US",
-});
+const resourceGroup = new azure.core.ResourceGroup("aks");
 
 const kubernetesService = new azure.containerservice.KubernetesCluster("kubernetes", {
     resourceGroupName: resourceGroup.name,

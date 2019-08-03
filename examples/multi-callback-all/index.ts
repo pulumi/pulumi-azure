@@ -1,6 +1,6 @@
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("example", { location: azure.Locations.WestUS2 });
+const resourceGroup = new azure.core.ResourceGroup("example");
 
 // HTTP
 const httpFunc = new azure.appservice.HttpFunction("http", {

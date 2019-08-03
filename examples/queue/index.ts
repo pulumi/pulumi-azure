@@ -2,9 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
-    location: "West US 2",
-});
+const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
 
 // Create a storage account for our queues
 const storageAccount = new azure.storage.Account("storage", {

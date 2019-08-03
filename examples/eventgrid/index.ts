@@ -2,9 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("eveentgrid-rg", {
-    location: azure.Locations.WestUS2,
-});
+const resourceGroup = new azure.core.ResourceGroup("eveentgrid-rg");
 
 // Subscribe to events in resource group, e.g. when a new resource is created
 azure.eventhub.events.onResourceGroupEvent("OnResourceChange", {
