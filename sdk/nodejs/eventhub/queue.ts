@@ -5,6 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manage a ServiceBus Queue.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "my-servicebus",
+ * });
+ * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ *     location: exampleResourceGroup.location,
+ *     name: "tfex_sevicebus_namespace",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleQueue = new azure.eventhub.Queue("example", {
+ *     enablePartitioning: true,
+ *     name: "tfex_servicebus_queue",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
  */
 export class Queue extends pulumi.CustomResource {

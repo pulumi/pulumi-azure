@@ -5,6 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Logger within an API Management Service.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West US",
+ *     name: "example-resources",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     location: exampleResourceGroup.location,
+ *     name: "example-apim",
+ *     publisherEmail: "company@exmaple.com",
+ *     publisherName: "My Company",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Developer",
+ *     },
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     applicationType: "Other",
+ *     location: exampleResourceGroup.location,
+ *     name: "example-appinsights",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleLogger = new azure.apimanagement.Logger("example", {
+ *     apiManagementName: exampleService.name,
+ *     applicationInsights: {
+ *         instrumentationKey: exampleInsights.instrumentationKey,
+ *     },
+ *     name: "example-logger",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_logger.html.markdown.
  */
 export class Logger extends pulumi.CustomResource {

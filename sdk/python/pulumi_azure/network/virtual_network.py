@@ -49,7 +49,12 @@ class VirtualNetwork(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, address_spaces=None, ddos_protection_plan=None, dns_servers=None, location=None, name=None, resource_group_name=None, subnets=None, tags=None, __name__=None, __opts__=None):
         """
-        Create a VirtualNetwork resource with the given unique name, props, and options.
+        Manages a virtual network including any configured subnets. Each subnet can
+        optionally be configured with a security group to be associated with the subnet.
+        
+        > **NOTE on Virtual Networks and Subnet's:** This provider currently
+        provides both a standalone Subnet resource, and allows for Subnets to be defined in-line within the Virtual Network resource.
+        At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnet's.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

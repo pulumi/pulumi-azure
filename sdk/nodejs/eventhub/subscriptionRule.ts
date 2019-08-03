@@ -5,6 +5,97 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manage a ServiceBus Subscription Rule.
+ * 
+ * ## Example Usage (SQL Filter)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "tfex-servicebus-subscription-rule-sql",
+ * });
+ * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ *     location: exampleResourceGroup.location,
+ *     name: "tfex_sevicebus_namespace",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.eventhub.Topic("example", {
+ *     enablePartitioning: true,
+ *     name: "tfex_sevicebus_topic",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubscription = new azure.eventhub.Subscription("example", {
+ *     maxDeliveryCount: 1,
+ *     name: "tfex_sevicebus_subscription",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     topicName: exampleTopic.name,
+ * });
+ * const exampleSubscriptionRule = new azure.eventhub.SubscriptionRule("example", {
+ *     filterType: "SqlFilter",
+ *     name: "tfex_sevicebus_rule",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sqlFilter: "color = 'red'",
+ *     subscriptionName: exampleSubscription.name,
+ *     topicName: exampleTopic.name,
+ * });
+ * ```
+ * 
+ * ## Example Usage (Correlation Filter)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "tfex-servicebus-subscription-rule-cor",
+ * });
+ * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ *     location: exampleResourceGroup.location,
+ *     name: "tfex_sevicebus_namespace",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.eventhub.Topic("example", {
+ *     enablePartitioning: true,
+ *     name: "tfex_sevicebus_topic",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubscription = new azure.eventhub.Subscription("example", {
+ *     maxDeliveryCount: 1,
+ *     name: "tfex_sevicebus_subscription",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     topicName: exampleTopic.name,
+ * });
+ * const exampleSubscriptionRule = new azure.eventhub.SubscriptionRule("example", {
+ *     correlationFilter: {
+ *         correlationId: "high",
+ *         label: "red",
+ *     },
+ *     filterType: "CorrelationFilter",
+ *     name: "tfex_sevicebus_rule",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     subscriptionName: exampleSubscription.name,
+ *     topicName: exampleTopic.name,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
  */
 export class SubscriptionRule extends pulumi.CustomResource {

@@ -83,7 +83,11 @@ class NetworkSecurityRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_group_ids=None, destination_port_range=None, destination_port_ranges=None, direction=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_group_ids=None, source_port_range=None, source_port_ranges=None, __name__=None, __opts__=None):
         """
-        Create a NetworkSecurityRule resource with the given unique name, props, and options.
+        Manages a Network Security Rule.
+        
+        > **NOTE on Network Security Groups and Network Security Rules:** This provider currently
+        provides both a standalone Network Security Rule resource, and allows for Network Security Rules to be defined in-line within the Network Security Group resource.
+        At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
