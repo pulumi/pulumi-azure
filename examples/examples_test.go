@@ -3,6 +3,7 @@
 package examples
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
