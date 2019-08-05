@@ -2,13 +2,16 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+___NULL___
+
+---
+
+## 0.19.4 (2019-08-05)
 * Update pulumi-terraform to 6bcafb609dd
 * Update Terraform dependency to v0.12.5.
 * Out-of-the-box Azure Cloud Shell support ([#74](https://github.com/pulumi/pulumi-azure/issues/74))
 * Add constants for Azure AppService Plan Kind types.
 * Individual Azure Functions can be created by getEventFunction helpers directly on event sources.
-
-___
 
 ## 0.19.3 (2019-07-22)
 * BREAKING: Default data type of a Storage Queue-triggered Callback Function is changed from 'binary' to 'string'.
