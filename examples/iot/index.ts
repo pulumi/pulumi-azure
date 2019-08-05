@@ -3,11 +3,7 @@
 import * as azure from "@pulumi/azure";
 import * as iot from "@pulumi/azure/iot";
 
-const location = "West US 2";
-
-const resourceGroup = new azure.core.ResourceGroup("test", {
-    location: location,
-});
+const resourceGroup = new azure.core.ResourceGroup("test");
 
 const iotHub = new iot.IoTHub("test", {
     resourceGroupName: resourceGroup.name,

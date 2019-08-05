@@ -3,9 +3,7 @@
 import * as azure from "@pulumi/azure";
 import * as pulumi from "@pulumi/pulumi"
 
-const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
-    location: "West US",
-});
+const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
 
 const storageaccount = new azure.storage.Account("storageaccount", {
     resourceGroupName: resourceGroup.name,

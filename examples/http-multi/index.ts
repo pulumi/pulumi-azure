@@ -1,6 +1,6 @@
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("example", { location: azure.Locations.WestUS2 });
+const resourceGroup = new azure.core.ResourceGroup("example");
 
 // Define 3 HTTP Functions which only differ by number and the hello message
 const http = [1, 2, 3].map(i =>

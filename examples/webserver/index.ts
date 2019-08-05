@@ -4,9 +4,7 @@ import * as azure from "@pulumi/azure";
 
 const name = "webserver";
 
-let resourceGroup = new azure.core.ResourceGroup(name, {
-    location: azure.Locations.WestUS,
-});
+let resourceGroup = new azure.core.ResourceGroup(name);
 
 let network = new azure.network.VirtualNetwork(name, {
     resourceGroupName: resourceGroup.name,

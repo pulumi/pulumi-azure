@@ -3,11 +3,7 @@
 import * as azure from "@pulumi/azure";
 import * as cosmosdb from "@pulumi/azure/cosmosdb";
 
-const location = "West US 2";
-
-const resourceGroup = new azure.core.ResourceGroup("test", {
-    location: location,
-});
+const resourceGroup = new azure.core.ResourceGroup("test");
 
 let db = new cosmosdb.Account("test", {
     resourceGroupName: resourceGroup.name,
@@ -17,7 +13,7 @@ let db = new cosmosdb.Account("test", {
         maxIntervalInSeconds: 5,
         maxStalenessPrefix: 100,
     },
-    geoLocations: [{ location, failoverPriority: 0 }],
+    geoLocations: [{ location: resourceGroup.location, failoverPriority: 0 }],
 });
 
 db.onChange("test", {

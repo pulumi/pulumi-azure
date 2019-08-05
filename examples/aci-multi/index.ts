@@ -2,9 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("resourcegroup", {
-    location: "West US",
-});
+const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
 
 const containerGroup = new azure.containerservice.Group("containergroup", {
     resourceGroupName: resourceGroup.name,
