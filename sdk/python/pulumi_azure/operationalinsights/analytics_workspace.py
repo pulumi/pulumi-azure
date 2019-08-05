@@ -100,6 +100,10 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__['secondary_shared_key'] = None
         __props__['workspace_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AnalyticsWorkspace, __self__).__init__(
             'azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace',
             resource_name,

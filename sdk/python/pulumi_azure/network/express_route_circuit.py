@@ -117,6 +117,10 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         __props__['service_key'] = None
         __props__['service_provider_provisioning_state'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ExpressRouteCircuit, __self__).__init__(
             'azure:network/expressRouteCircuit:ExpressRouteCircuit',
             resource_name,

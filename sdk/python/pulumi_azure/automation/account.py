@@ -93,6 +93,10 @@ class Account(pulumi.CustomResource):
         __props__['dsc_secondary_access_key'] = None
         __props__['dsc_server_endpoint'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Account, __self__).__init__(
             'azure:automation/account:Account',
             resource_name,

@@ -83,6 +83,10 @@ class SrvRecord(pulumi.CustomResource):
             raise TypeError("Missing required property 'zone_name'")
         __props__['zone_name'] = zone_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SrvRecord, __self__).__init__(
             'azure:dns/srvRecord:SrvRecord',
             resource_name,

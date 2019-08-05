@@ -97,6 +97,10 @@ class Image(pulumi.CustomResource):
 
         __props__['zone_resilient'] = zone_resilient
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Image, __self__).__init__(
             'azure:compute/image:Image',
             resource_name,

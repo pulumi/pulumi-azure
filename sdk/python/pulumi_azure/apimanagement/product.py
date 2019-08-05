@@ -115,6 +115,10 @@ class Product(pulumi.CustomResource):
 
         __props__['terms'] = terms
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Product, __self__).__init__(
             'azure:apimanagement/product:Product',
             resource_name,

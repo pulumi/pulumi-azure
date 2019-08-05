@@ -59,7 +59,15 @@ class GetUserResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts=None):
     """
     Use this data source to access information about an existing API Management User.
 
@@ -70,7 +78,11 @@ async def get_user(api_management_name=None,resource_group_name=None,user_id=Non
     __args__['apiManagementName'] = api_management_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['userId'] = user_id
-    __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getUser:getUser', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:apimanagement/getUser:getUser', __args__, opts=opts).value
 
     return GetUserResult(
         api_management_name=__ret__.get('apiManagementName'),

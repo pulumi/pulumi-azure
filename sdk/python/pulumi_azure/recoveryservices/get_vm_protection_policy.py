@@ -35,7 +35,15 @@ class GetVMProtectionPolicyResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_vm_protection_policy(name=None,recovery_vault_name=None,resource_group_name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_vm_protection_policy(name=None,recovery_vault_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Recovery Services VM Protection Policy.
 
@@ -46,7 +54,11 @@ async def get_vm_protection_policy(name=None,recovery_vault_name=None,resource_g
     __args__['name'] = name
     __args__['recoveryVaultName'] = recovery_vault_name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy', __args__, opts=opts).value
 
     return GetVMProtectionPolicyResult(
         name=__ret__.get('name'),

@@ -68,7 +68,15 @@ class GetPolicyDefintionResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
     """
     Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
 
@@ -78,7 +86,11 @@ async def get_policy_defintion(display_name=None,management_group_id=None,opts=N
 
     __args__['displayName'] = display_name
     __args__['managementGroupId'] = management_group_id
-    __ret__ = await pulumi.runtime.invoke('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts).value
 
     return GetPolicyDefintionResult(
         description=__ret__.get('description'),

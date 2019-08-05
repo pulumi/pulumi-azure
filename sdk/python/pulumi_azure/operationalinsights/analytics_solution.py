@@ -85,6 +85,10 @@ class AnalyticsSolution(pulumi.CustomResource):
             raise TypeError("Missing required property 'workspace_resource_id'")
         __props__['workspace_resource_id'] = workspace_resource_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(AnalyticsSolution, __self__).__init__(
             'azure:operationalinsights/analyticsSolution:AnalyticsSolution',
             resource_name,

@@ -80,7 +80,15 @@ class GetLabResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_lab(name=None,resource_group_name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_lab(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Dev Test Lab.
 
@@ -90,7 +98,11 @@ async def get_lab(name=None,resource_group_name=None,opts=None):
 
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:devtest/getLab:getLab', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:devtest/getLab:getLab', __args__, opts=opts).value
 
     return GetLabResult(
         artifacts_storage_account_id=__ret__.get('artifactsStorageAccountId'),
