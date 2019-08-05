@@ -1,7 +1,7 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
 
 import * as azure from "@pulumi/azure";
-import * as pulumi from "@pulumi/pulumi"
+import * as pulumi from "@pulumi/pulumi";
 
 const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
 
@@ -12,7 +12,7 @@ const storageaccount = new azure.storage.Account("storageaccount", {
 });
 
 const avset = new azure.compute.AvailabilitySet("avset", {
-    resourceGroupName:resourceGroup.name,
+    resourceGroupName: resourceGroup.name,
     platformFaultDomainCount: 2,
     platformUpdateDomainCount: 2,
     managed: true,
@@ -20,7 +20,7 @@ const avset = new azure.compute.AvailabilitySet("avset", {
 
 const lbpip = new azure.network.PublicIp("lbpip", {
     resourceGroupName: resourceGroup.name,
-    publicIpAddressAllocation: "dynamic",
+    allocationMethod: "Dynamic",
     domainNameLabel: `${pulumi.getStack()}`,
 });
 
@@ -90,27 +90,37 @@ const networkinterface = new azure.network.NetworkInterface("networkinterface", 
             name: "ipconfig",
             subnetId: subnet.id,
             privateIpAddressAllocation: "dynamic",
-            loadBalancerBackendAddressPoolsIds: [backendPool.id],
-            loadBalancerInboundNatRulesIds: [tcp.id],
         },
     ],
+});
+
+const backendPoolAssociation = new azure.network.NetworkInterfaceBackendAddressPoolAssociation("pool-association", {
+    backendAddressPoolId: backendPool.id,
+    networkInterfaceId: networkinterface.id,
+    ipConfigurationName: networkinterface.ipConfigurations[0].name,
+});
+
+const natRuleAssociation = new azure.network.NetworkInterfaceNatRuleAssociation("nat-rule-association", {
+    networkInterfaceId: networkinterface.id,
+    ipConfigurationName: networkinterface.ipConfigurations[0].name,
+    natRuleId: tcp.id,
 });
 
 const vm = new azure.compute.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
     availabilitySetId: avset.id,
-    vmSize: "Standard_D1",
+    vmSize: "Standard_D1_v2",
     networkInterfaceIds: [networkinterface.id],
     storageImageReference: {
         publisher: "MicrosoftWindowsServer",
         offer: "WindowsServer",
         sku: "2012-R2-Datacenter",
-        version: "latest"
+        version: "latest",
     },
     osProfileWindowsConfig: {},
     storageOsDisk: {
         name: "osdisk",
-        createOption: "FromImage"
+        createOption: "FromImage",
     },
     osProfile: {
         computerName: "hostname",
