@@ -90,6 +90,10 @@ class Domain(pulumi.CustomResource):
 
         __props__['endpoint'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Domain, __self__).__init__(
             'azure:eventhub/domain:Domain',
             resource_name,

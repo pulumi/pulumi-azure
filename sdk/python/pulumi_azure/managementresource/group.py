@@ -61,6 +61,10 @@ class Group(pulumi.CustomResource):
 
         __props__['subscription_ids'] = subscription_ids
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:managementgroups/managementGroup:ManagementGroup")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(Group, __self__).__init__(

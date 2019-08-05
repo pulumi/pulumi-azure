@@ -1055,12 +1055,22 @@ func Provider() tfbridge.ProviderInfo {
 							"zMixins.ts",
 						},
 					},
+					"eventgrid": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
 					"eventhub": {
 						DestFiles: []string{
 							"zMixins.ts",
 						},
 					},
 					"iot": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
+					"servicebus": {
 						DestFiles: []string{
 							"zMixins.ts",
 						},

@@ -122,6 +122,10 @@ class TrafficManagerProfile(pulumi.CustomResource):
 
         __props__['fqdn'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:trafficmanager/profile:Profile")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(TrafficManagerProfile, __self__).__init__(

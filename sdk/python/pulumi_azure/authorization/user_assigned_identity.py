@@ -80,6 +80,10 @@ class UserAssignedIdentity(pulumi.CustomResource):
         __props__['client_id'] = None
         __props__['principal_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:msi/userAssignedIdentity:UserAssignedIdentity")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(UserAssignedIdentity, __self__).__init__(

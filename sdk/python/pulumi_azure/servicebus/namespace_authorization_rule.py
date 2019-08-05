@@ -100,6 +100,10 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         __props__['secondary_connection_string'] = None
         __props__['secondary_key'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(

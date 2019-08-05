@@ -106,6 +106,10 @@ class Namespace(pulumi.CustomResource):
         __props__['default_secondary_connection_string'] = None
         __props__['default_secondary_key'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/namespace:Namespace")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(Namespace, __self__).__init__(

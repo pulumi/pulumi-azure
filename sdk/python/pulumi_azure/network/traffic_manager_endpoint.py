@@ -174,6 +174,10 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
 
         __props__['endpoint_monitor_status'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:trafficmanager/endpoint:Endpoint")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(TrafficManagerEndpoint, __self__).__init__(
