@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *         azi_id: 1,
  *     },
  * });
- * const testProfile = new azure.trafficmanager.Profile("test", {
+ * const testTrafficManagerProfile = new azure.network.TrafficManagerProfile("test", {
  *     dnsConfigs: [{
  *         relativeName: server.hex,
  *         ttl: 100,
@@ -41,9 +41,9 @@ import * as utilities from "../utilities";
  *     },
  *     trafficRoutingMethod: "Weighted",
  * });
- * const testEndpoint = new azure.trafficmanager.Endpoint("test", {
+ * const testTrafficManagerEndpoint = new azure.network.TrafficManagerEndpoint("test", {
  *     name: server.hex,
- *     profileName: testProfile.name,
+ *     profileName: testTrafficManagerProfile.name,
  *     resourceGroupName: testResourceGroup.name,
  *     target: "example.com",
  *     type: "externalEndpoints",
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint_legacy.html.markdown.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

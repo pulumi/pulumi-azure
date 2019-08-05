@@ -2,12 +2,9 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("aks", {
-    location: "East US",
-});
+const resourceGroup = new azure.core.ResourceGroup("aks");
 
 const testIdentity = new azure.msi.UserAssignedIdentity("testIdentity", {
-    location: resourceGroup.location,
     name: "search-api",
     resourceGroupName: resourceGroup.name,
 });

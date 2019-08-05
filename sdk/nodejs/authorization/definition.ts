@@ -5,6 +5,27 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const primary = pulumi.output(azure.core.getSubscription({}));
+ * const test = new azure.authorization.Definition("test", {
+ *     assignableScopes: [primary.id],
+ *     description: "This is a custom role",
+ *     name: "my-custom-role",
+ *     permissions: [{
+ *         actions: ["*"],
+ *         notActions: [],
+ *     }],
+ *     scope: primary.id,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition.html.markdown.
  */
 export class Definition extends pulumi.CustomResource {

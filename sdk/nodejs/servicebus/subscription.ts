@@ -5,6 +5,42 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Manage a ServiceBus Subscription.
+ * 
+ * ## Example Usage
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     location: "West Europe",
+ *     name: "tfex-servicebus-subscription",
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     location: exampleResourceGroup.location,
+ *     name: "tfex_sevicebus_namespace",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     tags: {
+ *         source: "example",
+ *     },
+ * });
+ * const exampleTopic = new azure.servicebus.Topic("example", {
+ *     enablePartitioning: true,
+ *     name: "tfex_sevicebus_topic",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubscription = new azure.servicebus.Subscription("example", {
+ *     maxDeliveryCount: 1,
+ *     name: "tfex_sevicebus_subscription",
+ *     namespaceName: exampleNamespace.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     topicName: exampleTopic.name,
+ * });
+ * ```
+ *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription.html.markdown.
  */
 export class Subscription extends pulumi.CustomResource {

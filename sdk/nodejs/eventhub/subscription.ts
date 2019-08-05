@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "tfex-servicebus-subscription",
  * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
  *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *         source: "example",
  *     },
  * });
- * const exampleTopic = new azure.eventhub.Topic("example", {
+ * const exampleTopic = new azure.servicebus.Topic("example", {
  *     enablePartitioning: true,
  *     name: "tfexSevicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleSubscription = new azure.eventhub.Subscription("example", {
+ * const exampleSubscription = new azure.servicebus.Subscription("example", {
  *     maxDeliveryCount: 1,
  *     name: "tfexSevicebusSubscription",
  *     namespaceName: exampleNamespace.name,
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_legacy.html.markdown.
  */
 export class Subscription extends pulumi.CustomResource {
     /**

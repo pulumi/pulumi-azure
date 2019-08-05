@@ -10,14 +10,14 @@ import (
 
 // Manages a Key Vault Certificate.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate_legacy.html.markdown.
-type Certifiate struct {
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
+type Certificate struct {
 	s *pulumi.ResourceState
 }
 
-// NewCertifiate registers a new resource with the given unique name, arguments, and options.
-func NewCertifiate(ctx *pulumi.Context,
-	name string, args *CertifiateArgs, opts ...pulumi.ResourceOpt) (*Certifiate, error) {
+// NewCertificate registers a new resource with the given unique name, arguments, and options.
+func NewCertificate(ctx *pulumi.Context,
+	name string, args *CertificateArgs, opts ...pulumi.ResourceOpt) (*Certificate, error) {
 	if args == nil || args.CertificatePolicy == nil {
 		return nil, errors.New("missing required argument 'CertificatePolicy'")
 	}
@@ -41,17 +41,17 @@ func NewCertifiate(ctx *pulumi.Context,
 	inputs["secretId"] = nil
 	inputs["thumbprint"] = nil
 	inputs["version"] = nil
-	s, err := ctx.RegisterResource("azure:keyvault/certifiate:Certifiate", name, true, inputs, opts...)
+	s, err := ctx.RegisterResource("azure:keyvault/certificate:Certificate", name, true, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certifiate{s: s}, nil
+	return &Certificate{s: s}, nil
 }
 
-// GetCertifiate gets an existing Certifiate resource's state with the given name, ID, and optional
+// GetCertificate gets an existing Certificate resource's state with the given name, ID, and optional
 // state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetCertifiate(ctx *pulumi.Context,
-	name string, id pulumi.ID, state *CertifiateState, opts ...pulumi.ResourceOpt) (*Certifiate, error) {
+func GetCertificate(ctx *pulumi.Context,
+	name string, id pulumi.ID, state *CertificateState, opts ...pulumi.ResourceOpt) (*Certificate, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["certificate"] = state.Certificate
@@ -65,79 +65,79 @@ func GetCertifiate(ctx *pulumi.Context,
 		inputs["vaultUri"] = state.VaultUri
 		inputs["version"] = state.Version
 	}
-	s, err := ctx.ReadResource("azure:keyvault/certifiate:Certifiate", name, id, inputs, opts...)
+	s, err := ctx.ReadResource("azure:keyvault/certificate:Certificate", name, id, inputs, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &Certifiate{s: s}, nil
+	return &Certificate{s: s}, nil
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Certifiate) URN() *pulumi.URNOutput {
+func (r *Certificate) URN() *pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Certifiate) ID() *pulumi.IDOutput {
+func (r *Certificate) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // A `certificate` block as defined below, used to Import an existing certificate.
-func (r *Certifiate) Certificate() *pulumi.Output {
+func (r *Certificate) Certificate() *pulumi.Output {
 	return r.s.State["certificate"]
 }
 
 // The raw Key Vault Certificate.
-func (r *Certifiate) CertificateData() *pulumi.StringOutput {
+func (r *Certificate) CertificateData() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateData"])
 }
 
-// A `certificatePolicy` block as defined below.
-func (r *Certifiate) CertificatePolicy() *pulumi.Output {
+// A `certificate_policy` block as defined below.
+func (r *Certificate) CertificatePolicy() *pulumi.Output {
 	return r.s.State["certificatePolicy"]
 }
 
 // The ID of the Key Vault where the Certificate should be created.
-func (r *Certifiate) KeyVaultId() *pulumi.StringOutput {
+func (r *Certificate) KeyVaultId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keyVaultId"])
 }
 
 // The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
-func (r *Certifiate) Name() *pulumi.StringOutput {
+func (r *Certificate) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // The ID of the associated Key Vault Secret.
-func (r *Certifiate) SecretId() *pulumi.StringOutput {
+func (r *Certificate) SecretId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["secretId"])
 }
 
 // A mapping of tags to assign to the resource.
-func (r *Certifiate) Tags() *pulumi.MapOutput {
+func (r *Certificate) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
 // The X509 Thumbprint of the Key Vault Certificate returned as hex string.
-func (r *Certifiate) Thumbprint() *pulumi.StringOutput {
+func (r *Certificate) Thumbprint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["thumbprint"])
 }
 
-func (r *Certifiate) VaultUri() *pulumi.StringOutput {
+func (r *Certificate) VaultUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vaultUri"])
 }
 
 // The current version of the Key Vault Certificate.
-func (r *Certifiate) Version() *pulumi.StringOutput {
+func (r *Certificate) Version() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["version"])
 }
 
-// Input properties used for looking up and filtering Certifiate resources.
-type CertifiateState struct {
+// Input properties used for looking up and filtering Certificate resources.
+type CertificateState struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate interface{}
 	// The raw Key Vault Certificate.
 	CertificateData interface{}
-	// A `certificatePolicy` block as defined below.
+	// A `certificate_policy` block as defined below.
 	CertificatePolicy interface{}
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId interface{}
@@ -154,11 +154,11 @@ type CertifiateState struct {
 	Version interface{}
 }
 
-// The set of arguments for constructing a Certifiate resource.
-type CertifiateArgs struct {
+// The set of arguments for constructing a Certificate resource.
+type CertificateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate interface{}
-	// A `certificatePolicy` block as defined below.
+	// A `certificate_policy` block as defined below.
 	CertificatePolicy interface{}
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId interface{}

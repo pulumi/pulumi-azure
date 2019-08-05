@@ -219,33 +219,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
  */
-export class Certifiate extends pulumi.CustomResource {
+export class Certificate extends pulumi.CustomResource {
     /**
-     * Get an existing Certifiate resource's state with the given name, ID, and optional extra
+     * Get an existing Certificate resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CertifiateState, opts?: pulumi.CustomResourceOptions): Certifiate {
-        return new Certifiate(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: CertificateState, opts?: pulumi.CustomResourceOptions): Certificate {
+        return new Certificate(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:keyvault/certifiate:Certifiate';
+    public static readonly __pulumiType = 'azure:keyvault/certificate:Certificate';
 
     /**
-     * Returns true if the given object is an instance of Certifiate.  This is designed to work even
+     * Returns true if the given object is an instance of Certificate.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Certifiate {
+    public static isInstance(obj: any): obj is Certificate {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Certifiate.__pulumiType;
+        return obj['__pulumiType'] === Certificate.__pulumiType;
     }
 
     /**
@@ -257,7 +257,7 @@ export class Certifiate extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateData!: pulumi.Output<string>;
     /**
-     * A `certificatePolicy` block as defined below.
+     * A `certificate_policy` block as defined below.
      */
     public readonly certificatePolicy!: pulumi.Output<{ issuerParameters: { name: string }, keyProperties: { exportable: boolean, keySize: number, keyType: string, reuseKey: boolean }, lifetimeActions?: { action: { actionType: string }, trigger: { daysBeforeExpiry?: number, lifetimePercentage?: number } }[], secretProperties: { contentType: string }, x509CertificateProperties: { extendedKeyUsages: string[], keyUsages: string[], subject: string, subjectAlternativeNames: { dnsNames?: string[], emails?: string[], upns?: string[] }, validityInMonths: number } }>;
     /**
@@ -287,17 +287,17 @@ export class Certifiate extends pulumi.CustomResource {
     public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
-     * Create a Certifiate resource with the given unique name, arguments, and options.
+     * Create a Certificate resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CertifiateArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: CertifiateArgs | CertifiateState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: CertificateArgs | CertificateState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as CertifiateState | undefined;
+            const state = argsOrState as CertificateState | undefined;
             inputs["certificate"] = state ? state.certificate : undefined;
             inputs["certificateData"] = state ? state.certificateData : undefined;
             inputs["certificatePolicy"] = state ? state.certificatePolicy : undefined;
@@ -309,7 +309,7 @@ export class Certifiate extends pulumi.CustomResource {
             inputs["vaultUri"] = state ? state.vaultUri : undefined;
             inputs["version"] = state ? state.version : undefined;
         } else {
-            const args = argsOrState as CertifiateArgs | undefined;
+            const args = argsOrState as CertificateArgs | undefined;
             if (!args || args.certificatePolicy === undefined) {
                 throw new Error("Missing required property 'certificatePolicy'");
             }
@@ -331,14 +331,16 @@ export class Certifiate extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(Certifiate.__pulumiType, name, inputs, opts);
+        const aliasOpts = { aliases: [{ type: "azure:keyvault/certifiate:Certifiate" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        super(Certificate.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering Certifiate resources.
+ * Input properties used for looking up and filtering Certificate resources.
  */
-export interface CertifiateState {
+export interface CertificateState {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
@@ -348,7 +350,7 @@ export interface CertifiateState {
      */
     readonly certificateData?: pulumi.Input<string>;
     /**
-     * A `certificatePolicy` block as defined below.
+     * A `certificate_policy` block as defined below.
      */
     readonly certificatePolicy?: pulumi.Input<{ issuerParameters: pulumi.Input<{ name: pulumi.Input<string> }>, keyProperties: pulumi.Input<{ exportable: pulumi.Input<boolean>, keySize: pulumi.Input<number>, keyType: pulumi.Input<string>, reuseKey: pulumi.Input<boolean> }>, lifetimeActions?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ actionType: pulumi.Input<string> }>, trigger: pulumi.Input<{ daysBeforeExpiry?: pulumi.Input<number>, lifetimePercentage?: pulumi.Input<number> }> }>[]>, secretProperties: pulumi.Input<{ contentType: pulumi.Input<string> }>, x509CertificateProperties?: pulumi.Input<{ extendedKeyUsages?: pulumi.Input<pulumi.Input<string>[]>, keyUsages: pulumi.Input<pulumi.Input<string>[]>, subject: pulumi.Input<string>, subjectAlternativeNames?: pulumi.Input<{ dnsNames?: pulumi.Input<pulumi.Input<string>[]>, emails?: pulumi.Input<pulumi.Input<string>[]>, upns?: pulumi.Input<pulumi.Input<string>[]> }>, validityInMonths: pulumi.Input<number> }> }>;
     /**
@@ -379,15 +381,15 @@ export interface CertifiateState {
 }
 
 /**
- * The set of arguments for constructing a Certifiate resource.
+ * The set of arguments for constructing a Certificate resource.
  */
-export interface CertifiateArgs {
+export interface CertificateArgs {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
     readonly certificate?: pulumi.Input<{ contents: pulumi.Input<string>, password?: pulumi.Input<string> }>;
     /**
-     * A `certificatePolicy` block as defined below.
+     * A `certificate_policy` block as defined below.
      */
     readonly certificatePolicy: pulumi.Input<{ issuerParameters: pulumi.Input<{ name: pulumi.Input<string> }>, keyProperties: pulumi.Input<{ exportable: pulumi.Input<boolean>, keySize: pulumi.Input<number>, keyType: pulumi.Input<string>, reuseKey: pulumi.Input<boolean> }>, lifetimeActions?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ actionType: pulumi.Input<string> }>, trigger: pulumi.Input<{ daysBeforeExpiry?: pulumi.Input<number>, lifetimePercentage?: pulumi.Input<number> }> }>[]>, secretProperties: pulumi.Input<{ contentType: pulumi.Input<string> }>, x509CertificateProperties?: pulumi.Input<{ extendedKeyUsages?: pulumi.Input<pulumi.Input<string>[]>, keyUsages: pulumi.Input<pulumi.Input<string>[]>, subject: pulumi.Input<string>, subjectAlternativeNames?: pulumi.Input<{ dnsNames?: pulumi.Input<pulumi.Input<string>[]>, emails?: pulumi.Input<pulumi.Input<string>[]>, upns?: pulumi.Input<pulumi.Input<string>[]> }>, validityInMonths: pulumi.Input<number> }> }>;
     /**

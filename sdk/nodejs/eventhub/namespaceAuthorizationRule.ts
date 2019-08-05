@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "my-servicebus",
  * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
  *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         source: "example",
  *     },
  * });
- * const exampleNamespaceAuthorizationRule = new azure.eventhub.NamespaceAuthorizationRule("example", {
+ * const exampleNamespaceAuthorizationRule = new azure.servicebus.NamespaceAuthorizationRule("example", {
  *     listen: true,
  *     manage: false,
  *     name: "examplerule",
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule_legacy.html.markdown.
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

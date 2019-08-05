@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "my-servicebus",
  * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
  *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         source: "example",
  *     },
  * });
- * const exampleQueue = new azure.eventhub.Queue("example", {
+ * const exampleQueue = new azure.servicebus.Queue("example", {
  *     enablePartitioning: true,
  *     name: "tfexServicebusQueue",
  *     namespaceName: exampleNamespace.name,
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_legacy.html.markdown.
  */
 export class Queue extends pulumi.CustomResource {
     /**

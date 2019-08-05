@@ -236,6 +236,7 @@
         "iot/zMixins.ts",
         "keyvault/accessPolicy.ts",
         "keyvault/certifiate.ts",
+        "keyvault/certificate.ts",
         "keyvault/getAccessPolicy.ts",
         "keyvault/getKey.ts",
         "keyvault/getKeyVault.ts",

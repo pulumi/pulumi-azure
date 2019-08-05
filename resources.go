@@ -574,7 +574,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_key_vault_access_policy": {Tok: azureResource(azureKeyVault, "AccessPolicy")},
-			"azurerm_key_vault_certificate":   {Tok: azureResource(azureKeyVault, "Certifiate")},
 			"azurerm_key_vault_key":           {Tok: azureResource(azureKeyVault, "Key")},
 			"azurerm_key_vault_secret":        {Tok: azureResource(azureKeyVault, "Secret")},
 
@@ -1417,4 +1416,8 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 	)
 	renameDataSourceWithAlias("azurerm_traffic_manager_geographical_location", "getGeographicalLocation",
 		"getTrafficManager", azureLegacyTrafficManager, azureNetwork, nil)
+
+	// Fix the spelling on the KeyVault Certificate
+	renameResourceWithAlias("azurerm_key_vault_certificate", "Certifiate", "Certificate",
+		azureKeyVault, azureKeyVault, nil)
 }

@@ -4,6 +4,7 @@
 // Export members:
 export * from "./accessPolicy";
 export * from "./certifiate";
+export * from "./certificate";
 export * from "./getAccessPolicy";
 export * from "./getKey";
 export * from "./getKeyVault";
