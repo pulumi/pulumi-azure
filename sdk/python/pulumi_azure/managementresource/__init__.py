@@ -3,6 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .management_group import *
+from .group import *
 from .manangement_lock import *
-from .get_management_group import *
+from .get_group import *

@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * export const displayName = test.displayName;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
  */
-export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> & GetManagementGroupResult {
+export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> & GetGroupResult {
     if (!opts) {
         opts = {}
     }
@@ -30,7 +30,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetManagementGroupResult> = pulumi.runtime.invoke("azure:managementgroups/getManagementGroup:getManagementGroup", {
+    const promise: Promise<GetGroupResult> = pulumi.runtime.invoke("azure:managementresource/getGroup:getGroup", {
         "groupId": args.groupId,
     }, opts);
 
@@ -38,9 +38,9 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
 }
 
 /**
- * A collection of arguments for invoking getManagementGroup.
+ * A collection of arguments for invoking getGroup.
  */
-export interface GetManagementGroupArgs {
+export interface GetGroupArgs {
     /**
      * Specifies the UUID of this Management Group.
      */
@@ -48,9 +48,9 @@ export interface GetManagementGroupArgs {
 }
 
 /**
- * A collection of values returned by getManagementGroup.
+ * A collection of values returned by getGroup.
  */
-export interface GetManagementGroupResult {
+export interface GetGroupResult {
     /**
      * A friendly name for the Management Group.
      */

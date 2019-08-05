@@ -48,33 +48,33 @@ import * as utilities from "../utilities";
  * 
  * The Traffic Manager is created with the location `global`.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
  */
-export class Profile extends pulumi.CustomResource {
+export class TrafficManagerProfile extends pulumi.CustomResource {
     /**
-     * Get an existing Profile resource's state with the given name, ID, and optional extra
+     * Get an existing TrafficManagerProfile resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProfileState, opts?: pulumi.CustomResourceOptions): Profile {
-        return new Profile(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TrafficManagerProfileState, opts?: pulumi.CustomResourceOptions): TrafficManagerProfile {
+        return new TrafficManagerProfile(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:trafficmanager/profile:Profile';
+    public static readonly __pulumiType = 'azure:network/trafficManagerProfile:TrafficManagerProfile';
 
     /**
-     * Returns true if the given object is an instance of Profile.  This is designed to work even
+     * Returns true if the given object is an instance of TrafficManagerProfile.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Profile {
+    public static isInstance(obj: any): obj is TrafficManagerProfile {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Profile.__pulumiType;
+        return obj['__pulumiType'] === TrafficManagerProfile.__pulumiType;
     }
 
     /**
@@ -122,17 +122,17 @@ export class Profile extends pulumi.CustomResource {
     public readonly trafficRoutingMethod!: pulumi.Output<string>;
 
     /**
-     * Create a Profile resource with the given unique name, arguments, and options.
+     * Create a TrafficManagerProfile resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ProfileArgs | ProfileState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TrafficManagerProfileArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TrafficManagerProfileArgs | TrafficManagerProfileState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ProfileState | undefined;
+            const state = argsOrState as TrafficManagerProfileState | undefined;
             inputs["dnsConfigs"] = state ? state.dnsConfigs : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["monitorConfigs"] = state ? state.monitorConfigs : undefined;
@@ -142,7 +142,7 @@ export class Profile extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["trafficRoutingMethod"] = state ? state.trafficRoutingMethod : undefined;
         } else {
-            const args = argsOrState as ProfileArgs | undefined;
+            const args = argsOrState as TrafficManagerProfileArgs | undefined;
             if (!args || args.dnsConfigs === undefined) {
                 throw new Error("Missing required property 'dnsConfigs'");
             }
@@ -171,14 +171,16 @@ export class Profile extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(Profile.__pulumiType, name, inputs, opts);
+        const aliasOpts = { aliases: [{ type: "azure:trafficmanager/profile:Profile" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        super(TrafficManagerProfile.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering Profile resources.
+ * Input properties used for looking up and filtering TrafficManagerProfile resources.
  */
-export interface ProfileState {
+export interface TrafficManagerProfileState {
     /**
      * This block specifies the DNS configuration of the
      * Profile, it supports the fields documented below.
@@ -225,9 +227,9 @@ export interface ProfileState {
 }
 
 /**
- * The set of arguments for constructing a Profile resource.
+ * The set of arguments for constructing a TrafficManagerProfile resource.
  */
-export interface ProfileArgs {
+export interface TrafficManagerProfileArgs {
     /**
      * This block specifies the DNS configuration of the
      * Profile, it supports the fields documented below.

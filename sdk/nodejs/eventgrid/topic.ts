@@ -29,33 +29,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_topic.html.markdown.
  */
-export class EventGridTopic extends pulumi.CustomResource {
+export class Topic extends pulumi.CustomResource {
     /**
-     * Get an existing EventGridTopic resource's state with the given name, ID, and optional extra
+     * Get an existing Topic resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: EventGridTopicState, opts?: pulumi.CustomResourceOptions): EventGridTopic {
-        return new EventGridTopic(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: TopicState, opts?: pulumi.CustomResourceOptions): Topic {
+        return new Topic(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:eventhub/eventGridTopic:EventGridTopic';
+    public static readonly __pulumiType = 'azure:eventgrid/topic:Topic';
 
     /**
-     * Returns true if the given object is an instance of EventGridTopic.  This is designed to work even
+     * Returns true if the given object is an instance of Topic.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is EventGridTopic {
+    public static isInstance(obj: any): obj is Topic {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === EventGridTopic.__pulumiType;
+        return obj['__pulumiType'] === Topic.__pulumiType;
     }
 
     /**
@@ -88,17 +88,17 @@ export class EventGridTopic extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
 
     /**
-     * Create a EventGridTopic resource with the given unique name, arguments, and options.
+     * Create a Topic resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: EventGridTopicArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: EventGridTopicArgs | EventGridTopicState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: TopicArgs | TopicState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as EventGridTopicState | undefined;
+            const state = argsOrState as TopicState | undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -107,7 +107,7 @@ export class EventGridTopic extends pulumi.CustomResource {
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
-            const args = argsOrState as EventGridTopicArgs | undefined;
+            const args = argsOrState as TopicArgs | undefined;
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,14 +126,16 @@ export class EventGridTopic extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(EventGridTopic.__pulumiType, name, inputs, opts);
+        const aliasOpts = { aliases: [{ type: "azure:eventhub/eventGridTopic:EventGridTopic" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        super(Topic.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering EventGridTopic resources.
+ * Input properties used for looking up and filtering Topic resources.
  */
-export interface EventGridTopicState {
+export interface TopicState {
     /**
      * The Endpoint associated with the EventGrid Topic.
      */
@@ -165,9 +167,9 @@ export interface EventGridTopicState {
 }
 
 /**
- * The set of arguments for constructing a EventGridTopic resource.
+ * The set of arguments for constructing a Topic resource.
  */
-export interface EventGridTopicArgs {
+export interface TopicArgs {
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

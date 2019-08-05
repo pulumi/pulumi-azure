@@ -3,5 +3,5 @@
 
 // Export members:
 export * from "./domain";
-export * from "./eventGridTopic";
 export * from "./eventSubscription";
+export * from "./topic";

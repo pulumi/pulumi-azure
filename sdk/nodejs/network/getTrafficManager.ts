@@ -20,9 +20,9 @@ import * as utilities from "../utilities";
  * export const locationCode = test.id;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
  */
-export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetGeographicalLocationResult> & GetGeographicalLocationResult {
+export function getTrafficManager(args: GetTrafficManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficManagerResult> & GetTrafficManagerResult {
     if (!opts) {
         opts = {}
     }
@@ -30,7 +30,7 @@ export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetGeographicalLocationResult> = pulumi.runtime.invoke("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", {
+    const promise: Promise<GetTrafficManagerResult> = pulumi.runtime.invoke("azure:network/getTrafficManager:getTrafficManager", {
         "name": args.name,
     }, opts);
 
@@ -38,9 +38,9 @@ export function getGeographicalLocation(args: GetGeographicalLocationArgs, opts?
 }
 
 /**
- * A collection of arguments for invoking getGeographicalLocation.
+ * A collection of arguments for invoking getTrafficManager.
  */
-export interface GetGeographicalLocationArgs {
+export interface GetTrafficManagerArgs {
     /**
      * Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
      */
@@ -48,9 +48,9 @@ export interface GetGeographicalLocationArgs {
 }
 
 /**
- * A collection of values returned by getGeographicalLocation.
+ * A collection of values returned by getTrafficManager.
  */
-export interface GetGeographicalLocationResult {
+export interface GetTrafficManagerResult {
     readonly name: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

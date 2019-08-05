@@ -11,4 +11,4 @@ from .subscription import *
 from .subscription_rule import *
 from .topic import *
 from .topic_authorization_rule import *
-from .get_service_bus_namespace import *
+from .get_namespace import *

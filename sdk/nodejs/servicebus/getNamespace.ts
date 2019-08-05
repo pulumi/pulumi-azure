@@ -21,9 +21,9 @@ import * as utilities from "../utilities";
  * export const location = test.location;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
  */
-export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceBusNamespaceResult> & GetServiceBusNamespaceResult {
+export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> & GetNamespaceResult {
     if (!opts) {
         opts = {}
     }
@@ -31,7 +31,7 @@ export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: 
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetServiceBusNamespaceResult> = pulumi.runtime.invoke("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", {
+    const promise: Promise<GetNamespaceResult> = pulumi.runtime.invoke("azure:servicebus/getNamespace:getNamespace", {
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -40,9 +40,9 @@ export function getServiceBusNamespace(args: GetServiceBusNamespaceArgs, opts?: 
 }
 
 /**
- * A collection of arguments for invoking getServiceBusNamespace.
+ * A collection of arguments for invoking getNamespace.
  */
-export interface GetServiceBusNamespaceArgs {
+export interface GetNamespaceArgs {
     /**
      * Specifies the name of the ServiceBus Namespace.
      */
@@ -54,9 +54,9 @@ export interface GetServiceBusNamespaceArgs {
 }
 
 /**
- * A collection of values returned by getServiceBusNamespace.
+ * A collection of values returned by getNamespace.
  */
-export interface GetServiceBusNamespaceResult {
+export interface GetNamespaceResult {
     /**
      * The capacity of the ServiceBus Namespace.
      */

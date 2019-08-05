@@ -2,7 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./getServiceBusNamespace";
+export * from "./getNamespace";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./queue";

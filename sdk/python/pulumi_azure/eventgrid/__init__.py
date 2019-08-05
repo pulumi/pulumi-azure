@@ -5,4 +5,4 @@
 # Export this package's modules as members:
 from .domain import *
 from .event_subscription import *
-from .event_grid_topic import *
+from .topic import *

@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetGeographicalLocationResult:
+class GetTrafficManagerResult:
     """
-    A collection of values returned by getGeographicalLocation.
+    A collection of values returned by getTrafficManager.
     """
     def __init__(__self__, name=None, id=None):
         if name and not isinstance(name, str):
@@ -22,30 +22,18 @@ class GetGeographicalLocationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-class AwaitableGetGeographicalLocationResult(GetGeographicalLocationResult):
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return GetGeographicalLocationResult(
-            name=self.name,
-            id=self.id)
 
-def get_geographical_location(name=None,opts=None):
+async def get_traffic_manager(name=None,opts=None):
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location_legacy.html.markdown.
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
     """
     __args__ = dict()
 
     __args__['name'] = name
-    if opts is None:
-        opts = pulumi.ResourceOptions()
-    if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:trafficmanager/getGeographicalLocation:getGeographicalLocation', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:network/getTrafficManager:getTrafficManager', __args__, opts=opts)
 
-    return AwaitableGetGeographicalLocationResult(
+    return GetTrafficManagerResult(
         name=__ret__.get('name'),
         id=__ret__.get('id'))
