@@ -68,15 +68,7 @@ class GetZoneResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_zone(name=None,resource_group_name=None,opts=None):
+async def get_zone(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing DNS Zone.
 
@@ -90,7 +82,7 @@ def get_zone(name=None,resource_group_name=None,opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:dns/getZone:getZone', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:dns/getZone:getZone', __args__, opts=opts)
 
     return GetZoneResult(
         max_number_of_record_sets=__ret__.get('maxNumberOfRecordSets'),

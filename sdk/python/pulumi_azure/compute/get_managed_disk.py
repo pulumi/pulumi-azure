@@ -71,15 +71,7 @@ class GetManagedDiskResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
+async def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Managed Disk.
 
@@ -95,7 +87,7 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:compute/getManagedDisk:getManagedDisk', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getManagedDisk:getManagedDisk', __args__, opts=opts)
 
     return GetManagedDiskResult(
         create_option=__ret__.get('createOption'),

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleNamespace = new azure.eventhub.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfex_sevicebus_namespace",
+ *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleTopic = new azure.eventhub.Topic("example", {
  *     enablePartitioning: true,
- *     name: "tfex_sevicebus_topic",
+ *     name: "tfexSevicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });

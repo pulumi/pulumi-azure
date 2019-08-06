@@ -35,11 +35,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
     }
 
     /**
-     * A `addon_profile` block.
+     * A `addonProfile` block.
      */
     public readonly addonProfile!: pulumi.Output<{ aciConnectorLinux?: { enabled: boolean, subnetName: string }, httpApplicationRouting?: { enabled: boolean, httpApplicationRoutingZoneName: string }, omsAgent?: { enabled: boolean, logAnalyticsWorkspaceId: string } }>;
     /**
-     * One or more `agent_pool_profile` blocks as defined below.
+     * One or more `agentPoolProfile` blocks as defined below.
      */
     public readonly agentPoolProfiles!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, maxPods: number, name: string, osDiskSizeGb: number, osType?: string, type?: string, vmSize: string, vnetSubnetId?: string }[]>;
     /**
@@ -55,7 +55,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
     public /*out*/ readonly kubeAdminConfig!: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
     /**
@@ -63,7 +63,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly kubeAdminConfigRaw!: pulumi.Output<string>;
     /**
-     * A `kube_config` block as defined below.
+     * A `kubeConfig` block as defined below.
      */
     public /*out*/ readonly kubeConfig!: pulumi.Output<{ clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }>;
     /**
@@ -75,7 +75,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly kubernetesVersion!: pulumi.Output<string>;
     /**
-     * A `linux_profile` block.
+     * A `linuxProfile` block.
      */
     public readonly linuxProfile!: pulumi.Output<{ adminUsername: string, sshKey: { keyData: string } } | undefined>;
     /**
@@ -87,7 +87,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `network_profile` block.
+     * A `networkProfile` block.
      */
     public readonly networkProfile!: pulumi.Output<{ dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, networkPolicy: string, podCidr: string, serviceCidr: string }>;
     /**
@@ -99,11 +99,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `role_based_access_control` block. Changing this forces a new resource to be created.
+     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
      */
     public readonly roleBasedAccessControl!: pulumi.Output<{ azureActiveDirectory?: { clientAppId: string, serverAppId: string, serverAppSecret: string, tenantId: string }, enabled: boolean }>;
     /**
-     * A `service_principal` block as documented below.
+     * A `servicePrincipal` block as documented below.
      */
     public readonly servicePrincipal!: pulumi.Output<{ clientId: string, clientSecret: string }>;
     /**
@@ -192,11 +192,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
  */
 export interface KubernetesClusterState {
     /**
-     * A `addon_profile` block.
+     * A `addonProfile` block.
      */
     readonly addonProfile?: pulumi.Input<{ aciConnectorLinux?: pulumi.Input<{ enabled: pulumi.Input<boolean>, subnetName: pulumi.Input<string> }>, httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
     /**
-     * One or more `agent_pool_profile` blocks as defined below.
+     * One or more `agentPoolProfile` blocks as defined below.
      */
     readonly agentPoolProfiles?: pulumi.Input<pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, type?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>[]>;
     /**
@@ -212,7 +212,7 @@ export interface KubernetesClusterState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
     readonly kubeAdminConfig?: pulumi.Input<{ clientCertificate?: pulumi.Input<string>, clientKey?: pulumi.Input<string>, clusterCaCertificate?: pulumi.Input<string>, host?: pulumi.Input<string>, password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
     /**
@@ -220,7 +220,7 @@ export interface KubernetesClusterState {
      */
     readonly kubeAdminConfigRaw?: pulumi.Input<string>;
     /**
-     * A `kube_config` block as defined below.
+     * A `kubeConfig` block as defined below.
      */
     readonly kubeConfig?: pulumi.Input<{ clientCertificate?: pulumi.Input<string>, clientKey?: pulumi.Input<string>, clusterCaCertificate?: pulumi.Input<string>, host?: pulumi.Input<string>, password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
     /**
@@ -232,7 +232,7 @@ export interface KubernetesClusterState {
      */
     readonly kubernetesVersion?: pulumi.Input<string>;
     /**
-     * A `linux_profile` block.
+     * A `linuxProfile` block.
      */
     readonly linuxProfile?: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKey: pulumi.Input<{ keyData: pulumi.Input<string> }> }>;
     /**
@@ -244,7 +244,7 @@ export interface KubernetesClusterState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `network_profile` block.
+     * A `networkProfile` block.
      */
     readonly networkProfile?: pulumi.Input<{ dnsServiceIp?: pulumi.Input<string>, dockerBridgeCidr?: pulumi.Input<string>, networkPlugin: pulumi.Input<string>, networkPolicy?: pulumi.Input<string>, podCidr?: pulumi.Input<string>, serviceCidr?: pulumi.Input<string> }>;
     /**
@@ -256,11 +256,11 @@ export interface KubernetesClusterState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `role_based_access_control` block. Changing this forces a new resource to be created.
+     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
      */
     readonly roleBasedAccessControl?: pulumi.Input<{ azureActiveDirectory?: pulumi.Input<{ clientAppId: pulumi.Input<string>, serverAppId: pulumi.Input<string>, serverAppSecret: pulumi.Input<string>, tenantId?: pulumi.Input<string> }>, enabled: pulumi.Input<boolean> }>;
     /**
-     * A `service_principal` block as documented below.
+     * A `servicePrincipal` block as documented below.
      */
     readonly servicePrincipal?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string> }>;
     /**
@@ -274,11 +274,11 @@ export interface KubernetesClusterState {
  */
 export interface KubernetesClusterArgs {
     /**
-     * A `addon_profile` block.
+     * A `addonProfile` block.
      */
     readonly addonProfile?: pulumi.Input<{ aciConnectorLinux?: pulumi.Input<{ enabled: pulumi.Input<boolean>, subnetName: pulumi.Input<string> }>, httpApplicationRouting?: pulumi.Input<{ enabled: pulumi.Input<boolean>, httpApplicationRoutingZoneName?: pulumi.Input<string> }>, omsAgent?: pulumi.Input<{ enabled: pulumi.Input<boolean>, logAnalyticsWorkspaceId: pulumi.Input<string> }> }>;
     /**
-     * One or more `agent_pool_profile` blocks as defined below.
+     * One or more `agentPoolProfile` blocks as defined below.
      */
     readonly agentPoolProfiles: pulumi.Input<pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix?: pulumi.Input<string>, fqdn?: pulumi.Input<string>, maxPods?: pulumi.Input<number>, name: pulumi.Input<string>, osDiskSizeGb?: pulumi.Input<number>, osType?: pulumi.Input<string>, type?: pulumi.Input<string>, vmSize: pulumi.Input<string>, vnetSubnetId?: pulumi.Input<string> }>[]>;
     /**
@@ -294,7 +294,7 @@ export interface KubernetesClusterArgs {
      */
     readonly kubernetesVersion?: pulumi.Input<string>;
     /**
-     * A `linux_profile` block.
+     * A `linuxProfile` block.
      */
     readonly linuxProfile?: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKey: pulumi.Input<{ keyData: pulumi.Input<string> }> }>;
     /**
@@ -306,7 +306,7 @@ export interface KubernetesClusterArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `network_profile` block.
+     * A `networkProfile` block.
      */
     readonly networkProfile?: pulumi.Input<{ dnsServiceIp?: pulumi.Input<string>, dockerBridgeCidr?: pulumi.Input<string>, networkPlugin: pulumi.Input<string>, networkPolicy?: pulumi.Input<string>, podCidr?: pulumi.Input<string>, serviceCidr?: pulumi.Input<string> }>;
     /**
@@ -314,11 +314,11 @@ export interface KubernetesClusterArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `role_based_access_control` block. Changing this forces a new resource to be created.
+     * A `roleBasedAccessControl` block. Changing this forces a new resource to be created.
      */
     readonly roleBasedAccessControl?: pulumi.Input<{ azureActiveDirectory?: pulumi.Input<{ clientAppId: pulumi.Input<string>, serverAppId: pulumi.Input<string>, serverAppSecret: pulumi.Input<string>, tenantId?: pulumi.Input<string> }>, enabled: pulumi.Input<boolean> }>;
     /**
-     * A `service_principal` block as documented below.
+     * A `servicePrincipal` block as documented below.
      */
     readonly servicePrincipal: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string> }>;
     /**

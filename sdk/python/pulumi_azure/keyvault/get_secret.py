@@ -53,15 +53,7 @@ class GetSecretResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
+async def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
     """
     Use this data source to access information about an existing Key Vault Secret.
     
@@ -79,7 +71,7 @@ def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__, opts=opts)
 
     return GetSecretResult(
         content_type=__ret__.get('contentType'),

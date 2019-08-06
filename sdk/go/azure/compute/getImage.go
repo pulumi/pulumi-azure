@@ -50,14 +50,14 @@ type GetImageArgs struct {
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
-	// a collection of `data_disk` blocks as defined below.
+	// a collection of `dataDisk` blocks as defined below.
 	DataDisks interface{}
 	// the Azure Location where this Image exists.
 	Location interface{}
 	// the name of the Image.
 	Name interface{}
 	NameRegex interface{}
-	// a `os_disk` block as defined below.
+	// a `osDisk` block as defined below.
 	OsDisks interface{}
 	ResourceGroupName interface{}
 	SortDescending interface{}

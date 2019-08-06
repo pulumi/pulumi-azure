@@ -58,7 +58,7 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     /**
-     * One or more `additional_location` blocks as defined below
+     * One or more `additionalLocation` blocks as defined below
      */
     readonly additionalLocations: { gatewayRegionalUrl: string, location: string, publicIpAddresses: string[] }[];
     /**
@@ -70,7 +70,7 @@ export interface GetServiceResult {
      */
     readonly gatewayUrl: string;
     /**
-     * A `hostname_configuration` block as defined below.
+     * A `hostnameConfiguration` block as defined below.
      */
     readonly hostnameConfigurations: { managements: { hostName: string, keyVaultId: string, negotiateClientCertificate: boolean }[], portals: { hostName: string, keyVaultId: string, negotiateClientCertificate: boolean }[], proxies: { defaultSslBinding: boolean, hostName: string, keyVaultId: string, negotiateClientCertificate: boolean }[], scms: { hostName: string, keyVaultId: string, negotiateClientCertificate: boolean }[] }[];
     /**

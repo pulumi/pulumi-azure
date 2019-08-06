@@ -51,13 +51,13 @@ type GetServiceArgs struct {
 
 // A collection of values returned by getService.
 type GetServiceResult struct {
-	// One or more `additional_location` blocks as defined below
+	// One or more `additionalLocation` blocks as defined below
 	AdditionalLocations interface{}
 	// Gateway URL of the API Management service in the Region.
 	GatewayRegionalUrl interface{}
 	// The URL for the API Management Service's Gateway.
 	GatewayUrl interface{}
-	// A `hostname_configuration` block as defined below.
+	// A `hostnameConfiguration` block as defined below.
 	HostnameConfigurations interface{}
 	// The location name of the additional region among Azure Data center regions.
 	Location interface{}

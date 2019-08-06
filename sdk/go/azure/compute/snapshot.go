@@ -118,7 +118,7 @@ func (r *Snapshot) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
 func (r *Snapshot) SourceResourceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceResourceId"])
 }
@@ -128,7 +128,7 @@ func (r *Snapshot) SourceUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceUri"])
 }
 
-// Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+// Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
 func (r *Snapshot) StorageAccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
@@ -151,11 +151,11 @@ type SnapshotState struct {
 	Name interface{}
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
 	SourceResourceId interface{}
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
 	SourceUri interface{}
-	// Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+	// Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
 	StorageAccountId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -174,11 +174,11 @@ type SnapshotArgs struct {
 	Name interface{}
 	// The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+	// Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
 	SourceResourceId interface{}
 	// Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
 	SourceUri interface{}
-	// Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+	// Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
 	StorageAccountId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

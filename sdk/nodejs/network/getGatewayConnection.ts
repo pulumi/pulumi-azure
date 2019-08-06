@@ -120,7 +120,7 @@ export interface GetGatewayConnectionResult {
     /**
      * If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block.
+     * selectors requires an `ipsecPolicy` block.
      */
     readonly usePolicyBasedTrafficSelectors: boolean;
     /**

@@ -114,7 +114,7 @@ func (r *ExpressRouteCircuitPeering) ExpressRouteCircuitName() *pulumi.StringOut
 	return (*pulumi.StringOutput)(r.s.State["expressRouteCircuitName"])
 }
 
-// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
 func (r *ExpressRouteCircuitPeering) MicrosoftPeeringConfig() *pulumi.Output {
 	return r.s.State["microsoftPeeringConfig"]
 }
@@ -171,7 +171,7 @@ type ExpressRouteCircuitPeeringState struct {
 	AzureAsn interface{}
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName interface{}
-	// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
 	MicrosoftPeeringConfig interface{}
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
 	PeerAsn interface{}
@@ -198,7 +198,7 @@ type ExpressRouteCircuitPeeringState struct {
 type ExpressRouteCircuitPeeringArgs struct {
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName interface{}
-	// A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
 	MicrosoftPeeringConfig interface{}
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private..
 	PeerAsn interface{}

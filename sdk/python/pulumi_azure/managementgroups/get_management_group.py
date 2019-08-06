@@ -41,15 +41,7 @@ class GetManagementGroupResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_management_group(group_id=None,opts=None):
+async def get_management_group(group_id=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
 
@@ -62,7 +54,7 @@ def get_management_group(group_id=None,opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__, opts=opts)
 
     return GetManagementGroupResult(
         display_name=__ret__.get('displayName'),

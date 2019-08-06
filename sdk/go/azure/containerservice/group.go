@@ -117,7 +117,7 @@ func (r *Group) DnsNameLabel() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dnsNameLabel"])
 }
 
-// The FQDN of the container group derived from `dns_name_label`.
+// The FQDN of the container group derived from `dnsNameLabel`.
 func (r *Group) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
 }
@@ -127,7 +127,7 @@ func (r *Group) Identity() *pulumi.Output {
 	return r.s.State["identity"]
 }
 
-// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 func (r *Group) ImageRegistryCredentials() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["imageRegistryCredentials"])
 }
@@ -180,11 +180,11 @@ type GroupState struct {
 	Diagnostics interface{}
 	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
 	DnsNameLabel interface{}
-	// The FQDN of the container group derived from `dns_name_label`.
+	// The FQDN of the container group derived from `dnsNameLabel`.
 	Fqdn interface{}
 	// An `identity` block as defined below.
 	Identity interface{}
-	// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials interface{}
 	// The IP address allocated to the container group.
 	IpAddress interface{}
@@ -214,7 +214,7 @@ type GroupArgs struct {
 	DnsNameLabel interface{}
 	// An `identity` block as defined below.
 	Identity interface{}
-	// A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials interface{}
 	// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
 	IpAddressType interface{}

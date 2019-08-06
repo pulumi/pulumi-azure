@@ -38,15 +38,7 @@ class GetKubernetesServiceVersionsResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None):
+async def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None):
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
 
@@ -60,7 +52,7 @@ def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None)
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts)
 
     return GetKubernetesServiceVersionsResult(
         latest_version=__ret__.get('latestVersion'),

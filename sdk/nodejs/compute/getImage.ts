@@ -68,7 +68,7 @@ export interface GetImageArgs {
  */
 export interface GetImageResult {
     /**
-     * a collection of `data_disk` blocks as defined below.
+     * a collection of `dataDisk` blocks as defined below.
      */
     readonly dataDisks: { blobUri: string, caching: string, lun: number, managedDiskId: string, sizeGb: number }[];
     /**
@@ -81,7 +81,7 @@ export interface GetImageResult {
     readonly name?: string;
     readonly nameRegex?: string;
     /**
-     * a `os_disk` block as defined below.
+     * a `osDisk` block as defined below.
      */
     readonly osDisks: { blobUri: string, caching: string, managedDiskId: string, osState: string, osType: string, sizeGb: number }[];
     readonly resourceGroupName: string;

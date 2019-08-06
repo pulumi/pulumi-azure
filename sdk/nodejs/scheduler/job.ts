@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const web_once_now = new azure.scheduler.Job("web-once-now", {
+ * const webOnceNow = new azure.scheduler.Job("web-once-now", {
  *     actionWeb: {
  *         // defaults to get
  *         url: "http://this.url.fails",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const web_recurring_daily = new azure.scheduler.Job("web-recurring-daily", {
+ * const webRecurringDaily = new azure.scheduler.Job("web-recurring-daily", {
  *     actionWeb: {
  *         authenticationBasic: {
  *             password: "apassword",
@@ -80,10 +80,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const web_recurring_daily = new azure.scheduler.Job("web-recurring-daily", {
+ * const webRecurringDaily = new azure.scheduler.Job("web-recurring-daily", {
  *     actionWeb: {
  *         authenticationCertificate: {
- *             password: "cert_password",
+ *             password: "certPassword",
  *             pfx: (() => {
  *                 throw "tf2pulumi error: NYI: call to filebase64";
  *                 return (() => { throw "NYI: call to filebase64"; })();
@@ -149,7 +149,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     storageAccountName: exampleAccount.name,
  * });
- * const storage_once_now = new azure.scheduler.Job("storage-once-now", {
+ * const storageOnceNow = new azure.scheduler.Job("storage-once-now", {
  *     actionStorageQueue: {
  *         message: "storage message",
  *         sasToken: exampleAccount.primaryAccessKey,
@@ -192,19 +192,19 @@ export class Job extends pulumi.CustomResource {
     }
 
     /**
-     * A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
+     * A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
      */
     public readonly actionStorageQueue!: pulumi.Output<{ message: string, sasToken: string, storageAccountName: string, storageQueueName: string } | undefined>;
     /**
-     * A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
+     * A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
      */
     public readonly actionWeb!: pulumi.Output<{ authenticationActiveDirectory?: { audience: string, clientId: string, secret: string, tenantId: string }, authenticationBasic?: { password: string, username: string }, authenticationCertificate?: { expiration: string, password: string, pfx: string, subjectName: string, thumbprint: string }, body?: string, headers?: {[key: string]: any}, method: string, url: string } | undefined>;
     /**
-     * A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
+     * A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
      */
     public readonly errorActionStorageQueue!: pulumi.Output<{ message: string, sasToken: string, storageAccountName: string, storageQueueName: string } | undefined>;
     /**
-     * A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
+     * A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
      */
     public readonly errorActionWeb!: pulumi.Output<{ authenticationActiveDirectory?: { audience: string, clientId: string, secret: string, tenantId: string }, authenticationBasic?: { password: string, username: string }, authenticationCertificate?: { expiration: string, password: string, pfx: string, subjectName: string, thumbprint: string }, body?: string, headers?: {[key: string]: any}, method: string, url: string } | undefined>;
     /**
@@ -295,19 +295,19 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobState {
     /**
-     * A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
+     * A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
      */
     readonly actionStorageQueue?: pulumi.Input<{ message: pulumi.Input<string>, sasToken: pulumi.Input<string>, storageAccountName: pulumi.Input<string>, storageQueueName: pulumi.Input<string> }>;
     /**
-     * A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
+     * A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
      */
     readonly actionWeb?: pulumi.Input<{ authenticationActiveDirectory?: pulumi.Input<{ audience?: pulumi.Input<string>, clientId: pulumi.Input<string>, secret: pulumi.Input<string>, tenantId: pulumi.Input<string> }>, authenticationBasic?: pulumi.Input<{ password: pulumi.Input<string>, username: pulumi.Input<string> }>, authenticationCertificate?: pulumi.Input<{ expiration?: pulumi.Input<string>, password: pulumi.Input<string>, pfx: pulumi.Input<string>, subjectName?: pulumi.Input<string>, thumbprint?: pulumi.Input<string> }>, body?: pulumi.Input<string>, headers?: pulumi.Input<{[key: string]: any}>, method: pulumi.Input<string>, url: pulumi.Input<string> }>;
     /**
-     * A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
+     * A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
      */
     readonly errorActionStorageQueue?: pulumi.Input<{ message: pulumi.Input<string>, sasToken: pulumi.Input<string>, storageAccountName: pulumi.Input<string>, storageQueueName: pulumi.Input<string> }>;
     /**
-     * A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
+     * A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
      */
     readonly errorActionWeb?: pulumi.Input<{ authenticationActiveDirectory?: pulumi.Input<{ audience?: pulumi.Input<string>, clientId: pulumi.Input<string>, secret: pulumi.Input<string>, tenantId: pulumi.Input<string> }>, authenticationBasic?: pulumi.Input<{ password: pulumi.Input<string>, username: pulumi.Input<string> }>, authenticationCertificate?: pulumi.Input<{ expiration?: pulumi.Input<string>, password: pulumi.Input<string>, pfx: pulumi.Input<string>, subjectName?: pulumi.Input<string>, thumbprint?: pulumi.Input<string> }>, body?: pulumi.Input<string>, headers?: pulumi.Input<{[key: string]: any}>, method: pulumi.Input<string>, url: pulumi.Input<string> }>;
     /**
@@ -345,19 +345,19 @@ export interface JobState {
  */
 export interface JobArgs {
     /**
-     * A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
+     * A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
      */
     readonly actionStorageQueue?: pulumi.Input<{ message: pulumi.Input<string>, sasToken: pulumi.Input<string>, storageAccountName: pulumi.Input<string>, storageQueueName: pulumi.Input<string> }>;
     /**
-     * A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
+     * A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
      */
     readonly actionWeb?: pulumi.Input<{ authenticationActiveDirectory?: pulumi.Input<{ audience?: pulumi.Input<string>, clientId: pulumi.Input<string>, secret: pulumi.Input<string>, tenantId: pulumi.Input<string> }>, authenticationBasic?: pulumi.Input<{ password: pulumi.Input<string>, username: pulumi.Input<string> }>, authenticationCertificate?: pulumi.Input<{ expiration?: pulumi.Input<string>, password: pulumi.Input<string>, pfx: pulumi.Input<string>, subjectName?: pulumi.Input<string>, thumbprint?: pulumi.Input<string> }>, body?: pulumi.Input<string>, headers?: pulumi.Input<{[key: string]: any}>, method: pulumi.Input<string>, url: pulumi.Input<string> }>;
     /**
-     * A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
+     * A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
      */
     readonly errorActionStorageQueue?: pulumi.Input<{ message: pulumi.Input<string>, sasToken: pulumi.Input<string>, storageAccountName: pulumi.Input<string>, storageQueueName: pulumi.Input<string> }>;
     /**
-     * A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
+     * A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
      */
     readonly errorActionWeb?: pulumi.Input<{ authenticationActiveDirectory?: pulumi.Input<{ audience?: pulumi.Input<string>, clientId: pulumi.Input<string>, secret: pulumi.Input<string>, tenantId: pulumi.Input<string> }>, authenticationBasic?: pulumi.Input<{ password: pulumi.Input<string>, username: pulumi.Input<string> }>, authenticationCertificate?: pulumi.Input<{ expiration?: pulumi.Input<string>, password: pulumi.Input<string>, pfx: pulumi.Input<string>, subjectName?: pulumi.Input<string>, thumbprint?: pulumi.Input<string> }>, body?: pulumi.Input<string>, headers?: pulumi.Input<{[key: string]: any}>, method: pulumi.Input<string>, url: pulumi.Input<string> }>;
     /**

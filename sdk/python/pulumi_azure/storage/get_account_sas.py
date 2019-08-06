@@ -47,15 +47,7 @@ class GetAccountSASResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_account_sas(connection_string=None,expiry=None,https_only=None,permissions=None,resource_types=None,services=None,start=None,opts=None):
+async def get_account_sas(connection_string=None,expiry=None,https_only=None,permissions=None,resource_types=None,services=None,start=None,opts=None):
     """
     Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Storage Account.
     
@@ -79,7 +71,7 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:storage/getAccountSAS:getAccountSAS', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:storage/getAccountSAS:getAccountSAS', __args__, opts=opts)
 
     return GetAccountSASResult(
         connection_string=__ret__.get('connectionString'),

@@ -78,7 +78,7 @@ func (r *LoadBalancer) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// One or multiple `frontend_ip_configuration` blocks as documented below.
+// One or multiple `frontendIpConfiguration` blocks as documented below.
 func (r *LoadBalancer) FrontendIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
@@ -98,7 +98,7 @@ func (r *LoadBalancer) PrivateIpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["privateIpAddress"])
 }
 
-// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 func (r *LoadBalancer) PrivateIpAddresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["privateIpAddresses"])
 }
@@ -120,7 +120,7 @@ func (r *LoadBalancer) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering LoadBalancer resources.
 type LoadBalancerState struct {
-	// One or multiple `frontend_ip_configuration` blocks as documented below.
+	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations interface{}
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location interface{}
@@ -128,7 +128,7 @@ type LoadBalancerState struct {
 	Name interface{}
 	// Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
 	PrivateIpAddress interface{}
-	// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses interface{}
 	// The name of the Resource Group in which to create the Load Balancer.
 	ResourceGroupName interface{}
@@ -140,7 +140,7 @@ type LoadBalancerState struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	// One or multiple `frontend_ip_configuration` blocks as documented below.
+	// One or multiple `frontendIpConfiguration` blocks as documented below.
 	FrontendIpConfigurations interface{}
 	// Specifies the supported Azure Region where the Load Balancer should be created.
 	Location interface{}

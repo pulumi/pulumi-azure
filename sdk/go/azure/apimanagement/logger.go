@@ -85,7 +85,7 @@ func (r *Logger) ApiManagementName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["apiManagementName"])
 }
 
-// An `application_insights` block as documented below.
+// An `applicationInsights` block as documented below.
 func (r *Logger) ApplicationInsights() *pulumi.Output {
 	return r.s.State["applicationInsights"]
 }
@@ -119,7 +119,7 @@ func (r *Logger) ResourceGroupName() *pulumi.StringOutput {
 type LoggerState struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName interface{}
-	// An `application_insights` block as documented below.
+	// An `applicationInsights` block as documented below.
 	ApplicationInsights interface{}
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
 	Buffered interface{}
@@ -137,7 +137,7 @@ type LoggerState struct {
 type LoggerArgs struct {
 	// The name of the API Management Service. Changing this forces a new resource to be created.
 	ApiManagementName interface{}
-	// An `application_insights` block as documented below.
+	// An `applicationInsights` block as documented below.
 	ApplicationInsights interface{}
 	// Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
 	Buffered interface{}

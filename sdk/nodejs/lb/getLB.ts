@@ -58,7 +58,7 @@ export interface GetLBArgs {
  */
 export interface GetLBResult {
     /**
-     * (Optional) A `frontend_ip_configuration` block as documented below.
+     * (Optional) A `frontendIpConfiguration` block as documented below.
      */
     readonly frontendIpConfigurations: { name: string, privateIpAddress: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string, zones: string[] }[];
     /**
@@ -74,7 +74,7 @@ export interface GetLBResult {
      */
     readonly privateIpAddress: string;
     /**
-     * The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+     * The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
      */
     readonly privateIpAddresses: string[];
     readonly resourceGroupName: string;

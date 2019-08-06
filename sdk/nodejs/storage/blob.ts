@@ -74,7 +74,7 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly attempts!: pulumi.Output<number | undefined>;
     /**
-     * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+     * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
     /**
@@ -99,7 +99,7 @@ export class Blob extends pulumi.CustomResource {
      */
     public readonly size!: pulumi.Output<number | undefined>;
     /**
-     * An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+     * An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
      */
     public readonly source!: pulumi.Output<string | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface BlobState {
      */
     readonly attempts?: pulumi.Input<number>;
     /**
-     * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+     * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     readonly contentType?: pulumi.Input<string>;
     /**
@@ -221,7 +221,7 @@ export interface BlobState {
      */
     readonly size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+     * An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
      */
     readonly source?: pulumi.Input<string>;
     /**
@@ -258,7 +258,7 @@ export interface BlobArgs {
      */
     readonly attempts?: pulumi.Input<number>;
     /**
-     * The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+     * The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
      */
     readonly contentType?: pulumi.Input<string>;
     /**
@@ -283,7 +283,7 @@ export interface BlobArgs {
      */
     readonly size?: pulumi.Input<number>;
     /**
-     * An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+     * An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
      */
     readonly source?: pulumi.Input<string>;
     /**

@@ -58,7 +58,7 @@ export interface GetActionGroupArgs {
  */
 export interface GetActionGroupResult {
     /**
-     * One or more `email_receiver` blocks as defined below.
+     * One or more `emailReceiver` blocks as defined below.
      */
     readonly emailReceivers: { emailAddress: string, name: string }[];
     /**
@@ -75,11 +75,11 @@ export interface GetActionGroupResult {
      */
     readonly shortName: string;
     /**
-     * One or more `sms_receiver ` blocks as defined below.
+     * One or more `smsReceiver ` blocks as defined below.
      */
     readonly smsReceivers: { countryCode: string, name: string, phoneNumber: string }[];
     /**
-     * One or more `webhook_receiver ` blocks as defined below.
+     * One or more `webhookReceiver ` blocks as defined below.
      */
     readonly webhookReceivers: { name: string, serviceUri: string }[];
     /**

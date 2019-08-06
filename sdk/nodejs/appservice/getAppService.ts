@@ -74,7 +74,7 @@ export interface GetAppServiceResult {
      */
     readonly clientCertEnabled: boolean;
     /**
-     * An `connection_string` block as defined below.
+     * An `connectionString` block as defined below.
      */
     readonly connectionStrings: { name: string, type: string, value: string }[];
     readonly defaultSiteHostname: string;
@@ -99,12 +99,12 @@ export interface GetAppServiceResult {
      */
     readonly outboundIpAddresses: string;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     readonly possibleOutboundIpAddresses: string;
     readonly resourceGroupName: string;
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      */
     readonly siteConfigs: { alwaysOn: boolean, appCommandLine: string, cors: { allowedOrigins: string[], supportCredentials: boolean }, defaultDocuments: string[], dotnetFrameworkVersion: string, ftpsState: string, http2Enabled: boolean, ipRestrictions: { ipAddress: string, subnetMask: string }[], javaContainer: string, javaContainerVersion: string, javaVersion: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion: string, pythonVersion: string, remoteDebuggingEnabled: boolean, remoteDebuggingVersion: string, scmType: string, use32BitWorkerProcess: boolean, virtualNetworkName: string, websocketsEnabled: boolean, windowsFxVersion: string }[];
     readonly siteCredentials: { password: string, username: string }[];

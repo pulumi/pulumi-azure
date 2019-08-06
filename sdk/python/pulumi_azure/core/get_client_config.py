@@ -35,15 +35,7 @@ class GetClientConfigResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_client_config(opts=None):
+async def get_client_config(opts=None):
     """
     Use this data source to access the configuration of the AzureRM provider.
 
@@ -55,7 +47,7 @@ def get_client_config(opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:core/getClientConfig:getClientConfig', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:core/getClientConfig:getClientConfig', __args__, opts=opts)
 
     return GetClientConfigResult(
         client_id=__ret__.get('clientId'),

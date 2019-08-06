@@ -35,15 +35,7 @@ class GetDiagnosticCategoriesResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_diagnostic_categories(resource_id=None,opts=None):
+async def get_diagnostic_categories(resource_id=None,opts=None):
     """
     Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
 
@@ -56,7 +48,7 @@ def get_diagnostic_categories(resource_id=None,opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts)
 
     return GetDiagnosticCategoriesResult(
         logs=__ret__.get('logs'),

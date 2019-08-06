@@ -100,15 +100,15 @@ export class ManagedDisk extends pulumi.CustomResource {
     public readonly createOption!: pulumi.Output<string>;
     /**
      * Specifies the size of the managed disk to create in gigabytes.
-     * If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
      */
     public readonly diskSizeGb!: pulumi.Output<number>;
     /**
-     * an `encryption_settings` block as defined below.
+     * an `encryptionSettings` block as defined below.
      */
     public readonly encryptionSettings!: pulumi.Output<{ diskEncryptionKey?: { secretUrl: string, sourceVaultId: string }, enabled: boolean, keyEncryptionKey?: { keyUrl: string, sourceVaultId: string } } | undefined>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
     public readonly imageReferenceId!: pulumi.Output<string | undefined>;
     /**
@@ -132,12 +132,12 @@ export class ManagedDisk extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * ID of an existing managed disk to copy `create_option` is `Copy`
-     * or the recovery point to restore when `create_option` is `Restore`
+     * ID of an existing managed disk to copy `createOption` is `Copy`
+     * or the recovery point to restore when `createOption` is `Restore`
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
-     * URI to a valid VHD file to be used when `create_option` is `Import`.
+     * URI to a valid VHD file to be used when `createOption` is `Import`.
      */
     public readonly sourceUri!: pulumi.Output<string>;
     /**
@@ -225,15 +225,15 @@ export interface ManagedDiskState {
     readonly createOption?: pulumi.Input<string>;
     /**
      * Specifies the size of the managed disk to create in gigabytes.
-     * If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
      */
     readonly diskSizeGb?: pulumi.Input<number>;
     /**
-     * an `encryption_settings` block as defined below.
+     * an `encryptionSettings` block as defined below.
      */
     readonly encryptionSettings?: pulumi.Input<{ diskEncryptionKey?: pulumi.Input<{ secretUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, keyEncryptionKey?: pulumi.Input<{ keyUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }> }>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
     readonly imageReferenceId?: pulumi.Input<string>;
     /**
@@ -257,12 +257,12 @@ export interface ManagedDiskState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * ID of an existing managed disk to copy `create_option` is `Copy`
-     * or the recovery point to restore when `create_option` is `Restore`
+     * ID of an existing managed disk to copy `createOption` is `Copy`
+     * or the recovery point to restore when `createOption` is `Restore`
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**
-     * URI to a valid VHD file to be used when `create_option` is `Import`.
+     * URI to a valid VHD file to be used when `createOption` is `Import`.
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
@@ -290,15 +290,15 @@ export interface ManagedDiskArgs {
     readonly createOption: pulumi.Input<string>;
     /**
      * Specifies the size of the managed disk to create in gigabytes.
-     * If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+     * If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
      */
     readonly diskSizeGb?: pulumi.Input<number>;
     /**
-     * an `encryption_settings` block as defined below.
+     * an `encryptionSettings` block as defined below.
      */
     readonly encryptionSettings?: pulumi.Input<{ diskEncryptionKey?: pulumi.Input<{ secretUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, keyEncryptionKey?: pulumi.Input<{ keyUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }> }>;
     /**
-     * ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+     * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
     readonly imageReferenceId?: pulumi.Input<string>;
     /**
@@ -322,12 +322,12 @@ export interface ManagedDiskArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * ID of an existing managed disk to copy `create_option` is `Copy`
-     * or the recovery point to restore when `create_option` is `Restore`
+     * ID of an existing managed disk to copy `createOption` is `Copy`
+     * or the recovery point to restore when `createOption` is `Restore`
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**
-     * URI to a valid VHD file to be used when `create_option` is `Import`.
+     * URI to a valid VHD file to be used when `createOption` is `Import`.
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**

@@ -53,7 +53,7 @@ export interface GetKeyArgs {
      */
     readonly name: string;
     /**
-     * Specifies the ID of the Key Vault Key Vault instance where the Key resides, available on the `azurerm_key_vault` Data Source / Resource.
+     * Specifies the ID of the Key Vault Key Vault instance where the Key resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
      */
     readonly vaultUri?: string;
 }

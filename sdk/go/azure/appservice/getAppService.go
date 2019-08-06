@@ -60,7 +60,7 @@ type GetAppServiceResult struct {
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests?
 	ClientCertEnabled interface{}
-	// An `connection_string` block as defined below.
+	// An `connectionString` block as defined below.
 	ConnectionStrings interface{}
 	DefaultSiteHostname interface{}
 	// Is the App Service Enabled?
@@ -73,10 +73,10 @@ type GetAppServiceResult struct {
 	Name interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses interface{}
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses interface{}
 	ResourceGroupName interface{}
-	// A `site_config` block as defined below.
+	// A `siteConfig` block as defined below.
 	SiteConfigs interface{}
 	SiteCredentials interface{}
 	SourceControls interface{}

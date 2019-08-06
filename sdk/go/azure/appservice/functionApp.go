@@ -132,7 +132,7 @@ func (r *FunctionApp) ClientAffinityEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
 }
 
-// An `connection_string` block as defined below.
+// An `connectionString` block as defined below.
 func (r *FunctionApp) ConnectionStrings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["connectionStrings"])
 }
@@ -182,7 +182,7 @@ func (r *FunctionApp) OutboundIpAddresses() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["outboundIpAddresses"])
 }
 
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (r *FunctionApp) PossibleOutboundIpAddresses() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["possibleOutboundIpAddresses"])
 }
@@ -192,12 +192,12 @@ func (r *FunctionApp) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `site_config` object as defined below.
+// A `siteConfig` object as defined below.
 func (r *FunctionApp) SiteConfig() *pulumi.Output {
 	return r.s.State["siteConfig"]
 }
 
-// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 func (r *FunctionApp) SiteCredential() *pulumi.Output {
 	return r.s.State["siteCredential"]
 }
@@ -225,7 +225,7 @@ type FunctionAppState struct {
 	AppSettings interface{}
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
-	// An `connection_string` block as defined below.
+	// An `connectionString` block as defined below.
 	ConnectionStrings interface{}
 	// The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
 	DefaultHostname interface{}
@@ -245,13 +245,13 @@ type FunctionAppState struct {
 	Name interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses interface{}
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses interface{}
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName interface{}
-	// A `site_config` object as defined below.
+	// A `siteConfig` object as defined below.
 	SiteConfig interface{}
-	// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredential interface{}
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString interface{}
@@ -269,7 +269,7 @@ type FunctionAppArgs struct {
 	AppSettings interface{}
 	// Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
-	// An `connection_string` block as defined below.
+	// An `connectionString` block as defined below.
 	ConnectionStrings interface{}
 	// Should the built-in logging of this Function App be enabled? Defaults to `true`.
 	EnableBuiltinLogging interface{}
@@ -285,7 +285,7 @@ type FunctionAppArgs struct {
 	Name interface{}
 	// The name of the resource group in which to create the Function App.
 	ResourceGroupName interface{}
-	// A `site_config` object as defined below.
+	// A `siteConfig` object as defined below.
 	SiteConfig interface{}
 	// The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
 	StorageConnectionString interface{}

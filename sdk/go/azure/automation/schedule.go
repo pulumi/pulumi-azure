@@ -132,7 +132,7 @@ func (r *Schedule) MonthDays() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["monthDays"])
 }
 
-// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
 func (r *Schedule) MonthlyOccurrences() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["monthlyOccurrences"])
 }
@@ -177,7 +177,7 @@ type ScheduleState struct {
 	Interval interface{}
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
 	MonthDays interface{}
-	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
 	MonthlyOccurrences interface{}
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name interface{}
@@ -206,7 +206,7 @@ type ScheduleArgs struct {
 	Interval interface{}
 	// List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
 	MonthDays interface{}
-	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+	// List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
 	MonthlyOccurrences interface{}
 	// Specifies the name of the Schedule. Changing this forces a new resource to be created.
 	Name interface{}

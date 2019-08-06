@@ -47,19 +47,11 @@ class GetBuiltinRoleDefinitionResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_builtin_role_definition(name=None,opts=None):
+async def get_builtin_role_definition(name=None,opts=None):
     """
-    Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `azurerm_role_definition` data source instead.
+    Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `role.Definition` data source instead.
     
-    > **NOTE:** The this datasource has been deprecated in favour of `azurerm_role_definition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
+    > **NOTE:** The this datasource has been deprecated in favour of `role.Definition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/builtin_role_definition.html.markdown.
     """
@@ -70,7 +62,7 @@ def get_builtin_role_definition(name=None,opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition', __args__, opts=opts)
 
     return GetBuiltinRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),

@@ -133,9 +133,9 @@ func (r *VirtualNetworkGateway) EnableBgp() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableBgp"])
 }
 
-// One or two `ip_configuration` blocks documented below.
-// An active-standby gateway requires exactly one `ip_configuration` block whereas
-// an active-active gateway requires exactly two `ip_configuration` blocks.
+// One or two `ipConfiguration` blocks documented below.
+// An active-standby gateway requires exactly one `ipConfiguration` block whereas
+// an active-active gateway requires exactly two `ipConfiguration` blocks.
 func (r *VirtualNetworkGateway) IpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
 }
@@ -162,7 +162,7 @@ func (r *VirtualNetworkGateway) ResourceGroupName() *pulumi.StringOutput {
 // Configuration of the size and capacity of the virtual network
 // gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
 // `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-// and depend on the `type` and `vpn_type` arguments.
+// and depend on the `type` and `vpnType` arguments.
 // A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 // sku is only supported by an `ExpressRoute` gateway.
 func (r *VirtualNetworkGateway) Sku() *pulumi.StringOutput {
@@ -180,7 +180,7 @@ func (r *VirtualNetworkGateway) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
 
-// A `vpn_client_configuration` block which
+// A `vpnClientConfiguration` block which
 // is documented below. In this block the Virtual Network Gateway can be configured
 // to accept IPSec point-to-site connections.
 func (r *VirtualNetworkGateway) VpnClientConfiguration() *pulumi.Output {
@@ -210,9 +210,9 @@ type VirtualNetworkGatewayState struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp interface{}
-	// One or two `ip_configuration` blocks documented below.
-	// An active-standby gateway requires exactly one `ip_configuration` block whereas
-	// an active-active gateway requires exactly two `ip_configuration` blocks.
+	// One or two `ipConfiguration` blocks documented below.
+	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
+	// an active-active gateway requires exactly two `ipConfiguration` blocks.
 	IpConfigurations interface{}
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
@@ -227,7 +227,7 @@ type VirtualNetworkGatewayState struct {
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-	// and depend on the `type` and `vpn_type` arguments.
+	// and depend on the `type` and `vpnType` arguments.
 	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 	// sku is only supported by an `ExpressRoute` gateway.
 	Sku interface{}
@@ -236,7 +236,7 @@ type VirtualNetworkGatewayState struct {
 	// The type of the Virtual Network Gateway. Valid options are
 	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
 	Type interface{}
-	// A `vpn_client_configuration` block which
+	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration interface{}
@@ -262,9 +262,9 @@ type VirtualNetworkGatewayArgs struct {
 	// If `true`, BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway. Defaults to `false`.
 	EnableBgp interface{}
-	// One or two `ip_configuration` blocks documented below.
-	// An active-standby gateway requires exactly one `ip_configuration` block whereas
-	// an active-active gateway requires exactly two `ip_configuration` blocks.
+	// One or two `ipConfiguration` blocks documented below.
+	// An active-standby gateway requires exactly one `ipConfiguration` block whereas
+	// an active-active gateway requires exactly two `ipConfiguration` blocks.
 	IpConfigurations interface{}
 	// The location/region where the Virtual Network Gateway is
 	// located. Changing the location/region forces a new resource to be created.
@@ -279,7 +279,7 @@ type VirtualNetworkGatewayArgs struct {
 	// Configuration of the size and capacity of the virtual network
 	// gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
 	// `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-	// and depend on the `type` and `vpn_type` arguments.
+	// and depend on the `type` and `vpnType` arguments.
 	// A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
 	// sku is only supported by an `ExpressRoute` gateway.
 	Sku interface{}
@@ -288,7 +288,7 @@ type VirtualNetworkGatewayArgs struct {
 	// The type of the Virtual Network Gateway. Valid options are
 	// `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
 	Type interface{}
-	// A `vpn_client_configuration` block which
+	// A `vpnClientConfiguration` block which
 	// is documented below. In this block the Virtual Network Gateway can be configured
 	// to accept IPSec point-to-site connections.
 	VpnClientConfiguration interface{}

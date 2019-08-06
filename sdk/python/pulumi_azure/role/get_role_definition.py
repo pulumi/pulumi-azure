@@ -53,15 +53,7 @@ class GetRoleDefinitionResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
+async def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     """
     Use this data source to access information about an existing Role Definition.
 
@@ -76,7 +68,7 @@ def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__, opts=opts)
 
     return GetRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),

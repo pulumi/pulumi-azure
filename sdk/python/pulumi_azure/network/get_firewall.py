@@ -38,15 +38,7 @@ class GetFirewallResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_firewall(name=None,resource_group_name=None,opts=None):
+async def get_firewall(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Azure Firewall.
 
@@ -60,7 +52,7 @@ def get_firewall(name=None,resource_group_name=None,opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getFirewall:getFirewall', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:network/getFirewall:getFirewall', __args__, opts=opts)
 
     return GetFirewallResult(
         ip_configuration=__ret__.get('ipConfiguration'),

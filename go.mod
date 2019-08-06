@@ -48,3 +48,5 @@ replace (
 	github.com/golang/glog => github.com/pulumi/glog v0.0.0-20180820174630-7eaa6ffb71e4
 	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802205635-509cc1c361f3
 )
+
+replace github.com/pulumi/pulumi-terraform => ../pulumi-terraform/

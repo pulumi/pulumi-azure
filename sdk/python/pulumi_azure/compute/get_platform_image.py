@@ -38,15 +38,7 @@ class GetPlatformImageResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=None):
+async def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=None):
     """
     Use this data source to access information about a Platform Image.
 
@@ -62,7 +54,7 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts)
 
     return GetPlatformImageResult(
         location=__ret__.get('location'),

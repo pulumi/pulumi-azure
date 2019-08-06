@@ -147,12 +147,12 @@ func (r *WindowsVirtualMachine) Fqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fqdn"])
 }
 
-// A `gallery_image_reference` block as defined below.
+// A `galleryImageReference` block as defined below.
 func (r *WindowsVirtualMachine) GalleryImageReference() *pulumi.Output {
 	return r.s.State["galleryImageReference"]
 }
 
-// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 func (r *WindowsVirtualMachine) InboundNatRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["inboundNatRules"])
 }
@@ -230,9 +230,9 @@ type WindowsVirtualMachineState struct {
 	DisallowPublicIpAddress interface{}
 	// The FQDN of the Virtual Machine.
 	Fqdn interface{}
-	// A `gallery_image_reference` block as defined below.
+	// A `galleryImageReference` block as defined below.
 	GalleryImageReference interface{}
-	// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 	InboundNatRules interface{}
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName interface{}
@@ -268,9 +268,9 @@ type WindowsVirtualMachineArgs struct {
 	AllowClaim interface{}
 	// Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created.
 	DisallowPublicIpAddress interface{}
-	// A `gallery_image_reference` block as defined below.
+	// A `galleryImageReference` block as defined below.
 	GalleryImageReference interface{}
-	// One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+	// One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
 	InboundNatRules interface{}
 	// Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
 	LabName interface{}

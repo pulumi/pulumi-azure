@@ -79,11 +79,11 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+     * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      */
     public readonly maxSizeBytes!: pulumi.Output<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
      */
     public readonly maxSizeGb!: pulumi.Output<number>;
     /**
@@ -91,7 +91,7 @@ export class ElasticPool extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `per_database_settings` block as defined below.
+     * A `perDatabaseSettings` block as defined below.
      */
     public readonly perDatabaseSettings!: pulumi.Output<{ maxCapacity: number, minCapacity: number }>;
     /**
@@ -185,11 +185,11 @@ export interface ElasticPoolState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+     * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      */
     readonly maxSizeBytes?: pulumi.Input<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
      */
     readonly maxSizeGb?: pulumi.Input<number>;
     /**
@@ -197,7 +197,7 @@ export interface ElasticPoolState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `per_database_settings` block as defined below.
+     * A `perDatabaseSettings` block as defined below.
      */
     readonly perDatabaseSettings?: pulumi.Input<{ maxCapacity: pulumi.Input<number>, minCapacity: pulumi.Input<number> }>;
     /**
@@ -231,11 +231,11 @@ export interface ElasticPoolArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
+     * The max data size of the elastic pool in bytes. Conflicts with `maxSizeGb`.
      */
     readonly maxSizeBytes?: pulumi.Input<number>;
     /**
-     * The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`. 
+     * The max data size of the elastic pool in gigabytes. Conflicts with `maxSizeBytes`. 
      */
     readonly maxSizeGb?: pulumi.Input<number>;
     /**
@@ -243,7 +243,7 @@ export interface ElasticPoolArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `per_database_settings` block as defined below.
+     * A `perDatabaseSettings` block as defined below.
      */
     readonly perDatabaseSettings: pulumi.Input<{ maxCapacity: pulumi.Input<number>, minCapacity: pulumi.Input<number> }>;
     /**

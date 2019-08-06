@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *         serviceUri: "http://example.com/alert",
  *     }],
  * });
- * const toMonitor = new azure.storage.Account("to_monitor", {
+ * const toMonitor = new azure.storage.Account("toMonitor", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
  *     location: mainResourceGroup.location,

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const testSharedImageGallery = new azure.compute.SharedImageGallery("test", {
  *     description: "Shared images and things.",
  *     location: testResourceGroup.location,
- *     name: "example_image_gallery",
+ *     name: "exampleImageGallery",
  *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         Hello: "There",

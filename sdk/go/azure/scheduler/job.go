@@ -94,22 +94,22 @@ func (r *Job) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
+// A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
 func (r *Job) ActionStorageQueue() *pulumi.Output {
 	return r.s.State["actionStorageQueue"]
 }
 
-// A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
+// A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
 func (r *Job) ActionWeb() *pulumi.Output {
 	return r.s.State["actionWeb"]
 }
 
-// A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
+// A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
 func (r *Job) ErrorActionStorageQueue() *pulumi.Output {
 	return r.s.State["errorActionStorageQueue"]
 }
 
-// A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
+// A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
 func (r *Job) ErrorActionWeb() *pulumi.Output {
 	return r.s.State["errorActionWeb"]
 }
@@ -151,13 +151,13 @@ func (r *Job) State() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Job resources.
 type JobState struct {
-	// A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
+	// A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
 	ActionStorageQueue interface{}
-	// A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
+	// A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
 	ActionWeb interface{}
-	// A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
+	// A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
 	ErrorActionStorageQueue interface{}
-	// A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
+	// A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
 	ErrorActionWeb interface{}
 	// Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
 	JobCollectionName interface{}
@@ -177,13 +177,13 @@ type JobState struct {
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
-	// A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
+	// A `actionStorageQueue` block defining a storage queue job action as described below. Note this is identical to an `errorActionStorageQueue` block.
 	ActionStorageQueue interface{}
-	// A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
+	// A `actionWeb` block defining the job action as described below. Note this is identical to an `errorActionWeb` block.
 	ActionWeb interface{}
-	// A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
+	// A `errorActionStorageQueue` block defining the a web action to take on an error as described below. Note this is identical to an `actionStorageQueue` block.
 	ErrorActionStorageQueue interface{}
-	// A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
+	// A `errorActionWeb` block defining the action to take on an error as described below. Note this is identical to an `actionWeb` block.
 	ErrorActionWeb interface{}
 	// Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
 	JobCollectionName interface{}

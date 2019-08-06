@@ -65,15 +65,7 @@ class GetImageResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending=None,opts=None):
+async def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending=None,opts=None):
     """
     Use this data source to access information about an existing Image.
 
@@ -89,7 +81,7 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts)
 
     return GetImageResult(
         data_disks=__ret__.get('dataDisks'),

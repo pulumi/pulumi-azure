@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     version: "9.5",
  * });
  * const testConfiguration = new azure.postgresql.Configuration("test", {
- *     name: "backslash_quote",
+ *     name: "backslashQuote",
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testServer.name,
  *     value: "on",

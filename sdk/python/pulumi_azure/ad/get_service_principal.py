@@ -29,15 +29,7 @@ class GetServicePrincipalResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_service_principal(application_id=None,display_name=None,object_id=None,opts=None):
+async def get_service_principal(application_id=None,display_name=None,object_id=None,opts=None):
     """
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_service_principal.html.markdown.
     """
@@ -50,7 +42,7 @@ def get_service_principal(application_id=None,display_name=None,object_id=None,o
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__, opts=opts)
 
     return GetServicePrincipalResult(
         application_id=__ret__.get('applicationId'),

@@ -40,7 +40,7 @@ type GetFirewallArgs struct {
 
 // A collection of values returned by getFirewall.
 type GetFirewallResult struct {
-	// A `ip_configuration` block as defined below.
+	// A `ipConfiguration` block as defined below.
 	IpConfiguration interface{}
 	Location interface{}
 	Name interface{}

@@ -180,7 +180,7 @@ func (r *Api) SoapPassThrough() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["soapPassThrough"])
 }
 
-// A `subscription_key_parameter_names` block as documented below.
+// A `subscriptionKeyParameterNames` block as documented below.
 func (r *Api) SubscriptionKeyParameterNames() *pulumi.Output {
 	return r.s.State["subscriptionKeyParameterNames"]
 }
@@ -223,7 +223,7 @@ type ApiState struct {
 	ServiceUrl interface{}
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 	SoapPassThrough interface{}
-	// A `subscription_key_parameter_names` block as documented below.
+	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames interface{}
 	// The Version number of this API, if this API is versioned.
 	Version interface{}
@@ -255,6 +255,6 @@ type ApiArgs struct {
 	ServiceUrl interface{}
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
 	SoapPassThrough interface{}
-	// A `subscription_key_parameter_names` block as documented below.
+	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames interface{}
 }

@@ -59,15 +59,7 @@ class GetSubnetResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts=None):
+async def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts=None):
     """
     Use this data source to access information about an existing Subnet within a Virtual Network.
 
@@ -82,7 +74,7 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__, opts=opts)
 
     return GetSubnetResult(
         address_prefix=__ret__.get('addressPrefix'),

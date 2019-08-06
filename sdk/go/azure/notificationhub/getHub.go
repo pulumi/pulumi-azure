@@ -44,9 +44,9 @@ type GetHubArgs struct {
 
 // A collection of values returned by getHub.
 type GetHubResult struct {
-	// A `apns_credential` block as defined below.
+	// A `apnsCredential` block as defined below.
 	ApnsCredentials interface{}
-	// A `gcm_credential` block as defined below.
+	// A `gcmCredential` block as defined below.
 	GcmCredentials interface{}
 	// The Azure Region in which this Notification Hub exists.
 	Location interface{}

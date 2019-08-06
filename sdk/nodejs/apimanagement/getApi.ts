@@ -106,7 +106,7 @@ export interface GetApiResult {
      */
     readonly soapPassThrough: boolean;
     /**
-     * A `subscription_key_parameter_names` block as documented below.
+     * A `subscriptionKeyParameterNames` block as documented below.
      */
     readonly subscriptionKeyParameterNames: { header: string, query: string }[];
     /**

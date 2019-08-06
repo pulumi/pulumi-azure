@@ -66,7 +66,7 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     public readonly collation!: pulumi.Output<string>;
     /**
@@ -82,7 +82,7 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSecondaryLocation!: pulumi.Output<string>;
     /**
-     * The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     public readonly edition!: pulumi.Output<string>;
     /**
@@ -91,7 +91,7 @@ export class Database extends pulumi.CustomResource {
     public readonly elasticPoolName!: pulumi.Output<string>;
     public /*out*/ readonly encryption!: pulumi.Output<string>;
     /**
-     * A Database Import block as documented below. `create_mode` must be set to `Default`.
+     * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
     public readonly import!: pulumi.Output<{ administratorLogin: string, administratorLoginPassword: string, authenticationType: string, operationMode?: string, storageKey: string, storageKeyType: string, storageUri: string } | undefined>;
     /**
@@ -99,7 +99,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     public readonly maxSizeBytes!: pulumi.Output<string>;
     /**
@@ -111,12 +111,12 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly readScale!: pulumi.Output<boolean | undefined>;
     /**
-     * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
+     * Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
      * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     public readonly requestedServiceObjectiveId!: pulumi.Output<string>;
     /**
-     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     public readonly requestedServiceObjectiveName!: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
      */
     public readonly restorePointInTime!: pulumi.Output<string>;
     /**
@@ -132,11 +132,11 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly serverName!: pulumi.Output<string>;
     /**
-     * The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
+     * The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
      */
     public readonly sourceDatabaseDeletionDate!: pulumi.Output<string>;
     /**
-     * The URI of the source database if `create_mode` value is not `Default`.
+     * The URI of the source database if `createMode` value is not `Default`.
      */
     public readonly sourceDatabaseId!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     public readonly threatDetectionPolicy!: pulumi.Output<{ disabledAlerts?: string[], emailAccountAdmins?: string, emailAddresses?: string[], retentionDays?: number, state?: string, storageAccountAccessKey?: string, storageEndpoint?: string, useServerDefault?: string }>;
 
@@ -227,7 +227,7 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseState {
     /**
-     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     readonly collation?: pulumi.Input<string>;
     /**
@@ -243,7 +243,7 @@ export interface DatabaseState {
      */
     readonly defaultSecondaryLocation?: pulumi.Input<string>;
     /**
-     * The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly edition?: pulumi.Input<string>;
     /**
@@ -252,7 +252,7 @@ export interface DatabaseState {
     readonly elasticPoolName?: pulumi.Input<string>;
     readonly encryption?: pulumi.Input<string>;
     /**
-     * A Database Import block as documented below. `create_mode` must be set to `Default`.
+     * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
     readonly import?: pulumi.Input<{ administratorLogin: pulumi.Input<string>, administratorLoginPassword: pulumi.Input<string>, authenticationType: pulumi.Input<string>, operationMode?: pulumi.Input<string>, storageKey: pulumi.Input<string>, storageKeyType: pulumi.Input<string>, storageUri: pulumi.Input<string> }>;
     /**
@@ -260,7 +260,7 @@ export interface DatabaseState {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly maxSizeBytes?: pulumi.Input<string>;
     /**
@@ -272,12 +272,12 @@ export interface DatabaseState {
      */
     readonly readScale?: pulumi.Input<boolean>;
     /**
-     * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
+     * Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
      * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
@@ -285,7 +285,7 @@ export interface DatabaseState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
      */
     readonly restorePointInTime?: pulumi.Input<string>;
     /**
@@ -293,11 +293,11 @@ export interface DatabaseState {
      */
     readonly serverName?: pulumi.Input<string>;
     /**
-     * The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
+     * The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
      */
     readonly sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
-     * The URI of the source database if `create_mode` value is not `Default`.
+     * The URI of the source database if `createMode` value is not `Default`.
      */
     readonly sourceDatabaseId?: pulumi.Input<string>;
     /**
@@ -305,7 +305,7 @@ export interface DatabaseState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     readonly threatDetectionPolicy?: pulumi.Input<{ disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>, emailAccountAdmins?: pulumi.Input<string>, emailAddresses?: pulumi.Input<pulumi.Input<string>[]>, retentionDays?: pulumi.Input<number>, state?: pulumi.Input<string>, storageAccountAccessKey?: pulumi.Input<string>, storageEndpoint?: pulumi.Input<string>, useServerDefault?: pulumi.Input<string> }>;
 }
@@ -315,7 +315,7 @@ export interface DatabaseState {
  */
 export interface DatabaseArgs {
     /**
-     * The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+     * The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
      */
     readonly collation?: pulumi.Input<string>;
     /**
@@ -323,7 +323,7 @@ export interface DatabaseArgs {
      */
     readonly createMode?: pulumi.Input<string>;
     /**
-     * The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly edition?: pulumi.Input<string>;
     /**
@@ -331,7 +331,7 @@ export interface DatabaseArgs {
      */
     readonly elasticPoolName?: pulumi.Input<string>;
     /**
-     * A Database Import block as documented below. `create_mode` must be set to `Default`.
+     * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
     readonly import?: pulumi.Input<{ administratorLogin: pulumi.Input<string>, administratorLoginPassword: pulumi.Input<string>, authenticationType: pulumi.Input<string>, operationMode?: pulumi.Input<string>, storageKey: pulumi.Input<string>, storageKeyType: pulumi.Input<string>, storageUri: pulumi.Input<string> }>;
     /**
@@ -339,7 +339,7 @@ export interface DatabaseArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly maxSizeBytes?: pulumi.Input<string>;
     /**
@@ -351,12 +351,12 @@ export interface DatabaseArgs {
      */
     readonly readScale?: pulumi.Input<boolean>;
     /**
-     * Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
+     * Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
      * Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly requestedServiceObjectiveId?: pulumi.Input<string>;
     /**
-     * Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+     * Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
      */
     readonly requestedServiceObjectiveName?: pulumi.Input<string>;
     /**
@@ -364,7 +364,7 @@ export interface DatabaseArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+     * The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
      */
     readonly restorePointInTime?: pulumi.Input<string>;
     /**
@@ -372,11 +372,11 @@ export interface DatabaseArgs {
      */
     readonly serverName: pulumi.Input<string>;
     /**
-     * The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
+     * The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
      */
     readonly sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
-     * The URI of the source database if `create_mode` value is not `Default`.
+     * The URI of the source database if `createMode` value is not `Default`.
      */
     readonly sourceDatabaseId?: pulumi.Input<string>;
     /**
@@ -384,7 +384,7 @@ export interface DatabaseArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+     * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
     readonly threatDetectionPolicy?: pulumi.Input<{ disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>, emailAccountAdmins?: pulumi.Input<string>, emailAddresses?: pulumi.Input<pulumi.Input<string>[]>, retentionDays?: pulumi.Input<number>, state?: pulumi.Input<string>, storageAccountAccessKey?: pulumi.Input<string>, storageEndpoint?: pulumi.Input<string>, useServerDefault?: pulumi.Input<string> }>;
 }

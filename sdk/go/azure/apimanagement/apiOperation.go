@@ -152,7 +152,7 @@ func (r *ApiOperation) Responses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["responses"])
 }
 
-// One or more `template_parameter` blocks as defined below.
+// One or more `templateParameter` blocks as defined below.
 func (r *ApiOperation) TemplateParameters() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["templateParameters"])
 }
@@ -182,7 +182,7 @@ type ApiOperationState struct {
 	ResourceGroupName interface{}
 	// One or more `response` blocks as defined below.
 	Responses interface{}
-	// One or more `template_parameter` blocks as defined below.
+	// One or more `templateParameter` blocks as defined below.
 	TemplateParameters interface{}
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
 	UrlTemplate interface{}
@@ -208,7 +208,7 @@ type ApiOperationArgs struct {
 	ResourceGroupName interface{}
 	// One or more `response` blocks as defined below.
 	Responses interface{}
-	// One or more `template_parameter` blocks as defined below.
+	// One or more `templateParameter` blocks as defined below.
 	TemplateParameters interface{}
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
 	UrlTemplate interface{}

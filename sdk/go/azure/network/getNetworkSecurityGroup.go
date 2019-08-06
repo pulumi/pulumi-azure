@@ -45,7 +45,7 @@ type GetNetworkSecurityGroupResult struct {
 	// The name of the security rule.
 	Name interface{}
 	ResourceGroupName interface{}
-	// One or more `security_rule` blocks as defined below.
+	// One or more `securityRule` blocks as defined below.
 	SecurityRules interface{}
 	// A mapping of tags assigned to the resource.
 	Tags interface{}

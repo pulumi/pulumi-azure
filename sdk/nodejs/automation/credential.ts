@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  *     accountName: exampleAccount.name,
  *     description: "This is an example credential",
  *     name: "credential1",
- *     password: "example_pwd",
+ *     password: "examplePwd",
  *     resourceGroupName: exampleResourceGroup.name,
- *     username: "example_user",
+ *     username: "exampleUser",
  * });
  * ```
  *

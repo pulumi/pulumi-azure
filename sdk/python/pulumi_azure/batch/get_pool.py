@@ -92,15 +92,7 @@ class GetPoolResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_pool(account_name=None,certificates=None,name=None,resource_group_name=None,start_task=None,opts=None):
+async def get_pool(account_name=None,certificates=None,name=None,resource_group_name=None,start_task=None,opts=None):
     """
     Use this data source to access information about an existing Batch pool
 
@@ -117,7 +109,7 @@ def get_pool(account_name=None,certificates=None,name=None,resource_group_name=N
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:batch/getPool:getPool', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:batch/getPool:getPool', __args__, opts=opts)
 
     return GetPoolResult(
         account_name=__ret__.get('accountName'),

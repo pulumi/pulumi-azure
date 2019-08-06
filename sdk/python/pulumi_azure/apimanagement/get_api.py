@@ -98,15 +98,7 @@ class GetApiResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_api(api_management_name=None,name=None,resource_group_name=None,revision=None,opts=None):
+async def get_api(api_management_name=None,name=None,resource_group_name=None,revision=None,opts=None):
     """
     Use this data source to access information about an existing API Management API.
 
@@ -122,7 +114,7 @@ def get_api(api_management_name=None,name=None,resource_group_name=None,revision
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:apimanagement/getApi:getApi', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:apimanagement/getApi:getApi', __args__, opts=opts)
 
     return GetApiResult(
         api_management_name=__ret__.get('apiManagementName'),

@@ -62,15 +62,7 @@ class GetApplicationResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-    # pylint: disable=using-constant-test
-    def __await__(self):
-        if False:
-            yield self
-        return self
-
-    __iter__ = __await__
-
-def get_application(name=None,object_id=None,opts=None):
+async def get_application(name=None,object_id=None,opts=None):
     """
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_application.html.markdown.
     """
@@ -82,7 +74,7 @@ def get_application(name=None,object_id=None,opts=None):
         opts = pulumi.ResourceOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__, opts=opts).value
+    __ret__ = await pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__, opts=opts)
 
     return GetApplicationResult(
         application_id=__ret__.get('applicationId'),

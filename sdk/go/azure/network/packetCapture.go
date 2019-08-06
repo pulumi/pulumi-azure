@@ -10,7 +10,7 @@ import (
 
 // Configures Packet Capturing against a Virtual Machine using a Network Watcher.
 // 
-// > **NOTE:** This resource has been deprecated in favour of the `azurerm_network_connection_monitor` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+// > **NOTE:** This resource has been deprecated in favour of the `network.NetworkConnectionMonitor` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/packet_capture.html.markdown.
 type PacketCapture struct {
@@ -129,7 +129,7 @@ func (r *PacketCapture) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 func (r *PacketCapture) StorageLocation() *pulumi.Output {
 	return r.s.State["storageLocation"]
 }
@@ -155,7 +155,7 @@ type PacketCaptureState struct {
 	NetworkWatcherName interface{}
 	// The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation interface{}
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
 	TargetResourceId interface{}
@@ -177,7 +177,7 @@ type PacketCaptureArgs struct {
 	NetworkWatcherName interface{}
 	// The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation interface{}
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
 	TargetResourceId interface{}

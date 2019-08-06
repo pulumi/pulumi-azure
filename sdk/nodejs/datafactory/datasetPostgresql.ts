@@ -102,7 +102,7 @@ export class DatasetPostgresql extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      */
     public readonly schemaColumns!: pulumi.Output<{ description?: string, name: string, type?: string }[] | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface DatasetPostgresqlState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      */
     readonly schemaColumns?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**
@@ -258,7 +258,7 @@ export interface DatasetPostgresqlArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `schema_column` block as defined below.
+     * A `schemaColumn` block as defined below.
      */
     readonly schemaColumns?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
     /**

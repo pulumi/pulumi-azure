@@ -26,7 +26,7 @@ class StoreFile(pulumi.CustomResource):
         Manage a Azure Data Lake Store File.
         
         > **Note:** If you want to change the data in the remote file without changing the `local_file_path`, then 
-        taint the resource so the `azurerm_data_lake_store_file` gets recreated with the new data.
+        taint the resource so the `datalake.StoreFile` gets recreated with the new data.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
