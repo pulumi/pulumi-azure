@@ -150,6 +150,10 @@ class Api(pulumi.CustomResource):
         __props__['version'] = None
         __props__['version_set_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Api, __self__).__init__(
             'azure:apimanagement/api:Api',
             resource_name,

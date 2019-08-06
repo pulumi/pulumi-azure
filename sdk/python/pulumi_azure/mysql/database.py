@@ -76,6 +76,10 @@ class Database(pulumi.CustomResource):
             raise TypeError("Missing required property 'server_name'")
         __props__['server_name'] = server_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Database, __self__).__init__(
             'azure:mysql/database:Database',
             resource_name,

@@ -131,6 +131,10 @@ class WebTest(pulumi.CustomResource):
 
         __props__['synthetic_monitor_id'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(WebTest, __self__).__init__(
             'azure:appinsights/webTest:WebTest',
             resource_name,

@@ -145,6 +145,10 @@ class MetricAlertRule(pulumi.CustomResource):
 
         __props__['webhook_action'] = webhook_action
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(MetricAlertRule, __self__).__init__(
             'azure:monitoring/metricAlertRule:MetricAlertRule',
             resource_name,

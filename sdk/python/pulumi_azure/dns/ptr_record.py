@@ -83,6 +83,10 @@ class PtrRecord(pulumi.CustomResource):
             raise TypeError("Missing required property 'zone_name'")
         __props__['zone_name'] = zone_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PtrRecord, __self__).__init__(
             'azure:dns/ptrRecord:PtrRecord',
             resource_name,

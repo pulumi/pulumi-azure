@@ -131,6 +131,10 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
             raise TypeError("Missing required property 'url'")
         __props__['url'] = url
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LinkedServiceDataLakeStorageGen2, __self__).__init__(
             'azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2',
             resource_name,

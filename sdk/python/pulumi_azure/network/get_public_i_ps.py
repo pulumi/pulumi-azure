@@ -38,7 +38,15 @@ class GetPublicIPsResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource_group_name=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about a set of existing Public IP Addresses.
 
@@ -50,7 +58,11 @@ async def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,re
     __args__['attached'] = attached
     __args__['namePrefix'] = name_prefix
     __args__['resourceGroupName'] = resource_group_name
-    __ret__ = await pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts).value
 
     return GetPublicIPsResult(
         allocation_type=__ret__.get('allocationType'),

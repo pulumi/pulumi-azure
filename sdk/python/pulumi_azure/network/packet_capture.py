@@ -106,6 +106,10 @@ class PacketCapture(pulumi.CustomResource):
             raise TypeError("Missing required property 'target_resource_id'")
         __props__['target_resource_id'] = target_resource_id
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PacketCapture, __self__).__init__(
             'azure:network/packetCapture:PacketCapture',
             resource_name,

@@ -85,6 +85,10 @@ class LinkedService(pulumi.CustomResource):
 
         __props__['name'] = None
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LinkedService, __self__).__init__(
             'azure:loganalytics/linkedService:LinkedService',
             resource_name,

@@ -5,9 +5,12 @@ go 1.12
 require (
 	git.apache.org/thrift.git v0.12.0 // indirect
 	github.com/Azure/go-autorest v11.7.0+incompatible
+	github.com/Nvveen/Gotty v0.0.0-20170406111628-a8b993ba6abd // indirect
+	github.com/apache/thrift v0.12.0 // indirect
 	github.com/chzyer/logex v1.1.11-0.20160617073814-96a4d311aa9b // indirect
 	github.com/coreos/bbolt v1.3.1-coreos.1 // indirect
 	github.com/djherbis/times v1.2.0 // indirect
+	github.com/go-ini/ini v1.31.0 // indirect
 	github.com/gofrs/flock v0.7.1 // indirect
 	github.com/gopherjs/gopherjs v0.0.0-20181103185306-d547d1d9531e // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
@@ -18,18 +21,21 @@ require (
 	github.com/hashicorp/terraform v0.12.5
 	github.com/miekg/dns v1.0.14 // indirect
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
+	github.com/openzipkin/zipkin-go v0.1.6 // indirect
 	github.com/pelletier/go-toml v1.3.0 // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/pulumi/pulumi v0.17.26-0.20190723034217-ed5b8437d126
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190730181123-6bcafb609db7
+	github.com/pulumi/pulumi v0.17.28-0.20190731182900-6804d640fc7c
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20190805204638-013b95b1c891
 	github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709
 	github.com/terraform-providers/terraform-provider-azurerm v1.31.0
 	github.com/uber/jaeger-client-go v2.16.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.0.0+incompatible // indirect
+	golang.org/x/build v0.0.0-20190314133821-5284462c4bec // indirect
 	gopkg.in/AlecAivazis/survey.v1 v1.8.2 // indirect
 	gopkg.in/src-d/go-git.v4 v4.10.0 // indirect
+	gopkg.in/vmihailenco/msgpack.v2 v2.9.1 // indirect
 	labix.org/v2/mgo v0.0.0-20140701140051-000000000287 // indirect
 	launchpad.net/gocheck v0.0.0-20140225173054-000000000087 // indirect
 )

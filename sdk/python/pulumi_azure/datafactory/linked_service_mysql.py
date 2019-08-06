@@ -104,6 +104,10 @@ class LinkedServiceMysql(pulumi.CustomResource):
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(LinkedServiceMysql, __self__).__init__(
             'azure:datafactory/linkedServiceMysql:LinkedServiceMysql',
             resource_name,
