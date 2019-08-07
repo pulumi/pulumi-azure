@@ -2,7 +2,16 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Several modules have been renamed to better align with their terraform equivalents. The existing modules are still 
+  available, but will be deprecated and removed in the future. 'Aliases' have been used to ensure that moving to the new 
+  modules will not result in any changes to existing resources. The renamed modules are:
+  azure.role.* -> azure.authorization.*
+  azure.msi.* -> azure.authorization.*
+  azure.managementgroups.* -> azure.management.*
+  azure.managementresource.* -> azure.management.*
+  azure.eventhub.eventGrid* -> azure.eventgrid.*
+  azure.eventhub.servicebus* -> azure.servicebus.*
+  azure.trafficmanager.* -> azure.network.*s
 
 ---
 
