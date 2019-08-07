@@ -781,7 +781,7 @@ export function getResourceGroupNameAndLocation(
 
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName!);
     if (args.location) {
-        return { resourceGroupName, location };
+        return { resourceGroupName, location: args.location };
     }
 
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
