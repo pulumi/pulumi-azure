@@ -772,7 +772,7 @@ export function getResourceGroupNameAndLocation(
         args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
 
     if (args.resourceGroup) {
-        return { resourceGroupName: args.resourceGroup.name, location: args.resourceGroup.location };
+        return { resourceGroupName: args.resourceGroup.name, location: args.location || args.resourceGroup.location };
     }
 
     if (!args.resourceGroupName && !fallbackResourceGroupName) {
@@ -780,6 +780,10 @@ export function getResourceGroupNameAndLocation(
     }
 
     const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName!);
+    if (args.location) {
+        return { resourceGroupName, location };
+    }
+
     const getResult = resourceGroupName.apply(n => core.getResourceGroup({ name: n }));
     return { resourceGroupName, location: getResult.location };
 }
