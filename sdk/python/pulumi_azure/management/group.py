@@ -68,7 +68,7 @@ class Group(pulumi.CustomResource):
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:managementgroups/managementGroup:ManagementGroup")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(Group, __self__).__init__(
-            'azure:managementresource/group:Group',
+            'azure:management/group:Group',
             resource_name,
             __props__,
             opts)

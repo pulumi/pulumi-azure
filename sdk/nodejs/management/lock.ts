@@ -14,11 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = pulumi.output(azure.core.getSubscription({}));
-<<<<<<< HEAD
- * const subscriptionLevel = new azure.managementresource.ManangementLock("subscription-level", {
-=======
  * const subscription_level = new azure.management.Lock("subscription-level", {
->>>>>>> 9369971... Migrate managementResources to management module
  *     lockLevel: "CanNotDelete",
  *     name: "subscription-level",
  *     notes: "Items can't be deleted in this subscription!",
@@ -36,11 +32,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "locked-resource-group",
  * });
-<<<<<<< HEAD
- * const resourceGroupLevel = new azure.managementresource.ManangementLock("resource-group-level", {
-=======
  * const resource_group_level = new azure.management.Lock("resource-group-level", {
->>>>>>> 9369971... Migrate managementResources to management module
  *     lockLevel: "ReadOnly",
  *     name: "resource-group-level",
  *     notes: "This Resource Group is Read-Only",
@@ -65,11 +57,7 @@ import * as utilities from "../utilities";
  *     name: "locked-publicip",
  *     resourceGroupName: testResourceGroup.name,
  * });
-<<<<<<< HEAD
- * const publicIp = new azure.managementresource.ManangementLock("public-ip", {
-=======
  * const public_ip = new azure.management.Lock("public-ip", {
->>>>>>> 9369971... Migrate managementResources to management module
  *     lockLevel: "CanNotDelete",
  *     name: "resource-ip",
  *     notes: "Locked because it's needed by a third-party",
@@ -77,33 +65,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock_legacy.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock.html.markdown.
  */
-export class ManangementLock extends pulumi.CustomResource {
+export class Lock extends pulumi.CustomResource {
     /**
-     * Get an existing ManangementLock resource's state with the given name, ID, and optional extra
+     * Get an existing Lock resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ManangementLockState, opts?: pulumi.CustomResourceOptions): ManangementLock {
-        return new ManangementLock(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: LockState, opts?: pulumi.CustomResourceOptions): Lock {
+        return new Lock(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:managementresource/manangementLock:ManangementLock';
+    public static readonly __pulumiType = 'azure:management/lock:Lock';
 
     /**
-     * Returns true if the given object is an instance of ManangementLock.  This is designed to work even
+     * Returns true if the given object is an instance of Lock.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is ManangementLock {
+    public static isInstance(obj: any): obj is Lock {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === ManangementLock.__pulumiType;
+        return obj['__pulumiType'] === Lock.__pulumiType;
     }
 
     /**
@@ -124,23 +112,23 @@ export class ManangementLock extends pulumi.CustomResource {
     public readonly scope!: pulumi.Output<string>;
 
     /**
-     * Create a ManangementLock resource with the given unique name, arguments, and options.
+     * Create a Lock resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ManangementLockArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: ManangementLockArgs | ManangementLockState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: LockArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: LockArgs | LockState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as ManangementLockState | undefined;
+            const state = argsOrState as LockState | undefined;
             inputs["lockLevel"] = state ? state.lockLevel : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["notes"] = state ? state.notes : undefined;
             inputs["scope"] = state ? state.scope : undefined;
         } else {
-            const args = argsOrState as ManangementLockArgs | undefined;
+            const args = argsOrState as LockArgs | undefined;
             if (!args || args.lockLevel === undefined) {
                 throw new Error("Missing required property 'lockLevel'");
             }
@@ -159,14 +147,16 @@ export class ManangementLock extends pulumi.CustomResource {
         if (!opts.version) {
             opts.version = utilities.getVersion();
         }
-        super(ManangementLock.__pulumiType, name, inputs, opts);
+        const aliasOpts = { aliases: [{ type: "azure:managementresource/manangementLock:ManangementLock" }] };
+        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        super(Lock.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering ManangementLock resources.
+ * Input properties used for looking up and filtering Lock resources.
  */
-export interface ManangementLockState {
+export interface LockState {
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
      */
@@ -186,9 +176,9 @@ export interface ManangementLockState {
 }
 
 /**
- * The set of arguments for constructing a ManangementLock resource.
+ * The set of arguments for constructing a Lock resource.
  */
-export interface ManangementLockArgs {
+export interface LockArgs {
     /**
      * Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
      */

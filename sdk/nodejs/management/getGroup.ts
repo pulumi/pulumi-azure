@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.managementresource.getGroup({
+ * const test = pulumi.output(azure.management.getGroup({
  *     groupId: "00000000-0000-0000-0000-000000000000",
  * }));
  * 
@@ -30,7 +30,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     if (!opts.version) {
         opts.version = utilities.getVersion();
     }
-    const promise: Promise<GetGroupResult> = pulumi.runtime.invoke("azure:managementresource/getGroup:getGroup", {
+    const promise: Promise<GetGroupResult> = pulumi.runtime.invoke("azure:management/getGroup:getGroup", {
         "groupId": args.groupId,
     }, opts);
 

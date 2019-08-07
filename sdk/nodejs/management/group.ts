@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = pulumi.output(azure.core.getSubscription({}));
- * const exampleParent = new azure.managementresource.Group("example_parent", {
+ * const exampleParent = new azure.management.Group("example_parent", {
  *     displayName: "ParentGroup",
  *     subscriptionIds: [current.subscriptionId],
  * });
- * const exampleChild = new azure.managementresource.Group("example_child", {
+ * const exampleChild = new azure.management.Group("example_child", {
  *     displayName: "ChildGroup",
  *     parentManagementGroupId: exampleParent.id,
  *     subscriptionIds: [current.subscriptionId],
@@ -41,7 +41,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:managementresource/group:Group';
+    public static readonly __pulumiType = 'azure:management/group:Group';
 
     /**
      * Returns true if the given object is an instance of Group.  This is designed to work even

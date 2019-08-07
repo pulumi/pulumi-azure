@@ -74,7 +74,7 @@ const (
 	azureMariaDB             = "mariadb"             // MariaDB
 	azureEventGrid           = "eventgrid"           // Event Grid
 	azureEventHub            = "eventhub"            // Event Hub
-	azureMgmtResource        = "managementresource"  // Management Resource
+	azureManagement          = "management"          // Management Resources
 	azureMediaServices       = "mediaservices"       // Media Services
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
 	azureMSSQL               = "mssql"               // MS Sql
@@ -99,10 +99,11 @@ const (
 	azureStreamAnalytics     = "streamanalytics"     // StreamAnalytics
 
 	// Legacy Module Names
-	azureLegacyRole             = "role"             // Azure Role
-	azureLegacyMSI              = "msi"              // Managed Service Identity (MSI)
-	azureLegacyManagementGroups = "managementgroups" // Management Groups
-	azureLegacyTrafficManager   = "trafficmanager"   // Traffic Manager
+	azureLegacyRole             = "role"               // Azure Role
+	azureLegacyMSI              = "msi"                // Managed Service Identity (MSI)
+	azureLegacyManagementGroups = "managementgroups"   // Management Groups (Legacy)
+	azureLegacyMgmtResource     = "managementresource" // Management Resource (Legacy)
+	azureLegacyTrafficManager   = "trafficmanager"     // Traffic Manager
 )
 
 // azureMember manufactures a type token for the Azure package and the given module and type.
@@ -657,9 +658,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_mongo_database":     {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
 			"azurerm_cosmosdb_sql_database":       {Tok: azureResource(azureCosmosDB, "SqlDatabase")},
 			"azurerm_cosmosdb_table":              {Tok: azureResource(azureCosmosDB, "Table")},
-
-			// Management Resource
-			"azurerm_management_lock": {Tok: azureResource(azureMgmtResource, "ManangementLock")},
 
 			// Media Services
 			"azurerm_media_services_account": {Tok: azureResource(azureMediaServices, "Account")},
@@ -1357,11 +1355,15 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 	renameDataSourceWithAlias("azurerm_user_assigned_identity", "getUserAssignedIdentity", "",
 		azureCore, azureAuthorization, nil)
 
-	// Migrate azureLegacyManagementGroups -> azureManagementResources
+	// Migrate azureLegacyManagementGroups -> azureManagement
 	renameResourceWithAlias("azurerm_management_group", "ManagementGroup", "Group",
-		azureLegacyManagementGroups, azureMgmtResource, nil)
+		azureLegacyManagementGroups, azureManagement, nil)
 	renameDataSourceWithAlias("azurerm_management_group", "getManagementGroup", "getGroup",
-		azureLegacyManagementGroups, azureMgmtResource, nil)
+		azureLegacyManagementGroups, azureManagement, nil)
+
+	// Migrate azureLegacyMgmtResource -> azureManagement
+	renameResourceWithAlias("azurerm_management_lock", "ManangementLock", "Lock",
+		azureLegacyMgmtResource, azureManagement, nil)
 
 	// Migrate `azurerm_event_grid_*` to new EventGrid Mod
 	renameResourceWithAlias("azurerm_eventgrid_domain", "Domain", "", azureEventHub, azureEventGrid,

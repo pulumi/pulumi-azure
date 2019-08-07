@@ -8,9 +8,9 @@ import pulumi
 import pulumi.runtime
 from .. import utilities, tables
 
-class GetManagementGroupResult:
+class GetGroupResult:
     """
-    A collection of values returned by getManagementGroup.
+    A collection of values returned by getGroup.
     """
     def __init__(__self__, display_name=None, group_id=None, parent_management_group_id=None, subscription_ids=None, id=None):
         if display_name and not isinstance(display_name, str):
@@ -41,7 +41,15 @@ class GetManagementGroupResult:
         id is the provider-assigned unique ID for this managed resource.
         """
 
-async def get_management_group(group_id=None,opts=None):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return self
+
+    __iter__ = __await__
+
+def get_group(group_id=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
 
@@ -50,9 +58,13 @@ async def get_management_group(group_id=None,opts=None):
     __args__ = dict()
 
     __args__['groupId'] = group_id
-    __ret__ = await pulumi.runtime.invoke('azure:managementresource/getManagementGroup:getManagementGroup', __args__, opts=opts)
+    if opts is None:
+        opts = pulumi.ResourceOptions()
+    if opts.version is None:
+        opts.version = utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure:management/getGroup:getGroup', __args__, opts=opts).value
 
-    return GetManagementGroupResult(
+    return GetGroupResult(
         display_name=__ret__.get('displayName'),
         group_id=__ret__.get('groupId'),
         parent_management_group_id=__ret__.get('parentManagementGroupId'),

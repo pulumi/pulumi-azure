@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  * const current = pulumi.output(azure.core.getSubscription({}));
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * const exampleParent = new azure.managementgroups.ManagementGroup("exampleParent", {
  *     displayName: "ParentGroup",
  *     subscriptionIds: [current.subscriptionId],
@@ -35,6 +36,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleChild = new azure.managementresource.Group("example_child", {
 >>>>>>> 5ebc69e... Renamespace azurerm_traffic_manager_* to network module
+=======
+ * const exampleParent = new azure.management.Group("example_parent", {
+ *     displayName: "ParentGroup",
+ *     subscriptionIds: [current.subscriptionId],
+ * });
+ * const exampleChild = new azure.management.Group("example_child", {
+>>>>>>> 9369971... Migrate managementResources to management module
  *     displayName: "ChildGroup",
  *     parentManagementGroupId: exampleParent.id,
  *     subscriptionIds: [current.subscriptionId],

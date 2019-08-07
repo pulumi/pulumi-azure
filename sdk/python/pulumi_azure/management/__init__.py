@@ -3,4 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .manangement_lock import *
+from .group import *
+from .lock import *
+from .get_group import *
