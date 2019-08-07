@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Update to pulumi-terraform@013b95b1c8
+* Fix the location of callback functions ([#328](https://github.com/pulumi/pulumi-azure/pull/328))
 
 ---
 
