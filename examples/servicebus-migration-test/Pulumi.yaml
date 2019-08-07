@@ -1,0 +1,3 @@
+name: aks
+runtime: nodejs
+description: Test to show that the servicebus resources have been migrated with proper aliases

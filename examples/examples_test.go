@@ -89,6 +89,16 @@ func TestExamples(t *testing.T) {
 				},
 			},
 		}),
+		base.With(integration.ProgramTestOptions{
+            Dir: path.Join(cwd, "servicebus-migration-test"),
+            EditDirs: []integration.EditDir{
+                {
+                    Dir:      "step2",
+                    Additive: true,
+                    ExpectNoChanges: true,
+                },
+            },
+        }),
 	}
 
 	longTests := []integration.ProgramTestOptions{
