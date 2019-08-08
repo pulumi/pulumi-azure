@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"path"
+	"path/filepath"
 	"testing"
 	"time"
 
@@ -37,43 +38,55 @@ func TestExamples(t *testing.T) {
 			"azure:environment": environ,
 			"azure:location":    azureLocation,
 		},
+	}
+
+	jsBase := base.With(integration.ProgramTestOptions{
 		Dependencies: []string{
 			"@pulumi/azure",
 		},
-	}
+	})
+
+	pythonBase := base.With(integration.ProgramTestOptions{
+		Dependencies: []string{
+			filepath.Join("..", "sdk", "python", "bin"),
+		},
+	})
 
 	shortTests := []integration.ProgramTestOptions{
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventgrid")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventhub")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "http-external")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "http-multi")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "iot")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "timer")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
-		base.With(integration.ProgramTestOptions{
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
+		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal-py")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventgrid")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventhub")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "http-external")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "http-multi")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "iot")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "timer")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
+		jsBase.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "http"),
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "Hello World!")
 			}),
 		}),
-		base.With(integration.ProgramTestOptions{
+		jsBase.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "blob"),
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "A File from Blob Storage")
 			}),
 		}),
+		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventhub-py")}),
+		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "datasource-py")}),
 	}
 
 	longTests := []integration.ProgramTestOptions{
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-multi")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-volume-mount")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cosmosdb")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "loadbalancer")}),
-		base.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multi-callback-all")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-multi")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-volume-mount")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cosmosdb")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "loadbalancer")}),
+		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multi-callback-all")}),
 	}
 
 	tests := shortTests

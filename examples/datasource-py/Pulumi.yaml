@@ -1,0 +1,3 @@
+name: datasource-py
+runtime: python
+description: Basic example of an Azure DataSource (in Python!)
