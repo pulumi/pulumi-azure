@@ -136,67 +136,41 @@ class VirtualMachine(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['availability_set_id'] = availability_set_id
-
         __props__['boot_diagnostics'] = boot_diagnostics
-
         __props__['delete_data_disks_on_termination'] = delete_data_disks_on_termination
-
         __props__['delete_os_disk_on_termination'] = delete_os_disk_on_termination
-
         __props__['identity'] = identity
-
         __props__['license_type'] = license_type
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if network_interface_ids is None:
             raise TypeError("Missing required property 'network_interface_ids'")
         __props__['network_interface_ids'] = network_interface_ids
-
         __props__['os_profile'] = os_profile
-
         __props__['os_profile_linux_config'] = os_profile_linux_config
-
         __props__['os_profile_secrets'] = os_profile_secrets
-
         __props__['os_profile_windows_config'] = os_profile_windows_config
-
         __props__['plan'] = plan
-
         __props__['primary_network_interface_id'] = primary_network_interface_id
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['storage_data_disks'] = storage_data_disks
-
         __props__['storage_image_reference'] = storage_image_reference
-
         if storage_os_disk is None:
             raise TypeError("Missing required property 'storage_os_disk'")
         __props__['storage_os_disk'] = storage_os_disk
-
         __props__['tags'] = tags
-
         if vm_size is None:
             raise TypeError("Missing required property 'vm_size'")
         __props__['vm_size'] = vm_size
-
         __props__['zones'] = zones
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -206,7 +180,6 @@ class VirtualMachine(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

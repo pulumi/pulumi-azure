@@ -46,10 +46,6 @@ class Contact(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -58,19 +54,15 @@ class Contact(pulumi.CustomResource):
         if alert_notifications is None:
             raise TypeError("Missing required property 'alert_notifications'")
         __props__['alert_notifications'] = alert_notifications
-
         if alerts_to_admins is None:
             raise TypeError("Missing required property 'alerts_to_admins'")
         __props__['alerts_to_admins'] = alerts_to_admins
-
         if email is None:
             raise TypeError("Missing required property 'email'")
         __props__['email'] = email
-
         if phone is None:
             raise TypeError("Missing required property 'phone'")
         __props__['phone'] = phone
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -80,7 +72,6 @@ class Contact(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

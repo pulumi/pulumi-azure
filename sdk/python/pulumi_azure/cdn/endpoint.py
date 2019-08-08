@@ -105,53 +105,33 @@ class Endpoint(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['content_types_to_compresses'] = content_types_to_compresses
-
         __props__['geo_filters'] = geo_filters
-
         __props__['is_compression_enabled'] = is_compression_enabled
-
         __props__['is_http_allowed'] = is_http_allowed
-
         __props__['is_https_allowed'] = is_https_allowed
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         __props__['optimization_type'] = optimization_type
-
         if origins is None:
             raise TypeError("Missing required property 'origins'")
         __props__['origins'] = origins
-
         __props__['origin_host_header'] = origin_host_header
-
         __props__['origin_path'] = origin_path
-
         __props__['probe_path'] = probe_path
-
         if profile_name is None:
             raise TypeError("Missing required property 'profile_name'")
         __props__['profile_name'] = profile_name
-
         __props__['querystring_caching_behaviour'] = querystring_caching_behaviour
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['tags'] = tags
-
         __props__['host_name'] = None
 
         if opts is None:
@@ -163,7 +143,6 @@ class Endpoint(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

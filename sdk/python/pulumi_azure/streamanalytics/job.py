@@ -88,10 +88,6 @@ class Job(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -100,45 +96,33 @@ class Job(pulumi.CustomResource):
         if compatibility_level is None:
             raise TypeError("Missing required property 'compatibility_level'")
         __props__['compatibility_level'] = compatibility_level
-
         if data_locale is None:
             raise TypeError("Missing required property 'data_locale'")
         __props__['data_locale'] = data_locale
-
         if events_late_arrival_max_delay_in_seconds is None:
             raise TypeError("Missing required property 'events_late_arrival_max_delay_in_seconds'")
         __props__['events_late_arrival_max_delay_in_seconds'] = events_late_arrival_max_delay_in_seconds
-
         if events_out_of_order_max_delay_in_seconds is None:
             raise TypeError("Missing required property 'events_out_of_order_max_delay_in_seconds'")
         __props__['events_out_of_order_max_delay_in_seconds'] = events_out_of_order_max_delay_in_seconds
-
         if events_out_of_order_policy is None:
             raise TypeError("Missing required property 'events_out_of_order_policy'")
         __props__['events_out_of_order_policy'] = events_out_of_order_policy
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if output_error_policy is None:
             raise TypeError("Missing required property 'output_error_policy'")
         __props__['output_error_policy'] = output_error_policy
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         if streaming_units is None:
             raise TypeError("Missing required property 'streaming_units'")
         __props__['streaming_units'] = streaming_units
-
         __props__['tags'] = tags
-
         if transformation_query is None:
             raise TypeError("Missing required property 'transformation_query'")
         __props__['transformation_query'] = transformation_query
-
         __props__['job_id'] = None
 
         if opts is None:
@@ -150,7 +134,6 @@ class Job(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

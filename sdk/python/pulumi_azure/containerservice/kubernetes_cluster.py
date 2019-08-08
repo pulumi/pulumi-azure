@@ -115,49 +115,32 @@ class KubernetesCluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['addon_profile'] = addon_profile
-
         if agent_pool_profiles is None:
             raise TypeError("Missing required property 'agent_pool_profiles'")
         __props__['agent_pool_profiles'] = agent_pool_profiles
-
         __props__['api_server_authorized_ip_ranges'] = api_server_authorized_ip_ranges
-
         if dns_prefix is None:
             raise TypeError("Missing required property 'dns_prefix'")
         __props__['dns_prefix'] = dns_prefix
-
         __props__['kubernetes_version'] = kubernetes_version
-
         __props__['linux_profile'] = linux_profile
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         __props__['network_profile'] = network_profile
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['role_based_access_control'] = role_based_access_control
-
         if service_principal is None:
             raise TypeError("Missing required property 'service_principal'")
         __props__['service_principal'] = service_principal
-
         __props__['tags'] = tags
-
         __props__['fqdn'] = None
         __props__['kube_admin_config'] = None
         __props__['kube_admin_config_raw'] = None
@@ -174,7 +157,6 @@ class KubernetesCluster(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

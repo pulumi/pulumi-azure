@@ -243,55 +243,34 @@ class Account(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['access_tier'] = access_tier
-
         __props__['account_encryption_source'] = account_encryption_source
-
         __props__['account_kind'] = account_kind
-
         if account_replication_type is None:
             raise TypeError("Missing required property 'account_replication_type'")
         __props__['account_replication_type'] = account_replication_type
-
         if account_tier is None:
             raise TypeError("Missing required property 'account_tier'")
         __props__['account_tier'] = account_tier
-
         __props__['account_type'] = account_type
-
         __props__['custom_domain'] = custom_domain
-
         __props__['enable_blob_encryption'] = enable_blob_encryption
-
         __props__['enable_file_encryption'] = enable_file_encryption
-
         __props__['enable_https_traffic_only'] = enable_https_traffic_only
-
         __props__['identity'] = identity
-
         __props__['is_hns_enabled'] = is_hns_enabled
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         __props__['network_rules'] = network_rules
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['tags'] = tags
-
         __props__['primary_access_key'] = None
         __props__['primary_blob_connection_string'] = None
         __props__['primary_blob_endpoint'] = None
@@ -334,7 +313,6 @@ class Account(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

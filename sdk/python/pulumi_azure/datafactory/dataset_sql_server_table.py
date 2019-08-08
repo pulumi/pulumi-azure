@@ -79,43 +79,28 @@ class DatasetSqlServerTable(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['additional_properties'] = additional_properties
-
         __props__['annotations'] = annotations
-
         if data_factory_name is None:
             raise TypeError("Missing required property 'data_factory_name'")
         __props__['data_factory_name'] = data_factory_name
-
         __props__['description'] = description
-
         __props__['folder'] = folder
-
         if linked_service_name is None:
             raise TypeError("Missing required property 'linked_service_name'")
         __props__['linked_service_name'] = linked_service_name
-
         __props__['name'] = name
-
         __props__['parameters'] = parameters
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['schema_columns'] = schema_columns
-
         __props__['table_name'] = table_name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -125,7 +110,6 @@ class DatasetSqlServerTable(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

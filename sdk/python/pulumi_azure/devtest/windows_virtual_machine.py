@@ -112,65 +112,45 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allow_claim'] = allow_claim
-
         __props__['disallow_public_ip_address'] = disallow_public_ip_address
-
         if gallery_image_reference is None:
             raise TypeError("Missing required property 'gallery_image_reference'")
         __props__['gallery_image_reference'] = gallery_image_reference
-
         __props__['inbound_nat_rules'] = inbound_nat_rules
-
         if lab_name is None:
             raise TypeError("Missing required property 'lab_name'")
         __props__['lab_name'] = lab_name
-
         if lab_subnet_name is None:
             raise TypeError("Missing required property 'lab_subnet_name'")
         __props__['lab_subnet_name'] = lab_subnet_name
-
         if lab_virtual_network_id is None:
             raise TypeError("Missing required property 'lab_virtual_network_id'")
         __props__['lab_virtual_network_id'] = lab_virtual_network_id
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         __props__['notes'] = notes
-
         if password is None:
             raise TypeError("Missing required property 'password'")
         __props__['password'] = password
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         if size is None:
             raise TypeError("Missing required property 'size'")
         __props__['size'] = size
-
         if storage_type is None:
             raise TypeError("Missing required property 'storage_type'")
         __props__['storage_type'] = storage_type
-
         __props__['tags'] = tags
-
         if username is None:
             raise TypeError("Missing required property 'username'")
         __props__['username'] = username
-
         __props__['fqdn'] = None
         __props__['unique_identifier'] = None
 
@@ -183,7 +163,6 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

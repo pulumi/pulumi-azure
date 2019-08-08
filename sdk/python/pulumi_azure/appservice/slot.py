@@ -99,10 +99,6 @@ class Slot(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -111,35 +107,22 @@ class Slot(pulumi.CustomResource):
         if app_service_name is None:
             raise TypeError("Missing required property 'app_service_name'")
         __props__['app_service_name'] = app_service_name
-
         if app_service_plan_id is None:
             raise TypeError("Missing required property 'app_service_plan_id'")
         __props__['app_service_plan_id'] = app_service_plan_id
-
         __props__['app_settings'] = app_settings
-
         __props__['client_affinity_enabled'] = client_affinity_enabled
-
         __props__['connection_strings'] = connection_strings
-
         __props__['enabled'] = enabled
-
         __props__['https_only'] = https_only
-
         __props__['identity'] = identity
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['site_config'] = site_config
-
         __props__['tags'] = tags
-
         __props__['default_site_hostname'] = None
         __props__['site_credential'] = None
 
@@ -152,7 +135,6 @@ class Slot(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

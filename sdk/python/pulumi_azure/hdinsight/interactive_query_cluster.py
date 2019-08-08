@@ -82,10 +82,6 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -94,37 +90,27 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         if cluster_version is None:
             raise TypeError("Missing required property 'cluster_version'")
         __props__['cluster_version'] = cluster_version
-
         if component_version is None:
             raise TypeError("Missing required property 'component_version'")
         __props__['component_version'] = component_version
-
         if gateway is None:
             raise TypeError("Missing required property 'gateway'")
         __props__['gateway'] = gateway
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         if roles is None:
             raise TypeError("Missing required property 'roles'")
         __props__['roles'] = roles
-
         if storage_accounts is None:
             raise TypeError("Missing required property 'storage_accounts'")
         __props__['storage_accounts'] = storage_accounts
-
         __props__['tags'] = tags
-
         if tier is None:
             raise TypeError("Missing required property 'tier'")
         __props__['tier'] = tier
-
         __props__['https_endpoint'] = None
         __props__['ssh_endpoint'] = None
 
@@ -137,7 +123,6 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

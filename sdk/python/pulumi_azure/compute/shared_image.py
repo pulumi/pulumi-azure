@@ -81,45 +81,30 @@ class SharedImage(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['description'] = description
-
         __props__['eula'] = eula
-
         if gallery_name is None:
             raise TypeError("Missing required property 'gallery_name'")
         __props__['gallery_name'] = gallery_name
-
         if identifier is None:
             raise TypeError("Missing required property 'identifier'")
         __props__['identifier'] = identifier
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if os_type is None:
             raise TypeError("Missing required property 'os_type'")
         __props__['os_type'] = os_type
-
         __props__['privacy_statement_uri'] = privacy_statement_uri
-
         __props__['release_note_uri'] = release_note_uri
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['tags'] = tags
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -129,7 +114,6 @@ class SharedImage(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

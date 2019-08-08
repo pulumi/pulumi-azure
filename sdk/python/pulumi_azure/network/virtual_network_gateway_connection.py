@@ -152,53 +152,33 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['authorization_key'] = authorization_key
-
         __props__['enable_bgp'] = enable_bgp
-
         __props__['express_route_circuit_id'] = express_route_circuit_id
-
         __props__['express_route_gateway_bypass'] = express_route_gateway_bypass
-
         __props__['ipsec_policy'] = ipsec_policy
-
         __props__['local_network_gateway_id'] = local_network_gateway_id
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         __props__['peer_virtual_network_gateway_id'] = peer_virtual_network_gateway_id
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['routing_weight'] = routing_weight
-
         __props__['shared_key'] = shared_key
-
         __props__['tags'] = tags
-
         if type is None:
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
-
         __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
-
         if virtual_network_gateway_id is None:
             raise TypeError("Missing required property 'virtual_network_gateway_id'")
         __props__['virtual_network_gateway_id'] = virtual_network_gateway_id
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -208,7 +188,6 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

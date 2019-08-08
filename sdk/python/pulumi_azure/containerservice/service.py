@@ -81,10 +81,6 @@ class Service(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -93,35 +89,25 @@ class Service(pulumi.CustomResource):
         if agent_pool_profile is None:
             raise TypeError("Missing required property 'agent_pool_profile'")
         __props__['agent_pool_profile'] = agent_pool_profile
-
         if diagnostics_profile is None:
             raise TypeError("Missing required property 'diagnostics_profile'")
         __props__['diagnostics_profile'] = diagnostics_profile
-
         if linux_profile is None:
             raise TypeError("Missing required property 'linux_profile'")
         __props__['linux_profile'] = linux_profile
-
         __props__['location'] = location
-
         if master_profile is None:
             raise TypeError("Missing required property 'master_profile'")
         __props__['master_profile'] = master_profile
-
         __props__['name'] = name
-
         if orchestration_platform is None:
             raise TypeError("Missing required property 'orchestration_platform'")
         __props__['orchestration_platform'] = orchestration_platform
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['service_principal'] = service_principal
-
         __props__['tags'] = tags
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -131,7 +117,6 @@ class Service(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

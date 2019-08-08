@@ -118,63 +118,41 @@ class Cluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['add_on_features'] = add_on_features
-
         __props__['azure_active_directory'] = azure_active_directory
-
         __props__['certificate'] = certificate
-
         __props__['certificate_common_names'] = certificate_common_names
-
         __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
-
         __props__['cluster_code_version'] = cluster_code_version
-
         __props__['diagnostics_config'] = diagnostics_config
-
         __props__['fabric_settings'] = fabric_settings
-
         __props__['location'] = location
-
         if management_endpoint is None:
             raise TypeError("Missing required property 'management_endpoint'")
         __props__['management_endpoint'] = management_endpoint
-
         __props__['name'] = name
-
         if node_types is None:
             raise TypeError("Missing required property 'node_types'")
         __props__['node_types'] = node_types
-
         if reliability_level is None:
             raise TypeError("Missing required property 'reliability_level'")
         __props__['reliability_level'] = reliability_level
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['reverse_proxy_certificate'] = reverse_proxy_certificate
-
         __props__['tags'] = tags
-
         if upgrade_mode is None:
             raise TypeError("Missing required property 'upgrade_mode'")
         __props__['upgrade_mode'] = upgrade_mode
-
         if vm_image is None:
             raise TypeError("Missing required property 'vm_image'")
         __props__['vm_image'] = vm_image
-
         __props__['cluster_endpoint'] = None
 
         if opts is None:
@@ -186,7 +164,6 @@ class Cluster(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

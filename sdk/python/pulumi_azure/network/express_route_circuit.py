@@ -77,43 +77,30 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['allow_classic_operations'] = allow_classic_operations
-
         if bandwidth_in_mbps is None:
             raise TypeError("Missing required property 'bandwidth_in_mbps'")
         __props__['bandwidth_in_mbps'] = bandwidth_in_mbps
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if peering_location is None:
             raise TypeError("Missing required property 'peering_location'")
         __props__['peering_location'] = peering_location
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         if service_provider_name is None:
             raise TypeError("Missing required property 'service_provider_name'")
         __props__['service_provider_name'] = service_provider_name
-
         if sku is None:
             raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
-
         __props__['tags'] = tags
-
         __props__['service_key'] = None
         __props__['service_provider_provisioning_state'] = None
 
@@ -126,7 +113,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

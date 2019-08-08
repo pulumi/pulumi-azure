@@ -90,10 +90,6 @@ class Pool(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -102,41 +98,27 @@ class Pool(pulumi.CustomResource):
         if account_name is None:
             raise TypeError("Missing required property 'account_name'")
         __props__['account_name'] = account_name
-
         __props__['auto_scale'] = auto_scale
-
         __props__['certificates'] = certificates
-
         __props__['container_configuration'] = container_configuration
-
         __props__['display_name'] = display_name
-
         __props__['fixed_scale'] = fixed_scale
-
         __props__['max_tasks_per_node'] = max_tasks_per_node
-
         __props__['name'] = name
-
         if node_agent_sku_id is None:
             raise TypeError("Missing required property 'node_agent_sku_id'")
         __props__['node_agent_sku_id'] = node_agent_sku_id
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['start_task'] = start_task
-
         __props__['stop_pending_resize_operation'] = stop_pending_resize_operation
-
         if storage_image_reference is None:
             raise TypeError("Missing required property 'storage_image_reference'")
         __props__['storage_image_reference'] = storage_image_reference
-
         if vm_size is None:
             raise TypeError("Missing required property 'vm_size'")
         __props__['vm_size'] = vm_size
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -146,7 +128,6 @@ class Pool(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

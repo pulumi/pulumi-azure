@@ -122,51 +122,33 @@ class Subscription(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['auto_delete_on_idle'] = auto_delete_on_idle
-
         __props__['dead_lettering_on_filter_evaluation_exceptions'] = dead_lettering_on_filter_evaluation_exceptions
-
         __props__['dead_lettering_on_message_expiration'] = dead_lettering_on_message_expiration
-
         __props__['default_message_ttl'] = default_message_ttl
-
         __props__['enable_batched_operations'] = enable_batched_operations
-
         __props__['forward_to'] = forward_to
-
         __props__['location'] = location
-
         __props__['lock_duration'] = lock_duration
-
         if max_delivery_count is None:
             raise TypeError("Missing required property 'max_delivery_count'")
         __props__['max_delivery_count'] = max_delivery_count
-
         __props__['name'] = name
-
         if namespace_name is None:
             raise TypeError("Missing required property 'namespace_name'")
         __props__['namespace_name'] = namespace_name
-
         __props__['requires_session'] = requires_session
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         if topic_name is None:
             raise TypeError("Missing required property 'topic_name'")
         __props__['topic_name'] = topic_name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -176,7 +158,6 @@ class Subscription(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

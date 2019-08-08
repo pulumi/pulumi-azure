@@ -50,10 +50,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -62,21 +58,15 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         if eventhub_name is None:
             raise TypeError("Missing required property 'eventhub_name'")
         __props__['eventhub_name'] = eventhub_name
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if namespace_name is None:
             raise TypeError("Missing required property 'namespace_name'")
         __props__['namespace_name'] = namespace_name
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['user_metadata'] = user_metadata
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -86,7 +76,6 @@ class EventHubConsumerGroup(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

@@ -158,81 +158,50 @@ class ScaleSet(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['automatic_os_upgrade'] = automatic_os_upgrade
-
         __props__['boot_diagnostics'] = boot_diagnostics
-
         __props__['eviction_policy'] = eviction_policy
-
         __props__['extensions'] = extensions
-
         __props__['health_probe_id'] = health_probe_id
-
         __props__['identity'] = identity
-
         __props__['license_type'] = license_type
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if network_profiles is None:
             raise TypeError("Missing required property 'network_profiles'")
         __props__['network_profiles'] = network_profiles
-
         if os_profile is None:
             raise TypeError("Missing required property 'os_profile'")
         __props__['os_profile'] = os_profile
-
         __props__['os_profile_linux_config'] = os_profile_linux_config
-
         __props__['os_profile_secrets'] = os_profile_secrets
-
         __props__['os_profile_windows_config'] = os_profile_windows_config
-
         __props__['overprovision'] = overprovision
-
         __props__['plan'] = plan
-
         __props__['priority'] = priority
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['rolling_upgrade_policy'] = rolling_upgrade_policy
-
         __props__['single_placement_group'] = single_placement_group
-
         if sku is None:
             raise TypeError("Missing required property 'sku'")
         __props__['sku'] = sku
-
         __props__['storage_profile_data_disks'] = storage_profile_data_disks
-
         __props__['storage_profile_image_reference'] = storage_profile_image_reference
-
         if storage_profile_os_disk is None:
             raise TypeError("Missing required property 'storage_profile_os_disk'")
         __props__['storage_profile_os_disk'] = storage_profile_os_disk
-
         __props__['tags'] = tags
-
         if upgrade_policy_mode is None:
             raise TypeError("Missing required property 'upgrade_policy_mode'")
         __props__['upgrade_policy_mode'] = upgrade_policy_mode
-
         __props__['zones'] = zones
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -242,7 +211,6 @@ class ScaleSet(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

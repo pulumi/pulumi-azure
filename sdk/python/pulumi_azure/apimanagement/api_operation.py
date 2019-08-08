@@ -79,10 +79,6 @@ class ApiOperation(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -91,39 +87,28 @@ class ApiOperation(pulumi.CustomResource):
         if api_management_name is None:
             raise TypeError("Missing required property 'api_management_name'")
         __props__['api_management_name'] = api_management_name
-
         if api_name is None:
             raise TypeError("Missing required property 'api_name'")
         __props__['api_name'] = api_name
-
         __props__['description'] = description
-
         if display_name is None:
             raise TypeError("Missing required property 'display_name'")
         __props__['display_name'] = display_name
-
         if method is None:
             raise TypeError("Missing required property 'method'")
         __props__['method'] = method
-
         if operation_id is None:
             raise TypeError("Missing required property 'operation_id'")
         __props__['operation_id'] = operation_id
-
         __props__['request'] = request
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['responses'] = responses
-
         __props__['template_parameters'] = template_parameters
-
         if url_template is None:
             raise TypeError("Missing required property 'url_template'")
         __props__['url_template'] = url_template
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -133,7 +118,6 @@ class ApiOperation(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

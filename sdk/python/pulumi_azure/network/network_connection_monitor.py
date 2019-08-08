@@ -69,41 +69,28 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['auto_start'] = auto_start
-
         if destination is None:
             raise TypeError("Missing required property 'destination'")
         __props__['destination'] = destination
-
         __props__['interval_in_seconds'] = interval_in_seconds
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if network_watcher_name is None:
             raise TypeError("Missing required property 'network_watcher_name'")
         __props__['network_watcher_name'] = network_watcher_name
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         if source is None:
             raise TypeError("Missing required property 'source'")
         __props__['source'] = source
-
         __props__['tags'] = tags
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -113,7 +100,6 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

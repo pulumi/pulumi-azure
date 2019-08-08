@@ -80,43 +80,29 @@ class ElasticPool(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['db_dtu_max'] = db_dtu_max
-
         __props__['db_dtu_min'] = db_dtu_min
-
         if dtu is None:
             raise TypeError("Missing required property 'dtu'")
         __props__['dtu'] = dtu
-
         if edition is None:
             raise TypeError("Missing required property 'edition'")
         __props__['edition'] = edition
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         __props__['pool_size'] = pool_size
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         if server_name is None:
             raise TypeError("Missing required property 'server_name'")
         __props__['server_name'] = server_name
-
         __props__['tags'] = tags
-
         __props__['creation_date'] = None
 
         if opts is None:
@@ -128,7 +114,6 @@ class ElasticPool(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

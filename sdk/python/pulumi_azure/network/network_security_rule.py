@@ -118,10 +118,6 @@ class NetworkSecurityRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -130,51 +126,33 @@ class NetworkSecurityRule(pulumi.CustomResource):
         if access is None:
             raise TypeError("Missing required property 'access'")
         __props__['access'] = access
-
         __props__['description'] = description
-
         __props__['destination_address_prefix'] = destination_address_prefix
-
         __props__['destination_address_prefixes'] = destination_address_prefixes
-
         __props__['destination_application_security_group_ids'] = destination_application_security_group_ids
-
         __props__['destination_port_range'] = destination_port_range
-
         __props__['destination_port_ranges'] = destination_port_ranges
-
         if direction is None:
             raise TypeError("Missing required property 'direction'")
         __props__['direction'] = direction
-
         __props__['name'] = name
-
         if network_security_group_name is None:
             raise TypeError("Missing required property 'network_security_group_name'")
         __props__['network_security_group_name'] = network_security_group_name
-
         if priority is None:
             raise TypeError("Missing required property 'priority'")
         __props__['priority'] = priority
-
         if protocol is None:
             raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['source_address_prefix'] = source_address_prefix
-
         __props__['source_address_prefixes'] = source_address_prefixes
-
         __props__['source_application_security_group_ids'] = source_application_security_group_ids
-
         __props__['source_port_range'] = source_port_range
-
         __props__['source_port_ranges'] = source_port_ranges
-
         if opts is None:
             opts = pulumi.ResourceOptions()
         if opts.version is None:
@@ -184,7 +162,6 @@ class NetworkSecurityRule(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

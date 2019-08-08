@@ -68,10 +68,6 @@ class NatPool(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
@@ -80,35 +76,26 @@ class NatPool(pulumi.CustomResource):
         if backend_port is None:
             raise TypeError("Missing required property 'backend_port'")
         __props__['backend_port'] = backend_port
-
         if frontend_ip_configuration_name is None:
             raise TypeError("Missing required property 'frontend_ip_configuration_name'")
         __props__['frontend_ip_configuration_name'] = frontend_ip_configuration_name
-
         if frontend_port_end is None:
             raise TypeError("Missing required property 'frontend_port_end'")
         __props__['frontend_port_end'] = frontend_port_end
-
         if frontend_port_start is None:
             raise TypeError("Missing required property 'frontend_port_start'")
         __props__['frontend_port_start'] = frontend_port_start
-
         if loadbalancer_id is None:
             raise TypeError("Missing required property 'loadbalancer_id'")
         __props__['loadbalancer_id'] = loadbalancer_id
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if protocol is None:
             raise TypeError("Missing required property 'protocol'")
         __props__['protocol'] = protocol
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['frontend_ip_configuration_id'] = None
 
         if opts is None:
@@ -120,7 +107,6 @@ class NatPool(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

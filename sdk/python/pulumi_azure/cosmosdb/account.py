@@ -127,51 +127,32 @@ class Account(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['capabilities'] = capabilities
-
         if consistency_policy is None:
             raise TypeError("Missing required property 'consistency_policy'")
         __props__['consistency_policy'] = consistency_policy
-
         __props__['enable_automatic_failover'] = enable_automatic_failover
-
         __props__['enable_multiple_write_locations'] = enable_multiple_write_locations
-
         __props__['failover_policies'] = failover_policies
-
         __props__['geo_locations'] = geo_locations
-
         __props__['ip_range_filter'] = ip_range_filter
-
         __props__['is_virtual_network_filter_enabled'] = is_virtual_network_filter_enabled
-
         __props__['kind'] = kind
-
         __props__['location'] = location
-
         __props__['name'] = name
-
         if offer_type is None:
             raise TypeError("Missing required property 'offer_type'")
         __props__['offer_type'] = offer_type
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['tags'] = tags
-
         __props__['virtual_network_rules'] = virtual_network_rules
-
         __props__['connection_strings'] = None
         __props__['endpoint'] = None
         __props__['primary_master_key'] = None
@@ -190,7 +171,6 @@ class Account(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

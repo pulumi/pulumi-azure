@@ -125,55 +125,33 @@ class Database(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
         if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
         __props__['collation'] = collation
-
         __props__['create_mode'] = create_mode
-
         __props__['edition'] = edition
-
         __props__['elastic_pool_name'] = elastic_pool_name
-
         __props__['import_'] = import_
-
         __props__['location'] = location
-
         __props__['max_size_bytes'] = max_size_bytes
-
         __props__['name'] = name
-
         __props__['read_scale'] = read_scale
-
         __props__['requested_service_objective_id'] = requested_service_objective_id
-
         __props__['requested_service_objective_name'] = requested_service_objective_name
-
         if resource_group_name is None:
             raise TypeError("Missing required property 'resource_group_name'")
         __props__['resource_group_name'] = resource_group_name
-
         __props__['restore_point_in_time'] = restore_point_in_time
-
         if server_name is None:
             raise TypeError("Missing required property 'server_name'")
         __props__['server_name'] = server_name
-
         __props__['source_database_deletion_date'] = source_database_deletion_date
-
         __props__['source_database_id'] = source_database_id
-
         __props__['tags'] = tags
-
         __props__['threat_detection_policy'] = threat_detection_policy
-
         __props__['creation_date'] = None
         __props__['default_secondary_location'] = None
         __props__['encryption'] = None
@@ -187,7 +165,6 @@ class Database(pulumi.CustomResource):
             resource_name,
             __props__,
             opts)
-
 
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
