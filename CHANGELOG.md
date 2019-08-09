@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Update to pulumi-terraform 9db2fc93cd
+___NULL___
 
 ---
+
+## 0.19.5 (2019-08-09)
+* Update to pulumi-terraform 9db2fc93cd
 
 ## 0.19.4 (2019-08-05)
 * Update pulumi-terraform to 6bcafb609dd
