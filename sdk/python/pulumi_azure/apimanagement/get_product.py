@@ -70,14 +70,23 @@ class GetProductResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetProductResult(GetProductResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetProductResult(
+            api_management_name=self.api_management_name,
+            approval_required=self.approval_required,
+            description=self.description,
+            display_name=self.display_name,
+            product_id=self.product_id,
+            published=self.published,
+            resource_group_name=self.resource_group_name,
+            subscription_required=self.subscription_required,
+            subscriptions_limit=self.subscriptions_limit,
+            terms=self.terms,
+            id=self.id)
 
 def get_product(api_management_name=None,product_id=None,resource_group_name=None,opts=None):
     """
@@ -96,7 +105,7 @@ def get_product(api_management_name=None,product_id=None,resource_group_name=Non
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getProduct:getProduct', __args__, opts=opts).value
 
-    return GetProductResult(
+    return AwaitableGetProductResult(
         api_management_name=__ret__.get('apiManagementName'),
         approval_required=__ret__.get('approvalRequired'),
         description=__ret__.get('description'),

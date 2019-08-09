@@ -85,14 +85,25 @@ class GetJobResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetJobResult(GetJobResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetJobResult(
+            compatibility_level=self.compatibility_level,
+            data_locale=self.data_locale,
+            events_late_arrival_max_delay_in_seconds=self.events_late_arrival_max_delay_in_seconds,
+            events_out_of_order_max_delay_in_seconds=self.events_out_of_order_max_delay_in_seconds,
+            events_out_of_order_policy=self.events_out_of_order_policy,
+            job_id=self.job_id,
+            location=self.location,
+            name=self.name,
+            output_error_policy=self.output_error_policy,
+            resource_group_name=self.resource_group_name,
+            streaming_units=self.streaming_units,
+            transformation_query=self.transformation_query,
+            id=self.id)
 
 def get_job(name=None,resource_group_name=None,opts=None):
     """
@@ -110,7 +121,7 @@ def get_job(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:streamanalytics/getJob:getJob', __args__, opts=opts).value
 
-    return GetJobResult(
+    return AwaitableGetJobResult(
         compatibility_level=__ret__.get('compatibilityLevel'),
         data_locale=__ret__.get('dataLocale'),
         events_late_arrival_max_delay_in_seconds=__ret__.get('eventsLateArrivalMaxDelayInSeconds'),

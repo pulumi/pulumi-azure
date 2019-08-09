@@ -43,14 +43,18 @@ class GetVaultResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetVaultResult(GetVaultResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVaultResult(
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            tags=self.tags,
+            id=self.id)
 
 def get_vault(name=None,resource_group_name=None,opts=None):
     """
@@ -68,7 +72,7 @@ def get_vault(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:recoveryservices/getVault:getVault', __args__, opts=opts).value
 
-    return GetVaultResult(
+    return AwaitableGetVaultResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),

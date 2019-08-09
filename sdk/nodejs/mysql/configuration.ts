@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     version: "5.7",
  * });
  * const testConfiguration = new azure.mysql.Configuration("test", {
- *     name: "interactive_timeout",
+ *     name: "interactiveTimeout",
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testServer.name,
  *     value: "600",

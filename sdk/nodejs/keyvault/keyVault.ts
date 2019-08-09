@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Key Vault.
  * 
- * > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+ * > **NOTE:** It's possible to define Key Vault Access Policies both within the `azure.keyvault.KeyVault` resource via the `accessPolicy` block and by using the `azure.keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
  * 
  * ## Example Usage
  * 
@@ -97,7 +97,7 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `network_acls` block as defined below.
+     * A `networkAcls` block as defined below.
      */
     public readonly networkAcls!: pulumi.Output<{ bypass: string, defaultAction: string, ipRules?: string[], virtualNetworkSubnetIds?: string[] } | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface KeyVaultState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `network_acls` block as defined below.
+     * A `networkAcls` block as defined below.
      */
     readonly networkAcls?: pulumi.Input<{ bypass: pulumi.Input<string>, defaultAction: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
@@ -270,7 +270,7 @@ export interface KeyVaultArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `network_acls` block as defined below.
+     * A `networkAcls` block as defined below.
      */
     readonly networkAcls?: pulumi.Input<{ bypass: pulumi.Input<string>, defaultAction: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**

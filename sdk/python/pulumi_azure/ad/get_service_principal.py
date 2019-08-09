@@ -28,14 +28,16 @@ class GetServicePrincipalResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetServicePrincipalResult(
+            application_id=self.application_id,
+            display_name=self.display_name,
+            object_id=self.object_id,
+            id=self.id)
 
 def get_service_principal(application_id=None,display_name=None,object_id=None,opts=None):
     """
@@ -52,7 +54,7 @@ def get_service_principal(application_id=None,display_name=None,object_id=None,o
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__, opts=opts).value
 
-    return GetServicePrincipalResult(
+    return AwaitableGetServicePrincipalResult(
         application_id=__ret__.get('applicationId'),
         display_name=__ret__.get('displayName'),
         object_id=__ret__.get('objectId'),

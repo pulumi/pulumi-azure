@@ -58,14 +58,20 @@ class GetActionGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetActionGroupResult(GetActionGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetActionGroupResult(
+            email_receivers=self.email_receivers,
+            enabled=self.enabled,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            short_name=self.short_name,
+            sms_receivers=self.sms_receivers,
+            webhook_receivers=self.webhook_receivers,
+            id=self.id)
 
 def get_action_group(name=None,resource_group_name=None,opts=None):
     """
@@ -83,7 +89,7 @@ def get_action_group(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getActionGroup:getActionGroup', __args__, opts=opts).value
 
-    return GetActionGroupResult(
+    return AwaitableGetActionGroupResult(
         email_receivers=__ret__.get('emailReceivers'),
         enabled=__ret__.get('enabled'),
         name=__ret__.get('name'),

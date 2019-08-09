@@ -57,7 +57,7 @@ class WebTest(pulumi.CustomResource):
     """
     Seconds until this WebTest will timeout and fail. Default is `30`.
     """
-    def __init__(__self__, resource_name, opts=None, application_insights_id=None, configuration=None, description=None, enabled=None, frequency=None, geo_locations=None, kind=None, location=None, name=None, resource_group_name=None, retry_enabled=None, tags=None, timeout=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_insights_id=None, configuration=None, description=None, enabled=None, frequency=None, geo_locations=None, kind=None, location=None, name=None, resource_group_name=None, retry_enabled=None, tags=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Insights WebTest.
         
@@ -84,64 +84,88 @@ class WebTest(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if application_insights_id is None:
-            raise TypeError("Missing required property 'application_insights_id'")
-        __props__['application_insights_id'] = application_insights_id
-
-        if configuration is None:
-            raise TypeError("Missing required property 'configuration'")
-        __props__['configuration'] = configuration
-
-        __props__['description'] = description
-
-        __props__['enabled'] = enabled
-
-        __props__['frequency'] = frequency
-
-        if geo_locations is None:
-            raise TypeError("Missing required property 'geo_locations'")
-        __props__['geo_locations'] = geo_locations
-
-        if kind is None:
-            raise TypeError("Missing required property 'kind'")
-        __props__['kind'] = kind
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['retry_enabled'] = retry_enabled
-
-        __props__['tags'] = tags
-
-        __props__['timeout'] = timeout
-
-        __props__['synthetic_monitor_id'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if application_insights_id is None:
+                raise TypeError("Missing required property 'application_insights_id'")
+            __props__['application_insights_id'] = application_insights_id
+            if configuration is None:
+                raise TypeError("Missing required property 'configuration'")
+            __props__['configuration'] = configuration
+            __props__['description'] = description
+            __props__['enabled'] = enabled
+            __props__['frequency'] = frequency
+            if geo_locations is None:
+                raise TypeError("Missing required property 'geo_locations'")
+            __props__['geo_locations'] = geo_locations
+            if kind is None:
+                raise TypeError("Missing required property 'kind'")
+            __props__['kind'] = kind
+            __props__['location'] = location
+            __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['retry_enabled'] = retry_enabled
+            __props__['tags'] = tags
+            __props__['timeout'] = timeout
+            __props__['synthetic_monitor_id'] = None
         super(WebTest, __self__).__init__(
             'azure:appinsights/webTest:WebTest',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, application_insights_id=None, configuration=None, description=None, enabled=None, frequency=None, geo_locations=None, kind=None, location=None, name=None, resource_group_name=None, retry_enabled=None, synthetic_monitor_id=None, tags=None, timeout=None):
+        """
+        Get an existing WebTest resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_insights_id: The ID of the Application Insights component on which the WebTest operates. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] configuration: An XML configuration specification for a WebTest.
+        :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
+        :param pulumi.Input[bool] enabled: Is the test actively being monitored.
+        :param pulumi.Input[float] frequency: Interval in seconds between test runs for this WebTest. Default is `300`.
+        :param pulumi.Input[list] geo_locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] name: Specifies the name of the Application Insights WebTest. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
+        :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[float] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_insights_web_test.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["application_insights_id"] = application_insights_id
+        __props__["configuration"] = configuration
+        __props__["description"] = description
+        __props__["enabled"] = enabled
+        __props__["frequency"] = frequency
+        __props__["geo_locations"] = geo_locations
+        __props__["kind"] = kind
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resource_group_name"] = resource_group_name
+        __props__["retry_enabled"] = retry_enabled
+        __props__["synthetic_monitor_id"] = synthetic_monitor_id
+        __props__["tags"] = tags
+        __props__["timeout"] = timeout
+        return WebTest(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

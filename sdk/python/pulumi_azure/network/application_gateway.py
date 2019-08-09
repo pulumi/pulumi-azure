@@ -110,7 +110,7 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A collection of availability zones to spread the Application Gateway over.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Gateway.
         
@@ -151,94 +151,132 @@ class ApplicationGateway(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['authentication_certificates'] = authentication_certificates
-
-        __props__['autoscale_configuration'] = autoscale_configuration
-
-        if backend_address_pools is None:
-            raise TypeError("Missing required property 'backend_address_pools'")
-        __props__['backend_address_pools'] = backend_address_pools
-
-        if backend_http_settings is None:
-            raise TypeError("Missing required property 'backend_http_settings'")
-        __props__['backend_http_settings'] = backend_http_settings
-
-        __props__['custom_error_configurations'] = custom_error_configurations
-
-        __props__['disabled_ssl_protocols'] = disabled_ssl_protocols
-
-        __props__['enable_http2'] = enable_http2
-
-        if frontend_ip_configurations is None:
-            raise TypeError("Missing required property 'frontend_ip_configurations'")
-        __props__['frontend_ip_configurations'] = frontend_ip_configurations
-
-        if frontend_ports is None:
-            raise TypeError("Missing required property 'frontend_ports'")
-        __props__['frontend_ports'] = frontend_ports
-
-        if gateway_ip_configurations is None:
-            raise TypeError("Missing required property 'gateway_ip_configurations'")
-        __props__['gateway_ip_configurations'] = gateway_ip_configurations
-
-        if http_listeners is None:
-            raise TypeError("Missing required property 'http_listeners'")
-        __props__['http_listeners'] = http_listeners
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        __props__['probes'] = probes
-
-        __props__['redirect_configurations'] = redirect_configurations
-
-        if request_routing_rules is None:
-            raise TypeError("Missing required property 'request_routing_rules'")
-        __props__['request_routing_rules'] = request_routing_rules
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['rewrite_rule_sets'] = rewrite_rule_sets
-
-        if sku is None:
-            raise TypeError("Missing required property 'sku'")
-        __props__['sku'] = sku
-
-        __props__['ssl_certificates'] = ssl_certificates
-
-        __props__['ssl_policies'] = ssl_policies
-
-        __props__['tags'] = tags
-
-        __props__['url_path_maps'] = url_path_maps
-
-        __props__['waf_configuration'] = waf_configuration
-
-        __props__['zones'] = zones
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['authentication_certificates'] = authentication_certificates
+            __props__['autoscale_configuration'] = autoscale_configuration
+            if backend_address_pools is None:
+                raise TypeError("Missing required property 'backend_address_pools'")
+            __props__['backend_address_pools'] = backend_address_pools
+            if backend_http_settings is None:
+                raise TypeError("Missing required property 'backend_http_settings'")
+            __props__['backend_http_settings'] = backend_http_settings
+            __props__['custom_error_configurations'] = custom_error_configurations
+            __props__['disabled_ssl_protocols'] = disabled_ssl_protocols
+            __props__['enable_http2'] = enable_http2
+            if frontend_ip_configurations is None:
+                raise TypeError("Missing required property 'frontend_ip_configurations'")
+            __props__['frontend_ip_configurations'] = frontend_ip_configurations
+            if frontend_ports is None:
+                raise TypeError("Missing required property 'frontend_ports'")
+            __props__['frontend_ports'] = frontend_ports
+            if gateway_ip_configurations is None:
+                raise TypeError("Missing required property 'gateway_ip_configurations'")
+            __props__['gateway_ip_configurations'] = gateway_ip_configurations
+            if http_listeners is None:
+                raise TypeError("Missing required property 'http_listeners'")
+            __props__['http_listeners'] = http_listeners
+            __props__['location'] = location
+            __props__['name'] = name
+            __props__['probes'] = probes
+            __props__['redirect_configurations'] = redirect_configurations
+            if request_routing_rules is None:
+                raise TypeError("Missing required property 'request_routing_rules'")
+            __props__['request_routing_rules'] = request_routing_rules
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['rewrite_rule_sets'] = rewrite_rule_sets
+            if sku is None:
+                raise TypeError("Missing required property 'sku'")
+            __props__['sku'] = sku
+            __props__['ssl_certificates'] = ssl_certificates
+            __props__['ssl_policies'] = ssl_policies
+            __props__['tags'] = tags
+            __props__['url_path_maps'] = url_path_maps
+            __props__['waf_configuration'] = waf_configuration
+            __props__['zones'] = zones
         super(ApplicationGateway, __self__).__init__(
             'azure:network/applicationGateway:ApplicationGateway',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None):
+        """
+        Get an existing ApplicationGateway resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param pulumi.Input[dict] autoscale_configuration: A `autoscale_configuration` block as defined below.
+        :param pulumi.Input[list] backend_address_pools: One or more `backend_address_pool` blocks as defined below.
+        :param pulumi.Input[list] backend_http_settings: One or more `backend_http_settings` blocks as defined below.
+        :param pulumi.Input[list] custom_error_configurations: One or more `custom_error_configuration` blocks as defined below.
+        :param pulumi.Input[list] disabled_ssl_protocols: A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
+               > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
+        :param pulumi.Input[bool] enable_http2: Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
+        :param pulumi.Input[list] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
+        :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
+        :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
+        :param pulumi.Input[list] http_listeners: One or more `http_listener` blocks as defined below.
+        :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] probes: One or more `probe` blocks as defined below.
+        :param pulumi.Input[list] redirect_configurations: A `redirect_configuration` block as defined below.
+        :param pulumi.Input[list] request_routing_rules: One or more `request_routing_rule` blocks as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] rewrite_rule_sets: One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+        :param pulumi.Input[dict] sku: A `sku` block as defined below.
+        :param pulumi.Input[list] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
+        :param pulumi.Input[list] ssl_policies: a `ssl policy` block as defined below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] url_path_maps: One or more `url_path_map` blocks as defined below.
+        :param pulumi.Input[dict] waf_configuration: A `waf_configuration` block as defined below.
+        :param pulumi.Input[list] zones: A collection of availability zones to spread the Application Gateway over.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/application_gateway.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["authentication_certificates"] = authentication_certificates
+        __props__["autoscale_configuration"] = autoscale_configuration
+        __props__["backend_address_pools"] = backend_address_pools
+        __props__["backend_http_settings"] = backend_http_settings
+        __props__["custom_error_configurations"] = custom_error_configurations
+        __props__["disabled_ssl_protocols"] = disabled_ssl_protocols
+        __props__["enable_http2"] = enable_http2
+        __props__["frontend_ip_configurations"] = frontend_ip_configurations
+        __props__["frontend_ports"] = frontend_ports
+        __props__["gateway_ip_configurations"] = gateway_ip_configurations
+        __props__["http_listeners"] = http_listeners
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["probes"] = probes
+        __props__["redirect_configurations"] = redirect_configurations
+        __props__["request_routing_rules"] = request_routing_rules
+        __props__["resource_group_name"] = resource_group_name
+        __props__["rewrite_rule_sets"] = rewrite_rule_sets
+        __props__["sku"] = sku
+        __props__["ssl_certificates"] = ssl_certificates
+        __props__["ssl_policies"] = ssl_policies
+        __props__["tags"] = tags
+        __props__["url_path_maps"] = url_path_maps
+        __props__["waf_configuration"] = waf_configuration
+        __props__["zones"] = zones
+        return ApplicationGateway(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

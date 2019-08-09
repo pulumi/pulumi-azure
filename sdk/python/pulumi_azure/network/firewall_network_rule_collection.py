@@ -33,7 +33,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
     """
     One or more `rule` blocks as defined below.
     """
-    def __init__(__self__, resource_name, opts=None, action=None, azure_firewall_name=None, name=None, priority=None, resource_group_name=None, rules=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, action=None, azure_firewall_name=None, name=None, priority=None, resource_group_name=None, rules=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Network Rule Collection within an Azure Firewall.
         
@@ -54,48 +54,66 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if action is None:
-            raise TypeError("Missing required property 'action'")
-        __props__['action'] = action
-
-        if azure_firewall_name is None:
-            raise TypeError("Missing required property 'azure_firewall_name'")
-        __props__['azure_firewall_name'] = azure_firewall_name
-
-        __props__['name'] = name
-
-        if priority is None:
-            raise TypeError("Missing required property 'priority'")
-        __props__['priority'] = priority
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        if rules is None:
-            raise TypeError("Missing required property 'rules'")
-        __props__['rules'] = rules
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if action is None:
+                raise TypeError("Missing required property 'action'")
+            __props__['action'] = action
+            if azure_firewall_name is None:
+                raise TypeError("Missing required property 'azure_firewall_name'")
+            __props__['azure_firewall_name'] = azure_firewall_name
+            __props__['name'] = name
+            if priority is None:
+                raise TypeError("Missing required property 'priority'")
+            __props__['priority'] = priority
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            if rules is None:
+                raise TypeError("Missing required property 'rules'")
+            __props__['rules'] = rules
         super(FirewallNetworkRuleCollection, __self__).__init__(
             'azure:network/firewallNetworkRuleCollection:FirewallNetworkRuleCollection',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, action=None, azure_firewall_name=None, name=None, priority=None, resource_group_name=None, rules=None):
+        """
+        Get an existing FirewallNetworkRuleCollection resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] action: Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`.
+        :param pulumi.Input[str] azure_firewall_name: Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] rules: One or more `rule` blocks as defined below.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_network_rule_collection.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["action"] = action
+        __props__["azure_firewall_name"] = azure_firewall_name
+        __props__["name"] = name
+        __props__["priority"] = priority
+        __props__["resource_group_name"] = resource_group_name
+        __props__["rules"] = rules
+        return FirewallNetworkRuleCollection(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

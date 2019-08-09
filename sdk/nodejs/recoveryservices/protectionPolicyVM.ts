@@ -110,19 +110,19 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+     * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
     public readonly retentionDaily!: pulumi.Output<{ count: number } | undefined>;
     /**
-     * Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
     public readonly retentionMonthly!: pulumi.Output<{ count: number, weekdays: string[], weeks: string[] } | undefined>;
     /**
-     * Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
     public readonly retentionWeekly!: pulumi.Output<{ count: number, weekdays: string[] } | undefined>;
     /**
-     * Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
     public readonly retentionYearly!: pulumi.Output<{ count: number, months: string[], weekdays: string[], weeks: string[] } | undefined>;
     /**
@@ -210,19 +210,19 @@ export interface ProtectionPolicyVMState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+     * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
     readonly retentionDaily?: pulumi.Input<{ count: pulumi.Input<number> }>;
     /**
-     * Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
     readonly retentionMonthly?: pulumi.Input<{ count: pulumi.Input<number>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
     readonly retentionWeekly?: pulumi.Input<{ count: pulumi.Input<number>, weekdays: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
     readonly retentionYearly?: pulumi.Input<{ count: pulumi.Input<number>, months: pulumi.Input<pulumi.Input<string>[]>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
@@ -256,19 +256,19 @@ export interface ProtectionPolicyVMArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+     * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
     readonly retentionDaily?: pulumi.Input<{ count: pulumi.Input<number> }>;
     /**
-     * Configures the policy monthly retention as documented in the `retention_monthly` block below.
+     * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
     readonly retentionMonthly?: pulumi.Input<{ count: pulumi.Input<number>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+     * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
     readonly retentionWeekly?: pulumi.Input<{ count: pulumi.Input<number>, weekdays: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
-     * Configures the policy yearly retention as documented in the `retention_yearly` block below.
+     * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
     readonly retentionYearly?: pulumi.Input<{ count: pulumi.Input<number>, months: pulumi.Input<pulumi.Input<string>[]>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
     /**

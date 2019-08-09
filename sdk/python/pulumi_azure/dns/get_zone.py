@@ -67,14 +67,22 @@ class GetZoneResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetZoneResult(GetZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetZoneResult(
+            max_number_of_record_sets=self.max_number_of_record_sets,
+            name=self.name,
+            name_servers=self.name_servers,
+            number_of_record_sets=self.number_of_record_sets,
+            registration_virtual_network_ids=self.registration_virtual_network_ids,
+            resolution_virtual_network_ids=self.resolution_virtual_network_ids,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            zone_type=self.zone_type,
+            id=self.id)
 
 def get_zone(name=None,resource_group_name=None,opts=None):
     """
@@ -92,7 +100,7 @@ def get_zone(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:dns/getZone:getZone', __args__, opts=opts).value
 
-    return GetZoneResult(
+    return AwaitableGetZoneResult(
         max_number_of_record_sets=__ret__.get('maxNumberOfRecordSets'),
         name=__ret__.get('name'),
         name_servers=__ret__.get('nameServers'),

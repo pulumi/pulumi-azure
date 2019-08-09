@@ -70,14 +70,23 @@ class GetManagedDiskResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetManagedDiskResult(GetManagedDiskResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetManagedDiskResult(
+            create_option=self.create_option,
+            disk_size_gb=self.disk_size_gb,
+            name=self.name,
+            os_type=self.os_type,
+            resource_group_name=self.resource_group_name,
+            source_resource_id=self.source_resource_id,
+            source_uri=self.source_uri,
+            storage_account_type=self.storage_account_type,
+            tags=self.tags,
+            zones=self.zones,
+            id=self.id)
 
 def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
     """
@@ -97,7 +106,7 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getManagedDisk:getManagedDisk', __args__, opts=opts).value
 
-    return GetManagedDiskResult(
+    return AwaitableGetManagedDiskResult(
         create_option=__ret__.get('createOption'),
         disk_size_gb=__ret__.get('diskSizeGb'),
         name=__ret__.get('name'),

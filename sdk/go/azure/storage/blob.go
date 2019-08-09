@@ -105,7 +105,7 @@ func (r *Blob) Attempts() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["attempts"])
 }
 
-// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 func (r *Blob) ContentType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["contentType"])
 }
@@ -136,7 +136,7 @@ func (r *Blob) Size() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["size"])
 }
 
-// An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+// An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
 func (r *Blob) Source() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["source"])
 }
@@ -173,7 +173,7 @@ func (r *Blob) Url() *pulumi.StringOutput {
 type BlobState struct {
 	// The number of attempts to make per page or block when uploading. Defaults to `1`.
 	Attempts interface{}
-	// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType interface{}
 	// A map of custom blob metadata.
 	Metadata interface{}
@@ -186,7 +186,7 @@ type BlobState struct {
 	ResourceGroupName interface{}
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size interface{}
-	// An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+	// An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
 	Source interface{}
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
 	// for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
@@ -207,7 +207,7 @@ type BlobState struct {
 type BlobArgs struct {
 	// The number of attempts to make per page or block when uploading. Defaults to `1`.
 	Attempts interface{}
-	// The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
+	// The content type of the storage blob. Cannot be defined if `sourceUri` is defined. Defaults to `application/octet-stream`.
 	ContentType interface{}
 	// A map of custom blob metadata.
 	Metadata interface{}
@@ -220,7 +220,7 @@ type BlobArgs struct {
 	ResourceGroupName interface{}
 	// Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
 	Size interface{}
-	// An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+	// An absolute path to a file on the local system. Cannot be defined if `sourceUri` is defined.
 	Source interface{}
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents
 	// for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.

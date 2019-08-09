@@ -95,7 +95,7 @@ type GetGatewayConnectionResult struct {
 	Type interface{}
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
-	// selectors requires an `ipsec_policy` block.
+	// selectors requires an `ipsecPolicy` block.
 	UsePolicyBasedTrafficSelectors interface{}
 	// The ID of the Virtual Network Gateway
 	// in which the connection is created.

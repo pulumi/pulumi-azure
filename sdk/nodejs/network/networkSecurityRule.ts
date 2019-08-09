@@ -79,11 +79,11 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+     * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
      */
     public readonly destinationAddressPrefix!: pulumi.Output<string | undefined>;
     /**
-     * List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
      */
     public readonly destinationAddressPrefixes!: pulumi.Output<string[] | undefined>;
     /**
@@ -91,11 +91,11 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
      */
     public readonly destinationApplicationSecurityGroupIds!: pulumi.Output<string | undefined>;
     /**
-     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      */
     public readonly destinationPortRange!: pulumi.Output<string | undefined>;
     /**
-     * List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      */
     public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
     /**
@@ -123,11 +123,11 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+     * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
      */
     public readonly sourceAddressPrefix!: pulumi.Output<string | undefined>;
     /**
-     * List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
      */
     public readonly sourceAddressPrefixes!: pulumi.Output<string[] | undefined>;
     /**
@@ -135,11 +135,11 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
      */
     public readonly sourceApplicationSecurityGroupIds!: pulumi.Output<string | undefined>;
     /**
-     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      */
     public readonly sourcePortRange!: pulumi.Output<string | undefined>;
     /**
-     * List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      */
     public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
 
@@ -236,11 +236,11 @@ export interface NetworkSecurityRuleState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+     * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
      */
     readonly destinationAddressPrefix?: pulumi.Input<string>;
     /**
-     * List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
      */
     readonly destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -248,11 +248,11 @@ export interface NetworkSecurityRuleState {
      */
     readonly destinationApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
-     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      */
     readonly destinationPortRange?: pulumi.Input<string>;
     /**
-     * List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      */
     readonly destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -280,11 +280,11 @@ export interface NetworkSecurityRuleState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+     * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
      */
     readonly sourceAddressPrefix?: pulumi.Input<string>;
     /**
-     * List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
      */
     readonly sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -292,11 +292,11 @@ export interface NetworkSecurityRuleState {
      */
     readonly sourceApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
-     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      */
     readonly sourcePortRange?: pulumi.Input<string>;
     /**
-     * List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      */
     readonly sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -314,11 +314,11 @@ export interface NetworkSecurityRuleArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+     * CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
      */
     readonly destinationAddressPrefix?: pulumi.Input<string>;
     /**
-     * List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+     * List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
      */
     readonly destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -326,11 +326,11 @@ export interface NetworkSecurityRuleArgs {
      */
     readonly destinationApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
-     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+     * Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
      */
     readonly destinationPortRange?: pulumi.Input<string>;
     /**
-     * List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+     * List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
      */
     readonly destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -358,11 +358,11 @@ export interface NetworkSecurityRuleArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+     * CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
      */
     readonly sourceAddressPrefix?: pulumi.Input<string>;
     /**
-     * List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+     * List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
      */
     readonly sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -370,11 +370,11 @@ export interface NetworkSecurityRuleArgs {
      */
     readonly sourceApplicationSecurityGroupIds?: pulumi.Input<string>;
     /**
-     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+     * Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
      */
     readonly sourcePortRange?: pulumi.Input<string>;
     /**
-     * List of source ports or port ranges. This is required if `source_port_range` is not specified.
+     * List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
      */
     readonly sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
 }

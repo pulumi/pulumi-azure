@@ -64,14 +64,21 @@ class GetLBResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLBResult(GetLBResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLBResult(
+            frontend_ip_configurations=self.frontend_ip_configurations,
+            location=self.location,
+            name=self.name,
+            private_ip_address=self.private_ip_address,
+            private_ip_addresses=self.private_ip_addresses,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            tags=self.tags,
+            id=self.id)
 
 def get_lb(name=None,resource_group_name=None,opts=None):
     """
@@ -89,7 +96,7 @@ def get_lb(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:lb/getLB:getLB', __args__, opts=opts).value
 
-    return GetLBResult(
+    return AwaitableGetLBResult(
         frontend_ip_configurations=__ret__.get('frontendIpConfigurations'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

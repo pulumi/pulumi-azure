@@ -61,7 +61,7 @@ export interface GetPoolResult {
      */
     readonly accountName: string;
     /**
-     * A `auto_scale` block that describes the scale settings when using auto scale.
+     * A `autoScale` block that describes the scale settings when using auto scale.
      */
     readonly autoScales: { evaluationInterval: string, formula: string }[];
     /**
@@ -74,7 +74,7 @@ export interface GetPoolResult {
     readonly containerConfigurations: { type: string }[];
     readonly displayName: string;
     /**
-     * A `fixed_scale` block that describes the scale settings when using fixed scale.
+     * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
     readonly fixedScales: { resizeTimeout: string, targetDedicatedNodes: number, targetLowPriorityNodes: number }[];
     /**
@@ -91,7 +91,7 @@ export interface GetPoolResult {
     readonly nodeAgentSkuId: string;
     readonly resourceGroupName: string;
     /**
-     * A `start_task` block that describes the start task settings for the Batch pool.
+     * A `startTask` block that describes the start task settings for the Batch pool.
      */
     readonly startTask?: { commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles: { autoStorageContainerName: string, blobPrefix: string, fileMode: string, filePath: string, httpUrl: string, storageContainerUrl: string }[], userIdentities: { autoUsers: { elevationLevel: string, scope: string }[], userName: string }[], waitForSuccess?: boolean };
     /**

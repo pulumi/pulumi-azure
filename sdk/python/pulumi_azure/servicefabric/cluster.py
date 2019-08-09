@@ -85,7 +85,7 @@ class Cluster(pulumi.CustomResource):
     """
     Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None, __props__=None, __name__=None, __opts__=None):
         """
         Manage a Service Fabric Cluster.
         
@@ -118,76 +118,107 @@ class Cluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['add_on_features'] = add_on_features
-
-        __props__['azure_active_directory'] = azure_active_directory
-
-        __props__['certificate'] = certificate
-
-        __props__['certificate_common_names'] = certificate_common_names
-
-        __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
-
-        __props__['cluster_code_version'] = cluster_code_version
-
-        __props__['diagnostics_config'] = diagnostics_config
-
-        __props__['fabric_settings'] = fabric_settings
-
-        __props__['location'] = location
-
-        if management_endpoint is None:
-            raise TypeError("Missing required property 'management_endpoint'")
-        __props__['management_endpoint'] = management_endpoint
-
-        __props__['name'] = name
-
-        if node_types is None:
-            raise TypeError("Missing required property 'node_types'")
-        __props__['node_types'] = node_types
-
-        if reliability_level is None:
-            raise TypeError("Missing required property 'reliability_level'")
-        __props__['reliability_level'] = reliability_level
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['reverse_proxy_certificate'] = reverse_proxy_certificate
-
-        __props__['tags'] = tags
-
-        if upgrade_mode is None:
-            raise TypeError("Missing required property 'upgrade_mode'")
-        __props__['upgrade_mode'] = upgrade_mode
-
-        if vm_image is None:
-            raise TypeError("Missing required property 'vm_image'")
-        __props__['vm_image'] = vm_image
-
-        __props__['cluster_endpoint'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['add_on_features'] = add_on_features
+            __props__['azure_active_directory'] = azure_active_directory
+            __props__['certificate'] = certificate
+            __props__['certificate_common_names'] = certificate_common_names
+            __props__['client_certificate_thumbprints'] = client_certificate_thumbprints
+            __props__['cluster_code_version'] = cluster_code_version
+            __props__['diagnostics_config'] = diagnostics_config
+            __props__['fabric_settings'] = fabric_settings
+            __props__['location'] = location
+            if management_endpoint is None:
+                raise TypeError("Missing required property 'management_endpoint'")
+            __props__['management_endpoint'] = management_endpoint
+            __props__['name'] = name
+            if node_types is None:
+                raise TypeError("Missing required property 'node_types'")
+            __props__['node_types'] = node_types
+            if reliability_level is None:
+                raise TypeError("Missing required property 'reliability_level'")
+            __props__['reliability_level'] = reliability_level
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['reverse_proxy_certificate'] = reverse_proxy_certificate
+            __props__['tags'] = tags
+            if upgrade_mode is None:
+                raise TypeError("Missing required property 'upgrade_mode'")
+            __props__['upgrade_mode'] = upgrade_mode
+            if vm_image is None:
+                raise TypeError("Missing required property 'vm_image'")
+            __props__['vm_image'] = vm_image
+            __props__['cluster_endpoint'] = None
         super(Cluster, __self__).__init__(
             'azure:servicefabric/cluster:Cluster',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, add_on_features=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, diagnostics_config=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, reliability_level=None, resource_group_name=None, reverse_proxy_certificate=None, tags=None, upgrade_mode=None, vm_image=None):
+        """
+        Get an existing Cluster resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] add_on_features: A List of one or more features which should be enabled, such as `DnsService`.
+        :param pulumi.Input[dict] azure_active_directory: An `azure_active_directory` block as defined below.
+        :param pulumi.Input[dict] certificate: A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+        :param pulumi.Input[dict] certificate_common_names: A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+        :param pulumi.Input[list] client_certificate_thumbprints: One or two `client_certificate_thumbprint` blocks as defined below.
+        :param pulumi.Input[str] cluster_code_version: Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
+        :param pulumi.Input[str] cluster_endpoint: The Cluster Endpoint for this Service Fabric Cluster.
+        :param pulumi.Input[dict] diagnostics_config: A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] fabric_settings: One or more `fabric_settings` blocks as defined below.
+        :param pulumi.Input[str] location: Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] management_endpoint: Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] node_types: One or more `node_type` blocks as defined below.
+        :param pulumi.Input[str] reliability_level: Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] reverse_proxy_certificate: A `reverse_proxy_certificate` block as defined below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
+        :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/service_fabric_cluster.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["add_on_features"] = add_on_features
+        __props__["azure_active_directory"] = azure_active_directory
+        __props__["certificate"] = certificate
+        __props__["certificate_common_names"] = certificate_common_names
+        __props__["client_certificate_thumbprints"] = client_certificate_thumbprints
+        __props__["cluster_code_version"] = cluster_code_version
+        __props__["cluster_endpoint"] = cluster_endpoint
+        __props__["diagnostics_config"] = diagnostics_config
+        __props__["fabric_settings"] = fabric_settings
+        __props__["location"] = location
+        __props__["management_endpoint"] = management_endpoint
+        __props__["name"] = name
+        __props__["node_types"] = node_types
+        __props__["reliability_level"] = reliability_level
+        __props__["resource_group_name"] = resource_group_name
+        __props__["reverse_proxy_certificate"] = reverse_proxy_certificate
+        __props__["tags"] = tags
+        __props__["upgrade_mode"] = upgrade_mode
+        __props__["vm_image"] = vm_image
+        return Cluster(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

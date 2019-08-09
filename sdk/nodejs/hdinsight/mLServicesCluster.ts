@@ -143,7 +143,7 @@ export class MLServicesCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly sshEndpoint!: pulumi.Output<string>;
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      */
     public readonly storageAccounts!: pulumi.Output<{ isDefault: boolean, storageAccountKey: string, storageContainerId: string }[]>;
     /**
@@ -273,7 +273,7 @@ export interface MLServicesClusterState {
      */
     readonly sshEndpoint?: pulumi.Input<string>;
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      */
     readonly storageAccounts?: pulumi.Input<pulumi.Input<{ isDefault: pulumi.Input<boolean>, storageAccountKey: pulumi.Input<string>, storageContainerId: pulumi.Input<string> }>[]>;
     /**
@@ -319,7 +319,7 @@ export interface MLServicesClusterArgs {
      */
     readonly rstudio: pulumi.Input<boolean>;
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      */
     readonly storageAccounts: pulumi.Input<pulumi.Input<{ isDefault: pulumi.Input<boolean>, storageAccountKey: pulumi.Input<string>, storageContainerId: pulumi.Input<string> }>[]>;
     /**

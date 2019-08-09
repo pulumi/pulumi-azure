@@ -81,7 +81,7 @@ export class OutputBlob extends pulumi.CustomResource {
     }
 
     /**
-     * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+     * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
     public readonly dateFormat!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class OutputBlob extends pulumi.CustomResource {
      */
     public readonly streamAnalyticsJobName!: pulumi.Output<string>;
     /**
-     * The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+     * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      */
     public readonly timeFormat!: pulumi.Output<string>;
 
@@ -199,7 +199,7 @@ export class OutputBlob extends pulumi.CustomResource {
  */
 export interface OutputBlobState {
     /**
-     * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+     * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
     readonly dateFormat?: pulumi.Input<string>;
     /**
@@ -235,7 +235,7 @@ export interface OutputBlobState {
      */
     readonly streamAnalyticsJobName?: pulumi.Input<string>;
     /**
-     * The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+     * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      */
     readonly timeFormat?: pulumi.Input<string>;
 }
@@ -245,7 +245,7 @@ export interface OutputBlobState {
  */
 export interface OutputBlobArgs {
     /**
-     * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+     * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
     readonly dateFormat: pulumi.Input<string>;
     /**
@@ -281,7 +281,7 @@ export interface OutputBlobArgs {
      */
     readonly streamAnalyticsJobName: pulumi.Input<string>;
     /**
-     * The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+     * The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
      */
     readonly timeFormat: pulumi.Input<string>;
 }

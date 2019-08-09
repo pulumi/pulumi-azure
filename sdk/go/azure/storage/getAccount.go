@@ -91,7 +91,7 @@ type GetAccountResult struct {
 	AccountReplicationType interface{}
 	// The Tier of this storage account.
 	AccountTier interface{}
-	// A `custom_domain` block as documented below.
+	// A `customDomain` block as documented below.
 	CustomDomain interface{}
 	// Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
 	// for more information.

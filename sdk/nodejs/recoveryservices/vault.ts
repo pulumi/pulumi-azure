@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
  *     location: rg.location,
- *     name: "example_recovery_vault",
+ *     name: "exampleRecoveryVault",
  *     resourceGroupName: rg.name,
  *     sku: "Standard",
  * });

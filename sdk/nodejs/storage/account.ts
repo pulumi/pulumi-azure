@@ -125,7 +125,7 @@ export class Account extends pulumi.CustomResource {
     public readonly accountTier!: pulumi.Output<string>;
     public readonly accountType!: pulumi.Output<string>;
     /**
-     * A `custom_domain` block as documented below.
+     * A `customDomain` block as documented below.
      */
     public readonly customDomain!: pulumi.Output<{ name: string, useSubdomain?: boolean } | undefined>;
     /**
@@ -159,7 +159,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `network_rules` block as documented below.
+     * A `networkRules` block as documented below.
      */
     public readonly networkRules!: pulumi.Output<{ bypasses: string[], defaultAction?: string, ipRules: string[], virtualNetworkSubnetIds: string[] } | undefined>;
     /**
@@ -461,7 +461,7 @@ export interface AccountState {
     readonly accountTier?: pulumi.Input<string>;
     readonly accountType?: pulumi.Input<string>;
     /**
-     * A `custom_domain` block as documented below.
+     * A `customDomain` block as documented below.
      */
     readonly customDomain?: pulumi.Input<{ name: pulumi.Input<string>, useSubdomain?: pulumi.Input<boolean> }>;
     /**
@@ -495,7 +495,7 @@ export interface AccountState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `network_rules` block as documented below.
+     * A `networkRules` block as documented below.
      */
     readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, defaultAction?: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
@@ -665,7 +665,7 @@ export interface AccountArgs {
     readonly accountTier: pulumi.Input<string>;
     readonly accountType?: pulumi.Input<string>;
     /**
-     * A `custom_domain` block as documented below.
+     * A `customDomain` block as documented below.
      */
     readonly customDomain?: pulumi.Input<{ name: pulumi.Input<string>, useSubdomain?: pulumi.Input<boolean> }>;
     /**
@@ -699,7 +699,7 @@ export interface AccountArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `network_rules` block as documented below.
+     * A `networkRules` block as documented below.
      */
     readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, defaultAction?: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**

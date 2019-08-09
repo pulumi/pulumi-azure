@@ -61,14 +61,23 @@ class GetSnapshotResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSnapshotResult(GetSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSnapshotResult(
+            creation_option=self.creation_option,
+            disk_size_gb=self.disk_size_gb,
+            encryption_settings=self.encryption_settings,
+            name=self.name,
+            os_type=self.os_type,
+            resource_group_name=self.resource_group_name,
+            source_resource_id=self.source_resource_id,
+            source_uri=self.source_uri,
+            storage_account_id=self.storage_account_id,
+            time_created=self.time_created,
+            id=self.id)
 
 def get_snapshot(name=None,resource_group_name=None,opts=None):
     """
@@ -86,7 +95,7 @@ def get_snapshot(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getSnapshot:getSnapshot', __args__, opts=opts).value
 
-    return GetSnapshotResult(
+    return AwaitableGetSnapshotResult(
         creation_option=__ret__.get('creationOption'),
         disk_size_gb=__ret__.get('diskSizeGb'),
         encryption_settings=__ret__.get('encryptionSettings'),

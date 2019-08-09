@@ -38,7 +38,7 @@ func LookupSecret(ctx *pulumi.Context, args *GetSecretArgs) (*GetSecretResult, e
 
 // A collection of arguments for invoking getSecret.
 type GetSecretArgs struct {
-	// Specifies the ID of the Key Vault Key Vault instance where the Secret resides, available on the `azurerm_key_vault` Data Source / Resource.
+	// Specifies the ID of the Key Vault Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Secret.
 	Name interface{}

@@ -64,14 +64,22 @@ class GetStoreResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetStoreResult(GetStoreResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetStoreResult(
+            encryption_state=self.encryption_state,
+            encryption_type=self.encryption_type,
+            firewall_allow_azure_ips=self.firewall_allow_azure_ips,
+            firewall_state=self.firewall_state,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            tier=self.tier,
+            id=self.id)
 
 def get_store(name=None,resource_group_name=None,opts=None):
     """
@@ -89,7 +97,7 @@ def get_store(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:datalake/getStore:getStore', __args__, opts=opts).value
 
-    return GetStoreResult(
+    return AwaitableGetStoreResult(
         encryption_state=__ret__.get('encryptionState'),
         encryption_type=__ret__.get('encryptionType'),
         firewall_allow_azure_ips=__ret__.get('firewallAllowAzureIps'),

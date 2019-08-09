@@ -54,7 +54,7 @@ class Registry(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, admin_enabled=None, georeplication_locations=None, location=None, name=None, resource_group_name=None, sku=None, storage_account=None, storage_account_id=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_enabled=None, georeplication_locations=None, location=None, name=None, resource_group_name=None, sku=None, storage_account=None, storage_account_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Container Registry.
         
@@ -80,50 +80,75 @@ class Registry(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['admin_enabled'] = admin_enabled
-
-        __props__['georeplication_locations'] = georeplication_locations
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['sku'] = sku
-
-        __props__['storage_account'] = storage_account
-
-        __props__['storage_account_id'] = storage_account_id
-
-        __props__['tags'] = tags
-
-        __props__['admin_password'] = None
-        __props__['admin_username'] = None
-        __props__['login_server'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['admin_enabled'] = admin_enabled
+            __props__['georeplication_locations'] = georeplication_locations
+            __props__['location'] = location
+            __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
+            __props__['storage_account'] = storage_account
+            __props__['storage_account_id'] = storage_account_id
+            __props__['tags'] = tags
+            __props__['admin_password'] = None
+            __props__['admin_username'] = None
+            __props__['login_server'] = None
         super(Registry, __self__).__init__(
             'azure:containerservice/registry:Registry',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, admin_enabled=None, admin_password=None, admin_username=None, georeplication_locations=None, location=None, login_server=None, name=None, resource_group_name=None, sku=None, storage_account=None, storage_account_id=None, tags=None):
+        """
+        Get an existing Registry resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
+        :param pulumi.Input[str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
+        :param pulumi.Input[str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
+        :param pulumi.Input[list] georeplication_locations: A list of Azure locations where the container registry should be geo-replicated.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] login_server: The URL that can be used to log into the container registry.
+        :param pulumi.Input[str] name: Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] sku: The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
+        :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["admin_enabled"] = admin_enabled
+        __props__["admin_password"] = admin_password
+        __props__["admin_username"] = admin_username
+        __props__["georeplication_locations"] = georeplication_locations
+        __props__["location"] = location
+        __props__["login_server"] = login_server
+        __props__["name"] = name
+        __props__["resource_group_name"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["storage_account"] = storage_account
+        __props__["storage_account_id"] = storage_account_id
+        __props__["tags"] = tags
+        return Registry(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

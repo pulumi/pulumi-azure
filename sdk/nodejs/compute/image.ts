@@ -78,7 +78,7 @@ export class Image extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `data_disk` elements as defined below.
+     * One or more `dataDisk` elements as defined below.
      */
     public readonly dataDisks!: pulumi.Output<{ blobUri: string, caching?: string, lun?: number, managedDiskId?: string, sizeGb: number }[] | undefined>;
     /**
@@ -92,7 +92,7 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * One or more `os_disk` elements as defined below.
+     * One or more `osDisk` elements as defined below.
      */
     public readonly osDisk!: pulumi.Output<{ blobUri: string, caching?: string, managedDiskId: string, osState?: string, osType?: string, sizeGb: number } | undefined>;
     /**
@@ -163,7 +163,7 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageState {
     /**
-     * One or more `data_disk` elements as defined below.
+     * One or more `dataDisk` elements as defined below.
      */
     readonly dataDisks?: pulumi.Input<pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, lun?: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>[]>;
     /**
@@ -177,7 +177,7 @@ export interface ImageState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * One or more `os_disk` elements as defined below.
+     * One or more `osDisk` elements as defined below.
      */
     readonly osDisk?: pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, managedDiskId?: pulumi.Input<string>, osState?: pulumi.Input<string>, osType?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>;
     /**
@@ -204,7 +204,7 @@ export interface ImageState {
  */
 export interface ImageArgs {
     /**
-     * One or more `data_disk` elements as defined below.
+     * One or more `dataDisk` elements as defined below.
      */
     readonly dataDisks?: pulumi.Input<pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, lun?: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>[]>;
     /**
@@ -218,7 +218,7 @@ export interface ImageArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * One or more `os_disk` elements as defined below.
+     * One or more `osDisk` elements as defined below.
      */
     readonly osDisk?: pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, managedDiskId?: pulumi.Input<string>, osState?: pulumi.Input<string>, osType?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>;
     /**

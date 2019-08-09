@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  *     name: "tf-test-appinsights",
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticate_sdk_control_channel", {
+ * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticateSdkControlChannel", {
  *     applicationInsightsId: testInsights.id,
  *     name: "tf-test-appinsights-authenticate-sdk-control-channel-api-key",
  *     readPermissions: ["agentconfig"],
  * });
- * const fullPermissions = new azure.appinsights.ApiKey("full_permissions", {
+ * const fullPermissions = new azure.appinsights.ApiKey("fullPermissions", {
  *     applicationInsightsId: testInsights.id,
  *     name: "tf-test-appinsights-full-permissions-api-key",
  *     readPermissions: [
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     ],
  *     writePermissions: ["annotations"],
  * });
- * const readTelemetry = new azure.appinsights.ApiKey("read_telemetry", {
+ * const readTelemetry = new azure.appinsights.ApiKey("readTelemetry", {
  *     applicationInsightsId: testInsights.id,
  *     name: "tf-test-appinsights-read-telemetry-api-key",
  *     readPermissions: [
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *         "search",
  *     ],
  * });
- * const writeAnnotations = new azure.appinsights.ApiKey("write_annotations", {
+ * const writeAnnotations = new azure.appinsights.ApiKey("writeAnnotations", {
  *     applicationInsightsId: testInsights.id,
  *     name: "tf-test-appinsights-write-annotations-api-key",
  *     writePermissions: ["annotations"],

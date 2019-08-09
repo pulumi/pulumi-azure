@@ -86,7 +86,7 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly connectionStrings!: pulumi.Output<string[]>;
     /**
-     * Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+     * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
     public readonly consistencyPolicy!: pulumi.Output<{ consistencyLevel: string, maxIntervalInSeconds?: number, maxStalenessPrefix?: number }>;
     /**
@@ -103,7 +103,7 @@ export class Account extends pulumi.CustomResource {
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public readonly failoverPolicies!: pulumi.Output<{ id: string, location: string, priority: number }[] | undefined>;
     /**
-     * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
     public readonly geoLocations!: pulumi.Output<{ failoverPriority: number, id: string, location: string, prefix?: string }[]>;
     /**
@@ -159,7 +159,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
     public readonly virtualNetworkRules!: pulumi.Output<{ id: string }[] | undefined>;
     /**
@@ -261,7 +261,7 @@ export interface AccountState {
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+     * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
     readonly consistencyPolicy?: pulumi.Input<{ consistencyLevel: pulumi.Input<string>, maxIntervalInSeconds?: pulumi.Input<number>, maxStalenessPrefix?: pulumi.Input<number> }>;
     /**
@@ -278,7 +278,7 @@ export interface AccountState {
     readonly endpoint?: pulumi.Input<string>;
     readonly failoverPolicies?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }>[]>;
     /**
-     * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
     readonly geoLocations?: pulumi.Input<pulumi.Input<{ failoverPriority: pulumi.Input<number>, id?: pulumi.Input<string>, location: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
     /**
@@ -334,7 +334,7 @@ export interface AccountState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
     readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string> }>[]>;
     /**
@@ -352,7 +352,7 @@ export interface AccountArgs {
      */
     readonly capabilities?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>;
     /**
-     * Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+     * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
     readonly consistencyPolicy: pulumi.Input<{ consistencyLevel: pulumi.Input<string>, maxIntervalInSeconds?: pulumi.Input<number>, maxStalenessPrefix?: pulumi.Input<number> }>;
     /**
@@ -365,7 +365,7 @@ export interface AccountArgs {
     readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
     readonly failoverPolicies?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }>[]>;
     /**
-     * Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+     * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
     readonly geoLocations?: pulumi.Input<pulumi.Input<{ failoverPriority: pulumi.Input<number>, id?: pulumi.Input<string>, location: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
     /**
@@ -401,7 +401,7 @@ export interface AccountArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+     * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
     readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string> }>[]>;
 }

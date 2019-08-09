@@ -91,7 +91,7 @@ export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetAccountSASArgs {
     /**
-     * The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `azurerm_storage_account` resource.
+     * The connection string for the storage account to which this SAS applies. Typically directly from the `primaryConnectionString` attribute of a `azure.storage.Account` resource.
      */
     readonly connectionString: string;
     /**
@@ -107,7 +107,7 @@ export interface GetAccountSASArgs {
      */
     readonly permissions: { add: boolean, create: boolean, delete: boolean, list: boolean, process: boolean, read: boolean, update: boolean, write: boolean };
     /**
-     * A `resource_types` block as defined below.
+     * A `resourceTypes` block as defined below.
      */
     readonly resourceTypes: { container: boolean, object: boolean, service: boolean };
     /**

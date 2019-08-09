@@ -225,7 +225,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  * 
- * ## Example of storage_profile_image_reference with id
+ * ## Example of storageProfileImageReference with id
  * 
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -272,7 +272,7 @@ export class ScaleSet extends pulumi.CustomResource {
     }
 
     /**
-     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
      */
     public readonly automaticOsUpgrade!: pulumi.Output<boolean | undefined>;
     /**
@@ -288,7 +288,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly extensions!: pulumi.Output<{ autoUpgradeMinorVersion?: boolean, name: string, protectedSettings?: string, provisionAfterExtensions?: string[], publisher: string, settings?: string, type: string, typeHandlerVersion: string }[] | undefined>;
     /**
-     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      */
     public readonly healthProbeId!: pulumi.Output<string | undefined>;
     public readonly identity!: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
@@ -341,7 +341,7 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+     * A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
      */
     public readonly rollingUpgradePolicy!: pulumi.Output<{ maxBatchInstancePercent?: number, maxUnhealthyInstancePercent?: number, maxUnhealthyUpgradedInstancePercent?: number, pauseTimeBetweenBatches?: string } | undefined>;
     /**
@@ -480,7 +480,7 @@ export class ScaleSet extends pulumi.CustomResource {
  */
 export interface ScaleSetState {
     /**
-     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
      */
     readonly automaticOsUpgrade?: pulumi.Input<boolean>;
     /**
@@ -496,7 +496,7 @@ export interface ScaleSetState {
      */
     readonly extensions?: pulumi.Input<pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }>[]>;
     /**
-     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      */
     readonly healthProbeId?: pulumi.Input<string>;
     readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
@@ -549,7 +549,7 @@ export interface ScaleSetState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+     * A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
      */
     readonly rollingUpgradePolicy?: pulumi.Input<{ maxBatchInstancePercent?: pulumi.Input<number>, maxUnhealthyInstancePercent?: pulumi.Input<number>, maxUnhealthyUpgradedInstancePercent?: pulumi.Input<number>, pauseTimeBetweenBatches?: pulumi.Input<string> }>;
     /**
@@ -591,7 +591,7 @@ export interface ScaleSetState {
  */
 export interface ScaleSetArgs {
     /**
-     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+     * Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
      */
     readonly automaticOsUpgrade?: pulumi.Input<boolean>;
     /**
@@ -607,7 +607,7 @@ export interface ScaleSetArgs {
      */
     readonly extensions?: pulumi.Input<pulumi.Input<{ autoUpgradeMinorVersion?: pulumi.Input<boolean>, name: pulumi.Input<string>, protectedSettings?: pulumi.Input<string>, provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>, publisher: pulumi.Input<string>, settings?: pulumi.Input<string>, type: pulumi.Input<string>, typeHandlerVersion: pulumi.Input<string> }>[]>;
     /**
-     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+     * Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
      */
     readonly healthProbeId?: pulumi.Input<string>;
     readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
@@ -660,7 +660,7 @@ export interface ScaleSetArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+     * A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
      */
     readonly rollingUpgradePolicy?: pulumi.Input<{ maxBatchInstancePercent?: pulumi.Input<number>, maxUnhealthyInstancePercent?: pulumi.Input<number>, maxUnhealthyUpgradedInstancePercent?: pulumi.Input<number>, pauseTimeBetweenBatches?: pulumi.Input<string> }>;
     /**

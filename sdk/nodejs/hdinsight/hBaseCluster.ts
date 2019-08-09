@@ -104,7 +104,7 @@ export class HBaseCluster extends pulumi.CustomResource {
      */
     public readonly clusterVersion!: pulumi.Output<string>;
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      */
     public readonly componentVersion!: pulumi.Output<{ hbase: string }>;
     /**
@@ -136,7 +136,7 @@ export class HBaseCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly sshEndpoint!: pulumi.Output<string>;
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      */
     public readonly storageAccounts!: pulumi.Output<{ isDefault: boolean, storageAccountKey: string, storageContainerId: string }[]>;
     /**
@@ -228,7 +228,7 @@ export interface HBaseClusterState {
      */
     readonly clusterVersion?: pulumi.Input<string>;
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      */
     readonly componentVersion?: pulumi.Input<{ hbase: pulumi.Input<string> }>;
     /**
@@ -260,7 +260,7 @@ export interface HBaseClusterState {
      */
     readonly sshEndpoint?: pulumi.Input<string>;
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      */
     readonly storageAccounts?: pulumi.Input<pulumi.Input<{ isDefault: pulumi.Input<boolean>, storageAccountKey: pulumi.Input<string>, storageContainerId: pulumi.Input<string> }>[]>;
     /**
@@ -282,7 +282,7 @@ export interface HBaseClusterArgs {
      */
     readonly clusterVersion: pulumi.Input<string>;
     /**
-     * A `component_version` block as defined below.
+     * A `componentVersion` block as defined below.
      */
     readonly componentVersion: pulumi.Input<{ hbase: pulumi.Input<string> }>;
     /**
@@ -306,7 +306,7 @@ export interface HBaseClusterArgs {
      */
     readonly roles: pulumi.Input<{ headNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, workerNode: pulumi.Input<{ minInstanceCount?: pulumi.Input<number>, password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, targetInstanceCount: pulumi.Input<number>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, zookeeperNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }> }>;
     /**
-     * One or more `storage_account` block as defined below.
+     * One or more `storageAccount` block as defined below.
      */
     readonly storageAccounts: pulumi.Input<pulumi.Input<{ isDefault: pulumi.Input<boolean>, storageAccountKey: pulumi.Input<string>, storageContainerId: pulumi.Input<string> }>[]>;
     /**

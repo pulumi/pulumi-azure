@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const test = pulumi.output(azure.network.getPublicIP({
- *     name: "name_of_public_ip",
- *     resourceGroupName: "name_of_resource_group",
+ *     name: "nameOfPublicIp",
+ *     resourceGroupName: "nameOfResourceGroup",
  * }));
  * 
  * export const domainNameLabel = test.domainNameLabel;

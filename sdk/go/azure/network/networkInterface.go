@@ -134,7 +134,7 @@ func (r *NetworkInterface) InternalFqdn() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["internalFqdn"])
 }
 
-// One or more `ip_configuration` associated with this NIC as documented below.
+// One or more `ipConfiguration` associated with this NIC as documented below.
 func (r *NetworkInterface) IpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipConfigurations"])
 }
@@ -197,7 +197,7 @@ type NetworkInterfaceState struct {
 	// Relative DNS name for this NIC used for internal communications between VMs in the same VNet
 	InternalDnsNameLabel interface{}
 	InternalFqdn interface{}
-	// One or more `ip_configuration` associated with this NIC as documented below.
+	// One or more `ipConfiguration` associated with this NIC as documented below.
 	IpConfigurations interface{}
 	// The location/region where the network interface is created. Changing this forces a new resource to be created.
 	Location interface{}
@@ -232,7 +232,7 @@ type NetworkInterfaceArgs struct {
 	// Relative DNS name for this NIC used for internal communications between VMs in the same VNet
 	InternalDnsNameLabel interface{}
 	InternalFqdn interface{}
-	// One or more `ip_configuration` associated with this NIC as documented below.
+	// One or more `ipConfiguration` associated with this NIC as documented below.
 	IpConfigurations interface{}
 	// The location/region where the network interface is created. Changing this forces a new resource to be created.
 	Location interface{}

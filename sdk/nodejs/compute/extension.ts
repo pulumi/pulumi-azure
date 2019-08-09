@@ -139,7 +139,7 @@ export class Extension extends pulumi.CustomResource {
 
     /**
      * Specifies if the platform deploys
-     * the latest minor version update to the `type_handler_version` specified.
+     * the latest minor version update to the `typeHandlerVersion` specified.
      */
     public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
     /**
@@ -153,7 +153,7 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The protected_settings passed to the
+     * The protectedSettings passed to the
      * extension, like settings, these are specified as a JSON object in a string.
      */
     public readonly protectedSettings!: pulumi.Output<string | undefined>;
@@ -262,7 +262,7 @@ export class Extension extends pulumi.CustomResource {
 export interface ExtensionState {
     /**
      * Specifies if the platform deploys
-     * the latest minor version update to the `type_handler_version` specified.
+     * the latest minor version update to the `typeHandlerVersion` specified.
      */
     readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
@@ -276,7 +276,7 @@ export interface ExtensionState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The protected_settings passed to the
+     * The protectedSettings passed to the
      * extension, like settings, these are specified as a JSON object in a string.
      */
     readonly protectedSettings?: pulumi.Input<string>;
@@ -323,7 +323,7 @@ export interface ExtensionState {
 export interface ExtensionArgs {
     /**
      * Specifies if the platform deploys
-     * the latest minor version update to the `type_handler_version` specified.
+     * the latest minor version update to the `typeHandlerVersion` specified.
      */
     readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
@@ -337,7 +337,7 @@ export interface ExtensionArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The protected_settings passed to the
+     * The protectedSettings passed to the
      * extension, like settings, these are specified as a JSON object in a string.
      */
     readonly protectedSettings?: pulumi.Input<string>;

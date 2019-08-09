@@ -51,7 +51,7 @@ type GetExpressRouteCircuitResult struct {
 	ResourceGroupName interface{}
 	// The string needed by the service provider to provision the ExpressRoute circuit.
 	ServiceKey interface{}
-	// A `service_provider_properties` block for the ExpressRoute circuit as documented below
+	// A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
 	ServiceProviderProperties interface{}
 	// The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
 	ServiceProviderProvisioningState interface{}

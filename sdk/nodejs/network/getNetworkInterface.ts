@@ -79,7 +79,7 @@ export interface GetNetworkInterfaceResult {
     readonly internalDnsNameLabel: string;
     readonly internalFqdn: string;
     /**
-     * One or more `ip_configuration` blocks as defined below.
+     * One or more `ipConfiguration` blocks as defined below.
      */
     readonly ipConfigurations: { applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress: string, privateIpAddressAllocation: string, privateIpAddressVersion: string, publicIpAddressId: string, subnetId: string }[];
     /**

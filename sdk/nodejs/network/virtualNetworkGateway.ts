@@ -137,9 +137,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly enableBgp!: pulumi.Output<boolean>;
     /**
-     * One or two `ip_configuration` blocks documented below.
-     * An active-standby gateway requires exactly one `ip_configuration` block whereas
-     * an active-active gateway requires exactly two `ip_configuration` blocks.
+     * One or two `ipConfiguration` blocks documented below.
+     * An active-standby gateway requires exactly one `ipConfiguration` block whereas
+     * an active-active gateway requires exactly two `ipConfiguration` blocks.
      */
     public readonly ipConfigurations!: pulumi.Output<{ name?: string, privateIpAddressAllocation?: string, publicIpAddressId?: string, subnetId: string }[]>;
     /**
@@ -162,7 +162,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      * Configuration of the size and capacity of the virtual network
      * gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
      * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-     * and depend on the `type` and `vpn_type` arguments.
+     * and depend on the `type` and `vpnType` arguments.
      * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
      * sku is only supported by an `ExpressRoute` gateway.
      */
@@ -177,7 +177,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * A `vpn_client_configuration` block which
+     * A `vpnClientConfiguration` block which
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */
@@ -278,9 +278,9 @@ export interface VirtualNetworkGatewayState {
      */
     readonly enableBgp?: pulumi.Input<boolean>;
     /**
-     * One or two `ip_configuration` blocks documented below.
-     * An active-standby gateway requires exactly one `ip_configuration` block whereas
-     * an active-active gateway requires exactly two `ip_configuration` blocks.
+     * One or two `ipConfiguration` blocks documented below.
+     * An active-standby gateway requires exactly one `ipConfiguration` block whereas
+     * an active-active gateway requires exactly two `ipConfiguration` blocks.
      */
     readonly ipConfigurations?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
@@ -303,7 +303,7 @@ export interface VirtualNetworkGatewayState {
      * Configuration of the size and capacity of the virtual network
      * gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
      * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-     * and depend on the `type` and `vpn_type` arguments.
+     * and depend on the `type` and `vpnType` arguments.
      * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
      * sku is only supported by an `ExpressRoute` gateway.
      */
@@ -318,7 +318,7 @@ export interface VirtualNetworkGatewayState {
      */
     readonly type?: pulumi.Input<string>;
     /**
-     * A `vpn_client_configuration` block which
+     * A `vpnClientConfiguration` block which
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */
@@ -356,9 +356,9 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly enableBgp?: pulumi.Input<boolean>;
     /**
-     * One or two `ip_configuration` blocks documented below.
-     * An active-standby gateway requires exactly one `ip_configuration` block whereas
-     * an active-active gateway requires exactly two `ip_configuration` blocks.
+     * One or two `ipConfiguration` blocks documented below.
+     * An active-standby gateway requires exactly one `ipConfiguration` block whereas
+     * an active-active gateway requires exactly two `ipConfiguration` blocks.
      */
     readonly ipConfigurations: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
     /**
@@ -381,7 +381,7 @@ export interface VirtualNetworkGatewayArgs {
      * Configuration of the size and capacity of the virtual network
      * gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
      * `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
-     * and depend on the `type` and `vpn_type` arguments.
+     * and depend on the `type` and `vpnType` arguments.
      * A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
      * sku is only supported by an `ExpressRoute` gateway.
      */
@@ -396,7 +396,7 @@ export interface VirtualNetworkGatewayArgs {
      */
     readonly type: pulumi.Input<string>;
     /**
-     * A `vpn_client_configuration` block which
+     * A `vpnClientConfiguration` block which
      * is documented below. In this block the Virtual Network Gateway can be configured
      * to accept IPSec point-to-site connections.
      */

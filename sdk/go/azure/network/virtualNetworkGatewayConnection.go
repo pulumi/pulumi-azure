@@ -135,7 +135,7 @@ func (r *VirtualNetworkGatewayConnection) ExpressRouteGatewayBypass() *pulumi.Bo
 	return (*pulumi.BoolOutput)(r.s.State["expressRouteGatewayBypass"])
 }
 
-// A `ipsec_policy` block which is documented below.
+// A `ipsecPolicy` block which is documented below.
 // Only a single policy can be defined for a connection. For details on
 // custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 func (r *VirtualNetworkGatewayConnection) IpsecPolicy() *pulumi.Output {
@@ -202,7 +202,7 @@ func (r *VirtualNetworkGatewayConnection) Type() *pulumi.StringOutput {
 
 // If `true`, policy-based traffic
 // selectors are enabled for this connection. Enabling policy-based traffic
-// selectors requires an `ipsec_policy` block. Defaults to `false`.
+// selectors requires an `ipsecPolicy` block. Defaults to `false`.
 func (r *VirtualNetworkGatewayConnection) UsePolicyBasedTrafficSelectors() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["usePolicyBasedTrafficSelectors"])
 }
@@ -229,7 +229,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	ExpressRouteCircuitId interface{}
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass interface{}
-	// A `ipsec_policy` block which is documented below.
+	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy interface{}
@@ -266,7 +266,7 @@ type VirtualNetworkGatewayConnectionState struct {
 	Type interface{}
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
-	// selectors requires an `ipsec_policy` block. Defaults to `false`.
+	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
 	UsePolicyBasedTrafficSelectors interface{}
 	// The ID of the Virtual Network Gateway
 	// in which the connection will be created. Changing the gateway forces a new
@@ -289,7 +289,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	ExpressRouteCircuitId interface{}
 	// If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections.
 	ExpressRouteGatewayBypass interface{}
-	// A `ipsec_policy` block which is documented below.
+	// A `ipsecPolicy` block which is documented below.
 	// Only a single policy can be defined for a connection. For details on
 	// custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
 	IpsecPolicy interface{}
@@ -326,7 +326,7 @@ type VirtualNetworkGatewayConnectionArgs struct {
 	Type interface{}
 	// If `true`, policy-based traffic
 	// selectors are enabled for this connection. Enabling policy-based traffic
-	// selectors requires an `ipsec_policy` block. Defaults to `false`.
+	// selectors requires an `ipsecPolicy` block. Defaults to `false`.
 	UsePolicyBasedTrafficSelectors interface{}
 	// The ID of the Virtual Network Gateway
 	// in which the connection will be created. Changing the gateway forces a new

@@ -89,11 +89,11 @@ class AppService(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, resource_group_name=None, site_config=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service (within an App Service Plan).
         
-        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
+        > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,66 +121,102 @@ class AppService(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if app_service_plan_id is None:
-            raise TypeError("Missing required property 'app_service_plan_id'")
-        __props__['app_service_plan_id'] = app_service_plan_id
-
-        __props__['app_settings'] = app_settings
-
-        __props__['auth_settings'] = auth_settings
-
-        __props__['client_affinity_enabled'] = client_affinity_enabled
-
-        __props__['client_cert_enabled'] = client_cert_enabled
-
-        __props__['connection_strings'] = connection_strings
-
-        __props__['enabled'] = enabled
-
-        __props__['https_only'] = https_only
-
-        __props__['identity'] = identity
-
-        __props__['location'] = location
-
-        __props__['logs'] = logs
-
-        __props__['name'] = name
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['site_config'] = site_config
-
-        __props__['tags'] = tags
-
-        __props__['default_site_hostname'] = None
-        __props__['outbound_ip_addresses'] = None
-        __props__['possible_outbound_ip_addresses'] = None
-        __props__['site_credential'] = None
-        __props__['source_control'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if app_service_plan_id is None:
+                raise TypeError("Missing required property 'app_service_plan_id'")
+            __props__['app_service_plan_id'] = app_service_plan_id
+            __props__['app_settings'] = app_settings
+            __props__['auth_settings'] = auth_settings
+            __props__['client_affinity_enabled'] = client_affinity_enabled
+            __props__['client_cert_enabled'] = client_cert_enabled
+            __props__['connection_strings'] = connection_strings
+            __props__['enabled'] = enabled
+            __props__['https_only'] = https_only
+            __props__['identity'] = identity
+            __props__['location'] = location
+            __props__['logs'] = logs
+            __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['site_config'] = site_config
+            __props__['tags'] = tags
+            __props__['default_site_hostname'] = None
+            __props__['outbound_ip_addresses'] = None
+            __props__['possible_outbound_ip_addresses'] = None
+            __props__['site_credential'] = None
+            __props__['source_control'] = None
         super(AppService, __self__).__init__(
             'azure:appservice/appService:AppService',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, client_cert_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, logs=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credential=None, source_control=None, tags=None):
+        """
+        Get an existing AppService resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service.
+        :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[bool] client_affinity_enabled: Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
+        :param pulumi.Input[bool] client_cert_enabled: Does the App Service require client certificates for incoming requests? Defaults to `false`.
+        :param pulumi.Input[list] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
+        :param pulumi.Input[bool] enabled: Is the App Service Enabled?
+        :param pulumi.Input[bool] https_only: Can the App Service only be accessed via HTTPS? Defaults to `false`.
+        :param pulumi.Input[dict] identity: A Managed Service Identity block as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] logs: A `logs` block as defined below.
+        :param pulumi.Input[str] name: Specifies the name of the App Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
+        :param pulumi.Input[dict] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[dict] site_credential: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+        :param pulumi.Input[dict] source_control: A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["app_service_plan_id"] = app_service_plan_id
+        __props__["app_settings"] = app_settings
+        __props__["auth_settings"] = auth_settings
+        __props__["client_affinity_enabled"] = client_affinity_enabled
+        __props__["client_cert_enabled"] = client_cert_enabled
+        __props__["connection_strings"] = connection_strings
+        __props__["default_site_hostname"] = default_site_hostname
+        __props__["enabled"] = enabled
+        __props__["https_only"] = https_only
+        __props__["identity"] = identity
+        __props__["location"] = location
+        __props__["logs"] = logs
+        __props__["name"] = name
+        __props__["outbound_ip_addresses"] = outbound_ip_addresses
+        __props__["possible_outbound_ip_addresses"] = possible_outbound_ip_addresses
+        __props__["resource_group_name"] = resource_group_name
+        __props__["site_config"] = site_config
+        __props__["site_credential"] = site_credential
+        __props__["source_control"] = source_control
+        __props__["tags"] = tags
+        return AppService(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

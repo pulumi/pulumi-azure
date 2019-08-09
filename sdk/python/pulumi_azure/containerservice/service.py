@@ -49,7 +49,7 @@ class Service(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, agent_pool_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestration_platform=None, resource_group_name=None, service_principal=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, agent_pool_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestration_platform=None, resource_group_name=None, service_principal=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Azure Container Service Instance
         
@@ -81,58 +81,80 @@ class Service(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if agent_pool_profile is None:
-            raise TypeError("Missing required property 'agent_pool_profile'")
-        __props__['agent_pool_profile'] = agent_pool_profile
-
-        if diagnostics_profile is None:
-            raise TypeError("Missing required property 'diagnostics_profile'")
-        __props__['diagnostics_profile'] = diagnostics_profile
-
-        if linux_profile is None:
-            raise TypeError("Missing required property 'linux_profile'")
-        __props__['linux_profile'] = linux_profile
-
-        __props__['location'] = location
-
-        if master_profile is None:
-            raise TypeError("Missing required property 'master_profile'")
-        __props__['master_profile'] = master_profile
-
-        __props__['name'] = name
-
-        if orchestration_platform is None:
-            raise TypeError("Missing required property 'orchestration_platform'")
-        __props__['orchestration_platform'] = orchestration_platform
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['service_principal'] = service_principal
-
-        __props__['tags'] = tags
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if agent_pool_profile is None:
+                raise TypeError("Missing required property 'agent_pool_profile'")
+            __props__['agent_pool_profile'] = agent_pool_profile
+            if diagnostics_profile is None:
+                raise TypeError("Missing required property 'diagnostics_profile'")
+            __props__['diagnostics_profile'] = diagnostics_profile
+            if linux_profile is None:
+                raise TypeError("Missing required property 'linux_profile'")
+            __props__['linux_profile'] = linux_profile
+            __props__['location'] = location
+            if master_profile is None:
+                raise TypeError("Missing required property 'master_profile'")
+            __props__['master_profile'] = master_profile
+            __props__['name'] = name
+            if orchestration_platform is None:
+                raise TypeError("Missing required property 'orchestration_platform'")
+            __props__['orchestration_platform'] = orchestration_platform
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['service_principal'] = service_principal
+            __props__['tags'] = tags
         super(Service, __self__).__init__(
             'azure:containerservice/service:Service',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, agent_pool_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestration_platform=None, resource_group_name=None, service_principal=None, tags=None):
+        """
+        Get an existing Service resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] agent_pool_profile: A Agent Pool Profile's block as documented below.
+        :param pulumi.Input[dict] diagnostics_profile: A VM Diagnostics Profile block as documented below.
+        :param pulumi.Input[dict] linux_profile: A Linux Profile block as documented below.
+        :param pulumi.Input[str] location: The location where the Container Service instance should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] master_profile: A Master Profile block as documented below.
+        :param pulumi.Input[str] name: Unique name of the agent pool profile in the context of the subscription and resource group.
+        :param pulumi.Input[str] orchestration_platform: Specifies the Container Orchestration Platform to use. Currently can be either `DCOS`, `Kubernetes` or `Swarm`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] service_principal: A Service Principal block as documented below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_service.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["agent_pool_profile"] = agent_pool_profile
+        __props__["diagnostics_profile"] = diagnostics_profile
+        __props__["linux_profile"] = linux_profile
+        __props__["location"] = location
+        __props__["master_profile"] = master_profile
+        __props__["name"] = name
+        __props__["orchestration_platform"] = orchestration_platform
+        __props__["resource_group_name"] = resource_group_name
+        __props__["service_principal"] = service_principal
+        __props__["tags"] = tags
+        return Service(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

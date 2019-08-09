@@ -60,7 +60,7 @@ export class Store extends pulumi.CustomResource {
      */
     public readonly encryptionState!: pulumi.Output<string | undefined>;
     /**
-     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryptionState` is `Enabled` - and must be a blank string when it's Disabled.
      */
     public readonly encryptionType!: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export interface StoreState {
      */
     readonly encryptionState?: pulumi.Input<string>;
     /**
-     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryptionState` is `Enabled` - and must be a blank string when it's Disabled.
      */
     readonly encryptionType?: pulumi.Input<string>;
     /**
@@ -200,7 +200,7 @@ export interface StoreArgs {
      */
     readonly encryptionState?: pulumi.Input<string>;
     /**
-     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryption_state` is `Enabled` - and must be a blank string when it's Disabled.
+     * The Encryption Type used for this Data Lake Store Account. Currently can be set to `ServiceManaged` when `encryptionState` is `Enabled` - and must be a blank string when it's Disabled.
      */
     readonly encryptionType?: pulumi.Input<string>;
     /**

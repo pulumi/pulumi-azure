@@ -64,7 +64,7 @@ class Extension(pulumi.CustomResource):
     The name of the virtual machine. Changing
     this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Machine Extension to provide post deployment configuration
         and run automated tasks.
@@ -106,58 +106,92 @@ class Extension(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        __props__['protected_settings'] = protected_settings
-
-        if publisher is None:
-            raise TypeError("Missing required property 'publisher'")
-        __props__['publisher'] = publisher
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['settings'] = settings
-
-        __props__['tags'] = tags
-
-        if type is None:
-            raise TypeError("Missing required property 'type'")
-        __props__['type'] = type
-
-        if type_handler_version is None:
-            raise TypeError("Missing required property 'type_handler_version'")
-        __props__['type_handler_version'] = type_handler_version
-
-        if virtual_machine_name is None:
-            raise TypeError("Missing required property 'virtual_machine_name'")
-        __props__['virtual_machine_name'] = virtual_machine_name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['auto_upgrade_minor_version'] = auto_upgrade_minor_version
+            __props__['location'] = location
+            __props__['name'] = name
+            __props__['protected_settings'] = protected_settings
+            if publisher is None:
+                raise TypeError("Missing required property 'publisher'")
+            __props__['publisher'] = publisher
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['settings'] = settings
+            __props__['tags'] = tags
+            if type is None:
+                raise TypeError("Missing required property 'type'")
+            __props__['type'] = type
+            if type_handler_version is None:
+                raise TypeError("Missing required property 'type_handler_version'")
+            __props__['type_handler_version'] = type_handler_version
+            if virtual_machine_name is None:
+                raise TypeError("Missing required property 'virtual_machine_name'")
+            __props__['virtual_machine_name'] = virtual_machine_name
         super(Extension, __self__).__init__(
             'azure:compute/extension:Extension',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, auto_upgrade_minor_version=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, virtual_machine_name=None):
+        """
+        Get an existing Extension resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Specifies if the platform deploys
+               the latest minor version update to the `type_handler_version` specified.
+        :param pulumi.Input[str] location: The location where the extension is created. Changing
+               this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the virtual machine extension peering. Changing
+               this forces a new resource to be created.
+        :param pulumi.Input[str] protected_settings: The protected_settings passed to the
+               extension, like settings, these are specified as a JSON object in a string.
+        :param pulumi.Input[str] publisher: The publisher of the extension, available publishers
+               can be found by using the Azure CLI.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the virtual network. Changing this forces a new resource to be
+               created.
+        :param pulumi.Input[str] settings: The settings passed to the extension, these are
+               specified as a JSON object in a string.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] type: The type of extension, available types for a publisher can
+               be found using the Azure CLI.
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the extension to
+               use, available versions can be found using the Azure CLI.
+        :param pulumi.Input[str] virtual_machine_name: The name of the virtual machine. Changing
+               this forces a new resource to be created.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine_extension.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["protected_settings"] = protected_settings
+        __props__["publisher"] = publisher
+        __props__["resource_group_name"] = resource_group_name
+        __props__["settings"] = settings
+        __props__["tags"] = tags
+        __props__["type"] = type
+        __props__["type_handler_version"] = type_handler_version
+        __props__["virtual_machine_name"] = virtual_machine_name
+        return Extension(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

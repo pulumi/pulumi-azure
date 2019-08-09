@@ -54,14 +54,14 @@ type GetPoolArgs struct {
 type GetPoolResult struct {
 	// The name of the Batch account.
 	AccountName interface{}
-	// A `auto_scale` block that describes the scale settings when using auto scale.
+	// A `autoScale` block that describes the scale settings when using auto scale.
 	AutoScales interface{}
 	// One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
 	Certificates interface{}
 	// The container configuration used in the pool's VMs.
 	ContainerConfigurations interface{}
 	DisplayName interface{}
-	// A `fixed_scale` block that describes the scale settings when using fixed scale.
+	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScales interface{}
 	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
 	MaxTasksPerNode interface{}
@@ -70,7 +70,7 @@ type GetPoolResult struct {
 	// The Sku of the node agents in the Batch pool.
 	NodeAgentSkuId interface{}
 	ResourceGroupName interface{}
-	// A `start_task` block that describes the start task settings for the Batch pool.
+	// A `startTask` block that describes the start task settings for the Batch pool.
 	StartTask interface{}
 	// The reference of the storage image used by the nodes in the Batch pool.
 	StorageImageReferences interface{}

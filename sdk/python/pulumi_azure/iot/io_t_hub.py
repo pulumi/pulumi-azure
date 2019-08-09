@@ -70,7 +70,7 @@ class IoTHub(pulumi.CustomResource):
     A mapping of tags to assign to the resource.
     """
     type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, endpoints=None, fallback_route=None, ip_filter_rules=None, location=None, name=None, resource_group_name=None, routes=None, sku=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, endpoints=None, fallback_route=None, ip_filter_rules=None, location=None, name=None, resource_group_name=None, routes=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an IotHub
         
@@ -94,56 +94,89 @@ class IoTHub(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['endpoints'] = endpoints
-
-        __props__['fallback_route'] = fallback_route
-
-        __props__['ip_filter_rules'] = ip_filter_rules
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['routes'] = routes
-
-        if sku is None:
-            raise TypeError("Missing required property 'sku'")
-        __props__['sku'] = sku
-
-        __props__['tags'] = tags
-
-        __props__['event_hub_events_endpoint'] = None
-        __props__['event_hub_events_path'] = None
-        __props__['event_hub_operations_endpoint'] = None
-        __props__['event_hub_operations_path'] = None
-        __props__['hostname'] = None
-        __props__['shared_access_policies'] = None
-        __props__['type'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['endpoints'] = endpoints
+            __props__['fallback_route'] = fallback_route
+            __props__['ip_filter_rules'] = ip_filter_rules
+            __props__['location'] = location
+            __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['routes'] = routes
+            if sku is None:
+                raise TypeError("Missing required property 'sku'")
+            __props__['sku'] = sku
+            __props__['tags'] = tags
+            __props__['event_hub_events_endpoint'] = None
+            __props__['event_hub_events_path'] = None
+            __props__['event_hub_operations_endpoint'] = None
+            __props__['event_hub_operations_path'] = None
+            __props__['hostname'] = None
+            __props__['shared_access_policies'] = None
+            __props__['type'] = None
         super(IoTHub, __self__).__init__(
             'azure:iot/ioTHub:IoTHub',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, endpoints=None, event_hub_events_endpoint=None, event_hub_events_path=None, event_hub_operations_endpoint=None, event_hub_operations_path=None, fallback_route=None, hostname=None, ip_filter_rules=None, location=None, name=None, resource_group_name=None, routes=None, shared_access_policies=None, sku=None, tags=None, type=None):
+        """
+        Get an existing IoTHub resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] endpoints: An `endpoint` block as defined below.
+        :param pulumi.Input[str] event_hub_events_endpoint: The EventHub compatible endpoint for events data
+        :param pulumi.Input[str] event_hub_events_path: The EventHub compatible path for events data
+        :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
+        :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
+        :param pulumi.Input[dict] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
+        :param pulumi.Input[list] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[list] routes: A `route` block as defined below.
+        :param pulumi.Input[list] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
+        :param pulumi.Input[dict] sku: A `sku` block as defined below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["endpoints"] = endpoints
+        __props__["event_hub_events_endpoint"] = event_hub_events_endpoint
+        __props__["event_hub_events_path"] = event_hub_events_path
+        __props__["event_hub_operations_endpoint"] = event_hub_operations_endpoint
+        __props__["event_hub_operations_path"] = event_hub_operations_path
+        __props__["fallback_route"] = fallback_route
+        __props__["hostname"] = hostname
+        __props__["ip_filter_rules"] = ip_filter_rules
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resource_group_name"] = resource_group_name
+        __props__["routes"] = routes
+        __props__["shared_access_policies"] = shared_access_policies
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["type"] = type
+        return IoTHub(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

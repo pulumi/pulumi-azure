@@ -34,14 +34,16 @@ class GetResourceGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetResourceGroupResult(GetResourceGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetResourceGroupResult(
+            location=self.location,
+            name=self.name,
+            tags=self.tags,
+            id=self.id)
 
 def get_resource_group(name=None,opts=None):
     """
@@ -58,7 +60,7 @@ def get_resource_group(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:core/getResourceGroup:getResourceGroup', __args__, opts=opts).value
 
-    return GetResourceGroupResult(
+    return AwaitableGetResourceGroupResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         tags=__ret__.get('tags'),

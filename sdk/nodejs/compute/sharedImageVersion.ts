@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "packerimages",
  * }));
  * const existingSharedImage = pulumi.output(azure.compute.getSharedImage({
- *     galleryName: "existing_gallery",
+ *     galleryName: "existingGallery",
  *     name: "existing-image",
  *     resourceGroupName: "existing-resources",
  * }));
@@ -100,7 +100,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * One or more `target_region` blocks as documented below.
+     * One or more `targetRegion` blocks as documented below.
      */
     public readonly targetRegions!: pulumi.Output<{ name: string, regionalReplicaCount: number }[]>;
 
@@ -200,7 +200,7 @@ export interface SharedImageVersionState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * One or more `target_region` blocks as documented below.
+     * One or more `targetRegion` blocks as documented below.
      */
     readonly targetRegions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, regionalReplicaCount: pulumi.Input<number> }>[]>;
 }
@@ -242,7 +242,7 @@ export interface SharedImageVersionArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * One or more `target_region` blocks as documented below.
+     * One or more `targetRegion` blocks as documented below.
      */
     readonly targetRegions: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, regionalReplicaCount: pulumi.Input<number> }>[]>;
 }

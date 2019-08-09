@@ -61,11 +61,11 @@ export class EventGridDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
-     * A `input_mapping_default_values` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below.
      */
     public readonly inputMappingDefaultValues!: pulumi.Output<{ dataVersion?: string, eventType?: string, subject?: string } | undefined>;
     /**
-     * A `input_mapping_fields` block as defined below.
+     * A `inputMappingFields` block as defined below.
      */
     public readonly inputMappingFields!: pulumi.Output<{ dataVersion?: string, eventTime?: string, eventType?: string, id?: string, subject?: string, topic?: string } | undefined>;
     /**
@@ -143,11 +143,11 @@ export interface EventGridDomainState {
      */
     readonly endpoint?: pulumi.Input<string>;
     /**
-     * A `input_mapping_default_values` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below.
      */
     readonly inputMappingDefaultValues?: pulumi.Input<{ dataVersion?: pulumi.Input<string>, eventType?: pulumi.Input<string>, subject?: pulumi.Input<string> }>;
     /**
-     * A `input_mapping_fields` block as defined below.
+     * A `inputMappingFields` block as defined below.
      */
     readonly inputMappingFields?: pulumi.Input<{ dataVersion?: pulumi.Input<string>, eventTime?: pulumi.Input<string>, eventType?: pulumi.Input<string>, id?: pulumi.Input<string>, subject?: pulumi.Input<string>, topic?: pulumi.Input<string> }>;
     /**
@@ -177,11 +177,11 @@ export interface EventGridDomainState {
  */
 export interface EventGridDomainArgs {
     /**
-     * A `input_mapping_default_values` block as defined below.
+     * A `inputMappingDefaultValues` block as defined below.
      */
     readonly inputMappingDefaultValues?: pulumi.Input<{ dataVersion?: pulumi.Input<string>, eventType?: pulumi.Input<string>, subject?: pulumi.Input<string> }>;
     /**
-     * A `input_mapping_fields` block as defined below.
+     * A `inputMappingFields` block as defined below.
      */
     readonly inputMappingFields?: pulumi.Input<{ dataVersion?: pulumi.Input<string>, eventTime?: pulumi.Input<string>, eventType?: pulumi.Input<string>, id?: pulumi.Input<string>, subject?: pulumi.Input<string>, topic?: pulumi.Input<string> }>;
     /**

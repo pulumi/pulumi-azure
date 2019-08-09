@@ -97,11 +97,11 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
-     * A `gallery_image_reference` block as defined below.
+     * A `galleryImageReference` block as defined below.
      */
     public readonly galleryImageReference!: pulumi.Output<{ offer: string, publisher: string, sku: string, version: string }>;
     /**
-     * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      */
     public readonly inboundNatRules!: pulumi.Output<{ backendPort: number, frontendPort: number, protocol: string }[] | undefined>;
     /**
@@ -263,11 +263,11 @@ export interface WindowsVirtualMachineState {
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
-     * A `gallery_image_reference` block as defined below.
+     * A `galleryImageReference` block as defined below.
      */
     readonly galleryImageReference?: pulumi.Input<{ offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
     /**
-     * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      */
     readonly inboundNatRules?: pulumi.Input<pulumi.Input<{ backendPort: pulumi.Input<number>, frontendPort?: pulumi.Input<number>, protocol: pulumi.Input<string> }>[]>;
     /**
@@ -337,11 +337,11 @@ export interface WindowsVirtualMachineArgs {
      */
     readonly disallowPublicIpAddress?: pulumi.Input<boolean>;
     /**
-     * A `gallery_image_reference` block as defined below.
+     * A `galleryImageReference` block as defined below.
      */
     readonly galleryImageReference: pulumi.Input<{ offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
     /**
-     * One or more `inbound_nat_rule` blocks as defined below. Changing this forces a new resource to be created.
+     * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      */
     readonly inboundNatRules?: pulumi.Input<pulumi.Input<{ backendPort: pulumi.Input<number>, frontendPort?: pulumi.Input<number>, protocol: pulumi.Input<string> }>[]>;
     /**

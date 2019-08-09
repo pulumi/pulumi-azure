@@ -31,14 +31,16 @@ class GetSubscriptionsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSubscriptionsResult(GetSubscriptionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSubscriptionsResult(
+            display_name_contains=self.display_name_contains,
+            display_name_prefix=self.display_name_prefix,
+            subscriptions=self.subscriptions,
+            id=self.id)
 
 def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=None):
     """
@@ -56,7 +58,7 @@ def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=N
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:core/getSubscriptions:getSubscriptions', __args__, opts=opts).value
 
-    return GetSubscriptionsResult(
+    return AwaitableGetSubscriptionsResult(
         display_name_contains=__ret__.get('displayNameContains'),
         display_name_prefix=__ret__.get('displayNamePrefix'),
         subscriptions=__ret__.get('subscriptions'),

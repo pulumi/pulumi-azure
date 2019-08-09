@@ -58,14 +58,21 @@ class GetSubnetResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSubnetResult(GetSubnetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSubnetResult(
+            address_prefix=self.address_prefix,
+            ip_configurations=self.ip_configurations,
+            name=self.name,
+            network_security_group_id=self.network_security_group_id,
+            resource_group_name=self.resource_group_name,
+            route_table_id=self.route_table_id,
+            service_endpoints=self.service_endpoints,
+            virtual_network_name=self.virtual_network_name,
+            id=self.id)
 
 def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts=None):
     """
@@ -84,7 +91,7 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__, opts=opts).value
 
-    return GetSubnetResult(
+    return AwaitableGetSubnetResult(
         address_prefix=__ret__.get('addressPrefix'),
         ip_configurations=__ret__.get('ipConfigurations'),
         name=__ret__.get('name'),

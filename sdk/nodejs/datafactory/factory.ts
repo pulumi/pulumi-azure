@@ -54,7 +54,7 @@ export class Factory extends pulumi.CustomResource {
     }
 
     /**
-     * A `github_configuration` block as defined below.
+     * A `githubConfiguration` block as defined below.
      */
     public readonly githubConfiguration!: pulumi.Output<{ accountName: string, branchName: string, gitUrl: string, repositoryName: string, rootFolder: string } | undefined>;
     /**
@@ -78,7 +78,7 @@ export class Factory extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * A `vsts_configuration` block as defined below.
+     * A `vstsConfiguration` block as defined below.
      */
     public readonly vstsConfiguration!: pulumi.Output<{ accountName: string, branchName: string, projectName: string, repositoryName: string, rootFolder: string, tenantId: string } | undefined>;
 
@@ -130,7 +130,7 @@ export class Factory extends pulumi.CustomResource {
  */
 export interface FactoryState {
     /**
-     * A `github_configuration` block as defined below.
+     * A `githubConfiguration` block as defined below.
      */
     readonly githubConfiguration?: pulumi.Input<{ accountName: pulumi.Input<string>, branchName: pulumi.Input<string>, gitUrl: pulumi.Input<string>, repositoryName: pulumi.Input<string>, rootFolder: pulumi.Input<string> }>;
     /**
@@ -154,7 +154,7 @@ export interface FactoryState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * A `vsts_configuration` block as defined below.
+     * A `vstsConfiguration` block as defined below.
      */
     readonly vstsConfiguration?: pulumi.Input<{ accountName: pulumi.Input<string>, branchName: pulumi.Input<string>, projectName: pulumi.Input<string>, repositoryName: pulumi.Input<string>, rootFolder: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
 }
@@ -164,7 +164,7 @@ export interface FactoryState {
  */
 export interface FactoryArgs {
     /**
-     * A `github_configuration` block as defined below.
+     * A `githubConfiguration` block as defined below.
      */
     readonly githubConfiguration?: pulumi.Input<{ accountName: pulumi.Input<string>, branchName: pulumi.Input<string>, gitUrl: pulumi.Input<string>, repositoryName: pulumi.Input<string>, rootFolder: pulumi.Input<string> }>;
     /**
@@ -188,7 +188,7 @@ export interface FactoryArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * A `vsts_configuration` block as defined below.
+     * A `vstsConfiguration` block as defined below.
      */
     readonly vstsConfiguration?: pulumi.Input<{ accountName: pulumi.Input<string>, branchName: pulumi.Input<string>, projectName: pulumi.Input<string>, repositoryName: pulumi.Input<string>, rootFolder: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
 }

@@ -64,14 +64,22 @@ class GetSharedImageVersionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSharedImageVersionResult(GetSharedImageVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSharedImageVersionResult(
+            exclude_from_latest=self.exclude_from_latest,
+            gallery_name=self.gallery_name,
+            image_name=self.image_name,
+            location=self.location,
+            managed_image_id=self.managed_image_id,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            target_regions=self.target_regions,
+            id=self.id)
 
 def get_shared_image_version(gallery_name=None,image_name=None,name=None,resource_group_name=None,opts=None):
     """
@@ -93,7 +101,7 @@ def get_shared_image_version(gallery_name=None,image_name=None,name=None,resourc
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageVersion:getSharedImageVersion', __args__, opts=opts).value
 
-    return GetSharedImageVersionResult(
+    return AwaitableGetSharedImageVersionResult(
         exclude_from_latest=__ret__.get('excludeFromLatest'),
         gallery_name=__ret__.get('galleryName'),
         image_name=__ret__.get('imageName'),

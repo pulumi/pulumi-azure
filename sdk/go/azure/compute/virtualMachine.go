@@ -10,7 +10,7 @@ import (
 
 // Manages a Virtual Machine.
 // 
-// > **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
+// > **NOTE:** Data Disks can be attached either directly on the `compute.VirtualMachine` resource, or using the `compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_machine.html.markdown.
 type VirtualMachine struct {
@@ -138,7 +138,7 @@ func (r *VirtualMachine) AvailabilitySetId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["availabilitySetId"])
 }
 
-// A `boot_diagnostics` block.
+// A `bootDiagnostics` block.
 func (r *VirtualMachine) BootDiagnostics() *pulumi.Output {
 	return r.s.State["bootDiagnostics"]
 }
@@ -178,22 +178,22 @@ func (r *VirtualMachine) NetworkInterfaceIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["networkInterfaceIds"])
 }
 
-// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 func (r *VirtualMachine) OsProfile() *pulumi.Output {
 	return r.s.State["osProfile"]
 }
 
-// A `os_profile_linux_config` block.
+// A `osProfileLinuxConfig` block.
 func (r *VirtualMachine) OsProfileLinuxConfig() *pulumi.Output {
 	return r.s.State["osProfileLinuxConfig"]
 }
 
-// One or more `os_profile_secrets` blocks.
+// One or more `osProfileSecrets` blocks.
 func (r *VirtualMachine) OsProfileSecrets() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["osProfileSecrets"])
 }
 
-// A `os_profile_windows_config` block.
+// A `osProfileWindowsConfig` block.
 func (r *VirtualMachine) OsProfileWindowsConfig() *pulumi.Output {
 	return r.s.State["osProfileWindowsConfig"]
 }
@@ -213,17 +213,17 @@ func (r *VirtualMachine) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// One or more `storage_data_disk` blocks.
+// One or more `storageDataDisk` blocks.
 func (r *VirtualMachine) StorageDataDisks() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["storageDataDisks"])
 }
 
-// A `storage_image_reference` block.
+// A `storageImageReference` block.
 func (r *VirtualMachine) StorageImageReference() *pulumi.Output {
 	return r.s.State["storageImageReference"]
 }
 
-// A `storage_os_disk` block.
+// A `storageOsDisk` block.
 func (r *VirtualMachine) StorageOsDisk() *pulumi.Output {
 	return r.s.State["storageOsDisk"]
 }
@@ -247,7 +247,7 @@ func (r *VirtualMachine) Zones() *pulumi.StringOutput {
 type VirtualMachineState struct {
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId interface{}
-	// A `boot_diagnostics` block.
+	// A `bootDiagnostics` block.
 	BootDiagnostics interface{}
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination interface{}
@@ -263,13 +263,13 @@ type VirtualMachineState struct {
 	Name interface{}
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds interface{}
-	// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile interface{}
-	// A `os_profile_linux_config` block.
+	// A `osProfileLinuxConfig` block.
 	OsProfileLinuxConfig interface{}
-	// One or more `os_profile_secrets` blocks.
+	// One or more `osProfileSecrets` blocks.
 	OsProfileSecrets interface{}
-	// A `os_profile_windows_config` block.
+	// A `osProfileWindowsConfig` block.
 	OsProfileWindowsConfig interface{}
 	// A `plan` block.
 	Plan interface{}
@@ -277,11 +277,11 @@ type VirtualMachineState struct {
 	PrimaryNetworkInterfaceId interface{}
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// One or more `storage_data_disk` blocks.
+	// One or more `storageDataDisk` blocks.
 	StorageDataDisks interface{}
-	// A `storage_image_reference` block.
+	// A `storageImageReference` block.
 	StorageImageReference interface{}
-	// A `storage_os_disk` block.
+	// A `storageOsDisk` block.
 	StorageOsDisk interface{}
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags interface{}
@@ -295,7 +295,7 @@ type VirtualMachineState struct {
 type VirtualMachineArgs struct {
 	// The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	AvailabilitySetId interface{}
-	// A `boot_diagnostics` block.
+	// A `bootDiagnostics` block.
 	BootDiagnostics interface{}
 	// Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
 	DeleteDataDisksOnTermination interface{}
@@ -311,13 +311,13 @@ type VirtualMachineArgs struct {
 	Name interface{}
 	// A list of Network Interface ID's which should be associated with the Virtual Machine.
 	NetworkInterfaceIds interface{}
-	// An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+	// An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
 	OsProfile interface{}
-	// A `os_profile_linux_config` block.
+	// A `osProfileLinuxConfig` block.
 	OsProfileLinuxConfig interface{}
-	// One or more `os_profile_secrets` blocks.
+	// One or more `osProfileSecrets` blocks.
 	OsProfileSecrets interface{}
-	// A `os_profile_windows_config` block.
+	// A `osProfileWindowsConfig` block.
 	OsProfileWindowsConfig interface{}
 	// A `plan` block.
 	Plan interface{}
@@ -325,11 +325,11 @@ type VirtualMachineArgs struct {
 	PrimaryNetworkInterfaceId interface{}
 	// Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// One or more `storage_data_disk` blocks.
+	// One or more `storageDataDisk` blocks.
 	StorageDataDisks interface{}
-	// A `storage_image_reference` block.
+	// A `storageImageReference` block.
 	StorageImageReference interface{}
-	// A `storage_os_disk` block.
+	// A `storageOsDisk` block.
 	StorageOsDisk interface{}
 	// A mapping of tags to assign to the Virtual Machine.
 	Tags interface{}

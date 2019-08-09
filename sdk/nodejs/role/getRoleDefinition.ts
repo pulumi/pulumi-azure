@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: roleDefinitionId,
  *     scope: primary.id,
  * }));
- * const custom_byname = pulumi.all([customDefinition.name, primary]).apply(([name, primary]) => azure.role.getRoleDefinition({
+ * const customByname = pulumi.all([customDefinition.name, primary]).apply(([name, primary]) => azure.role.getRoleDefinition({
  *     name: name,
  *     scope: primary.id,
  * }));

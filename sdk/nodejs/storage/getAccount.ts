@@ -78,7 +78,7 @@ export interface GetAccountResult {
      */
     readonly accountTier: string;
     /**
-     * A `custom_domain` block as documented below.
+     * A `customDomain` block as documented below.
      */
     readonly customDomain: { name: string };
     /**

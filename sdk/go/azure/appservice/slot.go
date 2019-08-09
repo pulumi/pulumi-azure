@@ -10,7 +10,7 @@ import (
 
 // Manages an App Service Slot (within an App Service).
 // 
-// > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
+// > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
 type Slot struct {
@@ -127,7 +127,7 @@ func (r *Slot) ClientAffinityEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["clientAffinityEnabled"])
 }
 
-// An `connection_string` block as defined below.
+// An `connectionString` block as defined below.
 func (r *Slot) ConnectionStrings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["connectionStrings"])
 }
@@ -167,12 +167,12 @@ func (r *Slot) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `site_config` object as defined below.
+// A `siteConfig` object as defined below.
 func (r *Slot) SiteConfig() *pulumi.Output {
 	return r.s.State["siteConfig"]
 }
 
-// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 func (r *Slot) SiteCredential() *pulumi.Output {
 	return r.s.State["siteCredential"]
 }
@@ -192,7 +192,7 @@ type SlotState struct {
 	AppSettings interface{}
 	// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
-	// An `connection_string` block as defined below.
+	// An `connectionString` block as defined below.
 	ConnectionStrings interface{}
 	// The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname interface{}
@@ -208,9 +208,9 @@ type SlotState struct {
 	Name interface{}
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName interface{}
-	// A `site_config` object as defined below.
+	// A `siteConfig` object as defined below.
 	SiteConfig interface{}
-	// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredential interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -226,7 +226,7 @@ type SlotArgs struct {
 	AppSettings interface{}
 	// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
-	// An `connection_string` block as defined below.
+	// An `connectionString` block as defined below.
 	ConnectionStrings interface{}
 	// Is the App Service Slot Enabled?
 	Enabled interface{}
@@ -240,7 +240,7 @@ type SlotArgs struct {
 	Name interface{}
 	// The name of the resource group in which to create the App Service Slot component.
 	ResourceGroupName interface{}
-	// A `site_config` object as defined below.
+	// A `siteConfig` object as defined below.
 	SiteConfig interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

@@ -70,14 +70,22 @@ class GetAccountResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAccountResult(
+            account_endpoint=self.account_endpoint,
+            location=self.location,
+            name=self.name,
+            pool_allocation_mode=self.pool_allocation_mode,
+            primary_access_key=self.primary_access_key,
+            resource_group_name=self.resource_group_name,
+            secondary_access_key=self.secondary_access_key,
+            storage_account_id=self.storage_account_id,
+            tags=self.tags,
+            id=self.id)
 
 def get_account(name=None,resource_group_name=None,opts=None):
     """
@@ -95,7 +103,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:batch/getAccount:getAccount', __args__, opts=opts).value
 
-    return GetAccountResult(
+    return AwaitableGetAccountResult(
         account_endpoint=__ret__.get('accountEndpoint'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

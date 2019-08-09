@@ -55,14 +55,20 @@ class GetAvailabilitySetResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAvailabilitySetResult(
+            location=self.location,
+            managed=self.managed,
+            name=self.name,
+            platform_fault_domain_count=self.platform_fault_domain_count,
+            platform_update_domain_count=self.platform_update_domain_count,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            id=self.id)
 
 def get_availability_set(name=None,resource_group_name=None,opts=None):
     """
@@ -80,7 +86,7 @@ def get_availability_set(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getAvailabilitySet:getAvailabilitySet', __args__, opts=opts).value
 
-    return GetAvailabilitySetResult(
+    return AwaitableGetAvailabilitySetResult(
         location=__ret__.get('location'),
         managed=__ret__.get('managed'),
         name=__ret__.get('name'),

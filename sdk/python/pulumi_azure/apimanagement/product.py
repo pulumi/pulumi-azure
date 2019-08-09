@@ -49,7 +49,7 @@ class Product(pulumi.CustomResource):
     """
     The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
     """
-    def __init__(__self__, resource_name, opts=None, api_management_name=None, approval_required=None, description=None, display_name=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_management_name=None, approval_required=None, description=None, display_name=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an API Management Product.
         
@@ -74,58 +74,80 @@ class Product(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if api_management_name is None:
-            raise TypeError("Missing required property 'api_management_name'")
-        __props__['api_management_name'] = api_management_name
-
-        __props__['approval_required'] = approval_required
-
-        __props__['description'] = description
-
-        if display_name is None:
-            raise TypeError("Missing required property 'display_name'")
-        __props__['display_name'] = display_name
-
-        if product_id is None:
-            raise TypeError("Missing required property 'product_id'")
-        __props__['product_id'] = product_id
-
-        if published is None:
-            raise TypeError("Missing required property 'published'")
-        __props__['published'] = published
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        if subscription_required is None:
-            raise TypeError("Missing required property 'subscription_required'")
-        __props__['subscription_required'] = subscription_required
-
-        __props__['subscriptions_limit'] = subscriptions_limit
-
-        __props__['terms'] = terms
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if api_management_name is None:
+                raise TypeError("Missing required property 'api_management_name'")
+            __props__['api_management_name'] = api_management_name
+            __props__['approval_required'] = approval_required
+            __props__['description'] = description
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
+            if product_id is None:
+                raise TypeError("Missing required property 'product_id'")
+            __props__['product_id'] = product_id
+            if published is None:
+                raise TypeError("Missing required property 'published'")
+            __props__['published'] = published
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            if subscription_required is None:
+                raise TypeError("Missing required property 'subscription_required'")
+            __props__['subscription_required'] = subscription_required
+            __props__['subscriptions_limit'] = subscriptions_limit
+            __props__['terms'] = terms
         super(Product, __self__).__init__(
             'azure:apimanagement/product:Product',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, api_management_name=None, approval_required=None, description=None, display_name=None, product_id=None, published=None, resource_group_name=None, subscription_required=None, subscriptions_limit=None, terms=None):
+        """
+        Get an existing Product resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_management_name: The name of the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] approval_required: Do subscribers need to be approved prior to being able to use the Product?
+        :param pulumi.Input[str] description: A description of this Product, which may include HTML formatting tags.
+        :param pulumi.Input[str] display_name: The Display Name for this API Management Product.
+        :param pulumi.Input[str] product_id: The Identifier for this Product, which must be unique within the API Management Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] published: Is this Product Published?
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] subscription_required: Is a Subscription required to access API's included in this Product?
+        :param pulumi.Input[float] subscriptions_limit: The number of subscriptions a user can have to this Product at the same time.
+        :param pulumi.Input[str] terms: The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["api_management_name"] = api_management_name
+        __props__["approval_required"] = approval_required
+        __props__["description"] = description
+        __props__["display_name"] = display_name
+        __props__["product_id"] = product_id
+        __props__["published"] = published
+        __props__["resource_group_name"] = resource_group_name
+        __props__["subscription_required"] = subscription_required
+        __props__["subscriptions_limit"] = subscriptions_limit
+        __props__["terms"] = terms
+        return Product(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

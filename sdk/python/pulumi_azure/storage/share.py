@@ -31,7 +31,7 @@ class Share(pulumi.CustomResource):
     """
     The URL of the share
     """
-    def __init__(__self__, resource_name, opts=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manage an Azure Storage File Share.
         
@@ -52,40 +52,59 @@ class Share(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['name'] = name
-
-        __props__['quota'] = quota
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        if storage_account_name is None:
-            raise TypeError("Missing required property 'storage_account_name'")
-        __props__['storage_account_name'] = storage_account_name
-
-        __props__['url'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['name'] = name
+            __props__['quota'] = quota
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            if storage_account_name is None:
+                raise TypeError("Missing required property 'storage_account_name'")
+            __props__['storage_account_name'] = storage_account_name
+            __props__['url'] = None
         super(Share, __self__).__init__(
             'azure:storage/share:Share',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, url=None):
+        """
+        Get an existing Share resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
+        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the share. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
+               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] url: The URL of the share
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["name"] = name
+        __props__["quota"] = quota
+        __props__["resource_group_name"] = resource_group_name
+        __props__["storage_account_name"] = storage_account_name
+        __props__["url"] = url
+        return Share(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -78,7 +78,7 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /**
-     * A `ip_configuration` block as documented below.
+     * A `ipConfiguration` block as documented below.
      */
     public readonly ipConfiguration!: pulumi.Output<{ internalPublicIpAddressId: string, name: string, privateIpAddress: string, publicIpAddressId: string, subnetId: string }>;
     /**
@@ -145,7 +145,7 @@ export class Firewall extends pulumi.CustomResource {
  */
 export interface FirewallState {
     /**
-     * A `ip_configuration` block as documented below.
+     * A `ipConfiguration` block as documented below.
      */
     readonly ipConfiguration?: pulumi.Input<{ internalPublicIpAddressId?: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>;
     /**
@@ -171,7 +171,7 @@ export interface FirewallState {
  */
 export interface FirewallArgs {
     /**
-     * A `ip_configuration` block as documented below.
+     * A `ipConfiguration` block as documented below.
      */
     readonly ipConfiguration: pulumi.Input<{ internalPublicIpAddressId?: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>;
     /**

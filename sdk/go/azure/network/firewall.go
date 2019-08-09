@@ -74,7 +74,7 @@ func (r *Firewall) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A `ip_configuration` block as documented below.
+// A `ipConfiguration` block as documented below.
 func (r *Firewall) IpConfiguration() *pulumi.Output {
 	return r.s.State["ipConfiguration"]
 }
@@ -101,7 +101,7 @@ func (r *Firewall) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Firewall resources.
 type FirewallState struct {
-	// A `ip_configuration` block as documented below.
+	// A `ipConfiguration` block as documented below.
 	IpConfiguration interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -115,7 +115,7 @@ type FirewallState struct {
 
 // The set of arguments for constructing a Firewall resource.
 type FirewallArgs struct {
-	// A `ip_configuration` block as documented below.
+	// A `ipConfiguration` block as documented below.
 	IpConfiguration interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

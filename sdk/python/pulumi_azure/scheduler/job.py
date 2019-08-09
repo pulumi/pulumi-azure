@@ -53,7 +53,7 @@ class Job(pulumi.CustomResource):
     """
     The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
     """
-    def __init__(__self__, resource_name, opts=None, action_storage_queue=None, action_web=None, error_action_storage_queue=None, error_action_web=None, job_collection_name=None, name=None, recurrence=None, resource_group_name=None, retry=None, start_time=None, state=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, action_storage_queue=None, action_web=None, error_action_storage_queue=None, error_action_web=None, job_collection_name=None, name=None, recurrence=None, resource_group_name=None, retry=None, start_time=None, state=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Scheduler Job.
         
@@ -81,52 +81,75 @@ class Job(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['action_storage_queue'] = action_storage_queue
-
-        __props__['action_web'] = action_web
-
-        __props__['error_action_storage_queue'] = error_action_storage_queue
-
-        __props__['error_action_web'] = error_action_web
-
-        if job_collection_name is None:
-            raise TypeError("Missing required property 'job_collection_name'")
-        __props__['job_collection_name'] = job_collection_name
-
-        __props__['name'] = name
-
-        __props__['recurrence'] = recurrence
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['retry'] = retry
-
-        __props__['start_time'] = start_time
-
-        __props__['state'] = state
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['action_storage_queue'] = action_storage_queue
+            __props__['action_web'] = action_web
+            __props__['error_action_storage_queue'] = error_action_storage_queue
+            __props__['error_action_web'] = error_action_web
+            if job_collection_name is None:
+                raise TypeError("Missing required property 'job_collection_name'")
+            __props__['job_collection_name'] = job_collection_name
+            __props__['name'] = name
+            __props__['recurrence'] = recurrence
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['retry'] = retry
+            __props__['start_time'] = start_time
+            __props__['state'] = state
         super(Job, __self__).__init__(
             'azure:scheduler/job:Job',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, action_storage_queue=None, action_web=None, error_action_storage_queue=None, error_action_web=None, job_collection_name=None, name=None, recurrence=None, resource_group_name=None, retry=None, start_time=None, state=None):
+        """
+        Get an existing Job resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] action_storage_queue: A `action_storage_queue` block defining a storage queue job action as described below. Note this is identical to an `error_action_storage_queue` block.
+        :param pulumi.Input[dict] action_web: A `action_web` block defining the job action as described below. Note this is identical to an `error_action_web` block.
+        :param pulumi.Input[dict] error_action_storage_queue: A `error_action_storage_queue` block defining the a web action to take on an error as described below. Note this is identical to an `action_storage_queue` block.
+        :param pulumi.Input[dict] error_action_web: A `error_action_web` block defining the action to take on an error as described below. Note this is identical to an `action_web` block.
+        :param pulumi.Input[str] job_collection_name: Specifies the name of the Scheduler Job Collection in which the Job should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Scheduler Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] recurrence: A `recurrence` block defining a job occurrence schedule.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Scheduler Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] retry: A `retry` block defining how to retry as described below.
+        :param pulumi.Input[str] start_time: The time the first instance of the job is to start running at.
+        :param pulumi.Input[str] state: The sets or gets the current state of the job. Can be set to either `Enabled` or `Completed`
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["action_storage_queue"] = action_storage_queue
+        __props__["action_web"] = action_web
+        __props__["error_action_storage_queue"] = error_action_storage_queue
+        __props__["error_action_web"] = error_action_web
+        __props__["job_collection_name"] = job_collection_name
+        __props__["name"] = name
+        __props__["recurrence"] = recurrence
+        __props__["resource_group_name"] = resource_group_name
+        __props__["retry"] = retry
+        __props__["start_time"] = start_time
+        __props__["state"] = state
+        return Job(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

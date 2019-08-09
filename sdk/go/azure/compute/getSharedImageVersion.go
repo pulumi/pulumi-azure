@@ -65,7 +65,7 @@ type GetSharedImageVersionResult struct {
 	ResourceGroupName interface{}
 	// A mapping of tags assigned to the Shared Image.
 	Tags interface{}
-	// One or more `target_region` blocks as documented below.
+	// One or more `targetRegion` blocks as documented below.
 	TargetRegions interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

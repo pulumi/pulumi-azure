@@ -56,38 +56,38 @@ type GetKubernetesClusterArgs struct {
 
 // A collection of values returned by getKubernetesCluster.
 type GetKubernetesClusterResult struct {
-	// A `addon_profile` block as documented below.
+	// A `addonProfile` block as documented below.
 	AddonProfiles interface{}
-	// An `agent_pool_profile` block as documented below.
+	// An `agentPoolProfile` block as documented below.
 	AgentPoolProfiles interface{}
 	// The DNS Prefix of the managed Kubernetes cluster.
 	DnsPrefix interface{}
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn interface{}
-	// A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+	// A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigs interface{}
 	// Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
 	KubeAdminConfigRaw interface{}
-	// A `kube_config` block as defined below.
+	// A `kubeConfig` block as defined below.
 	KubeConfigs interface{}
 	// Base64 encoded Kubernetes configuration.
 	KubeConfigRaw interface{}
 	// The version of Kubernetes used on the managed Kubernetes Cluster.
 	KubernetesVersion interface{}
-	// A `linux_profile` block as documented below.
+	// A `linuxProfile` block as documented below.
 	LinuxProfiles interface{}
 	// The Azure Region in which the managed Kubernetes Cluster exists.
 	Location interface{}
 	// The name assigned to this pool of agents.
 	Name interface{}
-	// A `network_profile` block as documented below.
+	// A `networkProfile` block as documented below.
 	NetworkProfiles interface{}
 	// Auto-generated Resource Group containing AKS Cluster resources.
 	NodeResourceGroup interface{}
 	ResourceGroupName interface{}
-	// A `role_based_access_control` block as documented below.
+	// A `roleBasedAccessControl` block as documented below.
 	RoleBasedAccessControls interface{}
-	// A `service_principal` block as documented below.
+	// A `servicePrincipal` block as documented below.
 	ServicePrincipals interface{}
 	// A mapping of tags assigned to this resource.
 	Tags interface{}

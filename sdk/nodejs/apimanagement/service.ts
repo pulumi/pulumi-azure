@@ -60,7 +60,7 @@ export class Service extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `additional_location` blocks as defined below.
+     * One or more `additionalLocation` blocks as defined below.
      */
     public readonly additionalLocation!: pulumi.Output<{ gatewayRegionalUrl: string, location: string, publicIpAddresses: string[] } | undefined>;
     /**
@@ -76,7 +76,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly gatewayUrl!: pulumi.Output<string>;
     /**
-     * A `hostname_configuration` block as defined below.
+     * A `hostnameConfiguration` block as defined below.
      */
     public readonly hostnameConfiguration!: pulumi.Output<{ managements?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], portals?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], proxies?: { certificate?: string, certificatePassword?: string, defaultSslBinding: boolean, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], scms?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[] }>;
     /**
@@ -132,11 +132,11 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly security!: pulumi.Output<{ disableBackendSsl30?: boolean, disableBackendTls10?: boolean, disableBackendTls11?: boolean, disableFrontendSsl30?: boolean, disableFrontendTls10?: boolean, disableFrontendTls11?: boolean, disableTripleDesChipers: boolean, disableTripleDesCiphers: boolean }>;
     /**
-     * A `sign_in` block as defined below.
+     * A `signIn` block as defined below.
      */
     public readonly signIn!: pulumi.Output<{ enabled: boolean }>;
     /**
-     * A `sign_up` block as defined below.
+     * A `signUp` block as defined below.
      */
     public readonly signUp!: pulumi.Output<{ enabled: boolean, termsOfService: { consentRequired: boolean, enabled: boolean, text?: string } }>;
     /**
@@ -235,7 +235,7 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceState {
     /**
-     * One or more `additional_location` blocks as defined below.
+     * One or more `additionalLocation` blocks as defined below.
      */
     readonly additionalLocation?: pulumi.Input<{ gatewayRegionalUrl?: pulumi.Input<string>, location: pulumi.Input<string>, publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
@@ -251,7 +251,7 @@ export interface ServiceState {
      */
     readonly gatewayUrl?: pulumi.Input<string>;
     /**
-     * A `hostname_configuration` block as defined below.
+     * A `hostnameConfiguration` block as defined below.
      */
     readonly hostnameConfiguration?: pulumi.Input<{ managements?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, portals?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, proxies?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, defaultSslBinding?: pulumi.Input<boolean>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, scms?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]> }>;
     /**
@@ -307,11 +307,11 @@ export interface ServiceState {
      */
     readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean>, disableTripleDesCiphers?: pulumi.Input<boolean> }>;
     /**
-     * A `sign_in` block as defined below.
+     * A `signIn` block as defined below.
      */
     readonly signIn?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
     /**
-     * A `sign_up` block as defined below.
+     * A `signUp` block as defined below.
      */
     readonly signUp?: pulumi.Input<{ enabled: pulumi.Input<boolean>, termsOfService: pulumi.Input<{ consentRequired: pulumi.Input<boolean>, enabled: pulumi.Input<boolean>, text?: pulumi.Input<string> }> }>;
     /**
@@ -329,7 +329,7 @@ export interface ServiceState {
  */
 export interface ServiceArgs {
     /**
-     * One or more `additional_location` blocks as defined below.
+     * One or more `additionalLocation` blocks as defined below.
      */
     readonly additionalLocation?: pulumi.Input<{ gatewayRegionalUrl?: pulumi.Input<string>, location: pulumi.Input<string>, publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
@@ -337,7 +337,7 @@ export interface ServiceArgs {
      */
     readonly certificates?: pulumi.Input<pulumi.Input<{ certificatePassword: pulumi.Input<string>, encodedCertificate: pulumi.Input<string>, storeName: pulumi.Input<string> }>[]>;
     /**
-     * A `hostname_configuration` block as defined below.
+     * A `hostnameConfiguration` block as defined below.
      */
     readonly hostnameConfiguration?: pulumi.Input<{ managements?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, portals?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, proxies?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, defaultSslBinding?: pulumi.Input<boolean>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, scms?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]> }>;
     /**
@@ -377,11 +377,11 @@ export interface ServiceArgs {
      */
     readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean>, disableTripleDesCiphers?: pulumi.Input<boolean> }>;
     /**
-     * A `sign_in` block as defined below.
+     * A `signIn` block as defined below.
      */
     readonly signIn?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
     /**
-     * A `sign_up` block as defined below.
+     * A `signUp` block as defined below.
      */
     readonly signUp?: pulumi.Input<{ enabled: pulumi.Input<boolean>, termsOfService: pulumi.Input<{ consentRequired: pulumi.Input<boolean>, enabled: pulumi.Input<boolean>, text?: pulumi.Input<string> }> }>;
     /**
