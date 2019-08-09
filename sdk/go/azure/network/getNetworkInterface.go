@@ -62,7 +62,7 @@ type GetNetworkInterfaceResult struct {
 	// The internal dns name label of the specified Network Interface.
 	InternalDnsNameLabel interface{}
 	InternalFqdn interface{}
-	// One or more `ip_configuration` blocks as defined below.
+	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations interface{}
 	// The location of the specified Network Interface.
 	Location interface{}

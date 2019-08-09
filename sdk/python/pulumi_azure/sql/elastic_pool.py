@@ -53,11 +53,11 @@ class ElasticPool(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, db_dtu_max=None, db_dtu_min=None, dtu=None, edition=None, location=None, name=None, pool_size=None, resource_group_name=None, server_name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, db_dtu_max=None, db_dtu_min=None, dtu=None, edition=None, location=None, name=None, pool_size=None, resource_group_name=None, server_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Allows you to manage an Azure SQL Elastic Pool.
         
-        > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the azurerm_mssql_elasticpool version instead.
+        > **NOTE:** -  This version of the `Elasticpool` resource is being **deprecated** and should no longer be used. Please use the mssql.ElasticPool version instead.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,56 +80,79 @@ class ElasticPool(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['db_dtu_max'] = db_dtu_max
-
-        __props__['db_dtu_min'] = db_dtu_min
-
-        if dtu is None:
-            raise TypeError("Missing required property 'dtu'")
-        __props__['dtu'] = dtu
-
-        if edition is None:
-            raise TypeError("Missing required property 'edition'")
-        __props__['edition'] = edition
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        __props__['pool_size'] = pool_size
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        if server_name is None:
-            raise TypeError("Missing required property 'server_name'")
-        __props__['server_name'] = server_name
-
-        __props__['tags'] = tags
-
-        __props__['creation_date'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['db_dtu_max'] = db_dtu_max
+            __props__['db_dtu_min'] = db_dtu_min
+            if dtu is None:
+                raise TypeError("Missing required property 'dtu'")
+            __props__['dtu'] = dtu
+            if edition is None:
+                raise TypeError("Missing required property 'edition'")
+            __props__['edition'] = edition
+            __props__['location'] = location
+            __props__['name'] = name
+            __props__['pool_size'] = pool_size
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            if server_name is None:
+                raise TypeError("Missing required property 'server_name'")
+            __props__['server_name'] = server_name
+            __props__['tags'] = tags
+            __props__['creation_date'] = None
         super(ElasticPool, __self__).__init__(
             'azure:sql/elasticPool:ElasticPool',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, creation_date=None, db_dtu_max=None, db_dtu_min=None, dtu=None, edition=None, location=None, name=None, pool_size=None, resource_group_name=None, server_name=None, tags=None):
+        """
+        Get an existing ElasticPool resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] creation_date: The creation date of the SQL Elastic Pool.
+        :param pulumi.Input[float] db_dtu_max: The maximum DTU which will be guaranteed to all databases in the elastic pool to be created.
+        :param pulumi.Input[float] db_dtu_min: The minimum DTU which will be guaranteed to all databases in the elastic pool to be created.
+        :param pulumi.Input[float] dtu: The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations.
+        :param pulumi.Input[str] edition: The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] pool_size: The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
+        :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/sql_elasticpool.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["creation_date"] = creation_date
+        __props__["db_dtu_max"] = db_dtu_max
+        __props__["db_dtu_min"] = db_dtu_min
+        __props__["dtu"] = dtu
+        __props__["edition"] = edition
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["pool_size"] = pool_size
+        __props__["resource_group_name"] = resource_group_name
+        __props__["server_name"] = server_name
+        __props__["tags"] = tags
+        return ElasticPool(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -95,7 +95,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     public readonly internalDnsNameLabel!: pulumi.Output<string>;
     public readonly internalFqdn!: pulumi.Output<string>;
     /**
-     * One or more `ip_configuration` associated with this NIC as documented below.
+     * One or more `ipConfiguration` associated with this NIC as documented below.
      */
     public readonly ipConfigurations!: pulumi.Output<{ applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress?: string, privateIpAddressAllocation: string, privateIpAddressVersion?: string, publicIpAddressId?: string, subnetId?: string }[]>;
     /**
@@ -225,7 +225,7 @@ export interface NetworkInterfaceState {
     readonly internalDnsNameLabel?: pulumi.Input<string>;
     readonly internalFqdn?: pulumi.Input<string>;
     /**
-     * One or more `ip_configuration` associated with this NIC as documented below.
+     * One or more `ipConfiguration` associated with this NIC as documented below.
      */
     readonly ipConfigurations?: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolsIds?: pulumi.Input<pulumi.Input<string>[]>, applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolsIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, privateIpAddress?: pulumi.Input<string>, privateIpAddressAllocation: pulumi.Input<string>, privateIpAddressVersion?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>[]>;
     /**
@@ -292,7 +292,7 @@ export interface NetworkInterfaceArgs {
     readonly internalDnsNameLabel?: pulumi.Input<string>;
     readonly internalFqdn?: pulumi.Input<string>;
     /**
-     * One or more `ip_configuration` associated with this NIC as documented below.
+     * One or more `ipConfiguration` associated with this NIC as documented below.
      */
     readonly ipConfigurations: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolsIds?: pulumi.Input<pulumi.Input<string>[]>, applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolsIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, privateIpAddress?: pulumi.Input<string>, privateIpAddressAllocation: pulumi.Input<string>, privateIpAddressVersion?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>[]>;
     /**

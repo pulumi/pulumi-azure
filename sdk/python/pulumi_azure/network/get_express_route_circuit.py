@@ -61,14 +61,21 @@ class GetExpressRouteCircuitResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetExpressRouteCircuitResult(
+            location=self.location,
+            name=self.name,
+            peerings=self.peerings,
+            resource_group_name=self.resource_group_name,
+            service_key=self.service_key,
+            service_provider_properties=self.service_provider_properties,
+            service_provider_provisioning_state=self.service_provider_provisioning_state,
+            sku=self.sku,
+            id=self.id)
 
 def get_express_route_circuit(name=None,resource_group_name=None,opts=None):
     """
@@ -86,7 +93,7 @@ def get_express_route_circuit(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getExpressRouteCircuit:getExpressRouteCircuit', __args__, opts=opts).value
 
-    return GetExpressRouteCircuitResult(
+    return AwaitableGetExpressRouteCircuitResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         peerings=__ret__.get('peerings'),

@@ -133,14 +133,34 @@ class GetAccountResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAccountResult(
+            capabilities=self.capabilities,
+            consistency_policies=self.consistency_policies,
+            enable_automatic_failover=self.enable_automatic_failover,
+            enable_multiple_write_locations=self.enable_multiple_write_locations,
+            endpoint=self.endpoint,
+            geo_locations=self.geo_locations,
+            ip_range_filter=self.ip_range_filter,
+            is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
+            kind=self.kind,
+            location=self.location,
+            name=self.name,
+            offer_type=self.offer_type,
+            primary_master_key=self.primary_master_key,
+            primary_readonly_master_key=self.primary_readonly_master_key,
+            read_endpoints=self.read_endpoints,
+            resource_group_name=self.resource_group_name,
+            secondary_master_key=self.secondary_master_key,
+            secondary_readonly_master_key=self.secondary_readonly_master_key,
+            tags=self.tags,
+            virtual_network_rules=self.virtual_network_rules,
+            write_endpoints=self.write_endpoints,
+            id=self.id)
 
 def get_account(name=None,resource_group_name=None,opts=None):
     """
@@ -158,7 +178,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__, opts=opts).value
 
-    return GetAccountResult(
+    return AwaitableGetAccountResult(
         capabilities=__ret__.get('capabilities'),
         consistency_policies=__ret__.get('consistencyPolicies'),
         enable_automatic_failover=__ret__.get('enableAutomaticFailover'),

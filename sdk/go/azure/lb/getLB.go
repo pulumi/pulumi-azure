@@ -43,7 +43,7 @@ type GetLBArgs struct {
 
 // A collection of values returned by getLB.
 type GetLBResult struct {
-	// (Optional) A `frontend_ip_configuration` block as documented below.
+	// (Optional) A `frontendIpConfiguration` block as documented below.
 	FrontendIpConfigurations interface{}
 	// The Azure location where the Load Balancer exists.
 	Location interface{}
@@ -51,7 +51,7 @@ type GetLBResult struct {
 	Name interface{}
 	// Private IP Address to assign to the Load Balancer.
 	PrivateIpAddress interface{}
-	// The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
+	// The list of private IP address assigned to the load balancer in `frontendIpConfiguration` blocks, if any.
 	PrivateIpAddresses interface{}
 	ResourceGroupName interface{}
 	// The SKU of the Load Balancer.

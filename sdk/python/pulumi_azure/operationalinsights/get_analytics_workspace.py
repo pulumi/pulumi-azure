@@ -70,14 +70,23 @@ class GetAnalyticsWorkspaceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAnalyticsWorkspaceResult(GetAnalyticsWorkspaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAnalyticsWorkspaceResult(
+            location=self.location,
+            name=self.name,
+            portal_url=self.portal_url,
+            primary_shared_key=self.primary_shared_key,
+            resource_group_name=self.resource_group_name,
+            retention_in_days=self.retention_in_days,
+            secondary_shared_key=self.secondary_shared_key,
+            sku=self.sku,
+            tags=self.tags,
+            workspace_id=self.workspace_id,
+            id=self.id)
 
 def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
     """
@@ -95,7 +104,7 @@ def get_analytics_workspace(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace', __args__, opts=opts).value
 
-    return GetAnalyticsWorkspaceResult(
+    return AwaitableGetAnalyticsWorkspaceResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         portal_url=__ret__.get('portalUrl'),

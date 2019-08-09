@@ -119,7 +119,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
     /**
-     * An `connection_string` block as defined below.
+     * An `connectionString` block as defined below.
      */
     public readonly connectionStrings!: pulumi.Output<{ name: string, type: string, value: string }[]>;
     /**
@@ -159,7 +159,7 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
@@ -167,11 +167,11 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      */
     public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, linuxFxVersion: string, use32BitWorkerProcess?: boolean, websocketsEnabled?: boolean }>;
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
     public /*out*/ readonly siteCredential!: pulumi.Output<{ password: string, username: string }>;
     /**
@@ -279,7 +279,7 @@ export interface FunctionAppState {
      */
     readonly clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
-     * An `connection_string` block as defined below.
+     * An `connectionString` block as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
@@ -319,7 +319,7 @@ export interface FunctionAppState {
      */
     readonly outboundIpAddresses?: pulumi.Input<string>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     readonly possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
@@ -327,11 +327,11 @@ export interface FunctionAppState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      */
     readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
     readonly siteCredential?: pulumi.Input<{ password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
     /**
@@ -365,7 +365,7 @@ export interface FunctionAppArgs {
      */
     readonly clientAffinityEnabled?: pulumi.Input<boolean>;
     /**
-     * An `connection_string` block as defined below.
+     * An `connectionString` block as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
@@ -397,7 +397,7 @@ export interface FunctionAppArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `site_config` object as defined below.
+     * A `siteConfig` object as defined below.
      */
     readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
     /**

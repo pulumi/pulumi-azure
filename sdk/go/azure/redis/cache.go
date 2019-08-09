@@ -14,23 +14,23 @@ import (
 // 
 // | Redis Value                     | Basic        | Standard     | Premium      |
 // | ------------------------------- | ------------ | ------------ | ------------ |
-// | enable_authentication           | true         | true         | true         |
-// | maxmemory_reserved              | 2            | 50           | 200          |
-// | maxfragmentationmemory_reserved | 2            | 50           | 200          |
-// | maxmemory_delta                 | 2            | 50           | 200          |
-// | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru |
+// | enableAuthentication           | true         | true         | true         |
+// | maxmemoryReserved              | 2            | 50           | 200          |
+// | maxfragmentationmemoryReserved | 2            | 50           | 200          |
+// | maxmemoryDelta                 | 2            | 50           | 200          |
+// | maxmemoryPolicy                | volatile-lru | volatile-lru | volatile-lru |
 // 
-// > **NOTE:** The `maxmemory_reserved`, `maxmemory_delta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
+// > **NOTE:** The `maxmemoryReserved`, `maxmemoryDelta` and `maxfragmentationmemory-reserved` settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below._
 // 
 // ---
 // 
-// A `patch_schedule` block supports the following:
+// A `patchSchedule` block supports the following:
 // 
-// * `day_of_week` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
+// * `dayOfWeek` (Required) the Weekday name - possible values include `Monday`, `Tuesday`, `Wednesday` etc.
 // 
-// * `start_hour_utc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
+// * `startHourUtc` - (Optional) the Start Hour for maintenance in UTC - possible values range from `0 - 23`.
 // 
-// > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
+// > **Note:** The Patch Window lasts for `5` hours from the `startHourUtc`.
 // 
 // ## Relevant Links
 // 
@@ -183,7 +183,7 @@ func (r *Cache) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
 func (r *Cache) PatchSchedules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["patchSchedules"])
 }
@@ -203,7 +203,7 @@ func (r *Cache) PrivateStaticIpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["privateStaticIpAddress"])
 }
 
-// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 func (r *Cache) RedisConfiguration() *pulumi.Output {
 	return r.s.State["redisConfiguration"]
 }
@@ -266,7 +266,7 @@ type CacheState struct {
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name interface{}
-	// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
 	PatchSchedules interface{}
 	// The non-SSL Port of the Redis Instance
 	Port interface{}
@@ -274,7 +274,7 @@ type CacheState struct {
 	PrimaryAccessKey interface{}
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress interface{}
-	// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration interface{}
 	// The name of the resource group in which to
 	// create the Redis instance.
@@ -310,11 +310,11 @@ type CacheArgs struct {
 	// The name of the Redis instance. Changing this forces a
 	// new resource to be created.
 	Name interface{}
-	// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
 	PatchSchedules interface{}
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
 	PrivateStaticIpAddress interface{}
-	// A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+	// A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
 	RedisConfiguration interface{}
 	// The name of the resource group in which to
 	// create the Redis instance.

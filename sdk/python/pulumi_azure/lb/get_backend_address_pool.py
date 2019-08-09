@@ -25,14 +25,15 @@ class GetBackendAddressPoolResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetBackendAddressPoolResult(GetBackendAddressPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetBackendAddressPoolResult(
+            loadbalancer_id=self.loadbalancer_id,
+            name=self.name,
+            id=self.id)
 
 def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     """
@@ -50,7 +51,7 @@ def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts).value
 
-    return GetBackendAddressPoolResult(
+    return AwaitableGetBackendAddressPoolResult(
         loadbalancer_id=__ret__.get('loadbalancerId'),
         name=__ret__.get('name'),
         id=__ret__.get('id'))

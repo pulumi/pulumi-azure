@@ -30,7 +30,7 @@ class Database(pulumi.CustomResource):
     """
     Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, charset=None, collation=None, name=None, resource_group_name=None, server_name=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, charset=None, collation=None, name=None, resource_group_name=None, server_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a PostgreSQL Database within a PostgreSQL Server
         
@@ -51,44 +51,62 @@ class Database(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if charset is None:
-            raise TypeError("Missing required property 'charset'")
-        __props__['charset'] = charset
-
-        if collation is None:
-            raise TypeError("Missing required property 'collation'")
-        __props__['collation'] = collation
-
-        __props__['name'] = name
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        if server_name is None:
-            raise TypeError("Missing required property 'server_name'")
-        __props__['server_name'] = server_name
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if charset is None:
+                raise TypeError("Missing required property 'charset'")
+            __props__['charset'] = charset
+            if collation is None:
+                raise TypeError("Missing required property 'collation'")
+            __props__['collation'] = collation
+            __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            if server_name is None:
+                raise TypeError("Missing required property 'server_name'")
+            __props__['server_name'] = server_name
         super(Database, __self__).__init__(
             'azure:postgresql/database:Database',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, charset=None, collation=None, name=None, resource_group_name=None, server_name=None):
+        """
+        Get an existing Database resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] charset: Specifies the Charset for the PostgreSQL Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] collation: Specifies the Collation for the PostgreSQL Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Note that Microsoft uses different [notation](https://msdn.microsoft.com/library/windows/desktop/dd373814.aspx) - en-US instead of en_US. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] server_name: Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_database.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["charset"] = charset
+        __props__["collation"] = collation
+        __props__["name"] = name
+        __props__["resource_group_name"] = resource_group_name
+        __props__["server_name"] = server_name
+        return Database(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

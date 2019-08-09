@@ -10,7 +10,7 @@ import (
 
 // Manages an App Service (within an App Service Plan).
 // 
-// > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
+// > **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
 type AppService struct {
@@ -126,7 +126,7 @@ func (r *AppService) AppSettings() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["appSettings"])
 }
 
-// A `auth_settings` block as defined below.
+// A `authSettings` block as defined below.
 func (r *AppService) AuthSettings() *pulumi.Output {
 	return r.s.State["authSettings"]
 }
@@ -141,7 +141,7 @@ func (r *AppService) ClientCertEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["clientCertEnabled"])
 }
 
-// One or more `connection_string` blocks as defined below.
+// One or more `connectionString` blocks as defined below.
 func (r *AppService) ConnectionStrings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["connectionStrings"])
 }
@@ -186,7 +186,7 @@ func (r *AppService) OutboundIpAddresses() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["outboundIpAddresses"])
 }
 
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (r *AppService) PossibleOutboundIpAddresses() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["possibleOutboundIpAddresses"])
 }
@@ -196,17 +196,17 @@ func (r *AppService) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `site_config` block as defined below.
+// A `siteConfig` block as defined below.
 func (r *AppService) SiteConfig() *pulumi.Output {
 	return r.s.State["siteConfig"]
 }
 
-// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 func (r *AppService) SiteCredential() *pulumi.Output {
 	return r.s.State["siteCredential"]
 }
 
-// A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
 func (r *AppService) SourceControl() *pulumi.Output {
 	return r.s.State["sourceControl"]
 }
@@ -222,13 +222,13 @@ type AppServiceState struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
-	// A `auth_settings` block as defined below.
+	// A `authSettings` block as defined below.
 	AuthSettings interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled interface{}
-	// One or more `connection_string` blocks as defined below.
+	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings interface{}
 	// The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
 	DefaultSiteHostname interface{}
@@ -246,15 +246,15 @@ type AppServiceState struct {
 	Name interface{}
 	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
 	OutboundIpAddresses interface{}
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses interface{}
 	// The name of the resource group in which to create the App Service.
 	ResourceGroupName interface{}
-	// A `site_config` block as defined below.
+	// A `siteConfig` block as defined below.
 	SiteConfig interface{}
-	// A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
 	SiteCredential interface{}
-	// A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
 	SourceControl interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -266,13 +266,13 @@ type AppServiceArgs struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
-	// A `auth_settings` block as defined below.
+	// A `authSettings` block as defined below.
 	AuthSettings interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
 	ClientCertEnabled interface{}
-	// One or more `connection_string` blocks as defined below.
+	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings interface{}
 	// Is the App Service Enabled?
 	Enabled interface{}
@@ -288,7 +288,7 @@ type AppServiceArgs struct {
 	Name interface{}
 	// The name of the resource group in which to create the App Service.
 	ResourceGroupName interface{}
-	// A `site_config` block as defined below.
+	// A `siteConfig` block as defined below.
 	SiteConfig interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

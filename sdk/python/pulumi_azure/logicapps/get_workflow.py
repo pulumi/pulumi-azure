@@ -61,14 +61,21 @@ class GetWorkflowResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetWorkflowResult(GetWorkflowResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetWorkflowResult(
+            access_endpoint=self.access_endpoint,
+            location=self.location,
+            name=self.name,
+            parameters=self.parameters,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            workflow_schema=self.workflow_schema,
+            workflow_version=self.workflow_version,
+            id=self.id)
 
 def get_workflow(name=None,resource_group_name=None,opts=None):
     """
@@ -86,7 +93,7 @@ def get_workflow(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:logicapps/getWorkflow:getWorkflow', __args__, opts=opts).value
 
-    return GetWorkflowResult(
+    return AwaitableGetWorkflowResult(
         access_endpoint=__ret__.get('accessEndpoint'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

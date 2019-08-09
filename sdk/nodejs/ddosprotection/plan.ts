@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * 
  * > **NOTE** Azure only allow `one` DDoS Protection Plan per region.
  * 
- * > **NOTE:** This resource has been deprecated in favour of the `azurerm_network_ddos_protection_plan` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+ * > **NOTE:** This resource has been deprecated in favour of the `azure.network.DdosProtectionPlan` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
  * 
  * ## Example Usage
  * 

@@ -34,14 +34,18 @@ class GetClientConfigResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClientConfigResult(GetClientConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClientConfigResult(
+            client_id=self.client_id,
+            service_principal_application_id=self.service_principal_application_id,
+            service_principal_object_id=self.service_principal_object_id,
+            subscription_id=self.subscription_id,
+            tenant_id=self.tenant_id,
+            id=self.id)
 
 def get_client_config(opts=None):
     """
@@ -57,7 +61,7 @@ def get_client_config(opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:core/getClientConfig:getClientConfig', __args__, opts=opts).value
 
-    return GetClientConfigResult(
+    return AwaitableGetClientConfigResult(
         client_id=__ret__.get('clientId'),
         service_principal_application_id=__ret__.get('servicePrincipalApplicationId'),
         service_principal_object_id=__ret__.get('servicePrincipalObjectId'),

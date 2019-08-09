@@ -57,7 +57,7 @@ class SparkCluster(pulumi.CustomResource):
     """
     Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, storage_accounts=None, tags=None, tier=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_version=None, component_version=None, gateway=None, location=None, name=None, resource_group_name=None, roles=None, storage_accounts=None, tags=None, tier=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a HDInsight Spark Cluster.
         
@@ -82,63 +82,88 @@ class SparkCluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if cluster_version is None:
-            raise TypeError("Missing required property 'cluster_version'")
-        __props__['cluster_version'] = cluster_version
-
-        if component_version is None:
-            raise TypeError("Missing required property 'component_version'")
-        __props__['component_version'] = component_version
-
-        if gateway is None:
-            raise TypeError("Missing required property 'gateway'")
-        __props__['gateway'] = gateway
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        if roles is None:
-            raise TypeError("Missing required property 'roles'")
-        __props__['roles'] = roles
-
-        if storage_accounts is None:
-            raise TypeError("Missing required property 'storage_accounts'")
-        __props__['storage_accounts'] = storage_accounts
-
-        __props__['tags'] = tags
-
-        if tier is None:
-            raise TypeError("Missing required property 'tier'")
-        __props__['tier'] = tier
-
-        __props__['https_endpoint'] = None
-        __props__['ssh_endpoint'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if cluster_version is None:
+                raise TypeError("Missing required property 'cluster_version'")
+            __props__['cluster_version'] = cluster_version
+            if component_version is None:
+                raise TypeError("Missing required property 'component_version'")
+            __props__['component_version'] = component_version
+            if gateway is None:
+                raise TypeError("Missing required property 'gateway'")
+            __props__['gateway'] = gateway
+            __props__['location'] = location
+            __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            if roles is None:
+                raise TypeError("Missing required property 'roles'")
+            __props__['roles'] = roles
+            if storage_accounts is None:
+                raise TypeError("Missing required property 'storage_accounts'")
+            __props__['storage_accounts'] = storage_accounts
+            __props__['tags'] = tags
+            if tier is None:
+                raise TypeError("Missing required property 'tier'")
+            __props__['tier'] = tier
+            __props__['https_endpoint'] = None
+            __props__['ssh_endpoint'] = None
         super(SparkCluster, __self__).__init__(
             'azure:hdinsight/sparkCluster:SparkCluster',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, cluster_version=None, component_version=None, gateway=None, https_endpoint=None, location=None, name=None, resource_group_name=None, roles=None, ssh_endpoint=None, storage_accounts=None, tags=None, tier=None):
+        """
+        Get an existing SparkCluster resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[dict] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
+        :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] roles: A `roles` block as defined below.
+        :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
+        :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Spark Cluster.
+        :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_spark_cluster.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["cluster_version"] = cluster_version
+        __props__["component_version"] = component_version
+        __props__["gateway"] = gateway
+        __props__["https_endpoint"] = https_endpoint
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resource_group_name"] = resource_group_name
+        __props__["roles"] = roles
+        __props__["ssh_endpoint"] = ssh_endpoint
+        __props__["storage_accounts"] = storage_accounts
+        __props__["tags"] = tags
+        __props__["tier"] = tier
+        return SparkCluster(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

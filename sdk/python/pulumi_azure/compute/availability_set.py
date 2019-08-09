@@ -37,7 +37,7 @@ class AvailabilitySet(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an availability set for virtual machines.
         
@@ -59,42 +59,61 @@ class AvailabilitySet(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['location'] = location
-
-        __props__['managed'] = managed
-
-        __props__['name'] = name
-
-        __props__['platform_fault_domain_count'] = platform_fault_domain_count
-
-        __props__['platform_update_domain_count'] = platform_update_domain_count
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['tags'] = tags
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['location'] = location
+            __props__['managed'] = managed
+            __props__['name'] = name
+            __props__['platform_fault_domain_count'] = platform_fault_domain_count
+            __props__['platform_update_domain_count'] = platform_update_domain_count
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['tags'] = tags
         super(AvailabilitySet, __self__).__init__(
             'azure:compute/availabilitySet:AvailabilitySet',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, location=None, managed=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None):
+        """
+        Get an existing AvailabilitySet resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] managed: Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `false`.
+        :param pulumi.Input[str] name: Specifies the name of the availability set. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] platform_fault_domain_count: Specifies the number of fault domains that are used. Defaults to 3.
+        :param pulumi.Input[float] platform_update_domain_count: Specifies the number of update domains that are used. Defaults to 5.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/availability_set.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["location"] = location
+        __props__["managed"] = managed
+        __props__["name"] = name
+        __props__["platform_fault_domain_count"] = platform_fault_domain_count
+        __props__["platform_update_domain_count"] = platform_update_domain_count
+        __props__["resource_group_name"] = resource_group_name
+        __props__["tags"] = tags
+        return AvailabilitySet(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

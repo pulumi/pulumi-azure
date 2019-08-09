@@ -80,7 +80,7 @@ func (r *Image) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// One or more `data_disk` elements as defined below.
+// One or more `dataDisk` elements as defined below.
 func (r *Image) DataDisks() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["dataDisks"])
 }
@@ -97,7 +97,7 @@ func (r *Image) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// One or more `os_disk` elements as defined below.
+// One or more `osDisk` elements as defined below.
 func (r *Image) OsDisk() *pulumi.Output {
 	return r.s.State["osDisk"]
 }
@@ -125,7 +125,7 @@ func (r *Image) ZoneResilient() *pulumi.BoolOutput {
 
 // Input properties used for looking up and filtering Image resources.
 type ImageState struct {
-	// One or more `data_disk` elements as defined below.
+	// One or more `dataDisk` elements as defined below.
 	DataDisks interface{}
 	// Specified the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
@@ -133,7 +133,7 @@ type ImageState struct {
 	// Specifies the name of the image. Changing this forces a
 	// new resource to be created.
 	Name interface{}
-	// One or more `os_disk` elements as defined below.
+	// One or more `osDisk` elements as defined below.
 	OsDisk interface{}
 	// The name of the resource group in which to create
 	// the image. Changing this forces a new resource to be created.
@@ -148,7 +148,7 @@ type ImageState struct {
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// One or more `data_disk` elements as defined below.
+	// One or more `dataDisk` elements as defined below.
 	DataDisks interface{}
 	// Specified the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
@@ -156,7 +156,7 @@ type ImageArgs struct {
 	// Specifies the name of the image. Changing this forces a
 	// new resource to be created.
 	Name interface{}
-	// One or more `os_disk` elements as defined below.
+	// One or more `osDisk` elements as defined below.
 	OsDisk interface{}
 	// The name of the resource group in which to create
 	// the image. Changing this forces a new resource to be created.

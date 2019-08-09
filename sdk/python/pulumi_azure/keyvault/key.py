@@ -58,7 +58,7 @@ class Key(pulumi.CustomResource):
     """
     The EC Y component of this Key Vault Key.
     """
-    def __init__(__self__, resource_name, opts=None, curve=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, tags=None, vault_uri=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, curve=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, name=None, tags=None, vault_uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Key Vault Key.
         
@@ -80,52 +80,80 @@ class Key(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['curve'] = curve
-
-        if key_opts is None:
-            raise TypeError("Missing required property 'key_opts'")
-        __props__['key_opts'] = key_opts
-
-        __props__['key_size'] = key_size
-
-        if key_type is None:
-            raise TypeError("Missing required property 'key_type'")
-        __props__['key_type'] = key_type
-
-        __props__['key_vault_id'] = key_vault_id
-
-        __props__['name'] = name
-
-        __props__['tags'] = tags
-
-        __props__['vault_uri'] = vault_uri
-
-        __props__['e'] = None
-        __props__['n'] = None
-        __props__['version'] = None
-        __props__['x'] = None
-        __props__['y'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['curve'] = curve
+            if key_opts is None:
+                raise TypeError("Missing required property 'key_opts'")
+            __props__['key_opts'] = key_opts
+            __props__['key_size'] = key_size
+            if key_type is None:
+                raise TypeError("Missing required property 'key_type'")
+            __props__['key_type'] = key_type
+            __props__['key_vault_id'] = key_vault_id
+            __props__['name'] = name
+            __props__['tags'] = tags
+            __props__['vault_uri'] = vault_uri
+            __props__['e'] = None
+            __props__['n'] = None
+            __props__['version'] = None
+            __props__['x'] = None
+            __props__['y'] = None
         super(Key, __self__).__init__(
             'azure:keyvault/key:Key',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, curve=None, e=None, key_opts=None, key_size=None, key_type=None, key_vault_id=None, n=None, name=None, tags=None, vault_uri=None, version=None, x=None, y=None):
+        """
+        Get an existing Key resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-384`, `P-521`, and `SECP256K1`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] e: The RSA public exponent of this Key Vault Key.
+        :param pulumi.Input[list] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        :param pulumi.Input[float] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] n: The RSA modulus of this Key Vault Key.
+        :param pulumi.Input[str] name: Specifies the name of the Key Vault Key. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] version: The current version of the Key Vault Key.
+        :param pulumi.Input[str] x: The EC X component of this Key Vault Key.
+        :param pulumi.Input[str] y: The EC Y component of this Key Vault Key.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_key.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["curve"] = curve
+        __props__["e"] = e
+        __props__["key_opts"] = key_opts
+        __props__["key_size"] = key_size
+        __props__["key_type"] = key_type
+        __props__["key_vault_id"] = key_vault_id
+        __props__["n"] = n
+        __props__["name"] = name
+        __props__["tags"] = tags
+        __props__["vault_uri"] = vault_uri
+        __props__["version"] = version
+        __props__["x"] = x
+        __props__["y"] = y
+        return Key(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

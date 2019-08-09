@@ -37,14 +37,17 @@ class GetKubernetesServiceVersionsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetKubernetesServiceVersionsResult(GetKubernetesServiceVersionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetKubernetesServiceVersionsResult(
+            latest_version=self.latest_version,
+            location=self.location,
+            version_prefix=self.version_prefix,
+            versions=self.versions,
+            id=self.id)
 
 def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None):
     """
@@ -62,7 +65,7 @@ def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None)
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts).value
 
-    return GetKubernetesServiceVersionsResult(
+    return AwaitableGetKubernetesServiceVersionsResult(
         latest_version=__ret__.get('latestVersion'),
         location=__ret__.get('location'),
         version_prefix=__ret__.get('versionPrefix'),

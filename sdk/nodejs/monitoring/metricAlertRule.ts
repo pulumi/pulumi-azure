@@ -109,7 +109,7 @@ export class MetricAlertRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * A `email_action` block as defined below.
+     * A `emailAction` block as defined below.
      */
     public readonly emailAction!: pulumi.Output<{ customEmails: string[], sendToServiceOwners: boolean }>;
     /**
@@ -153,7 +153,7 @@ export class MetricAlertRule extends pulumi.CustomResource {
      */
     public readonly threshold!: pulumi.Output<number>;
     /**
-     * A `webhook_action` block as defined below.
+     * A `webhookAction` block as defined below.
      */
     public readonly webhookAction!: pulumi.Output<{ properties: {[key: string]: string}, serviceUri: string }>;
 
@@ -245,7 +245,7 @@ export interface MetricAlertRuleState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A `email_action` block as defined below.
+     * A `emailAction` block as defined below.
      */
     readonly emailAction?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToServiceOwners?: pulumi.Input<boolean> }>;
     /**
@@ -289,7 +289,7 @@ export interface MetricAlertRuleState {
      */
     readonly threshold?: pulumi.Input<number>;
     /**
-     * A `webhook_action` block as defined below.
+     * A `webhookAction` block as defined below.
      */
     readonly webhookAction?: pulumi.Input<{ properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serviceUri: pulumi.Input<string> }>;
 }
@@ -307,7 +307,7 @@ export interface MetricAlertRuleArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A `email_action` block as defined below.
+     * A `emailAction` block as defined below.
      */
     readonly emailAction?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToServiceOwners?: pulumi.Input<boolean> }>;
     /**
@@ -351,7 +351,7 @@ export interface MetricAlertRuleArgs {
      */
     readonly threshold: pulumi.Input<number>;
     /**
-     * A `webhook_action` block as defined below.
+     * A `webhookAction` block as defined below.
      */
     readonly webhookAction?: pulumi.Input<{ properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serviceUri: pulumi.Input<string> }>;
 }

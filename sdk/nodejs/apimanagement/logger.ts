@@ -79,7 +79,7 @@ export class Logger extends pulumi.CustomResource {
      */
     public readonly apiManagementName!: pulumi.Output<string>;
     /**
-     * An `application_insights` block as documented below.
+     * An `applicationInsights` block as documented below.
      */
     public readonly applicationInsights!: pulumi.Output<{ instrumentationKey: string } | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface LoggerState {
      */
     readonly apiManagementName?: pulumi.Input<string>;
     /**
-     * An `application_insights` block as documented below.
+     * An `applicationInsights` block as documented below.
      */
     readonly applicationInsights?: pulumi.Input<{ instrumentationKey: pulumi.Input<string> }>;
     /**
@@ -192,7 +192,7 @@ export interface LoggerArgs {
      */
     readonly apiManagementName: pulumi.Input<string>;
     /**
-     * An `application_insights` block as documented below.
+     * An `applicationInsights` block as documented below.
      */
     readonly applicationInsights?: pulumi.Input<{ instrumentationKey: pulumi.Input<string> }>;
     /**

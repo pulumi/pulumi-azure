@@ -37,14 +37,18 @@ class GetPlatformImageResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPlatformImageResult(GetPlatformImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPlatformImageResult(
+            location=self.location,
+            offer=self.offer,
+            publisher=self.publisher,
+            sku=self.sku,
+            version=self.version,
+            id=self.id)
 
 def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=None):
     """
@@ -64,7 +68,7 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts).value
 
-    return GetPlatformImageResult(
+    return AwaitableGetPlatformImageResult(
         location=__ret__.get('location'),
         offer=__ret__.get('offer'),
         publisher=__ret__.get('publisher'),

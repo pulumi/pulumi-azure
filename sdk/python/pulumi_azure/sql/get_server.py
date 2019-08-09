@@ -55,14 +55,20 @@ class GetServerResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetServerResult(
+            administrator_login=self.administrator_login,
+            fqdn=self.fqdn,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            version=self.version,
+            id=self.id)
 
 def get_server(name=None,resource_group_name=None,opts=None):
     """
@@ -80,7 +86,7 @@ def get_server(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:sql/getServer:getServer', __args__, opts=opts).value
 
-    return GetServerResult(
+    return AwaitableGetServerResult(
         administrator_login=__ret__.get('administratorLogin'),
         fqdn=__ret__.get('fqdn'),
         location=__ret__.get('location'),

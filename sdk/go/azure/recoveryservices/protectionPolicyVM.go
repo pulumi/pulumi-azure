@@ -112,22 +112,22 @@ func (r *ProtectionPolicyVM) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+// Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
 func (r *ProtectionPolicyVM) RetentionDaily() *pulumi.Output {
 	return r.s.State["retentionDaily"]
 }
 
-// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
 func (r *ProtectionPolicyVM) RetentionMonthly() *pulumi.Output {
 	return r.s.State["retentionMonthly"]
 }
 
-// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+// Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
 func (r *ProtectionPolicyVM) RetentionWeekly() *pulumi.Output {
 	return r.s.State["retentionWeekly"]
 }
 
-// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 func (r *ProtectionPolicyVM) RetentionYearly() *pulumi.Output {
 	return r.s.State["retentionYearly"]
 }
@@ -152,13 +152,13 @@ type ProtectionPolicyVMState struct {
 	RecoveryVaultName interface{}
 	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+	// Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
 	RetentionDaily interface{}
-	// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
 	RetentionMonthly interface{}
-	// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+	// Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
 	RetentionWeekly interface{}
-	// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -176,13 +176,13 @@ type ProtectionPolicyVMArgs struct {
 	RecoveryVaultName interface{}
 	// The name of the resource group in which to create the Recovery Services Protected VM. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+	// Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
 	RetentionDaily interface{}
-	// Configures the policy monthly retention as documented in the `retention_monthly` block below.
+	// Configures the policy monthly retention as documented in the `retentionMonthly` block below.
 	RetentionMonthly interface{}
-	// Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+	// Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
 	RetentionWeekly interface{}
-	// Configures the policy yearly retention as documented in the `retention_yearly` block below.
+	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

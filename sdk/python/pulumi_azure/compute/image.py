@@ -44,7 +44,7 @@ class Image(pulumi.CustomResource):
     """
     Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, data_disks=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, data_disks=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None, __props__=None, __name__=None, __opts__=None):
         """
         Manage a custom virtual machine image that can be used to create virtual machines.
         
@@ -70,44 +70,67 @@ class Image(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['data_disks'] = data_disks
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        __props__['os_disk'] = os_disk
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['source_virtual_machine_id'] = source_virtual_machine_id
-
-        __props__['tags'] = tags
-
-        __props__['zone_resilient'] = zone_resilient
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['data_disks'] = data_disks
+            __props__['location'] = location
+            __props__['name'] = name
+            __props__['os_disk'] = os_disk
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['source_virtual_machine_id'] = source_virtual_machine_id
+            __props__['tags'] = tags
+            __props__['zone_resilient'] = zone_resilient
         super(Image, __self__).__init__(
             'azure:compute/image:Image',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, data_disks=None, location=None, name=None, os_disk=None, resource_group_name=None, source_virtual_machine_id=None, tags=None, zone_resilient=None):
+        """
+        Get an existing Image resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] data_disks: One or more `data_disk` elements as defined below.
+        :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists.
+               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the image. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[dict] os_disk: One or more `os_disk` elements as defined below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create
+               the image. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_virtual_machine_id: The Virtual Machine ID from which to create the image.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] zone_resilient: Is zone resiliency enabled?  Defaults to `false`.  Changing this forces a new resource to be created.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/image.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["data_disks"] = data_disks
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["os_disk"] = os_disk
+        __props__["resource_group_name"] = resource_group_name
+        __props__["source_virtual_machine_id"] = source_virtual_machine_id
+        __props__["tags"] = tags
+        __props__["zone_resilient"] = zone_resilient
+        return Image(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

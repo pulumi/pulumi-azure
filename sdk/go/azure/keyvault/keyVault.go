@@ -10,7 +10,7 @@ import (
 
 // Manages a Key Vault.
 // 
-// > **NOTE:** It's possible to define Key Vault Access Policies both within the `azurerm_key_vault` resource via the `access_policy` block and by using the `azurerm_key_vault_access_policy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
+// > **NOTE:** It's possible to define Key Vault Access Policies both within the `keyvault.KeyVault` resource via the `accessPolicy` block and by using the `keyvault.AccessPolicy` resource. However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
 type KeyVault struct {
@@ -129,7 +129,7 @@ func (r *KeyVault) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A `network_acls` block as defined below.
+// A `networkAcls` block as defined below.
 func (r *KeyVault) NetworkAcls() *pulumi.Output {
 	return r.s.State["networkAcls"]
 }
@@ -178,7 +178,7 @@ type KeyVaultState struct {
 	Location interface{}
 	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `network_acls` block as defined below.
+	// A `networkAcls` block as defined below.
 	NetworkAcls interface{}
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -208,7 +208,7 @@ type KeyVaultArgs struct {
 	Location interface{}
 	// Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `network_acls` block as defined below.
+	// A `networkAcls` block as defined below.
 	NetworkAcls interface{}
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

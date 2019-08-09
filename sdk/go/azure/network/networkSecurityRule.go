@@ -139,12 +139,12 @@ func (r *NetworkSecurityRule) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
 func (r *NetworkSecurityRule) DestinationAddressPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destinationAddressPrefix"])
 }
 
-// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 func (r *NetworkSecurityRule) DestinationAddressPrefixes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["destinationAddressPrefixes"])
 }
@@ -154,12 +154,12 @@ func (r *NetworkSecurityRule) DestinationApplicationSecurityGroupIds() *pulumi.S
 	return (*pulumi.StringOutput)(r.s.State["destinationApplicationSecurityGroupIds"])
 }
 
-// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 func (r *NetworkSecurityRule) DestinationPortRange() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destinationPortRange"])
 }
 
-// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+// List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
 func (r *NetworkSecurityRule) DestinationPortRanges() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["destinationPortRanges"])
 }
@@ -194,12 +194,12 @@ func (r *NetworkSecurityRule) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
 func (r *NetworkSecurityRule) SourceAddressPrefix() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceAddressPrefix"])
 }
 
-// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 func (r *NetworkSecurityRule) SourceAddressPrefixes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sourceAddressPrefixes"])
 }
@@ -209,12 +209,12 @@ func (r *NetworkSecurityRule) SourceApplicationSecurityGroupIds() *pulumi.String
 	return (*pulumi.StringOutput)(r.s.State["sourceApplicationSecurityGroupIds"])
 }
 
-// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 func (r *NetworkSecurityRule) SourcePortRange() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourcePortRange"])
 }
 
-// List of source ports or port ranges. This is required if `source_port_range` is not specified.
+// List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
 func (r *NetworkSecurityRule) SourcePortRanges() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sourcePortRanges"])
 }
@@ -225,15 +225,15 @@ type NetworkSecurityRuleState struct {
 	Access interface{}
 	// A description for this rule. Restricted to 140 characters.
 	Description interface{}
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix interface{}
-	// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes interface{}
 	// A List of destination Application Security Group ID's
 	DestinationApplicationSecurityGroupIds interface{}
-	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange interface{}
-	// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+	// List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
 	DestinationPortRanges interface{}
 	// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
 	Direction interface{}
@@ -247,15 +247,15 @@ type NetworkSecurityRuleState struct {
 	Protocol interface{}
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix interface{}
-	// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes interface{}
 	// A List of source Application Security Group ID's
 	SourceApplicationSecurityGroupIds interface{}
-	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange interface{}
-	// List of source ports or port ranges. This is required if `source_port_range` is not specified.
+	// List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
 	SourcePortRanges interface{}
 }
 
@@ -265,15 +265,15 @@ type NetworkSecurityRuleArgs struct {
 	Access interface{}
 	// A description for this rule. Restricted to 140 characters.
 	Description interface{}
-	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+	// CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destinationAddressPrefixes` is not specified.
 	DestinationAddressPrefix interface{}
-	// List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+	// List of destination address prefixes. Tags may not be used. This is required if `destinationAddressPrefix` is not specified.
 	DestinationAddressPrefixes interface{}
 	// A List of destination Application Security Group ID's
 	DestinationApplicationSecurityGroupIds interface{}
-	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+	// Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destinationPortRanges` is not specified.
 	DestinationPortRange interface{}
-	// List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+	// List of destination ports or port ranges. This is required if `destinationPortRange` is not specified.
 	DestinationPortRanges interface{}
 	// The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
 	Direction interface{}
@@ -287,14 +287,14 @@ type NetworkSecurityRuleArgs struct {
 	Protocol interface{}
 	// The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+	// CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `sourceAddressPrefixes` is not specified.
 	SourceAddressPrefix interface{}
-	// List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+	// List of source address prefixes. Tags may not be used. This is required if `sourceAddressPrefix` is not specified.
 	SourceAddressPrefixes interface{}
 	// A List of source Application Security Group ID's
 	SourceApplicationSecurityGroupIds interface{}
-	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+	// Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `sourcePortRanges` is not specified.
 	SourcePortRange interface{}
-	// List of source ports or port ranges. This is required if `source_port_range` is not specified.
+	// List of source ports or port ranges. This is required if `sourcePortRange` is not specified.
 	SourcePortRanges interface{}
 }

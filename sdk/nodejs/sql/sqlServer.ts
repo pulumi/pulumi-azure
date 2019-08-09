@@ -67,7 +67,7 @@ export class SqlServer extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
-     * The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     public readonly administratorLoginPassword!: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface SqlServerState {
      */
     readonly administratorLogin?: pulumi.Input<string>;
     /**
-     * The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface SqlServerArgs {
      */
     readonly administratorLogin: pulumi.Input<string>;
     /**
-     * The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+     * The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
      */
     readonly administratorLoginPassword: pulumi.Input<string>;
     /**

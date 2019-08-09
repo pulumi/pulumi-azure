@@ -93,7 +93,7 @@ export interface GetSharedImageVersionResult {
      */
     readonly tags: {[key: string]: any};
     /**
-     * One or more `target_region` blocks as documented below.
+     * One or more `targetRegion` blocks as documented below.
      */
     readonly targetRegions: { name: string, regionalReplicaCount: number }[];
     /**

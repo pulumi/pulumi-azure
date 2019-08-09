@@ -112,11 +112,11 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      */
     public readonly roleDefinitionName!: pulumi.Output<string>;
     /**
@@ -179,11 +179,11 @@ export interface AssignmentState {
      */
     readonly principalId?: pulumi.Input<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      */
     readonly roleDefinitionName?: pulumi.Input<string>;
     /**
@@ -205,11 +205,11 @@ export interface AssignmentArgs {
      */
     readonly principalId: pulumi.Input<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      */
     readonly roleDefinitionName?: pulumi.Input<string>;
     /**

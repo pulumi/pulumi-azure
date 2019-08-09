@@ -41,7 +41,7 @@ class PolicySetDefinition(pulumi.CustomResource):
     """
     The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a policy set definition. 
         
@@ -66,46 +66,66 @@ class PolicySetDefinition(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['description'] = description
-
-        if display_name is None:
-            raise TypeError("Missing required property 'display_name'")
-        __props__['display_name'] = display_name
-
-        __props__['management_group_id'] = management_group_id
-
-        __props__['metadata'] = metadata
-
-        __props__['name'] = name
-
-        __props__['parameters'] = parameters
-
-        __props__['policy_definitions'] = policy_definitions
-
-        if policy_type is None:
-            raise TypeError("Missing required property 'policy_type'")
-        __props__['policy_type'] = policy_type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['description'] = description
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
+            __props__['management_group_id'] = management_group_id
+            __props__['metadata'] = metadata
+            __props__['name'] = name
+            __props__['parameters'] = parameters
+            __props__['policy_definitions'] = policy_definitions
+            if policy_type is None:
+                raise TypeError("Missing required property 'policy_type'")
+            __props__['policy_type'] = policy_type
         super(PolicySetDefinition, __self__).__init__(
             'azure:policy/policySetDefinition:PolicySetDefinition',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None):
+        """
+        Get an existing PolicySetDefinition resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the policy set definition.
+        :param pulumi.Input[str] display_name: The display name of the policy set definition.
+        :param pulumi.Input[str] management_group_id: The ID of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] metadata: The metadata for the policy set definition. This is a json object representing additional metadata that should be stored with the policy definition.
+        :param pulumi.Input[str] name: The name of the policy set definition. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a json object that allows you to parameterize your policy definition.
+        :param pulumi.Input[str] policy_definitions: The policy definitions for the policy set definition. This is a json object representing the bundled policy definitions .
+        :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn` or `Custom`. Changing this forces a new resource to be created.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_set_definition.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["description"] = description
+        __props__["display_name"] = display_name
+        __props__["management_group_id"] = management_group_id
+        __props__["metadata"] = metadata
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["policy_definitions"] = policy_definitions
+        __props__["policy_type"] = policy_type
+        return PolicySetDefinition(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

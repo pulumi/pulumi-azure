@@ -34,14 +34,16 @@ class GetDiagnosticCategoriesResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetDiagnosticCategoriesResult(GetDiagnosticCategoriesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetDiagnosticCategoriesResult(
+            logs=self.logs,
+            metrics=self.metrics,
+            resource_id=self.resource_id,
+            id=self.id)
 
 def get_diagnostic_categories(resource_id=None,opts=None):
     """
@@ -58,7 +60,7 @@ def get_diagnostic_categories(resource_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getDiagnosticCategories:getDiagnosticCategories', __args__, opts=opts).value
 
-    return GetDiagnosticCategoriesResult(
+    return AwaitableGetDiagnosticCategoriesResult(
         logs=__ret__.get('logs'),
         metrics=__ret__.get('metrics'),
         resource_id=__ret__.get('resourceId'),

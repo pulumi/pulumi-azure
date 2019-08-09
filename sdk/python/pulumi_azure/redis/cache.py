@@ -91,7 +91,7 @@ class Cache(pulumi.CustomResource):
     """
     A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
     """
-    def __init__(__self__, resource_name, opts=None, capacity=None, enable_non_ssl_port=None, family=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, shard_count=None, sku_name=None, subnet_id=None, tags=None, zones=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capacity=None, enable_non_ssl_port=None, family=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, shard_count=None, sku_name=None, subnet_id=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Redis Cache.
         
@@ -150,70 +150,108 @@ class Cache(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if capacity is None:
-            raise TypeError("Missing required property 'capacity'")
-        __props__['capacity'] = capacity
-
-        __props__['enable_non_ssl_port'] = enable_non_ssl_port
-
-        if family is None:
-            raise TypeError("Missing required property 'family'")
-        __props__['family'] = family
-
-        __props__['location'] = location
-
-        __props__['minimum_tls_version'] = minimum_tls_version
-
-        __props__['name'] = name
-
-        __props__['patch_schedules'] = patch_schedules
-
-        __props__['private_static_ip_address'] = private_static_ip_address
-
-        __props__['redis_configuration'] = redis_configuration
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['shard_count'] = shard_count
-
-        if sku_name is None:
-            raise TypeError("Missing required property 'sku_name'")
-        __props__['sku_name'] = sku_name
-
-        __props__['subnet_id'] = subnet_id
-
-        __props__['tags'] = tags
-
-        __props__['zones'] = zones
-
-        __props__['hostname'] = None
-        __props__['port'] = None
-        __props__['primary_access_key'] = None
-        __props__['secondary_access_key'] = None
-        __props__['ssl_port'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if capacity is None:
+                raise TypeError("Missing required property 'capacity'")
+            __props__['capacity'] = capacity
+            __props__['enable_non_ssl_port'] = enable_non_ssl_port
+            if family is None:
+                raise TypeError("Missing required property 'family'")
+            __props__['family'] = family
+            __props__['location'] = location
+            __props__['minimum_tls_version'] = minimum_tls_version
+            __props__['name'] = name
+            __props__['patch_schedules'] = patch_schedules
+            __props__['private_static_ip_address'] = private_static_ip_address
+            __props__['redis_configuration'] = redis_configuration
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['shard_count'] = shard_count
+            if sku_name is None:
+                raise TypeError("Missing required property 'sku_name'")
+            __props__['sku_name'] = sku_name
+            __props__['subnet_id'] = subnet_id
+            __props__['tags'] = tags
+            __props__['zones'] = zones
+            __props__['hostname'] = None
+            __props__['port'] = None
+            __props__['primary_access_key'] = None
+            __props__['secondary_access_key'] = None
+            __props__['ssl_port'] = None
         super(Cache, __self__).__init__(
             'azure:redis/cache:Cache',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, capacity=None, enable_non_ssl_port=None, family=None, hostname=None, location=None, minimum_tls_version=None, name=None, patch_schedules=None, port=None, primary_access_key=None, private_static_ip_address=None, redis_configuration=None, resource_group_name=None, secondary_access_key=None, shard_count=None, sku_name=None, ssl_port=None, subnet_id=None, tags=None, zones=None):
+        """
+        Get an existing Cache resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] capacity: The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
+        :param pulumi.Input[bool] enable_non_ssl_port: Enable the non-SSL port (6789) - disabled by default.
+        :param pulumi.Input[str] family: The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
+        :param pulumi.Input[str] hostname: The Hostname of the Redis Instance
+        :param pulumi.Input[str] location: The location of the resource group.
+        :param pulumi.Input[str] minimum_tls_version: The minimum TLS version.  Defaults to `1.0`.
+        :param pulumi.Input[str] name: The name of the Redis instance. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[list] patch_schedules: A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+        :param pulumi.Input[float] port: The non-SSL Port of the Redis Instance
+        :param pulumi.Input[str] primary_access_key: The Primary Access Key for the Redis Instance
+        :param pulumi.Input[str] private_static_ip_address: The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] redis_configuration: A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the Redis instance.
+        :param pulumi.Input[str] secondary_access_key: The Secondary Access Key for the Redis Instance
+        :param pulumi.Input[float] shard_count: *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster.
+        :param pulumi.Input[str] sku_name: The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`.
+        :param pulumi.Input[float] ssl_port: The SSL Port of the Redis Instance
+        :param pulumi.Input[str] subnet_id: The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["capacity"] = capacity
+        __props__["enable_non_ssl_port"] = enable_non_ssl_port
+        __props__["family"] = family
+        __props__["hostname"] = hostname
+        __props__["location"] = location
+        __props__["minimum_tls_version"] = minimum_tls_version
+        __props__["name"] = name
+        __props__["patch_schedules"] = patch_schedules
+        __props__["port"] = port
+        __props__["primary_access_key"] = primary_access_key
+        __props__["private_static_ip_address"] = private_static_ip_address
+        __props__["redis_configuration"] = redis_configuration
+        __props__["resource_group_name"] = resource_group_name
+        __props__["secondary_access_key"] = secondary_access_key
+        __props__["shard_count"] = shard_count
+        __props__["sku_name"] = sku_name
+        __props__["ssl_port"] = ssl_port
+        __props__["subnet_id"] = subnet_id
+        __props__["tags"] = tags
+        __props__["zones"] = zones
+        return Cache(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

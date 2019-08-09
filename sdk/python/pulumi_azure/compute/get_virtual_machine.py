@@ -25,14 +25,15 @@ class GetVirtualMachineResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVirtualMachineResult(
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            id=self.id)
 
 def get_virtual_machine(name=None,resource_group_name=None,opts=None):
     """
@@ -50,7 +51,7 @@ def get_virtual_machine(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getVirtualMachine:getVirtualMachine', __args__, opts=opts).value
 
-    return GetVirtualMachineResult(
+    return AwaitableGetVirtualMachineResult(
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         id=__ret__.get('id'))

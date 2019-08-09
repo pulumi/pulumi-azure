@@ -52,14 +52,20 @@ class GetCertificateResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetCertificateResult(
+            account_name=self.account_name,
+            format=self.format,
+            name=self.name,
+            public_data=self.public_data,
+            resource_group_name=self.resource_group_name,
+            thumbprint=self.thumbprint,
+            thumbprint_algorithm=self.thumbprint_algorithm,
+            id=self.id)
 
 def get_certificate(account_name=None,name=None,resource_group_name=None,opts=None):
     """
@@ -78,7 +84,7 @@ def get_certificate(account_name=None,name=None,resource_group_name=None,opts=No
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:batch/getCertificate:getCertificate', __args__, opts=opts).value
 
-    return GetCertificateResult(
+    return AwaitableGetCertificateResult(
         account_name=__ret__.get('accountName'),
         format=__ret__.get('format'),
         name=__ret__.get('name'),

@@ -58,7 +58,7 @@ export interface GetFirewallArgs {
  */
 export interface GetFirewallResult {
     /**
-     * A `ip_configuration` block as defined below.
+     * A `ipConfiguration` block as defined below.
      */
     readonly ipConfiguration: { internalPublicIpAddressId: string, name: string, privateIpAddress: string, publicIpAddressId: string, subnetId: string };
     readonly location: string;

@@ -97,14 +97,28 @@ class GetApiResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetApiResult(GetApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetApiResult(
+            api_management_name=self.api_management_name,
+            description=self.description,
+            display_name=self.display_name,
+            is_current=self.is_current,
+            is_online=self.is_online,
+            name=self.name,
+            path=self.path,
+            protocols=self.protocols,
+            resource_group_name=self.resource_group_name,
+            revision=self.revision,
+            service_url=self.service_url,
+            soap_pass_through=self.soap_pass_through,
+            subscription_key_parameter_names=self.subscription_key_parameter_names,
+            version=self.version,
+            version_set_id=self.version_set_id,
+            id=self.id)
 
 def get_api(api_management_name=None,name=None,resource_group_name=None,revision=None,opts=None):
     """
@@ -124,7 +138,7 @@ def get_api(api_management_name=None,name=None,resource_group_name=None,revision
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getApi:getApi', __args__, opts=opts).value
 
-    return GetApiResult(
+    return AwaitableGetApiResult(
         api_management_name=__ret__.get('apiManagementName'),
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),

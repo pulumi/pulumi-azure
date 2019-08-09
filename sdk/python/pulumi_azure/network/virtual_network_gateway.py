@@ -81,7 +81,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     The routing type of the Virtual Network Gateway. Valid
     options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
     """
-    def __init__(__self__, resource_name, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.
         
@@ -133,60 +133,107 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['active_active'] = active_active
-
-        __props__['bgp_settings'] = bgp_settings
-
-        __props__['default_local_network_gateway_id'] = default_local_network_gateway_id
-
-        __props__['enable_bgp'] = enable_bgp
-
-        if ip_configurations is None:
-            raise TypeError("Missing required property 'ip_configurations'")
-        __props__['ip_configurations'] = ip_configurations
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        if sku is None:
-            raise TypeError("Missing required property 'sku'")
-        __props__['sku'] = sku
-
-        __props__['tags'] = tags
-
-        if type is None:
-            raise TypeError("Missing required property 'type'")
-        __props__['type'] = type
-
-        __props__['vpn_client_configuration'] = vpn_client_configuration
-
-        __props__['vpn_type'] = vpn_type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['active_active'] = active_active
+            __props__['bgp_settings'] = bgp_settings
+            __props__['default_local_network_gateway_id'] = default_local_network_gateway_id
+            __props__['enable_bgp'] = enable_bgp
+            if ip_configurations is None:
+                raise TypeError("Missing required property 'ip_configurations'")
+            __props__['ip_configurations'] = ip_configurations
+            __props__['location'] = location
+            __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            if sku is None:
+                raise TypeError("Missing required property 'sku'")
+            __props__['sku'] = sku
+            __props__['tags'] = tags
+            if type is None:
+                raise TypeError("Missing required property 'type'")
+            __props__['type'] = type
+            __props__['vpn_client_configuration'] = vpn_client_configuration
+            __props__['vpn_type'] = vpn_type
         super(VirtualNetworkGateway, __self__).__init__(
             'azure:network/virtualNetworkGateway:VirtualNetworkGateway',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, active_active=None, bgp_settings=None, default_local_network_gateway_id=None, enable_bgp=None, ip_configurations=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None):
+        """
+        Get an existing VirtualNetworkGateway resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active_active: If `true`, an active-active Virtual Network Gateway
+               will be created. An active-active gateway requires a `HighPerformance` or an
+               `UltraPerformance` sku. If `false`, an active-standby gateway will be created.
+               Defaults to `false`.
+        :param pulumi.Input[str] default_local_network_gateway_id: The ID of the local network gateway
+               through which outbound Internet traffic from the virtual network in which the
+               gateway is created will be routed (*forced tunneling*). Refer to the
+               [Azure documentation on forced tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
+               If not specified, forced tunneling is disabled.
+        :param pulumi.Input[bool] enable_bgp: If `true`, BGP (Border Gateway Protocol) will be enabled
+               for this Virtual Network Gateway. Defaults to `false`.
+        :param pulumi.Input[list] ip_configurations: One or two `ip_configuration` blocks documented below.
+               An active-standby gateway requires exactly one `ip_configuration` block whereas
+               an active-active gateway requires exactly two `ip_configuration` blocks.
+        :param pulumi.Input[str] location: The location/region where the Virtual Network Gateway is
+               located. Changing the location/region forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Virtual Network Gateway. Changing the name
+               forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the Virtual Network Gateway. Changing the resource group name forces
+               a new resource to be created.
+        :param pulumi.Input[str] sku: Configuration of the size and capacity of the virtual network
+               gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`,
+               `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw1AZ`, `VpnGw2AZ`, and `VpnGw3AZ`
+               and depend on the `type` and `vpn_type` arguments.
+               A `PolicyBased` gateway only supports the `Basic` sku. Further, the `UltraPerformance`
+               sku is only supported by an `ExpressRoute` gateway.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] type: The type of the Virtual Network Gateway. Valid options are
+               `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created.
+        :param pulumi.Input[dict] vpn_client_configuration: A `vpn_client_configuration` block which
+               is documented below. In this block the Virtual Network Gateway can be configured
+               to accept IPSec point-to-site connections.
+        :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
+               options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["active_active"] = active_active
+        __props__["bgp_settings"] = bgp_settings
+        __props__["default_local_network_gateway_id"] = default_local_network_gateway_id
+        __props__["enable_bgp"] = enable_bgp
+        __props__["ip_configurations"] = ip_configurations
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["resource_group_name"] = resource_group_name
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        __props__["type"] = type
+        __props__["vpn_client_configuration"] = vpn_client_configuration
+        __props__["vpn_type"] = vpn_type
+        return VirtualNetworkGateway(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

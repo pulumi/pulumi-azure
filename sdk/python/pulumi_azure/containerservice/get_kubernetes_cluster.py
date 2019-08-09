@@ -124,14 +124,31 @@ class GetKubernetesClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetKubernetesClusterResult(
+            addon_profiles=self.addon_profiles,
+            agent_pool_profiles=self.agent_pool_profiles,
+            dns_prefix=self.dns_prefix,
+            fqdn=self.fqdn,
+            kube_admin_configs=self.kube_admin_configs,
+            kube_admin_config_raw=self.kube_admin_config_raw,
+            kube_configs=self.kube_configs,
+            kube_config_raw=self.kube_config_raw,
+            kubernetes_version=self.kubernetes_version,
+            linux_profiles=self.linux_profiles,
+            location=self.location,
+            name=self.name,
+            network_profiles=self.network_profiles,
+            node_resource_group=self.node_resource_group,
+            resource_group_name=self.resource_group_name,
+            role_based_access_controls=self.role_based_access_controls,
+            service_principals=self.service_principals,
+            tags=self.tags,
+            id=self.id)
 
 def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
     """
@@ -152,7 +169,7 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesCluster:getKubernetesCluster', __args__, opts=opts).value
 
-    return GetKubernetesClusterResult(
+    return AwaitableGetKubernetesClusterResult(
         addon_profiles=__ret__.get('addonProfiles'),
         agent_pool_profiles=__ret__.get('agentPoolProfiles'),
         dns_prefix=__ret__.get('dnsPrefix'),

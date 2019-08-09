@@ -132,22 +132,22 @@ func (r *Cluster) AddOnFeatures() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["addOnFeatures"])
 }
 
-// An `azure_active_directory` block as defined below.
+// An `azureActiveDirectory` block as defined below.
 func (r *Cluster) AzureActiveDirectory() *pulumi.Output {
 	return r.s.State["azureActiveDirectory"]
 }
 
-// A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+// A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
 func (r *Cluster) Certificate() *pulumi.Output {
 	return r.s.State["certificate"]
 }
 
-// A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
 func (r *Cluster) CertificateCommonNames() *pulumi.Output {
 	return r.s.State["certificateCommonNames"]
 }
 
-// One or two `client_certificate_thumbprint` blocks as defined below.
+// One or two `clientCertificateThumbprint` blocks as defined below.
 func (r *Cluster) ClientCertificateThumbprints() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["clientCertificateThumbprints"])
 }
@@ -162,12 +162,12 @@ func (r *Cluster) ClusterEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterEndpoint"])
 }
 
-// A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
 func (r *Cluster) DiagnosticsConfig() *pulumi.Output {
 	return r.s.State["diagnosticsConfig"]
 }
 
-// One or more `fabric_settings` blocks as defined below.
+// One or more `fabricSettings` blocks as defined below.
 func (r *Cluster) FabricSettings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["fabricSettings"])
 }
@@ -187,7 +187,7 @@ func (r *Cluster) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// One or more `node_type` blocks as defined below.
+// One or more `nodeType` blocks as defined below.
 func (r *Cluster) NodeTypes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["nodeTypes"])
 }
@@ -202,7 +202,7 @@ func (r *Cluster) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `reverse_proxy_certificate` block as defined below.
+// A `reverseProxyCertificate` block as defined below.
 func (r *Cluster) ReverseProxyCertificate() *pulumi.Output {
 	return r.s.State["reverseProxyCertificate"]
 }
@@ -226,21 +226,21 @@ func (r *Cluster) VmImage() *pulumi.StringOutput {
 type ClusterState struct {
 	// A List of one or more features which should be enabled, such as `DnsService`.
 	AddOnFeatures interface{}
-	// An `azure_active_directory` block as defined below.
+	// An `azureActiveDirectory` block as defined below.
 	AzureActiveDirectory interface{}
-	// A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+	// A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
 	Certificate interface{}
-	// A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
 	CertificateCommonNames interface{}
-	// One or two `client_certificate_thumbprint` blocks as defined below.
+	// One or two `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints interface{}
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion interface{}
 	// The Cluster Endpoint for this Service Fabric Cluster.
 	ClusterEndpoint interface{}
-	// A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
 	DiagnosticsConfig interface{}
-	// One or more `fabric_settings` blocks as defined below.
+	// One or more `fabricSettings` blocks as defined below.
 	FabricSettings interface{}
 	// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
 	Location interface{}
@@ -248,13 +248,13 @@ type ClusterState struct {
 	ManagementEndpoint interface{}
 	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
 	Name interface{}
-	// One or more `node_type` blocks as defined below.
+	// One or more `nodeType` blocks as defined below.
 	NodeTypes interface{}
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 	ReliabilityLevel interface{}
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `reverse_proxy_certificate` block as defined below.
+	// A `reverseProxyCertificate` block as defined below.
 	ReverseProxyCertificate interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -268,19 +268,19 @@ type ClusterState struct {
 type ClusterArgs struct {
 	// A List of one or more features which should be enabled, such as `DnsService`.
 	AddOnFeatures interface{}
-	// An `azure_active_directory` block as defined below.
+	// An `azureActiveDirectory` block as defined below.
 	AzureActiveDirectory interface{}
-	// A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+	// A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
 	Certificate interface{}
-	// A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+	// A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
 	CertificateCommonNames interface{}
-	// One or two `client_certificate_thumbprint` blocks as defined below.
+	// One or two `clientCertificateThumbprint` blocks as defined below.
 	ClientCertificateThumbprints interface{}
 	// Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
 	ClusterCodeVersion interface{}
-	// A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+	// A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
 	DiagnosticsConfig interface{}
-	// One or more `fabric_settings` blocks as defined below.
+	// One or more `fabricSettings` blocks as defined below.
 	FabricSettings interface{}
 	// Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
 	Location interface{}
@@ -288,13 +288,13 @@ type ClusterArgs struct {
 	ManagementEndpoint interface{}
 	// The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
 	Name interface{}
-	// One or more `node_type` blocks as defined below.
+	// One or more `nodeType` blocks as defined below.
 	NodeTypes interface{}
 	// Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
 	ReliabilityLevel interface{}
 	// The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `reverse_proxy_certificate` block as defined below.
+	// A `reverseProxyCertificate` block as defined below.
 	ReverseProxyCertificate interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

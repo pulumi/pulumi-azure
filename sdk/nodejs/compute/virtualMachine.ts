@@ -39,7 +39,7 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly availabilitySetId!: pulumi.Output<string>;
     /**
-     * A `boot_diagnostics` block.
+     * A `bootDiagnostics` block.
      */
     public readonly bootDiagnostics!: pulumi.Output<{ enabled: boolean, storageUri: string } | undefined>;
     /**
@@ -71,19 +71,19 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
-     * An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+     * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
     public readonly osProfile!: pulumi.Output<{ adminPassword?: string, adminUsername: string, computerName: string, customData: string } | undefined>;
     /**
-     * A `os_profile_linux_config` block.
+     * A `osProfileLinuxConfig` block.
      */
     public readonly osProfileLinuxConfig!: pulumi.Output<{ disablePasswordAuthentication: boolean, sshKeys?: { keyData: string, path: string }[] } | undefined>;
     /**
-     * One or more `os_profile_secrets` blocks.
+     * One or more `osProfileSecrets` blocks.
      */
     public readonly osProfileSecrets!: pulumi.Output<{ sourceVaultId: string, vaultCertificates?: { certificateStore?: string, certificateUrl: string }[] }[] | undefined>;
     /**
-     * A `os_profile_windows_config` block.
+     * A `osProfileWindowsConfig` block.
      */
     public readonly osProfileWindowsConfig!: pulumi.Output<{ additionalUnattendConfigs?: { component: string, content: string, pass: string, settingName: string }[], enableAutomaticUpgrades?: boolean, provisionVmAgent?: boolean, timezone?: string, winrms?: { certificateUrl?: string, protocol: string }[] } | undefined>;
     /**
@@ -99,15 +99,15 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * One or more `storage_data_disk` blocks.
+     * One or more `storageDataDisk` blocks.
      */
     public readonly storageDataDisks!: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, lun: number, managedDiskId: string, managedDiskType: string, name: string, vhdUri?: string, writeAcceleratorEnabled?: boolean }[]>;
     /**
-     * A `storage_image_reference` block.
+     * A `storageImageReference` block.
      */
     public readonly storageImageReference!: pulumi.Output<{ id?: string, offer?: string, publisher?: string, sku?: string, version: string }>;
     /**
-     * A `storage_os_disk` block.
+     * A `storageOsDisk` block.
      */
     public readonly storageOsDisk!: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, imageUri?: string, managedDiskId: string, managedDiskType: string, name: string, osType: string, vhdUri?: string, writeAcceleratorEnabled?: boolean }>;
     /**
@@ -214,7 +214,7 @@ export interface VirtualMachineState {
      */
     readonly availabilitySetId?: pulumi.Input<string>;
     /**
-     * A `boot_diagnostics` block.
+     * A `bootDiagnostics` block.
      */
     readonly bootDiagnostics?: pulumi.Input<{ enabled: pulumi.Input<boolean>, storageUri: pulumi.Input<string> }>;
     /**
@@ -246,19 +246,19 @@ export interface VirtualMachineState {
      */
     readonly networkInterfaceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+     * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
     readonly osProfile?: pulumi.Input<{ adminPassword?: pulumi.Input<string>, adminUsername: pulumi.Input<string>, computerName: pulumi.Input<string>, customData?: pulumi.Input<string> }>;
     /**
-     * A `os_profile_linux_config` block.
+     * A `osProfileLinuxConfig` block.
      */
     readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication: pulumi.Input<boolean>, sshKeys?: pulumi.Input<pulumi.Input<{ keyData: pulumi.Input<string>, path: pulumi.Input<string> }>[]> }>;
     /**
-     * One or more `os_profile_secrets` blocks.
+     * One or more `osProfileSecrets` blocks.
      */
     readonly osProfileSecrets?: pulumi.Input<pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }>[]> }>[]>;
     /**
-     * A `os_profile_windows_config` block.
+     * A `osProfileWindowsConfig` block.
      */
     readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }>[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, timezone?: pulumi.Input<string>, winrms?: pulumi.Input<pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }>[]> }>;
     /**
@@ -274,15 +274,15 @@ export interface VirtualMachineState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * One or more `storage_data_disk` blocks.
+     * One or more `storageDataDisk` blocks.
      */
     readonly storageDataDisks?: pulumi.Input<pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, vhdUri?: pulumi.Input<string>, writeAcceleratorEnabled?: pulumi.Input<boolean> }>[]>;
     /**
-     * A `storage_image_reference` block.
+     * A `storageImageReference` block.
      */
     readonly storageImageReference?: pulumi.Input<{ id?: pulumi.Input<string>, offer?: pulumi.Input<string>, publisher?: pulumi.Input<string>, sku?: pulumi.Input<string>, version?: pulumi.Input<string> }>;
     /**
-     * A `storage_os_disk` block.
+     * A `storageOsDisk` block.
      */
     readonly storageOsDisk?: pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, imageUri?: pulumi.Input<string>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, osType?: pulumi.Input<string>, vhdUri?: pulumi.Input<string>, writeAcceleratorEnabled?: pulumi.Input<boolean> }>;
     /**
@@ -308,7 +308,7 @@ export interface VirtualMachineArgs {
      */
     readonly availabilitySetId?: pulumi.Input<string>;
     /**
-     * A `boot_diagnostics` block.
+     * A `bootDiagnostics` block.
      */
     readonly bootDiagnostics?: pulumi.Input<{ enabled: pulumi.Input<boolean>, storageUri: pulumi.Input<string> }>;
     /**
@@ -340,19 +340,19 @@ export interface VirtualMachineArgs {
      */
     readonly networkInterfaceIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+     * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
     readonly osProfile?: pulumi.Input<{ adminPassword?: pulumi.Input<string>, adminUsername: pulumi.Input<string>, computerName: pulumi.Input<string>, customData?: pulumi.Input<string> }>;
     /**
-     * A `os_profile_linux_config` block.
+     * A `osProfileLinuxConfig` block.
      */
     readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication: pulumi.Input<boolean>, sshKeys?: pulumi.Input<pulumi.Input<{ keyData: pulumi.Input<string>, path: pulumi.Input<string> }>[]> }>;
     /**
-     * One or more `os_profile_secrets` blocks.
+     * One or more `osProfileSecrets` blocks.
      */
     readonly osProfileSecrets?: pulumi.Input<pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }>[]> }>[]>;
     /**
-     * A `os_profile_windows_config` block.
+     * A `osProfileWindowsConfig` block.
      */
     readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }>[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, timezone?: pulumi.Input<string>, winrms?: pulumi.Input<pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }>[]> }>;
     /**
@@ -368,15 +368,15 @@ export interface VirtualMachineArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * One or more `storage_data_disk` blocks.
+     * One or more `storageDataDisk` blocks.
      */
     readonly storageDataDisks?: pulumi.Input<pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, vhdUri?: pulumi.Input<string>, writeAcceleratorEnabled?: pulumi.Input<boolean> }>[]>;
     /**
-     * A `storage_image_reference` block.
+     * A `storageImageReference` block.
      */
     readonly storageImageReference?: pulumi.Input<{ id?: pulumi.Input<string>, offer?: pulumi.Input<string>, publisher?: pulumi.Input<string>, sku?: pulumi.Input<string>, version?: pulumi.Input<string> }>;
     /**
-     * A `storage_os_disk` block.
+     * A `storageOsDisk` block.
      */
     readonly storageOsDisk: pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, imageUri?: pulumi.Input<string>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, osType?: pulumi.Input<string>, vhdUri?: pulumi.Input<string>, writeAcceleratorEnabled?: pulumi.Input<boolean> }>;
     /**

@@ -37,14 +37,18 @@ class GetPublicIPsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPublicIPsResult(GetPublicIPsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPublicIPsResult(
+            allocation_type=self.allocation_type,
+            attached=self.attached,
+            name_prefix=self.name_prefix,
+            public_ips=self.public_ips,
+            resource_group_name=self.resource_group_name,
+            id=self.id)
 
 def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource_group_name=None,opts=None):
     """
@@ -64,7 +68,7 @@ def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts).value
 
-    return GetPublicIPsResult(
+    return AwaitableGetPublicIPsResult(
         allocation_type=__ret__.get('allocationType'),
         attached=__ret__.get('attached'),
         name_prefix=__ret__.get('namePrefix'),

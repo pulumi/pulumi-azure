@@ -49,7 +49,7 @@ type GetPublicIPsResult struct {
 	AllocationType interface{}
 	Attached interface{}
 	NamePrefix interface{}
-	// A List of `public_ips` blocks as defined below filtered by the criteria above.
+	// A List of `publicIps` blocks as defined below filtered by the criteria above.
 	PublicIps interface{}
 	ResourceGroupName interface{}
 	// id is the provider-assigned unique ID for this managed resource.

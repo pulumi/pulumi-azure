@@ -86,7 +86,7 @@ func (r *Account) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// One or more `storage_account` blocks as defined below.
+// One or more `storageAccount` blocks as defined below.
 func (r *Account) StorageAccounts() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
@@ -99,7 +99,7 @@ type AccountState struct {
 	Name interface{}
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// One or more `storage_account` blocks as defined below.
+	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts interface{}
 }
 
@@ -111,6 +111,6 @@ type AccountArgs struct {
 	Name interface{}
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// One or more `storage_account` blocks as defined below.
+	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts interface{}
 }

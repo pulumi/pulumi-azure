@@ -73,7 +73,7 @@ export class ActionGroup extends pulumi.CustomResource {
     }
 
     /**
-     * One or more `email_receiver` blocks as defined below.
+     * One or more `emailReceiver` blocks as defined below.
      */
     public readonly emailReceivers!: pulumi.Output<{ emailAddress: string, name: string }[] | undefined>;
     /**
@@ -93,7 +93,7 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     public readonly shortName!: pulumi.Output<string>;
     /**
-     * One or more `sms_receiver ` blocks as defined below.
+     * One or more `smsReceiver ` blocks as defined below.
      */
     public readonly smsReceivers!: pulumi.Output<{ countryCode: string, name: string, phoneNumber: string }[] | undefined>;
     /**
@@ -101,7 +101,7 @@ export class ActionGroup extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * One or more `webhook_receiver ` blocks as defined below.
+     * One or more `webhookReceiver ` blocks as defined below.
      */
     public readonly webhookReceivers!: pulumi.Output<{ name: string, serviceUri: string }[] | undefined>;
 
@@ -158,7 +158,7 @@ export class ActionGroup extends pulumi.CustomResource {
  */
 export interface ActionGroupState {
     /**
-     * One or more `email_receiver` blocks as defined below.
+     * One or more `emailReceiver` blocks as defined below.
      */
     readonly emailReceivers?: pulumi.Input<pulumi.Input<{ emailAddress: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
@@ -178,7 +178,7 @@ export interface ActionGroupState {
      */
     readonly shortName?: pulumi.Input<string>;
     /**
-     * One or more `sms_receiver ` blocks as defined below.
+     * One or more `smsReceiver ` blocks as defined below.
      */
     readonly smsReceivers?: pulumi.Input<pulumi.Input<{ countryCode: pulumi.Input<string>, name: pulumi.Input<string>, phoneNumber: pulumi.Input<string> }>[]>;
     /**
@@ -186,7 +186,7 @@ export interface ActionGroupState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * One or more `webhook_receiver ` blocks as defined below.
+     * One or more `webhookReceiver ` blocks as defined below.
      */
     readonly webhookReceivers?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, serviceUri: pulumi.Input<string> }>[]>;
 }
@@ -196,7 +196,7 @@ export interface ActionGroupState {
  */
 export interface ActionGroupArgs {
     /**
-     * One or more `email_receiver` blocks as defined below.
+     * One or more `emailReceiver` blocks as defined below.
      */
     readonly emailReceivers?: pulumi.Input<pulumi.Input<{ emailAddress: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
@@ -216,7 +216,7 @@ export interface ActionGroupArgs {
      */
     readonly shortName: pulumi.Input<string>;
     /**
-     * One or more `sms_receiver ` blocks as defined below.
+     * One or more `smsReceiver ` blocks as defined below.
      */
     readonly smsReceivers?: pulumi.Input<pulumi.Input<{ countryCode: pulumi.Input<string>, name: pulumi.Input<string>, phoneNumber: pulumi.Input<string> }>[]>;
     /**
@@ -224,7 +224,7 @@ export interface ActionGroupArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * One or more `webhook_receiver ` blocks as defined below.
+     * One or more `webhookReceiver ` blocks as defined below.
      */
     readonly webhookReceivers?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, serviceUri: pulumi.Input<string> }>[]>;
 }

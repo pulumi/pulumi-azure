@@ -76,7 +76,7 @@ type GetApiResult struct {
 	ServiceUrl interface{}
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend?
 	SoapPassThrough interface{}
-	// A `subscription_key_parameter_names` block as documented below.
+	// A `subscriptionKeyParameterNames` block as documented below.
 	SubscriptionKeyParameterNames interface{}
 	// The Version number of this API, if this API is versioned.
 	Version interface{}

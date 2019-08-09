@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * const jobs = new azure.scheduler.JobCollection("jobs", {
  *     location: rg.location,
- *     name: "example_job_collection",
+ *     name: "exampleJobCollection",
  *     quota: {
  *         maxJobCount: 5,
  *         maxRecurrenceFrequency: "hour",

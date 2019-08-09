@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleNamespace = new azure.eventhub.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfex_sevicebus_namespace",
+ *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -28,20 +28,20 @@ import * as utilities from "../utilities";
  * });
  * const exampleTopic = new azure.eventhub.Topic("example", {
  *     enablePartitioning: true,
- *     name: "tfex_sevicebus_topic",
+ *     name: "tfexSevicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubscription = new azure.eventhub.Subscription("example", {
  *     maxDeliveryCount: 1,
- *     name: "tfex_sevicebus_subscription",
+ *     name: "tfexSevicebusSubscription",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     topicName: exampleTopic.name,
  * });
  * const exampleSubscriptionRule = new azure.eventhub.SubscriptionRule("example", {
  *     filterType: "SqlFilter",
- *     name: "tfex_sevicebus_rule",
+ *     name: "tfexSevicebusRule",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sqlFilter: "color = 'red'",
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleNamespace = new azure.eventhub.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfex_sevicebus_namespace",
+ *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -71,13 +71,13 @@ import * as utilities from "../utilities";
  * });
  * const exampleTopic = new azure.eventhub.Topic("example", {
  *     enablePartitioning: true,
- *     name: "tfex_sevicebus_topic",
+ *     name: "tfexSevicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleSubscription = new azure.eventhub.Subscription("example", {
  *     maxDeliveryCount: 1,
- *     name: "tfex_sevicebus_subscription",
+ *     name: "tfexSevicebusSubscription",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     topicName: exampleTopic.name,
@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *         label: "red",
  *     },
  *     filterType: "CorrelationFilter",
- *     name: "tfex_sevicebus_rule",
+ *     name: "tfexSevicebusRule",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     subscriptionName: exampleSubscription.name,
@@ -130,7 +130,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
      */
     public readonly action!: pulumi.Output<string | undefined>;
     /**
-     * A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
     public readonly correlationFilter!: pulumi.Output<{ contentType?: string, correlationId?: string, label?: string, messageId?: string, replyTo?: string, replyToSessionId?: string, sessionId?: string, to?: string } | undefined>;
     /**
@@ -150,7 +150,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     public readonly sqlFilter!: pulumi.Output<string | undefined>;
     /**
@@ -230,7 +230,7 @@ export interface SubscriptionRuleState {
      */
     readonly action?: pulumi.Input<string>;
     /**
-     * A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
     readonly correlationFilter?: pulumi.Input<{ contentType?: pulumi.Input<string>, correlationId?: pulumi.Input<string>, label?: pulumi.Input<string>, messageId?: pulumi.Input<string>, replyTo?: pulumi.Input<string>, replyToSessionId?: pulumi.Input<string>, sessionId?: pulumi.Input<string>, to?: pulumi.Input<string> }>;
     /**
@@ -250,7 +250,7 @@ export interface SubscriptionRuleState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     readonly sqlFilter?: pulumi.Input<string>;
     /**
@@ -272,7 +272,7 @@ export interface SubscriptionRuleArgs {
      */
     readonly action?: pulumi.Input<string>;
     /**
-     * A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+     * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
     readonly correlationFilter?: pulumi.Input<{ contentType?: pulumi.Input<string>, correlationId?: pulumi.Input<string>, label?: pulumi.Input<string>, messageId?: pulumi.Input<string>, replyTo?: pulumi.Input<string>, replyToSessionId?: pulumi.Input<string>, sessionId?: pulumi.Input<string>, to?: pulumi.Input<string> }>;
     /**
@@ -292,7 +292,7 @@ export interface SubscriptionRuleArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+     * Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
      */
     readonly sqlFilter?: pulumi.Input<string>;
     /**

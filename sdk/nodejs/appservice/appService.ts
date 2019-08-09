@@ -43,7 +43,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: any}>;
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      */
     public readonly authSettings!: pulumi.Output<{ activeDirectory?: { allowedAudiences?: string[], clientId: string, clientSecret?: string }, additionalLoginParams?: {[key: string]: any}, allowedExternalRedirectUrls?: string[], defaultProvider?: string, enabled: boolean, facebook?: { appId: string, appSecret: string, oauthScopes?: string[] }, google?: { clientId: string, clientSecret: string, oauthScopes?: string[] }, issuer?: string, microsoft?: { clientId: string, clientSecret: string, oauthScopes?: string[] }, runtimeVersion?: string, tokenRefreshExtensionHours?: number, tokenStoreEnabled?: boolean, twitter?: { consumerKey: string, consumerSecret: string }, unauthenticatedClientAction?: string }>;
     /**
@@ -55,7 +55,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly clientCertEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      */
     public readonly connectionStrings!: pulumi.Output<{ name: string, type: string, value: string }[]>;
     /**
@@ -91,7 +91,7 @@ export class AppService extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
@@ -99,15 +99,15 @@ export class AppService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      */
     public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean, windowsFxVersion: string }>;
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
     public /*out*/ readonly siteCredential!: pulumi.Output<{ password: string, username: string }>;
     /**
-     * A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+     * A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
      */
     public /*out*/ readonly sourceControl!: pulumi.Output<{ branch: string, repoUrl: string }>;
     /**
@@ -200,7 +200,7 @@ export interface AppServiceState {
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      */
     readonly authSettings?: pulumi.Input<{ activeDirectory?: pulumi.Input<{ allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>, clientId: pulumi.Input<string>, clientSecret?: pulumi.Input<string> }>, additionalLoginParams?: pulumi.Input<{[key: string]: any}>, allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>, defaultProvider?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, facebook?: pulumi.Input<{ appId: pulumi.Input<string>, appSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, google?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, issuer?: pulumi.Input<string>, microsoft?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, runtimeVersion?: pulumi.Input<string>, tokenRefreshExtensionHours?: pulumi.Input<number>, tokenStoreEnabled?: pulumi.Input<boolean>, twitter?: pulumi.Input<{ consumerKey: pulumi.Input<string>, consumerSecret: pulumi.Input<string> }>, unauthenticatedClientAction?: pulumi.Input<string> }>;
     /**
@@ -212,7 +212,7 @@ export interface AppServiceState {
      */
     readonly clientCertEnabled?: pulumi.Input<boolean>;
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
@@ -248,7 +248,7 @@ export interface AppServiceState {
      */
     readonly outboundIpAddresses?: pulumi.Input<string>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     readonly possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
@@ -256,15 +256,15 @@ export interface AppServiceState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      */
     readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean>, windowsFxVersion?: pulumi.Input<string> }>;
     /**
-     * A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+     * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
     readonly siteCredential?: pulumi.Input<{ password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
     /**
-     * A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+     * A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
      */
     readonly sourceControl?: pulumi.Input<{ branch?: pulumi.Input<string>, repoUrl?: pulumi.Input<string> }>;
     /**
@@ -286,7 +286,7 @@ export interface AppServiceArgs {
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
     /**
-     * A `auth_settings` block as defined below.
+     * A `authSettings` block as defined below.
      */
     readonly authSettings?: pulumi.Input<{ activeDirectory?: pulumi.Input<{ allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>, clientId: pulumi.Input<string>, clientSecret?: pulumi.Input<string> }>, additionalLoginParams?: pulumi.Input<{[key: string]: any}>, allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>, defaultProvider?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, facebook?: pulumi.Input<{ appId: pulumi.Input<string>, appSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, google?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, issuer?: pulumi.Input<string>, microsoft?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, runtimeVersion?: pulumi.Input<string>, tokenRefreshExtensionHours?: pulumi.Input<number>, tokenStoreEnabled?: pulumi.Input<boolean>, twitter?: pulumi.Input<{ consumerKey: pulumi.Input<string>, consumerSecret: pulumi.Input<string> }>, unauthenticatedClientAction?: pulumi.Input<string> }>;
     /**
@@ -298,7 +298,7 @@ export interface AppServiceArgs {
      */
     readonly clientCertEnabled?: pulumi.Input<boolean>;
     /**
-     * One or more `connection_string` blocks as defined below.
+     * One or more `connectionString` blocks as defined below.
      */
     readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
     /**
@@ -330,7 +330,7 @@ export interface AppServiceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `site_config` block as defined below.
+     * A `siteConfig` block as defined below.
      */
     readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean>, windowsFxVersion?: pulumi.Input<string> }>;
     /**

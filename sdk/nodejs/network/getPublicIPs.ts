@@ -69,7 +69,7 @@ export interface GetPublicIPsResult {
     readonly attached?: boolean;
     readonly namePrefix?: string;
     /**
-     * A List of `public_ips` blocks as defined below filtered by the criteria above.
+     * A List of `publicIps` blocks as defined below filtered by the criteria above.
      */
     readonly publicIps: { domainNameLabel: string, fqdn: string, id: string, ipAddress: string, name: string }[];
     readonly resourceGroupName: string;

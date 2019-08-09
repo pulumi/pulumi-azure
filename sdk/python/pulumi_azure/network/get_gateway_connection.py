@@ -130,14 +130,33 @@ class GetGatewayConnectionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetGatewayConnectionResult(
+            authorization_key=self.authorization_key,
+            connection_protocol=self.connection_protocol,
+            egress_bytes_transferred=self.egress_bytes_transferred,
+            enable_bgp=self.enable_bgp,
+            express_route_circuit_id=self.express_route_circuit_id,
+            express_route_gateway_bypass=self.express_route_gateway_bypass,
+            ingress_bytes_transferred=self.ingress_bytes_transferred,
+            ipsec_policies=self.ipsec_policies,
+            local_network_gateway_id=self.local_network_gateway_id,
+            location=self.location,
+            name=self.name,
+            peer_virtual_network_gateway_id=self.peer_virtual_network_gateway_id,
+            resource_group_name=self.resource_group_name,
+            resource_guid=self.resource_guid,
+            routing_weight=self.routing_weight,
+            shared_key=self.shared_key,
+            tags=self.tags,
+            type=self.type,
+            use_policy_based_traffic_selectors=self.use_policy_based_traffic_selectors,
+            virtual_network_gateway_id=self.virtual_network_gateway_id,
+            id=self.id)
 
 def get_gateway_connection(name=None,resource_group_name=None,opts=None):
     """
@@ -155,7 +174,7 @@ def get_gateway_connection(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getGatewayConnection:getGatewayConnection', __args__, opts=opts).value
 
-    return GetGatewayConnectionResult(
+    return AwaitableGetGatewayConnectionResult(
         authorization_key=__ret__.get('authorizationKey'),
         connection_protocol=__ret__.get('connectionProtocol'),
         egress_bytes_transferred=__ret__.get('egressBytesTransferred'),

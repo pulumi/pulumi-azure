@@ -79,14 +79,24 @@ class GetLabResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLabResult(GetLabResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLabResult(
+            artifacts_storage_account_id=self.artifacts_storage_account_id,
+            default_premium_storage_account_id=self.default_premium_storage_account_id,
+            default_storage_account_id=self.default_storage_account_id,
+            key_vault_id=self.key_vault_id,
+            location=self.location,
+            name=self.name,
+            premium_data_disk_storage_account_id=self.premium_data_disk_storage_account_id,
+            resource_group_name=self.resource_group_name,
+            storage_type=self.storage_type,
+            tags=self.tags,
+            unique_identifier=self.unique_identifier,
+            id=self.id)
 
 def get_lab(name=None,resource_group_name=None,opts=None):
     """
@@ -104,7 +114,7 @@ def get_lab(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:devtest/getLab:getLab', __args__, opts=opts).value
 
-    return GetLabResult(
+    return AwaitableGetLabResult(
         artifacts_storage_account_id=__ret__.get('artifactsStorageAccountId'),
         default_premium_storage_account_id=__ret__.get('defaultPremiumStorageAccountId'),
         default_storage_account_id=__ret__.get('defaultStorageAccountId'),

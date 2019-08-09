@@ -100,12 +100,12 @@ func (r *Zone) NumberOfRecordSets() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["numberOfRecordSets"])
 }
 
-// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
 func (r *Zone) RegistrationVirtualNetworkIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["registrationVirtualNetworkIds"])
 }
 
-// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
 func (r *Zone) ResolutionVirtualNetworkIds() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["resolutionVirtualNetworkIds"])
 }
@@ -135,9 +135,9 @@ type ZoneState struct {
 	NameServers interface{}
 	// (Optional) The number of records already in the zone.
 	NumberOfRecordSets interface{}
-	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
 	RegistrationVirtualNetworkIds interface{}
-	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
 	ResolutionVirtualNetworkIds interface{}
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -151,9 +151,9 @@ type ZoneState struct {
 type ZoneArgs struct {
 	// The name of the DNS Zone. Must be a valid domain name.
 	Name interface{}
-	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+	// A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
 	RegistrationVirtualNetworkIds interface{}
-	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+	// A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
 	ResolutionVirtualNetworkIds interface{}
 	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

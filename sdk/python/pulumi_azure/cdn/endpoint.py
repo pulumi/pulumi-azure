@@ -74,7 +74,7 @@ class Endpoint(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, content_types_to_compresses=None, geo_filters=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origins=None, origin_host_header=None, origin_path=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_types_to_compresses=None, geo_filters=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origins=None, origin_host_header=None, origin_path=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A CDN Endpoint is the entity within a CDN Profile containing configuration information regarding caching behaviors and origins. The CDN Endpoint is exposed using the URL format <endpointname>.azureedge.net.
         
@@ -105,66 +105,94 @@ class Endpoint(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['content_types_to_compresses'] = content_types_to_compresses
-
-        __props__['geo_filters'] = geo_filters
-
-        __props__['is_compression_enabled'] = is_compression_enabled
-
-        __props__['is_http_allowed'] = is_http_allowed
-
-        __props__['is_https_allowed'] = is_https_allowed
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        __props__['optimization_type'] = optimization_type
-
-        if origins is None:
-            raise TypeError("Missing required property 'origins'")
-        __props__['origins'] = origins
-
-        __props__['origin_host_header'] = origin_host_header
-
-        __props__['origin_path'] = origin_path
-
-        __props__['probe_path'] = probe_path
-
-        if profile_name is None:
-            raise TypeError("Missing required property 'profile_name'")
-        __props__['profile_name'] = profile_name
-
-        __props__['querystring_caching_behaviour'] = querystring_caching_behaviour
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['tags'] = tags
-
-        __props__['host_name'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['content_types_to_compresses'] = content_types_to_compresses
+            __props__['geo_filters'] = geo_filters
+            __props__['is_compression_enabled'] = is_compression_enabled
+            __props__['is_http_allowed'] = is_http_allowed
+            __props__['is_https_allowed'] = is_https_allowed
+            __props__['location'] = location
+            __props__['name'] = name
+            __props__['optimization_type'] = optimization_type
+            if origins is None:
+                raise TypeError("Missing required property 'origins'")
+            __props__['origins'] = origins
+            __props__['origin_host_header'] = origin_host_header
+            __props__['origin_path'] = origin_path
+            __props__['probe_path'] = probe_path
+            if profile_name is None:
+                raise TypeError("Missing required property 'profile_name'")
+            __props__['profile_name'] = profile_name
+            __props__['querystring_caching_behaviour'] = querystring_caching_behaviour
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['tags'] = tags
+            __props__['host_name'] = None
         super(Endpoint, __self__).__init__(
             'azure:cdn/endpoint:Endpoint',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, content_types_to_compresses=None, geo_filters=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origins=None, origin_host_header=None, origin_path=None, probe_path=None, profile_name=None, querystring_caching_behaviour=None, resource_group_name=None, tags=None):
+        """
+        Get an existing Endpoint resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        :param pulumi.Input[list] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+        :param pulumi.Input[bool] is_compression_enabled: Indicates whether compression is to be enabled. Defaults to false.
+        :param pulumi.Input[bool] is_http_allowed: Defaults to `true`.
+        :param pulumi.Input[bool] is_https_allowed: Defaults to `true`.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] optimization_type: What types of optimization should this CDN Endpoint optimize for? Possible values include `DynamicSiteAcceleration`, `GeneralMediaStreaming`, `GeneralWebDelivery`, `LargeFileDownload` and `VideoOnDemandMediaStreaming`.
+        :param pulumi.Input[list] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
+        :param pulumi.Input[str] origin_path: The path used at for origin requests.
+        :param pulumi.Input[str] probe_path: the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+        :param pulumi.Input[str] profile_name: The CDN Profile to which to attach the CDN Endpoint.
+        :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["content_types_to_compresses"] = content_types_to_compresses
+        __props__["geo_filters"] = geo_filters
+        __props__["host_name"] = host_name
+        __props__["is_compression_enabled"] = is_compression_enabled
+        __props__["is_http_allowed"] = is_http_allowed
+        __props__["is_https_allowed"] = is_https_allowed
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["optimization_type"] = optimization_type
+        __props__["origins"] = origins
+        __props__["origin_host_header"] = origin_host_header
+        __props__["origin_path"] = origin_path
+        __props__["probe_path"] = probe_path
+        __props__["profile_name"] = profile_name
+        __props__["querystring_caching_behaviour"] = querystring_caching_behaviour
+        __props__["resource_group_name"] = resource_group_name
+        __props__["tags"] = tags
+        return Endpoint(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

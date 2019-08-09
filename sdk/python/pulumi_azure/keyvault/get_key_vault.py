@@ -88,14 +88,26 @@ class GetKeyVaultResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetKeyVaultResult(GetKeyVaultResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetKeyVaultResult(
+            access_policies=self.access_policies,
+            enabled_for_deployment=self.enabled_for_deployment,
+            enabled_for_disk_encryption=self.enabled_for_disk_encryption,
+            enabled_for_template_deployment=self.enabled_for_template_deployment,
+            location=self.location,
+            name=self.name,
+            network_acls=self.network_acls,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            sku_name=self.sku_name,
+            tags=self.tags,
+            tenant_id=self.tenant_id,
+            vault_uri=self.vault_uri,
+            id=self.id)
 
 def get_key_vault(name=None,resource_group_name=None,opts=None):
     """
@@ -113,7 +125,7 @@ def get_key_vault(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getKeyVault:getKeyVault', __args__, opts=opts).value
 
-    return GetKeyVaultResult(
+    return AwaitableGetKeyVaultResult(
         access_policies=__ret__.get('accessPolicies'),
         enabled_for_deployment=__ret__.get('enabledForDeployment'),
         enabled_for_disk_encryption=__ret__.get('enabledForDiskEncryption'),

@@ -52,14 +52,20 @@ class GetRoleDefinitionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRoleDefinitionResult(
+            assignable_scopes=self.assignable_scopes,
+            description=self.description,
+            name=self.name,
+            permissions=self.permissions,
+            role_definition_id=self.role_definition_id,
+            scope=self.scope,
+            type=self.type,
+            id=self.id)
 
 def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     """
@@ -78,7 +84,7 @@ def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:role/getRoleDefinition:getRoleDefinition', __args__, opts=opts).value
 
-    return GetRoleDefinitionResult(
+    return AwaitableGetRoleDefinitionResult(
         assignable_scopes=__ret__.get('assignableScopes'),
         description=__ret__.get('description'),
         name=__ret__.get('name'),

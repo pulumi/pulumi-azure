@@ -46,14 +46,19 @@ class GetIntVariableResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetIntVariableResult(GetIntVariableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetIntVariableResult(
+            automation_account_name=self.automation_account_name,
+            description=self.description,
+            encrypted=self.encrypted,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            value=self.value,
+            id=self.id)
 
 def get_int_variable(automation_account_name=None,name=None,resource_group_name=None,opts=None):
     """
@@ -72,7 +77,7 @@ def get_int_variable(automation_account_name=None,name=None,resource_group_name=
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:automation/getIntVariable:getIntVariable', __args__, opts=opts).value
 
-    return GetIntVariableResult(
+    return AwaitableGetIntVariableResult(
         automation_account_name=__ret__.get('automationAccountName'),
         description=__ret__.get('description'),
         encrypted=__ret__.get('encrypted'),

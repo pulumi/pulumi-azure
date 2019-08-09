@@ -125,7 +125,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly accountName!: pulumi.Output<string>;
     /**
-     * A `auto_scale` block that describes the scale settings when using auto scale.
+     * A `autoScale` block that describes the scale settings when using auto scale.
      */
     public readonly autoScale!: pulumi.Output<{ evaluationInterval?: string, formula: string } | undefined>;
     /**
@@ -141,7 +141,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * A `fixed_scale` block that describes the scale settings when using fixed scale.
+     * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
     public readonly fixedScale!: pulumi.Output<{ resizeTimeout?: string, targetDedicatedNodes?: number, targetLowPriorityNodes?: number } | undefined>;
     /**
@@ -161,12 +161,12 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `start_task` block that describes the start task settings for the Batch pool.
+     * A `startTask` block that describes the start task settings for the Batch pool.
      */
     public readonly startTask!: pulumi.Output<{ commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles?: { autoStorageContainerName?: string, blobPrefix?: string, fileMode?: string, filePath?: string, httpUrl?: string, storageContainerUrl?: string }[], userIdentity: { autoUser?: { elevationLevel?: string, scope?: string }, userName?: string }, waitForSuccess?: boolean } | undefined>;
     public readonly stopPendingResizeOperation!: pulumi.Output<boolean | undefined>;
     /**
-     * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+     * A `storageImageReference` for the virtual machines that will compose the Batch pool.
      */
     public readonly storageImageReference!: pulumi.Output<{ id?: string, offer: string, publisher: string, sku: string, version: string }>;
     /**
@@ -252,7 +252,7 @@ export interface PoolState {
      */
     readonly accountName?: pulumi.Input<string>;
     /**
-     * A `auto_scale` block that describes the scale settings when using auto scale.
+     * A `autoScale` block that describes the scale settings when using auto scale.
      */
     readonly autoScale?: pulumi.Input<{ evaluationInterval?: pulumi.Input<string>, formula: pulumi.Input<string> }>;
     /**
@@ -268,7 +268,7 @@ export interface PoolState {
      */
     readonly displayName?: pulumi.Input<string>;
     /**
-     * A `fixed_scale` block that describes the scale settings when using fixed scale.
+     * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
     readonly fixedScale?: pulumi.Input<{ resizeTimeout?: pulumi.Input<string>, targetDedicatedNodes?: pulumi.Input<number>, targetLowPriorityNodes?: pulumi.Input<number> }>;
     /**
@@ -288,12 +288,12 @@ export interface PoolState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `start_task` block that describes the start task settings for the Batch pool.
+     * A `startTask` block that describes the start task settings for the Batch pool.
      */
     readonly startTask?: pulumi.Input<{ commandLine: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, maxTaskRetryCount?: pulumi.Input<number>, resourceFiles?: pulumi.Input<pulumi.Input<{ autoStorageContainerName?: pulumi.Input<string>, blobPrefix?: pulumi.Input<string>, fileMode?: pulumi.Input<string>, filePath?: pulumi.Input<string>, httpUrl?: pulumi.Input<string>, storageContainerUrl?: pulumi.Input<string> }>[]>, userIdentity: pulumi.Input<{ autoUser?: pulumi.Input<{ elevationLevel?: pulumi.Input<string>, scope?: pulumi.Input<string> }>, userName?: pulumi.Input<string> }>, waitForSuccess?: pulumi.Input<boolean> }>;
     readonly stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
-     * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+     * A `storageImageReference` for the virtual machines that will compose the Batch pool.
      */
     readonly storageImageReference?: pulumi.Input<{ id?: pulumi.Input<string>, offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
     /**
@@ -311,7 +311,7 @@ export interface PoolArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
-     * A `auto_scale` block that describes the scale settings when using auto scale.
+     * A `autoScale` block that describes the scale settings when using auto scale.
      */
     readonly autoScale?: pulumi.Input<{ evaluationInterval?: pulumi.Input<string>, formula: pulumi.Input<string> }>;
     /**
@@ -327,7 +327,7 @@ export interface PoolArgs {
      */
     readonly displayName?: pulumi.Input<string>;
     /**
-     * A `fixed_scale` block that describes the scale settings when using fixed scale.
+     * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
     readonly fixedScale?: pulumi.Input<{ resizeTimeout?: pulumi.Input<string>, targetDedicatedNodes?: pulumi.Input<number>, targetLowPriorityNodes?: pulumi.Input<number> }>;
     /**
@@ -347,12 +347,12 @@ export interface PoolArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `start_task` block that describes the start task settings for the Batch pool.
+     * A `startTask` block that describes the start task settings for the Batch pool.
      */
     readonly startTask?: pulumi.Input<{ commandLine: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, maxTaskRetryCount?: pulumi.Input<number>, resourceFiles?: pulumi.Input<pulumi.Input<{ autoStorageContainerName?: pulumi.Input<string>, blobPrefix?: pulumi.Input<string>, fileMode?: pulumi.Input<string>, filePath?: pulumi.Input<string>, httpUrl?: pulumi.Input<string>, storageContainerUrl?: pulumi.Input<string> }>[]>, userIdentity: pulumi.Input<{ autoUser?: pulumi.Input<{ elevationLevel?: pulumi.Input<string>, scope?: pulumi.Input<string> }>, userName?: pulumi.Input<string> }>, waitForSuccess?: pulumi.Input<boolean> }>;
     readonly stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
-     * A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+     * A `storageImageReference` for the virtual machines that will compose the Batch pool.
      */
     readonly storageImageReference: pulumi.Input<{ id?: pulumi.Input<string>, offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
     /**

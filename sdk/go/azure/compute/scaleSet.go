@@ -155,7 +155,7 @@ func (r *ScaleSet) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 func (r *ScaleSet) AutomaticOsUpgrade() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["automaticOsUpgrade"])
 }
@@ -175,7 +175,7 @@ func (r *ScaleSet) Extensions() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["extensions"])
 }
 
-// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 func (r *ScaleSet) HealthProbeId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["healthProbeId"])
 }
@@ -244,7 +244,7 @@ func (r *ScaleSet) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 func (r *ScaleSet) RollingUpgradePolicy() *pulumi.Output {
 	return r.s.State["rollingUpgradePolicy"]
 }
@@ -291,7 +291,7 @@ func (r *ScaleSet) Zones() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering ScaleSet resources.
 type ScaleSetState struct {
-	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 	AutomaticOsUpgrade interface{}
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics interface{}
@@ -299,7 +299,7 @@ type ScaleSetState struct {
 	EvictionPolicy interface{}
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions interface{}
-	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId interface{}
 	Identity interface{}
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -326,7 +326,7 @@ type ScaleSetState struct {
 	Priority interface{}
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy interface{}
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup interface{}
@@ -348,7 +348,7 @@ type ScaleSetState struct {
 
 // The set of arguments for constructing a ScaleSet resource.
 type ScaleSetArgs struct {
-	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`.
+	// Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgradePolicyMode` is set to `Rolling`. Defaults to `false`.
 	AutomaticOsUpgrade interface{}
 	// A boot diagnostics profile block as referenced below.
 	BootDiagnostics interface{}
@@ -356,7 +356,7 @@ type ScaleSetArgs struct {
 	EvictionPolicy interface{}
 	// Can be specified multiple times to add extension profiles to the scale set. Each `extension` block supports the fields documented below.
 	Extensions interface{}
-	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
+	// Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgradePolicyMode`.
 	HealthProbeId interface{}
 	Identity interface{}
 	// Specifies the Windows OS license type. If supplied, the only allowed values are `Windows_Client` and `Windows_Server`.
@@ -383,7 +383,7 @@ type ScaleSetArgs struct {
 	Priority interface{}
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `rolling_upgrade_policy` block as defined below. This is only applicable when the `upgrade_policy_mode` is `Rolling`.
+	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
 	RollingUpgradePolicy interface{}
 	// Specifies whether the scale set is limited to a single placement group with a maximum size of 100 virtual machines. If set to false, managed disks must be used. Default is true. Changing this forces a new resource to be created. See [documentation](http://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) for more information.
 	SinglePlacementGroup interface{}

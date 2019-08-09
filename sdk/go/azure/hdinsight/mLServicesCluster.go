@@ -160,7 +160,7 @@ func (r *MLServicesCluster) SshEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sshEndpoint"])
 }
 
-// One or more `storage_account` block as defined below.
+// One or more `storageAccount` block as defined below.
 func (r *MLServicesCluster) StorageAccounts() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
@@ -197,7 +197,7 @@ type MLServicesClusterState struct {
 	Rstudio interface{}
 	// The SSH Connectivity Endpoint for this HDInsight ML Services Cluster.
 	SshEndpoint interface{}
-	// One or more `storage_account` block as defined below.
+	// One or more `storageAccount` block as defined below.
 	StorageAccounts interface{}
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
 	Tags interface{}
@@ -221,7 +221,7 @@ type MLServicesClusterArgs struct {
 	Roles interface{}
 	// Should R Studio community edition for ML Services be installed? Changing this forces a new resource to be created.
 	Rstudio interface{}
-	// One or more `storage_account` block as defined below.
+	// One or more `storageAccount` block as defined below.
 	StorageAccounts interface{}
 	// A map of Tags which should be assigned to this HDInsight ML Services Cluster.
 	Tags interface{}

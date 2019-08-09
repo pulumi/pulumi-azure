@@ -61,7 +61,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      */
     public readonly addressSpaces!: pulumi.Output<string[]>;
     /**
-     * A `bgp_settings` block as defined below containing the
+     * A `bgpSettings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.
      */
     public readonly bgpSettings!: pulumi.Output<{ asn: number, bgpPeeringAddress: string, peerWeight: number } | undefined>;
@@ -149,7 +149,7 @@ export interface LocalNetworkGatewayState {
      */
     readonly addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `bgp_settings` block as defined below containing the
+     * A `bgpSettings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.
      */
     readonly bgpSettings?: pulumi.Input<{ asn: pulumi.Input<number>, bgpPeeringAddress: pulumi.Input<string>, peerWeight?: pulumi.Input<number> }>;
@@ -189,7 +189,7 @@ export interface LocalNetworkGatewayArgs {
      */
     readonly addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `bgp_settings` block as defined below containing the
+     * A `bgpSettings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.
      */
     readonly bgpSettings?: pulumi.Input<{ asn: pulumi.Input<number>, bgpPeeringAddress: pulumi.Input<string>, peerWeight?: pulumi.Input<number> }>;

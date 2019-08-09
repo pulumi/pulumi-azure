@@ -83,7 +83,7 @@ func (r *ActionGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// One or more `email_receiver` blocks as defined below.
+// One or more `emailReceiver` blocks as defined below.
 func (r *ActionGroup) EmailReceivers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["emailReceivers"])
 }
@@ -108,7 +108,7 @@ func (r *ActionGroup) ShortName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["shortName"])
 }
 
-// One or more `sms_receiver ` blocks as defined below.
+// One or more `smsReceiver ` blocks as defined below.
 func (r *ActionGroup) SmsReceivers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["smsReceivers"])
 }
@@ -118,14 +118,14 @@ func (r *ActionGroup) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// One or more `webhook_receiver ` blocks as defined below.
+// One or more `webhookReceiver ` blocks as defined below.
 func (r *ActionGroup) WebhookReceivers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["webhookReceivers"])
 }
 
 // Input properties used for looking up and filtering ActionGroup resources.
 type ActionGroupState struct {
-	// One or more `email_receiver` blocks as defined below.
+	// One or more `emailReceiver` blocks as defined below.
 	EmailReceivers interface{}
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled interface{}
@@ -135,17 +135,17 @@ type ActionGroupState struct {
 	ResourceGroupName interface{}
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName interface{}
-	// One or more `sms_receiver ` blocks as defined below.
+	// One or more `smsReceiver ` blocks as defined below.
 	SmsReceivers interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// One or more `webhook_receiver ` blocks as defined below.
+	// One or more `webhookReceiver ` blocks as defined below.
 	WebhookReceivers interface{}
 }
 
 // The set of arguments for constructing a ActionGroup resource.
 type ActionGroupArgs struct {
-	// One or more `email_receiver` blocks as defined below.
+	// One or more `emailReceiver` blocks as defined below.
 	EmailReceivers interface{}
 	// Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
 	Enabled interface{}
@@ -155,10 +155,10 @@ type ActionGroupArgs struct {
 	ResourceGroupName interface{}
 	// The short name of the action group. This will be used in SMS messages.
 	ShortName interface{}
-	// One or more `sms_receiver ` blocks as defined below.
+	// One or more `smsReceiver ` blocks as defined below.
 	SmsReceivers interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// One or more `webhook_receiver ` blocks as defined below.
+	// One or more `webhookReceiver ` blocks as defined below.
 	WebhookReceivers interface{}
 }

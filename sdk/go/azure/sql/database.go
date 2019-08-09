@@ -119,7 +119,7 @@ func (r *Database) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+// The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 func (r *Database) Collation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["collation"])
 }
@@ -139,7 +139,7 @@ func (r *Database) DefaultSecondaryLocation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryLocation"])
 }
 
-// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 func (r *Database) Edition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["edition"])
 }
@@ -153,7 +153,7 @@ func (r *Database) Encryption() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["encryption"])
 }
 
-// A Database Import block as documented below. `create_mode` must be set to `Default`.
+// A Database Import block as documented below. `createMode` must be set to `Default`.
 func (r *Database) Import() *pulumi.Output {
 	return r.s.State["import"]
 }
@@ -163,7 +163,7 @@ func (r *Database) Location() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["location"])
 }
 
-// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 func (r *Database) MaxSizeBytes() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["maxSizeBytes"])
 }
@@ -178,13 +178,13 @@ func (r *Database) ReadScale() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["readScale"])
 }
 
-// Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
+// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
 // Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 func (r *Database) RequestedServiceObjectiveId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["requestedServiceObjectiveId"])
 }
 
-// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 func (r *Database) RequestedServiceObjectiveName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["requestedServiceObjectiveName"])
 }
@@ -194,7 +194,7 @@ func (r *Database) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
 func (r *Database) RestorePointInTime() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["restorePointInTime"])
 }
@@ -204,12 +204,12 @@ func (r *Database) ServerName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["serverName"])
 }
 
-// The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
+// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
 func (r *Database) SourceDatabaseDeletionDate() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceDatabaseDeletionDate"])
 }
 
-// The URI of the source database if `create_mode` value is not `Default`.
+// The URI of the source database if `createMode` value is not `Default`.
 func (r *Database) SourceDatabaseId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceDatabaseId"])
 }
@@ -219,14 +219,14 @@ func (r *Database) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 func (r *Database) ThreatDetectionPolicy() *pulumi.Output {
 	return r.s.State["threatDetectionPolicy"]
 }
 
 // Input properties used for looking up and filtering Database resources.
 type DatabaseState struct {
-	// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+	// The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation interface{}
 	// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
 	CreateMode interface{}
@@ -234,79 +234,79 @@ type DatabaseState struct {
 	CreationDate interface{}
 	// The default secondary location of the SQL Database.
 	DefaultSecondaryLocation interface{}
-	// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	Edition interface{}
 	// The name of the elastic database pool.
 	ElasticPoolName interface{}
 	Encryption interface{}
-	// A Database Import block as documented below. `create_mode` must be set to `Default`.
+	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes interface{}
 	// The name of the database.
 	Name interface{}
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
 	ReadScale interface{}
-	// Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
+	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
 	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveId interface{}
-	// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveName interface{}
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName interface{}
-	// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
 	RestorePointInTime interface{}
 	// The name of the SQL Server on which to create the database.
 	ServerName interface{}
-	// The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
+	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
 	SourceDatabaseDeletionDate interface{}
-	// The URI of the source database if `create_mode` value is not `Default`.
+	// The URI of the source database if `createMode` value is not `Default`.
 	SourceDatabaseId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy interface{}
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
-	// The name of the collation. Applies only if `create_mode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
+	// The name of the collation. Applies only if `createMode` is `Default`.  Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation interface{}
 	// Specifies how to create the database. Must be either `Default` to create a new database or `PointInTimeRestore` to restore from a snapshot. Defaults to `Default`.
 	CreateMode interface{}
-	// The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The edition of the database to be created. Applies only if `createMode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	Edition interface{}
 	// The name of the elastic database pool.
 	ElasticPoolName interface{}
-	// A Database Import block as documented below. `create_mode` must be set to `Default`.
+	// A Database Import block as documented below. `createMode` must be set to `Default`.
 	Import interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
-	// The maximum size that the database can grow to. Applies only if `create_mode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// The maximum size that the database can grow to. Applies only if `createMode` is `Default`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	MaxSizeBytes interface{}
 	// The name of the database.
 	Name interface{}
 	// Read-only connections will be redirected to a high-available replica. Please see [Use read-only replicas to load-balance read-only query workloads](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out).
 	ReadScale interface{}
-	// Use `requested_service_objective_id` or `requested_service_objective_name` to set the performance level for the database.
+	// Use `requestedServiceObjectiveId` or `requestedServiceObjectiveName` to set the performance level for the database.
 	// Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveId interface{}
-	// Use `requested_service_objective_name` or `requested_service_objective_id` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
+	// Use `requestedServiceObjectiveName` or `requestedServiceObjectiveId` to set the performance level for the database. Valid values are: `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`.  Please see [Azure SQL Database Service Tiers](https://azure.microsoft.com/en-gb/documentation/articles/sql-database-service-tiers/).
 	RequestedServiceObjectiveName interface{}
 	// The name of the resource group in which to create the database.  This must be the same as Database Server resource group currently.
 	ResourceGroupName interface{}
-	// The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
+	// The point in time for the restore. Only applies if `createMode` is `PointInTimeRestore` e.g. 2013-11-08T22:00:40Z
 	RestorePointInTime interface{}
 	// The name of the SQL Server on which to create the database.
 	ServerName interface{}
-	// The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`.
+	// The deletion date time of the source database. Only applies to deleted databases where `createMode` is `PointInTimeRestore`.
 	SourceDatabaseDeletionDate interface{}
-	// The URI of the source database if `create_mode` value is not `Default`.
+	// The URI of the source database if `createMode` value is not `Default`.
 	SourceDatabaseId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Threat detection policy configuration. The `threat_detection_policy` block supports fields documented below.
+	// Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
 	ThreatDetectionPolicy interface{}
 }

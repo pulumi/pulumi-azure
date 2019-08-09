@@ -59,11 +59,11 @@ export interface GetKubernetesClusterArgs {
  */
 export interface GetKubernetesClusterResult {
     /**
-     * A `addon_profile` block as documented below.
+     * A `addonProfile` block as documented below.
      */
     readonly addonProfiles: { httpApplicationRoutings: { enabled: boolean, httpApplicationRoutingZoneName: string }[], omsAgents: { enabled: boolean, logAnalyticsWorkspaceId: string }[] }[];
     /**
-     * An `agent_pool_profile` block as documented below.
+     * An `agentPoolProfile` block as documented below.
      */
     readonly agentPoolProfiles: { count: number, dnsPrefix: string, maxPods: number, name: string, osDiskSizeGb: number, osType: string, type: string, vmSize: string, vnetSubnetId: string }[];
     /**
@@ -75,7 +75,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly fqdn: string;
     /**
-     * A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+     * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
     readonly kubeAdminConfigs: { clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }[];
     /**
@@ -83,7 +83,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly kubeAdminConfigRaw: string;
     /**
-     * A `kube_config` block as defined below.
+     * A `kubeConfig` block as defined below.
      */
     readonly kubeConfigs: { clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }[];
     /**
@@ -95,7 +95,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly kubernetesVersion: string;
     /**
-     * A `linux_profile` block as documented below.
+     * A `linuxProfile` block as documented below.
      */
     readonly linuxProfiles: { adminUsername: string, sshKeys: { keyData: string }[] }[];
     /**
@@ -107,7 +107,7 @@ export interface GetKubernetesClusterResult {
      */
     readonly name: string;
     /**
-     * A `network_profile` block as documented below.
+     * A `networkProfile` block as documented below.
      */
     readonly networkProfiles: { dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, networkPolicy: string, podCidr: string, serviceCidr: string }[];
     /**
@@ -116,11 +116,11 @@ export interface GetKubernetesClusterResult {
     readonly nodeResourceGroup: string;
     readonly resourceGroupName: string;
     /**
-     * A `role_based_access_control` block as documented below.
+     * A `roleBasedAccessControl` block as documented below.
      */
     readonly roleBasedAccessControls: { azureActiveDirectories: { clientAppId: string, serverAppId: string, tenantId: string }[], enabled: boolean }[];
     /**
-     * A `service_principal` block as documented below.
+     * A `servicePrincipal` block as documented below.
      */
     readonly servicePrincipals: { clientId: string }[];
     /**

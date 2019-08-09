@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  * for (let i = 0; i < location.length; i++) {
  *     peering.push(new azure.network.VirtualNetworkPeering(`peering-${i}`, {
  *         allowForwardedTraffic: true,
- *         // `allow_gateway_transit` must be set to false for vnet Global Peering
+ *         // `allowGatewayTransit` must be set to false for vnet Global Peering
  *         allowGatewayTransit: false,
  *         allowVirtualNetworkAccess: true,
  *         name: pulumi.all(vnetVirtualNetwork.map(v => v.name)).apply(name => `peering-to-${name.map(v => v)[(1 - i)]}`),
@@ -172,7 +172,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * Controls if remote gateways can be used on
      * the local virtual network. If the flag is set to `true`, and
-     * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
+     * `allowGatewayTransit` on the remote peering is also `true`, virtual network will
      * use gateways of remote virtual network for transit. Only one peering can
      * have this flag set to `true`. This flag cannot be set if virtual network
      * already has a gateway. Defaults to `false`.
@@ -274,7 +274,7 @@ export interface VirtualNetworkPeeringState {
     /**
      * Controls if remote gateways can be used on
      * the local virtual network. If the flag is set to `true`, and
-     * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
+     * `allowGatewayTransit` on the remote peering is also `true`, virtual network will
      * use gateways of remote virtual network for transit. Only one peering can
      * have this flag set to `true`. This flag cannot be set if virtual network
      * already has a gateway. Defaults to `false`.
@@ -326,7 +326,7 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * Controls if remote gateways can be used on
      * the local virtual network. If the flag is set to `true`, and
-     * `allow_gateway_transit` on the remote peering is also `true`, virtual network will
+     * `allowGatewayTransit` on the remote peering is also `true`, virtual network will
      * use gateways of remote virtual network for transit. Only one peering can
      * have this flag set to `true`. This flag cannot be set if virtual network
      * already has a gateway. Defaults to `false`.

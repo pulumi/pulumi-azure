@@ -100,7 +100,7 @@ func (r *SubscriptionRule) Action() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["action"])
 }
 
-// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 func (r *SubscriptionRule) CorrelationFilter() *pulumi.Output {
 	return r.s.State["correlationFilter"]
 }
@@ -125,7 +125,7 @@ func (r *SubscriptionRule) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 func (r *SubscriptionRule) SqlFilter() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sqlFilter"])
 }
@@ -144,7 +144,7 @@ func (r *SubscriptionRule) TopicName() *pulumi.StringOutput {
 type SubscriptionRuleState struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
 	Action interface{}
-	// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 	CorrelationFilter interface{}
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
 	FilterType interface{}
@@ -154,7 +154,7 @@ type SubscriptionRuleState struct {
 	NamespaceName interface{}
 	// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 	SqlFilter interface{}
 	// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
 	SubscriptionName interface{}
@@ -166,7 +166,7 @@ type SubscriptionRuleState struct {
 type SubscriptionRuleArgs struct {
 	// Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
 	Action interface{}
-	// A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+	// A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
 	CorrelationFilter interface{}
 	// Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
 	FilterType interface{}
@@ -176,7 +176,7 @@ type SubscriptionRuleArgs struct {
 	NamespaceName interface{}
 	// The name of the resource group in the ServiceBus Namespace exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
+	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 	SqlFilter interface{}
 	// The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
 	SubscriptionName interface{}

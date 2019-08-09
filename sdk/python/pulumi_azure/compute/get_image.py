@@ -64,14 +64,22 @@ class GetImageResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetImageResult(GetImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetImageResult(
+            data_disks=self.data_disks,
+            location=self.location,
+            name=self.name,
+            name_regex=self.name_regex,
+            os_disks=self.os_disks,
+            resource_group_name=self.resource_group_name,
+            sort_descending=self.sort_descending,
+            tags=self.tags,
+            zone_resilient=self.zone_resilient,
+            id=self.id)
 
 def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending=None,opts=None):
     """
@@ -91,7 +99,7 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts).value
 
-    return GetImageResult(
+    return AwaitableGetImageResult(
         data_disks=__ret__.get('dataDisks'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

@@ -52,14 +52,20 @@ class GetVirtualNetworkResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVirtualNetworkResult(
+            address_spaces=self.address_spaces,
+            address_spaces_collection=self.address_spaces_collection,
+            dns_servers=self.dns_servers,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            subnets=self.subnets,
+            vnet_peerings=self.vnet_peerings,
+            id=self.id)
 
 def get_virtual_network(name=None,resource_group_name=None,opts=None):
     """
@@ -77,7 +83,7 @@ def get_virtual_network(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualNetwork:getVirtualNetwork', __args__, opts=opts).value
 
-    return GetVirtualNetworkResult(
+    return AwaitableGetVirtualNetworkResult(
         address_spaces=__ret__.get('addressSpaces'),
         address_spaces_collection=__ret__.get('addressSpacesCollection'),
         dns_servers=__ret__.get('dnsServers'),

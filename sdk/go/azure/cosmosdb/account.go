@@ -133,7 +133,7 @@ func (r *Account) ConnectionStrings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["connectionStrings"])
 }
 
-// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 func (r *Account) ConsistencyPolicy() *pulumi.Output {
 	return r.s.State["consistencyPolicy"]
 }
@@ -157,7 +157,7 @@ func (r *Account) FailoverPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["failoverPolicies"])
 }
 
-// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
 func (r *Account) GeoLocations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["geoLocations"])
 }
@@ -227,7 +227,7 @@ func (r *Account) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
 func (r *Account) VirtualNetworkRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["virtualNetworkRules"])
 }
@@ -243,7 +243,7 @@ type AccountState struct {
 	Capabilities interface{}
 	// A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
 	ConnectionStrings interface{}
-	// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy interface{}
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover interface{}
@@ -252,7 +252,7 @@ type AccountState struct {
 	// The endpoint used to connect to the CosmosDB account.
 	Endpoint interface{}
 	FailoverPolicies interface{}
-	// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
 	GeoLocations interface{}
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter interface{}
@@ -280,7 +280,7 @@ type AccountState struct {
 	SecondaryReadonlyMasterKey interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules interface{}
 	// A list of write endpoints available for this CosmosDB account.
 	WriteEndpoints interface{}
@@ -290,14 +290,14 @@ type AccountState struct {
 type AccountArgs struct {
 	// The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
 	Capabilities interface{}
-	// Specifies a `consistency_policy` resource, used to define the consistency policy for this CosmosDB account.
+	// Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
 	ConsistencyPolicy interface{}
 	// Enable automatic fail over for this Cosmos DB account.
 	EnableAutomaticFailover interface{}
 	// Enable multi-master support for this Cosmos DB account.
 	EnableMultipleWriteLocations interface{}
 	FailoverPolicies interface{}
-	// Specifies a `geo_location` resource, used to define where data should be replicated with the `failover_priority` 0 specifying the primary location.
+	// Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
 	GeoLocations interface{}
 	// CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
 	IpRangeFilter interface{}
@@ -315,6 +315,6 @@ type AccountArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Specifies a `virtual_network_rules` resource, used to define which subnets are allowed to access this CosmosDB account.
+	// Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
 	VirtualNetworkRules interface{}
 }

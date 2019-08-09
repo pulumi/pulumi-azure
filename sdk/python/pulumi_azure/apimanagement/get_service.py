@@ -112,14 +112,29 @@ class GetServiceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetServiceResult(
+            additional_locations=self.additional_locations,
+            gateway_regional_url=self.gateway_regional_url,
+            gateway_url=self.gateway_url,
+            hostname_configurations=self.hostname_configurations,
+            location=self.location,
+            management_api_url=self.management_api_url,
+            name=self.name,
+            notification_sender_email=self.notification_sender_email,
+            portal_url=self.portal_url,
+            public_ip_addresses=self.public_ip_addresses,
+            publisher_email=self.publisher_email,
+            publisher_name=self.publisher_name,
+            resource_group_name=self.resource_group_name,
+            scm_url=self.scm_url,
+            sku=self.sku,
+            tags=self.tags,
+            id=self.id)
 
 def get_service(name=None,resource_group_name=None,opts=None):
     """
@@ -137,7 +152,7 @@ def get_service(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getService:getService', __args__, opts=opts).value
 
-    return GetServiceResult(
+    return AwaitableGetServiceResult(
         additional_locations=__ret__.get('additionalLocations'),
         gateway_regional_url=__ret__.get('gatewayRegionalUrl'),
         gateway_url=__ret__.get('gatewayUrl'),

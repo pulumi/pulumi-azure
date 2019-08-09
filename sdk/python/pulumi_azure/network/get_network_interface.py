@@ -109,14 +109,29 @@ class GetNetworkInterfaceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetNetworkInterfaceResult(
+            applied_dns_servers=self.applied_dns_servers,
+            dns_servers=self.dns_servers,
+            enable_accelerated_networking=self.enable_accelerated_networking,
+            enable_ip_forwarding=self.enable_ip_forwarding,
+            internal_dns_name_label=self.internal_dns_name_label,
+            internal_fqdn=self.internal_fqdn,
+            ip_configurations=self.ip_configurations,
+            location=self.location,
+            mac_address=self.mac_address,
+            name=self.name,
+            network_security_group_id=self.network_security_group_id,
+            private_ip_address=self.private_ip_address,
+            private_ip_addresses=self.private_ip_addresses,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            virtual_machine_id=self.virtual_machine_id,
+            id=self.id)
 
 def get_network_interface(name=None,resource_group_name=None,opts=None):
     """
@@ -134,7 +149,7 @@ def get_network_interface(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getNetworkInterface:getNetworkInterface', __args__, opts=opts).value
 
-    return GetNetworkInterfaceResult(
+    return AwaitableGetNetworkInterfaceResult(
         applied_dns_servers=__ret__.get('appliedDnsServers'),
         dns_servers=__ret__.get('dnsServers'),
         enable_accelerated_networking=__ret__.get('enableAcceleratedNetworking'),

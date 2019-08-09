@@ -40,14 +40,17 @@ class GetAccessPolicyResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAccessPolicyResult(
+            certificate_permissions=self.certificate_permissions,
+            key_permissions=self.key_permissions,
+            name=self.name,
+            secret_permissions=self.secret_permissions,
+            id=self.id)
 
 def get_access_policy(name=None,opts=None):
     """
@@ -64,7 +67,7 @@ def get_access_policy(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__, opts=opts).value
 
-    return GetAccessPolicyResult(
+    return AwaitableGetAccessPolicyResult(
         certificate_permissions=__ret__.get('certificatePermissions'),
         key_permissions=__ret__.get('keyPermissions'),
         name=__ret__.get('name'),

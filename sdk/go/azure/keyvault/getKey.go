@@ -44,7 +44,7 @@ type GetKeyArgs struct {
 	KeyVaultId interface{}
 	// Specifies the name of the Key Vault Key.
 	Name interface{}
-	// Specifies the ID of the Key Vault Key Vault instance where the Key resides, available on the `azurerm_key_vault` Data Source / Resource.
+	// Specifies the ID of the Key Vault Key Vault instance where the Key resides, available on the `keyvault.KeyVault` Data Source / Resource.
 	VaultUri interface{}
 }
 

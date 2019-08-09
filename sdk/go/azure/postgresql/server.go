@@ -111,7 +111,7 @@ func (r *Server) AdministratorLogin() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["administratorLogin"])
 }
 
-// The Password associated with the `administrator_login` for the PostgreSQL Server.
+// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 func (r *Server) AdministratorLoginPassword() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["administratorLoginPassword"])
 }
@@ -146,7 +146,7 @@ func (r *Server) SslEnforcement() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sslEnforcement"])
 }
 
-// A `storage_profile` block as defined below.
+// A `storageProfile` block as defined below.
 func (r *Server) StorageProfile() *pulumi.Output {
 	return r.s.State["storageProfile"]
 }
@@ -165,7 +165,7 @@ func (r *Server) Version() *pulumi.StringOutput {
 type ServerState struct {
 	// The Administrator Login for the PostgreSQL Server. Changing this forces a new resource to be created.
 	AdministratorLogin interface{}
-	// The Password associated with the `administrator_login` for the PostgreSQL Server.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword interface{}
 	// The FQDN of the PostgreSQL Server.
 	Fqdn interface{}
@@ -179,7 +179,7 @@ type ServerState struct {
 	Sku interface{}
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 	SslEnforcement interface{}
-	// A `storage_profile` block as defined below.
+	// A `storageProfile` block as defined below.
 	StorageProfile interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -191,7 +191,7 @@ type ServerState struct {
 type ServerArgs struct {
 	// The Administrator Login for the PostgreSQL Server. Changing this forces a new resource to be created.
 	AdministratorLogin interface{}
-	// The Password associated with the `administrator_login` for the PostgreSQL Server.
+	// The Password associated with the `administratorLogin` for the PostgreSQL Server.
 	AdministratorLoginPassword interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -203,7 +203,7 @@ type ServerArgs struct {
 	Sku interface{}
 	// Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
 	SslEnforcement interface{}
-	// A `storage_profile` block as defined below.
+	// A `storageProfile` block as defined below.
 	StorageProfile interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

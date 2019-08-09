@@ -30,9 +30,9 @@ func LookupSubscriptions(ctx *pulumi.Context, args *GetSubscriptionsArgs) (*GetS
 
 // A collection of arguments for invoking getSubscriptions.
 type GetSubscriptionsArgs struct {
-	// A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+	// A case-insensitive value which must be contained within the `displayName` field, used to filter the results
 	DisplayNameContains interface{}
-	// A case-insensitive prefix which can be used to filter on the `display_name` field
+	// A case-insensitive prefix which can be used to filter on the `displayName` field
 	DisplayNamePrefix interface{}
 }
 

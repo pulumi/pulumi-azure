@@ -77,12 +77,12 @@ func (r *Hub) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A `apns_credential` block as defined below.
+// A `apnsCredential` block as defined below.
 func (r *Hub) ApnsCredential() *pulumi.Output {
 	return r.s.State["apnsCredential"]
 }
 
-// A `gcm_credential` block as defined below.
+// A `gcmCredential` block as defined below.
 func (r *Hub) GcmCredential() *pulumi.Output {
 	return r.s.State["gcmCredential"]
 }
@@ -109,9 +109,9 @@ func (r *Hub) ResourceGroupName() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering Hub resources.
 type HubState struct {
-	// A `apns_credential` block as defined below.
+	// A `apnsCredential` block as defined below.
 	ApnsCredential interface{}
-	// A `gcm_credential` block as defined below.
+	// A `gcmCredential` block as defined below.
 	GcmCredential interface{}
 	// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -125,9 +125,9 @@ type HubState struct {
 
 // The set of arguments for constructing a Hub resource.
 type HubArgs struct {
-	// A `apns_credential` block as defined below.
+	// A `apnsCredential` block as defined below.
 	ApnsCredential interface{}
-	// A `gcm_credential` block as defined below.
+	// A `gcmCredential` block as defined below.
 	GcmCredential interface{}
 	// The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
 	Location interface{}

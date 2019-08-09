@@ -115,7 +115,7 @@ func (r *Pool) AccountName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountName"])
 }
 
-// A `auto_scale` block that describes the scale settings when using auto scale.
+// A `autoScale` block that describes the scale settings when using auto scale.
 func (r *Pool) AutoScale() *pulumi.Output {
 	return r.s.State["autoScale"]
 }
@@ -135,7 +135,7 @@ func (r *Pool) DisplayName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["displayName"])
 }
 
-// A `fixed_scale` block that describes the scale settings when using fixed scale.
+// A `fixedScale` block that describes the scale settings when using fixed scale.
 func (r *Pool) FixedScale() *pulumi.Output {
 	return r.s.State["fixedScale"]
 }
@@ -160,7 +160,7 @@ func (r *Pool) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `start_task` block that describes the start task settings for the Batch pool.
+// A `startTask` block that describes the start task settings for the Batch pool.
 func (r *Pool) StartTask() *pulumi.Output {
 	return r.s.State["startTask"]
 }
@@ -169,7 +169,7 @@ func (r *Pool) StopPendingResizeOperation() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["stopPendingResizeOperation"])
 }
 
-// A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 func (r *Pool) StorageImageReference() *pulumi.Output {
 	return r.s.State["storageImageReference"]
 }
@@ -183,7 +183,7 @@ func (r *Pool) VmSize() *pulumi.StringOutput {
 type PoolState struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
 	AccountName interface{}
-	// A `auto_scale` block that describes the scale settings when using auto scale.
+	// A `autoScale` block that describes the scale settings when using auto scale.
 	AutoScale interface{}
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
 	Certificates interface{}
@@ -191,7 +191,7 @@ type PoolState struct {
 	ContainerConfiguration interface{}
 	// Specifies the display name of the Batch pool.
 	DisplayName interface{}
-	// A `fixed_scale` block that describes the scale settings when using fixed scale.
+	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale interface{}
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode interface{}
@@ -201,10 +201,10 @@ type PoolState struct {
 	NodeAgentSkuId interface{}
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `start_task` block that describes the start task settings for the Batch pool.
+	// A `startTask` block that describes the start task settings for the Batch pool.
 	StartTask interface{}
 	StopPendingResizeOperation interface{}
-	// A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference interface{}
 	// Specifies the size of the VM created in the Batch pool.
 	VmSize interface{}
@@ -214,7 +214,7 @@ type PoolState struct {
 type PoolArgs struct {
 	// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
 	AccountName interface{}
-	// A `auto_scale` block that describes the scale settings when using auto scale.
+	// A `autoScale` block that describes the scale settings when using auto scale.
 	AutoScale interface{}
 	// One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
 	Certificates interface{}
@@ -222,7 +222,7 @@ type PoolArgs struct {
 	ContainerConfiguration interface{}
 	// Specifies the display name of the Batch pool.
 	DisplayName interface{}
-	// A `fixed_scale` block that describes the scale settings when using fixed scale.
+	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale interface{}
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode interface{}
@@ -232,10 +232,10 @@ type PoolArgs struct {
 	NodeAgentSkuId interface{}
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `start_task` block that describes the start task settings for the Batch pool.
+	// A `startTask` block that describes the start task settings for the Batch pool.
 	StartTask interface{}
 	StopPendingResizeOperation interface{}
-	// A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference interface{}
 	// Specifies the size of the VM created in the Batch pool.
 	VmSize interface{}
