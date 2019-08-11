@@ -123,7 +123,7 @@ class SubscriptionRule(pulumi.CustomResource):
         :param pulumi.Input[str] subscription_name: The name of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] topic_name: The name of the ServiceBus Topic in which the ServiceBus Subscription exists. Changing this forces a new resource to be created.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_subscription_rule_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
 

@@ -257,7 +257,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public /*out*/ readonly certificateData!: pulumi.Output<string>;
     /**
-     * A `certificate_policy` block as defined below.
+     * A `certificatePolicy` block as defined below.
      */
     public readonly certificatePolicy!: pulumi.Output<{ issuerParameters: { name: string }, keyProperties: { exportable: boolean, keySize: number, keyType: string, reuseKey: boolean }, lifetimeActions?: { action: { actionType: string }, trigger: { daysBeforeExpiry?: number, lifetimePercentage?: number } }[], secretProperties: { contentType: string }, x509CertificateProperties: { extendedKeyUsages: string[], keyUsages: string[], subject: string, subjectAlternativeNames: { dnsNames?: string[], emails?: string[], upns?: string[] }, validityInMonths: number } }>;
     /**
@@ -350,7 +350,7 @@ export interface CertificateState {
      */
     readonly certificateData?: pulumi.Input<string>;
     /**
-     * A `certificate_policy` block as defined below.
+     * A `certificatePolicy` block as defined below.
      */
     readonly certificatePolicy?: pulumi.Input<{ issuerParameters: pulumi.Input<{ name: pulumi.Input<string> }>, keyProperties: pulumi.Input<{ exportable: pulumi.Input<boolean>, keySize: pulumi.Input<number>, keyType: pulumi.Input<string>, reuseKey: pulumi.Input<boolean> }>, lifetimeActions?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ actionType: pulumi.Input<string> }>, trigger: pulumi.Input<{ daysBeforeExpiry?: pulumi.Input<number>, lifetimePercentage?: pulumi.Input<number> }> }>[]>, secretProperties: pulumi.Input<{ contentType: pulumi.Input<string> }>, x509CertificateProperties?: pulumi.Input<{ extendedKeyUsages?: pulumi.Input<pulumi.Input<string>[]>, keyUsages: pulumi.Input<pulumi.Input<string>[]>, subject: pulumi.Input<string>, subjectAlternativeNames?: pulumi.Input<{ dnsNames?: pulumi.Input<pulumi.Input<string>[]>, emails?: pulumi.Input<pulumi.Input<string>[]>, upns?: pulumi.Input<pulumi.Input<string>[]> }>, validityInMonths: pulumi.Input<number> }> }>;
     /**
@@ -389,7 +389,7 @@ export interface CertificateArgs {
      */
     readonly certificate?: pulumi.Input<{ contents: pulumi.Input<string>, password?: pulumi.Input<string> }>;
     /**
-     * A `certificate_policy` block as defined below.
+     * A `certificatePolicy` block as defined below.
      */
     readonly certificatePolicy: pulumi.Input<{ issuerParameters: pulumi.Input<{ name: pulumi.Input<string> }>, keyProperties: pulumi.Input<{ exportable: pulumi.Input<boolean>, keySize: pulumi.Input<number>, keyType: pulumi.Input<string>, reuseKey: pulumi.Input<boolean> }>, lifetimeActions?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ actionType: pulumi.Input<string> }>, trigger: pulumi.Input<{ daysBeforeExpiry?: pulumi.Input<number>, lifetimePercentage?: pulumi.Input<number> }> }>[]>, secretProperties: pulumi.Input<{ contentType: pulumi.Input<string> }>, x509CertificateProperties?: pulumi.Input<{ extendedKeyUsages?: pulumi.Input<pulumi.Input<string>[]>, keyUsages: pulumi.Input<pulumi.Input<string>[]>, subject: pulumi.Input<string>, subjectAlternativeNames?: pulumi.Input<{ dnsNames?: pulumi.Input<pulumi.Input<string>[]>, emails?: pulumi.Input<pulumi.Input<string>[]>, upns?: pulumi.Input<pulumi.Input<string>[]> }>, validityInMonths: pulumi.Input<number> }> }>;
     /**

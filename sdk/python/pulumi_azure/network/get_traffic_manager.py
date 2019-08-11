@@ -22,14 +22,14 @@ class GetTrafficManagerResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetTrafficManagerResult(GetTrafficManagerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetTrafficManagerResult(
+            name=self.name,
+            id=self.id)
 
 def get_traffic_manager(name=None,opts=None):
     """
@@ -46,6 +46,6 @@ def get_traffic_manager(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getTrafficManager:getTrafficManager', __args__, opts=opts).value
 
-    return GetTrafficManagerResult(
+    return AwaitableGetTrafficManagerResult(
         name=__ret__.get('name'),
         id=__ret__.get('id'))

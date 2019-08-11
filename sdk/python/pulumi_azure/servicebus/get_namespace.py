@@ -75,14 +75,23 @@ class GetNamespaceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetNamespaceResult(
+            capacity=self.capacity,
+            default_primary_connection_string=self.default_primary_connection_string,
+            default_primary_key=self.default_primary_key,
+            default_secondary_connection_string=self.default_secondary_connection_string,
+            default_secondary_key=self.default_secondary_key,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            tags=self.tags,
+            id=self.id)
 
 def get_namespace(name=None,resource_group_name=None,opts=None):
     """
@@ -100,7 +109,7 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getNamespace:getNamespace', __args__, opts=opts).value
 
-    return GetNamespaceResult(
+    return AwaitableGetNamespaceResult(
         capacity=__ret__.get('capacity'),
         default_primary_connection_string=__ret__.get('defaultPrimaryConnectionString'),
         default_primary_key=__ret__.get('defaultPrimaryKey'),

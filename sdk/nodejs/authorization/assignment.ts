@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const testDefinition = new azure.authorization.Definition("test", {
+ * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
  *     permissions: [{
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * const testAssignment = new azure.authorization.Assignment("test", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     principalId: testClientConfig.servicePrincipalObjectId,
- *     roleDefinitionId: testDefinition.id,
+ *     roleDefinitionId: testRoleDefinition.id,
  *     scope: primary.id,
  * });
  * ```
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const testDefinition = new azure.authorization.Definition("test", {
+ * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
  *     permissions: [{
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * const testAssignment = new azure.authorization.Assignment("test", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     principalId: testClientConfig.clientId,
- *     roleDefinitionId: testDefinition.id,
+ *     roleDefinitionId: testRoleDefinition.id,
  *     scope: primary.id,
  * });
  * ```
@@ -112,11 +112,11 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      */
     public readonly roleDefinitionName!: pulumi.Output<string>;
     /**
@@ -181,11 +181,11 @@ export interface AssignmentState {
      */
     readonly principalId?: pulumi.Input<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      */
     readonly roleDefinitionName?: pulumi.Input<string>;
     /**
@@ -207,11 +207,11 @@ export interface AssignmentArgs {
      */
     readonly principalId: pulumi.Input<string>;
     /**
-     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `role_definition_name`.
+     * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
     /**
-     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `role_definition_id`.
+     * The name of a built-in Role. Changing this forces a new resource to be created. Conflicts with `roleDefinitionId`.
      */
     readonly roleDefinitionName?: pulumi.Input<string>;
     /**

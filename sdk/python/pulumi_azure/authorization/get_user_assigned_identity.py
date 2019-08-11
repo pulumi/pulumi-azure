@@ -49,14 +49,19 @@ class GetUserAssignedIdentityResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetUserAssignedIdentityResult(
+            client_id=self.client_id,
+            location=self.location,
+            name=self.name,
+            principal_id=self.principal_id,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            id=self.id)
 
 def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     """
@@ -74,7 +79,7 @@ def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity', __args__, opts=opts).value
 
-    return GetUserAssignedIdentityResult(
+    return AwaitableGetUserAssignedIdentityResult(
         client_id=__ret__.get('clientId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

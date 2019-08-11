@@ -130,7 +130,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] sku: Defines which tier to use. Options are basic, standard or premium.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
 

@@ -17,26 +17,22 @@ import * as utilities from "../utilities";
  *     name: "Contributor",
  * }));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const customDefinition = new azure.authorization.Definition("custom", {
+ * const customRoleDefinition = new azure.authorization.RoleDefinition("custom", {
  *     name: "CustomRoleDef",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });
- * const customRoleDefinition = pulumi.all([customDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinition({
+ * const customAuthorizationRoleDefinition = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinition({
  *     roleDefinitionId: roleDefinitionId,
  *     scope: primary.id,
  * }));
-<<<<<<< HEAD
- * const customByname = pulumi.all([customDefinition.name, primary]).apply(([name, primary]) => azure.role.getRoleDefinition({
-=======
- * const custom_byname = pulumi.all([customDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinition({
->>>>>>> 41612c6... Migrate the azurerm_role_ and azurerm_user_ resources to new Authorization package
+ * const customByname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinition({
  *     name: name,
  *     scope: primary.id,
  * }));
  * 
  * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id;
- * export const customRoleDefinitionId = customRoleDefinition.id;
+ * export const customRoleDefinitionId = customAuthorizationRoleDefinition.id;
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition_legacy.html.markdown.

@@ -61,7 +61,7 @@ class EventSubscription(pulumi.CustomResource):
     """
     A `webhook_endpoint` block as defined below.
     """
-    def __init__(__self__, resource_name, opts=None, event_delivery_schema=None, eventhub_endpoint=None, hybrid_connection_endpoint=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, event_delivery_schema=None, eventhub_endpoint=None, hybrid_connection_endpoint=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an EventGrid Event Subscription
         
@@ -89,47 +89,32 @@ class EventSubscription(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['event_delivery_schema'] = event_delivery_schema
-
-        __props__['eventhub_endpoint'] = eventhub_endpoint
-
-        __props__['hybrid_connection_endpoint'] = hybrid_connection_endpoint
-
-        __props__['included_event_types'] = included_event_types
-
-        __props__['labels'] = labels
-
-        __props__['name'] = name
-
-        __props__['retry_policy'] = retry_policy
-
-        if scope is None:
-            raise TypeError("Missing required property 'scope'")
-        __props__['scope'] = scope
-
-        __props__['storage_blob_dead_letter_destination'] = storage_blob_dead_letter_destination
-
-        __props__['storage_queue_endpoint'] = storage_queue_endpoint
-
-        __props__['subject_filter'] = subject_filter
-
-        __props__['topic_name'] = topic_name
-
-        __props__['webhook_endpoint'] = webhook_endpoint
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['event_delivery_schema'] = event_delivery_schema
+            __props__['eventhub_endpoint'] = eventhub_endpoint
+            __props__['hybrid_connection_endpoint'] = hybrid_connection_endpoint
+            __props__['included_event_types'] = included_event_types
+            __props__['labels'] = labels
+            __props__['name'] = name
+            __props__['retry_policy'] = retry_policy
+            if scope is None:
+                raise TypeError("Missing required property 'scope'")
+            __props__['scope'] = scope
+            __props__['storage_blob_dead_letter_destination'] = storage_blob_dead_letter_destination
+            __props__['storage_queue_endpoint'] = storage_queue_endpoint
+            __props__['subject_filter'] = subject_filter
+            __props__['topic_name'] = topic_name
+            __props__['webhook_endpoint'] = webhook_endpoint
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/eventSubscription:EventSubscription")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(EventSubscription, __self__).__init__(
@@ -138,7 +123,47 @@ class EventSubscription(pulumi.CustomResource):
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, event_delivery_schema=None, eventhub_endpoint=None, hybrid_connection_endpoint=None, included_event_types=None, labels=None, name=None, retry_policy=None, scope=None, storage_blob_dead_letter_destination=None, storage_queue_endpoint=None, subject_filter=None, topic_name=None, webhook_endpoint=None):
+        """
+        Get an existing EventSubscription resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] event_delivery_schema: Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
+        :param pulumi.Input[dict] eventhub_endpoint: A `eventhub_endpoint` block as defined below.
+        :param pulumi.Input[dict] hybrid_connection_endpoint: A `hybrid_connection_endpoint` block as defined below.
+        :param pulumi.Input[list] included_event_types: A list of applicable event types that need to be part of the event subscription.
+        :param pulumi.Input[list] labels: A list of labels to assign to the event subscription.
+        :param pulumi.Input[str] name: Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] retry_policy: A `retry_policy` block as defined below.
+        :param pulumi.Input[str] scope: Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] storage_blob_dead_letter_destination: A `storage_blob_dead_letter_destination` block as defined below.
+        :param pulumi.Input[dict] storage_queue_endpoint: A `storage_queue_endpoint` block as defined below.
+        :param pulumi.Input[dict] subject_filter: A `subject_filter` block as defined below.
+        :param pulumi.Input[str] topic_name: Specifies the name of the topic to associate with the event subscription.
+        :param pulumi.Input[dict] webhook_endpoint: A `webhook_endpoint` block as defined below.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["event_delivery_schema"] = event_delivery_schema
+        __props__["eventhub_endpoint"] = eventhub_endpoint
+        __props__["hybrid_connection_endpoint"] = hybrid_connection_endpoint
+        __props__["included_event_types"] = included_event_types
+        __props__["labels"] = labels
+        __props__["name"] = name
+        __props__["retry_policy"] = retry_policy
+        __props__["scope"] = scope
+        __props__["storage_blob_dead_letter_destination"] = storage_blob_dead_letter_destination
+        __props__["storage_queue_endpoint"] = storage_queue_endpoint
+        __props__["subject_filter"] = subject_filter
+        __props__["topic_name"] = topic_name
+        __props__["webhook_endpoint"] = webhook_endpoint
+        return EventSubscription(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

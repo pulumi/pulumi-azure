@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
- *     name: "tfex_servicebus_namespace",
+ *     name: "tfexServicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     tags: {
@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleTopic = new azure.servicebus.Topic("example", {
- *     name: "tfex_servicebus_topic",
+ *     name: "tfexServicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });

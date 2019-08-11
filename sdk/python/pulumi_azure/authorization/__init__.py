@@ -4,7 +4,7 @@
 
 # Export this package's modules as members:
 from .assignment import *
-from .definition import *
+from .role_definition import *
 from .user_assigned_identity import *
 from .get_builtin_role_definition import *
 from .get_role_definition import *

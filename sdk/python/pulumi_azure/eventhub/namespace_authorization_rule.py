@@ -120,7 +120,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_key: The Secondary Key for the ServiceBus Namespace authorization Rule.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
 

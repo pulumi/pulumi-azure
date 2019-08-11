@@ -26,13 +26,8 @@ import * as utilities from "../utilities";
  *         source: "example",
  *     },
  * });
-<<<<<<< HEAD
- * const exampleTopic = new azure.eventhub.Topic("example", {
- *     name: "tfexServicebusTopic",
-=======
  * const exampleTopic = new azure.servicebus.Topic("example", {
- *     name: "tfex_servicebus_topic",
->>>>>>> 08edb9d... Change the Tok associated with azure.keyvault.Certificate to remove typo
+ *     name: "tfexServicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });

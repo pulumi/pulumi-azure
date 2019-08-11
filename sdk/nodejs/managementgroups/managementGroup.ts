@@ -14,35 +14,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = pulumi.output(azure.core.getSubscription({}));
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
- * const exampleParent = new azure.managementgroups.ManagementGroup("exampleParent", {
+ * const exampleParent = new azure.management.Group("exampleParent", {
  *     displayName: "ParentGroup",
  *     subscriptionIds: [current.subscriptionId],
  * });
- * const exampleChild = new azure.managementgroups.ManagementGroup("exampleChild", {
-=======
- * const exampleParent = new azure.managementresource.ManagementGroup("example_parent", {
- *     displayName: "ParentGroup",
- *     subscriptionIds: [current.subscriptionId],
- * });
- * const exampleChild = new azure.managementresource.ManagementGroup("example_child", {
->>>>>>> c2bec0e... Migrate azurerm_management_group to the managementresource module
-=======
- * const exampleParent = new azure.managementresource.Group("example_parent", {
- *     displayName: "ParentGroup",
- *     subscriptionIds: [current.subscriptionId],
- * });
- * const exampleChild = new azure.managementresource.Group("example_child", {
->>>>>>> 5ebc69e... Renamespace azurerm_traffic_manager_* to network module
-=======
- * const exampleParent = new azure.management.Group("example_parent", {
- *     displayName: "ParentGroup",
- *     subscriptionIds: [current.subscriptionId],
- * });
- * const exampleChild = new azure.management.Group("example_child", {
->>>>>>> 9369971... Migrate managementResources to management module
+ * const exampleChild = new azure.management.Group("exampleChild", {
  *     displayName: "ChildGroup",
  *     parentManagementGroupId: exampleParent.id,
  *     subscriptionIds: [current.subscriptionId],

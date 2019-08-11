@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const example = pulumi.output(azure.authorization.getUserAssignedIdentity({
- *     name: "name_of_user_assigned_identity",
- *     resourceGroupName: "name_of_resource_group",
+ *     name: "nameOfUserAssignedIdentity",
+ *     resourceGroupName: "nameOfResourceGroup",
  * }));
  * 
  * export const uaiClientId = example.clientId;

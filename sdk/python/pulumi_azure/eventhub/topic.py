@@ -207,7 +207,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[bool] support_ordering: Boolean flag which controls whether the Topic
                supports ordering. Defaults to false.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
 

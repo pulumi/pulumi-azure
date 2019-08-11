@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = pulumi.output(azure.core.getSubscription({}));
- * const exampleParent = new azure.management.Group("example_parent", {
+ * const exampleParent = new azure.management.Group("exampleParent", {
  *     displayName: "ParentGroup",
  *     subscriptionIds: [current.subscriptionId],
  * });
- * const exampleChild = new azure.management.Group("example_child", {
+ * const exampleChild = new azure.management.Group("exampleChild", {
  *     displayName: "ChildGroup",
  *     parentManagementGroupId: exampleParent.id,
  *     subscriptionIds: [current.subscriptionId],
@@ -55,7 +55,7 @@ export class Group extends pulumi.CustomResource {
     }
 
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+     * A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupState {
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+     * A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
      */
     readonly displayName?: pulumi.Input<string>;
     /**
@@ -134,7 +134,7 @@ export interface GroupState {
  */
 export interface GroupArgs {
     /**
-     * A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+     * A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
      */
     readonly displayName?: pulumi.Input<string>;
     /**

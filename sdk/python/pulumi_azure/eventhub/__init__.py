@@ -7,7 +7,9 @@ from .domain import *
 from .event_subscription import *
 from .event_grid_topic import *
 from .event_hub import *
+from .authorization_rule import *
 from .event_hub_authorization_rule import *
+from .consumer_group import *
 from .event_hub_consumer_group import *
 from .event_hub_namespace import *
 from .event_hub_namespace_authorization_rule import *
@@ -19,5 +21,6 @@ from .subscription import *
 from .subscription_rule import *
 from .topic_authorization_rule import *
 from .topic import *
+from .get_namespace import *
 from .get_eventhub_namespace import *
 from .get_service_bus_namespace import *

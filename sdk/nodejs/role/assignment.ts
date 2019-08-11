@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const testDefinition = new azure.authorization.Definition("test", {
+ * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
  *     permissions: [{
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * const testAssignment = new azure.authorization.Assignment("test", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     principalId: testClientConfig.servicePrincipalObjectId,
- *     roleDefinitionId: testDefinition.id,
+ *     roleDefinitionId: testRoleDefinition.id,
  *     scope: primary.id,
  * });
  * ```
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const testDefinition = new azure.authorization.Definition("test", {
+ * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
  *     permissions: [{
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * const testAssignment = new azure.authorization.Assignment("test", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     principalId: testClientConfig.clientId,
- *     roleDefinitionId: testDefinition.id,
+ *     roleDefinitionId: testRoleDefinition.id,
  *     scope: primary.id,
  * });
  * ```

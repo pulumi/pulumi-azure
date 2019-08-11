@@ -52,7 +52,7 @@ class TrafficManagerProfile(pulumi.CustomResource):
     - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
     - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
     """
-    def __init__(__self__, resource_name, opts=None, dns_configs=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, dns_configs=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Profile to which multiple endpoints can be attached.
         
@@ -89,43 +89,33 @@ class TrafficManagerProfile(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if dns_configs is None:
-            raise TypeError("Missing required property 'dns_configs'")
-        __props__['dns_configs'] = dns_configs
-
-        if monitor_configs is None:
-            raise TypeError("Missing required property 'monitor_configs'")
-        __props__['monitor_configs'] = monitor_configs
-
-        __props__['name'] = name
-
-        __props__['profile_status'] = profile_status
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['tags'] = tags
-
-        if traffic_routing_method is None:
-            raise TypeError("Missing required property 'traffic_routing_method'")
-        __props__['traffic_routing_method'] = traffic_routing_method
-
-        __props__['fqdn'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if dns_configs is None:
+                raise TypeError("Missing required property 'dns_configs'")
+            __props__['dns_configs'] = dns_configs
+            if monitor_configs is None:
+                raise TypeError("Missing required property 'monitor_configs'")
+            __props__['monitor_configs'] = monitor_configs
+            __props__['name'] = name
+            __props__['profile_status'] = profile_status
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['tags'] = tags
+            if traffic_routing_method is None:
+                raise TypeError("Missing required property 'traffic_routing_method'")
+            __props__['traffic_routing_method'] = traffic_routing_method
+            __props__['fqdn'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:trafficmanager/profile:Profile")])
         opts = alias_opts if opts is None else opts.merge(alias_opts)
         super(TrafficManagerProfile, __self__).__init__(
@@ -134,7 +124,48 @@ class TrafficManagerProfile(pulumi.CustomResource):
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, dns_configs=None, fqdn=None, monitor_configs=None, name=None, profile_status=None, resource_group_name=None, tags=None, traffic_routing_method=None):
+        """
+        Get an existing TrafficManagerProfile resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] dns_configs: This block specifies the DNS configuration of the
+               Profile, it supports the fields documented below.
+        :param pulumi.Input[str] fqdn: The FQDN of the created Profile.
+        :param pulumi.Input[list] monitor_configs: This block specifies the Endpoint monitoring
+               configuration for the Profile, it supports the fields documented below.
+        :param pulumi.Input[str] name: The name of the virtual network. Changing this forces a
+               new resource to be created.
+        :param pulumi.Input[str] profile_status: The status of the profile, can be set to either
+               `Enabled` or `Disabled`. Defaults to `Enabled`.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
+               create the virtual network.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic, possible values are:
+               - `Geographic` - Traffic is routed based on Geographic regions specified in the Endpoint.
+               - `MultiValue`- All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type ‘External’ and are specified as IPv4 or IPv6 addresses.
+               - `Performance` - Traffic is routed via the User's closest Endpoint
+               - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
+               - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
+               - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["dns_configs"] = dns_configs
+        __props__["fqdn"] = fqdn
+        __props__["monitor_configs"] = monitor_configs
+        __props__["name"] = name
+        __props__["profile_status"] = profile_status
+        __props__["resource_group_name"] = resource_group_name
+        __props__["tags"] = tags
+        __props__["traffic_routing_method"] = traffic_routing_method
+        return TrafficManagerProfile(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

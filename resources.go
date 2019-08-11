@@ -99,11 +99,11 @@ const (
 	azureStreamAnalytics     = "streamanalytics"     // StreamAnalytics
 
 	// Legacy Module Names
-	azureLegacyRole             = "role"               // Azure Role
-	azureLegacyMSI              = "msi"                // Managed Service Identity (MSI)
+	azureLegacyRole             = "role"               // Azure Role (Legacy)
+	azureLegacyMSI              = "msi"                // Managed Service Identity / MSI (Legacy)
 	azureLegacyManagementGroups = "managementgroups"   // Management Groups (Legacy)
 	azureLegacyMgmtResource     = "managementresource" // Management Resource (Legacy)
-	azureLegacyTrafficManager   = "trafficmanager"     // Traffic Manager
+	azureLegacyTrafficManager   = "trafficmanager"     // Traffic Manager (Legacy)
 )
 
 // azureMember manufactures a type token for the Azure package and the given module and type.
@@ -550,8 +550,6 @@ func Provider() tfbridge.ProviderInfo {
 
 			// EventHub
 			"azurerm_eventhub":                              {Tok: azureResource(azureEventHub, "EventHub")},
-			"azurerm_eventhub_authorization_rule":           {Tok: azureResource(azureEventHub, "EventHubAuthorizationRule")},
-			"azurerm_eventhub_consumer_group":               {Tok: azureResource(azureEventHub, "EventHubConsumerGroup")},
 			"azurerm_eventhub_namespace":                    {Tok: azureResource(azureEventHub, "EventHubNamespace")},
 			"azurerm_eventhub_namespace_authorization_rule": {Tok: azureResource(azureEventHub, "EventHubNamespaceAuthorizationRule")},
 
@@ -926,7 +924,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_account":             {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":              {Tok: azureDataSource(azureDatalake, "getStore")},
 			"azurerm_dev_test_lab":                 {Tok: azureDataSource(azureDevTest, "getLab")},
-			"azurerm_eventhub_namespace":           {Tok: azureDataSource(azureEventHub, "getEventhubNamespace")},
 			"azurerm_image":                        {Tok: azureDataSource(azureCompute, "getImage")},
 			"azurerm_shared_image":                 {Tok: azureDataSource(azureCompute, "getSharedImage")},
 			"azurerm_shared_image_gallery":         {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
@@ -1330,7 +1327,8 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 			},
 		},
 	)
-	renameResourceWithAlias("azurerm_role_definition", "Definition", "", azureLegacyRole, azureAuthorization, nil)
+	renameResourceWithAlias("azurerm_role_definition", "Definition", "RoleDefinition", azureLegacyRole,
+		azureAuthorization, nil)
 	renameResourceWithAlias("azurerm_user_assigned_identity", "UserAssignedIdentity", "", azureLegacyMSI,
 		azureAuthorization, &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{
@@ -1413,6 +1411,14 @@ func renameLegacyModules(prov *tfbridge.ProviderInfo) {
 		azureEventHub, azureServiceBus, nil)
 	renameDataSourceWithAlias("azurerm_servicebus_namespace", "getServiceBusNamespace", "getNamespace",
 		azureEventHub, azureServiceBus, nil)
+
+	// Rename Eventhub Resources
+	renameDataSourceWithAlias("azurerm_eventhub_namespace", "getEventhubNamespace", "getNamespace",
+		azureEventHub, azureEventHub, nil)
+	renameResourceWithAlias("azurerm_eventhub_authorization_rule", "EventHubAuthorizationRule", "AuthorizationRule",
+		azureEventHub, azureEventHub, nil)
+	renameResourceWithAlias("azurerm_eventhub_consumer_group", "EventHubConsumerGroup", "ConsumerGroup",
+		azureEventHub, azureEventHub, nil)
 
 	// Migrate `azurerm_traffic_manager_*` to network module
 	renameResourceWithAlias("azurerm_traffic_manager_endpoint", "Endpoint", "TrafficManagerEndpoint",

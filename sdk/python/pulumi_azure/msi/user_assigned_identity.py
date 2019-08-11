@@ -101,7 +101,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                create the user assigned identity.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.html.markdown.
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity_legacy.html.markdown.
         """
         opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
 

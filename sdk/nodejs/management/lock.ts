@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = pulumi.output(azure.core.getSubscription({}));
- * const subscription_level = new azure.management.Lock("subscription-level", {
+ * const subscriptionLevel = new azure.management.Lock("subscription-level", {
  *     lockLevel: "CanNotDelete",
  *     name: "subscription-level",
  *     notes: "Items can't be deleted in this subscription!",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "locked-resource-group",
  * });
- * const resource_group_level = new azure.management.Lock("resource-group-level", {
+ * const resourceGroupLevel = new azure.management.Lock("resource-group-level", {
  *     lockLevel: "ReadOnly",
  *     name: "resource-group-level",
  *     notes: "This Resource Group is Read-Only",
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     name: "locked-publicip",
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const public_ip = new azure.management.Lock("public-ip", {
+ * const publicIp = new azure.management.Lock("public-ip", {
  *     lockLevel: "CanNotDelete",
  *     name: "resource-ip",
  *     notes: "Locked because it's needed by a third-party",

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./authorizationRule";
+export * from "./consumerGroup";
 export * from "./domain";
 export * from "./eventGridTopic";
 export * from "./eventHub";
@@ -11,6 +13,7 @@ export * from "./eventHubNamespace";
 export * from "./eventHubNamespaceAuthorizationRule";
 export * from "./eventSubscription";
 export * from "./getEventhubNamespace";
+export * from "./getNamespace";
 export * from "./getServiceBusNamespace";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";

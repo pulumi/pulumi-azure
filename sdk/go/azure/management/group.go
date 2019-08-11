@@ -64,7 +64,7 @@ func (r *Group) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
 func (r *Group) DisplayName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["displayName"])
 }
@@ -86,7 +86,7 @@ func (r *Group) SubscriptionIds() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering Group resources.
 type GroupState struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
 	DisplayName interface{}
 	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
 	GroupId interface{}
@@ -98,7 +98,7 @@ type GroupState struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// A friendly name for this Management Group. If not specified, this'll be the same as the `group_id`.
+	// A friendly name for this Management Group. If not specified, this'll be the same as the `groupId`.
 	DisplayName interface{}
 	// The UUID for this Management Group, which needs to be unique across your tenant - which will be generated if not provided. Changing this forces a new resource to be created.
 	GroupId interface{}

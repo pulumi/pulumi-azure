@@ -89,7 +89,7 @@ func TestExamples(t *testing.T) {
 				},
 			},
 		}),
-		base.With(integration.ProgramTestOptions{
+		jsBase.With(integration.ProgramTestOptions{
             Dir: path.Join(cwd, "servicebus-migration-test"),
             EditDirs: []integration.EditDir{
                 {

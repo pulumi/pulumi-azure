@@ -13,15 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
-<<<<<<< HEAD
- * const example = pulumi.output(azure.core.getUserAssignedIdentity({
+ * const example = pulumi.output(azure.authorization.getUserAssignedIdentity({
  *     name: "nameOfUserAssignedIdentity",
  *     resourceGroupName: "nameOfResourceGroup",
-=======
- * const example = pulumi.output(azure.authorization.getUserAssignedIdentity({
- *     name: "name_of_user_assigned_identity",
- *     resourceGroupName: "name_of_resource_group",
->>>>>>> 41612c6... Migrate the azurerm_role_ and azurerm_user_ resources to new Authorization package
  * }));
  * 
  * export const uaiClientId = example.clientId;

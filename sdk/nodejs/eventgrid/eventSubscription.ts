@@ -76,11 +76,11 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
     /**
-     * A `eventhub_endpoint` block as defined below.
+     * A `eventhubEndpoint` block as defined below.
      */
     public readonly eventhubEndpoint!: pulumi.Output<{ eventhubId: string } | undefined>;
     /**
-     * A `hybrid_connection_endpoint` block as defined below.
+     * A `hybridConnectionEndpoint` block as defined below.
      */
     public readonly hybridConnectionEndpoint!: pulumi.Output<{ hybridConnectionId: string } | undefined>;
     /**
@@ -96,7 +96,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `retry_policy` block as defined below.
+     * A `retryPolicy` block as defined below.
      */
     public readonly retryPolicy!: pulumi.Output<{ eventTimeToLive: number, maxDeliveryAttempts: number }>;
     /**
@@ -104,15 +104,15 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<string>;
     /**
-     * A `storage_blob_dead_letter_destination` block as defined below.
+     * A `storageBlobDeadLetterDestination` block as defined below.
      */
     public readonly storageBlobDeadLetterDestination!: pulumi.Output<{ storageAccountId: string, storageBlobContainerName: string } | undefined>;
     /**
-     * A `storage_queue_endpoint` block as defined below.
+     * A `storageQueueEndpoint` block as defined below.
      */
     public readonly storageQueueEndpoint!: pulumi.Output<{ queueName: string, storageAccountId: string } | undefined>;
     /**
-     * A `subject_filter` block as defined below.
+     * A `subjectFilter` block as defined below.
      */
     public readonly subjectFilter!: pulumi.Output<{ caseSensitive?: boolean, subjectBeginsWith?: string, subjectEndsWith?: string } | undefined>;
     /**
@@ -120,7 +120,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly topicName!: pulumi.Output<string>;
     /**
-     * A `webhook_endpoint` block as defined below.
+     * A `webhookEndpoint` block as defined below.
      */
     public readonly webhookEndpoint!: pulumi.Output<{ url: string } | undefined>;
 
@@ -190,11 +190,11 @@ export interface EventSubscriptionState {
      */
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
-     * A `eventhub_endpoint` block as defined below.
+     * A `eventhubEndpoint` block as defined below.
      */
     readonly eventhubEndpoint?: pulumi.Input<{ eventhubId: pulumi.Input<string> }>;
     /**
-     * A `hybrid_connection_endpoint` block as defined below.
+     * A `hybridConnectionEndpoint` block as defined below.
      */
     readonly hybridConnectionEndpoint?: pulumi.Input<{ hybridConnectionId: pulumi.Input<string> }>;
     /**
@@ -210,7 +210,7 @@ export interface EventSubscriptionState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `retry_policy` block as defined below.
+     * A `retryPolicy` block as defined below.
      */
     readonly retryPolicy?: pulumi.Input<{ eventTimeToLive: pulumi.Input<number>, maxDeliveryAttempts: pulumi.Input<number> }>;
     /**
@@ -218,15 +218,15 @@ export interface EventSubscriptionState {
      */
     readonly scope?: pulumi.Input<string>;
     /**
-     * A `storage_blob_dead_letter_destination` block as defined below.
+     * A `storageBlobDeadLetterDestination` block as defined below.
      */
     readonly storageBlobDeadLetterDestination?: pulumi.Input<{ storageAccountId: pulumi.Input<string>, storageBlobContainerName: pulumi.Input<string> }>;
     /**
-     * A `storage_queue_endpoint` block as defined below.
+     * A `storageQueueEndpoint` block as defined below.
      */
     readonly storageQueueEndpoint?: pulumi.Input<{ queueName: pulumi.Input<string>, storageAccountId: pulumi.Input<string> }>;
     /**
-     * A `subject_filter` block as defined below.
+     * A `subjectFilter` block as defined below.
      */
     readonly subjectFilter?: pulumi.Input<{ caseSensitive?: pulumi.Input<boolean>, subjectBeginsWith?: pulumi.Input<string>, subjectEndsWith?: pulumi.Input<string> }>;
     /**
@@ -234,7 +234,7 @@ export interface EventSubscriptionState {
      */
     readonly topicName?: pulumi.Input<string>;
     /**
-     * A `webhook_endpoint` block as defined below.
+     * A `webhookEndpoint` block as defined below.
      */
     readonly webhookEndpoint?: pulumi.Input<{ url: pulumi.Input<string> }>;
 }
@@ -248,11 +248,11 @@ export interface EventSubscriptionArgs {
      */
     readonly eventDeliverySchema?: pulumi.Input<string>;
     /**
-     * A `eventhub_endpoint` block as defined below.
+     * A `eventhubEndpoint` block as defined below.
      */
     readonly eventhubEndpoint?: pulumi.Input<{ eventhubId: pulumi.Input<string> }>;
     /**
-     * A `hybrid_connection_endpoint` block as defined below.
+     * A `hybridConnectionEndpoint` block as defined below.
      */
     readonly hybridConnectionEndpoint?: pulumi.Input<{ hybridConnectionId: pulumi.Input<string> }>;
     /**
@@ -268,7 +268,7 @@ export interface EventSubscriptionArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `retry_policy` block as defined below.
+     * A `retryPolicy` block as defined below.
      */
     readonly retryPolicy?: pulumi.Input<{ eventTimeToLive: pulumi.Input<number>, maxDeliveryAttempts: pulumi.Input<number> }>;
     /**
@@ -276,15 +276,15 @@ export interface EventSubscriptionArgs {
      */
     readonly scope: pulumi.Input<string>;
     /**
-     * A `storage_blob_dead_letter_destination` block as defined below.
+     * A `storageBlobDeadLetterDestination` block as defined below.
      */
     readonly storageBlobDeadLetterDestination?: pulumi.Input<{ storageAccountId: pulumi.Input<string>, storageBlobContainerName: pulumi.Input<string> }>;
     /**
-     * A `storage_queue_endpoint` block as defined below.
+     * A `storageQueueEndpoint` block as defined below.
      */
     readonly storageQueueEndpoint?: pulumi.Input<{ queueName: pulumi.Input<string>, storageAccountId: pulumi.Input<string> }>;
     /**
-     * A `subject_filter` block as defined below.
+     * A `subjectFilter` block as defined below.
      */
     readonly subjectFilter?: pulumi.Input<{ caseSensitive?: pulumi.Input<boolean>, subjectBeginsWith?: pulumi.Input<string>, subjectEndsWith?: pulumi.Input<string> }>;
     /**
@@ -292,7 +292,7 @@ export interface EventSubscriptionArgs {
      */
     readonly topicName?: pulumi.Input<string>;
     /**
-     * A `webhook_endpoint` block as defined below.
+     * A `webhookEndpoint` block as defined below.
      */
     readonly webhookEndpoint?: pulumi.Input<{ url: pulumi.Input<string> }>;
 }

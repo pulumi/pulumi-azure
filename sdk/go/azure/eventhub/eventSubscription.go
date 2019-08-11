@@ -100,12 +100,12 @@ func (r *EventSubscription) EventDeliverySchema() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eventDeliverySchema"])
 }
 
-// A `eventhub_endpoint` block as defined below.
+// A `eventhubEndpoint` block as defined below.
 func (r *EventSubscription) EventhubEndpoint() *pulumi.Output {
 	return r.s.State["eventhubEndpoint"]
 }
 
-// A `hybrid_connection_endpoint` block as defined below.
+// A `hybridConnectionEndpoint` block as defined below.
 func (r *EventSubscription) HybridConnectionEndpoint() *pulumi.Output {
 	return r.s.State["hybridConnectionEndpoint"]
 }
@@ -125,7 +125,7 @@ func (r *EventSubscription) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A `retry_policy` block as defined below.
+// A `retryPolicy` block as defined below.
 func (r *EventSubscription) RetryPolicy() *pulumi.Output {
 	return r.s.State["retryPolicy"]
 }
@@ -135,17 +135,17 @@ func (r *EventSubscription) Scope() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["scope"])
 }
 
-// A `storage_blob_dead_letter_destination` block as defined below.
+// A `storageBlobDeadLetterDestination` block as defined below.
 func (r *EventSubscription) StorageBlobDeadLetterDestination() *pulumi.Output {
 	return r.s.State["storageBlobDeadLetterDestination"]
 }
 
-// A `storage_queue_endpoint` block as defined below.
+// A `storageQueueEndpoint` block as defined below.
 func (r *EventSubscription) StorageQueueEndpoint() *pulumi.Output {
 	return r.s.State["storageQueueEndpoint"]
 }
 
-// A `subject_filter` block as defined below.
+// A `subjectFilter` block as defined below.
 func (r *EventSubscription) SubjectFilter() *pulumi.Output {
 	return r.s.State["subjectFilter"]
 }
@@ -155,7 +155,7 @@ func (r *EventSubscription) TopicName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["topicName"])
 }
 
-// A `webhook_endpoint` block as defined below.
+// A `webhookEndpoint` block as defined below.
 func (r *EventSubscription) WebhookEndpoint() *pulumi.Output {
 	return r.s.State["webhookEndpoint"]
 }
@@ -164,9 +164,9 @@ func (r *EventSubscription) WebhookEndpoint() *pulumi.Output {
 type EventSubscriptionState struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
 	EventDeliverySchema interface{}
-	// A `eventhub_endpoint` block as defined below.
+	// A `eventhubEndpoint` block as defined below.
 	EventhubEndpoint interface{}
-	// A `hybrid_connection_endpoint` block as defined below.
+	// A `hybridConnectionEndpoint` block as defined below.
 	HybridConnectionEndpoint interface{}
 	// A list of applicable event types that need to be part of the event subscription.
 	IncludedEventTypes interface{}
@@ -174,19 +174,19 @@ type EventSubscriptionState struct {
 	Labels interface{}
 	// Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `retry_policy` block as defined below.
+	// A `retryPolicy` block as defined below.
 	RetryPolicy interface{}
 	// Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
 	Scope interface{}
-	// A `storage_blob_dead_letter_destination` block as defined below.
+	// A `storageBlobDeadLetterDestination` block as defined below.
 	StorageBlobDeadLetterDestination interface{}
-	// A `storage_queue_endpoint` block as defined below.
+	// A `storageQueueEndpoint` block as defined below.
 	StorageQueueEndpoint interface{}
-	// A `subject_filter` block as defined below.
+	// A `subjectFilter` block as defined below.
 	SubjectFilter interface{}
 	// Specifies the name of the topic to associate with the event subscription.
 	TopicName interface{}
-	// A `webhook_endpoint` block as defined below.
+	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint interface{}
 }
 
@@ -194,9 +194,9 @@ type EventSubscriptionState struct {
 type EventSubscriptionArgs struct {
 	// Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventV01Schema`, `CustomInputSchema`.
 	EventDeliverySchema interface{}
-	// A `eventhub_endpoint` block as defined below.
+	// A `eventhubEndpoint` block as defined below.
 	EventhubEndpoint interface{}
-	// A `hybrid_connection_endpoint` block as defined below.
+	// A `hybridConnectionEndpoint` block as defined below.
 	HybridConnectionEndpoint interface{}
 	// A list of applicable event types that need to be part of the event subscription.
 	IncludedEventTypes interface{}
@@ -204,18 +204,18 @@ type EventSubscriptionArgs struct {
 	Labels interface{}
 	// Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created.
 	Name interface{}
-	// A `retry_policy` block as defined below.
+	// A `retryPolicy` block as defined below.
 	RetryPolicy interface{}
 	// Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
 	Scope interface{}
-	// A `storage_blob_dead_letter_destination` block as defined below.
+	// A `storageBlobDeadLetterDestination` block as defined below.
 	StorageBlobDeadLetterDestination interface{}
-	// A `storage_queue_endpoint` block as defined below.
+	// A `storageQueueEndpoint` block as defined below.
 	StorageQueueEndpoint interface{}
-	// A `subject_filter` block as defined below.
+	// A `subjectFilter` block as defined below.
 	SubjectFilter interface{}
 	// Specifies the name of the topic to associate with the event subscription.
 	TopicName interface{}
-	// A `webhook_endpoint` block as defined below.
+	// A `webhookEndpoint` block as defined below.
 	WebhookEndpoint interface{}
 }

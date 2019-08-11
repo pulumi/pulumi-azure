@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     partitionCount: 2,
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const testEventHubAuthorizationRule = new azure.eventhub.EventHubAuthorizationRule("test", {
+ * const testAuthorizationRule = new azure.eventhub.AuthorizationRule("test", {
  *     eventhubName: testEventHub.name,
  *     listen: true,
  *     manage: false,
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_authorization_rule_legacy.html.markdown.
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {
     /**

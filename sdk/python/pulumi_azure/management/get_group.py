@@ -40,14 +40,17 @@ class GetGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetGroupResult(
+            display_name=self.display_name,
+            group_id=self.group_id,
+            parent_management_group_id=self.parent_management_group_id,
+            subscription_ids=self.subscription_ids,
+            id=self.id)
 
 def get_group(group_id=None,opts=None):
     """
@@ -64,7 +67,7 @@ def get_group(group_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:management/getGroup:getGroup', __args__, opts=opts).value
 
-    return GetGroupResult(
+    return AwaitableGetGroupResult(
         display_name=__ret__.get('displayName'),
         group_id=__ret__.get('groupId'),
         parent_management_group_id=__ret__.get('parentManagementGroupId'),

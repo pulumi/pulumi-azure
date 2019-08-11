@@ -3,8 +3,8 @@
 
 // Export members:
 export * from "./assignment";
-export * from "./definition";
 export * from "./getBuiltinRoleDefinition";
 export * from "./getRoleDefinition";
 export * from "./getUserAssignedIdentity";
+export * from "./roleDefinition";
 export * from "./userAssignedIdentity";

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const test = new azure.authorization.Definition("test", {
+ * const test = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     description: "This is a custom role",
  *     name: "my-custom-role",
@@ -28,31 +28,31 @@ import * as utilities from "../utilities";
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition.html.markdown.
  */
-export class Definition extends pulumi.CustomResource {
+export class RoleDefinition extends pulumi.CustomResource {
     /**
-     * Get an existing Definition resource's state with the given name, ID, and optional extra
+     * Get an existing RoleDefinition resource's state with the given name, ID, and optional extra
      * properties used to qualify the lookup.
      *
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
      */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DefinitionState, opts?: pulumi.CustomResourceOptions): Definition {
-        return new Definition(name, <any>state, { ...opts, id: id });
+    public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: RoleDefinitionState, opts?: pulumi.CustomResourceOptions): RoleDefinition {
+        return new RoleDefinition(name, <any>state, { ...opts, id: id });
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure:authorization/definition:Definition';
+    public static readonly __pulumiType = 'azure:authorization/roleDefinition:RoleDefinition';
 
     /**
-     * Returns true if the given object is an instance of Definition.  This is designed to work even
+     * Returns true if the given object is an instance of RoleDefinition.  This is designed to work even
      * when multiple copies of the Pulumi SDK have been loaded into the same process.
      */
-    public static isInstance(obj: any): obj is Definition {
+    public static isInstance(obj: any): obj is RoleDefinition {
         if (obj === undefined || obj === null) {
             return false;
         }
-        return obj['__pulumiType'] === Definition.__pulumiType;
+        return obj['__pulumiType'] === RoleDefinition.__pulumiType;
     }
 
     /**
@@ -81,17 +81,17 @@ export class Definition extends pulumi.CustomResource {
     public readonly scope!: pulumi.Output<string>;
 
     /**
-     * Create a Definition resource with the given unique name, arguments, and options.
+     * Create a RoleDefinition resource with the given unique name, arguments, and options.
      *
      * @param name The _unique_ name of the resource.
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DefinitionArgs, opts?: pulumi.CustomResourceOptions)
-    constructor(name: string, argsOrState?: DefinitionArgs | DefinitionState, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RoleDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, argsOrState?: RoleDefinitionArgs | RoleDefinitionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state = argsOrState as DefinitionState | undefined;
+            const state = argsOrState as RoleDefinitionState | undefined;
             inputs["assignableScopes"] = state ? state.assignableScopes : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -99,7 +99,7 @@ export class Definition extends pulumi.CustomResource {
             inputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
             inputs["scope"] = state ? state.scope : undefined;
         } else {
-            const args = argsOrState as DefinitionArgs | undefined;
+            const args = argsOrState as RoleDefinitionArgs | undefined;
             if (!args || args.assignableScopes === undefined) {
                 throw new Error("Missing required property 'assignableScopes'");
             }
@@ -125,14 +125,14 @@ export class Definition extends pulumi.CustomResource {
         }
         const aliasOpts = { aliases: [{ type: "azure:role/definition:Definition" }] };
         opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
-        super(Definition.__pulumiType, name, inputs, opts);
+        super(RoleDefinition.__pulumiType, name, inputs, opts);
     }
 }
 
 /**
- * Input properties used for looking up and filtering Definition resources.
+ * Input properties used for looking up and filtering RoleDefinition resources.
  */
-export interface DefinitionState {
+export interface RoleDefinitionState {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      */
@@ -160,9 +160,9 @@ export interface DefinitionState {
 }
 
 /**
- * The set of arguments for constructing a Definition resource.
+ * The set of arguments for constructing a RoleDefinition resource.
  */
-export interface DefinitionArgs {
+export interface RoleDefinitionArgs {
     /**
      * One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      */
