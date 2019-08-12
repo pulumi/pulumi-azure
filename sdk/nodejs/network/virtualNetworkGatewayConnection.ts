@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  *     name: "europe",
  *     resourceGroupName: europeResourceGroup.name,
  * });
- * const europeGateway = new azure.network.Subnet("europe_gateway", {
+ * const europeGateway = new azure.network.Subnet("europeGateway", {
  *     addressPrefix: "10.1.1.0/24",
  *     name: "GatewaySubnet",
  *     resourceGroupName: europeResourceGroup.name,
@@ -120,7 +120,7 @@ import * as utilities from "../utilities";
  *     name: "us",
  *     resourceGroupName: usResourceGroup.name,
  * });
- * const usGateway = new azure.network.Subnet("us_gateway", {
+ * const usGateway = new azure.network.Subnet("usGateway", {
  *     addressPrefix: "10.0.1.0/24",
  *     name: "GatewaySubnet",
  *     resourceGroupName: usResourceGroup.name,
@@ -152,7 +152,7 @@ import * as utilities from "../utilities";
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  * });
- * const europeToUs = new azure.network.VirtualNetworkGatewayConnection("europe_to_us", {
+ * const europeToUs = new azure.network.VirtualNetworkGatewayConnection("europeToUs", {
  *     location: europeResourceGroup.location,
  *     name: "europe-to-us",
  *     peerVirtualNetworkGatewayId: usVirtualNetworkGateway.id,
@@ -161,7 +161,7 @@ import * as utilities from "../utilities";
  *     type: "Vnet2Vnet",
  *     virtualNetworkGatewayId: europeVirtualNetworkGateway.id,
  * });
- * const usToEurope = new azure.network.VirtualNetworkGatewayConnection("us_to_europe", {
+ * const usToEurope = new azure.network.VirtualNetworkGatewayConnection("usToEurope", {
  *     location: usResourceGroup.location,
  *     name: "us-to-europe",
  *     peerVirtualNetworkGatewayId: europeVirtualNetworkGateway.id,
@@ -223,7 +223,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      */
     public readonly expressRouteGatewayBypass!: pulumi.Output<boolean>;
     /**
-     * A `ipsec_policy` block which is documented below.
+     * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
@@ -280,7 +280,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block. Defaults to `false`.
+     * selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
     public readonly usePolicyBasedTrafficSelectors!: pulumi.Output<boolean>;
     /**
@@ -383,7 +383,7 @@ export interface VirtualNetworkGatewayConnectionState {
      */
     readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
-     * A `ipsec_policy` block which is documented below.
+     * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
@@ -440,7 +440,7 @@ export interface VirtualNetworkGatewayConnectionState {
     /**
      * If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block. Defaults to `false`.
+     * selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
     readonly usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**
@@ -477,7 +477,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
     /**
-     * A `ipsec_policy` block which is documented below.
+     * A `ipsecPolicy` block which is documented below.
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
@@ -534,7 +534,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * If `true`, policy-based traffic
      * selectors are enabled for this connection. Enabling policy-based traffic
-     * selectors requires an `ipsec_policy` block. Defaults to `false`.
+     * selectors requires an `ipsecPolicy` block. Defaults to `false`.
      */
     readonly usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**

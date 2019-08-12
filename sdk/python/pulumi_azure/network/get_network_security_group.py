@@ -46,14 +46,18 @@ class GetNetworkSecurityGroupResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetNetworkSecurityGroupResult(GetNetworkSecurityGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetNetworkSecurityGroupResult(
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            security_rules=self.security_rules,
+            tags=self.tags,
+            id=self.id)
 
 def get_network_security_group(name=None,resource_group_name=None,opts=None):
     """
@@ -71,7 +75,7 @@ def get_network_security_group(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup', __args__, opts=opts).value
 
-    return GetNetworkSecurityGroupResult(
+    return AwaitableGetNetworkSecurityGroupResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),

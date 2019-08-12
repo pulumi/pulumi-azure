@@ -90,14 +90,26 @@ class GetEventhubNamespaceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetEventhubNamespaceResult(GetEventhubNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetEventhubNamespaceResult(
+            auto_inflate_enabled=self.auto_inflate_enabled,
+            capacity=self.capacity,
+            default_primary_connection_string=self.default_primary_connection_string,
+            default_primary_key=self.default_primary_key,
+            default_secondary_connection_string=self.default_secondary_connection_string,
+            default_secondary_key=self.default_secondary_key,
+            kafka_enabled=self.kafka_enabled,
+            location=self.location,
+            maximum_throughput_units=self.maximum_throughput_units,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            tags=self.tags,
+            id=self.id)
 
 def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
     """
@@ -115,7 +127,7 @@ def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getEventhubNamespace:getEventhubNamespace', __args__, opts=opts).value
 
-    return GetEventhubNamespaceResult(
+    return AwaitableGetEventhubNamespaceResult(
         auto_inflate_enabled=__ret__.get('autoInflateEnabled'),
         capacity=__ret__.get('capacity'),
         default_primary_connection_string=__ret__.get('defaultPrimaryConnectionString'),

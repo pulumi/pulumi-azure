@@ -33,7 +33,7 @@ class ActionHttp(pulumi.CustomResource):
     """
     Specifies the URI which will be called when this HTTP Action is triggered.
     """
-    def __init__(__self__, resource_name, opts=None, body=None, headers=None, logic_app_id=None, method=None, name=None, uri=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, body=None, headers=None, logic_app_id=None, method=None, name=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an HTTP Action within a Logic App Workflow
         
@@ -54,44 +54,62 @@ class ActionHttp(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['body'] = body
-
-        __props__['headers'] = headers
-
-        if logic_app_id is None:
-            raise TypeError("Missing required property 'logic_app_id'")
-        __props__['logic_app_id'] = logic_app_id
-
-        if method is None:
-            raise TypeError("Missing required property 'method'")
-        __props__['method'] = method
-
-        __props__['name'] = name
-
-        if uri is None:
-            raise TypeError("Missing required property 'uri'")
-        __props__['uri'] = uri
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['body'] = body
+            __props__['headers'] = headers
+            if logic_app_id is None:
+                raise TypeError("Missing required property 'logic_app_id'")
+            __props__['logic_app_id'] = logic_app_id
+            if method is None:
+                raise TypeError("Missing required property 'method'")
+            __props__['method'] = method
+            __props__['name'] = name
+            if uri is None:
+                raise TypeError("Missing required property 'uri'")
+            __props__['uri'] = uri
         super(ActionHttp, __self__).__init__(
             'azure:logicapps/actionHttp:ActionHttp',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, body=None, headers=None, logic_app_id=None, method=None, name=None, uri=None):
+        """
+        Get an existing ActionHttp resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] body: Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
+        :param pulumi.Input[dict] headers: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
+        :param pulumi.Input[str] logic_app_id: Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] method: Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`.
+        :param pulumi.Input[str] name: Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/logic_app_action_http.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["body"] = body
+        __props__["headers"] = headers
+        __props__["logic_app_id"] = logic_app_id
+        __props__["method"] = method
+        __props__["name"] = name
+        __props__["uri"] = uri
+        return ActionHttp(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

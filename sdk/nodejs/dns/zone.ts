@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testResourceGroup.name,
  *     zoneType: "Public",
  * });
- * const testPrivate = new azure.dns.Zone("test_private", {
+ * const testPrivate = new azure.dns.Zone("testPrivate", {
  *     name: "mydomain.com",
  *     resourceGroupName: testResourceGroup.name,
  *     zoneType: "Private",
@@ -75,11 +75,11 @@ export class Zone extends pulumi.CustomResource {
      */
     public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
     /**
-     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
      */
     public readonly registrationVirtualNetworkIds!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
      */
     public readonly resolutionVirtualNetworkIds!: pulumi.Output<string[] | undefined>;
     /**
@@ -163,11 +163,11 @@ export interface ZoneState {
      */
     readonly numberOfRecordSets?: pulumi.Input<number>;
     /**
-     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
      */
     readonly registrationVirtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
      */
     readonly resolutionVirtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -193,11 +193,11 @@ export interface ZoneArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+     * A list of Virtual Network ID's that register hostnames in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
      */
     readonly registrationVirtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zone_type` is set to `Private`.
+     * A list of Virtual Network ID's that resolve records in this DNS zone. This field can only be set when `zoneType` is set to `Private`.
      */
     readonly resolutionVirtualNetworkIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**

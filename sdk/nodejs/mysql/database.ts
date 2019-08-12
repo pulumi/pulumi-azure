@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * });
  * const testDatabase = new azure.mysql.Database("test", {
  *     charset: "utf8",
- *     collation: "utf8_unicode_ci",
+ *     collation: "utf8UnicodeCi",
  *     name: "exampledb",
  *     resourceGroupName: testResourceGroup.name,
  *     serverName: testServer.name,

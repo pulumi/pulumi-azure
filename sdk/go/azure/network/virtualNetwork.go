@@ -95,7 +95,7 @@ func (r *VirtualNetwork) AddressSpaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["addressSpaces"])
 }
 
-// A `ddos_protection_plan` block as documented below.
+// A `ddosProtectionPlan` block as documented below.
 func (r *VirtualNetwork) DdosProtectionPlan() *pulumi.Output {
 	return r.s.State["ddosProtectionPlan"]
 }
@@ -140,7 +140,7 @@ type VirtualNetworkState struct {
 	// network. You can supply more than one address space. Changing this forces
 	// a new resource to be created.
 	AddressSpaces interface{}
-	// A `ddos_protection_plan` block as documented below.
+	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan interface{}
 	// List of IP addresses of DNS servers
 	DnsServers interface{}
@@ -166,7 +166,7 @@ type VirtualNetworkArgs struct {
 	// network. You can supply more than one address space. Changing this forces
 	// a new resource to be created.
 	AddressSpaces interface{}
-	// A `ddos_protection_plan` block as documented below.
+	// A `ddosProtectionPlan` block as documented below.
 	DdosProtectionPlan interface{}
 	// List of IP addresses of DNS servers
 	DnsServers interface{}

@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  * }, {dependsOn: [testExtension]});
  * ```
  * 
- * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azurerm_virtual_machine_extension` resource.
+ * > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `azure.compute.Extension` resource.
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_packet_capture.html.markdown.
  */
@@ -159,7 +159,7 @@ export class NetworkPacketCapture extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
     public readonly storageLocation!: pulumi.Output<{ filePath?: string, storageAccountId?: string, storagePath: string }>;
     /**
@@ -256,7 +256,7 @@ export interface NetworkPacketCaptureState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
     readonly storageLocation?: pulumi.Input<{ filePath?: pulumi.Input<string>, storageAccountId?: pulumi.Input<string>, storagePath?: pulumi.Input<string> }>;
     /**
@@ -298,7 +298,7 @@ export interface NetworkPacketCaptureArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * A `storage_location` block as defined below. Changing this forces a new resource to be created.
+     * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
     readonly storageLocation: pulumi.Input<{ filePath?: pulumi.Input<string>, storageAccountId?: pulumi.Input<string>, storagePath?: pulumi.Input<string> }>;
     /**

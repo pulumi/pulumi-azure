@@ -96,7 +96,7 @@ func (r *SqlServer) AdministratorLogin() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["administratorLogin"])
 }
 
-// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 func (r *SqlServer) AdministratorLoginPassword() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["administratorLoginPassword"])
 }
@@ -135,7 +135,7 @@ func (r *SqlServer) Version() *pulumi.StringOutput {
 type SqlServerState struct {
 	// The administrator login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin interface{}
-	// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword interface{}
 	// The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
 	FullyQualifiedDomainName interface{}
@@ -155,7 +155,7 @@ type SqlServerState struct {
 type SqlServerArgs struct {
 	// The administrator login name for the new server. Changing this forces a new resource to be created.
 	AdministratorLogin interface{}
-	// The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
+	// The password associated with the `administratorLogin` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
 	AdministratorLoginPassword interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

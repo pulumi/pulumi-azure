@@ -52,14 +52,19 @@ class GetRouteTableResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRouteTableResult(GetRouteTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRouteTableResult(
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            routes=self.routes,
+            subnets=self.subnets,
+            tags=self.tags,
+            id=self.id)
 
 def get_route_table(name=None,resource_group_name=None,opts=None):
     """
@@ -77,7 +82,7 @@ def get_route_table(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getRouteTable:getRouteTable', __args__, opts=opts).value
 
-    return GetRouteTableResult(
+    return AwaitableGetRouteTableResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),

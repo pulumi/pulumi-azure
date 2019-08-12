@@ -95,14 +95,26 @@ class GetVirtualNetworkGatewayResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetVirtualNetworkGatewayResult(
+            active_active=self.active_active,
+            bgp_settings=self.bgp_settings,
+            default_local_network_gateway_id=self.default_local_network_gateway_id,
+            enable_bgp=self.enable_bgp,
+            ip_configurations=self.ip_configurations,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            tags=self.tags,
+            type=self.type,
+            vpn_client_configurations=self.vpn_client_configurations,
+            vpn_type=self.vpn_type,
+            id=self.id)
 
 def get_virtual_network_gateway(name=None,resource_group_name=None,opts=None):
     """
@@ -120,7 +132,7 @@ def get_virtual_network_gateway(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getVirtualNetworkGateway:getVirtualNetworkGateway', __args__, opts=opts).value
 
-    return GetVirtualNetworkGatewayResult(
+    return AwaitableGetVirtualNetworkGatewayResult(
         active_active=__ret__.get('activeActive'),
         bgp_settings=__ret__.get('bgpSettings'),
         default_local_network_gateway_id=__ret__.get('defaultLocalNetworkGatewayId'),

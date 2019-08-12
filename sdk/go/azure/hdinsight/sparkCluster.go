@@ -113,7 +113,7 @@ func (r *SparkCluster) ClusterVersion() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["clusterVersion"])
 }
 
-// A `component_version` block as defined below.
+// A `componentVersion` block as defined below.
 func (r *SparkCluster) ComponentVersion() *pulumi.Output {
 	return r.s.State["componentVersion"]
 }
@@ -153,7 +153,7 @@ func (r *SparkCluster) SshEndpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sshEndpoint"])
 }
 
-// One or more `storage_account` block as defined below.
+// One or more `storageAccount` block as defined below.
 func (r *SparkCluster) StorageAccounts() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
 }
@@ -172,7 +172,7 @@ func (r *SparkCluster) Tier() *pulumi.StringOutput {
 type SparkClusterState struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion interface{}
-	// A `component_version` block as defined below.
+	// A `componentVersion` block as defined below.
 	ComponentVersion interface{}
 	// A `gateway` block as defined below.
 	Gateway interface{}
@@ -188,7 +188,7 @@ type SparkClusterState struct {
 	Roles interface{}
 	// The SSH Connectivity Endpoint for this HDInsight Spark Cluster.
 	SshEndpoint interface{}
-	// One or more `storage_account` block as defined below.
+	// One or more `storageAccount` block as defined below.
 	StorageAccounts interface{}
 	// A map of Tags which should be assigned to this HDInsight Spark Cluster.
 	Tags interface{}
@@ -200,7 +200,7 @@ type SparkClusterState struct {
 type SparkClusterArgs struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion interface{}
-	// A `component_version` block as defined below.
+	// A `componentVersion` block as defined below.
 	ComponentVersion interface{}
 	// A `gateway` block as defined below.
 	Gateway interface{}
@@ -212,7 +212,7 @@ type SparkClusterArgs struct {
 	ResourceGroupName interface{}
 	// A `roles` block as defined below.
 	Roles interface{}
-	// One or more `storage_account` block as defined below.
+	// One or more `storageAccount` block as defined below.
 	StorageAccounts interface{}
 	// A map of Tags which should be assigned to this HDInsight Spark Cluster.
 	Tags interface{}

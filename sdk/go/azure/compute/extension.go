@@ -107,7 +107,7 @@ func (r *Extension) ID() *pulumi.IDOutput {
 }
 
 // Specifies if the platform deploys
-// the latest minor version update to the `type_handler_version` specified.
+// the latest minor version update to the `typeHandlerVersion` specified.
 func (r *Extension) AutoUpgradeMinorVersion() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["autoUpgradeMinorVersion"])
 }
@@ -124,7 +124,7 @@ func (r *Extension) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The protected_settings passed to the
+// The protectedSettings passed to the
 // extension, like settings, these are specified as a JSON object in a string.
 func (r *Extension) ProtectedSettings() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["protectedSettings"])
@@ -175,7 +175,7 @@ func (r *Extension) VirtualMachineName() *pulumi.StringOutput {
 // Input properties used for looking up and filtering Extension resources.
 type ExtensionState struct {
 	// Specifies if the platform deploys
-	// the latest minor version update to the `type_handler_version` specified.
+	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion interface{}
 	// The location where the extension is created. Changing
 	// this forces a new resource to be created.
@@ -183,7 +183,7 @@ type ExtensionState struct {
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name interface{}
-	// The protected_settings passed to the
+	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings interface{}
 	// The publisher of the extension, available publishers
@@ -212,7 +212,7 @@ type ExtensionState struct {
 // The set of arguments for constructing a Extension resource.
 type ExtensionArgs struct {
 	// Specifies if the platform deploys
-	// the latest minor version update to the `type_handler_version` specified.
+	// the latest minor version update to the `typeHandlerVersion` specified.
 	AutoUpgradeMinorVersion interface{}
 	// The location where the extension is created. Changing
 	// this forces a new resource to be created.
@@ -220,7 +220,7 @@ type ExtensionArgs struct {
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name interface{}
-	// The protected_settings passed to the
+	// The protectedSettings passed to the
 	// extension, like settings, these are specified as a JSON object in a string.
 	ProtectedSettings interface{}
 	// The publisher of the extension, available publishers

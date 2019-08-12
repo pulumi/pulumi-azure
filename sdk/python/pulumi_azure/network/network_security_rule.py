@@ -81,7 +81,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
     """
     List of source ports or port ranges. This is required if `source_port_range` is not specified.
     """
-    def __init__(__self__, resource_name, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_group_ids=None, destination_port_range=None, destination_port_ranges=None, direction=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_group_ids=None, source_port_range=None, source_port_ranges=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_group_ids=None, destination_port_range=None, destination_port_ranges=None, direction=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_group_ids=None, source_port_range=None, source_port_ranges=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Network Security Rule.
         
@@ -118,74 +118,104 @@ class NetworkSecurityRule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if access is None:
-            raise TypeError("Missing required property 'access'")
-        __props__['access'] = access
-
-        __props__['description'] = description
-
-        __props__['destination_address_prefix'] = destination_address_prefix
-
-        __props__['destination_address_prefixes'] = destination_address_prefixes
-
-        __props__['destination_application_security_group_ids'] = destination_application_security_group_ids
-
-        __props__['destination_port_range'] = destination_port_range
-
-        __props__['destination_port_ranges'] = destination_port_ranges
-
-        if direction is None:
-            raise TypeError("Missing required property 'direction'")
-        __props__['direction'] = direction
-
-        __props__['name'] = name
-
-        if network_security_group_name is None:
-            raise TypeError("Missing required property 'network_security_group_name'")
-        __props__['network_security_group_name'] = network_security_group_name
-
-        if priority is None:
-            raise TypeError("Missing required property 'priority'")
-        __props__['priority'] = priority
-
-        if protocol is None:
-            raise TypeError("Missing required property 'protocol'")
-        __props__['protocol'] = protocol
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['source_address_prefix'] = source_address_prefix
-
-        __props__['source_address_prefixes'] = source_address_prefixes
-
-        __props__['source_application_security_group_ids'] = source_application_security_group_ids
-
-        __props__['source_port_range'] = source_port_range
-
-        __props__['source_port_ranges'] = source_port_ranges
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if access is None:
+                raise TypeError("Missing required property 'access'")
+            __props__['access'] = access
+            __props__['description'] = description
+            __props__['destination_address_prefix'] = destination_address_prefix
+            __props__['destination_address_prefixes'] = destination_address_prefixes
+            __props__['destination_application_security_group_ids'] = destination_application_security_group_ids
+            __props__['destination_port_range'] = destination_port_range
+            __props__['destination_port_ranges'] = destination_port_ranges
+            if direction is None:
+                raise TypeError("Missing required property 'direction'")
+            __props__['direction'] = direction
+            __props__['name'] = name
+            if network_security_group_name is None:
+                raise TypeError("Missing required property 'network_security_group_name'")
+            __props__['network_security_group_name'] = network_security_group_name
+            if priority is None:
+                raise TypeError("Missing required property 'priority'")
+            __props__['priority'] = priority
+            if protocol is None:
+                raise TypeError("Missing required property 'protocol'")
+            __props__['protocol'] = protocol
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['source_address_prefix'] = source_address_prefix
+            __props__['source_address_prefixes'] = source_address_prefixes
+            __props__['source_application_security_group_ids'] = source_application_security_group_ids
+            __props__['source_port_range'] = source_port_range
+            __props__['source_port_ranges'] = source_port_ranges
         super(NetworkSecurityRule, __self__).__init__(
             'azure:network/networkSecurityRule:NetworkSecurityRule',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_group_ids=None, destination_port_range=None, destination_port_ranges=None, direction=None, name=None, network_security_group_name=None, priority=None, protocol=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_group_ids=None, source_port_range=None, source_port_ranges=None):
+        """
+        Get an existing NetworkSecurityRule resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access: Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+        :param pulumi.Input[str] description: A description for this rule. Restricted to 140 characters.
+        :param pulumi.Input[str] destination_address_prefix: CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+        :param pulumi.Input[list] destination_address_prefixes: List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+        :param pulumi.Input[str] destination_application_security_group_ids: A List of destination Application Security Group ID's
+        :param pulumi.Input[str] destination_port_range: Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+        :param pulumi.Input[list] destination_port_ranges: List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+        :param pulumi.Input[str] direction: The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+        :param pulumi.Input[str] name: The name of the security rule. This needs to be unique across all Rules in the Network Security Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_security_group_name: The name of the Network Security Group that we want to attach the rule to. Changing this forces a new resource to be created.
+        :param pulumi.Input[float] priority: Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values include `Tcp`, `Udp` or `*` (which matches both).
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Network Security Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_address_prefix: CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+        :param pulumi.Input[list] source_address_prefixes: List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+        :param pulumi.Input[str] source_application_security_group_ids: A List of source Application Security Group ID's
+        :param pulumi.Input[str] source_port_range: Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+        :param pulumi.Input[list] source_port_ranges: List of source ports or port ranges. This is required if `source_port_range` is not specified.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_rule.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["access"] = access
+        __props__["description"] = description
+        __props__["destination_address_prefix"] = destination_address_prefix
+        __props__["destination_address_prefixes"] = destination_address_prefixes
+        __props__["destination_application_security_group_ids"] = destination_application_security_group_ids
+        __props__["destination_port_range"] = destination_port_range
+        __props__["destination_port_ranges"] = destination_port_ranges
+        __props__["direction"] = direction
+        __props__["name"] = name
+        __props__["network_security_group_name"] = network_security_group_name
+        __props__["priority"] = priority
+        __props__["protocol"] = protocol
+        __props__["resource_group_name"] = resource_group_name
+        __props__["source_address_prefix"] = source_address_prefix
+        __props__["source_address_prefixes"] = source_address_prefixes
+        __props__["source_application_security_group_ids"] = source_application_security_group_ids
+        __props__["source_port_range"] = source_port_range
+        __props__["source_port_ranges"] = source_port_ranges
+        return NetworkSecurityRule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

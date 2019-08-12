@@ -129,7 +129,7 @@ func (r *Controller) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
 func (r *Controller) TargetContainerHostCredentialsBase64() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["targetContainerHostCredentialsBase64"])
 }
@@ -155,7 +155,7 @@ type ControllerState struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
 	TargetContainerHostCredentialsBase64 interface{}
 	// The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
 	TargetContainerHostResourceId interface{}
@@ -175,7 +175,7 @@ type ControllerArgs struct {
 	Sku interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+	// Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
 	TargetContainerHostCredentialsBase64 interface{}
 	// The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
 	TargetContainerHostResourceId interface{}

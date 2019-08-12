@@ -92,7 +92,7 @@ func (r *Certifiate) CertificateData() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["certificateData"])
 }
 
-// A `certificate_policy` block as defined below.
+// A `certificatePolicy` block as defined below.
 func (r *Certifiate) CertificatePolicy() *pulumi.Output {
 	return r.s.State["certificatePolicy"]
 }
@@ -137,7 +137,7 @@ type CertifiateState struct {
 	Certificate interface{}
 	// The raw Key Vault Certificate.
 	CertificateData interface{}
-	// A `certificate_policy` block as defined below.
+	// A `certificatePolicy` block as defined below.
 	CertificatePolicy interface{}
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId interface{}
@@ -158,7 +158,7 @@ type CertifiateState struct {
 type CertifiateArgs struct {
 	// A `certificate` block as defined below, used to Import an existing certificate.
 	Certificate interface{}
-	// A `certificate_policy` block as defined below.
+	// A `certificatePolicy` block as defined below.
 	CertificatePolicy interface{}
 	// The ID of the Key Vault where the Certificate should be created.
 	KeyVaultId interface{}

@@ -79,12 +79,12 @@ func (r *LinkedService) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
 func (r *LinkedService) LinkedServiceName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["linkedServiceName"])
 }
 
-// A `linked_service_properties` block as defined below.
+// A `linkedServiceProperties` block as defined below.
 func (r *LinkedService) LinkedServiceProperties() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["linkedServiceProperties"])
 }
@@ -99,7 +99,7 @@ func (r *LinkedService) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
 func (r *LinkedService) ResourceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceId"])
 }
@@ -116,15 +116,15 @@ func (r *LinkedService) WorkspaceName() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering LinkedService resources.
 type LinkedServiceState struct {
-	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
 	LinkedServiceName interface{}
-	// A `linked_service_properties` block as defined below.
+	// A `linkedServiceProperties` block as defined below.
 	LinkedServiceProperties interface{}
 	// The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
 	Name interface{}
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
 	ResourceId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
@@ -134,13 +134,13 @@ type LinkedServiceState struct {
 
 // The set of arguments for constructing a LinkedService resource.
 type LinkedServiceArgs struct {
-	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+	// Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
 	LinkedServiceName interface{}
-	// A `linked_service_properties` block as defined below.
+	// A `linkedServiceProperties` block as defined below.
 	LinkedServiceProperties interface{}
 	// The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+	// The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
 	ResourceId interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}

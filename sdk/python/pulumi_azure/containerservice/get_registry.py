@@ -73,14 +73,23 @@ class GetRegistryResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetRegistryResult(GetRegistryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetRegistryResult(
+            admin_enabled=self.admin_enabled,
+            admin_password=self.admin_password,
+            admin_username=self.admin_username,
+            location=self.location,
+            login_server=self.login_server,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            storage_account_id=self.storage_account_id,
+            tags=self.tags,
+            id=self.id)
 
 def get_registry(name=None,resource_group_name=None,opts=None):
     """
@@ -98,7 +107,7 @@ def get_registry(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getRegistry:getRegistry', __args__, opts=opts).value
 
-    return GetRegistryResult(
+    return AwaitableGetRegistryResult(
         admin_enabled=__ret__.get('adminEnabled'),
         admin_password=__ret__.get('adminPassword'),
         admin_username=__ret__.get('adminUsername'),

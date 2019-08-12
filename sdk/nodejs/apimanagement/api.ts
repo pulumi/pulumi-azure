@@ -125,7 +125,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly soapPassThrough!: pulumi.Output<boolean | undefined>;
     /**
-     * A `subscription_key_parameter_names` block as documented below.
+     * A `subscriptionKeyParameterNames` block as documented below.
      */
     public readonly subscriptionKeyParameterNames!: pulumi.Output<{ header: string, query: string }>;
     /**
@@ -270,7 +270,7 @@ export interface ApiState {
      */
     readonly soapPassThrough?: pulumi.Input<boolean>;
     /**
-     * A `subscription_key_parameter_names` block as documented below.
+     * A `subscriptionKeyParameterNames` block as documented below.
      */
     readonly subscriptionKeyParameterNames?: pulumi.Input<{ header: pulumi.Input<string>, query: pulumi.Input<string> }>;
     /**
@@ -332,7 +332,7 @@ export interface ApiArgs {
      */
     readonly soapPassThrough?: pulumi.Input<boolean>;
     /**
-     * A `subscription_key_parameter_names` block as documented below.
+     * A `subscriptionKeyParameterNames` block as documented below.
      */
     readonly subscriptionKeyParameterNames?: pulumi.Input<{ header: pulumi.Input<string>, query: pulumi.Input<string> }>;
 }

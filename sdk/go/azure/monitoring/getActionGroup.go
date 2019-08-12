@@ -42,7 +42,7 @@ type GetActionGroupArgs struct {
 
 // A collection of values returned by getActionGroup.
 type GetActionGroupResult struct {
-	// One or more `email_receiver` blocks as defined below.
+	// One or more `emailReceiver` blocks as defined below.
 	EmailReceivers interface{}
 	// Whether this action group is enabled.
 	Enabled interface{}
@@ -51,9 +51,9 @@ type GetActionGroupResult struct {
 	ResourceGroupName interface{}
 	// The short name of the action group.
 	ShortName interface{}
-	// One or more `sms_receiver ` blocks as defined below.
+	// One or more `smsReceiver ` blocks as defined below.
 	SmsReceivers interface{}
-	// One or more `webhook_receiver ` blocks as defined below.
+	// One or more `webhookReceiver ` blocks as defined below.
 	WebhookReceivers interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

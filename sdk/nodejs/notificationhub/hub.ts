@@ -62,11 +62,11 @@ export class Hub extends pulumi.CustomResource {
     }
 
     /**
-     * A `apns_credential` block as defined below.
+     * A `apnsCredential` block as defined below.
      */
     public readonly apnsCredential!: pulumi.Output<{ applicationMode: string, bundleId: string, keyId: string, teamId: string, token: string } | undefined>;
     /**
-     * A `gcm_credential` block as defined below.
+     * A `gcmCredential` block as defined below.
      */
     public readonly gcmCredential!: pulumi.Output<{ apiKey: string } | undefined>;
     /**
@@ -135,11 +135,11 @@ export class Hub extends pulumi.CustomResource {
  */
 export interface HubState {
     /**
-     * A `apns_credential` block as defined below.
+     * A `apnsCredential` block as defined below.
      */
     readonly apnsCredential?: pulumi.Input<{ applicationMode: pulumi.Input<string>, bundleId: pulumi.Input<string>, keyId: pulumi.Input<string>, teamId: pulumi.Input<string>, token: pulumi.Input<string> }>;
     /**
-     * A `gcm_credential` block as defined below.
+     * A `gcmCredential` block as defined below.
      */
     readonly gcmCredential?: pulumi.Input<{ apiKey: pulumi.Input<string> }>;
     /**
@@ -165,11 +165,11 @@ export interface HubState {
  */
 export interface HubArgs {
     /**
-     * A `apns_credential` block as defined below.
+     * A `apnsCredential` block as defined below.
      */
     readonly apnsCredential?: pulumi.Input<{ applicationMode: pulumi.Input<string>, bundleId: pulumi.Input<string>, keyId: pulumi.Input<string>, teamId: pulumi.Input<string>, token: pulumi.Input<string> }>;
     /**
-     * A `gcm_credential` block as defined below.
+     * A `gcmCredential` block as defined below.
      */
     readonly gcmCredential?: pulumi.Input<{ apiKey: pulumi.Input<string> }>;
     /**

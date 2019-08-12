@@ -22,14 +22,14 @@ class GetGeographicalLocationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetGeographicalLocationResult(GetGeographicalLocationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetGeographicalLocationResult(
+            name=self.name,
+            id=self.id)
 
 def get_geographical_location(name=None,opts=None):
     """
@@ -46,6 +46,6 @@ def get_geographical_location(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:trafficmanager/getGeographicalLocation:getGeographicalLocation', __args__, opts=opts).value
 
-    return GetGeographicalLocationResult(
+    return AwaitableGetGeographicalLocationResult(
         name=__ret__.get('name'),
         id=__ret__.get('id'))

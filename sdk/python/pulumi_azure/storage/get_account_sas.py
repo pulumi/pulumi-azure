@@ -46,14 +46,21 @@ class GetAccountSASResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAccountSASResult(GetAccountSASResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAccountSASResult(
+            connection_string=self.connection_string,
+            expiry=self.expiry,
+            https_only=self.https_only,
+            permissions=self.permissions,
+            resource_types=self.resource_types,
+            sas=self.sas,
+            services=self.services,
+            start=self.start,
+            id=self.id)
 
 def get_account_sas(connection_string=None,expiry=None,https_only=None,permissions=None,resource_types=None,services=None,start=None,opts=None):
     """
@@ -81,7 +88,7 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:storage/getAccountSAS:getAccountSAS', __args__, opts=opts).value
 
-    return GetAccountSASResult(
+    return AwaitableGetAccountSASResult(
         connection_string=__ret__.get('connectionString'),
         expiry=__ret__.get('expiry'),
         https_only=__ret__.get('httpsOnly'),

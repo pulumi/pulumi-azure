@@ -46,14 +46,19 @@ class GetSharedImageGalleryResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSharedImageGalleryResult(GetSharedImageGalleryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSharedImageGalleryResult(
+            description=self.description,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            unique_name=self.unique_name,
+            id=self.id)
 
 def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
     """
@@ -73,7 +78,7 @@ def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageGallery:getSharedImageGallery', __args__, opts=opts).value
 
-    return GetSharedImageGalleryResult(
+    return AwaitableGetSharedImageGalleryResult(
         description=__ret__.get('description'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

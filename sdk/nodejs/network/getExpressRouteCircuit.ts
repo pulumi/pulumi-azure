@@ -73,7 +73,7 @@ export interface GetExpressRouteCircuitResult {
      */
     readonly serviceKey: string;
     /**
-     * A `service_provider_properties` block for the ExpressRoute circuit as documented below
+     * A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
      */
     readonly serviceProviderProperties: { bandwidthInMbps: number, peeringLocation: string, serviceProviderName: string }[];
     /**

@@ -93,7 +93,7 @@ export class OutboundRule extends pulumi.CustomResource {
      */
     public readonly enableTcpReset!: pulumi.Output<boolean | undefined>;
     /**
-     * One or more `frontend_ip_configuration` blocks as defined below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      */
     public readonly frontendIpConfigurations!: pulumi.Output<{ id: string, name: string }[] | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface OutboundRuleState {
      */
     readonly enableTcpReset?: pulumi.Input<boolean>;
     /**
-     * One or more `frontend_ip_configuration` blocks as defined below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      */
     readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
@@ -232,7 +232,7 @@ export interface OutboundRuleArgs {
      */
     readonly enableTcpReset?: pulumi.Input<boolean>;
     /**
-     * One or more `frontend_ip_configuration` blocks as defined below.
+     * One or more `frontendIpConfiguration` blocks as defined below.
      */
     readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**

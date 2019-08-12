@@ -58,14 +58,21 @@ class GetUserResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetUserResult(
+            api_management_name=self.api_management_name,
+            email=self.email,
+            first_name=self.first_name,
+            last_name=self.last_name,
+            note=self.note,
+            resource_group_name=self.resource_group_name,
+            state=self.state,
+            user_id=self.user_id,
+            id=self.id)
 
 def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts=None):
     """
@@ -84,7 +91,7 @@ def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getUser:getUser', __args__, opts=opts).value
 
-    return GetUserResult(
+    return AwaitableGetUserResult(
         api_management_name=__ret__.get('apiManagementName'),
         email=__ret__.get('email'),
         first_name=__ret__.get('firstName'),

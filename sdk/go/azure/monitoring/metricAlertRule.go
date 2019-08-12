@@ -126,7 +126,7 @@ func (r *MetricAlertRule) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// A `email_action` block as defined below.
+// A `emailAction` block as defined below.
 func (r *MetricAlertRule) EmailAction() *pulumi.Output {
 	return r.s.State["emailAction"]
 }
@@ -181,7 +181,7 @@ func (r *MetricAlertRule) Threshold() *pulumi.Float64Output {
 	return (*pulumi.Float64Output)(r.s.State["threshold"])
 }
 
-// A `webhook_action` block as defined below.
+// A `webhookAction` block as defined below.
 func (r *MetricAlertRule) WebhookAction() *pulumi.Output {
 	return r.s.State["webhookAction"]
 }
@@ -192,7 +192,7 @@ type MetricAlertRuleState struct {
 	Aggregation interface{}
 	// A verbose description of the alert rule that will be included in the alert email.
 	Description interface{}
-	// A `email_action` block as defined below.
+	// A `emailAction` block as defined below.
 	EmailAction interface{}
 	// If `true`, the alert rule is enabled. Defaults to `true`.
 	Enabled interface{}
@@ -214,7 +214,7 @@ type MetricAlertRuleState struct {
 	Tags interface{}
 	// The threshold value that activates the alert.
 	Threshold interface{}
-	// A `webhook_action` block as defined below.
+	// A `webhookAction` block as defined below.
 	WebhookAction interface{}
 }
 
@@ -224,7 +224,7 @@ type MetricAlertRuleArgs struct {
 	Aggregation interface{}
 	// A verbose description of the alert rule that will be included in the alert email.
 	Description interface{}
-	// A `email_action` block as defined below.
+	// A `emailAction` block as defined below.
 	EmailAction interface{}
 	// If `true`, the alert rule is enabled. Defaults to `true`.
 	Enabled interface{}
@@ -246,6 +246,6 @@ type MetricAlertRuleArgs struct {
 	Tags interface{}
 	// The threshold value that activates the alert.
 	Threshold interface{}
-	// A `webhook_action` block as defined below.
+	// A `webhookAction` block as defined below.
 	WebhookAction interface{}
 }

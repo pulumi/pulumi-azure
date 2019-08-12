@@ -59,7 +59,7 @@ type GetVirtualNetworkGatewayResult struct {
 	// Will BGP (Border Gateway Protocol) will be enabled
 	// for this Virtual Network Gateway.
 	EnableBgp interface{}
-	// One or two `ip_configuration` blocks documented below.
+	// One or two `ipConfiguration` blocks documented below.
 	IpConfigurations interface{}
 	// The location/region where the Virtual Network Gateway is located.
 	Location interface{}
@@ -72,7 +72,7 @@ type GetVirtualNetworkGatewayResult struct {
 	Tags interface{}
 	// The type of the Virtual Network Gateway.
 	Type interface{}
-	// A `vpn_client_configuration` block which is documented below.
+	// A `vpnClientConfiguration` block which is documented below.
 	VpnClientConfigurations interface{}
 	// The routing type of the Virtual Network Gateway.
 	VpnType interface{}

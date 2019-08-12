@@ -37,14 +37,18 @@ class GetFirewallResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetFirewallResult(GetFirewallResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetFirewallResult(
+            ip_configuration=self.ip_configuration,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            id=self.id)
 
 def get_firewall(name=None,resource_group_name=None,opts=None):
     """
@@ -62,7 +66,7 @@ def get_firewall(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getFirewall:getFirewall', __args__, opts=opts).value
 
-    return GetFirewallResult(
+    return AwaitableGetFirewallResult(
         ip_configuration=__ret__.get('ipConfiguration'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

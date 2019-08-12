@@ -64,7 +64,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+     * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
     public readonly patchSchedules!: pulumi.Output<{ dayOfWeek: string, startHourUtc?: number }[] | undefined>;
     /**
@@ -80,7 +80,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly privateStaticIpAddress!: pulumi.Output<string>;
     /**
-     * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     public readonly redisConfiguration!: pulumi.Output<{ aofBackupEnabled?: boolean, aofStorageConnectionString0?: string, aofStorageConnectionString1?: string, enableAuthentication?: boolean, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
     /**
@@ -229,7 +229,7 @@ export interface CacheState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+     * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
     readonly patchSchedules?: pulumi.Input<pulumi.Input<{ dayOfWeek: pulumi.Input<string>, startHourUtc?: pulumi.Input<number> }>[]>;
     /**
@@ -245,7 +245,7 @@ export interface CacheState {
      */
     readonly privateStaticIpAddress?: pulumi.Input<string>;
     /**
-     * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     readonly redisConfiguration?: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, enableAuthentication?: pulumi.Input<boolean>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
     /**
@@ -313,7 +313,7 @@ export interface CacheArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+     * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
     readonly patchSchedules?: pulumi.Input<pulumi.Input<{ dayOfWeek: pulumi.Input<string>, startHourUtc?: pulumi.Input<number> }>[]>;
     /**
@@ -321,7 +321,7 @@ export interface CacheArgs {
      */
     readonly privateStaticIpAddress?: pulumi.Input<string>;
     /**
-     * A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+     * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
     readonly redisConfiguration?: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, enableAuthentication?: pulumi.Input<boolean>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
     /**

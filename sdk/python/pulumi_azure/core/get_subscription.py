@@ -55,14 +55,19 @@ class GetSubscriptionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetSubscriptionResult(GetSubscriptionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetSubscriptionResult(
+            display_name=self.display_name,
+            location_placement_id=self.location_placement_id,
+            quota_id=self.quota_id,
+            spending_limit=self.spending_limit,
+            state=self.state,
+            subscription_id=self.subscription_id,
+            id=self.id)
 
 def get_subscription(subscription_id=None,opts=None):
     """
@@ -79,7 +84,7 @@ def get_subscription(subscription_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:core/getSubscription:getSubscription', __args__, opts=opts).value
 
-    return GetSubscriptionResult(
+    return AwaitableGetSubscriptionResult(
         display_name=__ret__.get('displayName'),
         location_placement_id=__ret__.get('locationPlacementId'),
         quota_id=__ret__.get('quotaId'),

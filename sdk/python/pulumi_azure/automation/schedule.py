@@ -58,7 +58,7 @@ class Schedule(pulumi.CustomResource):
     """
     List of days of the week that the job should execute on. Only valid when frequency is `Week`.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, month_days=None, monthly_occurrences=None, name=None, resource_group_name=None, start_time=None, timezone=None, week_days=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, month_days=None, monthly_occurrences=None, name=None, resource_group_name=None, start_time=None, timezone=None, week_days=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Automation Schedule.
         
@@ -85,56 +85,80 @@ class Schedule(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['account_name'] = account_name
-
-        __props__['automation_account_name'] = automation_account_name
-
-        __props__['description'] = description
-
-        __props__['expiry_time'] = expiry_time
-
-        if frequency is None:
-            raise TypeError("Missing required property 'frequency'")
-        __props__['frequency'] = frequency
-
-        __props__['interval'] = interval
-
-        __props__['month_days'] = month_days
-
-        __props__['monthly_occurrences'] = monthly_occurrences
-
-        __props__['name'] = name
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['start_time'] = start_time
-
-        __props__['timezone'] = timezone
-
-        __props__['week_days'] = week_days
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['account_name'] = account_name
+            __props__['automation_account_name'] = automation_account_name
+            __props__['description'] = description
+            __props__['expiry_time'] = expiry_time
+            if frequency is None:
+                raise TypeError("Missing required property 'frequency'")
+            __props__['frequency'] = frequency
+            __props__['interval'] = interval
+            __props__['month_days'] = month_days
+            __props__['monthly_occurrences'] = monthly_occurrences
+            __props__['name'] = name
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['start_time'] = start_time
+            __props__['timezone'] = timezone
+            __props__['week_days'] = week_days
         super(Schedule, __self__).__init__(
             'azure:automation/schedule:Schedule',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, account_name=None, automation_account_name=None, description=None, expiry_time=None, frequency=None, interval=None, month_days=None, monthly_occurrences=None, name=None, resource_group_name=None, start_time=None, timezone=None, week_days=None):
+        """
+        Get an existing Schedule resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] automation_account_name: The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] description: A description for this Schedule.
+        :param pulumi.Input[str] expiry_time: The end time of the schedule.
+        :param pulumi.Input[str] frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+        :param pulumi.Input[float] interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        :param pulumi.Input[list] month_days: List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+        :param pulumi.Input[list] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
+        :param pulumi.Input[list] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_schedule.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["account_name"] = account_name
+        __props__["automation_account_name"] = automation_account_name
+        __props__["description"] = description
+        __props__["expiry_time"] = expiry_time
+        __props__["frequency"] = frequency
+        __props__["interval"] = interval
+        __props__["month_days"] = month_days
+        __props__["monthly_occurrences"] = monthly_occurrences
+        __props__["name"] = name
+        __props__["resource_group_name"] = resource_group_name
+        __props__["start_time"] = start_time
+        __props__["timezone"] = timezone
+        __props__["week_days"] = week_days
+        return Schedule(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

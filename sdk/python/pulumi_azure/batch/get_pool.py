@@ -91,14 +91,26 @@ class GetPoolResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPoolResult(GetPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPoolResult(
+            account_name=self.account_name,
+            auto_scales=self.auto_scales,
+            certificates=self.certificates,
+            container_configurations=self.container_configurations,
+            display_name=self.display_name,
+            fixed_scales=self.fixed_scales,
+            max_tasks_per_node=self.max_tasks_per_node,
+            name=self.name,
+            node_agent_sku_id=self.node_agent_sku_id,
+            resource_group_name=self.resource_group_name,
+            start_task=self.start_task,
+            storage_image_references=self.storage_image_references,
+            vm_size=self.vm_size,
+            id=self.id)
 
 def get_pool(account_name=None,certificates=None,name=None,resource_group_name=None,start_task=None,opts=None):
     """
@@ -119,7 +131,7 @@ def get_pool(account_name=None,certificates=None,name=None,resource_group_name=N
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:batch/getPool:getPool', __args__, opts=opts).value
 
-    return GetPoolResult(
+    return AwaitableGetPoolResult(
         account_name=__ret__.get('accountName'),
         auto_scales=__ret__.get('autoScales'),
         certificates=__ret__.get('certificates'),

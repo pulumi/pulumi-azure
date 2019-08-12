@@ -89,7 +89,7 @@ func (r *LocalNetworkGateway) AddressSpaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["addressSpaces"])
 }
 
-// A `bgp_settings` block as defined below containing the
+// A `bgpSettings` block as defined below containing the
 // Local Network Gateway's BGP speaker settings.
 func (r *LocalNetworkGateway) BgpSettings() *pulumi.Output {
 	return r.s.State["bgpSettings"]
@@ -129,7 +129,7 @@ type LocalNetworkGatewayState struct {
 	// The list of string CIDRs representing the
 	// address spaces the gateway exposes.
 	AddressSpaces interface{}
-	// A `bgp_settings` block as defined below containing the
+	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
 	BgpSettings interface{}
 	// The IP address of the gateway to which to
@@ -153,7 +153,7 @@ type LocalNetworkGatewayArgs struct {
 	// The list of string CIDRs representing the
 	// address spaces the gateway exposes.
 	AddressSpaces interface{}
-	// A `bgp_settings` block as defined below containing the
+	// A `bgpSettings` block as defined below containing the
 	// Local Network Gateway's BGP speaker settings.
 	BgpSettings interface{}
 	// The IP address of the gateway to which to

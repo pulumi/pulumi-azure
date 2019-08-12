@@ -77,7 +77,7 @@ func (r *Factory) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A `github_configuration` block as defined below.
+// A `githubConfiguration` block as defined below.
 func (r *Factory) GithubConfiguration() *pulumi.Output {
 	return r.s.State["githubConfiguration"]
 }
@@ -107,14 +107,14 @@ func (r *Factory) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// A `vsts_configuration` block as defined below.
+// A `vstsConfiguration` block as defined below.
 func (r *Factory) VstsConfiguration() *pulumi.Output {
 	return r.s.State["vstsConfiguration"]
 }
 
 // Input properties used for looking up and filtering Factory resources.
 type FactoryState struct {
-	// A `github_configuration` block as defined below.
+	// A `githubConfiguration` block as defined below.
 	GithubConfiguration interface{}
 	// An `identity` block as defined below.
 	Identity interface{}
@@ -126,13 +126,13 @@ type FactoryState struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// A `vsts_configuration` block as defined below.
+	// A `vstsConfiguration` block as defined below.
 	VstsConfiguration interface{}
 }
 
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
-	// A `github_configuration` block as defined below.
+	// A `githubConfiguration` block as defined below.
 	GithubConfiguration interface{}
 	// An `identity` block as defined below.
 	Identity interface{}
@@ -144,6 +144,6 @@ type FactoryArgs struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// A `vsts_configuration` block as defined below.
+	// A `vstsConfiguration` block as defined below.
 	VstsConfiguration interface{}
 }

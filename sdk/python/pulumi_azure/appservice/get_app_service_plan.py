@@ -73,14 +73,23 @@ class GetAppServicePlanResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAppServicePlanResult(
+            is_xenon=self.is_xenon,
+            kind=self.kind,
+            location=self.location,
+            maximum_elastic_worker_count=self.maximum_elastic_worker_count,
+            maximum_number_of_workers=self.maximum_number_of_workers,
+            name=self.name,
+            properties=self.properties,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            tags=self.tags,
+            id=self.id)
 
 def get_app_service_plan(name=None,resource_group_name=None,opts=None):
     """
@@ -98,7 +107,7 @@ def get_app_service_plan(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:appservice/getAppServicePlan:getAppServicePlan', __args__, opts=opts).value
 
-    return GetAppServicePlanResult(
+    return AwaitableGetAppServicePlanResult(
         is_xenon=__ret__.get('isXenon'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),

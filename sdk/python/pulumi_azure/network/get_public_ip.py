@@ -76,14 +76,26 @@ class GetPublicIPResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPublicIPResult(GetPublicIPResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPublicIPResult(
+            allocation_method=self.allocation_method,
+            domain_name_label=self.domain_name_label,
+            fqdn=self.fqdn,
+            idle_timeout_in_minutes=self.idle_timeout_in_minutes,
+            ip_address=self.ip_address,
+            ip_version=self.ip_version,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            reverse_fqdn=self.reverse_fqdn,
+            sku=self.sku,
+            tags=self.tags,
+            zones=self.zones,
+            id=self.id)
 
 def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
     """
@@ -103,7 +115,7 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIP:getPublicIP', __args__, opts=opts).value
 
-    return GetPublicIPResult(
+    return AwaitableGetPublicIPResult(
         allocation_method=__ret__.get('allocationMethod'),
         domain_name_label=__ret__.get('domainNameLabel'),
         fqdn=__ret__.get('fqdn'),

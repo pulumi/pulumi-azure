@@ -109,7 +109,7 @@ func (r *OutboundRule) EnableTcpReset() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableTcpReset"])
 }
 
-// One or more `frontend_ip_configuration` blocks as defined below.
+// One or more `frontendIpConfiguration` blocks as defined below.
 func (r *OutboundRule) FrontendIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
@@ -147,7 +147,7 @@ type OutboundRuleState struct {
 	BackendAddressPoolId interface{}
 	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
 	EnableTcpReset interface{}
-	// One or more `frontend_ip_configuration` blocks as defined below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations interface{}
 	// The timeout for the TCP idle connection
 	IdleTimeoutInMinutes interface{}
@@ -169,7 +169,7 @@ type OutboundRuleArgs struct {
 	BackendAddressPoolId interface{}
 	// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
 	EnableTcpReset interface{}
-	// One or more `frontend_ip_configuration` blocks as defined below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations interface{}
 	// The timeout for the TCP idle connection
 	IdleTimeoutInMinutes interface{}

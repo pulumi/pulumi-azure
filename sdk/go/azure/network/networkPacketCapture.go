@@ -127,7 +127,7 @@ func (r *NetworkPacketCapture) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 func (r *NetworkPacketCapture) StorageLocation() *pulumi.Output {
 	return r.s.State["storageLocation"]
 }
@@ -153,7 +153,7 @@ type NetworkPacketCaptureState struct {
 	NetworkWatcherName interface{}
 	// The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation interface{}
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
 	TargetResourceId interface{}
@@ -175,7 +175,7 @@ type NetworkPacketCaptureArgs struct {
 	NetworkWatcherName interface{}
 	// The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// A `storage_location` block as defined below. Changing this forces a new resource to be created.
+	// A `storageLocation` block as defined below. Changing this forces a new resource to be created.
 	StorageLocation interface{}
 	// The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
 	TargetResourceId interface{}

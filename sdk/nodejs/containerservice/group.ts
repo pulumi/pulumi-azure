@@ -47,7 +47,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
-     * The FQDN of the container group derived from `dns_name_label`.
+     * The FQDN of the container group derived from `dnsNameLabel`.
      */
     public /*out*/ readonly fqdn!: pulumi.Output<string>;
     /**
@@ -55,7 +55,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
     /**
-     * A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
     public readonly imageRegistryCredentials!: pulumi.Output<{ password: string, server: string, username: string }[] | undefined>;
     /**
@@ -171,7 +171,7 @@ export interface GroupState {
      */
     readonly dnsNameLabel?: pulumi.Input<string>;
     /**
-     * The FQDN of the container group derived from `dns_name_label`.
+     * The FQDN of the container group derived from `dnsNameLabel`.
      */
     readonly fqdn?: pulumi.Input<string>;
     /**
@@ -179,7 +179,7 @@ export interface GroupState {
      */
     readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
-     * A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
     readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
     /**
@@ -237,7 +237,7 @@ export interface GroupArgs {
      */
     readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
     /**
-     * A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
     readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
     /**

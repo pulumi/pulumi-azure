@@ -55,14 +55,20 @@ class GetInsightsResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetInsightsResult(GetInsightsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetInsightsResult(
+            app_id=self.app_id,
+            application_type=self.application_type,
+            instrumentation_key=self.instrumentation_key,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            id=self.id)
 
 def get_insights(name=None,resource_group_name=None,opts=None):
     """
@@ -80,7 +86,7 @@ def get_insights(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:appinsights/getInsights:getInsights', __args__, opts=opts).value
 
-    return GetInsightsResult(
+    return AwaitableGetInsightsResult(
         app_id=__ret__.get('appId'),
         application_type=__ret__.get('applicationType'),
         instrumentation_key=__ret__.get('instrumentationKey'),

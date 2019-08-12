@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "northeurope",
- *     name: "tfex_datalake_fw_rule",
+ *     name: "tfexDatalakeFwRule",
  * });
  * const exampleStore = new azure.datalake.Store("example", {
  *     location: exampleResourceGroup.location,

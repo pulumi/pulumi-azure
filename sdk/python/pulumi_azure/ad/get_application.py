@@ -61,14 +61,21 @@ class GetApplicationResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetApplicationResult(
+            application_id=self.application_id,
+            available_to_other_tenants=self.available_to_other_tenants,
+            homepage=self.homepage,
+            identifier_uris=self.identifier_uris,
+            name=self.name,
+            oauth2_allow_implicit_flow=self.oauth2_allow_implicit_flow,
+            object_id=self.object_id,
+            reply_urls=self.reply_urls,
+            id=self.id)
 
 def get_application(name=None,object_id=None,opts=None):
     """
@@ -84,7 +91,7 @@ def get_application(name=None,object_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__, opts=opts).value
 
-    return GetApplicationResult(
+    return AwaitableGetApplicationResult(
         application_id=__ret__.get('applicationId'),
         available_to_other_tenants=__ret__.get('availableToOtherTenants'),
         homepage=__ret__.get('homepage'),

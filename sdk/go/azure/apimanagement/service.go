@@ -125,7 +125,7 @@ func (r *Service) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// One or more `additional_location` blocks as defined below.
+// One or more `additionalLocation` blocks as defined below.
 func (r *Service) AdditionalLocation() *pulumi.Output {
 	return r.s.State["additionalLocation"]
 }
@@ -145,7 +145,7 @@ func (r *Service) GatewayUrl() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["gatewayUrl"])
 }
 
-// A `hostname_configuration` block as defined below.
+// A `hostnameConfiguration` block as defined below.
 func (r *Service) HostnameConfiguration() *pulumi.Output {
 	return r.s.State["hostnameConfiguration"]
 }
@@ -215,12 +215,12 @@ func (r *Service) Security() *pulumi.Output {
 	return r.s.State["security"]
 }
 
-// A `sign_in` block as defined below.
+// A `signIn` block as defined below.
 func (r *Service) SignIn() *pulumi.Output {
 	return r.s.State["signIn"]
 }
 
-// A `sign_up` block as defined below.
+// A `signUp` block as defined below.
 func (r *Service) SignUp() *pulumi.Output {
 	return r.s.State["signUp"]
 }
@@ -237,7 +237,7 @@ func (r *Service) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Service resources.
 type ServiceState struct {
-	// One or more `additional_location` blocks as defined below.
+	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocation interface{}
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates interface{}
@@ -245,7 +245,7 @@ type ServiceState struct {
 	GatewayRegionalUrl interface{}
 	// The URL of the Gateway for the API Management Service.
 	GatewayUrl interface{}
-	// A `hostname_configuration` block as defined below.
+	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration interface{}
 	// An `identity` block is documented below.
 	Identity interface{}
@@ -273,9 +273,9 @@ type ServiceState struct {
 	ScmUrl interface{}
 	// A `security` block as defined below.
 	Security interface{}
-	// A `sign_in` block as defined below.
+	// A `signIn` block as defined below.
 	SignIn interface{}
-	// A `sign_up` block as defined below.
+	// A `signUp` block as defined below.
 	SignUp interface{}
 	// A `sku` block as documented below.
 	Sku interface{}
@@ -285,11 +285,11 @@ type ServiceState struct {
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// One or more `additional_location` blocks as defined below.
+	// One or more `additionalLocation` blocks as defined below.
 	AdditionalLocation interface{}
 	// One or more (up to 10) `certificate` blocks as defined below.
 	Certificates interface{}
-	// A `hostname_configuration` block as defined below.
+	// A `hostnameConfiguration` block as defined below.
 	HostnameConfiguration interface{}
 	// An `identity` block is documented below.
 	Identity interface{}
@@ -309,9 +309,9 @@ type ServiceArgs struct {
 	ResourceGroupName interface{}
 	// A `security` block as defined below.
 	Security interface{}
-	// A `sign_in` block as defined below.
+	// A `signIn` block as defined below.
 	SignIn interface{}
-	// A `sign_up` block as defined below.
+	// A `signUp` block as defined below.
 	SignUp interface{}
 	// A `sku` block as documented below.
 	Sku interface{}

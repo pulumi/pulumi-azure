@@ -208,7 +208,7 @@ func (r *Account) AccountType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["accountType"])
 }
 
-// A `custom_domain` block as documented below.
+// A `customDomain` block as documented below.
 func (r *Account) CustomDomain() *pulumi.Output {
 	return r.s.State["customDomain"]
 }
@@ -250,7 +250,7 @@ func (r *Account) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A `network_rules` block as documented below.
+// A `networkRules` block as documented below.
 func (r *Account) NetworkRules() *pulumi.Output {
 	return r.s.State["networkRules"]
 }
@@ -441,7 +441,7 @@ type AccountState struct {
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
 	AccountTier interface{}
 	AccountType interface{}
-	// A `custom_domain` block as documented below.
+	// A `customDomain` block as documented below.
 	CustomDomain interface{}
 	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 	EnableBlobEncryption interface{}
@@ -459,7 +459,7 @@ type AccountState struct {
 	Location interface{}
 	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 	Name interface{}
-	// A `network_rules` block as documented below.
+	// A `networkRules` block as documented below.
 	NetworkRules interface{}
 	// The primary access key for the storage account.
 	PrimaryAccessKey interface{}
@@ -547,7 +547,7 @@ type AccountArgs struct {
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
 	AccountTier interface{}
 	AccountType interface{}
-	// A `custom_domain` block as documented below.
+	// A `customDomain` block as documented below.
 	CustomDomain interface{}
 	// Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
 	EnableBlobEncryption interface{}
@@ -565,7 +565,7 @@ type AccountArgs struct {
 	Location interface{}
 	// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
 	Name interface{}
-	// A `network_rules` block as documented below.
+	// A `networkRules` block as documented below.
 	NetworkRules interface{}
 	// The name of the resource group in which to
 	// create the storage account. Changing this forces a new resource to be created.

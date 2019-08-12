@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *             diskSizeGb: 1023,
  *             lun: 0,
  *             managedDiskType: "Standard_LRS",
- *             name: "datadisk_new",
+ *             name: "datadiskNew",
  *         },
  *         {
  *             createOption: "Attach",

@@ -107,17 +107,17 @@ func (r *ManagedDisk) CreateOption() *pulumi.StringOutput {
 }
 
 // Specifies the size of the managed disk to create in gigabytes.
-// If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
 func (r *ManagedDisk) DiskSizeGb() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["diskSizeGb"])
 }
 
-// an `encryption_settings` block as defined below.
+// an `encryptionSettings` block as defined below.
 func (r *ManagedDisk) EncryptionSettings() *pulumi.Output {
 	return r.s.State["encryptionSettings"]
 }
 
-// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 func (r *ManagedDisk) ImageReferenceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["imageReferenceId"])
 }
@@ -146,13 +146,13 @@ func (r *ManagedDisk) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// ID of an existing managed disk to copy `create_option` is `Copy`
-// or the recovery point to restore when `create_option` is `Restore`
+// ID of an existing managed disk to copy `createOption` is `Copy`
+// or the recovery point to restore when `createOption` is `Restore`
 func (r *ManagedDisk) SourceResourceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceResourceId"])
 }
 
-// URI to a valid VHD file to be used when `create_option` is `Import`.
+// URI to a valid VHD file to be used when `createOption` is `Import`.
 func (r *ManagedDisk) SourceUri() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceUri"])
 }
@@ -178,11 +178,11 @@ type ManagedDiskState struct {
 	// The method to use when creating the managed disk. Possible values include:
 	CreateOption interface{}
 	// Specifies the size of the managed disk to create in gigabytes.
-	// If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
 	DiskSizeGb interface{}
-	// an `encryption_settings` block as defined below.
+	// an `encryptionSettings` block as defined below.
 	EncryptionSettings interface{}
-	// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId interface{}
 	// Specified the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
@@ -196,10 +196,10 @@ type ManagedDiskState struct {
 	// The name of the resource group in which to create
 	// the managed disk.
 	ResourceGroupName interface{}
-	// ID of an existing managed disk to copy `create_option` is `Copy`
-	// or the recovery point to restore when `create_option` is `Restore`
+	// ID of an existing managed disk to copy `createOption` is `Copy`
+	// or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId interface{}
-	// URI to a valid VHD file to be used when `create_option` is `Import`.
+	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri interface{}
 	// The type of storage to use for the managed disk.
 	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
@@ -215,11 +215,11 @@ type ManagedDiskArgs struct {
 	// The method to use when creating the managed disk. Possible values include:
 	CreateOption interface{}
 	// Specifies the size of the managed disk to create in gigabytes.
-	// If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
+	// If `createOption` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size.
 	DiskSizeGb interface{}
-	// an `encryption_settings` block as defined below.
+	// an `encryptionSettings` block as defined below.
 	EncryptionSettings interface{}
-	// ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`.
+	// ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
 	ImageReferenceId interface{}
 	// Specified the supported Azure location where the resource exists.
 	// Changing this forces a new resource to be created.
@@ -233,10 +233,10 @@ type ManagedDiskArgs struct {
 	// The name of the resource group in which to create
 	// the managed disk.
 	ResourceGroupName interface{}
-	// ID of an existing managed disk to copy `create_option` is `Copy`
-	// or the recovery point to restore when `create_option` is `Restore`
+	// ID of an existing managed disk to copy `createOption` is `Copy`
+	// or the recovery point to restore when `createOption` is `Restore`
 	SourceResourceId interface{}
-	// URI to a valid VHD file to be used when `create_option` is `Import`.
+	// URI to a valid VHD file to be used when `createOption` is `Import`.
 	SourceUri interface{}
 	// The type of storage to use for the managed disk.
 	// Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.

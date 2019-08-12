@@ -96,15 +96,15 @@ export class LogProfile extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
+     * A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
     public readonly retentionPolicy!: pulumi.Output<{ days?: number, enabled: boolean }>;
     /**
-     * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+     * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
     public readonly servicebusRuleId!: pulumi.Output<string | undefined>;
     /**
-     * The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+     * The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
 
@@ -173,15 +173,15 @@ export interface LogProfileState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
+     * A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
     readonly retentionPolicy?: pulumi.Input<{ days?: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>;
     /**
-     * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+     * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
     readonly servicebusRuleId?: pulumi.Input<string>;
     /**
-     * The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+     * The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
     readonly storageAccountId?: pulumi.Input<string>;
 }
@@ -204,15 +204,15 @@ export interface LogProfileArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
+     * A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
     readonly retentionPolicy: pulumi.Input<{ days?: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>;
     /**
-     * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+     * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
     readonly servicebusRuleId?: pulumi.Input<string>;
     /**
-     * The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+     * The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
     readonly storageAccountId?: pulumi.Input<string>;
 }

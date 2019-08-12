@@ -76,7 +76,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly contentTypesToCompresses!: pulumi.Output<string[]>;
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     public readonly geoFilters!: pulumi.Output<{ action: string, countryCodes: string[], relativePath: string }[] | undefined>;
     public /*out*/ readonly hostName!: pulumi.Output<string>;
@@ -117,7 +117,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly originPath!: pulumi.Output<string>;
     /**
-     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      */
     public readonly probePath!: pulumi.Output<string>;
     /**
@@ -215,7 +215,7 @@ export interface EndpointState {
      */
     readonly contentTypesToCompresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     readonly geoFilters?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, countryCodes: pulumi.Input<pulumi.Input<string>[]>, relativePath: pulumi.Input<string> }>[]>;
     readonly hostName?: pulumi.Input<string>;
@@ -256,7 +256,7 @@ export interface EndpointState {
      */
     readonly originPath?: pulumi.Input<string>;
     /**
-     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      */
     readonly probePath?: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface EndpointArgs {
      */
     readonly contentTypesToCompresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+     * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
     readonly geoFilters?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, countryCodes: pulumi.Input<pulumi.Input<string>[]>, relativePath: pulumi.Input<string> }>[]>;
     /**
@@ -326,7 +326,7 @@ export interface EndpointArgs {
      */
     readonly originPath?: pulumi.Input<string>;
     /**
-     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+     * the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
      */
     readonly probePath?: pulumi.Input<string>;
     /**

@@ -107,7 +107,7 @@ export class Controller extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+     * Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
      */
     public readonly targetContainerHostCredentialsBase64!: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export interface ControllerState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+     * Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
      */
     readonly targetContainerHostCredentialsBase64?: pulumi.Input<string>;
     /**
@@ -245,7 +245,7 @@ export interface ControllerArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+     * Base64 encoding of `kubeConfigRaw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
      */
     readonly targetContainerHostCredentialsBase64: pulumi.Input<string>;
     /**

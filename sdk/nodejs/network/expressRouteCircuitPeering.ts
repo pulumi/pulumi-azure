@@ -85,7 +85,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      */
     public readonly expressRouteCircuitName!: pulumi.Output<string>;
     /**
-     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
      */
     public readonly microsoftPeeringConfig!: pulumi.Output<{ advertisedPublicPrefixes: string[] } | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface ExpressRouteCircuitPeeringState {
      */
     readonly expressRouteCircuitName?: pulumi.Input<string>;
     /**
-     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
      */
     readonly microsoftPeeringConfig?: pulumi.Input<{ advertisedPublicPrefixes: pulumi.Input<pulumi.Input<string>[]> }>;
     /**
@@ -258,7 +258,7 @@ export interface ExpressRouteCircuitPeeringArgs {
      */
     readonly expressRouteCircuitName: pulumi.Input<string>;
     /**
-     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
      */
     readonly microsoftPeeringConfig?: pulumi.Input<{ advertisedPublicPrefixes: pulumi.Input<pulumi.Input<string>[]> }>;
     /**

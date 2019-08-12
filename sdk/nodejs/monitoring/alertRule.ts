@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a [metric-based alert rule](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) in Azure Monitor.
  * 
- * > **NOTE:** This resource has been deprecated in favour of the `azurerm_monitor_metric_alertrule` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+ * > **NOTE:** This resource has been deprecated in favour of the `azure.monitoring.MetricAlertRule` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
  * 
  * ## Example Usage (CPU Percentage of a virtual machine)
  * 
@@ -111,7 +111,7 @@ export class AlertRule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * A `email_action` block as defined below.
+     * A `emailAction` block as defined below.
      */
     public readonly emailAction!: pulumi.Output<{ customEmails: string[], sendToServiceOwners: boolean }>;
     /**
@@ -155,7 +155,7 @@ export class AlertRule extends pulumi.CustomResource {
      */
     public readonly threshold!: pulumi.Output<number>;
     /**
-     * A `webhook_action` block as defined below.
+     * A `webhookAction` block as defined below.
      */
     public readonly webhookAction!: pulumi.Output<{ properties: {[key: string]: string}, serviceUri: string }>;
 
@@ -247,7 +247,7 @@ export interface AlertRuleState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A `email_action` block as defined below.
+     * A `emailAction` block as defined below.
      */
     readonly emailAction?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToServiceOwners?: pulumi.Input<boolean> }>;
     /**
@@ -291,7 +291,7 @@ export interface AlertRuleState {
      */
     readonly threshold?: pulumi.Input<number>;
     /**
-     * A `webhook_action` block as defined below.
+     * A `webhookAction` block as defined below.
      */
     readonly webhookAction?: pulumi.Input<{ properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serviceUri: pulumi.Input<string> }>;
 }
@@ -309,7 +309,7 @@ export interface AlertRuleArgs {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * A `email_action` block as defined below.
+     * A `emailAction` block as defined below.
      */
     readonly emailAction?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToServiceOwners?: pulumi.Input<boolean> }>;
     /**
@@ -353,7 +353,7 @@ export interface AlertRuleArgs {
      */
     readonly threshold: pulumi.Input<number>;
     /**
-     * A `webhook_action` block as defined below.
+     * A `webhookAction` block as defined below.
      */
     readonly webhookAction?: pulumi.Input<{ properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serviceUri: pulumi.Input<string> }>;
 }

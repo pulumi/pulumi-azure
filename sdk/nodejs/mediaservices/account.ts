@@ -77,7 +77,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      */
     public readonly storageAccounts!: pulumi.Output<{ id: string, isPrimary?: boolean }[]>;
 
@@ -138,7 +138,7 @@ export interface AccountState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      */
     readonly storageAccounts?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, isPrimary?: pulumi.Input<boolean> }>[]>;
 }
@@ -160,7 +160,7 @@ export interface AccountArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * One or more `storage_account` blocks as defined below.
+     * One or more `storageAccount` blocks as defined below.
      */
     readonly storageAccounts: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, isPrimary?: pulumi.Input<boolean> }>[]>;
 }

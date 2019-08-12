@@ -73,7 +73,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly administratorLogin!: pulumi.Output<string>;
     /**
-     * The Password associated with the `administrator_login` for the MySQL Server.
+     * The Password associated with the `administratorLogin` for the MySQL Server.
      */
     public readonly administratorLoginPassword!: pulumi.Output<string>;
     /**
@@ -101,7 +101,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly sslEnforcement!: pulumi.Output<string>;
     /**
-     * A `storage_profile` block as defined below.
+     * A `storageProfile` block as defined below.
      */
     public readonly storageProfile!: pulumi.Output<{ backupRetentionDays?: number, geoRedundantBackup?: string, storageMb: number }>;
     /**
@@ -191,7 +191,7 @@ export interface ServerState {
      */
     readonly administratorLogin?: pulumi.Input<string>;
     /**
-     * The Password associated with the `administrator_login` for the MySQL Server.
+     * The Password associated with the `administratorLogin` for the MySQL Server.
      */
     readonly administratorLoginPassword?: pulumi.Input<string>;
     /**
@@ -219,7 +219,7 @@ export interface ServerState {
      */
     readonly sslEnforcement?: pulumi.Input<string>;
     /**
-     * A `storage_profile` block as defined below.
+     * A `storageProfile` block as defined below.
      */
     readonly storageProfile?: pulumi.Input<{ backupRetentionDays?: pulumi.Input<number>, geoRedundantBackup?: pulumi.Input<string>, storageMb: pulumi.Input<number> }>;
     /**
@@ -241,7 +241,7 @@ export interface ServerArgs {
      */
     readonly administratorLogin: pulumi.Input<string>;
     /**
-     * The Password associated with the `administrator_login` for the MySQL Server.
+     * The Password associated with the `administratorLogin` for the MySQL Server.
      */
     readonly administratorLoginPassword: pulumi.Input<string>;
     /**
@@ -265,7 +265,7 @@ export interface ServerArgs {
      */
     readonly sslEnforcement: pulumi.Input<string>;
     /**
-     * A `storage_profile` block as defined below.
+     * A `storageProfile` block as defined below.
      */
     readonly storageProfile: pulumi.Input<{ backupRetentionDays?: pulumi.Input<number>, geoRedundantBackup?: pulumi.Input<string>, storageMb: pulumi.Input<number> }>;
     /**

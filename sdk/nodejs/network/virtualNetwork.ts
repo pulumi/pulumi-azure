@@ -102,7 +102,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      */
     public readonly addressSpaces!: pulumi.Output<string[]>;
     /**
-     * A `ddos_protection_plan` block as documented below.
+     * A `ddosProtectionPlan` block as documented below.
      */
     public readonly ddosProtectionPlan!: pulumi.Output<{ enable: boolean, id: string } | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface VirtualNetworkState {
      */
     readonly addressSpaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `ddos_protection_plan` block as documented below.
+     * A `ddosProtectionPlan` block as documented below.
      */
     readonly ddosProtectionPlan?: pulumi.Input<{ enable: pulumi.Input<boolean>, id: pulumi.Input<string> }>;
     /**
@@ -237,7 +237,7 @@ export interface VirtualNetworkArgs {
      */
     readonly addressSpaces: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A `ddos_protection_plan` block as documented below.
+     * A `ddosProtectionPlan` block as documented below.
      */
     readonly ddosProtectionPlan?: pulumi.Input<{ enable: pulumi.Input<boolean>, id: pulumi.Input<string> }>;
     /**

@@ -10,7 +10,7 @@ import (
 
 // Manages a [metric-based alert rule](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) in Azure Monitor.
 // 
-// > **NOTE:** This resource has been deprecated in favour of the `azurerm_monitor_metric_alertrule` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+// > **NOTE:** This resource has been deprecated in favour of the `monitoring.MetricAlertRule` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/metric_alertrule.html.markdown.
 type AlertRule struct {
@@ -128,7 +128,7 @@ func (r *AlertRule) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// A `email_action` block as defined below.
+// A `emailAction` block as defined below.
 func (r *AlertRule) EmailAction() *pulumi.Output {
 	return r.s.State["emailAction"]
 }
@@ -183,7 +183,7 @@ func (r *AlertRule) Threshold() *pulumi.Float64Output {
 	return (*pulumi.Float64Output)(r.s.State["threshold"])
 }
 
-// A `webhook_action` block as defined below.
+// A `webhookAction` block as defined below.
 func (r *AlertRule) WebhookAction() *pulumi.Output {
 	return r.s.State["webhookAction"]
 }
@@ -194,7 +194,7 @@ type AlertRuleState struct {
 	Aggregation interface{}
 	// A verbose description of the alert rule that will be included in the alert email.
 	Description interface{}
-	// A `email_action` block as defined below.
+	// A `emailAction` block as defined below.
 	EmailAction interface{}
 	// If `true`, the alert rule is enabled. Defaults to `true`.
 	Enabled interface{}
@@ -216,7 +216,7 @@ type AlertRuleState struct {
 	Tags interface{}
 	// The threshold value that activates the alert.
 	Threshold interface{}
-	// A `webhook_action` block as defined below.
+	// A `webhookAction` block as defined below.
 	WebhookAction interface{}
 }
 
@@ -226,7 +226,7 @@ type AlertRuleArgs struct {
 	Aggregation interface{}
 	// A verbose description of the alert rule that will be included in the alert email.
 	Description interface{}
-	// A `email_action` block as defined below.
+	// A `emailAction` block as defined below.
 	EmailAction interface{}
 	// If `true`, the alert rule is enabled. Defaults to `true`.
 	Enabled interface{}
@@ -248,6 +248,6 @@ type AlertRuleArgs struct {
 	Tags interface{}
 	// The threshold value that activates the alert.
 	Threshold interface{}
-	// A `webhook_action` block as defined below.
+	// A `webhookAction` block as defined below.
 	WebhookAction interface{}
 }

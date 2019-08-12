@@ -85,7 +85,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      */
     public readonly sourceResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +93,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly sourceUri!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+     * Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface SnapshotState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface SnapshotState {
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
-     * Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+     * Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface SnapshotArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
      */
     readonly sourceResourceId?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface SnapshotArgs {
      */
     readonly sourceUri?: pulumi.Input<string>;
     /**
-     * Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
+     * Specifies the ID of an storage account. Used with `sourceUri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
      */
     readonly storageAccountId?: pulumi.Input<string>;
     /**

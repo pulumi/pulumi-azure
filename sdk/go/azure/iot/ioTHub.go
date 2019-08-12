@@ -125,7 +125,7 @@ func (r *IoTHub) EventHubOperationsPath() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eventHubOperationsPath"])
 }
 
-// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 func (r *IoTHub) FallbackRoute() *pulumi.Output {
 	return r.s.State["fallbackRoute"]
 }
@@ -135,7 +135,7 @@ func (r *IoTHub) Hostname() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hostname"])
 }
 
-// One or more `ip_filter_rule` blocks as defined below.
+// One or more `ipFilterRule` blocks as defined below.
 func (r *IoTHub) IpFilterRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["ipFilterRules"])
 }
@@ -160,7 +160,7 @@ func (r *IoTHub) Routes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["routes"])
 }
 
-// One or more `shared_access_policy` blocks as defined below.
+// One or more `sharedAccessPolicy` blocks as defined below.
 func (r *IoTHub) SharedAccessPolicies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sharedAccessPolicies"])
 }
@@ -191,11 +191,11 @@ type IoTHubState struct {
 	EventHubOperationsEndpoint interface{}
 	// The EventHub compatible path for operational data
 	EventHubOperationsPath interface{}
-	// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	FallbackRoute interface{}
 	// The hostname of the IotHub Resource.
 	Hostname interface{}
-	// One or more `ip_filter_rule` blocks as defined below.
+	// One or more `ipFilterRule` blocks as defined below.
 	IpFilterRules interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
@@ -205,7 +205,7 @@ type IoTHubState struct {
 	ResourceGroupName interface{}
 	// A `route` block as defined below.
 	Routes interface{}
-	// One or more `shared_access_policy` blocks as defined below.
+	// One or more `sharedAccessPolicy` blocks as defined below.
 	SharedAccessPolicies interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
@@ -218,9 +218,9 @@ type IoTHubState struct {
 type IoTHubArgs struct {
 	// An `endpoint` block as defined below.
 	Endpoints interface{}
-	// A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	FallbackRoute interface{}
-	// One or more `ip_filter_rule` blocks as defined below.
+	// One or more `ipFilterRule` blocks as defined below.
 	IpFilterRules interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}

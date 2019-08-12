@@ -85,7 +85,7 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
         
@@ -115,67 +115,103 @@ class KubernetesCluster(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['addon_profile'] = addon_profile
-
-        if agent_pool_profiles is None:
-            raise TypeError("Missing required property 'agent_pool_profiles'")
-        __props__['agent_pool_profiles'] = agent_pool_profiles
-
-        __props__['api_server_authorized_ip_ranges'] = api_server_authorized_ip_ranges
-
-        if dns_prefix is None:
-            raise TypeError("Missing required property 'dns_prefix'")
-        __props__['dns_prefix'] = dns_prefix
-
-        __props__['kubernetes_version'] = kubernetes_version
-
-        __props__['linux_profile'] = linux_profile
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        __props__['network_profile'] = network_profile
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        __props__['role_based_access_control'] = role_based_access_control
-
-        if service_principal is None:
-            raise TypeError("Missing required property 'service_principal'")
-        __props__['service_principal'] = service_principal
-
-        __props__['tags'] = tags
-
-        __props__['fqdn'] = None
-        __props__['kube_admin_config'] = None
-        __props__['kube_admin_config_raw'] = None
-        __props__['kube_config'] = None
-        __props__['kube_config_raw'] = None
-        __props__['node_resource_group'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['addon_profile'] = addon_profile
+            if agent_pool_profiles is None:
+                raise TypeError("Missing required property 'agent_pool_profiles'")
+            __props__['agent_pool_profiles'] = agent_pool_profiles
+            __props__['api_server_authorized_ip_ranges'] = api_server_authorized_ip_ranges
+            if dns_prefix is None:
+                raise TypeError("Missing required property 'dns_prefix'")
+            __props__['dns_prefix'] = dns_prefix
+            __props__['kubernetes_version'] = kubernetes_version
+            __props__['linux_profile'] = linux_profile
+            __props__['location'] = location
+            __props__['name'] = name
+            __props__['network_profile'] = network_profile
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            __props__['role_based_access_control'] = role_based_access_control
+            if service_principal is None:
+                raise TypeError("Missing required property 'service_principal'")
+            __props__['service_principal'] = service_principal
+            __props__['tags'] = tags
+            __props__['fqdn'] = None
+            __props__['kube_admin_config'] = None
+            __props__['kube_admin_config_raw'] = None
+            __props__['kube_config'] = None
+            __props__['kube_config_raw'] = None
+            __props__['node_resource_group'] = None
         super(KubernetesCluster, __self__).__init__(
             'azure:containerservice/kubernetesCluster:KubernetesCluster',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, addon_profile=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, fqdn=None, kube_admin_config=None, kube_admin_config_raw=None, kube_config=None, kube_config_raw=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, role_based_access_control=None, service_principal=None, tags=None):
+        """
+        Get an existing KubernetesCluster resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] addon_profile: A `addon_profile` block.
+        :param pulumi.Input[list] agent_pool_profiles: One or more `agent_pool_profile` blocks as defined below.
+        :param pulumi.Input[list] api_server_authorized_ip_ranges: The IP ranges to whitelist for incoming traffic to the masters.
+        :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
+        :param pulumi.Input[dict] kube_admin_config: A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        :param pulumi.Input[str] kube_admin_config_raw: Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+        :param pulumi.Input[dict] kube_config: A `kube_config` block as defined below.
+        :param pulumi.Input[str] kube_config_raw: Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools
+        :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade).
+        :param pulumi.Input[dict] linux_profile: A `linux_profile` block.
+        :param pulumi.Input[str] location: The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] network_profile: A `network_profile` block.
+        :param pulumi.Input[str] node_resource_group: The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
+        :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
+        :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["addon_profile"] = addon_profile
+        __props__["agent_pool_profiles"] = agent_pool_profiles
+        __props__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
+        __props__["dns_prefix"] = dns_prefix
+        __props__["fqdn"] = fqdn
+        __props__["kube_admin_config"] = kube_admin_config
+        __props__["kube_admin_config_raw"] = kube_admin_config_raw
+        __props__["kube_config"] = kube_config
+        __props__["kube_config_raw"] = kube_config_raw
+        __props__["kubernetes_version"] = kubernetes_version
+        __props__["linux_profile"] = linux_profile
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["network_profile"] = network_profile
+        __props__["node_resource_group"] = node_resource_group
+        __props__["resource_group_name"] = resource_group_name
+        __props__["role_based_access_control"] = role_based_access_control
+        __props__["service_principal"] = service_principal
+        __props__["tags"] = tags
+        return KubernetesCluster(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

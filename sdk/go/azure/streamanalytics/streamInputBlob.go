@@ -110,7 +110,7 @@ func (r *StreamInputBlob) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 func (r *StreamInputBlob) DateFormat() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dateFormat"])
 }
@@ -155,14 +155,14 @@ func (r *StreamInputBlob) StreamAnalyticsJobName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["streamAnalyticsJobName"])
 }
 
-// The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+// The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
 func (r *StreamInputBlob) TimeFormat() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["timeFormat"])
 }
 
 // Input properties used for looking up and filtering StreamInputBlob resources.
 type StreamInputBlobState struct {
-	// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat interface{}
 	// The name of the Stream Input Blob. Changing this forces a new resource to be created.
 	Name interface{}
@@ -180,13 +180,13 @@ type StreamInputBlobState struct {
 	StorageContainerName interface{}
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName interface{}
-	// The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+	// The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
 	TimeFormat interface{}
 }
 
 // The set of arguments for constructing a StreamInputBlob resource.
 type StreamInputBlobArgs struct {
-	// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
+	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat interface{}
 	// The name of the Stream Input Blob. Changing this forces a new resource to be created.
 	Name interface{}
@@ -204,6 +204,6 @@ type StreamInputBlobArgs struct {
 	StorageContainerName interface{}
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName interface{}
-	// The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+	// The time format. Wherever `{time}` appears in `pathPattern`, the value of this property is used as the time format instead.
 	TimeFormat interface{}
 }

@@ -140,7 +140,7 @@ func (r *DatasetSqlServerTable) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `schema_column` block as defined below.
+// A `schemaColumn` block as defined below.
 func (r *DatasetSqlServerTable) SchemaColumns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["schemaColumns"])
 }
@@ -170,7 +170,7 @@ type DatasetSqlServerTableState struct {
 	Parameters interface{}
 	// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
 	ResourceGroupName interface{}
-	// A `schema_column` block as defined below.
+	// A `schemaColumn` block as defined below.
 	SchemaColumns interface{}
 	// The table name of the Data Factory Dataset SQL Server Table.
 	TableName interface{}
@@ -196,7 +196,7 @@ type DatasetSqlServerTableArgs struct {
 	Parameters interface{}
 	// The name of the resource group in which to create the Data Factory Dataset SQL Server Table. Changing this forces a new resource
 	ResourceGroupName interface{}
-	// A `schema_column` block as defined below.
+	// A `schemaColumn` block as defined below.
 	SchemaColumns interface{}
 	// The table name of the Data Factory Dataset SQL Server Table.
 	TableName interface{}

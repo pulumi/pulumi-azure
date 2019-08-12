@@ -55,14 +55,20 @@ class GetJobCollectionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetJobCollectionResult(GetJobCollectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetJobCollectionResult(
+            location=self.location,
+            name=self.name,
+            quotas=self.quotas,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            state=self.state,
+            tags=self.tags,
+            id=self.id)
 
 def get_job_collection(name=None,resource_group_name=None,opts=None):
     """
@@ -82,7 +88,7 @@ def get_job_collection(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:scheduler/getJobCollection:getJobCollection', __args__, opts=opts).value
 
-    return GetJobCollectionResult(
+    return AwaitableGetJobCollectionResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         quotas=__ret__.get('quotas'),

@@ -37,14 +37,17 @@ class GetNetworkWatcherResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetNetworkWatcherResult(GetNetworkWatcherResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetNetworkWatcherResult(
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            tags=self.tags,
+            id=self.id)
 
 def get_network_watcher(name=None,resource_group_name=None,opts=None):
     """
@@ -62,7 +65,7 @@ def get_network_watcher(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getNetworkWatcher:getNetworkWatcher', __args__, opts=opts).value
 
-    return GetNetworkWatcherResult(
+    return AwaitableGetNetworkWatcherResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),

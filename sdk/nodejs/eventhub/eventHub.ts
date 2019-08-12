@@ -67,7 +67,7 @@ export class EventHub extends pulumi.CustomResource {
     }
 
     /**
-     * A `capture_description` block as defined below.
+     * A `captureDescription` block as defined below.
      */
     public readonly captureDescription!: pulumi.Output<{ destination: { archiveNameFormat: string, blobContainerName: string, name: string, storageAccountId: string }, enabled: boolean, encoding: string, intervalInSeconds?: number, sizeLimitInBytes?: number, skipEmptyArchives?: boolean } | undefined>;
     public readonly location!: pulumi.Output<string>;
@@ -155,7 +155,7 @@ export class EventHub extends pulumi.CustomResource {
  */
 export interface EventHubState {
     /**
-     * A `capture_description` block as defined below.
+     * A `captureDescription` block as defined below.
      */
     readonly captureDescription?: pulumi.Input<{ destination: pulumi.Input<{ archiveNameFormat: pulumi.Input<string>, blobContainerName: pulumi.Input<string>, name: pulumi.Input<string>, storageAccountId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, encoding: pulumi.Input<string>, intervalInSeconds?: pulumi.Input<number>, sizeLimitInBytes?: pulumi.Input<number>, skipEmptyArchives?: pulumi.Input<boolean> }>;
     readonly location?: pulumi.Input<string>;
@@ -190,7 +190,7 @@ export interface EventHubState {
  */
 export interface EventHubArgs {
     /**
-     * A `capture_description` block as defined below.
+     * A `captureDescription` block as defined below.
      */
     readonly captureDescription?: pulumi.Input<{ destination: pulumi.Input<{ archiveNameFormat: pulumi.Input<string>, blobContainerName: pulumi.Input<string>, name: pulumi.Input<string>, storageAccountId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, encoding: pulumi.Input<string>, intervalInSeconds?: pulumi.Input<number>, sizeLimitInBytes?: pulumi.Input<number>, skipEmptyArchives?: pulumi.Input<boolean> }>;
     readonly location?: pulumi.Input<string>;

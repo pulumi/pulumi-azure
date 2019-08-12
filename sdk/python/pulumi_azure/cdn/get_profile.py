@@ -43,14 +43,18 @@ class GetProfileResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetProfileResult(GetProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetProfileResult(
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            sku=self.sku,
+            tags=self.tags,
+            id=self.id)
 
 def get_profile(name=None,resource_group_name=None,opts=None):
     """
@@ -68,7 +72,7 @@ def get_profile(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:cdn/getProfile:getProfile', __args__, opts=opts).value
 
-    return GetProfileResult(
+    return AwaitableGetProfileResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),

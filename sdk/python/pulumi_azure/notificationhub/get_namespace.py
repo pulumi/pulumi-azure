@@ -55,14 +55,20 @@ class GetNamespaceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetNamespaceResult(
+            enabled=self.enabled,
+            location=self.location,
+            name=self.name,
+            namespace_type=self.namespace_type,
+            resource_group_name=self.resource_group_name,
+            servicebus_endpoint=self.servicebus_endpoint,
+            sku=self.sku,
+            id=self.id)
 
 def get_namespace(name=None,resource_group_name=None,opts=None):
     """
@@ -80,7 +86,7 @@ def get_namespace(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:notificationhub/getNamespace:getNamespace', __args__, opts=opts).value
 
-    return GetNamespaceResult(
+    return AwaitableGetNamespaceResult(
         enabled=__ret__.get('enabled'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),

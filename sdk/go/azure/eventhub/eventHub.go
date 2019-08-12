@@ -88,7 +88,7 @@ func (r *EventHub) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// A `capture_description` block as defined below.
+// A `captureDescription` block as defined below.
 func (r *EventHub) CaptureDescription() *pulumi.Output {
 	return r.s.State["captureDescription"]
 }
@@ -129,7 +129,7 @@ func (r *EventHub) ResourceGroupName() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering EventHub resources.
 type EventHubState struct {
-	// A `capture_description` block as defined below.
+	// A `captureDescription` block as defined below.
 	CaptureDescription interface{}
 	Location interface{}
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
@@ -148,7 +148,7 @@ type EventHubState struct {
 
 // The set of arguments for constructing a EventHub resource.
 type EventHubArgs struct {
-	// A `capture_description` block as defined below.
+	// A `captureDescription` block as defined below.
 	CaptureDescription interface{}
 	Location interface{}
 	// Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.

@@ -64,11 +64,11 @@ export interface GetHubArgs {
  */
 export interface GetHubResult {
     /**
-     * A `apns_credential` block as defined below.
+     * A `apnsCredential` block as defined below.
      */
     readonly apnsCredentials: { applicationMode: string, bundleId: string, keyId: string, teamId: string, token: string }[];
     /**
-     * A `gcm_credential` block as defined below.
+     * A `gcmCredential` block as defined below.
      */
     readonly gcmCredentials: { apiKey: string }[];
     /**

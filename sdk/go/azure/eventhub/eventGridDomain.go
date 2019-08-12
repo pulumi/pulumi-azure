@@ -84,12 +84,12 @@ func (r *EventGridDomain) Endpoint() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["endpoint"])
 }
 
-// A `input_mapping_default_values` block as defined below.
+// A `inputMappingDefaultValues` block as defined below.
 func (r *EventGridDomain) InputMappingDefaultValues() *pulumi.Output {
 	return r.s.State["inputMappingDefaultValues"]
 }
 
-// A `input_mapping_fields` block as defined below.
+// A `inputMappingFields` block as defined below.
 func (r *EventGridDomain) InputMappingFields() *pulumi.Output {
 	return r.s.State["inputMappingFields"]
 }
@@ -123,9 +123,9 @@ func (r *EventGridDomain) Tags() *pulumi.MapOutput {
 type EventGridDomainState struct {
 	// The Endpoint associated with the EventGrid Domain.
 	Endpoint interface{}
-	// A `input_mapping_default_values` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues interface{}
-	// A `input_mapping_fields` block as defined below.
+	// A `inputMappingFields` block as defined below.
 	InputMappingFields interface{}
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema interface{}
@@ -141,9 +141,9 @@ type EventGridDomainState struct {
 
 // The set of arguments for constructing a EventGridDomain resource.
 type EventGridDomainArgs struct {
-	// A `input_mapping_default_values` block as defined below.
+	// A `inputMappingDefaultValues` block as defined below.
 	InputMappingDefaultValues interface{}
-	// A `input_mapping_fields` block as defined below.
+	// A `inputMappingFields` block as defined below.
 	InputMappingFields interface{}
 	// Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
 	InputSchema interface{}

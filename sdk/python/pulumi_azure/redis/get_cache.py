@@ -118,14 +118,33 @@ class GetCacheResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetCacheResult(GetCacheResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetCacheResult(
+            capacity=self.capacity,
+            enable_non_ssl_port=self.enable_non_ssl_port,
+            family=self.family,
+            hostname=self.hostname,
+            location=self.location,
+            minimum_tls_version=self.minimum_tls_version,
+            name=self.name,
+            patch_schedules=self.patch_schedules,
+            port=self.port,
+            primary_access_key=self.primary_access_key,
+            private_static_ip_address=self.private_static_ip_address,
+            redis_configurations=self.redis_configurations,
+            resource_group_name=self.resource_group_name,
+            secondary_access_key=self.secondary_access_key,
+            shard_count=self.shard_count,
+            sku_name=self.sku_name,
+            ssl_port=self.ssl_port,
+            subnet_id=self.subnet_id,
+            tags=self.tags,
+            zones=self.zones,
+            id=self.id)
 
 def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
     """
@@ -144,7 +163,7 @@ def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:redis/getCache:getCache', __args__, opts=opts).value
 
-    return GetCacheResult(
+    return AwaitableGetCacheResult(
         capacity=__ret__.get('capacity'),
         enable_non_ssl_port=__ret__.get('enableNonSslPort'),
         family=__ret__.get('family'),

@@ -75,7 +75,7 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly enableBgp: boolean;
     /**
-     * One or two `ip_configuration` blocks documented below.
+     * One or two `ipConfiguration` blocks documented below.
      */
     readonly ipConfigurations: { name: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string }[];
     /**
@@ -100,7 +100,7 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly type: string;
     /**
-     * A `vpn_client_configuration` block which is documented below.
+     * A `vpnClientConfiguration` block which is documented below.
      */
     readonly vpnClientConfigurations: { addressSpaces: string[], radiusServerAddress: string, radiusServerSecret: string, revokedCertificates: { name: string, thumbprint: string }[], rootCertificates: { name: string, publicCertData: string }[], vpnClientProtocols: string[] }[];
     /**

@@ -85,14 +85,25 @@ class GetClusterResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetClusterResult(GetClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetClusterResult(
+            cluster_version=self.cluster_version,
+            component_versions=self.component_versions,
+            edge_ssh_endpoint=self.edge_ssh_endpoint,
+            gateways=self.gateways,
+            https_endpoint=self.https_endpoint,
+            kind=self.kind,
+            location=self.location,
+            name=self.name,
+            resource_group_name=self.resource_group_name,
+            ssh_endpoint=self.ssh_endpoint,
+            tags=self.tags,
+            tier=self.tier,
+            id=self.id)
 
 def get_cluster(name=None,resource_group_name=None,opts=None):
     """
@@ -110,7 +121,7 @@ def get_cluster(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:hdinsight/getCluster:getCluster', __args__, opts=opts).value
 
-    return GetClusterResult(
+    return AwaitableGetClusterResult(
         cluster_version=__ret__.get('clusterVersion'),
         component_versions=__ret__.get('componentVersions'),
         edge_ssh_endpoint=__ret__.get('edgeSshEndpoint'),

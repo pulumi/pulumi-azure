@@ -48,7 +48,7 @@ type GetKeyVaultArgs struct {
 
 // A collection of values returned by getKeyVault.
 type GetKeyVaultResult struct {
-	// One or more `access_policy` blocks as defined below.
+	// One or more `accessPolicy` blocks as defined below.
 	AccessPolicies interface{}
 	// Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
 	EnabledForDeployment interface{}

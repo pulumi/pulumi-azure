@@ -109,14 +109,30 @@ class GetAppServiceResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAppServiceResult(GetAppServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAppServiceResult(
+            app_service_plan_id=self.app_service_plan_id,
+            app_settings=self.app_settings,
+            client_affinity_enabled=self.client_affinity_enabled,
+            client_cert_enabled=self.client_cert_enabled,
+            connection_strings=self.connection_strings,
+            default_site_hostname=self.default_site_hostname,
+            enabled=self.enabled,
+            https_only=self.https_only,
+            location=self.location,
+            name=self.name,
+            outbound_ip_addresses=self.outbound_ip_addresses,
+            possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
+            resource_group_name=self.resource_group_name,
+            site_configs=self.site_configs,
+            site_credentials=self.site_credentials,
+            source_controls=self.source_controls,
+            tags=self.tags,
+            id=self.id)
 
 def get_app_service(name=None,resource_group_name=None,opts=None):
     """
@@ -134,7 +150,7 @@ def get_app_service(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:appservice/getAppService:getAppService', __args__, opts=opts).value
 
-    return GetAppServiceResult(
+    return AwaitableGetAppServiceResult(
         app_service_plan_id=__ret__.get('appServicePlanId'),
         app_settings=__ret__.get('appSettings'),
         client_affinity_enabled=__ret__.get('clientAffinityEnabled'),

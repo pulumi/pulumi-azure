@@ -72,11 +72,11 @@ export class LinkedService extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+     * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
      */
     public readonly linkedServiceName!: pulumi.Output<string | undefined>;
     /**
-     * A `linked_service_properties` block as defined below.
+     * A `linkedServiceProperties` block as defined below.
      */
     public readonly linkedServiceProperties!: pulumi.Output<{ resourceId: string }[]>;
     /**
@@ -88,7 +88,7 @@ export class LinkedService extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
      */
     public readonly resourceId!: pulumi.Output<string>;
     /**
@@ -151,11 +151,11 @@ export class LinkedService extends pulumi.CustomResource {
  */
 export interface LinkedServiceState {
     /**
-     * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+     * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
      */
     readonly linkedServiceName?: pulumi.Input<string>;
     /**
-     * A `linked_service_properties` block as defined below.
+     * A `linkedServiceProperties` block as defined below.
      */
     readonly linkedServiceProperties?: pulumi.Input<pulumi.Input<{ resourceId: pulumi.Input<string> }>[]>;
     /**
@@ -167,7 +167,7 @@ export interface LinkedServiceState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
      */
     readonly resourceId?: pulumi.Input<string>;
     /**
@@ -185,11 +185,11 @@ export interface LinkedServiceState {
  */
 export interface LinkedServiceArgs {
     /**
-     * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
+     * Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspaceName`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
      */
     readonly linkedServiceName?: pulumi.Input<string>;
     /**
-     * A `linked_service_properties` block as defined below.
+     * A `linkedServiceProperties` block as defined below.
      */
     readonly linkedServiceProperties?: pulumi.Input<pulumi.Input<{ resourceId: pulumi.Input<string> }>[]>;
     /**
@@ -197,7 +197,7 @@ export interface LinkedServiceArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
-     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
+     * The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resourceId` field and will be removed in v2.0 of the AzureRM Provider.
      */
     readonly resourceId?: pulumi.Input<string>;
     /**

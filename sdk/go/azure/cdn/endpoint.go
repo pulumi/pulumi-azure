@@ -117,7 +117,7 @@ func (r *Endpoint) ContentTypesToCompresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["contentTypesToCompresses"])
 }
 
-// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 func (r *Endpoint) GeoFilters() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["geoFilters"])
 }
@@ -171,7 +171,7 @@ func (r *Endpoint) OriginPath() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["originPath"])
 }
 
-// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 func (r *Endpoint) ProbePath() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["probePath"])
 }
@@ -200,7 +200,7 @@ func (r *Endpoint) Tags() *pulumi.MapOutput {
 type EndpointState struct {
 	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
 	ContentTypesToCompresses interface{}
-	// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters interface{}
 	HostName interface{}
 	// Indicates whether compression is to be enabled. Defaults to false.
@@ -221,7 +221,7 @@ type EndpointState struct {
 	OriginHostHeader interface{}
 	// The path used at for origin requests.
 	OriginPath interface{}
-	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath interface{}
 	// The CDN Profile to which to attach the CDN Endpoint.
 	ProfileName interface{}
@@ -237,7 +237,7 @@ type EndpointState struct {
 type EndpointArgs struct {
 	// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
 	ContentTypesToCompresses interface{}
-	// A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+	// A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
 	GeoFilters interface{}
 	// Indicates whether compression is to be enabled. Defaults to false.
 	IsCompressionEnabled interface{}
@@ -257,7 +257,7 @@ type EndpointArgs struct {
 	OriginHostHeader interface{}
 	// The path used at for origin requests.
 	OriginPath interface{}
-	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `origin_path`.
+	// the path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the `originPath`.
 	ProbePath interface{}
 	// The CDN Profile to which to attach the CDN Endpoint.
 	ProfileName interface{}

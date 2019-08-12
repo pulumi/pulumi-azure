@@ -155,33 +155,33 @@ func (r *ApplicationGateway) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// One or more `authentication_certificate` blocks as defined below.
+// One or more `authenticationCertificate` blocks as defined below.
 func (r *ApplicationGateway) AuthenticationCertificates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["authenticationCertificates"])
 }
 
-// A `autoscale_configuration` block as defined below.
+// A `autoscaleConfiguration` block as defined below.
 func (r *ApplicationGateway) AutoscaleConfiguration() *pulumi.Output {
 	return r.s.State["autoscaleConfiguration"]
 }
 
-// One or more `backend_address_pool` blocks as defined below.
+// One or more `backendAddressPool` blocks as defined below.
 func (r *ApplicationGateway) BackendAddressPools() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["backendAddressPools"])
 }
 
-// One or more `backend_http_settings` blocks as defined below.
+// One or more `backendHttpSettings` blocks as defined below.
 func (r *ApplicationGateway) BackendHttpSettings() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["backendHttpSettings"])
 }
 
-// One or more `custom_error_configuration` blocks as defined below.
+// One or more `customErrorConfiguration` blocks as defined below.
 func (r *ApplicationGateway) CustomErrorConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["customErrorConfigurations"])
 }
 
 // A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-// > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
+// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
 func (r *ApplicationGateway) DisabledSslProtocols() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["disabledSslProtocols"])
 }
@@ -191,22 +191,22 @@ func (r *ApplicationGateway) EnableHttp2() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableHttp2"])
 }
 
-// One or more `frontend_ip_configuration` blocks as defined below.
+// One or more `frontendIpConfiguration` blocks as defined below.
 func (r *ApplicationGateway) FrontendIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["frontendIpConfigurations"])
 }
 
-// One or more `frontend_port` blocks as defined below.
+// One or more `frontendPort` blocks as defined below.
 func (r *ApplicationGateway) FrontendPorts() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["frontendPorts"])
 }
 
-// One or more `gateway_ip_configuration` blocks as defined below.
+// One or more `gatewayIpConfiguration` blocks as defined below.
 func (r *ApplicationGateway) GatewayIpConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["gatewayIpConfigurations"])
 }
 
-// One or more `http_listener` blocks as defined below.
+// One or more `httpListener` blocks as defined below.
 func (r *ApplicationGateway) HttpListeners() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["httpListeners"])
 }
@@ -226,12 +226,12 @@ func (r *ApplicationGateway) Probes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["probes"])
 }
 
-// A `redirect_configuration` block as defined below.
+// A `redirectConfiguration` block as defined below.
 func (r *ApplicationGateway) RedirectConfigurations() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["redirectConfigurations"])
 }
 
-// One or more `request_routing_rule` blocks as defined below.
+// One or more `requestRoutingRule` blocks as defined below.
 func (r *ApplicationGateway) RequestRoutingRules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["requestRoutingRules"])
 }
@@ -241,7 +241,7 @@ func (r *ApplicationGateway) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
 func (r *ApplicationGateway) RewriteRuleSets() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["rewriteRuleSets"])
 }
@@ -251,7 +251,7 @@ func (r *ApplicationGateway) Sku() *pulumi.Output {
 	return r.s.State["sku"]
 }
 
-// One or more `ssl_certificate` blocks as defined below.
+// One or more `sslCertificate` blocks as defined below.
 func (r *ApplicationGateway) SslCertificates() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["sslCertificates"])
 }
@@ -266,12 +266,12 @@ func (r *ApplicationGateway) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
-// One or more `url_path_map` blocks as defined below.
+// One or more `urlPathMap` blocks as defined below.
 func (r *ApplicationGateway) UrlPathMaps() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["urlPathMaps"])
 }
 
-// A `waf_configuration` block as defined below.
+// A `wafConfiguration` block as defined below.
 func (r *ApplicationGateway) WafConfiguration() *pulumi.Output {
 	return r.s.State["wafConfiguration"]
 }
@@ -283,28 +283,28 @@ func (r *ApplicationGateway) Zones() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering ApplicationGateway resources.
 type ApplicationGatewayState struct {
-	// One or more `authentication_certificate` blocks as defined below.
+	// One or more `authenticationCertificate` blocks as defined below.
 	AuthenticationCertificates interface{}
-	// A `autoscale_configuration` block as defined below.
+	// A `autoscaleConfiguration` block as defined below.
 	AutoscaleConfiguration interface{}
-	// One or more `backend_address_pool` blocks as defined below.
+	// One or more `backendAddressPool` blocks as defined below.
 	BackendAddressPools interface{}
-	// One or more `backend_http_settings` blocks as defined below.
+	// One or more `backendHttpSettings` blocks as defined below.
 	BackendHttpSettings interface{}
-	// One or more `custom_error_configuration` blocks as defined below.
+	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations interface{}
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-	// > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
+	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
 	DisabledSslProtocols interface{}
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 interface{}
-	// One or more `frontend_ip_configuration` blocks as defined below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations interface{}
-	// One or more `frontend_port` blocks as defined below.
+	// One or more `frontendPort` blocks as defined below.
 	FrontendPorts interface{}
-	// One or more `gateway_ip_configuration` blocks as defined below.
+	// One or more `gatewayIpConfiguration` blocks as defined below.
 	GatewayIpConfigurations interface{}
-	// One or more `http_listener` blocks as defined below.
+	// One or more `httpListener` blocks as defined below.
 	HttpListeners interface{}
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location interface{}
@@ -312,25 +312,25 @@ type ApplicationGatewayState struct {
 	Name interface{}
 	// One or more `probe` blocks as defined below.
 	Probes interface{}
-	// A `redirect_configuration` block as defined below.
+	// A `redirectConfiguration` block as defined below.
 	RedirectConfigurations interface{}
-	// One or more `request_routing_rule` blocks as defined below.
+	// One or more `requestRoutingRule` blocks as defined below.
 	RequestRoutingRules interface{}
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
 	RewriteRuleSets interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
-	// One or more `ssl_certificate` blocks as defined below.
+	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates interface{}
 	// a `ssl policy` block as defined below.
 	SslPolicies interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// One or more `url_path_map` blocks as defined below.
+	// One or more `urlPathMap` blocks as defined below.
 	UrlPathMaps interface{}
-	// A `waf_configuration` block as defined below.
+	// A `wafConfiguration` block as defined below.
 	WafConfiguration interface{}
 	// A collection of availability zones to spread the Application Gateway over.
 	Zones interface{}
@@ -338,28 +338,28 @@ type ApplicationGatewayState struct {
 
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
-	// One or more `authentication_certificate` blocks as defined below.
+	// One or more `authenticationCertificate` blocks as defined below.
 	AuthenticationCertificates interface{}
-	// A `autoscale_configuration` block as defined below.
+	// A `autoscaleConfiguration` block as defined below.
 	AutoscaleConfiguration interface{}
-	// One or more `backend_address_pool` blocks as defined below.
+	// One or more `backendAddressPool` blocks as defined below.
 	BackendAddressPools interface{}
-	// One or more `backend_http_settings` blocks as defined below.
+	// One or more `backendHttpSettings` blocks as defined below.
 	BackendHttpSettings interface{}
-	// One or more `custom_error_configuration` blocks as defined below.
+	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations interface{}
 	// A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
-	// > **NOTE:** `disabled_ssl_protocols ` has been deprecated in favour of `disabled_protocols` in the `ssl_policy` block.
+	// > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
 	DisabledSslProtocols interface{}
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
 	EnableHttp2 interface{}
-	// One or more `frontend_ip_configuration` blocks as defined below.
+	// One or more `frontendIpConfiguration` blocks as defined below.
 	FrontendIpConfigurations interface{}
-	// One or more `frontend_port` blocks as defined below.
+	// One or more `frontendPort` blocks as defined below.
 	FrontendPorts interface{}
-	// One or more `gateway_ip_configuration` blocks as defined below.
+	// One or more `gatewayIpConfiguration` blocks as defined below.
 	GatewayIpConfigurations interface{}
-	// One or more `http_listener` blocks as defined below.
+	// One or more `httpListener` blocks as defined below.
 	HttpListeners interface{}
 	// The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
 	Location interface{}
@@ -367,25 +367,25 @@ type ApplicationGatewayArgs struct {
 	Name interface{}
 	// One or more `probe` blocks as defined below.
 	Probes interface{}
-	// A `redirect_configuration` block as defined below.
+	// A `redirectConfiguration` block as defined below.
 	RedirectConfigurations interface{}
-	// One or more `request_routing_rule` blocks as defined below.
+	// One or more `requestRoutingRule` blocks as defined below.
 	RequestRoutingRules interface{}
 	// The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// One or more `rewrite_rule_set` blocks as defined below. Only valid for v2 SKUs.
+	// One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
 	RewriteRuleSets interface{}
 	// A `sku` block as defined below.
 	Sku interface{}
-	// One or more `ssl_certificate` blocks as defined below.
+	// One or more `sslCertificate` blocks as defined below.
 	SslCertificates interface{}
 	// a `ssl policy` block as defined below.
 	SslPolicies interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
-	// One or more `url_path_map` blocks as defined below.
+	// One or more `urlPathMap` blocks as defined below.
 	UrlPathMaps interface{}
-	// A `waf_configuration` block as defined below.
+	// A `wafConfiguration` block as defined below.
 	WafConfiguration interface{}
 	// A collection of availability zones to spread the Application Gateway over.
 	Zones interface{}

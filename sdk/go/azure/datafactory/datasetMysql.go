@@ -140,7 +140,7 @@ func (r *DatasetMysql) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// A `schema_column` block as defined below.
+// A `schemaColumn` block as defined below.
 func (r *DatasetMysql) SchemaColumns() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["schemaColumns"])
 }
@@ -170,7 +170,7 @@ type DatasetMysqlState struct {
 	Parameters interface{}
 	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
 	ResourceGroupName interface{}
-	// A `schema_column` block as defined below.
+	// A `schemaColumn` block as defined below.
 	SchemaColumns interface{}
 	// The table name of the Data Factory Dataset MySQL.
 	TableName interface{}
@@ -196,7 +196,7 @@ type DatasetMysqlArgs struct {
 	Parameters interface{}
 	// The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
 	ResourceGroupName interface{}
-	// A `schema_column` block as defined below.
+	// A `schemaColumn` block as defined below.
 	SchemaColumns interface{}
 	// The table name of the Data Factory Dataset MySQL.
 	TableName interface{}

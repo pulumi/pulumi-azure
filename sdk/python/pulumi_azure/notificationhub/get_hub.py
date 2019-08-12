@@ -46,14 +46,19 @@ class GetHubResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetHubResult(GetHubResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetHubResult(
+            apns_credentials=self.apns_credentials,
+            gcm_credentials=self.gcm_credentials,
+            location=self.location,
+            name=self.name,
+            namespace_name=self.namespace_name,
+            resource_group_name=self.resource_group_name,
+            id=self.id)
 
 def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
@@ -72,7 +77,7 @@ def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:notificationhub/getHub:getHub', __args__, opts=opts).value
 
-    return GetHubResult(
+    return AwaitableGetHubResult(
         apns_credentials=__ret__.get('apnsCredentials'),
         gcm_credentials=__ret__.get('gcmCredentials'),
         location=__ret__.get('location'),

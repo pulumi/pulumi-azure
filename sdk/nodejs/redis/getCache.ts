@@ -84,7 +84,7 @@ export interface GetCacheResult {
     readonly minimumTlsVersion: string;
     readonly name: string;
     /**
-     * A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+     * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
     readonly patchSchedules: { dayOfWeek: string, startHourUtc: number }[];
     /**
@@ -97,7 +97,7 @@ export interface GetCacheResult {
     readonly primaryAccessKey: string;
     readonly privateStaticIpAddress: string;
     /**
-     * A `redis_configuration` block as defined below.
+     * A `redisConfiguration` block as defined below.
      */
     readonly redisConfigurations: { aofBackupEnabled: boolean, aofStorageConnectionString0: string, aofStorageConnectionString1: string, enableAuthentication: boolean, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy: string, maxmemoryReserved: number, notifyKeyspaceEvents: string, rdbBackupEnabled: boolean, rdbBackupFrequency: number, rdbBackupMaxSnapshotCount: number, rdbStorageConnectionString: string }[];
     readonly resourceGroupName: string;

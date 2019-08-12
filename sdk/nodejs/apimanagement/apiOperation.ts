@@ -100,7 +100,7 @@ export class ApiOperation extends pulumi.CustomResource {
      */
     public readonly responses!: pulumi.Output<{ description?: string, headers?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], representations?: { contentType: string, formParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], sample?: string, schemaId?: string, typeName?: string }[], statusCode: number }[] | undefined>;
     /**
-     * One or more `template_parameter` blocks as defined below.
+     * One or more `templateParameter` blocks as defined below.
      */
     public readonly templateParameters!: pulumi.Output<{ defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[] | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface ApiOperationState {
      */
     readonly responses?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, headers?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, representations?: pulumi.Input<pulumi.Input<{ contentType: pulumi.Input<string>, formParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, sample?: pulumi.Input<string>, schemaId?: pulumi.Input<string>, typeName?: pulumi.Input<string> }>[]>, statusCode: pulumi.Input<number> }>[]>;
     /**
-     * One or more `template_parameter` blocks as defined below.
+     * One or more `templateParameter` blocks as defined below.
      */
     readonly templateParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**
@@ -268,7 +268,7 @@ export interface ApiOperationArgs {
      */
     readonly responses?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, headers?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, representations?: pulumi.Input<pulumi.Input<{ contentType: pulumi.Input<string>, formParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, sample?: pulumi.Input<string>, schemaId?: pulumi.Input<string>, typeName?: pulumi.Input<string> }>[]>, statusCode: pulumi.Input<number> }>[]>;
     /**
-     * One or more `template_parameter` blocks as defined below.
+     * One or more `templateParameter` blocks as defined below.
      */
     readonly templateParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
     /**

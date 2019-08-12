@@ -98,17 +98,17 @@ func (r *LogProfile) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
+// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 func (r *LogProfile) RetentionPolicy() *pulumi.Output {
 	return r.s.State["retentionPolicy"]
 }
 
-// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
 func (r *LogProfile) ServicebusRuleId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["servicebusRuleId"])
 }
 
-// The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+// The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
 func (r *LogProfile) StorageAccountId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["storageAccountId"])
 }
@@ -122,11 +122,11 @@ type LogProfileState struct {
 	// The name of the Log Profile. Changing this forces a
 	// new resource to be created.
 	Name interface{}
-	// A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
+	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 	RetentionPolicy interface{}
-	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
 	ServicebusRuleId interface{}
-	// The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+	// The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
 	StorageAccountId interface{}
 }
 
@@ -139,10 +139,10 @@ type LogProfileArgs struct {
 	// The name of the Log Profile. Changing this forces a
 	// new resource to be created.
 	Name interface{}
-	// A `retention_policy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
+	// A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
 	RetentionPolicy interface{}
-	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+	// The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
 	ServicebusRuleId interface{}
-	// The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set.
+	// The resource ID of the storage account in which the Activity Log is stored. At least one of `storageAccountId` or `servicebusRuleId` must be set.
 	StorageAccountId interface{}
 }

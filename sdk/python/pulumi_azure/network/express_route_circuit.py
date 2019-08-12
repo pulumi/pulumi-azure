@@ -53,7 +53,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, allow_classic_operations=None, bandwidth_in_mbps=None, location=None, name=None, peering_location=None, resource_group_name=None, service_provider_name=None, sku=None, tags=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_classic_operations=None, bandwidth_in_mbps=None, location=None, name=None, peering_location=None, resource_group_name=None, service_provider_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an ExpressRoute circuit.
         
@@ -77,57 +77,81 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['allow_classic_operations'] = allow_classic_operations
-
-        if bandwidth_in_mbps is None:
-            raise TypeError("Missing required property 'bandwidth_in_mbps'")
-        __props__['bandwidth_in_mbps'] = bandwidth_in_mbps
-
-        __props__['location'] = location
-
-        __props__['name'] = name
-
-        if peering_location is None:
-            raise TypeError("Missing required property 'peering_location'")
-        __props__['peering_location'] = peering_location
-
-        if resource_group_name is None:
-            raise TypeError("Missing required property 'resource_group_name'")
-        __props__['resource_group_name'] = resource_group_name
-
-        if service_provider_name is None:
-            raise TypeError("Missing required property 'service_provider_name'")
-        __props__['service_provider_name'] = service_provider_name
-
-        if sku is None:
-            raise TypeError("Missing required property 'sku'")
-        __props__['sku'] = sku
-
-        __props__['tags'] = tags
-
-        __props__['service_key'] = None
-        __props__['service_provider_provisioning_state'] = None
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['allow_classic_operations'] = allow_classic_operations
+            if bandwidth_in_mbps is None:
+                raise TypeError("Missing required property 'bandwidth_in_mbps'")
+            __props__['bandwidth_in_mbps'] = bandwidth_in_mbps
+            __props__['location'] = location
+            __props__['name'] = name
+            if peering_location is None:
+                raise TypeError("Missing required property 'peering_location'")
+            __props__['peering_location'] = peering_location
+            if resource_group_name is None:
+                raise TypeError("Missing required property 'resource_group_name'")
+            __props__['resource_group_name'] = resource_group_name
+            if service_provider_name is None:
+                raise TypeError("Missing required property 'service_provider_name'")
+            __props__['service_provider_name'] = service_provider_name
+            if sku is None:
+                raise TypeError("Missing required property 'sku'")
+            __props__['sku'] = sku
+            __props__['tags'] = tags
+            __props__['service_key'] = None
+            __props__['service_provider_provisioning_state'] = None
         super(ExpressRouteCircuit, __self__).__init__(
             'azure:network/expressRouteCircuit:ExpressRouteCircuit',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, allow_classic_operations=None, bandwidth_in_mbps=None, location=None, name=None, peering_location=None, resource_group_name=None, service_key=None, service_provider_name=None, service_provider_provisioning_state=None, sku=None, tags=None):
+        """
+        Get an existing ExpressRouteCircuit resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_classic_operations: Allow the circuit to interact with classic (RDFE) resources. The default value is `false`.
+        :param pulumi.Input[float] bandwidth_in_mbps: The bandwidth in Mbps of the circuit being created.
+        :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] peering_location: The name of the peering location and **not** the Azure resource location.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] service_key: The string needed by the service provider to provision the ExpressRoute circuit.
+        :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider.
+        :param pulumi.Input[str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
+        :param pulumi.Input[dict] sku: A `sku` block for the ExpressRoute circuit as documented below.
+        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["allow_classic_operations"] = allow_classic_operations
+        __props__["bandwidth_in_mbps"] = bandwidth_in_mbps
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["peering_location"] = peering_location
+        __props__["resource_group_name"] = resource_group_name
+        __props__["service_key"] = service_key
+        __props__["service_provider_name"] = service_provider_name
+        __props__["service_provider_provisioning_state"] = service_provider_provisioning_state
+        __props__["sku"] = sku
+        __props__["tags"] = tags
+        return ExpressRouteCircuit(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

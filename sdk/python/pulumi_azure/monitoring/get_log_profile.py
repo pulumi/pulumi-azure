@@ -49,14 +49,19 @@ class GetLogProfileResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetLogProfileResult(GetLogProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetLogProfileResult(
+            categories=self.categories,
+            locations=self.locations,
+            name=self.name,
+            retention_policy=self.retention_policy,
+            servicebus_rule_id=self.servicebus_rule_id,
+            storage_account_id=self.storage_account_id,
+            id=self.id)
 
 def get_log_profile(name=None,opts=None):
     """
@@ -73,7 +78,7 @@ def get_log_profile(name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getLogProfile:getLogProfile', __args__, opts=opts).value
 
-    return GetLogProfileResult(
+    return AwaitableGetLogProfileResult(
         categories=__ret__.get('categories'),
         locations=__ret__.get('locations'),
         name=__ret__.get('name'),

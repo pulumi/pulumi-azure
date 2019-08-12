@@ -295,14 +295,59 @@ class GetAccountResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetAccountResult(GetAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetAccountResult(
+            access_tier=self.access_tier,
+            account_encryption_source=self.account_encryption_source,
+            account_kind=self.account_kind,
+            account_replication_type=self.account_replication_type,
+            account_tier=self.account_tier,
+            custom_domain=self.custom_domain,
+            enable_blob_encryption=self.enable_blob_encryption,
+            enable_file_encryption=self.enable_file_encryption,
+            enable_https_traffic_only=self.enable_https_traffic_only,
+            is_hns_enabled=self.is_hns_enabled,
+            location=self.location,
+            name=self.name,
+            primary_access_key=self.primary_access_key,
+            primary_blob_connection_string=self.primary_blob_connection_string,
+            primary_blob_endpoint=self.primary_blob_endpoint,
+            primary_blob_host=self.primary_blob_host,
+            primary_connection_string=self.primary_connection_string,
+            primary_dfs_endpoint=self.primary_dfs_endpoint,
+            primary_dfs_host=self.primary_dfs_host,
+            primary_file_endpoint=self.primary_file_endpoint,
+            primary_file_host=self.primary_file_host,
+            primary_location=self.primary_location,
+            primary_queue_endpoint=self.primary_queue_endpoint,
+            primary_queue_host=self.primary_queue_host,
+            primary_table_endpoint=self.primary_table_endpoint,
+            primary_table_host=self.primary_table_host,
+            primary_web_endpoint=self.primary_web_endpoint,
+            primary_web_host=self.primary_web_host,
+            resource_group_name=self.resource_group_name,
+            secondary_access_key=self.secondary_access_key,
+            secondary_blob_connection_string=self.secondary_blob_connection_string,
+            secondary_blob_endpoint=self.secondary_blob_endpoint,
+            secondary_blob_host=self.secondary_blob_host,
+            secondary_connection_string=self.secondary_connection_string,
+            secondary_dfs_endpoint=self.secondary_dfs_endpoint,
+            secondary_dfs_host=self.secondary_dfs_host,
+            secondary_file_endpoint=self.secondary_file_endpoint,
+            secondary_file_host=self.secondary_file_host,
+            secondary_location=self.secondary_location,
+            secondary_queue_endpoint=self.secondary_queue_endpoint,
+            secondary_queue_host=self.secondary_queue_host,
+            secondary_table_endpoint=self.secondary_table_endpoint,
+            secondary_table_host=self.secondary_table_host,
+            secondary_web_endpoint=self.secondary_web_endpoint,
+            secondary_web_host=self.secondary_web_host,
+            tags=self.tags,
+            id=self.id)
 
 def get_account(name=None,resource_group_name=None,opts=None):
     """
@@ -320,7 +365,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:storage/getAccount:getAccount', __args__, opts=opts).value
 
-    return GetAccountResult(
+    return AwaitableGetAccountResult(
         access_tier=__ret__.get('accessTier'),
         account_encryption_source=__ret__.get('accountEncryptionSource'),
         account_kind=__ret__.get('accountKind'),

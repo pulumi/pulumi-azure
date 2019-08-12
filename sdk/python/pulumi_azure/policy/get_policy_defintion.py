@@ -67,14 +67,22 @@ class GetPolicyDefintionResult:
         """
         id is the provider-assigned unique ID for this managed resource.
         """
-
+class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
             yield self
-        return self
-
-    __iter__ = __await__
+        return GetPolicyDefintionResult(
+            description=self.description,
+            display_name=self.display_name,
+            management_group_id=self.management_group_id,
+            metadata=self.metadata,
+            name=self.name,
+            parameters=self.parameters,
+            policy_rule=self.policy_rule,
+            policy_type=self.policy_type,
+            type=self.type,
+            id=self.id)
 
 def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
     """
@@ -92,7 +100,7 @@ def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts).value
 
-    return GetPolicyDefintionResult(
+    return AwaitableGetPolicyDefintionResult(
         description=__ret__.get('description'),
         display_name=__ret__.get('displayName'),
         management_group_id=__ret__.get('managementGroupId'),

@@ -115,7 +115,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly eventHubOperationsPath!: pulumi.Output<string>;
     /**
-     * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
     public readonly fallbackRoute!: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], source?: string }>;
     /**
@@ -123,7 +123,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostname!: pulumi.Output<string>;
     /**
-     * One or more `ip_filter_rule` blocks as defined below.
+     * One or more `ipFilterRule` blocks as defined below.
      */
     public readonly ipFilterRules!: pulumi.Output<{ action: string, ipMask: string, name: string }[] | undefined>;
     /**
@@ -143,7 +143,7 @@ export class IoTHub extends pulumi.CustomResource {
      */
     public readonly routes!: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], name: string, source: string }[] | undefined>;
     /**
-     * One or more `shared_access_policy` blocks as defined below.
+     * One or more `sharedAccessPolicy` blocks as defined below.
      */
     public /*out*/ readonly sharedAccessPolicies!: pulumi.Output<{ keyName: string, permissions: string, primaryKey: string, secondaryKey: string }[]>;
     /**
@@ -245,7 +245,7 @@ export interface IoTHubState {
      */
     readonly eventHubOperationsPath?: pulumi.Input<string>;
     /**
-     * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
     readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
     /**
@@ -253,7 +253,7 @@ export interface IoTHubState {
      */
     readonly hostname?: pulumi.Input<string>;
     /**
-     * One or more `ip_filter_rule` blocks as defined below.
+     * One or more `ipFilterRule` blocks as defined below.
      */
     readonly ipFilterRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, ipMask: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
@@ -273,7 +273,7 @@ export interface IoTHubState {
      */
     readonly routes?: pulumi.Input<pulumi.Input<{ condition?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, endpointNames: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, source: pulumi.Input<string> }>[]>;
     /**
-     * One or more `shared_access_policy` blocks as defined below.
+     * One or more `sharedAccessPolicy` blocks as defined below.
      */
     readonly sharedAccessPolicies?: pulumi.Input<pulumi.Input<{ keyName?: pulumi.Input<string>, permissions?: pulumi.Input<string>, primaryKey?: pulumi.Input<string>, secondaryKey?: pulumi.Input<string> }>[]>;
     /**
@@ -296,11 +296,11 @@ export interface IoTHubArgs {
      */
     readonly endpoints?: pulumi.Input<pulumi.Input<{ batchFrequencyInSeconds?: pulumi.Input<number>, connectionString: pulumi.Input<string>, containerName?: pulumi.Input<string>, encoding?: pulumi.Input<string>, fileNameFormat?: pulumi.Input<string>, maxChunkSizeInBytes?: pulumi.Input<number>, name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
     /**
-     * A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+     * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
     readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
     /**
-     * One or more `ip_filter_rule` blocks as defined below.
+     * One or more `ipFilterRule` blocks as defined below.
      */
     readonly ipFilterRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, ipMask: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**

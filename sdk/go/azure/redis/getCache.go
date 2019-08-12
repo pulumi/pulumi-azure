@@ -70,14 +70,14 @@ type GetCacheResult struct {
 	// The minimum TLS version.
 	MinimumTlsVersion interface{}
 	Name interface{}
-	// A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+	// A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
 	PatchSchedules interface{}
 	// The non-SSL Port of the Redis Instance
 	Port interface{}
 	// The Primary Access Key for the Redis Instance
 	PrimaryAccessKey interface{}
 	PrivateStaticIpAddress interface{}
-	// A `redis_configuration` block as defined below.
+	// A `redisConfiguration` block as defined below.
 	RedisConfigurations interface{}
 	ResourceGroupName interface{}
 	// The Secondary Access Key for the Redis Instance
