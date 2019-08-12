@@ -25,7 +25,7 @@ require (
 	github.com/pelletier/go-toml v1.3.0 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v0.17.28-0.20190731182900-6804d640fc7c
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190809001837-9db2fc93cdf5
+	github.com/pulumi/pulumi-terraform v0.0.0
 	github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709
@@ -46,5 +46,6 @@ replace (
 	github.com/Nvveen/Gotty => github.com/ijc25/Gotty v0.0.0-20170406111628-a8b993ba6abd
 	github.com/Sirupsen/logrus => github.com/sirupsen/logrus v1.4.2-0.20190403091019-9b3cdde74fbe
 	github.com/golang/glog => github.com/pulumi/glog v0.0.0-20180820174630-7eaa6ffb71e4
+	github.com/pulumi/pulumi-terraform => /Users/justin/go/src/github.com/pulumi/pulumi-terraform
 	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802205635-509cc1c361f3
 )
