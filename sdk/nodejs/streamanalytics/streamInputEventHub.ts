@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testEventHubConsumerGroup = new azure.eventhub.EventHubConsumerGroup("test", {
+ * const testConsumerGroup = new azure.eventhub.ConsumerGroup("test", {
  *     eventhubName: azurerm_eventhub_test.name,
  *     name: "example-consumergroup",
  *     namespaceName: azurerm_eventhub_namespace_test.name,

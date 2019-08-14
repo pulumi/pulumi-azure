@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.eventhub.getEventhubNamespace({
+ * const test = pulumi.output(azure.eventhub.getNamespace({
  *     name: "search-eventhubns",
  *     resourceGroupName: "search-service",
  * }));
@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * export const eventhubNamespaceId = test.id;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_legacy.html.markdown.
  */
 export function getEventhubNamespace(args: GetEventhubNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetEventhubNamespaceResult> & GetEventhubNamespaceResult {
     if (!opts) {

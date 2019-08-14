@@ -14,18 +14,18 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = pulumi.output(azure.core.getSubscription({}));
- * const exampleParent = new azure.managementgroups.ManagementGroup("exampleParent", {
+ * const exampleParent = new azure.management.Group("exampleParent", {
  *     displayName: "ParentGroup",
  *     subscriptionIds: [current.subscriptionId],
  * });
- * const exampleChild = new azure.managementgroups.ManagementGroup("exampleChild", {
+ * const exampleChild = new azure.management.Group("exampleChild", {
  *     displayName: "ChildGroup",
  *     parentManagementGroupId: exampleParent.id,
  *     subscriptionIds: [current.subscriptionId],
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group_legacy.html.markdown.
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**

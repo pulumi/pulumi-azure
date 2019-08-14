@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     partitionCount: 2,
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const testEventHubConsumerGroup = new azure.eventhub.EventHubConsumerGroup("test", {
+ * const testConsumerGroup = new azure.eventhub.ConsumerGroup("test", {
  *     eventhubName: testEventHub.name,
  *     name: "acceptanceTestEventHubConsumerGroup",
  *     namespaceName: testEventHubNamespace.name,
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_consumer_group_legacy.html.markdown.
  */
 export class EventHubConsumerGroup extends pulumi.CustomResource {
     /**

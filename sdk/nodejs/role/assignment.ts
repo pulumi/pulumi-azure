@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const testAssignment = new azure.role.Assignment("test", {
+ * const testAssignment = new azure.authorization.Assignment("test", {
  *     principalId: testClientConfig.servicePrincipalObjectId,
  *     roleDefinitionName: "Reader",
  *     scope: primary.id,
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const testDefinition = new azure.role.Definition("test", {
+ * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
  *     permissions: [{
@@ -40,10 +40,10 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });
- * const testAssignment = new azure.role.Assignment("test", {
+ * const testAssignment = new azure.authorization.Assignment("test", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     principalId: testClientConfig.servicePrincipalObjectId,
- *     roleDefinitionId: testDefinition.id,
+ *     roleDefinitionId: testRoleDefinition.id,
  *     scope: primary.id,
  * });
  * ```
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * 
  * const testClientConfig = pulumi.output(azure.core.getClientConfig({}));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const testDefinition = new azure.role.Definition("test", {
+ * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     name: "my-custom-role-definition",
  *     permissions: [{
@@ -66,15 +66,15 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });
- * const testAssignment = new azure.role.Assignment("test", {
+ * const testAssignment = new azure.authorization.Assignment("test", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     principalId: testClientConfig.clientId,
- *     roleDefinitionId: testDefinition.id,
+ *     roleDefinitionId: testRoleDefinition.id,
  *     scope: primary.id,
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment_legacy.html.markdown.
  */
 export class Assignment extends pulumi.CustomResource {
     /**

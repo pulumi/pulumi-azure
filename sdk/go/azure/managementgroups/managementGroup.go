@@ -9,7 +9,7 @@ import (
 
 // Manages a Management Group.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_group_legacy.html.markdown.
 type ManagementGroup struct {
 	s *pulumi.ResourceState
 }

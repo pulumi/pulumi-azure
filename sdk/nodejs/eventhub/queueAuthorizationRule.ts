@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "my-servicebus",
  * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
  *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  *         source: "example",
  *     },
  * });
- * const exampleQueue = new azure.eventhub.Queue("example", {
+ * const exampleQueue = new azure.servicebus.Queue("example", {
  *     enablePartitioning: true,
  *     name: "tfexServicebusQueue",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleQueueAuthorizationRule = new azure.eventhub.QueueAuthorizationRule("example", {
+ * const exampleQueueAuthorizationRule = new azure.servicebus.QueueAuthorizationRule("example", {
  *     listen: true,
  *     manage: false,
  *     name: "examplerule",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_authorization_rule_legacy.html.markdown.
  */
 export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**

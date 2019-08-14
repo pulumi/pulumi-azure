@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "tfex-servicebus",
  * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
  *     name: "tfexServicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -26,12 +26,12 @@ import * as utilities from "../utilities";
  *         source: "example",
  *     },
  * });
- * const exampleTopic = new azure.eventhub.Topic("example", {
+ * const exampleTopic = new azure.servicebus.Topic("example", {
  *     name: "tfexServicebusTopic",
  *     namespaceName: exampleNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleTopicAuthorizationRule = new azure.eventhub.TopicAuthorizationRule("example", {
+ * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("example", {
  *     listen: true,
  *     manage: false,
  *     name: "tfex_servicebus_topic_sasPolicy",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_topic_authorization_rule_legacy.html.markdown.
  */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**

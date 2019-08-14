@@ -10,7 +10,7 @@ import (
 
 // Manage a ServiceBus Queue.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_queue_legacy.html.markdown.
 type Queue struct {
 	s *pulumi.ResourceState
 }

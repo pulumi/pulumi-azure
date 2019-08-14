@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = pulumi.output(azure.core.getUserAssignedIdentity({
+ * const example = pulumi.output(azure.authorization.getUserAssignedIdentity({
  *     name: "nameOfUserAssignedIdentity",
  *     resourceGroupName: "nameOfResourceGroup",
  * }));
@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * export const uaiPrincipalId = example.principalId;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity_legacy.html.markdown.
  */
 export function getUserAssignedIdentity(args: GetUserAssignedIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetUserAssignedIdentityResult> & GetUserAssignedIdentityResult {
     if (!opts) {

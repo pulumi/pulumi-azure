@@ -14,7 +14,7 @@ import (
 // 
 // The Traffic Manager is created with the location `global`.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile_legacy.html.markdown.
 type Profile struct {
 	s *pulumi.ResourceState
 }

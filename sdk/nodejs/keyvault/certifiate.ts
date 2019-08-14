@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *     },
  *     tenantId: current.tenantId,
  * });
- * const testCertifiate = new azure.keyvault.Certifiate("test", {
+ * const testCertificate = new azure.keyvault.Certificate("test", {
  *     certificate: {
  *         contents: (() => {
  *             throw "tf2pulumi error: NYI: call to filebase64";
@@ -170,7 +170,7 @@ import * as utilities from "../utilities";
  *     },
  *     tenantId: current.tenantId,
  * });
- * const testCertifiate = new azure.keyvault.Certifiate("test", {
+ * const testCertificate = new azure.keyvault.Certificate("test", {
  *     certificatePolicy: {
  *         issuerParameters: {
  *             name: "Self",
@@ -219,7 +219,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate_legacy.html.markdown.
  */
 export class Certifiate extends pulumi.CustomResource {
     /**

@@ -33,6 +33,11 @@ import (
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure"
 )
 
+const (
+	azureName     = "name"
+	azureLocation = "location"
+)
+
 // all of the Azure token components used below.
 const (
 	// packages:
@@ -44,6 +49,7 @@ const (
 	azureAppInsights         = "appinsights"         // AppInsights
 	azureAppService          = "appservice"          // App Service
 	azureAutomation          = "automation"          // Automatio
+	azureAuthorization       = "authorization"       // Authorization
 	azureAutoscale           = "autoscale"           // Autoscale
 	azureBatch               = "batch"               // Batch
 	azureCDN                 = "cdn"                 // CDN
@@ -66,12 +72,11 @@ const (
 	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
 	azureMariaDB             = "mariadb"             // MariaDB
-	azureMessaging           = "eventhub"            // Event Hub
-	azureMgmtResource        = "managementresource"  // Management Resource
-	azureManagementGroups    = "managementgroups"    // Management Groups
+	azureEventGrid           = "eventgrid"           // Event Grid
+	azureEventHub            = "eventhub"            // Event Hub
+	azureManagement          = "management"          // Management Resources
 	azureMediaServices       = "mediaservices"       // Media Services
 	azureMonitoring          = "monitoring"          // Metrics/monitoring resources
-	azureMSI                 = "msi"                 // Managed Service Identity (MSI)
 	azureMSSQL               = "mssql"               // MS Sql
 	azureMySQL               = "mysql"               // MySql
 	azureNetwork             = "network"             // Networking
@@ -83,16 +88,22 @@ const (
 	azureRecoveryServices    = "recoveryservices"    // Recovery Services
 	azureRedis               = "redis"               // RedisCache
 	azureRelay               = "relay"               // Relay
-	azureRole                = "role"                // Azure Role
 	azureScheduler           = "scheduler"           // Scheduler
 	azureSecurityCenter      = "securitycenter"      // Security Center
+	azureServiceBus          = "servicebus"          // ServiceBus
 	azureServiceFabric       = "servicefabric"       // Service Fabric
 	azureSearch              = "search"              // Search
 	azureSignalr             = "signalr"             // SignalR
 	azureSQL                 = "sql"                 // SQL
 	azureStorage             = "storage"             // Storage
 	azureStreamAnalytics     = "streamanalytics"     // StreamAnalytics
-	azureTrafficManager      = "trafficmanager"      // Traffic Manager
+
+	// Legacy Module Names
+	azureLegacyRole             = "role"               // Azure Role (Legacy)
+	azureLegacyMSI              = "msi"                // Managed Service Identity / MSI (Legacy)
+	azureLegacyManagementGroups = "managementgroups"   // Management Groups (Legacy)
+	azureLegacyMgmtResource     = "managementresource" // Management Resource (Legacy)
+	azureLegacyTrafficManager   = "trafficmanager"     // Traffic Manager (Legacy)
 )
 
 // azureMember manufactures a type token for the Azure package and the given module and type.
@@ -174,11 +185,6 @@ func detectCloudShell() cloudShellProfile {
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	const (
-		azureName     = "name"
-		azureLocation = "location"
-	)
-
 	p := azurerm.Provider().(*schema.Provider)
 
 	// Adjust the defaults if running in Azure Cloud Shell.
@@ -390,15 +396,7 @@ func Provider() tfbridge.ProviderInfo {
 			// Autoscale
 			"azurerm_autoscale_setting": {Tok: azureResource(azureAutoscale, "Setting")},
 
-			// Authorization
-			"azurerm_role_assignment": {
-				Tok: azureResource(azureRole, "Assignment"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Suppress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
-					azureName: {Name: azureName},
-				},
-			},
-			"azurerm_role_definition": {Tok: azureResource(azureRole, "Definition")},
+			// Authorization resources are now organized in the `renameLegacyModules` func.
 
 			// Azure Container Service
 			"azurerm_container_registry": {
@@ -550,41 +548,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_hdinsight_spark_cluster":             {Tok: azureResource(azureHdInsight, "SparkCluster")},
 			"azurerm_hdinsight_storm_cluster":             {Tok: azureResource(azureHdInsight, "StormCluster")},
 
-			// Messaging
-			"azurerm_eventgrid_domain":                      {Tok: azureResource(azureMessaging, "EventGridDomain")},
-			"azurerm_eventgrid_event_subscription":          {Tok: azureResource(azureMessaging, "EventGridEventSubscription")},
-			"azurerm_eventgrid_topic":                       {Tok: azureResource(azureMessaging, "EventGridTopic")},
-			"azurerm_eventhub":                              {Tok: azureResource(azureMessaging, "EventHub")},
-			"azurerm_eventhub_authorization_rule":           {Tok: azureResource(azureMessaging, "EventHubAuthorizationRule")},
-			"azurerm_eventhub_consumer_group":               {Tok: azureResource(azureMessaging, "EventHubConsumerGroup")},
-			"azurerm_eventhub_namespace":                    {Tok: azureResource(azureMessaging, "EventHubNamespace")},
-			"azurerm_eventhub_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "EventHubNamespaceAuthorizationRule")},
-			"azurerm_servicebus_namespace": {
-				Tok: azureResource(azureMessaging, "Namespace"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
-					// Max length of a servicehub namespace is 50.
-					azureName: AutoNameWithMaxLength(azureName, 50),
-				}},
-			"azurerm_servicebus_namespace_authorization_rule": {Tok: azureResource(azureMessaging, "NamespaceAuthorizationRule")},
-			"azurerm_servicebus_queue": {
-				Tok: azureResource(azureMessaging, "Queue"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
-					// Max length of a servicehub queue is 260.
-					azureName: AutoNameWithMaxLength(azureName, 260),
-				}},
-			"azurerm_servicebus_queue_authorization_rule": {Tok: azureResource(azureMessaging, "QueueAuthorizationRule")},
-			"azurerm_servicebus_subscription":             {Tok: azureResource(azureMessaging, "Subscription")},
-			"azurerm_servicebus_subscription_rule":        {Tok: azureResource(azureMessaging, "SubscriptionRule")},
-			"azurerm_servicebus_topic": {
-				Tok: azureResource(azureMessaging, "Topic"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
-					// Max length of a servicehub topic is 260.
-					azureName: AutoNameWithMaxLength(azureName, 260),
-				}},
-			"azurerm_servicebus_topic_authorization_rule": {Tok: azureResource(azureMessaging, "TopicAuthorizationRule")},
+			// EventHub
+			"azurerm_eventhub":                              {Tok: azureResource(azureEventHub, "EventHub")},
+			"azurerm_eventhub_namespace":                    {Tok: azureResource(azureEventHub, "EventHubNamespace")},
+			"azurerm_eventhub_namespace_authorization_rule": {Tok: azureResource(azureEventHub, "EventHubNamespaceAuthorizationRule")},
 
 			// IoT Resources
 			"azurerm_iot_dps":             {Tok: azureResource(azureIot, "Dps")},
@@ -606,7 +573,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_key_vault_access_policy": {Tok: azureResource(azureKeyVault, "AccessPolicy")},
-			"azurerm_key_vault_certificate":   {Tok: azureResource(azureKeyVault, "Certifiate")},
 			"azurerm_key_vault_key":           {Tok: azureResource(azureKeyVault, "Key")},
 			"azurerm_key_vault_secret":        {Tok: azureResource(azureKeyVault, "Secret")},
 
@@ -690,15 +656,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_mongo_database":     {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
 			"azurerm_cosmosdb_sql_database":       {Tok: azureResource(azureCosmosDB, "SqlDatabase")},
 			"azurerm_cosmosdb_table":              {Tok: azureResource(azureCosmosDB, "Table")},
-
-			// Managed Service Identity (MSI)
-			"azurerm_user_assigned_identity": {Tok: azureResource(azureMSI, "UserAssignedIdentity")},
-
-			// Management Groups
-			"azurerm_management_group": {Tok: azureResource(azureManagementGroups, "ManagementGroup")},
-
-			// Management Resource
-			"azurerm_management_lock": {Tok: azureResource(azureMgmtResource, "ManangementLock")},
 
 			// Media Services
 			"azurerm_media_services_account": {Tok: azureResource(azureMediaServices, "Account")},
@@ -850,17 +807,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 
-			// Traffic Manager
-			"azurerm_traffic_manager_endpoint": {Tok: azureResource(azureTrafficManager, "Endpoint")},
-			"azurerm_traffic_manager_profile": {
-				Tok: azureResource(azureTrafficManager, "Profile"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Max length of a Traffic Manager Profile is 80.
-					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
-					azureName: AutoNameWithMaxLength(azureName, 80),
-				},
-			},
-
 			// Recovery Services
 			"azurerm_recovery_services_protected_vm":         {Tok: azureResource(azureRecoveryServices, "ProtectedVM")},
 			"azurerm_recovery_services_protection_policy_vm": {Tok: azureResource(azureRecoveryServices, "ProtectionPolicyVM")},
@@ -935,7 +881,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_stream_input_iothub":     {Tok: azureResource(azureStreamAnalytics, "StreamInputIotHub")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
 			"azurerm_azuread_application":       {Tok: azureDataSource(azureAD, "getApplication")},
 			"azurerm_azuread_service_principal": {Tok: azureDataSource(azureAD, "getServicePrincipal")},
@@ -979,9 +924,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_account":             {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":              {Tok: azureDataSource(azureDatalake, "getStore")},
 			"azurerm_dev_test_lab":                 {Tok: azureDataSource(azureDevTest, "getLab")},
-			"azurerm_eventhub_namespace":           {Tok: azureDataSource(azureMessaging, "getEventhubNamespace")},
 			"azurerm_image":                        {Tok: azureDataSource(azureCompute, "getImage")},
-			"azurerm_servicebus_namespace":         {Tok: azureDataSource(azureMessaging, "getServiceBusNamespace")},
 			"azurerm_shared_image":                 {Tok: azureDataSource(azureCompute, "getSharedImage")},
 			"azurerm_shared_image_gallery":         {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
 			"azurerm_shared_image_version":         {Tok: azureDataSource(azureCompute, "getSharedImageVersion")},
@@ -999,7 +942,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_log_analytics_workspace":       {Tok: azureDataSource(azureOperationalInsights, "getAnalyticsWorkspace")},
 			"azurerm_logic_app_workflow":            {Tok: azureDataSource(azureLogicApps, "getWorkflow")},
-			"azurerm_management_group":              {Tok: azureDataSource(azureManagementGroups, "getManagementGroup")},
 			"azurerm_monitor_action_group":          {Tok: azureDataSource(azureMonitoring, "getActionGroup")},
 			"azurerm_monitor_diagnostic_categories": {Tok: azureDataSource(azureMonitoring, "getDiagnosticCategories")},
 			"azurerm_monitor_log_profile":           {Tok: azureDataSource(azureMonitoring, "getLogProfile")},
@@ -1011,7 +953,6 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-
 			"azurerm_key_vault_access_policy":     {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
 			"azurerm_key_vault_key":               {Tok: azureDataSource(azureKeyVault, "getKey")},
 			"azurerm_key_vault_secret":            {Tok: azureDataSource(azureKeyVault, "getSecret")},
@@ -1046,11 +987,10 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_application_security_group": {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
 			"azurerm_recovery_services_vault":    {Tok: azureDataSource(azureRecoveryServices, "getVault")},
 			"azurerm_redis_cache":                {Tok: azureDataSource(azureRedis, "getCache")},
-
-			"azurerm_resource_group": {Tok: azureDataSource(azureCore, "getResourceGroup")},
-			"azurerm_snapshot":       {Tok: azureDataSource(azureCompute, "getSnapshot")},
-			"azurerm_subnet":         {Tok: azureDataSource(azureNetwork, "getSubnet")},
-			"azurerm_route_table":    {Tok: azureDataSource(azureNetwork, "getRouteTable")},
+			"azurerm_resource_group":             {Tok: azureDataSource(azureCore, "getResourceGroup")},
+			"azurerm_snapshot":                   {Tok: azureDataSource(azureCompute, "getSnapshot")},
+			"azurerm_subnet":                     {Tok: azureDataSource(azureNetwork, "getSubnet")},
+			"azurerm_route_table":                {Tok: azureDataSource(azureNetwork, "getRouteTable")},
 			"azurerm_express_route_circuit": {
 				Tok: azureDataSource(azureNetwork, "getExpressRouteCircuit"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1065,17 +1005,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_definition":                      {Tok: azureDataSource(azurePolicy, "getPolicyDefintion")},
 			"azurerm_platform_image":                         {Tok: azureDataSource(azureCompute, "getPlatformImage")},
 			"azurerm_managed_disk":                           {Tok: azureDataSource(azureCompute, "getManagedDisk")},
-			"azurerm_role_definition":                        {Tok: azureDataSource(azureRole, "getRoleDefinition")},
-			"azurerm_builtin_role_definition":                {Tok: azureDataSource(azureRole, "getBuiltinRoleDefinition")},
 			"azurerm_recovery_services_protection_policy_vm": {Tok: azureDataSource(azureRecoveryServices, "getVMProtectionPolicy")},
 			"azurerm_scheduler_job_collection":               {Tok: azureDataSource(azureScheduler, "getJobCollection")},
 			"azurerm_storage_account":                        {Tok: azureDataSource(azureStorage, "getAccount")},
 			"azurerm_storage_account_sas":                    {Tok: azureDataSource(azureStorage, "getAccountSAS")},
-			"azurerm_traffic_manager_geographical_location":  {Tok: azureDataSource(azureTrafficManager, "getGeographicalLocation")},
 			"azurerm_virtual_machine":                        {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
 			"azurerm_hdinsight_cluster":                      {Tok: azureDataSource(azureHdInsight, "getCluster")},
 			"azurerm_stream_analytics_job":                   {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
-			"azurerm_user_assigned_identity":                 {Tok: azureDataSource(azureCore, "getUserAssignedIdentity")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{
@@ -1114,12 +1050,22 @@ func Provider() tfbridge.ProviderInfo {
 							"zMixins.ts",
 						},
 					},
+					"eventgrid": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
 					"eventhub": {
 						DestFiles: []string{
 							"zMixins.ts",
 						},
 					},
 					"iot": {
+						DestFiles: []string{
+							"zMixins.ts",
+						},
+					},
+					"servicebus": {
 						DestFiles: []string{
 							"zMixins.ts",
 						},
@@ -1138,6 +1084,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 	}
+
+	renameLegacyModules(&prov)
 
 	// TODO[pulumi/pulumi#280]: Until we can pass an Archive as an Asset, create a resource type
 	// specifically for uploading ZIP blobs to Azure storage.
@@ -1292,4 +1240,202 @@ func FromName(options AutoNameOptions) func(res *tfbridge.PulumiResource) (inter
 		}
 		return vs, nil
 	}
+}
+
+func renameLegacyModules(prov *tfbridge.ProviderInfo) {
+
+	renameResourceWithAlias := func(
+		tfName string,
+		tokName string,
+		newTokName string,
+		legacyModule string,
+		currentModule string,
+		info *tfbridge.ResourceInfo) {
+
+		legacyTFName := tfName + "_legacy"
+
+		if info == nil {
+			info = &tfbridge.ResourceInfo{}
+		}
+		legacyInfo := *info
+		currentInfo := *info
+
+		legacyInfo.Tok = azureResource(legacyModule, tokName)
+		legacyType := legacyInfo.Tok.String()
+
+		if newTokName != "" {
+			tokName = newTokName
+		}
+
+		currentInfo.Tok = azureResource(currentModule, tokName)
+		currentInfo.Aliases = []tfbridge.AliasInfo{
+			{Type: &legacyType},
+		}
+
+		if legacyInfo.Docs == nil {
+			legacyInfo.Docs = &tfbridge.DocInfo{
+				Source: tfName[len("azurerm_"):] + ".html.markdown",
+			}
+		}
+
+		prov.Resources[tfName] = &currentInfo
+		prov.Resources[legacyTFName] = &legacyInfo
+		prov.P.ResourcesMap[legacyTFName] = prov.P.ResourcesMap[tfName]
+	}
+
+	renameDataSourceWithAlias := func(
+		tfName string,
+		tokName string,
+		newTokName string,
+		legacyModule string,
+		currentModule string,
+		info *tfbridge.DataSourceInfo) {
+
+		legacyTFName := tfName + "_legacy"
+
+		if info == nil {
+			info = &tfbridge.DataSourceInfo{}
+		}
+		legacyInfo := *info
+		currentInfo := *info
+
+		legacyInfo.Tok = azureDataSource(legacyModule, tokName)
+
+		if newTokName != "" {
+			tokName = newTokName
+		}
+
+		currentInfo.Tok = azureDataSource(currentModule, tokName)
+
+		if legacyInfo.Docs == nil {
+			legacyInfo.Docs = &tfbridge.DocInfo{
+				Source: tfName[len("azurerm_"):] + ".html.markdown",
+			}
+		}
+
+		prov.DataSources[tfName] = &currentInfo
+		prov.DataSources[legacyTFName] = &legacyInfo
+		prov.P.DataSourcesMap[legacyTFName] = prov.P.DataSourcesMap[tfName]
+	}
+
+	// New Authorization Mod - this combines the old MSI and Role Modules
+	renameResourceWithAlias("azurerm_role_assignment", "Assignment", "", azureLegacyRole, azureAuthorization,
+		&tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// Suppress auto-naming of this field. It is autonamed to a GUID in the underlying provider.
+				azureName: {Name: azureName},
+			},
+		},
+	)
+	renameResourceWithAlias("azurerm_role_definition", "Definition", "RoleDefinition", azureLegacyRole,
+		azureAuthorization, nil)
+	renameResourceWithAlias("azurerm_user_assigned_identity", "UserAssignedIdentity", "", azureLegacyMSI,
+		azureAuthorization, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "user_assigned_identity.markdown",
+			},
+		},
+	)
+	renameDataSourceWithAlias("azurerm_role_definition", "getRoleDefinition", "",
+		azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "role_definition.markdown",
+			},
+		},
+	)
+	renameDataSourceWithAlias("azurerm_builtin_role_definition", "getBuiltinRoleDefinition", "",
+		azureLegacyRole, azureAuthorization, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "builtin_role_definition.markdown",
+			},
+		},
+	)
+	renameDataSourceWithAlias("azurerm_user_assigned_identity", "getUserAssignedIdentity", "",
+		azureCore, azureAuthorization, nil)
+
+	// Migrate azureLegacyManagementGroups -> azureManagement
+	renameResourceWithAlias("azurerm_management_group", "ManagementGroup", "Group",
+		azureLegacyManagementGroups, azureManagement, nil)
+	renameDataSourceWithAlias("azurerm_management_group", "getManagementGroup", "getGroup",
+		azureLegacyManagementGroups, azureManagement, nil)
+
+	// Migrate azureLegacyMgmtResource -> azureManagement
+	renameResourceWithAlias("azurerm_management_lock", "ManangementLock", "Lock",
+		azureLegacyMgmtResource, azureManagement, nil)
+
+	// Migrate `azurerm_event_grid_*` to new EventGrid Mod
+	renameResourceWithAlias("azurerm_eventgrid_domain", "Domain", "", azureEventHub, azureEventGrid,
+		nil)
+	renameResourceWithAlias("azurerm_eventgrid_event_subscription", "EventSubscription", "",
+		azureEventHub, azureEventGrid, nil)
+	renameResourceWithAlias("azurerm_eventgrid_topic", "EventGridTopic", "Topic", azureEventHub,
+		azureEventGrid, nil)
+
+	// Migrate `azurerm_servicebus_*` to new ServiceBus Mod
+	renameResourceWithAlias("azurerm_servicebus_namespace", "Namespace", "", azureEventHub,
+		azureServiceBus, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace
+				// Max length of a servicehub namespace is 50.
+				azureName: AutoNameWithMaxLength(azureName, 50),
+			},
+		},
+	)
+	renameResourceWithAlias("azurerm_servicebus_namespace_authorization_rule", "NamespaceAuthorizationRule",
+		"", azureEventHub, azureServiceBus, nil)
+	renameResourceWithAlias("azurerm_servicebus_queue", "Queue", "", azureEventHub, azureServiceBus,
+		&tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
+				// Max length of a servicehub queue is 260.
+				azureName: AutoNameWithMaxLength(azureName, 260),
+			},
+		},
+	)
+	renameResourceWithAlias("azurerm_servicebus_queue_authorization_rule", "QueueAuthorizationRule",
+		"", azureEventHub, azureServiceBus, nil)
+	renameResourceWithAlias("azurerm_servicebus_subscription", "Subscription", "",
+		azureEventHub, azureServiceBus, nil)
+	renameResourceWithAlias("azurerm_servicebus_subscription_rule", "SubscriptionRule", "",
+		azureEventHub, azureServiceBus, nil)
+	renameResourceWithAlias("azurerm_servicebus_topic", "Topic", "", azureEventHub, azureServiceBus,
+		&tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// https://groups.google.com/forum/#!topic/particularsoftware/XuHp_8wZ09o
+				// Max length of a servicehub topic is 260.
+				azureName: AutoNameWithMaxLength(azureName, 260),
+			},
+		},
+	)
+	renameResourceWithAlias("azurerm_servicebus_topic_authorization_rule", "TopicAuthorizationRule", "",
+		azureEventHub, azureServiceBus, nil)
+	renameDataSourceWithAlias("azurerm_servicebus_namespace", "getServiceBusNamespace", "getNamespace",
+		azureEventHub, azureServiceBus, nil)
+
+	// Rename Eventhub Resources
+	renameDataSourceWithAlias("azurerm_eventhub_namespace", "getEventhubNamespace", "getNamespace",
+		azureEventHub, azureEventHub, nil)
+	renameResourceWithAlias("azurerm_eventhub_authorization_rule", "EventHubAuthorizationRule", "AuthorizationRule",
+		azureEventHub, azureEventHub, nil)
+	renameResourceWithAlias("azurerm_eventhub_consumer_group", "EventHubConsumerGroup", "ConsumerGroup",
+		azureEventHub, azureEventHub, nil)
+
+	// Migrate `azurerm_traffic_manager_*` to network module
+	renameResourceWithAlias("azurerm_traffic_manager_endpoint", "Endpoint", "TrafficManagerEndpoint",
+		azureLegacyTrafficManager, azureNetwork, nil)
+	renameResourceWithAlias("azurerm_traffic_manager_profile", "Profile", "TrafficManagerProfile",
+		azureLegacyTrafficManager, azureNetwork, &tfbridge.ResourceInfo{
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// Max length of a Traffic Manager Profile is 80.
+				// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#networking
+				azureName: AutoNameWithMaxLength(azureName, 80),
+			},
+		},
+	)
+	renameDataSourceWithAlias("azurerm_traffic_manager_geographical_location", "getGeographicalLocation",
+		"getTrafficManager", azureLegacyTrafficManager, azureNetwork, nil)
+
+	// Fix the spelling on the KeyVault Certificate
+	renameResourceWithAlias("azurerm_key_vault_certificate", "Certifiate", "Certificate",
+		azureKeyVault, azureKeyVault, nil)
 }

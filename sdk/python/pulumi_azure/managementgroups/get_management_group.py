@@ -56,7 +56,7 @@ def get_management_group(group_id=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group.html.markdown.
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group_legacy.html.markdown.
     """
     __args__ = dict()
 

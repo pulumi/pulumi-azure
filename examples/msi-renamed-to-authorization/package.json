@@ -1,0 +1,20 @@
+{
+    "name": "msi-renamed-to-authorization",
+    "version": "0.0.1",
+    "main": "bin/index.js",
+    "typings": "bin/index.d.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "dev"
+    },
+    "devDependencies": {
+        "@types/node": "^10.0.0",
+        "typescript": "^3.0.0"
+    },
+    "peerDependencies": {
+        "@pulumi/azure": "latest"
+    },
+    "license": "Apache 2.0"
+}

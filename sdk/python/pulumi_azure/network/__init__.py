@@ -34,6 +34,8 @@ from .route_table import *
 from .subnet import *
 from .subnet_network_security_group_association import *
 from .subnet_route_table_association import *
+from .traffic_manager_endpoint import *
+from .traffic_manager_profile import *
 from .virtual_network import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
@@ -48,6 +50,7 @@ from .get_public_ip import *
 from .get_public_i_ps import *
 from .get_route_table import *
 from .get_subnet import *
+from .get_traffic_manager import *
 from .get_virtual_network import *
 from .get_virtual_network_gateway import *
 from .get_gateway_connection import *

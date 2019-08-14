@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "my-servicebus",
  * });
- * const exampleNamespace = new azure.eventhub.Namespace("example", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
  *     location: exampleResourceGroup.location,
  *     name: "tfexSevicebusNamespace",
  *     resourceGroupName: exampleResourceGroup.name,
@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_legacy.html.markdown.
  */
 export class Namespace extends pulumi.CustomResource {
     /**

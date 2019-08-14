@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .key_vault import *
 from .access_policy import *
+from .certificate import *
 from .certifiate import *
 from .key import *
 from .secret import *

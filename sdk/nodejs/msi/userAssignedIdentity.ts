@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  *     location: "eastus",
  *     name: "acceptanceTestResourceGroup1",
  * });
- * const testIdentity = new azure.msi.UserAssignedIdentity("testIdentity", {
+ * const testIdentity = new azure.authorization.UserAssignedIdentity("testIdentity", {
  *     location: test.location,
  *     name: "search-api",
  *     resourceGroupName: test.name,
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity_legacy.html.markdown.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**

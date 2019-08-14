@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const current = pulumi.output(azure.core.getSubscription({}));
- * const subscriptionLevel = new azure.managementresource.ManangementLock("subscription-level", {
+ * const subscriptionLevel = new azure.management.Lock("subscription-level", {
  *     lockLevel: "CanNotDelete",
  *     name: "subscription-level",
  *     notes: "Items can't be deleted in this subscription!",
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "locked-resource-group",
  * });
- * const resourceGroupLevel = new azure.managementresource.ManangementLock("resource-group-level", {
+ * const resourceGroupLevel = new azure.management.Lock("resource-group-level", {
  *     lockLevel: "ReadOnly",
  *     name: "resource-group-level",
  *     notes: "This Resource Group is Read-Only",
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     name: "locked-publicip",
  *     resourceGroupName: testResourceGroup.name,
  * });
- * const publicIp = new azure.managementresource.ManangementLock("public-ip", {
+ * const publicIp = new azure.management.Lock("public-ip", {
  *     lockLevel: "CanNotDelete",
  *     name: "resource-ip",
  *     notes: "Locked because it's needed by a third-party",
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock_legacy.html.markdown.
  */
 export class ManangementLock extends pulumi.CustomResource {
     /**

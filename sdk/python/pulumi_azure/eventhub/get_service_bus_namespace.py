@@ -97,7 +97,7 @@ def get_service_bus_namespace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing ServiceBus Namespace.
 
-    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace.html.markdown.
+    > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/servicebus_namespace_legacy.html.markdown.
     """
     __args__ = dict()
 

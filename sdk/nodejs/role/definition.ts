@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const test = new azure.role.Definition("test", {
+ * const test = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     description: "This is a custom role",
  *     name: "my-custom-role",
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition_legacy.html.markdown.
  */
 export class Definition extends pulumi.CustomResource {
     /**

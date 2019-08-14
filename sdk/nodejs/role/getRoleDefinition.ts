@@ -13,29 +13,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const builtin = pulumi.output(azure.role.getBuiltinRoleDefinition({
+ * const builtin = pulumi.output(azure.authorization.getBuiltinRoleDefinition({
  *     name: "Contributor",
  * }));
  * const primary = pulumi.output(azure.core.getSubscription({}));
- * const customDefinition = new azure.role.Definition("custom", {
+ * const customRoleDefinition = new azure.authorization.RoleDefinition("custom", {
  *     name: "CustomRoleDef",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });
- * const customRoleDefinition = pulumi.all([customDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.role.getRoleDefinition({
+ * const customAuthorizationRoleDefinition = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinition({
  *     roleDefinitionId: roleDefinitionId,
  *     scope: primary.id,
  * }));
- * const customByname = pulumi.all([customDefinition.name, primary]).apply(([name, primary]) => azure.role.getRoleDefinition({
+ * const customByname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinition({
  *     name: name,
  *     scope: primary.id,
  * }));
  * 
  * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id;
- * export const customRoleDefinitionId = customRoleDefinition.id;
+ * export const customRoleDefinitionId = customAuthorizationRoleDefinition.id;
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition_legacy.html.markdown.
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> & GetRoleDefinitionResult {
     args = args || {};

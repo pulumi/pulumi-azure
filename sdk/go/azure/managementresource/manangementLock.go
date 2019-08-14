@@ -10,7 +10,7 @@ import (
 
 // Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 //
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock.html.markdown.
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/management_lock_legacy.html.markdown.
 type ManangementLock struct {
 	s *pulumi.ResourceState
 }
