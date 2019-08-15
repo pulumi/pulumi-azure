@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +74,7 @@ export interface GetClusterResult {
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateways: { enabled: boolean, password: string, username: string }[];
+    readonly gateways: outputApi.hdinsight.GetClusterGateway[];
     /**
      * The HTTPS Endpoint for this HDInsight Cluster.
      */

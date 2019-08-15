@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -98,7 +100,7 @@ export class LogProfile extends pulumi.CustomResource {
     /**
      * A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
-    public readonly retentionPolicy!: pulumi.Output<{ days?: number, enabled: boolean }>;
+    public readonly retentionPolicy!: pulumi.Output<outputApi.monitoring.LogProfileRetentionPolicy>;
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
@@ -175,7 +177,7 @@ export interface LogProfileState {
     /**
      * A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
-    readonly retentionPolicy?: pulumi.Input<{ days?: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>;
+    readonly retentionPolicy?: pulumi.Input<inputApi.monitoring.LogProfileRetentionPolicy>;
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */
@@ -206,7 +208,7 @@ export interface LogProfileArgs {
     /**
      * A `retentionPolicy` block as documented below. A retention policy for how long Activity Logs are retained in the storage account.
      */
-    readonly retentionPolicy: pulumi.Input<{ days?: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>;
+    readonly retentionPolicy: pulumi.Input<inputApi.monitoring.LogProfileRetentionPolicy>;
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storageAccountId` or `servicebusRuleId` must be set.
      */

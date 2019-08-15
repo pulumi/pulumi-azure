@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,7 +106,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
-    public readonly ddosProtectionPlan!: pulumi.Output<{ enable: boolean, id: string } | undefined>;
+    public readonly ddosProtectionPlan!: pulumi.Output<outputApi.network.VirtualNetworkDdosProtectionPlan | undefined>;
     /**
      * List of IP addresses of DNS servers
      */
@@ -128,7 +130,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * Can be specified multiple times to define multiple
      * subnets. Each `subnet` block supports fields documented below.
      */
-    public readonly subnets!: pulumi.Output<{ addressPrefix: string, id: string, name: string, securityGroup?: string }[]>;
+    public readonly subnets!: pulumi.Output<outputApi.network.VirtualNetworkSubnet[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -195,7 +197,7 @@ export interface VirtualNetworkState {
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
-    readonly ddosProtectionPlan?: pulumi.Input<{ enable: pulumi.Input<boolean>, id: pulumi.Input<string> }>;
+    readonly ddosProtectionPlan?: pulumi.Input<inputApi.network.VirtualNetworkDdosProtectionPlan>;
     /**
      * List of IP addresses of DNS servers
      */
@@ -219,7 +221,7 @@ export interface VirtualNetworkState {
      * Can be specified multiple times to define multiple
      * subnets. Each `subnet` block supports fields documented below.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, securityGroup?: pulumi.Input<string> }>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<inputApi.network.VirtualNetworkSubnet>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -239,7 +241,7 @@ export interface VirtualNetworkArgs {
     /**
      * A `ddosProtectionPlan` block as documented below.
      */
-    readonly ddosProtectionPlan?: pulumi.Input<{ enable: pulumi.Input<boolean>, id: pulumi.Input<string> }>;
+    readonly ddosProtectionPlan?: pulumi.Input<inputApi.network.VirtualNetworkDdosProtectionPlan>;
     /**
      * List of IP addresses of DNS servers
      */
@@ -263,7 +265,7 @@ export interface VirtualNetworkArgs {
      * Can be specified multiple times to define multiple
      * subnets. Each `subnet` block supports fields documented below.
      */
-    readonly subnets?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, securityGroup?: pulumi.Input<string> }>[]>;
+    readonly subnets?: pulumi.Input<pulumi.Input<inputApi.network.VirtualNetworkSubnet>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

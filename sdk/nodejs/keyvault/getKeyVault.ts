@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetKeyVaultResult {
     /**
      * One or more `accessPolicy` blocks as defined below.
      */
-    readonly accessPolicies: { applicationId: string, certificatePermissions: string[], keyPermissions: string[], objectId: string, secretPermissions: string[], storagePermissions: string[], tenantId: string }[];
+    readonly accessPolicies: outputApi.keyvault.GetKeyVaultAccessPolicy[];
     /**
      * Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
      */
@@ -81,12 +83,12 @@ export interface GetKeyVaultResult {
      * The name of the SKU used for this Key Vault.
      */
     readonly name: string;
-    readonly networkAcls: { bypass: string, defaultAction: string, ipRules: string[], virtualNetworkSubnetIds: string[] }[];
+    readonly networkAcls: outputApi.keyvault.GetKeyVaultNetworkAcl[];
     readonly resourceGroupName: string;
     /**
      * A `sku` block as described below.
      */
-    readonly sku: { name: string };
+    readonly sku: outputApi.keyvault.GetKeyVaultSku;
     readonly skuName: string;
     /**
      * A mapping of tags assigned to the Key Vault.

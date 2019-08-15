@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -99,7 +101,7 @@ export class OutputBlob extends pulumi.CustomResource {
     /**
      * A `serialization` block as defined below.
      */
-    public readonly serialization!: pulumi.Output<{ encoding?: string, fieldDelimiter?: string, format?: string, type: string }>;
+    public readonly serialization!: pulumi.Output<outputApi.streamanalytics.OutputBlobSerialization>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
@@ -217,7 +219,7 @@ export interface OutputBlobState {
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization?: pulumi.Input<{ encoding?: pulumi.Input<string>, fieldDelimiter?: pulumi.Input<string>, format?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly serialization?: pulumi.Input<inputApi.streamanalytics.OutputBlobSerialization>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */
@@ -263,7 +265,7 @@ export interface OutputBlobArgs {
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization: pulumi.Input<{ encoding?: pulumi.Input<string>, fieldDelimiter?: pulumi.Input<string>, format?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly serialization: pulumi.Input<inputApi.streamanalytics.OutputBlobSerialization>;
     /**
      * The Access Key which should be used to connect to this Storage Account.
      */

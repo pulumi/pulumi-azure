@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -63,11 +65,11 @@ export class EventGridDomain extends pulumi.CustomResource {
     /**
      * A `inputMappingDefaultValues` block as defined below.
      */
-    public readonly inputMappingDefaultValues!: pulumi.Output<{ dataVersion?: string, eventType?: string, subject?: string } | undefined>;
+    public readonly inputMappingDefaultValues!: pulumi.Output<outputApi.eventhub.EventGridDomainInputMappingDefaultValues | undefined>;
     /**
      * A `inputMappingFields` block as defined below.
      */
-    public readonly inputMappingFields!: pulumi.Output<{ dataVersion?: string, eventTime?: string, eventType?: string, id?: string, subject?: string, topic?: string } | undefined>;
+    public readonly inputMappingFields!: pulumi.Output<outputApi.eventhub.EventGridDomainInputMappingFields | undefined>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
@@ -145,11 +147,11 @@ export interface EventGridDomainState {
     /**
      * A `inputMappingDefaultValues` block as defined below.
      */
-    readonly inputMappingDefaultValues?: pulumi.Input<{ dataVersion?: pulumi.Input<string>, eventType?: pulumi.Input<string>, subject?: pulumi.Input<string> }>;
+    readonly inputMappingDefaultValues?: pulumi.Input<inputApi.eventhub.EventGridDomainInputMappingDefaultValues>;
     /**
      * A `inputMappingFields` block as defined below.
      */
-    readonly inputMappingFields?: pulumi.Input<{ dataVersion?: pulumi.Input<string>, eventTime?: pulumi.Input<string>, eventType?: pulumi.Input<string>, id?: pulumi.Input<string>, subject?: pulumi.Input<string>, topic?: pulumi.Input<string> }>;
+    readonly inputMappingFields?: pulumi.Input<inputApi.eventhub.EventGridDomainInputMappingFields>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */
@@ -179,11 +181,11 @@ export interface EventGridDomainArgs {
     /**
      * A `inputMappingDefaultValues` block as defined below.
      */
-    readonly inputMappingDefaultValues?: pulumi.Input<{ dataVersion?: pulumi.Input<string>, eventType?: pulumi.Input<string>, subject?: pulumi.Input<string> }>;
+    readonly inputMappingDefaultValues?: pulumi.Input<inputApi.eventhub.EventGridDomainInputMappingDefaultValues>;
     /**
      * A `inputMappingFields` block as defined below.
      */
-    readonly inputMappingFields?: pulumi.Input<{ dataVersion?: pulumi.Input<string>, eventTime?: pulumi.Input<string>, eventType?: pulumi.Input<string>, id?: pulumi.Input<string>, subject?: pulumi.Input<string>, topic?: pulumi.Input<string> }>;
+    readonly inputMappingFields?: pulumi.Input<inputApi.eventhub.EventGridDomainInputMappingFields>;
     /**
      * Specifies the schema in which incoming events will be published to this domain. Allowed values are `cloudeventv01schema`, `customeventschema`, or `eventgridschema`. Defaults to `eventgridschema`. Changing this forces a new resource to be created.
      */

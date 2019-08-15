@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +69,7 @@ export interface GetJobCollectionResult {
     /**
      * The Job collection quotas as documented in the `quota` block below.
      */
-    readonly quotas: { maxJobCount: number, maxRecurrenceFrequency: string, maxRecurrenceInterval: number, maxRetryInterval: number }[];
+    readonly quotas: outputApi.scheduler.GetJobCollectionQuota[];
     readonly resourceGroupName: string;
     /**
      * The Job Collection's pricing level's SKU.

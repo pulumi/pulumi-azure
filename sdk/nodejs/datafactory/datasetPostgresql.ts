@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,7 +106,7 @@ export class DatasetPostgresql extends pulumi.CustomResource {
     /**
      * A `schemaColumn` block as defined below.
      */
-    public readonly schemaColumns!: pulumi.Output<{ description?: string, name: string, type?: string }[] | undefined>;
+    public readonly schemaColumns!: pulumi.Output<outputApi.datafactory.DatasetPostgresqlSchemaColumn[] | undefined>;
     /**
      * The table name of the Data Factory Dataset PostgreSQL.
      */
@@ -210,7 +212,7 @@ export interface DatasetPostgresqlState {
     /**
      * A `schemaColumn` block as defined below.
      */
-    readonly schemaColumns?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
+    readonly schemaColumns?: pulumi.Input<pulumi.Input<inputApi.datafactory.DatasetPostgresqlSchemaColumn>[]>;
     /**
      * The table name of the Data Factory Dataset PostgreSQL.
      */
@@ -260,7 +262,7 @@ export interface DatasetPostgresqlArgs {
     /**
      * A `schemaColumn` block as defined below.
      */
-    readonly schemaColumns?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, name: pulumi.Input<string>, type?: pulumi.Input<string> }>[]>;
+    readonly schemaColumns?: pulumi.Input<pulumi.Input<inputApi.datafactory.DatasetPostgresqlSchemaColumn>[]>;
     /**
      * The table name of the Data Factory Dataset PostgreSQL.
      */

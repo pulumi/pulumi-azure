@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +88,7 @@ export interface GetCacheResult {
     /**
      * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
-    readonly patchSchedules: { dayOfWeek: string, startHourUtc: number }[];
+    readonly patchSchedules: outputApi.redis.GetCachePatchSchedule[];
     /**
      * The non-SSL Port of the Redis Instance
      */
@@ -99,7 +101,7 @@ export interface GetCacheResult {
     /**
      * A `redisConfiguration` block as defined below.
      */
-    readonly redisConfigurations: { aofBackupEnabled: boolean, aofStorageConnectionString0: string, aofStorageConnectionString1: string, enableAuthentication: boolean, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy: string, maxmemoryReserved: number, notifyKeyspaceEvents: string, rdbBackupEnabled: boolean, rdbBackupFrequency: number, rdbBackupMaxSnapshotCount: number, rdbStorageConnectionString: string }[];
+    readonly redisConfigurations: outputApi.redis.GetCacheRedisConfiguration[];
     readonly resourceGroupName: string;
     /**
      * The Secondary Access Key for the Redis Instance

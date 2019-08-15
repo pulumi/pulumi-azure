@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -105,15 +107,15 @@ export interface GetAccountSASArgs {
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions: { add: boolean, create: boolean, delete: boolean, list: boolean, process: boolean, read: boolean, update: boolean, write: boolean };
+    readonly permissions: inputApi.storage.GetAccountSASPermissions;
     /**
      * A `resourceTypes` block as defined below.
      */
-    readonly resourceTypes: { container: boolean, object: boolean, service: boolean };
+    readonly resourceTypes: inputApi.storage.GetAccountSASResourceTypes;
     /**
      * A `services` block as defined below.
      */
-    readonly services: { blob: boolean, file: boolean, queue: boolean, table: boolean };
+    readonly services: inputApi.storage.GetAccountSASServices;
     /**
      * The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
      */
@@ -127,13 +129,13 @@ export interface GetAccountSASResult {
     readonly connectionString: string;
     readonly expiry: string;
     readonly httpsOnly?: boolean;
-    readonly permissions: { add: boolean, create: boolean, delete: boolean, list: boolean, process: boolean, read: boolean, update: boolean, write: boolean };
-    readonly resourceTypes: { container: boolean, object: boolean, service: boolean };
+    readonly permissions: outputApi.storage.GetAccountSASPermissions;
+    readonly resourceTypes: outputApi.storage.GetAccountSASResourceTypes;
     /**
      * The computed Account Shared Access Signature (SAS).
      */
     readonly sas: string;
-    readonly services: { blob: boolean, file: boolean, queue: boolean, table: boolean };
+    readonly services: outputApi.storage.GetAccountSASServices;
     readonly start: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

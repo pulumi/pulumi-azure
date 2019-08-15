@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +63,7 @@ export interface GetVirtualNetworkGatewayResult {
      * (Optional) Is this an Active-Active Gateway?
      */
     readonly activeActive: boolean;
-    readonly bgpSettings: { asn: number, peerWeight: number, peeringAddress: string }[];
+    readonly bgpSettings: outputApi.network.GetVirtualNetworkGatewayBgpSetting[];
     /**
      * The ID of the local network gateway
      * through which outbound Internet traffic from the virtual network in which the
@@ -77,7 +79,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * One or two `ipConfiguration` blocks documented below.
      */
-    readonly ipConfigurations: { name: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string }[];
+    readonly ipConfigurations: outputApi.network.GetVirtualNetworkGatewayIpConfiguration[];
     /**
      * The location/region where the Virtual Network Gateway is located.
      */
@@ -102,7 +104,7 @@ export interface GetVirtualNetworkGatewayResult {
     /**
      * A `vpnClientConfiguration` block which is documented below.
      */
-    readonly vpnClientConfigurations: { addressSpaces: string[], radiusServerAddress: string, radiusServerSecret: string, revokedCertificates: { name: string, thumbprint: string }[], rootCertificates: { name: string, publicCertData: string }[], vpnClientProtocols: string[] }[];
+    readonly vpnClientConfigurations: outputApi.network.GetVirtualNetworkGatewayVpnClientConfiguration[];
     /**
      * The routing type of the Virtual Network Gateway.
      */

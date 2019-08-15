@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetActionGroupResult {
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    readonly emailReceivers: { emailAddress: string, name: string }[];
+    readonly emailReceivers: outputApi.monitoring.GetActionGroupEmailReceiver[];
     /**
      * Whether this action group is enabled.
      */
@@ -77,11 +79,11 @@ export interface GetActionGroupResult {
     /**
      * One or more `smsReceiver ` blocks as defined below.
      */
-    readonly smsReceivers: { countryCode: string, name: string, phoneNumber: string }[];
+    readonly smsReceivers: outputApi.monitoring.GetActionGroupSmsReceiver[];
     /**
      * One or more `webhookReceiver ` blocks as defined below.
      */
-    readonly webhookReceivers: { name: string, serviceUri: string }[];
+    readonly webhookReceivers: outputApi.monitoring.GetActionGroupWebhookReceiver[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

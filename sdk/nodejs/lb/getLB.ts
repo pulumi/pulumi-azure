@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetLBResult {
     /**
      * (Optional) A `frontendIpConfiguration` block as documented below.
      */
-    readonly frontendIpConfigurations: { name: string, privateIpAddress: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string, zones: string[] }[];
+    readonly frontendIpConfigurations: outputApi.lb.GetLBFrontendIpConfiguration[];
     /**
      * The Azure location where the Load Balancer exists.
      */

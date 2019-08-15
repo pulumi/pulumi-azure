@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -127,15 +129,15 @@ export class Pool extends pulumi.CustomResource {
     /**
      * A `autoScale` block that describes the scale settings when using auto scale.
      */
-    public readonly autoScale!: pulumi.Output<{ evaluationInterval?: string, formula: string } | undefined>;
+    public readonly autoScale!: pulumi.Output<outputApi.batch.PoolAutoScale | undefined>;
     /**
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
-    public readonly certificates!: pulumi.Output<{ id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[] | undefined>;
+    public readonly certificates!: pulumi.Output<outputApi.batch.PoolCertificate[] | undefined>;
     /**
      * The container configuration used in the pool's VMs.
      */
-    public readonly containerConfiguration!: pulumi.Output<{ type?: string } | undefined>;
+    public readonly containerConfiguration!: pulumi.Output<outputApi.batch.PoolContainerConfiguration | undefined>;
     /**
      * Specifies the display name of the Batch pool.
      */
@@ -143,7 +145,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
-    public readonly fixedScale!: pulumi.Output<{ resizeTimeout?: string, targetDedicatedNodes?: number, targetLowPriorityNodes?: number } | undefined>;
+    public readonly fixedScale!: pulumi.Output<outputApi.batch.PoolFixedScale | undefined>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
@@ -163,12 +165,12 @@ export class Pool extends pulumi.CustomResource {
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
      */
-    public readonly startTask!: pulumi.Output<{ commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles?: { autoStorageContainerName?: string, blobPrefix?: string, fileMode?: string, filePath?: string, httpUrl?: string, storageContainerUrl?: string }[], userIdentity: { autoUser?: { elevationLevel?: string, scope?: string }, userName?: string }, waitForSuccess?: boolean } | undefined>;
+    public readonly startTask!: pulumi.Output<outputApi.batch.PoolStartTask | undefined>;
     public readonly stopPendingResizeOperation!: pulumi.Output<boolean | undefined>;
     /**
      * A `storageImageReference` for the virtual machines that will compose the Batch pool.
      */
-    public readonly storageImageReference!: pulumi.Output<{ id?: string, offer: string, publisher: string, sku: string, version: string }>;
+    public readonly storageImageReference!: pulumi.Output<outputApi.batch.PoolStorageImageReference>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */
@@ -254,15 +256,15 @@ export interface PoolState {
     /**
      * A `autoScale` block that describes the scale settings when using auto scale.
      */
-    readonly autoScale?: pulumi.Input<{ evaluationInterval?: pulumi.Input<string>, formula: pulumi.Input<string> }>;
+    readonly autoScale?: pulumi.Input<inputApi.batch.PoolAutoScale>;
     /**
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, storeLocation: pulumi.Input<string>, storeName?: pulumi.Input<string>, visibilities?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly certificates?: pulumi.Input<pulumi.Input<inputApi.batch.PoolCertificate>[]>;
     /**
      * The container configuration used in the pool's VMs.
      */
-    readonly containerConfiguration?: pulumi.Input<{ type?: pulumi.Input<string> }>;
+    readonly containerConfiguration?: pulumi.Input<inputApi.batch.PoolContainerConfiguration>;
     /**
      * Specifies the display name of the Batch pool.
      */
@@ -270,7 +272,7 @@ export interface PoolState {
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
-    readonly fixedScale?: pulumi.Input<{ resizeTimeout?: pulumi.Input<string>, targetDedicatedNodes?: pulumi.Input<number>, targetLowPriorityNodes?: pulumi.Input<number> }>;
+    readonly fixedScale?: pulumi.Input<inputApi.batch.PoolFixedScale>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
@@ -290,12 +292,12 @@ export interface PoolState {
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: pulumi.Input<{ commandLine: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, maxTaskRetryCount?: pulumi.Input<number>, resourceFiles?: pulumi.Input<pulumi.Input<{ autoStorageContainerName?: pulumi.Input<string>, blobPrefix?: pulumi.Input<string>, fileMode?: pulumi.Input<string>, filePath?: pulumi.Input<string>, httpUrl?: pulumi.Input<string>, storageContainerUrl?: pulumi.Input<string> }>[]>, userIdentity: pulumi.Input<{ autoUser?: pulumi.Input<{ elevationLevel?: pulumi.Input<string>, scope?: pulumi.Input<string> }>, userName?: pulumi.Input<string> }>, waitForSuccess?: pulumi.Input<boolean> }>;
+    readonly startTask?: pulumi.Input<inputApi.batch.PoolStartTask>;
     readonly stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
      * A `storageImageReference` for the virtual machines that will compose the Batch pool.
      */
-    readonly storageImageReference?: pulumi.Input<{ id?: pulumi.Input<string>, offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
+    readonly storageImageReference?: pulumi.Input<inputApi.batch.PoolStorageImageReference>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */
@@ -313,15 +315,15 @@ export interface PoolArgs {
     /**
      * A `autoScale` block that describes the scale settings when using auto scale.
      */
-    readonly autoScale?: pulumi.Input<{ evaluationInterval?: pulumi.Input<string>, formula: pulumi.Input<string> }>;
+    readonly autoScale?: pulumi.Input<inputApi.batch.PoolAutoScale>;
     /**
      * One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, storeLocation: pulumi.Input<string>, storeName?: pulumi.Input<string>, visibilities?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly certificates?: pulumi.Input<pulumi.Input<inputApi.batch.PoolCertificate>[]>;
     /**
      * The container configuration used in the pool's VMs.
      */
-    readonly containerConfiguration?: pulumi.Input<{ type?: pulumi.Input<string> }>;
+    readonly containerConfiguration?: pulumi.Input<inputApi.batch.PoolContainerConfiguration>;
     /**
      * Specifies the display name of the Batch pool.
      */
@@ -329,7 +331,7 @@ export interface PoolArgs {
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
-    readonly fixedScale?: pulumi.Input<{ resizeTimeout?: pulumi.Input<string>, targetDedicatedNodes?: pulumi.Input<number>, targetLowPriorityNodes?: pulumi.Input<number> }>;
+    readonly fixedScale?: pulumi.Input<inputApi.batch.PoolFixedScale>;
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
      */
@@ -349,12 +351,12 @@ export interface PoolArgs {
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: pulumi.Input<{ commandLine: pulumi.Input<string>, environment?: pulumi.Input<{[key: string]: any}>, maxTaskRetryCount?: pulumi.Input<number>, resourceFiles?: pulumi.Input<pulumi.Input<{ autoStorageContainerName?: pulumi.Input<string>, blobPrefix?: pulumi.Input<string>, fileMode?: pulumi.Input<string>, filePath?: pulumi.Input<string>, httpUrl?: pulumi.Input<string>, storageContainerUrl?: pulumi.Input<string> }>[]>, userIdentity: pulumi.Input<{ autoUser?: pulumi.Input<{ elevationLevel?: pulumi.Input<string>, scope?: pulumi.Input<string> }>, userName?: pulumi.Input<string> }>, waitForSuccess?: pulumi.Input<boolean> }>;
+    readonly startTask?: pulumi.Input<inputApi.batch.PoolStartTask>;
     readonly stopPendingResizeOperation?: pulumi.Input<boolean>;
     /**
      * A `storageImageReference` for the virtual machines that will compose the Batch pool.
      */
-    readonly storageImageReference: pulumi.Input<{ id?: pulumi.Input<string>, offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
+    readonly storageImageReference: pulumi.Input<inputApi.batch.PoolStorageImageReference>;
     /**
      * Specifies the size of the VM created in the Batch pool.
      */

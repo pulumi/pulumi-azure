@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -129,7 +131,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     public readonly supportState!: pulumi.Output<boolean | undefined>;
-    public readonly tokenBodyParameters!: pulumi.Output<{ name: string, value: string }[] | undefined>;
+    public readonly tokenBodyParameters!: pulumi.Output<outputApi.apimanagement.AuthorizationServerTokenBodyParameter[] | undefined>;
     /**
      * The OAUTH Token Endpoint.
      */
@@ -295,7 +297,7 @@ export interface AuthorizationServerState {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     readonly supportState?: pulumi.Input<boolean>;
-    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputApi.apimanagement.AuthorizationServerTokenBodyParameter>[]>;
     /**
      * The OAUTH Token Endpoint.
      */
@@ -374,7 +376,7 @@ export interface AuthorizationServerArgs {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     readonly supportState?: pulumi.Input<boolean>;
-    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputApi.apimanagement.AuthorizationServerTokenBodyParameter>[]>;
     /**
      * The OAUTH Token Endpoint.
      */

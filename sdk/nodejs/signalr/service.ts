@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -104,7 +106,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku!: pulumi.Output<{ capacity: number, name: string }>;
+    public readonly sku!: pulumi.Output<outputApi.signalr.ServiceSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -219,7 +221,7 @@ export interface ServiceState {
     /**
      * A `sku` block as documented below.
      */
-    readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputApi.signalr.ServiceSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -245,7 +247,7 @@ export interface ServiceArgs {
     /**
      * A `sku` block as documented below.
      */
-    readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputApi.signalr.ServiceSku>;
     /**
      * A mapping of tags to assign to the resource.
      */

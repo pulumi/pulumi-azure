@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +82,7 @@ export class Firewall extends pulumi.CustomResource {
     /**
      * A `ipConfiguration` block as documented below.
      */
-    public readonly ipConfiguration!: pulumi.Output<{ internalPublicIpAddressId: string, name: string, privateIpAddress: string, publicIpAddressId: string, subnetId: string }>;
+    public readonly ipConfiguration!: pulumi.Output<outputApi.network.FirewallIpConfiguration>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -147,7 +149,7 @@ export interface FirewallState {
     /**
      * A `ipConfiguration` block as documented below.
      */
-    readonly ipConfiguration?: pulumi.Input<{ internalPublicIpAddressId?: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>;
+    readonly ipConfiguration?: pulumi.Input<inputApi.network.FirewallIpConfiguration>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -173,7 +175,7 @@ export interface FirewallArgs {
     /**
      * A `ipConfiguration` block as documented below.
      */
-    readonly ipConfiguration: pulumi.Input<{ internalPublicIpAddressId?: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId: pulumi.Input<string> }>;
+    readonly ipConfiguration: pulumi.Input<inputApi.network.FirewallIpConfiguration>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -86,7 +88,7 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
      * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
      */
-    public readonly securityRules!: pulumi.Output<{ access: string, description?: string, destinationAddressPrefix?: string, destinationAddressPrefixes?: string[], destinationApplicationSecurityGroupIds?: string[], destinationPortRange?: string, destinationPortRanges?: string[], direction: string, name: string, priority: number, protocol: string, sourceAddressPrefix?: string, sourceAddressPrefixes?: string[], sourceApplicationSecurityGroupIds?: string[], sourcePortRange?: string, sourcePortRanges?: string[] }[]>;
+    public readonly securityRules!: pulumi.Output<outputApi.network.NetworkSecurityGroupSecurityRule[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -150,7 +152,7 @@ export interface NetworkSecurityGroupState {
     /**
      * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
      */
-    readonly securityRules?: pulumi.Input<pulumi.Input<{ access: pulumi.Input<string>, description?: pulumi.Input<string>, destinationAddressPrefix?: pulumi.Input<string>, destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>, destinationApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, destinationPortRange?: pulumi.Input<string>, destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>, direction: pulumi.Input<string>, name: pulumi.Input<string>, priority: pulumi.Input<number>, protocol: pulumi.Input<string>, sourceAddressPrefix?: pulumi.Input<string>, sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>, sourceApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, sourcePortRange?: pulumi.Input<string>, sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly securityRules?: pulumi.Input<pulumi.Input<inputApi.network.NetworkSecurityGroupSecurityRule>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -176,7 +178,7 @@ export interface NetworkSecurityGroupArgs {
     /**
      * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
      */
-    readonly securityRules?: pulumi.Input<pulumi.Input<{ access: pulumi.Input<string>, description?: pulumi.Input<string>, destinationAddressPrefix?: pulumi.Input<string>, destinationAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>, destinationApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, destinationPortRange?: pulumi.Input<string>, destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>, direction: pulumi.Input<string>, name: pulumi.Input<string>, priority: pulumi.Input<number>, protocol: pulumi.Input<string>, sourceAddressPrefix?: pulumi.Input<string>, sourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[]>, sourceApplicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, sourcePortRange?: pulumi.Input<string>, sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly securityRules?: pulumi.Input<pulumi.Input<inputApi.network.NetworkSecurityGroupSecurityRule>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

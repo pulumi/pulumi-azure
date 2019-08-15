@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,8 +62,8 @@ export interface GetAccountResult {
     /**
      * Capabilities enabled on this Cosmos DB account.
      */
-    readonly capabilities: { name: string }[];
-    readonly consistencyPolicies: { consistencyLevel: string, maxIntervalInSeconds: number, maxStalenessPrefix: number }[];
+    readonly capabilities: outputApi.cosmosdb.GetAccountCapability[];
+    readonly consistencyPolicies: outputApi.cosmosdb.GetAccountConsistencyPolicy[];
     /**
      * If automatic failover is enabled for this CosmosDB Account.
      */
@@ -74,7 +76,7 @@ export interface GetAccountResult {
      * The endpoint used to connect to the CosmosDB account.
      */
     readonly endpoint: string;
-    readonly geoLocations: { failoverPriority: number, id: string, location: string }[];
+    readonly geoLocations: outputApi.cosmosdb.GetAccountGeoLocation[];
     /**
      * The current IP Filter for this CosmosDB account
      */
@@ -124,7 +126,7 @@ export interface GetAccountResult {
     /**
      * Subnets that are allowed to access this CosmosDB account.
      */
-    readonly virtualNetworkRules: { id: string }[];
+    readonly virtualNetworkRules: outputApi.cosmosdb.GetAccountVirtualNetworkRule[];
     /**
      * A list of write endpoints available for this CosmosDB account.
      */

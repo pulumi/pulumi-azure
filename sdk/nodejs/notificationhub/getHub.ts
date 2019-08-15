@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,11 +68,11 @@ export interface GetHubResult {
     /**
      * A `apnsCredential` block as defined below.
      */
-    readonly apnsCredentials: { applicationMode: string, bundleId: string, keyId: string, teamId: string, token: string }[];
+    readonly apnsCredentials: outputApi.notificationhub.GetHubApnsCredential[];
     /**
      * A `gcmCredential` block as defined below.
      */
-    readonly gcmCredentials: { apiKey: string }[];
+    readonly gcmCredentials: outputApi.notificationhub.GetHubGcmCredential[];
     /**
      * The Azure Region in which this Notification Hub exists.
      */

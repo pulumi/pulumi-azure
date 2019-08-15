@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +97,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    public readonly monthlyOccurrences!: pulumi.Output<{ day: string, occurrence: number }[] | undefined>;
+    public readonly monthlyOccurrences!: pulumi.Output<outputApi.automation.ScheduleMonthlyOccurrence[] | undefined>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
@@ -207,7 +209,7 @@ export interface ScheduleState {
     /**
      * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    readonly monthlyOccurrences?: pulumi.Input<pulumi.Input<{ day: pulumi.Input<string>, occurrence: pulumi.Input<number> }>[]>;
+    readonly monthlyOccurrences?: pulumi.Input<pulumi.Input<inputApi.automation.ScheduleMonthlyOccurrence>[]>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */
@@ -262,7 +264,7 @@ export interface ScheduleArgs {
     /**
      * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
      */
-    readonly monthlyOccurrences?: pulumi.Input<pulumi.Input<{ day: pulumi.Input<string>, occurrence: pulumi.Input<number> }>[]>;
+    readonly monthlyOccurrences?: pulumi.Input<pulumi.Input<inputApi.automation.ScheduleMonthlyOccurrence>[]>;
     /**
      * Specifies the name of the Schedule. Changing this forces a new resource to be created.
      */

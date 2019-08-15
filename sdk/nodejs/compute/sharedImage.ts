@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +89,7 @@ export class SharedImage extends pulumi.CustomResource {
     /**
      * An `identifier` block as defined below.
      */
-    public readonly identifier!: pulumi.Output<{ offer: string, publisher: string, sku: string }>;
+    public readonly identifier!: pulumi.Output<outputApi.compute.SharedImageIdentifier>;
     /**
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
@@ -196,7 +198,7 @@ export interface SharedImageState {
     /**
      * An `identifier` block as defined below.
      */
-    readonly identifier?: pulumi.Input<{ offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string> }>;
+    readonly identifier?: pulumi.Input<inputApi.compute.SharedImageIdentifier>;
     /**
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
@@ -246,7 +248,7 @@ export interface SharedImageArgs {
     /**
      * An `identifier` block as defined below.
      */
-    readonly identifier: pulumi.Input<{ offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string> }>;
+    readonly identifier: pulumi.Input<inputApi.compute.SharedImageIdentifier>;
     /**
      * Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */

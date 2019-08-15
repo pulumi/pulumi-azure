@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +92,7 @@ export class ApiOperation extends pulumi.CustomResource {
     /**
      * A `request` block as defined below.
      */
-    public readonly request!: pulumi.Output<{ description?: string, headers?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], queryParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], representations?: { contentType: string, formParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], sample?: string, schemaId?: string, typeName?: string }[] }>;
+    public readonly request!: pulumi.Output<outputApi.apimanagement.ApiOperationRequest>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -98,11 +100,11 @@ export class ApiOperation extends pulumi.CustomResource {
     /**
      * One or more `response` blocks as defined below.
      */
-    public readonly responses!: pulumi.Output<{ description?: string, headers?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], representations?: { contentType: string, formParameters?: { defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[], sample?: string, schemaId?: string, typeName?: string }[], statusCode: number }[] | undefined>;
+    public readonly responses!: pulumi.Output<outputApi.apimanagement.ApiOperationResponse[] | undefined>;
     /**
      * One or more `templateParameter` blocks as defined below.
      */
-    public readonly templateParameters!: pulumi.Output<{ defaultValue?: string, description?: string, name: string, required: boolean, type: string, values?: string[] }[] | undefined>;
+    public readonly templateParameters!: pulumi.Output<outputApi.apimanagement.ApiOperationTemplateParameter[] | undefined>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */
@@ -208,7 +210,7 @@ export interface ApiOperationState {
     /**
      * A `request` block as defined below.
      */
-    readonly request?: pulumi.Input<{ description?: pulumi.Input<string>, headers?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, queryParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, representations?: pulumi.Input<pulumi.Input<{ contentType: pulumi.Input<string>, formParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, sample?: pulumi.Input<string>, schemaId?: pulumi.Input<string>, typeName?: pulumi.Input<string> }>[]> }>;
+    readonly request?: pulumi.Input<inputApi.apimanagement.ApiOperationRequest>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -216,11 +218,11 @@ export interface ApiOperationState {
     /**
      * One or more `response` blocks as defined below.
      */
-    readonly responses?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, headers?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, representations?: pulumi.Input<pulumi.Input<{ contentType: pulumi.Input<string>, formParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, sample?: pulumi.Input<string>, schemaId?: pulumi.Input<string>, typeName?: pulumi.Input<string> }>[]>, statusCode: pulumi.Input<number> }>[]>;
+    readonly responses?: pulumi.Input<pulumi.Input<inputApi.apimanagement.ApiOperationResponse>[]>;
     /**
      * One or more `templateParameter` blocks as defined below.
      */
-    readonly templateParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly templateParameters?: pulumi.Input<pulumi.Input<inputApi.apimanagement.ApiOperationTemplateParameter>[]>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */
@@ -258,7 +260,7 @@ export interface ApiOperationArgs {
     /**
      * A `request` block as defined below.
      */
-    readonly request?: pulumi.Input<{ description?: pulumi.Input<string>, headers?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, queryParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, representations?: pulumi.Input<pulumi.Input<{ contentType: pulumi.Input<string>, formParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, sample?: pulumi.Input<string>, schemaId?: pulumi.Input<string>, typeName?: pulumi.Input<string> }>[]> }>;
+    readonly request?: pulumi.Input<inputApi.apimanagement.ApiOperationRequest>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -266,11 +268,11 @@ export interface ApiOperationArgs {
     /**
      * One or more `response` blocks as defined below.
      */
-    readonly responses?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, headers?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, representations?: pulumi.Input<pulumi.Input<{ contentType: pulumi.Input<string>, formParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>, sample?: pulumi.Input<string>, schemaId?: pulumi.Input<string>, typeName?: pulumi.Input<string> }>[]>, statusCode: pulumi.Input<number> }>[]>;
+    readonly responses?: pulumi.Input<pulumi.Input<inputApi.apimanagement.ApiOperationResponse>[]>;
     /**
      * One or more `templateParameter` blocks as defined below.
      */
-    readonly templateParameters?: pulumi.Input<pulumi.Input<{ defaultValue?: pulumi.Input<string>, description?: pulumi.Input<string>, name: pulumi.Input<string>, required: pulumi.Input<boolean>, type: pulumi.Input<string>, values?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly templateParameters?: pulumi.Input<pulumi.Input<inputApi.apimanagement.ApiOperationTemplateParameter>[]>;
     /**
      * The relative URL Template identifying the target resource for this operation, which may include parameters.
      */

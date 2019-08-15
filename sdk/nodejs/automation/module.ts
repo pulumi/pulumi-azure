@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +73,7 @@ export class Module extends pulumi.CustomResource {
     /**
      * The published Module link.
      */
-    public readonly moduleLink!: pulumi.Output<{ hash?: { algorithm: string, value: string }, uri: string }>;
+    public readonly moduleLink!: pulumi.Output<outputApi.automation.ModuleModuleLink>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
@@ -135,7 +137,7 @@ export interface ModuleState {
     /**
      * The published Module link.
      */
-    readonly moduleLink?: pulumi.Input<{ hash?: pulumi.Input<{ algorithm: pulumi.Input<string>, value: pulumi.Input<string> }>, uri: pulumi.Input<string> }>;
+    readonly moduleLink?: pulumi.Input<inputApi.automation.ModuleModuleLink>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */
@@ -157,7 +159,7 @@ export interface ModuleArgs {
     /**
      * The published Module link.
      */
-    readonly moduleLink: pulumi.Input<{ hash?: pulumi.Input<{ algorithm: pulumi.Input<string>, value: pulumi.Input<string> }>, uri: pulumi.Input<string> }>;
+    readonly moduleLink: pulumi.Input<inputApi.automation.ModuleModuleLink>;
     /**
      * Specifies the name of the Module. Changing this forces a new resource to be created.
      */

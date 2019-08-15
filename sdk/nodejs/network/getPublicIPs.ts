@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +73,7 @@ export interface GetPublicIPsResult {
     /**
      * A List of `publicIps` blocks as defined below filtered by the criteria above.
      */
-    readonly publicIps: { domainNameLabel: string, fqdn: string, id: string, ipAddress: string, name: string }[];
+    readonly publicIps: outputApi.network.GetPublicIPsPublicIp[];
     readonly resourceGroupName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

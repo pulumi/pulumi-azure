@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +75,7 @@ export class ElasticPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === ElasticPool.__pulumiType;
     }
 
-    public /*out*/ readonly elasticPoolProperties!: pulumi.Output<{ creationDate: string, licenseType: string, maxSizeBytes: number, state: string, zoneRedundant: boolean }>;
+    public /*out*/ readonly elasticPoolProperties!: pulumi.Output<outputApi.mssql.ElasticPoolElasticPoolProperties>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -93,7 +95,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * A `perDatabaseSettings` block as defined below.
      */
-    public readonly perDatabaseSettings!: pulumi.Output<{ maxCapacity: number, minCapacity: number }>;
+    public readonly perDatabaseSettings!: pulumi.Output<outputApi.mssql.ElasticPoolPerDatabaseSettings>;
     /**
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
      */
@@ -105,7 +107,7 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<{ capacity: number, family?: string, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<outputApi.mssql.ElasticPoolSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -179,7 +181,7 @@ export class ElasticPool extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ElasticPool resources.
  */
 export interface ElasticPoolState {
-    readonly elasticPoolProperties?: pulumi.Input<{ creationDate?: pulumi.Input<string>, licenseType?: pulumi.Input<string>, maxSizeBytes?: pulumi.Input<number>, state?: pulumi.Input<string>, zoneRedundant?: pulumi.Input<boolean> }>;
+    readonly elasticPoolProperties?: pulumi.Input<inputApi.mssql.ElasticPoolElasticPoolProperties>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -199,7 +201,7 @@ export interface ElasticPoolState {
     /**
      * A `perDatabaseSettings` block as defined below.
      */
-    readonly perDatabaseSettings?: pulumi.Input<{ maxCapacity: pulumi.Input<number>, minCapacity: pulumi.Input<number> }>;
+    readonly perDatabaseSettings?: pulumi.Input<inputApi.mssql.ElasticPoolPerDatabaseSettings>;
     /**
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
      */
@@ -211,7 +213,7 @@ export interface ElasticPoolState {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, family?: pulumi.Input<string>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputApi.mssql.ElasticPoolSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -245,7 +247,7 @@ export interface ElasticPoolArgs {
     /**
      * A `perDatabaseSettings` block as defined below.
      */
-    readonly perDatabaseSettings: pulumi.Input<{ maxCapacity: pulumi.Input<number>, minCapacity: pulumi.Input<number> }>;
+    readonly perDatabaseSettings: pulumi.Input<inputApi.mssql.ElasticPoolPerDatabaseSettings>;
     /**
      * The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server.
      */
@@ -257,7 +259,7 @@ export interface ElasticPoolArgs {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, family?: pulumi.Input<string>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputApi.mssql.ElasticPoolSku>;
     /**
      * A mapping of tags to assign to the resource.
      */

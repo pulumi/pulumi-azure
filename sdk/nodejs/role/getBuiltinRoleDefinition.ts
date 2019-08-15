@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +67,7 @@ export interface GetBuiltinRoleDefinitionResult {
     /**
      * a `permissions` block as documented below.
      */
-    readonly permissions: { actions: string[], dataActions: string[], notActions: string[], notDataActions: string[] }[];
+    readonly permissions: outputApi.role.GetBuiltinRoleDefinitionPermission[];
     /**
      * the Type of the Role.
      */

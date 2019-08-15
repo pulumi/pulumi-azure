@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +97,7 @@ export class OutboundRule extends pulumi.CustomResource {
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    public readonly frontendIpConfigurations!: pulumi.Output<{ id: string, name: string }[] | undefined>;
+    public readonly frontendIpConfigurations!: pulumi.Output<outputApi.lb.OutboundRuleFrontendIpConfiguration[] | undefined>;
     /**
      * The timeout for the TCP idle connection
      */
@@ -192,7 +194,7 @@ export interface OutboundRuleState {
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputApi.lb.OutboundRuleFrontendIpConfiguration>[]>;
     /**
      * The timeout for the TCP idle connection
      */
@@ -234,7 +236,7 @@ export interface OutboundRuleArgs {
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputApi.lb.OutboundRuleFrontendIpConfiguration>[]>;
     /**
      * The timeout for the TCP idle connection
      */

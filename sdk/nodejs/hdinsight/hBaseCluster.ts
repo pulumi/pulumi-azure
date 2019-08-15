@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -106,11 +108,11 @@ export class HBaseCluster extends pulumi.CustomResource {
     /**
      * A `componentVersion` block as defined below.
      */
-    public readonly componentVersion!: pulumi.Output<{ hbase: string }>;
+    public readonly componentVersion!: pulumi.Output<outputApi.hdinsight.HBaseClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    public readonly gateway!: pulumi.Output<{ enabled: boolean, password: string, username: string }>;
+    public readonly gateway!: pulumi.Output<outputApi.hdinsight.HBaseClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
      */
@@ -130,7 +132,7 @@ export class HBaseCluster extends pulumi.CustomResource {
     /**
      * A `roles` block as defined below.
      */
-    public readonly roles!: pulumi.Output<{ headNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string }, workerNode: { minInstanceCount?: number, password?: string, sshKeys?: string[], subnetId?: string, targetInstanceCount: number, username: string, virtualNetworkId?: string, vmSize: string }, zookeeperNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string } }>;
+    public readonly roles!: pulumi.Output<outputApi.hdinsight.HBaseClusterRoles>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
      */
@@ -138,7 +140,7 @@ export class HBaseCluster extends pulumi.CustomResource {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<{ isDefault: boolean, storageAccountKey: string, storageContainerId: string }[]>;
+    public readonly storageAccounts!: pulumi.Output<outputApi.hdinsight.HBaseClusterStorageAccount[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
@@ -230,11 +232,11 @@ export interface HBaseClusterState {
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion?: pulumi.Input<{ hbase: pulumi.Input<string> }>;
+    readonly componentVersion?: pulumi.Input<inputApi.hdinsight.HBaseClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway?: pulumi.Input<{ enabled: pulumi.Input<boolean>, password: pulumi.Input<string>, username: pulumi.Input<string> }>;
+    readonly gateway?: pulumi.Input<inputApi.hdinsight.HBaseClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
      */
@@ -254,7 +256,7 @@ export interface HBaseClusterState {
     /**
      * A `roles` block as defined below.
      */
-    readonly roles?: pulumi.Input<{ headNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, workerNode: pulumi.Input<{ minInstanceCount?: pulumi.Input<number>, password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, targetInstanceCount: pulumi.Input<number>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, zookeeperNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }> }>;
+    readonly roles?: pulumi.Input<inputApi.hdinsight.HBaseClusterRoles>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
      */
@@ -262,7 +264,7 @@ export interface HBaseClusterState {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<{ isDefault: pulumi.Input<boolean>, storageAccountKey: pulumi.Input<string>, storageContainerId: pulumi.Input<string> }>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputApi.hdinsight.HBaseClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */
@@ -284,11 +286,11 @@ export interface HBaseClusterArgs {
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion: pulumi.Input<{ hbase: pulumi.Input<string> }>;
+    readonly componentVersion: pulumi.Input<inputApi.hdinsight.HBaseClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway: pulumi.Input<{ enabled: pulumi.Input<boolean>, password: pulumi.Input<string>, username: pulumi.Input<string> }>;
+    readonly gateway: pulumi.Input<inputApi.hdinsight.HBaseClusterGateway>;
     /**
      * Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -304,11 +306,11 @@ export interface HBaseClusterArgs {
     /**
      * A `roles` block as defined below.
      */
-    readonly roles: pulumi.Input<{ headNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, workerNode: pulumi.Input<{ minInstanceCount?: pulumi.Input<number>, password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, targetInstanceCount: pulumi.Input<number>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, zookeeperNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }> }>;
+    readonly roles: pulumi.Input<inputApi.hdinsight.HBaseClusterRoles>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<{ isDefault: pulumi.Input<boolean>, storageAccountKey: pulumi.Input<string>, storageContainerId: pulumi.Input<string> }>[]>;
+    readonly storageAccounts: pulumi.Input<pulumi.Input<inputApi.hdinsight.HBaseClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight HBase Cluster.
      */

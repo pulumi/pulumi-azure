@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +82,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * One or more `dataDisk` elements as defined below.
      */
-    public readonly dataDisks!: pulumi.Output<{ blobUri: string, caching?: string, lun?: number, managedDiskId?: string, sizeGb: number }[] | undefined>;
+    public readonly dataDisks!: pulumi.Output<outputApi.compute.ImageDataDisk[] | undefined>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
@@ -94,7 +96,7 @@ export class Image extends pulumi.CustomResource {
     /**
      * One or more `osDisk` elements as defined below.
      */
-    public readonly osDisk!: pulumi.Output<{ blobUri: string, caching?: string, managedDiskId: string, osState?: string, osType?: string, sizeGb: number } | undefined>;
+    public readonly osDisk!: pulumi.Output<outputApi.compute.ImageOsDisk | undefined>;
     /**
      * The name of the resource group in which to create
      * the image. Changing this forces a new resource to be created.
@@ -165,7 +167,7 @@ export interface ImageState {
     /**
      * One or more `dataDisk` elements as defined below.
      */
-    readonly dataDisks?: pulumi.Input<pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, lun?: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>[]>;
+    readonly dataDisks?: pulumi.Input<pulumi.Input<inputApi.compute.ImageDataDisk>[]>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
@@ -179,7 +181,7 @@ export interface ImageState {
     /**
      * One or more `osDisk` elements as defined below.
      */
-    readonly osDisk?: pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, managedDiskId?: pulumi.Input<string>, osState?: pulumi.Input<string>, osType?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>;
+    readonly osDisk?: pulumi.Input<inputApi.compute.ImageOsDisk>;
     /**
      * The name of the resource group in which to create
      * the image. Changing this forces a new resource to be created.
@@ -206,7 +208,7 @@ export interface ImageArgs {
     /**
      * One or more `dataDisk` elements as defined below.
      */
-    readonly dataDisks?: pulumi.Input<pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, lun?: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>[]>;
+    readonly dataDisks?: pulumi.Input<pulumi.Input<inputApi.compute.ImageDataDisk>[]>;
     /**
      * Specified the supported Azure location where the resource exists.
      * Changing this forces a new resource to be created.
@@ -220,7 +222,7 @@ export interface ImageArgs {
     /**
      * One or more `osDisk` elements as defined below.
      */
-    readonly osDisk?: pulumi.Input<{ blobUri?: pulumi.Input<string>, caching?: pulumi.Input<string>, managedDiskId?: pulumi.Input<string>, osState?: pulumi.Input<string>, osType?: pulumi.Input<string>, sizeGb?: pulumi.Input<number> }>;
+    readonly osDisk?: pulumi.Input<inputApi.compute.ImageOsDisk>;
     /**
      * The name of the resource group in which to create
      * the image. Changing this forces a new resource to be created.

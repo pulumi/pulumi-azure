@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -116,7 +118,7 @@ export class FirewallApplicationRuleCollection extends pulumi.CustomResource {
     /**
      * One or more `rule` blocks as defined below.
      */
-    public readonly rules!: pulumi.Output<{ description?: string, fqdnTags?: string[], name: string, protocols?: { port?: number, type: string }[], sourceAddresses: string[], targetFqdns?: string[] }[]>;
+    public readonly rules!: pulumi.Output<outputApi.network.FirewallApplicationRuleCollectionRule[]>;
 
     /**
      * Create a FirewallApplicationRuleCollection resource with the given unique name, arguments, and options.
@@ -198,7 +200,7 @@ export interface FirewallApplicationRuleCollectionState {
     /**
      * One or more `rule` blocks as defined below.
      */
-    readonly rules?: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, fqdnTags?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, protocols?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, type: pulumi.Input<string> }>[]>, sourceAddresses: pulumi.Input<pulumi.Input<string>[]>, targetFqdns?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly rules?: pulumi.Input<pulumi.Input<inputApi.network.FirewallApplicationRuleCollectionRule>[]>;
 }
 
 /**
@@ -228,5 +230,5 @@ export interface FirewallApplicationRuleCollectionArgs {
     /**
      * One or more `rule` blocks as defined below.
      */
-    readonly rules: pulumi.Input<pulumi.Input<{ description?: pulumi.Input<string>, fqdnTags?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, protocols?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, type: pulumi.Input<string> }>[]>, sourceAddresses: pulumi.Input<pulumi.Input<string>[]>, targetFqdns?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly rules: pulumi.Input<pulumi.Input<inputApi.network.FirewallApplicationRuleCollectionRule>[]>;
 }

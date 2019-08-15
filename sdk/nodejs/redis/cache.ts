@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +68,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
-    public readonly patchSchedules!: pulumi.Output<{ dayOfWeek: string, startHourUtc?: number }[] | undefined>;
+    public readonly patchSchedules!: pulumi.Output<outputApi.redis.CachePatchSchedule[] | undefined>;
     /**
      * The non-SSL Port of the Redis Instance
      */
@@ -82,7 +84,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    public readonly redisConfiguration!: pulumi.Output<{ aofBackupEnabled?: boolean, aofStorageConnectionString0?: string, aofStorageConnectionString1?: string, enableAuthentication?: boolean, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy?: string, maxmemoryReserved: number, notifyKeyspaceEvents?: string, rdbBackupEnabled?: boolean, rdbBackupFrequency?: number, rdbBackupMaxSnapshotCount?: number, rdbStorageConnectionString?: string }>;
+    public readonly redisConfiguration!: pulumi.Output<outputApi.redis.CacheRedisConfiguration>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -231,7 +233,7 @@ export interface CacheState {
     /**
      * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
-    readonly patchSchedules?: pulumi.Input<pulumi.Input<{ dayOfWeek: pulumi.Input<string>, startHourUtc?: pulumi.Input<number> }>[]>;
+    readonly patchSchedules?: pulumi.Input<pulumi.Input<inputApi.redis.CachePatchSchedule>[]>;
     /**
      * The non-SSL Port of the Redis Instance
      */
@@ -247,7 +249,7 @@ export interface CacheState {
     /**
      * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    readonly redisConfiguration?: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, enableAuthentication?: pulumi.Input<boolean>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
+    readonly redisConfiguration?: pulumi.Input<inputApi.redis.CacheRedisConfiguration>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.
@@ -315,7 +317,7 @@ export interface CacheArgs {
     /**
      * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
-    readonly patchSchedules?: pulumi.Input<pulumi.Input<{ dayOfWeek: pulumi.Input<string>, startHourUtc?: pulumi.Input<number> }>[]>;
+    readonly patchSchedules?: pulumi.Input<pulumi.Input<inputApi.redis.CachePatchSchedule>[]>;
     /**
      * The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. Changing this forces a new resource to be created.
      */
@@ -323,7 +325,7 @@ export interface CacheArgs {
     /**
      * A `redisConfiguration` as defined below - with some limitations by SKU - defaults/details are shown below.
      */
-    readonly redisConfiguration?: pulumi.Input<{ aofBackupEnabled?: pulumi.Input<boolean>, aofStorageConnectionString0?: pulumi.Input<string>, aofStorageConnectionString1?: pulumi.Input<string>, enableAuthentication?: pulumi.Input<boolean>, maxclients?: pulumi.Input<number>, maxfragmentationmemoryReserved?: pulumi.Input<number>, maxmemoryDelta?: pulumi.Input<number>, maxmemoryPolicy?: pulumi.Input<string>, maxmemoryReserved?: pulumi.Input<number>, notifyKeyspaceEvents?: pulumi.Input<string>, rdbBackupEnabled?: pulumi.Input<boolean>, rdbBackupFrequency?: pulumi.Input<number>, rdbBackupMaxSnapshotCount?: pulumi.Input<number>, rdbStorageConnectionString?: pulumi.Input<string> }>;
+    readonly redisConfiguration?: pulumi.Input<inputApi.redis.CacheRedisConfiguration>;
     /**
      * The name of the resource group in which to
      * create the Redis instance.

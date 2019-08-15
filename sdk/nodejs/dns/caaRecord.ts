@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +92,7 @@ export class CaaRecord extends pulumi.CustomResource {
     /**
      * A list of values that make up the CAA record. Each `record` block supports fields documented below.
      */
-    public readonly records!: pulumi.Output<{ flags: number, tag: string, value: string }[]>;
+    public readonly records!: pulumi.Output<outputApi.dns.CaaRecordRecord[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -169,7 +171,7 @@ export interface CaaRecordState {
     /**
      * A list of values that make up the CAA record. Each `record` block supports fields documented below.
      */
-    readonly records?: pulumi.Input<pulumi.Input<{ flags: pulumi.Input<number>, tag: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly records?: pulumi.Input<pulumi.Input<inputApi.dns.CaaRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -199,7 +201,7 @@ export interface CaaRecordArgs {
     /**
      * A list of values that make up the CAA record. Each `record` block supports fields documented below.
      */
-    readonly records: pulumi.Input<pulumi.Input<{ flags: pulumi.Input<number>, tag: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly records: pulumi.Input<pulumi.Input<inputApi.dns.CaaRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */

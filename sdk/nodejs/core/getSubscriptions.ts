@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -61,7 +63,7 @@ export interface GetSubscriptionsResult {
     /**
      * One or more `subscription` blocks as defined below.
      */
-    readonly subscriptions: { displayName: string, locationPlacementId: string, quotaId: string, spendingLimit: string, state: string, subscriptionId: string }[];
+    readonly subscriptions: outputApi.core.GetSubscriptionsSubscription[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

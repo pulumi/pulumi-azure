@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -38,7 +40,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: azurerm_resource_group_example.name,
  *     serverName: exampleSqlServer.name,
  * });
- * const exampleOutputMssql = new azure.streamanalytics.OutputMssql("example", {
+ * const exampleStreamAnalyticsOutputMssql = new azure.StreamAnalyticsOutputMssql("example", {
  *     database: exampleDatabase.name,
  *     name: "example-output-sql",
  *     password: exampleSqlServer.administratorLoginPassword,

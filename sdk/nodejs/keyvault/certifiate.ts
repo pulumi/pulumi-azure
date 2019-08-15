@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -251,7 +253,7 @@ export class Certifiate extends pulumi.CustomResource {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    public readonly certificate!: pulumi.Output<{ contents: string, password?: string } | undefined>;
+    public readonly certificate!: pulumi.Output<outputApi.keyvault.CertifiateCertificate | undefined>;
     /**
      * The raw Key Vault Certificate.
      */
@@ -259,7 +261,7 @@ export class Certifiate extends pulumi.CustomResource {
     /**
      * A `certificatePolicy` block as defined below.
      */
-    public readonly certificatePolicy!: pulumi.Output<{ issuerParameters: { name: string }, keyProperties: { exportable: boolean, keySize: number, keyType: string, reuseKey: boolean }, lifetimeActions?: { action: { actionType: string }, trigger: { daysBeforeExpiry?: number, lifetimePercentage?: number } }[], secretProperties: { contentType: string }, x509CertificateProperties: { extendedKeyUsages: string[], keyUsages: string[], subject: string, subjectAlternativeNames: { dnsNames?: string[], emails?: string[], upns?: string[] }, validityInMonths: number } }>;
+    public readonly certificatePolicy!: pulumi.Output<outputApi.keyvault.CertifiateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
@@ -342,7 +344,7 @@ export interface CertifiateState {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    readonly certificate?: pulumi.Input<{ contents: pulumi.Input<string>, password?: pulumi.Input<string> }>;
+    readonly certificate?: pulumi.Input<inputApi.keyvault.CertifiateCertificate>;
     /**
      * The raw Key Vault Certificate.
      */
@@ -350,7 +352,7 @@ export interface CertifiateState {
     /**
      * A `certificatePolicy` block as defined below.
      */
-    readonly certificatePolicy?: pulumi.Input<{ issuerParameters: pulumi.Input<{ name: pulumi.Input<string> }>, keyProperties: pulumi.Input<{ exportable: pulumi.Input<boolean>, keySize: pulumi.Input<number>, keyType: pulumi.Input<string>, reuseKey: pulumi.Input<boolean> }>, lifetimeActions?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ actionType: pulumi.Input<string> }>, trigger: pulumi.Input<{ daysBeforeExpiry?: pulumi.Input<number>, lifetimePercentage?: pulumi.Input<number> }> }>[]>, secretProperties: pulumi.Input<{ contentType: pulumi.Input<string> }>, x509CertificateProperties?: pulumi.Input<{ extendedKeyUsages?: pulumi.Input<pulumi.Input<string>[]>, keyUsages: pulumi.Input<pulumi.Input<string>[]>, subject: pulumi.Input<string>, subjectAlternativeNames?: pulumi.Input<{ dnsNames?: pulumi.Input<pulumi.Input<string>[]>, emails?: pulumi.Input<pulumi.Input<string>[]>, upns?: pulumi.Input<pulumi.Input<string>[]> }>, validityInMonths: pulumi.Input<number> }> }>;
+    readonly certificatePolicy?: pulumi.Input<inputApi.keyvault.CertifiateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
@@ -385,11 +387,11 @@ export interface CertifiateArgs {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    readonly certificate?: pulumi.Input<{ contents: pulumi.Input<string>, password?: pulumi.Input<string> }>;
+    readonly certificate?: pulumi.Input<inputApi.keyvault.CertifiateCertificate>;
     /**
      * A `certificatePolicy` block as defined below.
      */
-    readonly certificatePolicy: pulumi.Input<{ issuerParameters: pulumi.Input<{ name: pulumi.Input<string> }>, keyProperties: pulumi.Input<{ exportable: pulumi.Input<boolean>, keySize: pulumi.Input<number>, keyType: pulumi.Input<string>, reuseKey: pulumi.Input<boolean> }>, lifetimeActions?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ actionType: pulumi.Input<string> }>, trigger: pulumi.Input<{ daysBeforeExpiry?: pulumi.Input<number>, lifetimePercentage?: pulumi.Input<number> }> }>[]>, secretProperties: pulumi.Input<{ contentType: pulumi.Input<string> }>, x509CertificateProperties?: pulumi.Input<{ extendedKeyUsages?: pulumi.Input<pulumi.Input<string>[]>, keyUsages: pulumi.Input<pulumi.Input<string>[]>, subject: pulumi.Input<string>, subjectAlternativeNames?: pulumi.Input<{ dnsNames?: pulumi.Input<pulumi.Input<string>[]>, emails?: pulumi.Input<pulumi.Input<string>[]>, upns?: pulumi.Input<pulumi.Input<string>[]> }>, validityInMonths: pulumi.Input<number> }> }>;
+    readonly certificatePolicy: pulumi.Input<inputApi.keyvault.CertifiateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */

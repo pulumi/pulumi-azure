@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -135,7 +137,7 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly filters!: pulumi.Output<{ localIpAddress?: string, localPort?: string, protocol: string, remoteIpAddress?: string, remotePort?: string }[] | undefined>;
+    public readonly filters!: pulumi.Output<outputApi.network.PacketCaptureFilter[] | undefined>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
@@ -163,7 +165,7 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly storageLocation!: pulumi.Output<{ filePath?: string, storageAccountId?: string, storagePath: string }>;
+    public readonly storageLocation!: pulumi.Output<outputApi.network.PacketCaptureStorageLocation>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
      */
@@ -232,7 +234,7 @@ export interface PacketCaptureState {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<{ localIpAddress?: pulumi.Input<string>, localPort?: pulumi.Input<string>, protocol: pulumi.Input<string>, remoteIpAddress?: pulumi.Input<string>, remotePort?: pulumi.Input<string> }>[]>;
+    readonly filters?: pulumi.Input<pulumi.Input<inputApi.network.PacketCaptureFilter>[]>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
@@ -260,7 +262,7 @@ export interface PacketCaptureState {
     /**
      * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly storageLocation?: pulumi.Input<{ filePath?: pulumi.Input<string>, storageAccountId?: pulumi.Input<string>, storagePath?: pulumi.Input<string> }>;
+    readonly storageLocation?: pulumi.Input<inputApi.network.PacketCaptureStorageLocation>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
      */
@@ -274,7 +276,7 @@ export interface PacketCaptureArgs {
     /**
      * One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly filters?: pulumi.Input<pulumi.Input<{ localIpAddress?: pulumi.Input<string>, localPort?: pulumi.Input<string>, protocol: pulumi.Input<string>, remoteIpAddress?: pulumi.Input<string>, remotePort?: pulumi.Input<string> }>[]>;
+    readonly filters?: pulumi.Input<pulumi.Input<inputApi.network.PacketCaptureFilter>[]>;
     /**
      * The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
      */
@@ -302,7 +304,7 @@ export interface PacketCaptureArgs {
     /**
      * A `storageLocation` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly storageLocation: pulumi.Input<{ filePath?: pulumi.Input<string>, storageAccountId?: pulumi.Input<string>, storagePath?: pulumi.Input<string> }>;
+    readonly storageLocation: pulumi.Input<inputApi.network.PacketCaptureStorageLocation>;
     /**
      * The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
      */

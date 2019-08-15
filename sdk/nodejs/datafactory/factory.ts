@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,11 +58,11 @@ export class Factory extends pulumi.CustomResource {
     /**
      * A `githubConfiguration` block as defined below.
      */
-    public readonly githubConfiguration!: pulumi.Output<{ accountName: string, branchName: string, gitUrl: string, repositoryName: string, rootFolder: string } | undefined>;
+    public readonly githubConfiguration!: pulumi.Output<outputApi.datafactory.FactoryGithubConfiguration | undefined>;
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    public readonly identity!: pulumi.Output<outputApi.datafactory.FactoryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -80,7 +82,7 @@ export class Factory extends pulumi.CustomResource {
     /**
      * A `vstsConfiguration` block as defined below.
      */
-    public readonly vstsConfiguration!: pulumi.Output<{ accountName: string, branchName: string, projectName: string, repositoryName: string, rootFolder: string, tenantId: string } | undefined>;
+    public readonly vstsConfiguration!: pulumi.Output<outputApi.datafactory.FactoryVstsConfiguration | undefined>;
 
     /**
      * Create a Factory resource with the given unique name, arguments, and options.
@@ -132,11 +134,11 @@ export interface FactoryState {
     /**
      * A `githubConfiguration` block as defined below.
      */
-    readonly githubConfiguration?: pulumi.Input<{ accountName: pulumi.Input<string>, branchName: pulumi.Input<string>, gitUrl: pulumi.Input<string>, repositoryName: pulumi.Input<string>, rootFolder: pulumi.Input<string> }>;
+    readonly githubConfiguration?: pulumi.Input<inputApi.datafactory.FactoryGithubConfiguration>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputApi.datafactory.FactoryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -156,7 +158,7 @@ export interface FactoryState {
     /**
      * A `vstsConfiguration` block as defined below.
      */
-    readonly vstsConfiguration?: pulumi.Input<{ accountName: pulumi.Input<string>, branchName: pulumi.Input<string>, projectName: pulumi.Input<string>, repositoryName: pulumi.Input<string>, rootFolder: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
+    readonly vstsConfiguration?: pulumi.Input<inputApi.datafactory.FactoryVstsConfiguration>;
 }
 
 /**
@@ -166,11 +168,11 @@ export interface FactoryArgs {
     /**
      * A `githubConfiguration` block as defined below.
      */
-    readonly githubConfiguration?: pulumi.Input<{ accountName: pulumi.Input<string>, branchName: pulumi.Input<string>, gitUrl: pulumi.Input<string>, repositoryName: pulumi.Input<string>, rootFolder: pulumi.Input<string> }>;
+    readonly githubConfiguration?: pulumi.Input<inputApi.datafactory.FactoryGithubConfiguration>;
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputApi.datafactory.FactoryIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -190,5 +192,5 @@ export interface FactoryArgs {
     /**
      * A `vstsConfiguration` block as defined below.
      */
-    readonly vstsConfiguration?: pulumi.Input<{ accountName: pulumi.Input<string>, branchName: pulumi.Input<string>, projectName: pulumi.Input<string>, repositoryName: pulumi.Input<string>, rootFolder: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
+    readonly vstsConfiguration?: pulumi.Input<inputApi.datafactory.FactoryVstsConfiguration>;
 }

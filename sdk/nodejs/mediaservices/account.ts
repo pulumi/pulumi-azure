@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +81,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<{ id: string, isPrimary?: boolean }[]>;
+    public readonly storageAccounts!: pulumi.Output<outputApi.mediaservices.AccountStorageAccount[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -140,7 +142,7 @@ export interface AccountState {
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, isPrimary?: pulumi.Input<boolean> }>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputApi.mediaservices.AccountStorageAccount>[]>;
 }
 
 /**
@@ -162,5 +164,5 @@ export interface AccountArgs {
     /**
      * One or more `storageAccount` blocks as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string>, isPrimary?: pulumi.Input<boolean> }>[]>;
+    readonly storageAccounts: pulumi.Input<pulumi.Input<inputApi.mediaservices.AccountStorageAccount>[]>;
 }

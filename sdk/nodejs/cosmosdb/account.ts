@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +82,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
-    public readonly capabilities!: pulumi.Output<{ name: string }[] | undefined>;
+    public readonly capabilities!: pulumi.Output<outputApi.cosmosdb.AccountCapability[] | undefined>;
     /**
      * A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
      */
@@ -88,7 +90,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
-    public readonly consistencyPolicy!: pulumi.Output<{ consistencyLevel: string, maxIntervalInSeconds?: number, maxStalenessPrefix?: number }>;
+    public readonly consistencyPolicy!: pulumi.Output<outputApi.cosmosdb.AccountConsistencyPolicy>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -101,11 +103,11 @@ export class Account extends pulumi.CustomResource {
      * The endpoint used to connect to the CosmosDB account.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
-    public readonly failoverPolicies!: pulumi.Output<{ id: string, location: string, priority: number }[] | undefined>;
+    public readonly failoverPolicies!: pulumi.Output<outputApi.cosmosdb.AccountFailoverPolicy[] | undefined>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
-    public readonly geoLocations!: pulumi.Output<{ failoverPriority: number, id: string, location: string, prefix?: string }[]>;
+    public readonly geoLocations!: pulumi.Output<outputApi.cosmosdb.AccountGeoLocation[]>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
@@ -161,7 +163,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
-    public readonly virtualNetworkRules!: pulumi.Output<{ id: string }[] | undefined>;
+    public readonly virtualNetworkRules!: pulumi.Output<outputApi.cosmosdb.AccountVirtualNetworkRule[] | undefined>;
     /**
      * A list of write endpoints available for this CosmosDB account.
      */
@@ -255,7 +257,7 @@ export interface AccountState {
     /**
      * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
-    readonly capabilities?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>;
+    readonly capabilities?: pulumi.Input<pulumi.Input<inputApi.cosmosdb.AccountCapability>[]>;
     /**
      * A list of connection strings available for this CosmosDB account. If the kind is `GlobalDocumentDB`, this will be empty.
      */
@@ -263,7 +265,7 @@ export interface AccountState {
     /**
      * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
-    readonly consistencyPolicy?: pulumi.Input<{ consistencyLevel: pulumi.Input<string>, maxIntervalInSeconds?: pulumi.Input<number>, maxStalenessPrefix?: pulumi.Input<number> }>;
+    readonly consistencyPolicy?: pulumi.Input<inputApi.cosmosdb.AccountConsistencyPolicy>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -276,11 +278,11 @@ export interface AccountState {
      * The endpoint used to connect to the CosmosDB account.
      */
     readonly endpoint?: pulumi.Input<string>;
-    readonly failoverPolicies?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }>[]>;
+    readonly failoverPolicies?: pulumi.Input<pulumi.Input<inputApi.cosmosdb.AccountFailoverPolicy>[]>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
-    readonly geoLocations?: pulumi.Input<pulumi.Input<{ failoverPriority: pulumi.Input<number>, id?: pulumi.Input<string>, location: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
+    readonly geoLocations?: pulumi.Input<pulumi.Input<inputApi.cosmosdb.AccountGeoLocation>[]>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
@@ -336,7 +338,7 @@ export interface AccountState {
     /**
      * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string> }>[]>;
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputApi.cosmosdb.AccountVirtualNetworkRule>[]>;
     /**
      * A list of write endpoints available for this CosmosDB account.
      */
@@ -350,11 +352,11 @@ export interface AccountArgs {
     /**
      * The capabilities which should be enabled for this Cosmos DB account. Possible values are `EnableAggregationPipeline`, `EnableCassandra`, `EnableGremlin`, `EnableTable`, `MongoDBv3.4`, and `mongoEnableDocLevelTTL`.
      */
-    readonly capabilities?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string> }>[]>;
+    readonly capabilities?: pulumi.Input<pulumi.Input<inputApi.cosmosdb.AccountCapability>[]>;
     /**
      * Specifies a `consistencyPolicy` resource, used to define the consistency policy for this CosmosDB account.
      */
-    readonly consistencyPolicy: pulumi.Input<{ consistencyLevel: pulumi.Input<string>, maxIntervalInSeconds?: pulumi.Input<number>, maxStalenessPrefix?: pulumi.Input<number> }>;
+    readonly consistencyPolicy: pulumi.Input<inputApi.cosmosdb.AccountConsistencyPolicy>;
     /**
      * Enable automatic fail over for this Cosmos DB account.
      */
@@ -363,11 +365,11 @@ export interface AccountArgs {
      * Enable multi-master support for this Cosmos DB account.
      */
     readonly enableMultipleWriteLocations?: pulumi.Input<boolean>;
-    readonly failoverPolicies?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, location: pulumi.Input<string>, priority: pulumi.Input<number> }>[]>;
+    readonly failoverPolicies?: pulumi.Input<pulumi.Input<inputApi.cosmosdb.AccountFailoverPolicy>[]>;
     /**
      * Specifies a `geoLocation` resource, used to define where data should be replicated with the `failoverPriority` 0 specifying the primary location.
      */
-    readonly geoLocations?: pulumi.Input<pulumi.Input<{ failoverPriority: pulumi.Input<number>, id?: pulumi.Input<string>, location: pulumi.Input<string>, prefix?: pulumi.Input<string> }>[]>;
+    readonly geoLocations?: pulumi.Input<pulumi.Input<inputApi.cosmosdb.AccountGeoLocation>[]>;
     /**
      * CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IP's for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
      */
@@ -403,5 +405,5 @@ export interface AccountArgs {
     /**
      * Specifies a `virtualNetworkRules` resource, used to define which subnets are allowed to access this CosmosDB account.
      */
-    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<{ id: pulumi.Input<string> }>[]>;
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputApi.cosmosdb.AccountVirtualNetworkRule>[]>;
 }

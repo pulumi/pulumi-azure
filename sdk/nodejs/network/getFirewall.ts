@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetFirewallResult {
     /**
      * A `ipConfiguration` block as defined below.
      */
-    readonly ipConfiguration: { internalPublicIpAddressId: string, name: string, privateIpAddress: string, publicIpAddressId: string, subnetId: string };
+    readonly ipConfiguration: outputApi.network.GetFirewallIpConfiguration;
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;

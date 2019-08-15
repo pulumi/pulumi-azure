@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -92,7 +94,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * ) A `sku` block as described below.
      */
-    public readonly sku!: pulumi.Output<{ name: string }>;
+    public readonly sku!: pulumi.Output<outputApi.relay.NamespaceSku>;
     /**
      * The name of the SKU to use. At this time the only supported value is `Standard`.
      */
@@ -192,7 +194,7 @@ export interface NamespaceState {
     /**
      * ) A `sku` block as described below.
      */
-    readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputApi.relay.NamespaceSku>;
     /**
      * The name of the SKU to use. At this time the only supported value is `Standard`.
      */
@@ -222,7 +224,7 @@ export interface NamespaceArgs {
     /**
      * ) A `sku` block as described below.
      */
-    readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputApi.relay.NamespaceSku>;
     /**
      * The name of the SKU to use. At this time the only supported value is `Standard`.
      */

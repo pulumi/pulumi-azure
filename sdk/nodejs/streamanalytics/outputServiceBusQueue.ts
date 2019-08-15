@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,7 +92,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
     /**
      * A `serialization` block as defined below.
      */
-    public readonly serialization!: pulumi.Output<{ encoding?: string, fieldDelimiter?: string, format?: string, type: string }>;
+    public readonly serialization!: pulumi.Output<outputApi.streamanalytics.OutputServiceBusQueueSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
@@ -190,7 +192,7 @@ export interface OutputServiceBusQueueState {
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization?: pulumi.Input<{ encoding?: pulumi.Input<string>, fieldDelimiter?: pulumi.Input<string>, format?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly serialization?: pulumi.Input<inputApi.streamanalytics.OutputServiceBusQueueSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
@@ -228,7 +230,7 @@ export interface OutputServiceBusQueueArgs {
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization: pulumi.Input<{ encoding?: pulumi.Input<string>, fieldDelimiter?: pulumi.Input<string>, format?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly serialization: pulumi.Input<inputApi.streamanalytics.OutputServiceBusQueueSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */

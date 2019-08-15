@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -111,7 +113,7 @@ export class MetricAlertRule extends pulumi.CustomResource {
     /**
      * A `emailAction` block as defined below.
      */
-    public readonly emailAction!: pulumi.Output<{ customEmails: string[], sendToServiceOwners: boolean }>;
+    public readonly emailAction!: pulumi.Output<outputApi.monitoring.MetricAlertRuleEmailAction>;
     /**
      * If `true`, the alert rule is enabled. Defaults to `true`.
      */
@@ -155,7 +157,7 @@ export class MetricAlertRule extends pulumi.CustomResource {
     /**
      * A `webhookAction` block as defined below.
      */
-    public readonly webhookAction!: pulumi.Output<{ properties: {[key: string]: string}, serviceUri: string }>;
+    public readonly webhookAction!: pulumi.Output<outputApi.monitoring.MetricAlertRuleWebhookAction>;
 
     /**
      * Create a MetricAlertRule resource with the given unique name, arguments, and options.
@@ -247,7 +249,7 @@ export interface MetricAlertRuleState {
     /**
      * A `emailAction` block as defined below.
      */
-    readonly emailAction?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToServiceOwners?: pulumi.Input<boolean> }>;
+    readonly emailAction?: pulumi.Input<inputApi.monitoring.MetricAlertRuleEmailAction>;
     /**
      * If `true`, the alert rule is enabled. Defaults to `true`.
      */
@@ -291,7 +293,7 @@ export interface MetricAlertRuleState {
     /**
      * A `webhookAction` block as defined below.
      */
-    readonly webhookAction?: pulumi.Input<{ properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serviceUri: pulumi.Input<string> }>;
+    readonly webhookAction?: pulumi.Input<inputApi.monitoring.MetricAlertRuleWebhookAction>;
 }
 
 /**
@@ -309,7 +311,7 @@ export interface MetricAlertRuleArgs {
     /**
      * A `emailAction` block as defined below.
      */
-    readonly emailAction?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToServiceOwners?: pulumi.Input<boolean> }>;
+    readonly emailAction?: pulumi.Input<inputApi.monitoring.MetricAlertRuleEmailAction>;
     /**
      * If `true`, the alert rule is enabled. Defaults to `true`.
      */
@@ -353,5 +355,5 @@ export interface MetricAlertRuleArgs {
     /**
      * A `webhookAction` block as defined below.
      */
-    readonly webhookAction?: pulumi.Input<{ properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serviceUri: pulumi.Input<string> }>;
+    readonly webhookAction?: pulumi.Input<inputApi.monitoring.MetricAlertRuleWebhookAction>;
 }

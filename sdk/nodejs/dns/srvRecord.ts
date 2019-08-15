@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -74,7 +76,7 @@ export class SrvRecord extends pulumi.CustomResource {
     /**
      * A list of values that make up the SRV record. Each `record` block supports fields documented below.
      */
-    public readonly records!: pulumi.Output<{ port: number, priority: number, target: string, weight: number }[]>;
+    public readonly records!: pulumi.Output<outputApi.dns.SrvRecordRecord[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -153,7 +155,7 @@ export interface SrvRecordState {
     /**
      * A list of values that make up the SRV record. Each `record` block supports fields documented below.
      */
-    readonly records?: pulumi.Input<pulumi.Input<{ port: pulumi.Input<number>, priority: pulumi.Input<number>, target: pulumi.Input<string>, weight: pulumi.Input<number> }>[]>;
+    readonly records?: pulumi.Input<pulumi.Input<inputApi.dns.SrvRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -183,7 +185,7 @@ export interface SrvRecordArgs {
     /**
      * A list of values that make up the SRV record. Each `record` block supports fields documented below.
      */
-    readonly records: pulumi.Input<pulumi.Input<{ port: pulumi.Input<number>, priority: pulumi.Input<number>, target: pulumi.Input<string>, weight: pulumi.Input<number> }>[]>;
+    readonly records: pulumi.Input<pulumi.Input<inputApi.dns.SrvRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */

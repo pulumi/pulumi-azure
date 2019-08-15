@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -64,7 +66,7 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
      * A `bgpSettings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.
      */
-    public readonly bgpSettings!: pulumi.Output<{ asn: number, bgpPeeringAddress: string, peerWeight: number } | undefined>;
+    public readonly bgpSettings!: pulumi.Output<outputApi.network.LocalNetworkGatewayBgpSettings | undefined>;
     /**
      * The IP address of the gateway to which to
      * connect.
@@ -152,7 +154,7 @@ export interface LocalNetworkGatewayState {
      * A `bgpSettings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: pulumi.Input<{ asn: pulumi.Input<number>, bgpPeeringAddress: pulumi.Input<string>, peerWeight?: pulumi.Input<number> }>;
+    readonly bgpSettings?: pulumi.Input<inputApi.network.LocalNetworkGatewayBgpSettings>;
     /**
      * The IP address of the gateway to which to
      * connect.
@@ -192,7 +194,7 @@ export interface LocalNetworkGatewayArgs {
      * A `bgpSettings` block as defined below containing the
      * Local Network Gateway's BGP speaker settings.
      */
-    readonly bgpSettings?: pulumi.Input<{ asn: pulumi.Input<number>, bgpPeeringAddress: pulumi.Input<string>, peerWeight?: pulumi.Input<number> }>;
+    readonly bgpSettings?: pulumi.Input<inputApi.network.LocalNetworkGatewayBgpSettings>;
     /**
      * The IP address of the gateway to which to
      * connect.

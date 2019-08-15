@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,12 +83,12 @@ export interface GetAppServicePlanResult {
     /**
      * A `properties` block as documented below.
      */
-    readonly properties: { appServiceEnvironmentId: string, perSiteScaling: boolean, reserved: boolean }[];
+    readonly properties: outputApi.appservice.GetAppServicePlanProperty[];
     readonly resourceGroupName: string;
     /**
      * A `sku` block as documented below.
      */
-    readonly sku: { capacity: number, size: string, tier: string };
+    readonly sku: outputApi.appservice.GetAppServicePlanSku;
     /**
      * A mapping of tags assigned to the resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -67,7 +69,7 @@ export interface GetRouteTableResult {
     /**
      * One or more `route` blocks as documented below.
      */
-    readonly routes: { addressPrefix: string, name: string, nextHopInIpAddress: string, nextHopType: string }[];
+    readonly routes: outputApi.network.GetRouteTableRoute[];
     /**
      * The collection of Subnets associated with this route table.
      */

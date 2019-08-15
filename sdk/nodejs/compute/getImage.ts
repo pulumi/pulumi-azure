@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,7 +72,7 @@ export interface GetImageResult {
     /**
      * a collection of `dataDisk` blocks as defined below.
      */
-    readonly dataDisks: { blobUri: string, caching: string, lun: number, managedDiskId: string, sizeGb: number }[];
+    readonly dataDisks: outputApi.compute.GetImageDataDisk[];
     /**
      * the Azure Location where this Image exists.
      */
@@ -83,7 +85,7 @@ export interface GetImageResult {
     /**
      * a `osDisk` block as defined below.
      */
-    readonly osDisks: { blobUri: string, caching: string, managedDiskId: string, osState: string, osType: string, sizeGb: number }[];
+    readonly osDisks: outputApi.compute.GetImageOsDisk[];
     readonly resourceGroupName: string;
     readonly sortDescending?: boolean;
     /**

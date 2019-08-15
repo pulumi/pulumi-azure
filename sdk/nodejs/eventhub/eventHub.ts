@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +71,7 @@ export class EventHub extends pulumi.CustomResource {
     /**
      * A `captureDescription` block as defined below.
      */
-    public readonly captureDescription!: pulumi.Output<{ destination: { archiveNameFormat: string, blobContainerName: string, name: string, storageAccountId: string }, enabled: boolean, encoding: string, intervalInSeconds?: number, sizeLimitInBytes?: number, skipEmptyArchives?: boolean } | undefined>;
+    public readonly captureDescription!: pulumi.Output<outputApi.eventhub.EventHubCaptureDescription | undefined>;
     public readonly location!: pulumi.Output<string>;
     /**
      * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
@@ -157,7 +159,7 @@ export interface EventHubState {
     /**
      * A `captureDescription` block as defined below.
      */
-    readonly captureDescription?: pulumi.Input<{ destination: pulumi.Input<{ archiveNameFormat: pulumi.Input<string>, blobContainerName: pulumi.Input<string>, name: pulumi.Input<string>, storageAccountId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, encoding: pulumi.Input<string>, intervalInSeconds?: pulumi.Input<number>, sizeLimitInBytes?: pulumi.Input<number>, skipEmptyArchives?: pulumi.Input<boolean> }>;
+    readonly captureDescription?: pulumi.Input<inputApi.eventhub.EventHubCaptureDescription>;
     readonly location?: pulumi.Input<string>;
     /**
      * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.
@@ -192,7 +194,7 @@ export interface EventHubArgs {
     /**
      * A `captureDescription` block as defined below.
      */
-    readonly captureDescription?: pulumi.Input<{ destination: pulumi.Input<{ archiveNameFormat: pulumi.Input<string>, blobContainerName: pulumi.Input<string>, name: pulumi.Input<string>, storageAccountId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, encoding: pulumi.Input<string>, intervalInSeconds?: pulumi.Input<number>, sizeLimitInBytes?: pulumi.Input<number>, skipEmptyArchives?: pulumi.Input<boolean> }>;
+    readonly captureDescription?: pulumi.Input<inputApi.eventhub.EventHubCaptureDescription>;
     readonly location?: pulumi.Input<string>;
     /**
      * Specifies the number of days to retain the events for this Event Hub. Needs to be between 1 and 7 days; or 1 day when using a Basic SKU for the parent EventHub Namespace.

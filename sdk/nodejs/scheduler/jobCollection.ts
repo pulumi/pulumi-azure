@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +75,7 @@ export class JobCollection extends pulumi.CustomResource {
     /**
      * Configures the Job collection quotas as documented in the `quota` block below. 
      */
-    public readonly quota!: pulumi.Output<{ maxJobCount?: number, maxRecurrenceFrequency: string, maxRecurrenceInterval?: number, maxRetryInterval: number } | undefined>;
+    public readonly quota!: pulumi.Output<outputApi.scheduler.JobCollectionQuota | undefined>;
     /**
      * The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
      */
@@ -152,7 +154,7 @@ export interface JobCollectionState {
     /**
      * Configures the Job collection quotas as documented in the `quota` block below. 
      */
-    readonly quota?: pulumi.Input<{ maxJobCount?: pulumi.Input<number>, maxRecurrenceFrequency: pulumi.Input<string>, maxRecurrenceInterval?: pulumi.Input<number>, maxRetryInterval?: pulumi.Input<number> }>;
+    readonly quota?: pulumi.Input<inputApi.scheduler.JobCollectionQuota>;
     /**
      * The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
      */
@@ -186,7 +188,7 @@ export interface JobCollectionArgs {
     /**
      * Configures the Job collection quotas as documented in the `quota` block below. 
      */
-    readonly quota?: pulumi.Input<{ maxJobCount?: pulumi.Input<number>, maxRecurrenceFrequency: pulumi.Input<string>, maxRecurrenceInterval?: pulumi.Input<number>, maxRetryInterval?: pulumi.Input<number> }>;
+    readonly quota?: pulumi.Input<inputApi.scheduler.JobCollectionQuota>;
     /**
      * The name of the resource group in which to create the Scheduler Job Collection. Changing this forces a new resource to be created.
      */

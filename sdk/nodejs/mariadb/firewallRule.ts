@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.mariadb.FirewallRule("test", {
+ * const test = new azure.MariadbFirewallRule("test", {
  *     endIpAddress: "40.112.8.12",
  *     name: "test-rule",
  *     resourceGroupName: "test-rg",
@@ -28,7 +30,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = new azure.mariadb.FirewallRule("test", {
+ * const test = new azure.MariadbFirewallRule("test", {
  *     endIpAddress: "40.112.255.255",
  *     name: "test-rule",
  *     resourceGroupName: "test-rg",

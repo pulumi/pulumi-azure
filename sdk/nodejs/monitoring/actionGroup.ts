@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +77,7 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    public readonly emailReceivers!: pulumi.Output<{ emailAddress: string, name: string }[] | undefined>;
+    public readonly emailReceivers!: pulumi.Output<outputApi.monitoring.ActionGroupEmailReceiver[] | undefined>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
@@ -95,7 +97,7 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * One or more `smsReceiver ` blocks as defined below.
      */
-    public readonly smsReceivers!: pulumi.Output<{ countryCode: string, name: string, phoneNumber: string }[] | undefined>;
+    public readonly smsReceivers!: pulumi.Output<outputApi.monitoring.ActionGroupSmsReceiver[] | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -103,7 +105,7 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * One or more `webhookReceiver ` blocks as defined below.
      */
-    public readonly webhookReceivers!: pulumi.Output<{ name: string, serviceUri: string }[] | undefined>;
+    public readonly webhookReceivers!: pulumi.Output<outputApi.monitoring.ActionGroupWebhookReceiver[] | undefined>;
 
     /**
      * Create a ActionGroup resource with the given unique name, arguments, and options.
@@ -160,7 +162,7 @@ export interface ActionGroupState {
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    readonly emailReceivers?: pulumi.Input<pulumi.Input<{ emailAddress: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputApi.monitoring.ActionGroupEmailReceiver>[]>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
@@ -180,7 +182,7 @@ export interface ActionGroupState {
     /**
      * One or more `smsReceiver ` blocks as defined below.
      */
-    readonly smsReceivers?: pulumi.Input<pulumi.Input<{ countryCode: pulumi.Input<string>, name: pulumi.Input<string>, phoneNumber: pulumi.Input<string> }>[]>;
+    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputApi.monitoring.ActionGroupSmsReceiver>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -188,7 +190,7 @@ export interface ActionGroupState {
     /**
      * One or more `webhookReceiver ` blocks as defined below.
      */
-    readonly webhookReceivers?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, serviceUri: pulumi.Input<string> }>[]>;
+    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputApi.monitoring.ActionGroupWebhookReceiver>[]>;
 }
 
 /**
@@ -198,7 +200,7 @@ export interface ActionGroupArgs {
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    readonly emailReceivers?: pulumi.Input<pulumi.Input<{ emailAddress: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputApi.monitoring.ActionGroupEmailReceiver>[]>;
     /**
      * Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`.
      */
@@ -218,7 +220,7 @@ export interface ActionGroupArgs {
     /**
      * One or more `smsReceiver ` blocks as defined below.
      */
-    readonly smsReceivers?: pulumi.Input<pulumi.Input<{ countryCode: pulumi.Input<string>, name: pulumi.Input<string>, phoneNumber: pulumi.Input<string> }>[]>;
+    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputApi.monitoring.ActionGroupSmsReceiver>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -226,5 +228,5 @@ export interface ActionGroupArgs {
     /**
      * One or more `webhookReceiver ` blocks as defined below.
      */
-    readonly webhookReceivers?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, serviceUri: pulumi.Input<string> }>[]>;
+    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputApi.monitoring.ActionGroupWebhookReceiver>[]>;
 }

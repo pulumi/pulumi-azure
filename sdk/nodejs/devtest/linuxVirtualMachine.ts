@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -100,11 +102,11 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
     /**
      * A `galleryImageReference` block as defined below.
      */
-    public readonly galleryImageReference!: pulumi.Output<{ offer: string, publisher: string, sku: string, version: string }>;
+    public readonly galleryImageReference!: pulumi.Output<outputApi.devtest.LinuxVirtualMachineGalleryImageReference>;
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    public readonly inboundNatRules!: pulumi.Output<{ backendPort: number, frontendPort: number, protocol: string }[] | undefined>;
+    public readonly inboundNatRules!: pulumi.Output<outputApi.devtest.LinuxVirtualMachineInboundNatRule[] | undefined>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
      */
@@ -269,11 +271,11 @@ export interface LinuxVirtualMachineState {
     /**
      * A `galleryImageReference` block as defined below.
      */
-    readonly galleryImageReference?: pulumi.Input<{ offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
+    readonly galleryImageReference?: pulumi.Input<inputApi.devtest.LinuxVirtualMachineGalleryImageReference>;
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly inboundNatRules?: pulumi.Input<pulumi.Input<{ backendPort: pulumi.Input<number>, frontendPort?: pulumi.Input<number>, protocol: pulumi.Input<string> }>[]>;
+    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputApi.devtest.LinuxVirtualMachineInboundNatRule>[]>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
      */
@@ -347,11 +349,11 @@ export interface LinuxVirtualMachineArgs {
     /**
      * A `galleryImageReference` block as defined below.
      */
-    readonly galleryImageReference: pulumi.Input<{ offer: pulumi.Input<string>, publisher: pulumi.Input<string>, sku: pulumi.Input<string>, version: pulumi.Input<string> }>;
+    readonly galleryImageReference: pulumi.Input<inputApi.devtest.LinuxVirtualMachineGalleryImageReference>;
     /**
      * One or more `inboundNatRule` blocks as defined below. Changing this forces a new resource to be created.
      */
-    readonly inboundNatRules?: pulumi.Input<pulumi.Input<{ backendPort: pulumi.Input<number>, frontendPort?: pulumi.Input<number>, protocol: pulumi.Input<string> }>[]>;
+    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputApi.devtest.LinuxVirtualMachineInboundNatRule>[]>;
     /**
      * Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created.
      */

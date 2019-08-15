@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +83,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * One or more `ipConfiguration` blocks as defined below.
      */
-    readonly ipConfigurations: { applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress: string, privateIpAddressAllocation: string, privateIpAddressVersion: string, publicIpAddressId: string, subnetId: string }[];
+    readonly ipConfigurations: outputApi.network.GetNetworkInterfaceIpConfiguration[];
     /**
      * The location of the specified Network Interface.
      */

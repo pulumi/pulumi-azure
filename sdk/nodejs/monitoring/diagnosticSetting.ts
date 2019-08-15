@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -85,7 +87,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * One or more `log` blocks as defined below.
      */
-    public readonly logs!: pulumi.Output<{ category: string, enabled?: boolean, retentionPolicy: { days?: number, enabled: boolean } }[] | undefined>;
+    public readonly logs!: pulumi.Output<outputApi.monitoring.DiagnosticSettingLog[] | undefined>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
@@ -93,7 +95,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * One or more `metric` blocks as defined below.
      */
-    public readonly metrics!: pulumi.Output<{ category: string, enabled?: boolean, retentionPolicy: { days?: number, enabled: boolean } }[] | undefined>;
+    public readonly metrics!: pulumi.Output<outputApi.monitoring.DiagnosticSettingMetric[] | undefined>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      */
@@ -167,7 +169,7 @@ export interface DiagnosticSettingState {
     /**
      * One or more `log` blocks as defined below.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, retentionPolicy: pulumi.Input<{ days?: pulumi.Input<number>, enabled: pulumi.Input<boolean> }> }>[]>;
+    readonly logs?: pulumi.Input<pulumi.Input<inputApi.monitoring.DiagnosticSettingLog>[]>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
@@ -175,7 +177,7 @@ export interface DiagnosticSettingState {
     /**
      * One or more `metric` blocks as defined below.
      */
-    readonly metrics?: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, retentionPolicy: pulumi.Input<{ days?: pulumi.Input<number>, enabled: pulumi.Input<boolean> }> }>[]>;
+    readonly metrics?: pulumi.Input<pulumi.Input<inputApi.monitoring.DiagnosticSettingMetric>[]>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      */
@@ -205,7 +207,7 @@ export interface DiagnosticSettingArgs {
     /**
      * One or more `log` blocks as defined below.
      */
-    readonly logs?: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, retentionPolicy: pulumi.Input<{ days?: pulumi.Input<number>, enabled: pulumi.Input<boolean> }> }>[]>;
+    readonly logs?: pulumi.Input<pulumi.Input<inputApi.monitoring.DiagnosticSettingLog>[]>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
@@ -213,7 +215,7 @@ export interface DiagnosticSettingArgs {
     /**
      * One or more `metric` blocks as defined below.
      */
-    readonly metrics?: pulumi.Input<pulumi.Input<{ category: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, retentionPolicy: pulumi.Input<{ days?: pulumi.Input<number>, enabled: pulumi.Input<boolean> }> }>[]>;
+    readonly metrics?: pulumi.Input<pulumi.Input<inputApi.monitoring.DiagnosticSettingMetric>[]>;
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      */

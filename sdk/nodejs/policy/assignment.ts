@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -101,7 +103,7 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * An `identity` block.
      */
-    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type?: string }>;
+    public readonly identity!: pulumi.Output<outputApi.policy.AssignmentIdentity>;
     /**
      * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
      */
@@ -189,7 +191,7 @@ export interface AssignmentState {
     /**
      * An `identity` block.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputApi.policy.AssignmentIdentity>;
     /**
      * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
      */
@@ -228,7 +230,7 @@ export interface AssignmentArgs {
     /**
      * An `identity` block.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type?: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputApi.policy.AssignmentIdentity>;
     /**
      * The Azure location where this policy assignment should exist. This is required when an Identity is assigned. Changing this forces a new resource to be created.
      */

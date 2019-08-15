@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,26 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleDps = new azure.iot.Dps("example", {
+ * const exampleIotDps = new azure.IotDps("example", {
  *     location: azurerm_resource_group_test.location,
  *     name: "example",
  *     resourceGroupName: azurerm_resource_group_test.name,
- *     sku: {
- *         capacity: 1,
+ *     sku: [{
+ *         capacity: "1",
  *         name: "S1",
  *         tier: "Standard",
- *     },
+ *     }],
  * });
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     location: "West US",
  *     name: "resourceGroup1",
  * });
- * const exampleCertificate = new azure.iot.Certificate("example", {
+ * const exampleIotDpsCertificate = new azure.IotDpsCertificate("example", {
  *     certificateContent: (() => {
  *         throw "tf2pulumi error: NYI: call to filebase64";
  *         return (() => { throw "NYI: call to filebase64"; })();
  *     })(),
- *     iotDpsName: exampleDps.name,
+ *     iotDpsName: exampleIotDps.name,
  *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });

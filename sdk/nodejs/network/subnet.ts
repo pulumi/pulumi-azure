@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +80,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * One or more `delegation` blocks as defined below.
      */
-    public readonly delegations!: pulumi.Output<{ name: string, serviceDelegation: { actions?: string[], name: string } }[] | undefined>;
+    public readonly delegations!: pulumi.Output<outputApi.network.SubnetDelegation[] | undefined>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */
@@ -172,7 +174,7 @@ export interface SubnetState {
     /**
      * One or more `delegation` blocks as defined below.
      */
-    readonly delegations?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, serviceDelegation: pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }> }>[]>;
+    readonly delegations?: pulumi.Input<pulumi.Input<inputApi.network.SubnetDelegation>[]>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */
@@ -214,7 +216,7 @@ export interface SubnetArgs {
     /**
      * One or more `delegation` blocks as defined below.
      */
-    readonly delegations?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, serviceDelegation: pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }> }>[]>;
+    readonly delegations?: pulumi.Input<pulumi.Input<inputApi.network.SubnetDelegation>[]>;
     /**
      * The collection of IP Configurations with IPs within this subnet.
      */

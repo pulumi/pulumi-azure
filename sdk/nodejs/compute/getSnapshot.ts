@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetSnapshotResult {
      * The size of the Snapshotted Disk in GB.
      */
     readonly diskSizeGb: number;
-    readonly encryptionSettings: { diskEncryptionKeys: { secretUrl: string, sourceVaultId: string }[], enabled: boolean, keyEncryptionKeys: { keyUrl: string, sourceVaultId: string }[] }[];
+    readonly encryptionSettings: outputApi.compute.GetSnapshotEncryptionSetting[];
     readonly name: string;
     readonly osType: string;
     readonly resourceGroupName: string;

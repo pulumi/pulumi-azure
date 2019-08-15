@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -60,7 +62,7 @@ export interface GetLogProfileResult {
      */
     readonly locations: string[];
     readonly name: string;
-    readonly retentionPolicy: { days: number, enabled: boolean };
+    readonly retentionPolicy: outputApi.monitoring.GetLogProfileRetentionPolicy;
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
      */

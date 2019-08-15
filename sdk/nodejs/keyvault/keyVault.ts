@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +77,7 @@ export class KeyVault extends pulumi.CustomResource {
     /**
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
      */
-    public readonly accessPolicies!: pulumi.Output<{ applicationId?: string, certificatePermissions?: string[], keyPermissions?: string[], objectId: string, secretPermissions?: string[], storagePermissions?: string[], tenantId: string }[]>;
+    public readonly accessPolicies!: pulumi.Output<outputApi.keyvault.KeyVaultAccessPolicy[]>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */
@@ -99,7 +101,7 @@ export class KeyVault extends pulumi.CustomResource {
     /**
      * A `networkAcls` block as defined below.
      */
-    public readonly networkAcls!: pulumi.Output<{ bypass: string, defaultAction: string, ipRules?: string[], virtualNetworkSubnetIds?: string[] } | undefined>;
+    public readonly networkAcls!: pulumi.Output<outputApi.keyvault.KeyVaultNetworkAcls | undefined>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
@@ -107,7 +109,7 @@ export class KeyVault extends pulumi.CustomResource {
     /**
      * ) A `sku` block as described below.
      */
-    public readonly sku!: pulumi.Output<{ name?: string }>;
+    public readonly sku!: pulumi.Output<outputApi.keyvault.KeyVaultSku>;
     /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
@@ -190,7 +192,7 @@ export interface KeyVaultState {
     /**
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
      */
-    readonly accessPolicies?: pulumi.Input<pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions?: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions?: pulumi.Input<pulumi.Input<string>[]>, storagePermissions?: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }>[]>;
+    readonly accessPolicies?: pulumi.Input<pulumi.Input<inputApi.keyvault.KeyVaultAccessPolicy>[]>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */
@@ -214,7 +216,7 @@ export interface KeyVaultState {
     /**
      * A `networkAcls` block as defined below.
      */
-    readonly networkAcls?: pulumi.Input<{ bypass: pulumi.Input<string>, defaultAction: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly networkAcls?: pulumi.Input<inputApi.keyvault.KeyVaultNetworkAcls>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
@@ -222,7 +224,7 @@ export interface KeyVaultState {
     /**
      * ) A `sku` block as described below.
      */
-    readonly sku?: pulumi.Input<{ name?: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputApi.keyvault.KeyVaultSku>;
     /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */
@@ -248,7 +250,7 @@ export interface KeyVaultArgs {
     /**
      * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
      */
-    readonly accessPolicies?: pulumi.Input<pulumi.Input<{ applicationId?: pulumi.Input<string>, certificatePermissions?: pulumi.Input<pulumi.Input<string>[]>, keyPermissions?: pulumi.Input<pulumi.Input<string>[]>, objectId: pulumi.Input<string>, secretPermissions?: pulumi.Input<pulumi.Input<string>[]>, storagePermissions?: pulumi.Input<pulumi.Input<string>[]>, tenantId: pulumi.Input<string> }>[]>;
+    readonly accessPolicies?: pulumi.Input<pulumi.Input<inputApi.keyvault.KeyVaultAccessPolicy>[]>;
     /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. Defaults to `false`.
      */
@@ -272,7 +274,7 @@ export interface KeyVaultArgs {
     /**
      * A `networkAcls` block as defined below.
      */
-    readonly networkAcls?: pulumi.Input<{ bypass: pulumi.Input<string>, defaultAction: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly networkAcls?: pulumi.Input<inputApi.keyvault.KeyVaultNetworkAcls>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */
@@ -280,7 +282,7 @@ export interface KeyVaultArgs {
     /**
      * ) A `sku` block as described below.
      */
-    readonly sku?: pulumi.Input<{ name?: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputApi.keyvault.KeyVaultSku>;
     /**
      * The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
      */

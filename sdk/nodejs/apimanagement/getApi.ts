@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputApi from "../types/input";
+import * as outputApi from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -108,7 +110,7 @@ export interface GetApiResult {
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    readonly subscriptionKeyParameterNames: { header: string, query: string }[];
+    readonly subscriptionKeyParameterNames: outputApi.apimanagement.GetApiSubscriptionKeyParameterName[];
     /**
      * The Version number of this API, if this API is versioned.
      */
