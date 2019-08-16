@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -82,7 +84,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * ) A `sku` block as described below.
      */
-    public readonly sku!: pulumi.Output<{ name: string }>;
+    public readonly sku!: pulumi.Output<outputs.notificationhub.NamespaceSku>;
     /**
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
      */
@@ -167,7 +169,7 @@ export interface NamespaceState {
     /**
      * ) A `sku` block as described below.
      */
-    readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.notificationhub.NamespaceSku>;
     /**
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
      */
@@ -201,7 +203,7 @@ export interface NamespaceArgs {
     /**
      * ) A `sku` block as described below.
      */
-    readonly sku?: pulumi.Input<{ name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.notificationhub.NamespaceSku>;
     /**
      * The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
      */

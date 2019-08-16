@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,26 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleService = pulumi.output(azure.apimanagement.getService({
+ * const exampleService = azure.apimanagement.getService({
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
- * }));
- * const exampleGroup = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getGroup({
+ * });
+ * const exampleGroup = azure.apimanagement.getGroup({
  *     apiManagementName: exampleService.name,
  *     name: "my-group",
- *     resourceGroupName: exampleService1.resourceGroupName,
- * }));
+ *     resourceGroupName: exampleService.resourceGroupName,
+ * });
  * const exampleProductGroup = new azure.apimanagement.ProductGroup("example", {
  *     apiManagementName: exampleService.name,
  *     groupName: exampleGroup.name,
  *     productId: azurerm_api_management_user_example.id,
  *     resourceGroupName: exampleService.resourceGroupName,
  * });
- * const exampleProduct = pulumi.all([exampleService, exampleService]).apply(([exampleService, exampleService1]) => azure.apimanagement.getProduct({
+ * const exampleProduct = azure.apimanagement.getProduct({
  *     apiManagementName: exampleService.name,
  *     productId: "my-product",
- *     resourceGroupName: exampleService1.resourceGroupName,
- * }));
+ *     resourceGroupName: exampleService.resourceGroupName,
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_product_group.html.markdown.

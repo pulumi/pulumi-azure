@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +71,7 @@ export interface GetNetworkSecurityGroupResult {
     /**
      * One or more `securityRule` blocks as defined below.
      */
-    readonly securityRules: { access: string, description: string, destinationAddressPrefix: string, destinationAddressPrefixes: string[], destinationApplicationSecurityGroupIds?: string[], destinationPortRange: string, destinationPortRanges: string[], direction: string, name: string, priority: number, protocol: string, sourceAddressPrefix: string, sourceAddressPrefixes: string[], sourceApplicationSecurityGroupIds?: string[], sourcePortRange: string, sourcePortRanges: string[] }[];
+    readonly securityRules: outputs.network.GetNetworkSecurityGroupSecurityRule[];
     /**
      * A mapping of tags assigned to the resource.
      */

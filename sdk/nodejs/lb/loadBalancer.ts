@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +68,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * One or multiple `frontendIpConfiguration` blocks as documented below.
      */
-    public readonly frontendIpConfigurations!: pulumi.Output<{ inboundNatRules: string[], loadBalancerRules: string[], name: string, outboundRules: string[], privateIpAddress: string, privateIpAddressAllocation: string, publicIpAddressId: string, publicIpPrefixId: string, subnetId: string, zones?: string }[] | undefined>;
+    public readonly frontendIpConfigurations!: pulumi.Output<outputs.lb.LoadBalancerFrontendIpConfiguration[] | undefined>;
     /**
      * Specifies the supported Azure Region where the Load Balancer should be created.
      */
@@ -148,7 +150,7 @@ export interface LoadBalancerState {
     /**
      * One or multiple `frontendIpConfiguration` blocks as documented below.
      */
-    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<{ inboundNatRules?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerRules?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outboundRules?: pulumi.Input<pulumi.Input<string>[]>, privateIpAddress?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, publicIpPrefixId?: pulumi.Input<string>, subnetId?: pulumi.Input<string>, zones?: pulumi.Input<string> }>[]>;
+    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.LoadBalancerFrontendIpConfiguration>[]>;
     /**
      * Specifies the supported Azure Region where the Load Balancer should be created.
      */
@@ -186,7 +188,7 @@ export interface LoadBalancerArgs {
     /**
      * One or multiple `frontendIpConfiguration` blocks as documented below.
      */
-    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<{ inboundNatRules?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerRules?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, outboundRules?: pulumi.Input<pulumi.Input<string>[]>, privateIpAddress?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, publicIpPrefixId?: pulumi.Input<string>, subnetId?: pulumi.Input<string>, zones?: pulumi.Input<string> }>[]>;
+    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.lb.LoadBalancerFrontendIpConfiguration>[]>;
     /**
      * Specifies the supported Azure Region where the Load Balancer should be created.
      */

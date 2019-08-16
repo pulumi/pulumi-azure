@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.network.getGatewayConnection({
+ * const test = azure.network.getGatewayConnection({
  *     name: "production",
  *     resourceGroupName: "networking",
- * }));
+ * });
  * 
  * export const virtualNetworkGatewayConnectionId = test.id;
  * ```
@@ -80,7 +82,7 @@ export interface GetGatewayConnectionResult {
      */
     readonly expressRouteGatewayBypass: boolean;
     readonly ingressBytesTransferred: number;
-    readonly ipsecPolicies: { dhGroup: string, ikeEncryption: string, ikeIntegrity: string, ipsecEncryption: string, ipsecIntegrity: string, pfsGroup: string, saDatasize: number, saLifetime: number }[];
+    readonly ipsecPolicies: outputs.network.GetGatewayConnectionIpsecPolicy[];
     /**
      * The ID of the local network gateway
      * when a Site-to-Site connection (i.e. when `type` is `IPsec`).

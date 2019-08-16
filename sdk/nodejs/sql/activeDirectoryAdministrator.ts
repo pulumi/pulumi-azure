@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     location: "West US",
  *     name: "acceptanceTestResourceGroup1",
  * });
- * const current = pulumi.output(azure.core.getClientConfig({}));
+ * const current = azure.core.getClientConfig({});
  * const testSqlServer = new azure.sql.SqlServer("test", {
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",

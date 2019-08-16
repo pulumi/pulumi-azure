@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +82,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
     /**
      * A `plan` block as documented below.
      */
-    public readonly plan!: pulumi.Output<{ name: string, product: string, promotionCode?: string, publisher: string }>;
+    public readonly plan!: pulumi.Output<outputs.operationalinsights.AnalyticsSolutionPlan>;
     /**
      * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
      */
@@ -162,7 +164,7 @@ export interface AnalyticsSolutionState {
     /**
      * A `plan` block as documented below.
      */
-    readonly plan?: pulumi.Input<{ name?: pulumi.Input<string>, product: pulumi.Input<string>, promotionCode?: pulumi.Input<string>, publisher: pulumi.Input<string> }>;
+    readonly plan?: pulumi.Input<inputs.operationalinsights.AnalyticsSolutionPlan>;
     /**
      * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
      */
@@ -192,7 +194,7 @@ export interface AnalyticsSolutionArgs {
     /**
      * A `plan` block as documented below.
      */
-    readonly plan: pulumi.Input<{ name?: pulumi.Input<string>, product: pulumi.Input<string>, promotionCode?: pulumi.Input<string>, publisher: pulumi.Input<string> }>;
+    readonly plan: pulumi.Input<inputs.operationalinsights.AnalyticsSolutionPlan>;
     /**
      * The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and it's related workspace can only exist in the same resource group.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -127,7 +129,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A `customDomain` block as documented below.
      */
-    public readonly customDomain!: pulumi.Output<{ name: string, useSubdomain?: boolean } | undefined>;
+    public readonly customDomain!: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
@@ -144,7 +146,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A Managed Service Identity block as defined below.
      */
-    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    public readonly identity!: pulumi.Output<outputs.storage.AccountIdentity>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
@@ -161,7 +163,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A `networkRules` block as documented below.
      */
-    public readonly networkRules!: pulumi.Output<{ bypasses: string[], defaultAction?: string, ipRules: string[], virtualNetworkSubnetIds: string[] } | undefined>;
+    public readonly networkRules!: pulumi.Output<outputs.storage.AccountNetworkRules | undefined>;
     /**
      * The primary access key for the storage account.
      */
@@ -463,7 +465,7 @@ export interface AccountState {
     /**
      * A `customDomain` block as documented below.
      */
-    readonly customDomain?: pulumi.Input<{ name: pulumi.Input<string>, useSubdomain?: pulumi.Input<boolean> }>;
+    readonly customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
@@ -480,7 +482,7 @@ export interface AccountState {
     /**
      * A Managed Service Identity block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.storage.AccountIdentity>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
@@ -497,7 +499,7 @@ export interface AccountState {
     /**
      * A `networkRules` block as documented below.
      */
-    readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, defaultAction?: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
     /**
      * The primary access key for the storage account.
      */
@@ -667,7 +669,7 @@ export interface AccountArgs {
     /**
      * A `customDomain` block as documented below.
      */
-    readonly customDomain?: pulumi.Input<{ name: pulumi.Input<string>, useSubdomain?: pulumi.Input<boolean> }>;
+    readonly customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
@@ -684,7 +686,7 @@ export interface AccountArgs {
     /**
      * A Managed Service Identity block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.storage.AccountIdentity>;
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      */
@@ -701,7 +703,7 @@ export interface AccountArgs {
     /**
      * A `networkRules` block as documented below.
      */
-    readonly networkRules?: pulumi.Input<{ bypasses?: pulumi.Input<pulumi.Input<string>[]>, defaultAction?: pulumi.Input<string>, ipRules?: pulumi.Input<pulumi.Input<string>[]>, virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
     /**
      * The name of the resource group in which to
      * create the storage account. Changing this forces a new resource to be created.

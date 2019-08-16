@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -16,10 +18,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.containerservice.getKubernetesCluster({
+ * const test = azure.containerservice.getKubernetesCluster({
  *     name: "myakscluster",
  *     resourceGroupName: "my-example-resource-group",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_cluster.html.markdown.
@@ -61,11 +63,11 @@ export interface GetKubernetesClusterResult {
     /**
      * A `addonProfile` block as documented below.
      */
-    readonly addonProfiles: { httpApplicationRoutings: { enabled: boolean, httpApplicationRoutingZoneName: string }[], omsAgents: { enabled: boolean, logAnalyticsWorkspaceId: string }[] }[];
+    readonly addonProfiles: outputs.containerservice.GetKubernetesClusterAddonProfile[];
     /**
      * An `agentPoolProfile` block as documented below.
      */
-    readonly agentPoolProfiles: { count: number, dnsPrefix: string, maxPods: number, name: string, osDiskSizeGb: number, osType: string, type: string, vmSize: string, vnetSubnetId: string }[];
+    readonly agentPoolProfiles: outputs.containerservice.GetKubernetesClusterAgentPoolProfile[];
     /**
      * The DNS Prefix of the managed Kubernetes cluster.
      */
@@ -77,7 +79,7 @@ export interface GetKubernetesClusterResult {
     /**
      * A `kubeAdminConfig` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
-    readonly kubeAdminConfigs: { clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }[];
+    readonly kubeAdminConfigs: outputs.containerservice.GetKubernetesClusterKubeAdminConfig[];
     /**
      * Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled.
      */
@@ -85,7 +87,7 @@ export interface GetKubernetesClusterResult {
     /**
      * A `kubeConfig` block as defined below.
      */
-    readonly kubeConfigs: { clientCertificate: string, clientKey: string, clusterCaCertificate: string, host: string, password: string, username: string }[];
+    readonly kubeConfigs: outputs.containerservice.GetKubernetesClusterKubeConfig[];
     /**
      * Base64 encoded Kubernetes configuration.
      */
@@ -97,7 +99,7 @@ export interface GetKubernetesClusterResult {
     /**
      * A `linuxProfile` block as documented below.
      */
-    readonly linuxProfiles: { adminUsername: string, sshKeys: { keyData: string }[] }[];
+    readonly linuxProfiles: outputs.containerservice.GetKubernetesClusterLinuxProfile[];
     /**
      * The Azure Region in which the managed Kubernetes Cluster exists.
      */
@@ -109,7 +111,7 @@ export interface GetKubernetesClusterResult {
     /**
      * A `networkProfile` block as documented below.
      */
-    readonly networkProfiles: { dnsServiceIp: string, dockerBridgeCidr: string, networkPlugin: string, networkPolicy: string, podCidr: string, serviceCidr: string }[];
+    readonly networkProfiles: outputs.containerservice.GetKubernetesClusterNetworkProfile[];
     /**
      * Auto-generated Resource Group containing AKS Cluster resources.
      */
@@ -118,11 +120,11 @@ export interface GetKubernetesClusterResult {
     /**
      * A `roleBasedAccessControl` block as documented below.
      */
-    readonly roleBasedAccessControls: { azureActiveDirectories: { clientAppId: string, serverAppId: string, tenantId: string }[], enabled: boolean }[];
+    readonly roleBasedAccessControls: outputs.containerservice.GetKubernetesClusterRoleBasedAccessControl[];
     /**
      * A `servicePrincipal` block as documented below.
      */
-    readonly servicePrincipals: { clientId: string }[];
+    readonly servicePrincipals: outputs.containerservice.GetKubernetesClusterServicePrincipal[];
     /**
      * A mapping of tags assigned to this resource.
      */

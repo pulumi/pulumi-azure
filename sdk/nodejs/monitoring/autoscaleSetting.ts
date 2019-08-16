@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -283,11 +285,11 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     /**
      * Specifies a `notification` block as defined below.
      */
-    public readonly notification!: pulumi.Output<{ email?: { customEmails?: string[], sendToSubscriptionAdministrator?: boolean, sendToSubscriptionCoAdministrator?: boolean }, webhooks?: { properties?: {[key: string]: any}, serviceUri: string }[] } | undefined>;
+    public readonly notification!: pulumi.Output<outputs.monitoring.AutoscaleSettingNotification | undefined>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
-    public readonly profiles!: pulumi.Output<{ capacity: { default: number, maximum: number, minimum: number }, fixedDate?: { end: string, start: string, timezone?: string }, name: string, recurrence?: { days: string[], hours: number, minutes: number, timezone?: string }, rules?: { metricTrigger: { metricName: string, metricResourceId: string, operator: string, statistic: string, threshold: number, timeAggregation: string, timeGrain: string, timeWindow: string }, scaleAction: { cooldown: string, direction: string, type: string, value: number } }[] }[]>;
+    public readonly profiles!: pulumi.Output<outputs.monitoring.AutoscaleSettingProfile[]>;
     /**
      * The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
      */
@@ -371,11 +373,11 @@ export interface AutoscaleSettingState {
     /**
      * Specifies a `notification` block as defined below.
      */
-    readonly notification?: pulumi.Input<{ email?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToSubscriptionAdministrator?: pulumi.Input<boolean>, sendToSubscriptionCoAdministrator?: pulumi.Input<boolean> }>, webhooks?: pulumi.Input<pulumi.Input<{ properties?: pulumi.Input<{[key: string]: any}>, serviceUri: pulumi.Input<string> }>[]> }>;
+    readonly notification?: pulumi.Input<inputs.monitoring.AutoscaleSettingNotification>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
-    readonly profiles?: pulumi.Input<pulumi.Input<{ capacity: pulumi.Input<{ default: pulumi.Input<number>, maximum: pulumi.Input<number>, minimum: pulumi.Input<number> }>, fixedDate?: pulumi.Input<{ end: pulumi.Input<string>, start: pulumi.Input<string>, timezone?: pulumi.Input<string> }>, name: pulumi.Input<string>, recurrence?: pulumi.Input<{ days: pulumi.Input<pulumi.Input<string>[]>, hours: pulumi.Input<number>, minutes: pulumi.Input<number>, timezone?: pulumi.Input<string> }>, rules?: pulumi.Input<pulumi.Input<{ metricTrigger: pulumi.Input<{ metricName: pulumi.Input<string>, metricResourceId: pulumi.Input<string>, operator: pulumi.Input<string>, statistic: pulumi.Input<string>, threshold: pulumi.Input<number>, timeAggregation: pulumi.Input<string>, timeGrain: pulumi.Input<string>, timeWindow: pulumi.Input<string> }>, scaleAction: pulumi.Input<{ cooldown: pulumi.Input<string>, direction: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<number> }> }>[]> }>[]>;
+    readonly profiles?: pulumi.Input<pulumi.Input<inputs.monitoring.AutoscaleSettingProfile>[]>;
     /**
      * The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
      */
@@ -409,11 +411,11 @@ export interface AutoscaleSettingArgs {
     /**
      * Specifies a `notification` block as defined below.
      */
-    readonly notification?: pulumi.Input<{ email?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToSubscriptionAdministrator?: pulumi.Input<boolean>, sendToSubscriptionCoAdministrator?: pulumi.Input<boolean> }>, webhooks?: pulumi.Input<pulumi.Input<{ properties?: pulumi.Input<{[key: string]: any}>, serviceUri: pulumi.Input<string> }>[]> }>;
+    readonly notification?: pulumi.Input<inputs.monitoring.AutoscaleSettingNotification>;
     /**
      * Specifies one or more (up to 20) `profile` blocks as defined below.
      */
-    readonly profiles: pulumi.Input<pulumi.Input<{ capacity: pulumi.Input<{ default: pulumi.Input<number>, maximum: pulumi.Input<number>, minimum: pulumi.Input<number> }>, fixedDate?: pulumi.Input<{ end: pulumi.Input<string>, start: pulumi.Input<string>, timezone?: pulumi.Input<string> }>, name: pulumi.Input<string>, recurrence?: pulumi.Input<{ days: pulumi.Input<pulumi.Input<string>[]>, hours: pulumi.Input<number>, minutes: pulumi.Input<number>, timezone?: pulumi.Input<string> }>, rules?: pulumi.Input<pulumi.Input<{ metricTrigger: pulumi.Input<{ metricName: pulumi.Input<string>, metricResourceId: pulumi.Input<string>, operator: pulumi.Input<string>, statistic: pulumi.Input<string>, threshold: pulumi.Input<number>, timeAggregation: pulumi.Input<string>, timeGrain: pulumi.Input<string>, timeWindow: pulumi.Input<string> }>, scaleAction: pulumi.Input<{ cooldown: pulumi.Input<string>, direction: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<number> }> }>[]> }>[]>;
+    readonly profiles: pulumi.Input<pulumi.Input<inputs.monitoring.AutoscaleSettingProfile>[]>;
     /**
      * The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
      */

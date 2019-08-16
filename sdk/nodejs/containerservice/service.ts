@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -37,15 +39,15 @@ export class Service extends pulumi.CustomResource {
     /**
      * A Agent Pool Profile's block as documented below.
      */
-    public readonly agentPoolProfile!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string, name: string, vmSize: string }>;
+    public readonly agentPoolProfile!: pulumi.Output<outputs.containerservice.ServiceAgentPoolProfile>;
     /**
      * A VM Diagnostics Profile block as documented below.
      */
-    public readonly diagnosticsProfile!: pulumi.Output<{ enabled: boolean, storageUri: string }>;
+    public readonly diagnosticsProfile!: pulumi.Output<outputs.containerservice.ServiceDiagnosticsProfile>;
     /**
      * A Linux Profile block as documented below.
      */
-    public readonly linuxProfile!: pulumi.Output<{ adminUsername: string, sshKey: { keyData: string } }>;
+    public readonly linuxProfile!: pulumi.Output<outputs.containerservice.ServiceLinuxProfile>;
     /**
      * The location where the Container Service instance should be created. Changing this forces a new resource to be created.
      */
@@ -53,7 +55,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A Master Profile block as documented below.
      */
-    public readonly masterProfile!: pulumi.Output<{ count?: number, dnsPrefix: string, fqdn: string }>;
+    public readonly masterProfile!: pulumi.Output<outputs.containerservice.ServiceMasterProfile>;
     /**
      * Unique name of the agent pool profile in the context of the subscription and resource group.
      */
@@ -69,7 +71,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A Service Principal block as documented below.
      */
-    public readonly servicePrincipal!: pulumi.Output<{ clientId: string, clientSecret: string } | undefined>;
+    public readonly servicePrincipal!: pulumi.Output<outputs.containerservice.ServiceServicePrincipal | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -146,15 +148,15 @@ export interface ServiceState {
     /**
      * A Agent Pool Profile's block as documented below.
      */
-    readonly agentPoolProfile?: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix: pulumi.Input<string>, fqdn?: pulumi.Input<string>, name: pulumi.Input<string>, vmSize: pulumi.Input<string> }>;
+    readonly agentPoolProfile?: pulumi.Input<inputs.containerservice.ServiceAgentPoolProfile>;
     /**
      * A VM Diagnostics Profile block as documented below.
      */
-    readonly diagnosticsProfile?: pulumi.Input<{ enabled: pulumi.Input<boolean>, storageUri?: pulumi.Input<string> }>;
+    readonly diagnosticsProfile?: pulumi.Input<inputs.containerservice.ServiceDiagnosticsProfile>;
     /**
      * A Linux Profile block as documented below.
      */
-    readonly linuxProfile?: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKey: pulumi.Input<{ keyData: pulumi.Input<string> }> }>;
+    readonly linuxProfile?: pulumi.Input<inputs.containerservice.ServiceLinuxProfile>;
     /**
      * The location where the Container Service instance should be created. Changing this forces a new resource to be created.
      */
@@ -162,7 +164,7 @@ export interface ServiceState {
     /**
      * A Master Profile block as documented below.
      */
-    readonly masterProfile?: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix: pulumi.Input<string>, fqdn?: pulumi.Input<string> }>;
+    readonly masterProfile?: pulumi.Input<inputs.containerservice.ServiceMasterProfile>;
     /**
      * Unique name of the agent pool profile in the context of the subscription and resource group.
      */
@@ -178,7 +180,7 @@ export interface ServiceState {
     /**
      * A Service Principal block as documented below.
      */
-    readonly servicePrincipal?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string> }>;
+    readonly servicePrincipal?: pulumi.Input<inputs.containerservice.ServiceServicePrincipal>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -192,15 +194,15 @@ export interface ServiceArgs {
     /**
      * A Agent Pool Profile's block as documented below.
      */
-    readonly agentPoolProfile: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix: pulumi.Input<string>, fqdn?: pulumi.Input<string>, name: pulumi.Input<string>, vmSize: pulumi.Input<string> }>;
+    readonly agentPoolProfile: pulumi.Input<inputs.containerservice.ServiceAgentPoolProfile>;
     /**
      * A VM Diagnostics Profile block as documented below.
      */
-    readonly diagnosticsProfile: pulumi.Input<{ enabled: pulumi.Input<boolean>, storageUri?: pulumi.Input<string> }>;
+    readonly diagnosticsProfile: pulumi.Input<inputs.containerservice.ServiceDiagnosticsProfile>;
     /**
      * A Linux Profile block as documented below.
      */
-    readonly linuxProfile: pulumi.Input<{ adminUsername: pulumi.Input<string>, sshKey: pulumi.Input<{ keyData: pulumi.Input<string> }> }>;
+    readonly linuxProfile: pulumi.Input<inputs.containerservice.ServiceLinuxProfile>;
     /**
      * The location where the Container Service instance should be created. Changing this forces a new resource to be created.
      */
@@ -208,7 +210,7 @@ export interface ServiceArgs {
     /**
      * A Master Profile block as documented below.
      */
-    readonly masterProfile: pulumi.Input<{ count?: pulumi.Input<number>, dnsPrefix: pulumi.Input<string>, fqdn?: pulumi.Input<string> }>;
+    readonly masterProfile: pulumi.Input<inputs.containerservice.ServiceMasterProfile>;
     /**
      * Unique name of the agent pool profile in the context of the subscription and resource group.
      */
@@ -224,7 +226,7 @@ export interface ServiceArgs {
     /**
      * A Service Principal block as documented below.
      */
-    readonly servicePrincipal?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string> }>;
+    readonly servicePrincipal?: pulumi.Input<inputs.containerservice.ServiceServicePrincipal>;
     /**
      * A mapping of tags to assign to the resource.
      */

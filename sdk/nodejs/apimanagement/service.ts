@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -62,11 +64,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    public readonly additionalLocation!: pulumi.Output<{ gatewayRegionalUrl: string, location: string, publicIpAddresses: string[] } | undefined>;
+    public readonly additionalLocation!: pulumi.Output<outputs.apimanagement.ServiceAdditionalLocation | undefined>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */
-    public readonly certificates!: pulumi.Output<{ certificatePassword: string, encodedCertificate: string, storeName: string }[] | undefined>;
+    public readonly certificates!: pulumi.Output<outputs.apimanagement.ServiceCertificate[] | undefined>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
@@ -78,11 +80,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    public readonly hostnameConfiguration!: pulumi.Output<{ managements?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], portals?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], proxies?: { certificate?: string, certificatePassword?: string, defaultSslBinding: boolean, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[], scms?: { certificate?: string, certificatePassword?: string, hostName: string, keyVaultId?: string, negotiateClientCertificate?: boolean }[] }>;
+    public readonly hostnameConfiguration!: pulumi.Output<outputs.apimanagement.ServiceHostnameConfiguration>;
     /**
      * An `identity` block is documented below.
      */
-    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string } | undefined>;
+    public readonly identity!: pulumi.Output<outputs.apimanagement.ServiceIdentity | undefined>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -102,7 +104,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * A `policy` block as defined below.
      */
-    public readonly policy!: pulumi.Output<{ xmlContent: string, xmlLink?: string }>;
+    public readonly policy!: pulumi.Output<outputs.apimanagement.ServicePolicy>;
     /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
@@ -130,19 +132,19 @@ export class Service extends pulumi.CustomResource {
     /**
      * A `security` block as defined below.
      */
-    public readonly security!: pulumi.Output<{ disableBackendSsl30?: boolean, disableBackendTls10?: boolean, disableBackendTls11?: boolean, disableFrontendSsl30?: boolean, disableFrontendTls10?: boolean, disableFrontendTls11?: boolean, disableTripleDesChipers: boolean, disableTripleDesCiphers: boolean }>;
+    public readonly security!: pulumi.Output<outputs.apimanagement.ServiceSecurity>;
     /**
      * A `signIn` block as defined below.
      */
-    public readonly signIn!: pulumi.Output<{ enabled: boolean }>;
+    public readonly signIn!: pulumi.Output<outputs.apimanagement.ServiceSignIn>;
     /**
      * A `signUp` block as defined below.
      */
-    public readonly signUp!: pulumi.Output<{ enabled: boolean, termsOfService: { consentRequired: boolean, enabled: boolean, text?: string } }>;
+    public readonly signUp!: pulumi.Output<outputs.apimanagement.ServiceSignUp>;
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku!: pulumi.Output<{ capacity: number, name: string }>;
+    public readonly sku!: pulumi.Output<outputs.apimanagement.ServiceSku>;
     /**
      * A mapping of tags assigned to the resource.
      */
@@ -237,11 +239,11 @@ export interface ServiceState {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    readonly additionalLocation?: pulumi.Input<{ gatewayRegionalUrl?: pulumi.Input<string>, location: pulumi.Input<string>, publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly additionalLocation?: pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<{ certificatePassword: pulumi.Input<string>, encodedCertificate: pulumi.Input<string>, storeName: pulumi.Input<string> }>[]>;
+    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
      * The URL of the Regional Gateway for the API Management Service in the specified region.
      */
@@ -253,11 +255,11 @@ export interface ServiceState {
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    readonly hostnameConfiguration?: pulumi.Input<{ managements?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, portals?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, proxies?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, defaultSslBinding?: pulumi.Input<boolean>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, scms?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]> }>;
+    readonly hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
     /**
      * An `identity` block is documented below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -277,7 +279,7 @@ export interface ServiceState {
     /**
      * A `policy` block as defined below.
      */
-    readonly policy?: pulumi.Input<{ xmlContent?: pulumi.Input<string>, xmlLink?: pulumi.Input<string> }>;
+    readonly policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**
      * The URL for the Publisher Portal associated with this API Management service.
      */
@@ -305,19 +307,19 @@ export interface ServiceState {
     /**
      * A `security` block as defined below.
      */
-    readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean>, disableTripleDesCiphers?: pulumi.Input<boolean> }>;
+    readonly security?: pulumi.Input<inputs.apimanagement.ServiceSecurity>;
     /**
      * A `signIn` block as defined below.
      */
-    readonly signIn?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    readonly signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn>;
     /**
      * A `signUp` block as defined below.
      */
-    readonly signUp?: pulumi.Input<{ enabled: pulumi.Input<boolean>, termsOfService: pulumi.Input<{ consentRequired: pulumi.Input<boolean>, enabled: pulumi.Input<boolean>, text?: pulumi.Input<string> }> }>;
+    readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
      * A `sku` block as documented below.
      */
-    readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.apimanagement.ServiceSku>;
     /**
      * A mapping of tags assigned to the resource.
      */
@@ -331,19 +333,19 @@ export interface ServiceArgs {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    readonly additionalLocation?: pulumi.Input<{ gatewayRegionalUrl?: pulumi.Input<string>, location: pulumi.Input<string>, publicIpAddresses?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly additionalLocation?: pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */
-    readonly certificates?: pulumi.Input<pulumi.Input<{ certificatePassword: pulumi.Input<string>, encodedCertificate: pulumi.Input<string>, storeName: pulumi.Input<string> }>[]>;
+    readonly certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceCertificate>[]>;
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    readonly hostnameConfiguration?: pulumi.Input<{ managements?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, portals?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, proxies?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, defaultSslBinding?: pulumi.Input<boolean>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]>, scms?: pulumi.Input<pulumi.Input<{ certificate?: pulumi.Input<string>, certificatePassword?: pulumi.Input<string>, hostName: pulumi.Input<string>, keyVaultId?: pulumi.Input<string>, negotiateClientCertificate?: pulumi.Input<boolean> }>[]> }>;
+    readonly hostnameConfiguration?: pulumi.Input<inputs.apimanagement.ServiceHostnameConfiguration>;
     /**
      * An `identity` block is documented below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.apimanagement.ServiceIdentity>;
     /**
      * The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -359,7 +361,7 @@ export interface ServiceArgs {
     /**
      * A `policy` block as defined below.
      */
-    readonly policy?: pulumi.Input<{ xmlContent?: pulumi.Input<string>, xmlLink?: pulumi.Input<string> }>;
+    readonly policy?: pulumi.Input<inputs.apimanagement.ServicePolicy>;
     /**
      * The email of publisher/company.
      */
@@ -375,19 +377,19 @@ export interface ServiceArgs {
     /**
      * A `security` block as defined below.
      */
-    readonly security?: pulumi.Input<{ disableBackendSsl30?: pulumi.Input<boolean>, disableBackendTls10?: pulumi.Input<boolean>, disableBackendTls11?: pulumi.Input<boolean>, disableFrontendSsl30?: pulumi.Input<boolean>, disableFrontendTls10?: pulumi.Input<boolean>, disableFrontendTls11?: pulumi.Input<boolean>, disableTripleDesChipers?: pulumi.Input<boolean>, disableTripleDesCiphers?: pulumi.Input<boolean> }>;
+    readonly security?: pulumi.Input<inputs.apimanagement.ServiceSecurity>;
     /**
      * A `signIn` block as defined below.
      */
-    readonly signIn?: pulumi.Input<{ enabled: pulumi.Input<boolean> }>;
+    readonly signIn?: pulumi.Input<inputs.apimanagement.ServiceSignIn>;
     /**
      * A `signUp` block as defined below.
      */
-    readonly signUp?: pulumi.Input<{ enabled: pulumi.Input<boolean>, termsOfService: pulumi.Input<{ consentRequired: pulumi.Input<boolean>, enabled: pulumi.Input<boolean>, text?: pulumi.Input<string> }> }>;
+    readonly signUp?: pulumi.Input<inputs.apimanagement.ServiceSignUp>;
     /**
      * A `sku` block as documented below.
      */
-    readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputs.apimanagement.ServiceSku>;
     /**
      * A mapping of tags assigned to the resource.
      */

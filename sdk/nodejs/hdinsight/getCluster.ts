@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = pulumi.output(azure.hdinsight.getCluster({
+ * const example = azure.hdinsight.getCluster({
  *     name: "example",
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * 
  * export const httpsEndpoint = example.httpsEndpoint;
  * ```
@@ -72,7 +74,7 @@ export interface GetClusterResult {
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateways: { enabled: boolean, password: string, username: string }[];
+    readonly gateways: outputs.hdinsight.GetClusterGateway[];
     /**
      * The HTTPS Endpoint for this HDInsight Cluster.
      */

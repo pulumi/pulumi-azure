@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.notificationhub.getNamespace({
+ * const test = azure.notificationhub.getNamespace({
  *     name: "my-namespace",
  *     resourceGroupName: "my-resource-group",
- * }));
+ * });
  * 
  * export const servicebusEndpoint = test.servicebusEndpoint;
  * ```
@@ -78,7 +80,7 @@ export interface GetNamespaceResult {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: { name: string };
+    readonly sku: outputs.notificationhub.GetNamespaceSku;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

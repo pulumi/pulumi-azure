@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testLB = pulumi.output(azure.lb.getLB({
+ * const testLB = azure.lb.getLB({
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
- * }));
- * const testBackendAddressPool = testLB.apply(testLB => azure.lb.getBackendAddressPool({
+ * });
+ * const testBackendAddressPool = azure.lb.getBackendAddressPool({
  *     loadbalancerId: testLB.id,
  *     name: "first",
- * }));
+ * });
  * 
  * export const backendAddressPoolId = testBackendAddressPool.id;
  * ```

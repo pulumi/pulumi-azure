@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -37,11 +39,11 @@ export class Group extends pulumi.CustomResource {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    public readonly containers!: pulumi.Output<{ command: string, commands: string[], cpu: number, environmentVariables?: {[key: string]: any}, gpu?: { count?: number, sku?: string }, image: string, livenessProbe?: { execs?: string[], failureThreshold?: number, httpGets?: { path?: string, port?: number, scheme?: string }[], initialDelaySeconds?: number, periodSeconds?: number, successThreshold?: number, timeoutSeconds?: number }, memory: number, name: string, port: number, ports: { port: number, protocol: string }[], protocol: string, readinessProbe?: { execs?: string[], failureThreshold?: number, httpGets?: { path?: string, port?: number, scheme?: string }[], initialDelaySeconds?: number, periodSeconds?: number, successThreshold?: number, timeoutSeconds?: number }, secureEnvironmentVariables?: {[key: string]: any}, volumes?: { mountPath: string, name: string, readOnly?: boolean, shareName: string, storageAccountKey: string, storageAccountName: string }[] }[]>;
+    public readonly containers!: pulumi.Output<outputs.containerservice.GroupContainer[]>;
     /**
      * A `diagnostics` block as documented below.
      */
-    public readonly diagnostics!: pulumi.Output<{ logAnalytics: { logType: string, metadata?: {[key: string]: string}, workspaceId: string, workspaceKey: string } } | undefined>;
+    public readonly diagnostics!: pulumi.Output<outputs.containerservice.GroupDiagnostics | undefined>;
     /**
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
@@ -53,11 +55,11 @@ export class Group extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
+    public readonly identity!: pulumi.Output<outputs.containerservice.GroupIdentity>;
     /**
      * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
-    public readonly imageRegistryCredentials!: pulumi.Output<{ password: string, server: string, username: string }[] | undefined>;
+    public readonly imageRegistryCredentials!: pulumi.Output<outputs.containerservice.GroupImageRegistryCredential[] | undefined>;
     /**
      * The IP address allocated to the container group.
      */
@@ -161,11 +163,11 @@ export interface GroupState {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    readonly containers?: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, gpu?: pulumi.Input<{ count?: pulumi.Input<number>, sku?: pulumi.Input<string> }>, image: pulumi.Input<string>, livenessProbe?: pulumi.Input<{ execs?: pulumi.Input<pulumi.Input<string>[]>, failureThreshold?: pulumi.Input<number>, httpGets?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port?: pulumi.Input<number>, scheme?: pulumi.Input<string> }>[]>, initialDelaySeconds?: pulumi.Input<number>, periodSeconds?: pulumi.Input<number>, successThreshold?: pulumi.Input<number>, timeoutSeconds?: pulumi.Input<number> }>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, readinessProbe?: pulumi.Input<{ execs?: pulumi.Input<pulumi.Input<string>[]>, failureThreshold?: pulumi.Input<number>, httpGets?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port?: pulumi.Input<number>, scheme?: pulumi.Input<string> }>[]>, initialDelaySeconds?: pulumi.Input<number>, periodSeconds?: pulumi.Input<number>, successThreshold?: pulumi.Input<number>, timeoutSeconds?: pulumi.Input<number> }>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
+    readonly containers?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
     /**
      * A `diagnostics` block as documented below.
      */
-    readonly diagnostics?: pulumi.Input<{ logAnalytics: pulumi.Input<{ logType: pulumi.Input<string>, metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, workspaceId: pulumi.Input<string>, workspaceKey: pulumi.Input<string> }> }>;
+    readonly diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
     /**
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
@@ -177,11 +179,11 @@ export interface GroupState {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.containerservice.GroupIdentity>;
     /**
      * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
+    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
     /**
      * The IP address allocated to the container group.
      */
@@ -223,11 +225,11 @@ export interface GroupArgs {
     /**
      * The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created.
      */
-    readonly containers: pulumi.Input<pulumi.Input<{ command?: pulumi.Input<string>, commands?: pulumi.Input<pulumi.Input<string>[]>, cpu: pulumi.Input<number>, environmentVariables?: pulumi.Input<{[key: string]: any}>, gpu?: pulumi.Input<{ count?: pulumi.Input<number>, sku?: pulumi.Input<string> }>, image: pulumi.Input<string>, livenessProbe?: pulumi.Input<{ execs?: pulumi.Input<pulumi.Input<string>[]>, failureThreshold?: pulumi.Input<number>, httpGets?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port?: pulumi.Input<number>, scheme?: pulumi.Input<string> }>[]>, initialDelaySeconds?: pulumi.Input<number>, periodSeconds?: pulumi.Input<number>, successThreshold?: pulumi.Input<number>, timeoutSeconds?: pulumi.Input<number> }>, memory: pulumi.Input<number>, name: pulumi.Input<string>, port?: pulumi.Input<number>, ports?: pulumi.Input<pulumi.Input<{ port?: pulumi.Input<number>, protocol?: pulumi.Input<string> }>[]>, protocol?: pulumi.Input<string>, readinessProbe?: pulumi.Input<{ execs?: pulumi.Input<pulumi.Input<string>[]>, failureThreshold?: pulumi.Input<number>, httpGets?: pulumi.Input<pulumi.Input<{ path?: pulumi.Input<string>, port?: pulumi.Input<number>, scheme?: pulumi.Input<string> }>[]>, initialDelaySeconds?: pulumi.Input<number>, periodSeconds?: pulumi.Input<number>, successThreshold?: pulumi.Input<number>, timeoutSeconds?: pulumi.Input<number> }>, secureEnvironmentVariables?: pulumi.Input<{[key: string]: any}>, volumes?: pulumi.Input<pulumi.Input<{ mountPath: pulumi.Input<string>, name: pulumi.Input<string>, readOnly?: pulumi.Input<boolean>, shareName: pulumi.Input<string>, storageAccountKey: pulumi.Input<string>, storageAccountName: pulumi.Input<string> }>[]> }>[]>;
+    readonly containers: pulumi.Input<pulumi.Input<inputs.containerservice.GroupContainer>[]>;
     /**
      * A `diagnostics` block as documented below.
      */
-    readonly diagnostics?: pulumi.Input<{ logAnalytics: pulumi.Input<{ logType: pulumi.Input<string>, metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, workspaceId: pulumi.Input<string>, workspaceKey: pulumi.Input<string> }> }>;
+    readonly diagnostics?: pulumi.Input<inputs.containerservice.GroupDiagnostics>;
     /**
      * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
      */
@@ -235,11 +237,11 @@ export interface GroupArgs {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.containerservice.GroupIdentity>;
     /**
      * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
-    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<{ password: pulumi.Input<string>, server: pulumi.Input<string>, username: pulumi.Input<string> }>[]>;
+    readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
     /**
      * Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
      */

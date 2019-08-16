@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleResourceGroup = pulumi.output(azure.core.getResourceGroup({
+ * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "example-resources",
- * }));
+ * });
  * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
  *     name: "example-job",
  *     resourceGroupName: name,
@@ -93,7 +95,7 @@ export class OutputEventHub extends pulumi.CustomResource {
     /**
      * A `serialization` block as defined below.
      */
-    public readonly serialization!: pulumi.Output<{ encoding?: string, fieldDelimiter?: string, format?: string, type: string }>;
+    public readonly serialization!: pulumi.Output<outputs.streamanalytics.OutputEventHubSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
@@ -193,7 +195,7 @@ export interface OutputEventHubState {
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization?: pulumi.Input<{ encoding?: pulumi.Input<string>, fieldDelimiter?: pulumi.Input<string>, format?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly serialization?: pulumi.Input<inputs.streamanalytics.OutputEventHubSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */
@@ -231,7 +233,7 @@ export interface OutputEventHubArgs {
     /**
      * A `serialization` block as defined below.
      */
-    readonly serialization: pulumi.Input<{ encoding?: pulumi.Input<string>, fieldDelimiter?: pulumi.Input<string>, format?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly serialization: pulumi.Input<inputs.streamanalytics.OutputEventHubSerialization>;
     /**
      * The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
      */

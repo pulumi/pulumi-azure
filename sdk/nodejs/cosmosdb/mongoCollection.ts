@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleAccount = pulumi.output(azure.cosmosdb.getAccount({
+ * const exampleAccount = azure.cosmosdb.getAccount({
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * }));
+ * });
  * const exampleMongoCollection = new azure.cosmosdb.MongoCollection("example", {
  *     accountName: exampleAccount.name,
  *     databaseName: exampleAccount.name,
@@ -83,7 +85,7 @@ export class MongoCollection extends pulumi.CustomResource {
     /**
      * One or more `indexes` blocks as defined below.
      */
-    public readonly indexes!: pulumi.Output<{ key: string, unique?: boolean }[] | undefined>;
+    public readonly indexes!: pulumi.Output<outputs.cosmosdb.MongoCollectionIndex[] | undefined>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
@@ -162,7 +164,7 @@ export interface MongoCollectionState {
     /**
      * One or more `indexes` blocks as defined below.
      */
-    readonly indexes?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, unique?: pulumi.Input<boolean> }>[]>;
+    readonly indexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */
@@ -193,7 +195,7 @@ export interface MongoCollectionArgs {
     /**
      * One or more `indexes` blocks as defined below.
      */
-    readonly indexes?: pulumi.Input<pulumi.Input<{ key: pulumi.Input<string>, unique?: pulumi.Input<boolean> }>[]>;
+    readonly indexes?: pulumi.Input<pulumi.Input<inputs.cosmosdb.MongoCollectionIndex>[]>;
     /**
      * Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
      */

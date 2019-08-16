@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -24,12 +26,12 @@ import * as utilities from "../utilities";
  *     name: "test-server",
  *     resourceGroupName: azurerm_api_management_example.resourceGroupName,
  * });
- * const exampleApi = pulumi.output(azure.apimanagement.getApi({
+ * const exampleApi = azure.apimanagement.getApi({
  *     apiManagementName: "search-api-management",
  *     name: "search-api",
  *     resourceGroupName: "search-service",
  *     revision: "2",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_authorization_server.html.markdown.
@@ -129,7 +131,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     public readonly supportState!: pulumi.Output<boolean | undefined>;
-    public readonly tokenBodyParameters!: pulumi.Output<{ name: string, value: string }[] | undefined>;
+    public readonly tokenBodyParameters!: pulumi.Output<outputs.apimanagement.AuthorizationServerTokenBodyParameter[] | undefined>;
     /**
      * The OAUTH Token Endpoint.
      */
@@ -295,7 +297,7 @@ export interface AuthorizationServerState {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     readonly supportState?: pulumi.Input<boolean>;
-    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.AuthorizationServerTokenBodyParameter>[]>;
     /**
      * The OAUTH Token Endpoint.
      */
@@ -374,7 +376,7 @@ export interface AuthorizationServerArgs {
      * Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
      */
     readonly supportState?: pulumi.Input<boolean>;
-    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly tokenBodyParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.AuthorizationServerTokenBodyParameter>[]>;
     /**
      * The OAUTH Token Endpoint.
      */

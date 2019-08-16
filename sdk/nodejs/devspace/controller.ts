@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -101,7 +103,7 @@ export class Controller extends pulumi.CustomResource {
     /**
      * A `sku` block as documented below. Changing this forces a new resource to be created.
      */
-    public readonly sku!: pulumi.Output<{ name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<outputs.devspace.ControllerSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -201,7 +203,7 @@ export interface ControllerState {
     /**
      * A `sku` block as documented below. Changing this forces a new resource to be created.
      */
-    readonly sku?: pulumi.Input<{ name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.devspace.ControllerSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -239,7 +241,7 @@ export interface ControllerArgs {
     /**
      * A `sku` block as documented below. Changing this forces a new resource to be created.
      */
-    readonly sku: pulumi.Input<{ name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputs.devspace.ControllerSku>;
     /**
      * A mapping of tags to assign to the resource.
      */

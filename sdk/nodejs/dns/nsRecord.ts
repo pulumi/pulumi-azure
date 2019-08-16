@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,7 +74,7 @@ export class NsRecord extends pulumi.CustomResource {
     /**
      * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
      */
-    public readonly record!: pulumi.Output<{ nsdname: string }[]>;
+    public readonly record!: pulumi.Output<outputs.dns.NsRecordRecord[]>;
     /**
      * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
      */
@@ -154,7 +156,7 @@ export interface NsRecordState {
     /**
      * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
      */
-    readonly record?: pulumi.Input<pulumi.Input<{ nsdname: pulumi.Input<string> }>[]>;
+    readonly record?: pulumi.Input<pulumi.Input<inputs.dns.NsRecordRecord>[]>;
     /**
      * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
      */
@@ -188,7 +190,7 @@ export interface NsRecordArgs {
     /**
      * A list of values that make up the NS record. Each `record` block supports fields documented below. This field has been deprecated and will be removed in a future release.
      */
-    readonly record?: pulumi.Input<pulumi.Input<{ nsdname: pulumi.Input<string> }>[]>;
+    readonly record?: pulumi.Input<pulumi.Input<inputs.dns.NsRecordRecord>[]>;
     /**
      * A list of values that make up the NS record. *WARNING*: Either `records` or `record` is required.
      */

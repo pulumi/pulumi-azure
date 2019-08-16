@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +89,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
      */
-    public readonly microsoftPeeringConfig!: pulumi.Output<{ advertisedPublicPrefixes: string[] } | undefined>;
+    public readonly microsoftPeeringConfig!: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfig | undefined>;
     /**
      * The Either a 16-bit or a 32-bit ASN. Can either be public or private..
      */
@@ -209,7 +211,7 @@ export interface ExpressRouteCircuitPeeringState {
     /**
      * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
      */
-    readonly microsoftPeeringConfig?: pulumi.Input<{ advertisedPublicPrefixes: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfig>;
     /**
      * The Either a 16-bit or a 32-bit ASN. Can either be public or private..
      */
@@ -260,7 +262,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
      */
-    readonly microsoftPeeringConfig?: pulumi.Input<{ advertisedPublicPrefixes: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly microsoftPeeringConfig?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfig>;
     /**
      * The Either a 16-bit or a 32-bit ASN. Can either be public or private..
      */

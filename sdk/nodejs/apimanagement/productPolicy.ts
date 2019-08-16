@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleProduct = pulumi.output(azure.apimanagement.getProduct({
+ * const exampleProduct = azure.apimanagement.getProduct({
  *     apiManagementName: "example-apim",
  *     productId: "my-product",
  *     resourceGroupName: "search-service",
- * }));
+ * });
  * const exampleProductPolicy = new azure.apimanagement.ProductPolicy("example", {
  *     apiManagementName: exampleProduct.apiManagementName,
  *     productId: exampleProduct.productId,

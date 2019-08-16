@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.keyvault.getKeyVault({
+ * const test = azure.keyvault.getKeyVault({
  *     name: "mykeyvault",
  *     resourceGroupName: "some-resource-group",
- * }));
+ * });
  * 
  * export const vaultUri = test.vaultUri;
  * ```
@@ -60,7 +62,7 @@ export interface GetKeyVaultResult {
     /**
      * One or more `accessPolicy` blocks as defined below.
      */
-    readonly accessPolicies: { applicationId: string, certificatePermissions: string[], keyPermissions: string[], objectId: string, secretPermissions: string[], storagePermissions: string[], tenantId: string }[];
+    readonly accessPolicies: outputs.keyvault.GetKeyVaultAccessPolicy[];
     /**
      * Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
      */
@@ -81,12 +83,12 @@ export interface GetKeyVaultResult {
      * The name of the SKU used for this Key Vault.
      */
     readonly name: string;
-    readonly networkAcls: { bypass: string, defaultAction: string, ipRules: string[], virtualNetworkSubnetIds: string[] }[];
+    readonly networkAcls: outputs.keyvault.GetKeyVaultNetworkAcl[];
     readonly resourceGroupName: string;
     /**
      * A `sku` block as described below.
      */
-    readonly sku: { name: string };
+    readonly sku: outputs.keyvault.GetKeyVaultSku;
     readonly skuName: string;
     /**
      * A mapping of tags assigned to the Key Vault.

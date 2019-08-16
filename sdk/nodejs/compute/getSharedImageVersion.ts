@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.compute.getSharedImageVersion({
+ * const test = azure.compute.getSharedImageVersion({
  *     galleryName: "my-image-gallery",
  *     imageName: "my-image",
  *     name: "1.0.0",
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_version.html.markdown.
@@ -95,7 +97,7 @@ export interface GetSharedImageVersionResult {
     /**
      * One or more `targetRegion` blocks as documented below.
      */
-    readonly targetRegions: { name: string, regionalReplicaCount: number }[];
+    readonly targetRegions: outputs.compute.GetSharedImageVersionTargetRegion[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

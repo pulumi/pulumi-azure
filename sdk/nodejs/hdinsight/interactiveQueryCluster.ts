@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -106,11 +108,11 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
     /**
      * A `componentVersion` block as defined below.
      */
-    public readonly componentVersion!: pulumi.Output<{ interactiveHive: string }>;
+    public readonly componentVersion!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    public readonly gateway!: pulumi.Output<{ enabled: boolean, password: string, username: string }>;
+    public readonly gateway!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
      */
@@ -130,7 +132,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
     /**
      * A `roles` block as defined below.
      */
-    public readonly roles!: pulumi.Output<{ headNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string }, workerNode: { minInstanceCount?: number, password?: string, sshKeys?: string[], subnetId?: string, targetInstanceCount: number, username: string, virtualNetworkId?: string, vmSize: string }, zookeeperNode: { password?: string, sshKeys?: string[], subnetId?: string, username: string, virtualNetworkId?: string, vmSize: string } }>;
+    public readonly roles!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterRoles>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
      */
@@ -138,7 +140,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    public readonly storageAccounts!: pulumi.Output<{ isDefault: boolean, storageAccountKey: string, storageContainerId: string }[]>;
+    public readonly storageAccounts!: pulumi.Output<outputs.hdinsight.InteractiveQueryClusterStorageAccount[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
      */
@@ -230,11 +232,11 @@ export interface InteractiveQueryClusterState {
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion?: pulumi.Input<{ interactiveHive: pulumi.Input<string> }>;
+    readonly componentVersion?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway?: pulumi.Input<{ enabled: pulumi.Input<boolean>, password: pulumi.Input<string>, username: pulumi.Input<string> }>;
+    readonly gateway?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterGateway>;
     /**
      * The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
      */
@@ -254,7 +256,7 @@ export interface InteractiveQueryClusterState {
     /**
      * A `roles` block as defined below.
      */
-    readonly roles?: pulumi.Input<{ headNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, workerNode: pulumi.Input<{ minInstanceCount?: pulumi.Input<number>, password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, targetInstanceCount: pulumi.Input<number>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, zookeeperNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }> }>;
+    readonly roles?: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRoles>;
     /**
      * The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
      */
@@ -262,7 +264,7 @@ export interface InteractiveQueryClusterState {
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts?: pulumi.Input<pulumi.Input<{ isDefault: pulumi.Input<boolean>, storageAccountKey: pulumi.Input<string>, storageContainerId: pulumi.Input<string> }>[]>;
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
      */
@@ -284,11 +286,11 @@ export interface InteractiveQueryClusterArgs {
     /**
      * A `componentVersion` block as defined below.
      */
-    readonly componentVersion: pulumi.Input<{ interactiveHive: pulumi.Input<string> }>;
+    readonly componentVersion: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterComponentVersion>;
     /**
      * A `gateway` block as defined below.
      */
-    readonly gateway: pulumi.Input<{ enabled: pulumi.Input<boolean>, password: pulumi.Input<string>, username: pulumi.Input<string> }>;
+    readonly gateway: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterGateway>;
     /**
      * Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -304,11 +306,11 @@ export interface InteractiveQueryClusterArgs {
     /**
      * A `roles` block as defined below.
      */
-    readonly roles: pulumi.Input<{ headNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, workerNode: pulumi.Input<{ minInstanceCount?: pulumi.Input<number>, password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, targetInstanceCount: pulumi.Input<number>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }>, zookeeperNode: pulumi.Input<{ password?: pulumi.Input<string>, sshKeys?: pulumi.Input<pulumi.Input<string>[]>, subnetId?: pulumi.Input<string>, username: pulumi.Input<string>, virtualNetworkId?: pulumi.Input<string>, vmSize: pulumi.Input<string> }> }>;
+    readonly roles: pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRoles>;
     /**
      * One or more `storageAccount` block as defined below.
      */
-    readonly storageAccounts: pulumi.Input<pulumi.Input<{ isDefault: pulumi.Input<boolean>, storageAccountKey: pulumi.Input<string>, storageContainerId: pulumi.Input<string> }>[]>;
+    readonly storageAccounts: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterStorageAccount>[]>;
     /**
      * A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
      */

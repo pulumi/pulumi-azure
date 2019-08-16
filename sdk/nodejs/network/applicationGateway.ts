@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -128,23 +130,23 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * One or more `authenticationCertificate` blocks as defined below.
      */
-    public readonly authenticationCertificates!: pulumi.Output<{ data: string, id: string, name: string }[] | undefined>;
+    public readonly authenticationCertificates!: pulumi.Output<outputs.network.ApplicationGatewayAuthenticationCertificate[] | undefined>;
     /**
      * A `autoscaleConfiguration` block as defined below.
      */
-    public readonly autoscaleConfiguration!: pulumi.Output<{ maxCapacity?: number, minCapacity: number } | undefined>;
+    public readonly autoscaleConfiguration!: pulumi.Output<outputs.network.ApplicationGatewayAutoscaleConfiguration | undefined>;
     /**
      * One or more `backendAddressPool` blocks as defined below.
      */
-    public readonly backendAddressPools!: pulumi.Output<{ fqdnLists: string[], fqdns: string[], id: string, ipAddressLists: string[], ipAddresses: string[], name: string }[]>;
+    public readonly backendAddressPools!: pulumi.Output<outputs.network.ApplicationGatewayBackendAddressPool[]>;
     /**
      * One or more `backendHttpSettings` blocks as defined below.
      */
-    public readonly backendHttpSettings!: pulumi.Output<{ affinityCookieName?: string, authenticationCertificates?: { id: string, name: string }[], connectionDraining?: { drainTimeoutSec: number, enabled: boolean }, cookieBasedAffinity: string, hostName?: string, id: string, name: string, path?: string, pickHostNameFromBackendAddress?: boolean, port: number, probeId: string, probeName?: string, protocol: string, requestTimeout?: number }[]>;
+    public readonly backendHttpSettings!: pulumi.Output<outputs.network.ApplicationGatewayBackendHttpSetting[]>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
-    public readonly customErrorConfigurations!: pulumi.Output<{ customErrorPageUrl: string, id: string, statusCode: string }[] | undefined>;
+    public readonly customErrorConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayCustomErrorConfiguration[] | undefined>;
     /**
      * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
      * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
@@ -157,19 +159,19 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    public readonly frontendIpConfigurations!: pulumi.Output<{ id: string, name: string, privateIpAddress: string, privateIpAddressAllocation: string, publicIpAddressId: string, subnetId: string }[]>;
+    public readonly frontendIpConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayFrontendIpConfiguration[]>;
     /**
      * One or more `frontendPort` blocks as defined below.
      */
-    public readonly frontendPorts!: pulumi.Output<{ id: string, name: string, port: number }[]>;
+    public readonly frontendPorts!: pulumi.Output<outputs.network.ApplicationGatewayFrontendPort[]>;
     /**
      * One or more `gatewayIpConfiguration` blocks as defined below.
      */
-    public readonly gatewayIpConfigurations!: pulumi.Output<{ id: string, name: string, subnetId: string }[]>;
+    public readonly gatewayIpConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayGatewayIpConfiguration[]>;
     /**
      * One or more `httpListener` blocks as defined below.
      */
-    public readonly httpListeners!: pulumi.Output<{ customErrorConfigurations?: { customErrorPageUrl: string, id: string, statusCode: string }[], frontendIpConfigurationId: string, frontendIpConfigurationName: string, frontendPortId: string, frontendPortName: string, hostName?: string, id: string, name: string, protocol: string, requireSni?: boolean, sslCertificateId: string, sslCertificateName?: string }[]>;
+    public readonly httpListeners!: pulumi.Output<outputs.network.ApplicationGatewayHttpListener[]>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -181,15 +183,15 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * One or more `probe` blocks as defined below.
      */
-    public readonly probes!: pulumi.Output<{ host?: string, id: string, interval: number, match: { body?: string, statusCodes?: string[] }, minimumServers?: number, name: string, path: string, pickHostNameFromBackendHttpSettings?: boolean, protocol: string, timeout: number, unhealthyThreshold: number }[] | undefined>;
+    public readonly probes!: pulumi.Output<outputs.network.ApplicationGatewayProbe[] | undefined>;
     /**
      * A `redirectConfiguration` block as defined below.
      */
-    public readonly redirectConfigurations!: pulumi.Output<{ id: string, includePath?: boolean, includeQueryString?: boolean, name: string, redirectType: string, targetListenerId: string, targetListenerName?: string, targetUrl?: string }[] | undefined>;
+    public readonly redirectConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayRedirectConfiguration[] | undefined>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
      */
-    public readonly requestRoutingRules!: pulumi.Output<{ backendAddressPoolId: string, backendAddressPoolName?: string, backendHttpSettingsId: string, backendHttpSettingsName?: string, httpListenerId: string, httpListenerName: string, id: string, name: string, redirectConfigurationId: string, redirectConfigurationName?: string, rewriteRuleSetId: string, rewriteRuleSetName?: string, ruleType: string, urlPathMapId: string, urlPathMapName?: string }[]>;
+    public readonly requestRoutingRules!: pulumi.Output<outputs.network.ApplicationGatewayRequestRoutingRule[]>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -197,19 +199,19 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
      */
-    public readonly rewriteRuleSets!: pulumi.Output<{ id: string, name: string, rewriteRules?: { conditions?: { ignoreCase?: boolean, negate?: boolean, pattern: string, variable: string }[], name: string, requestHeaderConfigurations?: { headerName: string, headerValue: string }[], responseHeaderConfigurations?: { headerName: string, headerValue: string }[], ruleSequence: number }[] }[] | undefined>;
+    public readonly rewriteRuleSets!: pulumi.Output<outputs.network.ApplicationGatewayRewriteRuleSet[] | undefined>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<{ capacity?: number, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<outputs.network.ApplicationGatewaySku>;
     /**
      * One or more `sslCertificate` blocks as defined below.
      */
-    public readonly sslCertificates!: pulumi.Output<{ data: string, id: string, name: string, password: string, publicCertData: string }[] | undefined>;
+    public readonly sslCertificates!: pulumi.Output<outputs.network.ApplicationGatewaySslCertificate[] | undefined>;
     /**
      * a `ssl policy` block as defined below.
      */
-    public readonly sslPolicies!: pulumi.Output<{ cipherSuites?: string[], disabledProtocols: string[], minProtocolVersion?: string, policyName?: string, policyType?: string }[]>;
+    public readonly sslPolicies!: pulumi.Output<outputs.network.ApplicationGatewaySslPolicy[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -217,11 +219,11 @@ export class ApplicationGateway extends pulumi.CustomResource {
     /**
      * One or more `urlPathMap` blocks as defined below.
      */
-    public readonly urlPathMaps!: pulumi.Output<{ defaultBackendAddressPoolId: string, defaultBackendAddressPoolName?: string, defaultBackendHttpSettingsId: string, defaultBackendHttpSettingsName?: string, defaultRedirectConfigurationId: string, defaultRedirectConfigurationName?: string, defaultRewriteRuleSetId: string, defaultRewriteRuleSetName?: string, id: string, name: string, pathRules: { backendAddressPoolId: string, backendAddressPoolName?: string, backendHttpSettingsId: string, backendHttpSettingsName?: string, id: string, name: string, paths: string[], redirectConfigurationId: string, redirectConfigurationName?: string, rewriteRuleSetId: string, rewriteRuleSetName?: string }[] }[] | undefined>;
+    public readonly urlPathMaps!: pulumi.Output<outputs.network.ApplicationGatewayUrlPathMap[] | undefined>;
     /**
      * A `wafConfiguration` block as defined below.
      */
-    public readonly wafConfiguration!: pulumi.Output<{ disabledRuleGroups?: { ruleGroupName: string, rules?: number[] }[], enabled: boolean, exclusions?: { matchVariable: string, selector?: string, selectorMatchOperator?: string }[], fileUploadLimitMb?: number, firewallMode: string, maxRequestBodySizeKb?: number, requestBodyCheck?: boolean, ruleSetType?: string, ruleSetVersion: string } | undefined>;
+    public readonly wafConfiguration!: pulumi.Output<outputs.network.ApplicationGatewayWafConfiguration | undefined>;
     /**
      * A collection of availability zones to spread the Application Gateway over.
      */
@@ -337,23 +339,23 @@ export interface ApplicationGatewayState {
     /**
      * One or more `authenticationCertificate` blocks as defined below.
      */
-    readonly authenticationCertificates?: pulumi.Input<pulumi.Input<{ data: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayAuthenticationCertificate>[]>;
     /**
      * A `autoscaleConfiguration` block as defined below.
      */
-    readonly autoscaleConfiguration?: pulumi.Input<{ maxCapacity?: pulumi.Input<number>, minCapacity: pulumi.Input<number> }>;
+    readonly autoscaleConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayAutoscaleConfiguration>;
     /**
      * One or more `backendAddressPool` blocks as defined below.
      */
-    readonly backendAddressPools?: pulumi.Input<pulumi.Input<{ fqdnLists?: pulumi.Input<pulumi.Input<string>[]>, fqdns?: pulumi.Input<pulumi.Input<string>[]>, id?: pulumi.Input<string>, ipAddressLists?: pulumi.Input<pulumi.Input<string>[]>, ipAddresses?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
+    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendAddressPool>[]>;
     /**
      * One or more `backendHttpSettings` blocks as defined below.
      */
-    readonly backendHttpSettings?: pulumi.Input<pulumi.Input<{ affinityCookieName?: pulumi.Input<string>, authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, connectionDraining?: pulumi.Input<{ drainTimeoutSec: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>, cookieBasedAffinity: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, path?: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
+    readonly backendHttpSettings?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
-    readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<{ customErrorPageUrl: pulumi.Input<string>, id?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>[]>;
+    readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
     /**
      * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
      * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
@@ -366,19 +368,19 @@ export interface ApplicationGatewayState {
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>[]>;
+    readonly frontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayFrontendIpConfiguration>[]>;
     /**
      * One or more `frontendPort` blocks as defined below.
      */
-    readonly frontendPorts?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, port: pulumi.Input<number> }>[]>;
+    readonly frontendPorts?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayFrontendPort>[]>;
     /**
      * One or more `gatewayIpConfiguration` blocks as defined below.
      */
-    readonly gatewayIpConfigurations?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
+    readonly gatewayIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayGatewayIpConfiguration>[]>;
     /**
      * One or more `httpListener` blocks as defined below.
      */
-    readonly httpListeners?: pulumi.Input<pulumi.Input<{ customErrorConfigurations?: pulumi.Input<pulumi.Input<{ customErrorPageUrl: pulumi.Input<string>, id?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>[]>, frontendIpConfigurationId?: pulumi.Input<string>, frontendIpConfigurationName: pulumi.Input<string>, frontendPortId?: pulumi.Input<string>, frontendPortName: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, protocol: pulumi.Input<string>, requireSni?: pulumi.Input<boolean>, sslCertificateId?: pulumi.Input<string>, sslCertificateName?: pulumi.Input<string> }>[]>;
+    readonly httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -390,15 +392,15 @@ export interface ApplicationGatewayState {
     /**
      * One or more `probe` blocks as defined below.
      */
-    readonly probes?: pulumi.Input<pulumi.Input<{ host?: pulumi.Input<string>, id?: pulumi.Input<string>, interval: pulumi.Input<number>, match?: pulumi.Input<{ body?: pulumi.Input<string>, statusCodes?: pulumi.Input<pulumi.Input<string>[]> }>, minimumServers?: pulumi.Input<number>, name: pulumi.Input<string>, path: pulumi.Input<string>, pickHostNameFromBackendHttpSettings?: pulumi.Input<boolean>, protocol: pulumi.Input<string>, timeout: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>[]>;
+    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayProbe>[]>;
     /**
      * A `redirectConfiguration` block as defined below.
      */
-    readonly redirectConfigurations?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, includePath?: pulumi.Input<boolean>, includeQueryString?: pulumi.Input<boolean>, name: pulumi.Input<string>, redirectType: pulumi.Input<string>, targetListenerId?: pulumi.Input<string>, targetListenerName?: pulumi.Input<string>, targetUrl?: pulumi.Input<string> }>[]>;
+    readonly redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[]>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
      */
-    readonly requestRoutingRules?: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, httpListenerId?: pulumi.Input<string>, httpListenerName: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, rewriteRuleSetId?: pulumi.Input<string>, rewriteRuleSetName?: pulumi.Input<string>, ruleType: pulumi.Input<string>, urlPathMapId?: pulumi.Input<string>, urlPathMapName?: pulumi.Input<string> }>[]>;
+    readonly requestRoutingRules?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[]>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -406,19 +408,19 @@ export interface ApplicationGatewayState {
     /**
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
      */
-    readonly rewriteRuleSets?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, rewriteRules?: pulumi.Input<pulumi.Input<{ conditions?: pulumi.Input<pulumi.Input<{ ignoreCase?: pulumi.Input<boolean>, negate?: pulumi.Input<boolean>, pattern: pulumi.Input<string>, variable: pulumi.Input<string> }>[]>, name: pulumi.Input<string>, requestHeaderConfigurations?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string> }>[]>, responseHeaderConfigurations?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string> }>[]>, ruleSequence: pulumi.Input<number> }>[]> }>[]>;
+    readonly rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[]>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<{ capacity?: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.network.ApplicationGatewaySku>;
     /**
      * One or more `sslCertificate` blocks as defined below.
      */
-    readonly sslCertificates?: pulumi.Input<pulumi.Input<{ data: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, password: pulumi.Input<string>, publicCertData?: pulumi.Input<string> }>[]>;
+    readonly sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslCertificate>[]>;
     /**
      * a `ssl policy` block as defined below.
      */
-    readonly sslPolicies?: pulumi.Input<pulumi.Input<{ cipherSuites?: pulumi.Input<pulumi.Input<string>[]>, disabledProtocols?: pulumi.Input<pulumi.Input<string>[]>, minProtocolVersion?: pulumi.Input<string>, policyName?: pulumi.Input<string>, policyType?: pulumi.Input<string> }>[]>;
+    readonly sslPolicies?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -426,11 +428,11 @@ export interface ApplicationGatewayState {
     /**
      * One or more `urlPathMap` blocks as defined below.
      */
-    readonly urlPathMaps?: pulumi.Input<pulumi.Input<{ defaultBackendAddressPoolId?: pulumi.Input<string>, defaultBackendAddressPoolName?: pulumi.Input<string>, defaultBackendHttpSettingsId?: pulumi.Input<string>, defaultBackendHttpSettingsName?: pulumi.Input<string>, defaultRedirectConfigurationId?: pulumi.Input<string>, defaultRedirectConfigurationName?: pulumi.Input<string>, defaultRewriteRuleSetId?: pulumi.Input<string>, defaultRewriteRuleSetName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, pathRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, paths: pulumi.Input<pulumi.Input<string>[]>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, rewriteRuleSetId?: pulumi.Input<string>, rewriteRuleSetName?: pulumi.Input<string> }>[]> }>[]>;
+    readonly urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayUrlPathMap>[]>;
     /**
      * A `wafConfiguration` block as defined below.
      */
-    readonly wafConfiguration?: pulumi.Input<{ disabledRuleGroups?: pulumi.Input<pulumi.Input<{ ruleGroupName: pulumi.Input<string>, rules?: pulumi.Input<pulumi.Input<number>[]> }>[]>, enabled: pulumi.Input<boolean>, exclusions?: pulumi.Input<pulumi.Input<{ matchVariable: pulumi.Input<string>, selector?: pulumi.Input<string>, selectorMatchOperator?: pulumi.Input<string> }>[]>, fileUploadLimitMb?: pulumi.Input<number>, firewallMode: pulumi.Input<string>, maxRequestBodySizeKb?: pulumi.Input<number>, requestBodyCheck?: pulumi.Input<boolean>, ruleSetType?: pulumi.Input<string>, ruleSetVersion: pulumi.Input<string> }>;
+    readonly wafConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayWafConfiguration>;
     /**
      * A collection of availability zones to spread the Application Gateway over.
      */
@@ -444,23 +446,23 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `authenticationCertificate` blocks as defined below.
      */
-    readonly authenticationCertificates?: pulumi.Input<pulumi.Input<{ data: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayAuthenticationCertificate>[]>;
     /**
      * A `autoscaleConfiguration` block as defined below.
      */
-    readonly autoscaleConfiguration?: pulumi.Input<{ maxCapacity?: pulumi.Input<number>, minCapacity: pulumi.Input<number> }>;
+    readonly autoscaleConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayAutoscaleConfiguration>;
     /**
      * One or more `backendAddressPool` blocks as defined below.
      */
-    readonly backendAddressPools: pulumi.Input<pulumi.Input<{ fqdnLists?: pulumi.Input<pulumi.Input<string>[]>, fqdns?: pulumi.Input<pulumi.Input<string>[]>, id?: pulumi.Input<string>, ipAddressLists?: pulumi.Input<pulumi.Input<string>[]>, ipAddresses?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string> }>[]>;
+    readonly backendAddressPools: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendAddressPool>[]>;
     /**
      * One or more `backendHttpSettings` blocks as defined below.
      */
-    readonly backendHttpSettings: pulumi.Input<pulumi.Input<{ affinityCookieName?: pulumi.Input<string>, authenticationCertificates?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>, connectionDraining?: pulumi.Input<{ drainTimeoutSec: pulumi.Input<number>, enabled: pulumi.Input<boolean> }>, cookieBasedAffinity: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, path?: pulumi.Input<string>, pickHostNameFromBackendAddress?: pulumi.Input<boolean>, port: pulumi.Input<number>, probeId?: pulumi.Input<string>, probeName?: pulumi.Input<string>, protocol: pulumi.Input<string>, requestTimeout?: pulumi.Input<number> }>[]>;
+    readonly backendHttpSettings: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSetting>[]>;
     /**
      * One or more `customErrorConfiguration` blocks as defined below.
      */
-    readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<{ customErrorPageUrl: pulumi.Input<string>, id?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>[]>;
+    readonly customErrorConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayCustomErrorConfiguration>[]>;
     /**
      * A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
      * > **NOTE:** `disabledSslProtocols ` has been deprecated in favour of `disabledProtocols` in the `sslPolicy` block.
@@ -473,19 +475,19 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
-    readonly frontendIpConfigurations: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, privateIpAddress?: pulumi.Input<string>, privateIpAddressAllocation?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>[]>;
+    readonly frontendIpConfigurations: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayFrontendIpConfiguration>[]>;
     /**
      * One or more `frontendPort` blocks as defined below.
      */
-    readonly frontendPorts: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, port: pulumi.Input<number> }>[]>;
+    readonly frontendPorts: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayFrontendPort>[]>;
     /**
      * One or more `gatewayIpConfiguration` blocks as defined below.
      */
-    readonly gatewayIpConfigurations: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>;
+    readonly gatewayIpConfigurations: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayGatewayIpConfiguration>[]>;
     /**
      * One or more `httpListener` blocks as defined below.
      */
-    readonly httpListeners: pulumi.Input<pulumi.Input<{ customErrorConfigurations?: pulumi.Input<pulumi.Input<{ customErrorPageUrl: pulumi.Input<string>, id?: pulumi.Input<string>, statusCode: pulumi.Input<string> }>[]>, frontendIpConfigurationId?: pulumi.Input<string>, frontendIpConfigurationName: pulumi.Input<string>, frontendPortId?: pulumi.Input<string>, frontendPortName: pulumi.Input<string>, hostName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, protocol: pulumi.Input<string>, requireSni?: pulumi.Input<boolean>, sslCertificateId?: pulumi.Input<string>, sslCertificateName?: pulumi.Input<string> }>[]>;
+    readonly httpListeners: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -497,15 +499,15 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `probe` blocks as defined below.
      */
-    readonly probes?: pulumi.Input<pulumi.Input<{ host?: pulumi.Input<string>, id?: pulumi.Input<string>, interval: pulumi.Input<number>, match?: pulumi.Input<{ body?: pulumi.Input<string>, statusCodes?: pulumi.Input<pulumi.Input<string>[]> }>, minimumServers?: pulumi.Input<number>, name: pulumi.Input<string>, path: pulumi.Input<string>, pickHostNameFromBackendHttpSettings?: pulumi.Input<boolean>, protocol: pulumi.Input<string>, timeout: pulumi.Input<number>, unhealthyThreshold: pulumi.Input<number> }>[]>;
+    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayProbe>[]>;
     /**
      * A `redirectConfiguration` block as defined below.
      */
-    readonly redirectConfigurations?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, includePath?: pulumi.Input<boolean>, includeQueryString?: pulumi.Input<boolean>, name: pulumi.Input<string>, redirectType: pulumi.Input<string>, targetListenerId?: pulumi.Input<string>, targetListenerName?: pulumi.Input<string>, targetUrl?: pulumi.Input<string> }>[]>;
+    readonly redirectConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRedirectConfiguration>[]>;
     /**
      * One or more `requestRoutingRule` blocks as defined below.
      */
-    readonly requestRoutingRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, httpListenerId?: pulumi.Input<string>, httpListenerName: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, rewriteRuleSetId?: pulumi.Input<string>, rewriteRuleSetName?: pulumi.Input<string>, ruleType: pulumi.Input<string>, urlPathMapId?: pulumi.Input<string>, urlPathMapName?: pulumi.Input<string> }>[]>;
+    readonly requestRoutingRules: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRequestRoutingRule>[]>;
     /**
      * The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -513,19 +515,19 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `rewriteRuleSet` blocks as defined below. Only valid for v2 SKUs.
      */
-    readonly rewriteRuleSets?: pulumi.Input<pulumi.Input<{ id?: pulumi.Input<string>, name: pulumi.Input<string>, rewriteRules?: pulumi.Input<pulumi.Input<{ conditions?: pulumi.Input<pulumi.Input<{ ignoreCase?: pulumi.Input<boolean>, negate?: pulumi.Input<boolean>, pattern: pulumi.Input<string>, variable: pulumi.Input<string> }>[]>, name: pulumi.Input<string>, requestHeaderConfigurations?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string> }>[]>, responseHeaderConfigurations?: pulumi.Input<pulumi.Input<{ headerName: pulumi.Input<string>, headerValue: pulumi.Input<string> }>[]>, ruleSequence: pulumi.Input<number> }>[]> }>[]>;
+    readonly rewriteRuleSets?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayRewriteRuleSet>[]>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<{ capacity?: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputs.network.ApplicationGatewaySku>;
     /**
      * One or more `sslCertificate` blocks as defined below.
      */
-    readonly sslCertificates?: pulumi.Input<pulumi.Input<{ data: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, password: pulumi.Input<string>, publicCertData?: pulumi.Input<string> }>[]>;
+    readonly sslCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslCertificate>[]>;
     /**
      * a `ssl policy` block as defined below.
      */
-    readonly sslPolicies?: pulumi.Input<pulumi.Input<{ cipherSuites?: pulumi.Input<pulumi.Input<string>[]>, disabledProtocols?: pulumi.Input<pulumi.Input<string>[]>, minProtocolVersion?: pulumi.Input<string>, policyName?: pulumi.Input<string>, policyType?: pulumi.Input<string> }>[]>;
+    readonly sslPolicies?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewaySslPolicy>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -533,11 +535,11 @@ export interface ApplicationGatewayArgs {
     /**
      * One or more `urlPathMap` blocks as defined below.
      */
-    readonly urlPathMaps?: pulumi.Input<pulumi.Input<{ defaultBackendAddressPoolId?: pulumi.Input<string>, defaultBackendAddressPoolName?: pulumi.Input<string>, defaultBackendHttpSettingsId?: pulumi.Input<string>, defaultBackendHttpSettingsName?: pulumi.Input<string>, defaultRedirectConfigurationId?: pulumi.Input<string>, defaultRedirectConfigurationName?: pulumi.Input<string>, defaultRewriteRuleSetId?: pulumi.Input<string>, defaultRewriteRuleSetName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, pathRules: pulumi.Input<pulumi.Input<{ backendAddressPoolId?: pulumi.Input<string>, backendAddressPoolName?: pulumi.Input<string>, backendHttpSettingsId?: pulumi.Input<string>, backendHttpSettingsName?: pulumi.Input<string>, id?: pulumi.Input<string>, name: pulumi.Input<string>, paths: pulumi.Input<pulumi.Input<string>[]>, redirectConfigurationId?: pulumi.Input<string>, redirectConfigurationName?: pulumi.Input<string>, rewriteRuleSetId?: pulumi.Input<string>, rewriteRuleSetName?: pulumi.Input<string> }>[]> }>[]>;
+    readonly urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayUrlPathMap>[]>;
     /**
      * A `wafConfiguration` block as defined below.
      */
-    readonly wafConfiguration?: pulumi.Input<{ disabledRuleGroups?: pulumi.Input<pulumi.Input<{ ruleGroupName: pulumi.Input<string>, rules?: pulumi.Input<pulumi.Input<number>[]> }>[]>, enabled: pulumi.Input<boolean>, exclusions?: pulumi.Input<pulumi.Input<{ matchVariable: pulumi.Input<string>, selector?: pulumi.Input<string>, selectorMatchOperator?: pulumi.Input<string> }>[]>, fileUploadLimitMb?: pulumi.Input<number>, firewallMode: pulumi.Input<string>, maxRequestBodySizeKb?: pulumi.Input<number>, requestBodyCheck?: pulumi.Input<boolean>, ruleSetType?: pulumi.Input<string>, ruleSetVersion: pulumi.Input<string> }>;
+    readonly wafConfiguration?: pulumi.Input<inputs.network.ApplicationGatewayWafConfiguration>;
     /**
      * A collection of availability zones to spread the Application Gateway over.
      */

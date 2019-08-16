@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.apimanagement.getApi({
+ * const test = azure.apimanagement.getApi({
  *     apiManagementName: "search-api-management",
  *     name: "search-api",
  *     resourceGroupName: "search-service",
  *     revision: "2",
- * }));
+ * });
  * 
  * export const apiManagementApiId = test.id;
  * ```
@@ -108,7 +110,7 @@ export interface GetApiResult {
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    readonly subscriptionKeyParameterNames: { header: string, query: string }[];
+    readonly subscriptionKeyParameterNames: outputs.apimanagement.GetApiSubscriptionKeyParameterName[];
     /**
      * The Version number of this API, if this API is versioned.
      */

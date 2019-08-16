@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,7 +98,7 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
     /**
      * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
      */
-    public readonly backup!: pulumi.Output<{ frequency: string, time: string, weekdays?: string[] }>;
+    public readonly backup!: pulumi.Output<outputs.recoveryservices.ProtectionPolicyVMBackup>;
     /**
      * Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
      */
@@ -112,19 +114,19 @@ export class ProtectionPolicyVM extends pulumi.CustomResource {
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
-    public readonly retentionDaily!: pulumi.Output<{ count: number } | undefined>;
+    public readonly retentionDaily!: pulumi.Output<outputs.recoveryservices.ProtectionPolicyVMRetentionDaily | undefined>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    public readonly retentionMonthly!: pulumi.Output<{ count: number, weekdays: string[], weeks: string[] } | undefined>;
+    public readonly retentionMonthly!: pulumi.Output<outputs.recoveryservices.ProtectionPolicyVMRetentionMonthly | undefined>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
-    public readonly retentionWeekly!: pulumi.Output<{ count: number, weekdays: string[] } | undefined>;
+    public readonly retentionWeekly!: pulumi.Output<outputs.recoveryservices.ProtectionPolicyVMRetentionWeekly | undefined>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    public readonly retentionYearly!: pulumi.Output<{ count: number, months: string[], weekdays: string[], weeks: string[] } | undefined>;
+    public readonly retentionYearly!: pulumi.Output<outputs.recoveryservices.ProtectionPolicyVMRetentionYearly | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -196,7 +198,7 @@ export interface ProtectionPolicyVMState {
     /**
      * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
      */
-    readonly backup?: pulumi.Input<{ frequency: pulumi.Input<string>, time: pulumi.Input<string>, weekdays?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly backup?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMBackup>;
     /**
      * Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
      */
@@ -212,19 +214,19 @@ export interface ProtectionPolicyVMState {
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
-    readonly retentionDaily?: pulumi.Input<{ count: pulumi.Input<number> }>;
+    readonly retentionDaily?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMRetentionDaily>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    readonly retentionMonthly?: pulumi.Input<{ count: pulumi.Input<number>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly retentionMonthly?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMRetentionMonthly>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
-    readonly retentionWeekly?: pulumi.Input<{ count: pulumi.Input<number>, weekdays: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly retentionWeekly?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMRetentionWeekly>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    readonly retentionYearly?: pulumi.Input<{ count: pulumi.Input<number>, months: pulumi.Input<pulumi.Input<string>[]>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly retentionYearly?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMRetentionYearly>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -242,7 +244,7 @@ export interface ProtectionPolicyVMArgs {
     /**
      * Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
      */
-    readonly backup: pulumi.Input<{ frequency: pulumi.Input<string>, time: pulumi.Input<string>, weekdays?: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly backup: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMBackup>;
     /**
      * Specifies the name of the Recovery Services Vault Policy. Changing this forces a new resource to be created.
      */
@@ -258,19 +260,19 @@ export interface ProtectionPolicyVMArgs {
     /**
      * Configures the policy daily retention as documented in the `retentionDaily` block below. Required when backup frequency is `Daily`.
      */
-    readonly retentionDaily?: pulumi.Input<{ count: pulumi.Input<number> }>;
+    readonly retentionDaily?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMRetentionDaily>;
     /**
      * Configures the policy monthly retention as documented in the `retentionMonthly` block below.
      */
-    readonly retentionMonthly?: pulumi.Input<{ count: pulumi.Input<number>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly retentionMonthly?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMRetentionMonthly>;
     /**
      * Configures the policy weekly retention as documented in the `retentionWeekly` block below. Required when backup frequency is `Weekly`.
      */
-    readonly retentionWeekly?: pulumi.Input<{ count: pulumi.Input<number>, weekdays: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly retentionWeekly?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMRetentionWeekly>;
     /**
      * Configures the policy yearly retention as documented in the `retentionYearly` block below.
      */
-    readonly retentionYearly?: pulumi.Input<{ count: pulumi.Input<number>, months: pulumi.Input<pulumi.Input<string>[]>, weekdays: pulumi.Input<pulumi.Input<string>[]>, weeks: pulumi.Input<pulumi.Input<string>[]> }>;
+    readonly retentionYearly?: pulumi.Input<inputs.recoveryservices.ProtectionPolicyVMRetentionYearly>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.apimanagement.getService({
+ * const test = azure.apimanagement.getService({
  *     name: "search-api",
  *     resourceGroupName: "search-service",
- * }));
+ * });
  * 
  * export const apiManagementId = test.id;
  * ```
@@ -60,7 +62,7 @@ export interface GetServiceResult {
     /**
      * One or more `additionalLocation` blocks as defined below
      */
-    readonly additionalLocations: { gatewayRegionalUrl: string, location: string, publicIpAddresses: string[] }[];
+    readonly additionalLocations: outputs.apimanagement.GetServiceAdditionalLocation[];
     /**
      * Gateway URL of the API Management service in the Region.
      */
@@ -72,7 +74,7 @@ export interface GetServiceResult {
     /**
      * A `hostnameConfiguration` block as defined below.
      */
-    readonly hostnameConfigurations: { managements: { hostName: string, keyVaultId: string, negotiateClientCertificate: boolean }[], portals: { hostName: string, keyVaultId: string, negotiateClientCertificate: boolean }[], proxies: { defaultSslBinding: boolean, hostName: string, keyVaultId: string, negotiateClientCertificate: boolean }[], scms: { hostName: string, keyVaultId: string, negotiateClientCertificate: boolean }[] }[];
+    readonly hostnameConfigurations: outputs.apimanagement.GetServiceHostnameConfiguration[];
     /**
      * The location name of the additional region among Azure Data center regions.
      */
@@ -113,7 +115,7 @@ export interface GetServiceResult {
     /**
      * A `sku` block as documented below.
      */
-    readonly sku: { capacity: number, name: string };
+    readonly sku: outputs.apimanagement.GetServiceSku;
     /**
      * A mapping of tags assigned to the resource.
      */

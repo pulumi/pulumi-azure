@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -106,7 +108,7 @@ export class ManagedDisk extends pulumi.CustomResource {
     /**
      * an `encryptionSettings` block as defined below.
      */
-    public readonly encryptionSettings!: pulumi.Output<{ diskEncryptionKey?: { secretUrl: string, sourceVaultId: string }, enabled: boolean, keyEncryptionKey?: { keyUrl: string, sourceVaultId: string } } | undefined>;
+    public readonly encryptionSettings!: pulumi.Output<outputs.compute.ManagedDiskEncryptionSettings | undefined>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
@@ -231,7 +233,7 @@ export interface ManagedDiskState {
     /**
      * an `encryptionSettings` block as defined below.
      */
-    readonly encryptionSettings?: pulumi.Input<{ diskEncryptionKey?: pulumi.Input<{ secretUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, keyEncryptionKey?: pulumi.Input<{ keyUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }> }>;
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */
@@ -296,7 +298,7 @@ export interface ManagedDiskArgs {
     /**
      * an `encryptionSettings` block as defined below.
      */
-    readonly encryptionSettings?: pulumi.Input<{ diskEncryptionKey?: pulumi.Input<{ secretUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, keyEncryptionKey?: pulumi.Input<{ keyUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }> }>;
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettings>;
     /**
      * ID of an existing platform/marketplace disk image to copy when `createOption` is `FromImage`.
      */

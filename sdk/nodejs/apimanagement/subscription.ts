@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,20 +16,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testService = pulumi.output(azure.apimanagement.getService({
+ * const testService = azure.apimanagement.getService({
  *     name: "example-apim",
  *     resourceGroupName: "example-resources",
- * }));
- * const testProduct = pulumi.all([testService, testService]).apply(([testService, testService1]) => azure.apimanagement.getProduct({
+ * });
+ * const testProduct = azure.apimanagement.getProduct({
  *     apiManagementName: testService.name,
  *     productId: "00000000-0000-0000-0000-000000000000",
- *     resourceGroupName: testService1.resourceGroupName,
- * }));
- * const testUser = pulumi.all([testService, testService]).apply(([testService, testService1]) => azure.apimanagement.getUser({
+ *     resourceGroupName: testService.resourceGroupName,
+ * });
+ * const testUser = azure.apimanagement.getUser({
  *     apiManagementName: testService.name,
- *     resourceGroupName: testService1.resourceGroupName,
+ *     resourceGroupName: testService.resourceGroupName,
  *     userId: "11111111-1111-1111-1111-111111111111",
- * }));
+ * });
  * const testSubscription = new azure.apimanagement.Subscription("test", {
  *     apiManagementName: testService.name,
  *     displayName: "Parser API",

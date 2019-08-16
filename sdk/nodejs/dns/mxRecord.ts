@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +80,7 @@ export class MxRecord extends pulumi.CustomResource {
     /**
      * A list of values that make up the MX record. Each `record` block supports fields documented below.
      */
-    public readonly records!: pulumi.Output<{ exchange: string, preference: string }[]>;
+    public readonly records!: pulumi.Output<outputs.dns.MxRecordRecord[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -157,7 +159,7 @@ export interface MxRecordState {
     /**
      * A list of values that make up the MX record. Each `record` block supports fields documented below.
      */
-    readonly records?: pulumi.Input<pulumi.Input<{ exchange: pulumi.Input<string>, preference: pulumi.Input<string> }>[]>;
+    readonly records?: pulumi.Input<pulumi.Input<inputs.dns.MxRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */
@@ -187,7 +189,7 @@ export interface MxRecordArgs {
     /**
      * A list of values that make up the MX record. Each `record` block supports fields documented below.
      */
-    readonly records: pulumi.Input<pulumi.Input<{ exchange: pulumi.Input<string>, preference: pulumi.Input<string> }>[]>;
+    readonly records: pulumi.Input<pulumi.Input<inputs.dns.MxRecordRecord>[]>;
     /**
      * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
      */

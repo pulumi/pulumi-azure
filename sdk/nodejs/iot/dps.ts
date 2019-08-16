@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +75,7 @@ export class Dps extends pulumi.CustomResource {
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<{ capacity: number, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<outputs.iot.DpsSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -140,7 +142,7 @@ export interface DpsState {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.iot.DpsSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -166,7 +168,7 @@ export interface DpsArgs {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputs.iot.DpsSku>;
     /**
      * A mapping of tags to assign to the resource.
      */

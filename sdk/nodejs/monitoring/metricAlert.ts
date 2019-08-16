@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -88,7 +90,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * One or more `action` blocks as defined below.
      */
-    public readonly actions!: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;
+    public readonly actions!: pulumi.Output<outputs.monitoring.MetricAlertAction[] | undefined>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      */
@@ -96,7 +98,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * One or more `criteria` blocks as defined below.
      */
-    public readonly criterias!: pulumi.Output<{ aggregation: string, dimensions?: { name: string, operator: string, values: string[] }[], metricName: string, metricNamespace: string, operator: string, threshold: number }[]>;
+    public readonly criterias!: pulumi.Output<outputs.monitoring.MetricAlertCriteria[]>;
     /**
      * The description of this Metric Alert.
      */
@@ -200,7 +202,7 @@ export interface MetricAlertState {
     /**
      * One or more `action` blocks as defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<{ actionGroupId: pulumi.Input<string>, webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      */
@@ -208,7 +210,7 @@ export interface MetricAlertState {
     /**
      * One or more `criteria` blocks as defined below.
      */
-    readonly criterias?: pulumi.Input<pulumi.Input<{ aggregation: pulumi.Input<string>, dimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, operator: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, metricName: pulumi.Input<string>, metricNamespace: pulumi.Input<string>, operator: pulumi.Input<string>, threshold: pulumi.Input<number> }>[]>;
+    readonly criterias?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
     /**
      * The description of this Metric Alert.
      */
@@ -254,7 +256,7 @@ export interface MetricAlertArgs {
     /**
      * One or more `action` blocks as defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<{ actionGroupId: pulumi.Input<string>, webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertAction>[]>;
     /**
      * Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
      */
@@ -262,7 +264,7 @@ export interface MetricAlertArgs {
     /**
      * One or more `criteria` blocks as defined below.
      */
-    readonly criterias: pulumi.Input<pulumi.Input<{ aggregation: pulumi.Input<string>, dimensions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, operator: pulumi.Input<string>, values: pulumi.Input<pulumi.Input<string>[]> }>[]>, metricName: pulumi.Input<string>, metricNamespace: pulumi.Input<string>, operator: pulumi.Input<string>, threshold: pulumi.Input<number> }>[]>;
+    readonly criterias: pulumi.Input<pulumi.Input<inputs.monitoring.MetricAlertCriteria>[]>;
     /**
      * The description of this Metric Alert.
      */

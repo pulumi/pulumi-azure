@@ -2,42 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages an Certificate within an API Management Service.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West Europe",
- *     name: "example-resources",
- * });
- * const testService = new azure.apimanagement.Service("test", {
- *     location: testResourceGroup.location,
- *     name: "example-apim",
- *     publisherEmail: "company@exmaple.com",
- *     publisherName: "My Company",
- *     resourceGroupName: testResourceGroup.name,
- *     sku: {
- *         capacity: 1,
- *         name: "Developer",
- *     },
- * });
- * const testCertificate = new azure.apimanagement.Certificate("test", {
- *     apiManagementName: testService.name,
- *     data: (() => {
- *         throw "tf2pulumi error: NYI: call to filebase64";
- *         return (() => { throw "NYI: call to filebase64"; })();
- *     })(),
- *     name: "example-cert",
- *     resourceGroupName: testResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_certificate.html.markdown.
  */

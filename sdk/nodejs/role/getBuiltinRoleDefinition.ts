@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,9 +17,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const contributor = pulumi.output(azure.authorization.getBuiltinRoleDefinition({
+ * const contributor = azure.authorization.getBuiltinRoleDefinition({
  *     name: "Contributor",
- * }));
+ * });
  * 
  * export const contributorRoleDefinitionId = contributor.id;
  * ```
@@ -65,7 +67,7 @@ export interface GetBuiltinRoleDefinitionResult {
     /**
      * a `permissions` block as documented below.
      */
-    readonly permissions: { actions: string[], dataActions: string[], notActions: string[], notDataActions: string[] }[];
+    readonly permissions: outputs.role.GetBuiltinRoleDefinitionPermission[];
     /**
      * the Type of the Role.
      */

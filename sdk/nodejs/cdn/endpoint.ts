@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,7 +80,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
-    public readonly geoFilters!: pulumi.Output<{ action: string, countryCodes: string[], relativePath: string }[] | undefined>;
+    public readonly geoFilters!: pulumi.Output<outputs.cdn.EndpointGeoFilter[] | undefined>;
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
      * Indicates whether compression is to be enabled. Defaults to false.
@@ -107,7 +109,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
      */
-    public readonly origins!: pulumi.Output<{ hostName: string, httpPort?: number, httpsPort?: number, name: string }[]>;
+    public readonly origins!: pulumi.Output<outputs.cdn.EndpointOrigin[]>;
     /**
      * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
      */
@@ -217,7 +219,7 @@ export interface EndpointState {
     /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
-    readonly geoFilters?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, countryCodes: pulumi.Input<pulumi.Input<string>[]>, relativePath: pulumi.Input<string> }>[]>;
+    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGeoFilter>[]>;
     readonly hostName?: pulumi.Input<string>;
     /**
      * Indicates whether compression is to be enabled. Defaults to false.
@@ -246,7 +248,7 @@ export interface EndpointState {
     /**
      * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
      */
-    readonly origins?: pulumi.Input<pulumi.Input<{ hostName: pulumi.Input<string>, httpPort?: pulumi.Input<number>, httpsPort?: pulumi.Input<number>, name: pulumi.Input<string> }>[]>;
+    readonly origins?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**
      * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
      */
@@ -288,7 +290,7 @@ export interface EndpointArgs {
     /**
      * A set of Geo Filters for this CDN Endpoint. Each `geoFilter` block supports fields documented below.
      */
-    readonly geoFilters?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, countryCodes: pulumi.Input<pulumi.Input<string>[]>, relativePath: pulumi.Input<string> }>[]>;
+    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.EndpointGeoFilter>[]>;
     /**
      * Indicates whether compression is to be enabled. Defaults to false.
      */
@@ -316,7 +318,7 @@ export interface EndpointArgs {
     /**
      * The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
      */
-    readonly origins: pulumi.Input<pulumi.Input<{ hostName: pulumi.Input<string>, httpPort?: pulumi.Input<number>, httpsPort?: pulumi.Input<number>, name: pulumi.Input<string> }>[]>;
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.EndpointOrigin>[]>;
     /**
      * The host header CDN provider will send along with content requests to origins. Defaults to the host name of the origin.
      */

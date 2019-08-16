@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const current = pulumi.output(azure.core.getClientConfig({}));
+ * const current = azure.core.getClientConfig({});
  * 
  * export const accountId = current.servicePrincipalApplicationId;
  * ```

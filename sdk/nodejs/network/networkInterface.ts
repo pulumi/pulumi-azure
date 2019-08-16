@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -97,7 +99,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * One or more `ipConfiguration` associated with this NIC as documented below.
      */
-    public readonly ipConfigurations!: pulumi.Output<{ applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress?: string, privateIpAddressAllocation: string, privateIpAddressVersion?: string, publicIpAddressId?: string, subnetId?: string }[]>;
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceIpConfiguration[]>;
     /**
      * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */
@@ -227,7 +229,7 @@ export interface NetworkInterfaceState {
     /**
      * One or more `ipConfiguration` associated with this NIC as documented below.
      */
-    readonly ipConfigurations?: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolsIds?: pulumi.Input<pulumi.Input<string>[]>, applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolsIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, privateIpAddress?: pulumi.Input<string>, privateIpAddressAllocation: pulumi.Input<string>, privateIpAddressVersion?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>[]>;
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[]>;
     /**
      * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */
@@ -294,7 +296,7 @@ export interface NetworkInterfaceArgs {
     /**
      * One or more `ipConfiguration` associated with this NIC as documented below.
      */
-    readonly ipConfigurations: pulumi.Input<pulumi.Input<{ applicationGatewayBackendAddressPoolsIds?: pulumi.Input<pulumi.Input<string>[]>, applicationSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerBackendAddressPoolsIds?: pulumi.Input<pulumi.Input<string>[]>, loadBalancerInboundNatRulesIds?: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, primary?: pulumi.Input<boolean>, privateIpAddress?: pulumi.Input<string>, privateIpAddressAllocation: pulumi.Input<string>, privateIpAddressVersion?: pulumi.Input<string>, publicIpAddressId?: pulumi.Input<string>, subnetId?: pulumi.Input<string> }>[]>;
+    readonly ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[]>;
     /**
      * The location/region where the network interface is created. Changing this forces a new resource to be created.
      */

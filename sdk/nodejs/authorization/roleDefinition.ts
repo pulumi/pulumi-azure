@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const primary = pulumi.output(azure.core.getSubscription({}));
+ * const primary = azure.core.getSubscription({});
  * const test = new azure.authorization.RoleDefinition("test", {
  *     assignableScopes: [primary.id],
  *     description: "This is a custom role",
@@ -70,7 +72,7 @@ export class RoleDefinition extends pulumi.CustomResource {
     /**
      * A `permissions` block as defined below.
      */
-    public readonly permissions!: pulumi.Output<{ actions?: string[], dataActions?: string[], notActions?: string[], notDataActions?: string[] }[]>;
+    public readonly permissions!: pulumi.Output<outputs.authorization.RoleDefinitionPermission[]>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
@@ -148,7 +150,7 @@ export interface RoleDefinitionState {
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions?: pulumi.Input<pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, dataActions?: pulumi.Input<pulumi.Input<string>[]>, notActions?: pulumi.Input<pulumi.Input<string>[]>, notDataActions?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[]>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */
@@ -178,7 +180,7 @@ export interface RoleDefinitionArgs {
     /**
      * A `permissions` block as defined below.
      */
-    readonly permissions: pulumi.Input<pulumi.Input<{ actions?: pulumi.Input<pulumi.Input<string>[]>, dataActions?: pulumi.Input<pulumi.Input<string>[]>, notActions?: pulumi.Input<pulumi.Input<string>[]>, notDataActions?: pulumi.Input<pulumi.Input<string>[]> }>[]>;
+    readonly permissions: pulumi.Input<pulumi.Input<inputs.authorization.RoleDefinitionPermission>[]>;
     /**
      * A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
      */

@@ -2,41 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages an IoT Device Provisioning Service Certificate.
- * 
- * ## Example Usage
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const exampleDps = new azure.iot.Dps("example", {
- *     location: azurerm_resource_group_test.location,
- *     name: "example",
- *     resourceGroupName: azurerm_resource_group_test.name,
- *     sku: {
- *         capacity: 1,
- *         name: "S1",
- *         tier: "Standard",
- *     },
- * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
- *     location: "West US",
- *     name: "resourceGroup1",
- * });
- * const exampleCertificate = new azure.iot.Certificate("example", {
- *     certificateContent: (() => {
- *         throw "tf2pulumi error: NYI: call to filebase64";
- *         return (() => { throw "NYI: call to filebase64"; })();
- *     })(),
- *     iotDpsName: exampleDps.name,
- *     name: "example",
- *     resourceGroupName: exampleResourceGroup.name,
- * });
- * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iot_dps_certificate.html.markdown.
  */

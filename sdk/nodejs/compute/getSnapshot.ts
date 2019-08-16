@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.compute.getSnapshot({
+ * const test = azure.compute.getSnapshot({
  *     name: "my-snapshot",
  *     resourceGroupName: "my-resource-group",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
@@ -60,7 +62,7 @@ export interface GetSnapshotResult {
      * The size of the Snapshotted Disk in GB.
      */
     readonly diskSizeGb: number;
-    readonly encryptionSettings: { diskEncryptionKeys: { secretUrl: string, sourceVaultId: string }[], enabled: boolean, keyEncryptionKeys: { keyUrl: string, sourceVaultId: string }[] }[];
+    readonly encryptionSettings: outputs.compute.GetSnapshotEncryptionSetting[];
     readonly name: string;
     readonly osType: string;
     readonly resourceGroupName: string;

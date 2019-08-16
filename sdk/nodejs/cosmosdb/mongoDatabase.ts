@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleAccount = pulumi.output(azure.cosmosdb.getAccount({
+ * const exampleAccount = azure.cosmosdb.getAccount({
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
- * }));
+ * });
  * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
  *     accountName: exampleAccount.name,
  *     name: "tfex-cosmos-mongo-db",

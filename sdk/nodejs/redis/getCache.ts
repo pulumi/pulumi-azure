@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -11,10 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = pulumi.output(azure.redis.getCache({
+ * const example = azure.redis.getCache({
  *     name: "myrediscache",
  *     resourceGroupName: "redis-cache",
- * }));
+ * });
  * 
  * export const hostname = example.hostname;
  * export const primaryAccessKey = example.primaryAccessKey;
@@ -86,7 +88,7 @@ export interface GetCacheResult {
     /**
      * A list of `patchSchedule` blocks as defined below - only available for Premium SKU's.
      */
-    readonly patchSchedules: { dayOfWeek: string, startHourUtc: number }[];
+    readonly patchSchedules: outputs.redis.GetCachePatchSchedule[];
     /**
      * The non-SSL Port of the Redis Instance
      */
@@ -99,7 +101,7 @@ export interface GetCacheResult {
     /**
      * A `redisConfiguration` block as defined below.
      */
-    readonly redisConfigurations: { aofBackupEnabled: boolean, aofStorageConnectionString0: string, aofStorageConnectionString1: string, enableAuthentication: boolean, maxclients: number, maxfragmentationmemoryReserved: number, maxmemoryDelta: number, maxmemoryPolicy: string, maxmemoryReserved: number, notifyKeyspaceEvents: string, rdbBackupEnabled: boolean, rdbBackupFrequency: number, rdbBackupMaxSnapshotCount: number, rdbStorageConnectionString: string }[];
+    readonly redisConfigurations: outputs.redis.GetCacheRedisConfiguration[];
     readonly resourceGroupName: string;
     /**
      * The Secondary Access Key for the Redis Instance

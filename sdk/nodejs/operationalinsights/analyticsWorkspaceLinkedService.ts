@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +83,7 @@ export class AnalyticsWorkspaceLinkedService extends pulumi.CustomResource {
     /**
      * A `linkedServiceProperties` block as defined below.
      */
-    public readonly linkedServiceProperties!: pulumi.Output<{ resourceId: string }[]>;
+    public readonly linkedServiceProperties!: pulumi.Output<outputs.operationalinsights.AnalyticsWorkspaceLinkedServiceLinkedServiceProperty[]>;
     /**
      * The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
      */
@@ -160,7 +162,7 @@ export interface AnalyticsWorkspaceLinkedServiceState {
     /**
      * A `linkedServiceProperties` block as defined below.
      */
-    readonly linkedServiceProperties?: pulumi.Input<pulumi.Input<{ resourceId: pulumi.Input<string> }>[]>;
+    readonly linkedServiceProperties?: pulumi.Input<pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceLinkedServiceLinkedServiceProperty>[]>;
     /**
      * The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
      */
@@ -194,7 +196,7 @@ export interface AnalyticsWorkspaceLinkedServiceArgs {
     /**
      * A `linkedServiceProperties` block as defined below.
      */
-    readonly linkedServiceProperties?: pulumi.Input<pulumi.Input<{ resourceId: pulumi.Input<string> }>[]>;
+    readonly linkedServiceProperties?: pulumi.Input<pulumi.Input<inputs.operationalinsights.AnalyticsWorkspaceLinkedServiceLinkedServiceProperty>[]>;
     /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */

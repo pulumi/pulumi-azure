@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = pulumi.output(azure.authorization.getUserAssignedIdentity({
+ * const example = azure.authorization.getUserAssignedIdentity({
  *     name: "nameOfUserAssignedIdentity",
  *     resourceGroupName: "nameOfResourceGroup",
- * }));
+ * });
  * 
  * export const uaiClientId = example.clientId;
  * export const uaiPrincipalId = example.principalId;

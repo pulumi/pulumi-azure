@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -84,11 +86,11 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * One or more `action` blocks as defined below.
      */
-    public readonly actions!: pulumi.Output<{ actionGroupId: string, webhookProperties?: {[key: string]: string} }[] | undefined>;
+    public readonly actions!: pulumi.Output<outputs.monitoring.ActivityLogAlertAction[] | undefined>;
     /**
      * A `criteria` block as defined below.
      */
-    public readonly criteria!: pulumi.Output<{ caller?: string, category: string, level?: string, operationName?: string, resourceGroup?: string, resourceId?: string, resourceProvider?: string, resourceType?: string, status?: string, subStatus?: string }>;
+    public readonly criteria!: pulumi.Output<outputs.monitoring.ActivityLogAlertCriteria>;
     /**
      * The description of this activity log alert.
      */
@@ -172,11 +174,11 @@ export interface ActivityLogAlertState {
     /**
      * One or more `action` blocks as defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<{ actionGroupId: pulumi.Input<string>, webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[]>;
     /**
      * A `criteria` block as defined below.
      */
-    readonly criteria?: pulumi.Input<{ caller?: pulumi.Input<string>, category: pulumi.Input<string>, level?: pulumi.Input<string>, operationName?: pulumi.Input<string>, resourceGroup?: pulumi.Input<string>, resourceId?: pulumi.Input<string>, resourceProvider?: pulumi.Input<string>, resourceType?: pulumi.Input<string>, status?: pulumi.Input<string>, subStatus?: pulumi.Input<string> }>;
+    readonly criteria?: pulumi.Input<inputs.monitoring.ActivityLogAlertCriteria>;
     /**
      * The description of this activity log alert.
      */
@@ -210,11 +212,11 @@ export interface ActivityLogAlertArgs {
     /**
      * One or more `action` blocks as defined below.
      */
-    readonly actions?: pulumi.Input<pulumi.Input<{ actionGroupId: pulumi.Input<string>, webhookProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}> }>[]>;
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.monitoring.ActivityLogAlertAction>[]>;
     /**
      * A `criteria` block as defined below.
      */
-    readonly criteria: pulumi.Input<{ caller?: pulumi.Input<string>, category: pulumi.Input<string>, level?: pulumi.Input<string>, operationName?: pulumi.Input<string>, resourceGroup?: pulumi.Input<string>, resourceId?: pulumi.Input<string>, resourceProvider?: pulumi.Input<string>, resourceType?: pulumi.Input<string>, status?: pulumi.Input<string>, subStatus?: pulumi.Input<string> }>;
+    readonly criteria: pulumi.Input<inputs.monitoring.ActivityLogAlertCriteria>;
     /**
      * The description of this activity log alert.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,11 +16,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleUser = pulumi.output(azure.apimanagement.getUser({
+ * const exampleUser = azure.apimanagement.getUser({
  *     apiManagementName: "example-apim",
  *     resourceGroupName: "search-service",
  *     userId: "my-user",
- * }));
+ * });
  * const exampleGroupUser = new azure.apimanagement.GroupUser("example", {
  *     apiManagementName: exampleUser.apiManagementName,
  *     groupName: "example-group",

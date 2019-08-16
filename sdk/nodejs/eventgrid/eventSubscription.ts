@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,11 +80,11 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * A `eventhubEndpoint` block as defined below.
      */
-    public readonly eventhubEndpoint!: pulumi.Output<{ eventhubId: string } | undefined>;
+    public readonly eventhubEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionEventhubEndpoint | undefined>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
      */
-    public readonly hybridConnectionEndpoint!: pulumi.Output<{ hybridConnectionId: string } | undefined>;
+    public readonly hybridConnectionEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionHybridConnectionEndpoint | undefined>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
      */
@@ -98,7 +100,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * A `retryPolicy` block as defined below.
      */
-    public readonly retryPolicy!: pulumi.Output<{ eventTimeToLive: number, maxDeliveryAttempts: number }>;
+    public readonly retryPolicy!: pulumi.Output<outputs.eventgrid.EventSubscriptionRetryPolicy>;
     /**
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      */
@@ -106,15 +108,15 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * A `storageBlobDeadLetterDestination` block as defined below.
      */
-    public readonly storageBlobDeadLetterDestination!: pulumi.Output<{ storageAccountId: string, storageBlobContainerName: string } | undefined>;
+    public readonly storageBlobDeadLetterDestination!: pulumi.Output<outputs.eventgrid.EventSubscriptionStorageBlobDeadLetterDestination | undefined>;
     /**
      * A `storageQueueEndpoint` block as defined below.
      */
-    public readonly storageQueueEndpoint!: pulumi.Output<{ queueName: string, storageAccountId: string } | undefined>;
+    public readonly storageQueueEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionStorageQueueEndpoint | undefined>;
     /**
      * A `subjectFilter` block as defined below.
      */
-    public readonly subjectFilter!: pulumi.Output<{ caseSensitive?: boolean, subjectBeginsWith?: string, subjectEndsWith?: string } | undefined>;
+    public readonly subjectFilter!: pulumi.Output<outputs.eventgrid.EventSubscriptionSubjectFilter | undefined>;
     /**
      * Specifies the name of the topic to associate with the event subscription.
      */
@@ -122,7 +124,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * A `webhookEndpoint` block as defined below.
      */
-    public readonly webhookEndpoint!: pulumi.Output<{ url: string } | undefined>;
+    public readonly webhookEndpoint!: pulumi.Output<outputs.eventgrid.EventSubscriptionWebhookEndpoint | undefined>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -192,11 +194,11 @@ export interface EventSubscriptionState {
     /**
      * A `eventhubEndpoint` block as defined below.
      */
-    readonly eventhubEndpoint?: pulumi.Input<{ eventhubId: pulumi.Input<string> }>;
+    readonly eventhubEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionEventhubEndpoint>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
      */
-    readonly hybridConnectionEndpoint?: pulumi.Input<{ hybridConnectionId: pulumi.Input<string> }>;
+    readonly hybridConnectionEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionHybridConnectionEndpoint>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
      */
@@ -212,7 +214,7 @@ export interface EventSubscriptionState {
     /**
      * A `retryPolicy` block as defined below.
      */
-    readonly retryPolicy?: pulumi.Input<{ eventTimeToLive: pulumi.Input<number>, maxDeliveryAttempts: pulumi.Input<number> }>;
+    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.EventSubscriptionRetryPolicy>;
     /**
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      */
@@ -220,15 +222,15 @@ export interface EventSubscriptionState {
     /**
      * A `storageBlobDeadLetterDestination` block as defined below.
      */
-    readonly storageBlobDeadLetterDestination?: pulumi.Input<{ storageAccountId: pulumi.Input<string>, storageBlobContainerName: pulumi.Input<string> }>;
+    readonly storageBlobDeadLetterDestination?: pulumi.Input<inputs.eventgrid.EventSubscriptionStorageBlobDeadLetterDestination>;
     /**
      * A `storageQueueEndpoint` block as defined below.
      */
-    readonly storageQueueEndpoint?: pulumi.Input<{ queueName: pulumi.Input<string>, storageAccountId: pulumi.Input<string> }>;
+    readonly storageQueueEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionStorageQueueEndpoint>;
     /**
      * A `subjectFilter` block as defined below.
      */
-    readonly subjectFilter?: pulumi.Input<{ caseSensitive?: pulumi.Input<boolean>, subjectBeginsWith?: pulumi.Input<string>, subjectEndsWith?: pulumi.Input<string> }>;
+    readonly subjectFilter?: pulumi.Input<inputs.eventgrid.EventSubscriptionSubjectFilter>;
     /**
      * Specifies the name of the topic to associate with the event subscription.
      */
@@ -236,7 +238,7 @@ export interface EventSubscriptionState {
     /**
      * A `webhookEndpoint` block as defined below.
      */
-    readonly webhookEndpoint?: pulumi.Input<{ url: pulumi.Input<string> }>;
+    readonly webhookEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionWebhookEndpoint>;
 }
 
 /**
@@ -250,11 +252,11 @@ export interface EventSubscriptionArgs {
     /**
      * A `eventhubEndpoint` block as defined below.
      */
-    readonly eventhubEndpoint?: pulumi.Input<{ eventhubId: pulumi.Input<string> }>;
+    readonly eventhubEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionEventhubEndpoint>;
     /**
      * A `hybridConnectionEndpoint` block as defined below.
      */
-    readonly hybridConnectionEndpoint?: pulumi.Input<{ hybridConnectionId: pulumi.Input<string> }>;
+    readonly hybridConnectionEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionHybridConnectionEndpoint>;
     /**
      * A list of applicable event types that need to be part of the event subscription.
      */
@@ -270,7 +272,7 @@ export interface EventSubscriptionArgs {
     /**
      * A `retryPolicy` block as defined below.
      */
-    readonly retryPolicy?: pulumi.Input<{ eventTimeToLive: pulumi.Input<number>, maxDeliveryAttempts: pulumi.Input<number> }>;
+    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.EventSubscriptionRetryPolicy>;
     /**
      * Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created.
      */
@@ -278,15 +280,15 @@ export interface EventSubscriptionArgs {
     /**
      * A `storageBlobDeadLetterDestination` block as defined below.
      */
-    readonly storageBlobDeadLetterDestination?: pulumi.Input<{ storageAccountId: pulumi.Input<string>, storageBlobContainerName: pulumi.Input<string> }>;
+    readonly storageBlobDeadLetterDestination?: pulumi.Input<inputs.eventgrid.EventSubscriptionStorageBlobDeadLetterDestination>;
     /**
      * A `storageQueueEndpoint` block as defined below.
      */
-    readonly storageQueueEndpoint?: pulumi.Input<{ queueName: pulumi.Input<string>, storageAccountId: pulumi.Input<string> }>;
+    readonly storageQueueEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionStorageQueueEndpoint>;
     /**
      * A `subjectFilter` block as defined below.
      */
-    readonly subjectFilter?: pulumi.Input<{ caseSensitive?: pulumi.Input<boolean>, subjectBeginsWith?: pulumi.Input<string>, subjectEndsWith?: pulumi.Input<string> }>;
+    readonly subjectFilter?: pulumi.Input<inputs.eventgrid.EventSubscriptionSubjectFilter>;
     /**
      * Specifies the name of the topic to associate with the event subscription.
      */
@@ -294,5 +296,5 @@ export interface EventSubscriptionArgs {
     /**
      * A `webhookEndpoint` block as defined below.
      */
-    readonly webhookEndpoint?: pulumi.Input<{ url: pulumi.Input<string> }>;
+    readonly webhookEndpoint?: pulumi.Input<inputs.eventgrid.EventSubscriptionWebhookEndpoint>;
 }

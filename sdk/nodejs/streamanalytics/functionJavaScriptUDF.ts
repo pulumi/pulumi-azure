@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const exampleResourceGroup = pulumi.output(azure.core.getResourceGroup({
+ * const exampleResourceGroup = azure.core.getResourceGroup({
  *     name: "example-resources",
- * }));
+ * });
  * const exampleJob = azurerm_resource_group_example.name.apply(name => azure.streamanalytics.getJob({
  *     name: "example-job",
  *     resourceGroupName: name,
@@ -69,7 +71,7 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
     /**
      * One or more `input` blocks as defined below.
      */
-    public readonly inputs!: pulumi.Output<{ type: string }[]>;
+    public readonly inputs!: pulumi.Output<outputs.streamanalytics.FunctionJavaScriptUDFInput[]>;
     /**
      * The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
      */
@@ -77,7 +79,7 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
     /**
      * An `output` blocks as defined below.
      */
-    public readonly output!: pulumi.Output<{ type: string }>;
+    public readonly output!: pulumi.Output<outputs.streamanalytics.FunctionJavaScriptUDFOutput>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -151,7 +153,7 @@ export interface FunctionJavaScriptUDFState {
     /**
      * One or more `input` blocks as defined below.
      */
-    readonly inputs?: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
+    readonly inputs?: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionJavaScriptUDFInput>[]>;
     /**
      * The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
      */
@@ -159,7 +161,7 @@ export interface FunctionJavaScriptUDFState {
     /**
      * An `output` blocks as defined below.
      */
-    readonly output?: pulumi.Input<{ type: pulumi.Input<string> }>;
+    readonly output?: pulumi.Input<inputs.streamanalytics.FunctionJavaScriptUDFOutput>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */
@@ -181,7 +183,7 @@ export interface FunctionJavaScriptUDFArgs {
     /**
      * One or more `input` blocks as defined below.
      */
-    readonly inputs: pulumi.Input<pulumi.Input<{ type: pulumi.Input<string> }>[]>;
+    readonly inputs: pulumi.Input<pulumi.Input<inputs.streamanalytics.FunctionJavaScriptUDFInput>[]>;
     /**
      * The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
      */
@@ -189,7 +191,7 @@ export interface FunctionJavaScriptUDFArgs {
     /**
      * An `output` blocks as defined below.
      */
-    readonly output: pulumi.Input<{ type: pulumi.Input<string> }>;
+    readonly output: pulumi.Input<inputs.streamanalytics.FunctionJavaScriptUDFOutput>;
     /**
      * The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
      */

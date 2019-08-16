@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -132,7 +134,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
     /**
      * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
-    public readonly correlationFilter!: pulumi.Output<{ contentType?: string, correlationId?: string, label?: string, messageId?: string, replyTo?: string, replyToSessionId?: string, sessionId?: string, to?: string } | undefined>;
+    public readonly correlationFilter!: pulumi.Output<outputs.servicebus.SubscriptionRuleCorrelationFilter | undefined>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */
@@ -234,7 +236,7 @@ export interface SubscriptionRuleState {
     /**
      * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
-    readonly correlationFilter?: pulumi.Input<{ contentType?: pulumi.Input<string>, correlationId?: pulumi.Input<string>, label?: pulumi.Input<string>, messageId?: pulumi.Input<string>, replyTo?: pulumi.Input<string>, replyToSessionId?: pulumi.Input<string>, sessionId?: pulumi.Input<string>, to?: pulumi.Input<string> }>;
+    readonly correlationFilter?: pulumi.Input<inputs.servicebus.SubscriptionRuleCorrelationFilter>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */
@@ -276,7 +278,7 @@ export interface SubscriptionRuleArgs {
     /**
      * A `correlationFilter` block as documented below to be evaluated against a BrokeredMessage. Required when `filterType` is set to `CorrelationFilter`.
      */
-    readonly correlationFilter?: pulumi.Input<{ contentType?: pulumi.Input<string>, correlationId?: pulumi.Input<string>, label?: pulumi.Input<string>, messageId?: pulumi.Input<string>, replyTo?: pulumi.Input<string>, replyToSessionId?: pulumi.Input<string>, sessionId?: pulumi.Input<string>, to?: pulumi.Input<string> }>;
+    readonly correlationFilter?: pulumi.Input<inputs.servicebus.SubscriptionRuleCorrelationFilter>;
     /**
      * Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
      */

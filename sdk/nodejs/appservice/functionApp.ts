@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -121,7 +123,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * An `connectionString` block as defined below.
      */
-    public readonly connectionStrings!: pulumi.Output<{ name: string, type: string, value: string }[]>;
+    public readonly connectionStrings!: pulumi.Output<outputs.appservice.FunctionAppConnectionString[]>;
     /**
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
@@ -141,7 +143,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below.
      */
-    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    public readonly identity!: pulumi.Output<outputs.appservice.FunctionAppIdentity>;
     /**
      * The Function App kind - such as `functionapp,linux,container`
      */
@@ -169,11 +171,11 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * A `siteConfig` object as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, linuxFxVersion: string, use32BitWorkerProcess?: boolean, websocketsEnabled?: boolean }>;
+    public readonly siteConfig!: pulumi.Output<outputs.appservice.FunctionAppSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredential!: pulumi.Output<{ password: string, username: string }>;
+    public /*out*/ readonly siteCredential!: pulumi.Output<outputs.appservice.FunctionAppSiteCredential>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */
@@ -281,7 +283,7 @@ export interface FunctionAppState {
     /**
      * An `connectionString` block as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[]>;
     /**
      * The default hostname associated with the Function App - such as `mysite.azurewebsites.net`
      */
@@ -301,7 +303,7 @@ export interface FunctionAppState {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
     /**
      * The Function App kind - such as `functionapp,linux,container`
      */
@@ -329,11 +331,11 @@ export interface FunctionAppState {
     /**
      * A `siteConfig` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    readonly siteCredential?: pulumi.Input<{ password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
+    readonly siteCredential?: pulumi.Input<inputs.appservice.FunctionAppSiteCredential>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */
@@ -367,7 +369,7 @@ export interface FunctionAppArgs {
     /**
      * An `connectionString` block as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.FunctionAppConnectionString>[]>;
     /**
      * Should the built-in logging of this Function App be enabled? Defaults to `true`.
      */
@@ -383,7 +385,7 @@ export interface FunctionAppArgs {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.appservice.FunctionAppIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -399,7 +401,7 @@ export interface FunctionAppArgs {
     /**
      * A `siteConfig` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, linuxFxVersion?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, websocketsEnabled?: pulumi.Input<boolean> }>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
     /**
      * The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
      */

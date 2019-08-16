@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -227,7 +229,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
-    public readonly ipsecPolicy!: pulumi.Output<{ dhGroup: string, ikeEncryption: string, ikeIntegrity: string, ipsecEncryption: string, ipsecIntegrity: string, pfsGroup: string, saDatasize: number, saLifetime: number } | undefined>;
+    public readonly ipsecPolicy!: pulumi.Output<outputs.network.VirtualNetworkGatewayConnectionIpsecPolicy | undefined>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -387,7 +389,7 @@ export interface VirtualNetworkGatewayConnectionState {
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
-    readonly ipsecPolicy?: pulumi.Input<{ dhGroup: pulumi.Input<string>, ikeEncryption: pulumi.Input<string>, ikeIntegrity: pulumi.Input<string>, ipsecEncryption: pulumi.Input<string>, ipsecIntegrity: pulumi.Input<string>, pfsGroup: pulumi.Input<string>, saDatasize?: pulumi.Input<number>, saLifetime?: pulumi.Input<number> }>;
+    readonly ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionIpsecPolicy>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).
@@ -481,7 +483,7 @@ export interface VirtualNetworkGatewayConnectionArgs {
      * Only a single policy can be defined for a connection. For details on
      * custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
      */
-    readonly ipsecPolicy?: pulumi.Input<{ dhGroup: pulumi.Input<string>, ikeEncryption: pulumi.Input<string>, ikeIntegrity: pulumi.Input<string>, ipsecEncryption: pulumi.Input<string>, ipsecIntegrity: pulumi.Input<string>, pfsGroup: pulumi.Input<string>, saDatasize?: pulumi.Input<number>, saLifetime?: pulumi.Input<number> }>;
+    readonly ipsecPolicy?: pulumi.Input<inputs.network.VirtualNetworkGatewayConnectionIpsecPolicy>;
     /**
      * The ID of the local network gateway
      * when creating Site-to-Site connection (i.e. when `type` is `IPsec`).

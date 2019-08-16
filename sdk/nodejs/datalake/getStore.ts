@@ -13,10 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.datalake.getStore({
+ * const test = azure.datalake.getStore({
  *     name: "testdatalake",
  *     resourceGroupName: "testdatalake",
- * }));
+ * });
  * 
  * export const dataLakeStoreId = test.id;
  * ```
