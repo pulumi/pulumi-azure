@@ -12,6 +12,7 @@ CHANGELOG
   azure.eventhub.eventGrid* -> azure.eventgrid.*
   azure.eventhub.servicebus* -> azure.servicebus.*
   azure.trafficmanager.* -> azure.network.*s
+* Upgrade to pulumi-terraform@14e049b09d
 
 ---
 
