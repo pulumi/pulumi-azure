@@ -54,62 +54,114 @@ func TestExamples(t *testing.T) {
 
 	shortTests := []integration.ProgramTestOptions{
 		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
-		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal-py")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventgrid")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventhub")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "http-external")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "http-multi")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "iot")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "queue")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "timer")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic")}),
 		jsBase.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "webserver"),
+			Dir:           path.Join(cwd, "eventgrid"),
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "eventhub"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "http-external"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "http-multi"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "iot"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "queue"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "table"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "timer"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "topic"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:                  path.Join(cwd, "webserver"),
+			RunUpdateTest:        true,
 			ExpectRefreshChanges: true,
 		}),
 		jsBase.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "http"),
+			Dir:           path.Join(cwd, "http"),
+			RunUpdateTest: true,
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "Hello World!")
 			}),
 		}),
 		jsBase.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "blob"),
+			Dir:           path.Join(cwd, "blob"),
+			RunUpdateTest: true,
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
 				assert.Equal(t, body, "A File from Blob Storage")
 			}),
 		}),
-		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "eventhub-py")}),
-		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "datasource-py")}),
 		jsBase.With(integration.ProgramTestOptions{
-			Dir: path.Join(cwd, "msi-renamed-to-authorization"),
+			Dir:           path.Join(cwd, "msi-renamed-to-authorization"),
+			RunUpdateTest: true,
 			EditDirs: []integration.EditDir{
 				{
-					Dir:      "step2",
-					Additive: true,
+					Dir:             "step2",
+					Additive:        true,
 					ExpectNoChanges: true,
 				},
 			},
 		}),
 		jsBase.With(integration.ProgramTestOptions{
-            Dir: path.Join(cwd, "servicebus-migration-test"),
-            EditDirs: []integration.EditDir{
-                {
-                    Dir:      "step2",
-                    Additive: true,
-                    ExpectNoChanges: true,
-                },
-            },
-        }),
+			Dir:           path.Join(cwd, "servicebus-migration-test"),
+			RunUpdateTest: true,
+			EditDirs: []integration.EditDir{
+				{
+					Dir:             "step2",
+					Additive:        true,
+					ExpectNoChanges: true,
+				},
+			},
+		}),
+		pythonBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal-py")}),
+		pythonBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "eventhub-py"),
+			RunUpdateTest: true,
+		}),
+		pythonBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "datasource-py"),
+			RunUpdateTest: true,
+		}),
 	}
 
 	longTests := []integration.ProgramTestOptions{
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-multi")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "aci-volume-mount")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "cosmosdb")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "loadbalancer")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "multi-callback-all")}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "aci-multi"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "aci-volume-mount"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "cosmosdb"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "loadbalancer"),
+			RunUpdateTest: true,
+		}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir:           path.Join(cwd, "multi-callback-all"),
+			RunUpdateTest: true,
+		}),
 	}
 
 	tests := shortTests

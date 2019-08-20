@@ -5,7 +5,7 @@ import * as azure from "@pulumi/azure";
 const resourceGroup = new azure.core.ResourceGroup("eveentgrid-rg");
 
 // Subscribe to events in resource group, e.g. when a new resource is created
-azure.eventhub.events.onResourceGroupEvent("OnResourceChange", {
+azure.eventgrid.events.onResourceGroupEvent("OnResourceChange", {
     resourceGroup,
     callback: async (context, event) => {
         context.log(`Subject: ${event.subject}`);
@@ -23,7 +23,7 @@ const storageAccount = new azure.storage.Account("eventgridsa", {
 });
 
 // Subscribe to creation of JPG files in any container of this storage account
-azure.eventhub.events.onGridBlobCreated("OnNewBlob", {
+azure.eventgrid.events.onGridBlobCreated("OnNewBlob", {
     storageAccount,
     subjectFilter: {
         caseSensitive: false,
@@ -43,7 +43,7 @@ const logQueue = new azure.storage.Queue("log", {
 
 // Subscribe to deletion of any files from any container of this storage account and
 // log all event data to a storage queue
-azure.eventhub.events.onGridBlobDeleted("OnDeletedBlob", {
+azure.eventgrid.events.onGridBlobDeleted("OnDeletedBlob", {
     storageAccount,
     outputs: [logQueue.output("log")],
     callback: async (context, event) => {
