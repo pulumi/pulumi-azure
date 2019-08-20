@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -72,19 +74,19 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    public readonly azureActiveDirectory!: pulumi.Output<{ clientApplicationId: string, clusterApplicationId: string, tenantId: string } | undefined>;
+    public readonly azureActiveDirectory!: pulumi.Output<outputs.servicefabric.ClusterAzureActiveDirectory | undefined>;
     /**
      * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      */
-    public readonly certificate!: pulumi.Output<{ thumbprint: string, thumbprintSecondary?: string, x509StoreName: string } | undefined>;
+    public readonly certificate!: pulumi.Output<outputs.servicefabric.ClusterCertificate | undefined>;
     /**
      * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      */
-    public readonly certificateCommonNames!: pulumi.Output<{ commonNames: { certificateCommonName: string, certificateIssuerThumbprint?: string }[], x509StoreName: string } | undefined>;
+    public readonly certificateCommonNames!: pulumi.Output<outputs.servicefabric.ClusterCertificateCommonNames | undefined>;
     /**
      * One or two `clientCertificateThumbprint` blocks as defined below.
      */
-    public readonly clientCertificateThumbprints!: pulumi.Output<{ isAdmin: boolean, thumbprint: string }[] | undefined>;
+    public readonly clientCertificateThumbprints!: pulumi.Output<outputs.servicefabric.ClusterClientCertificateThumbprint[] | undefined>;
     /**
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      */
@@ -96,11 +98,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    public readonly diagnosticsConfig!: pulumi.Output<{ blobEndpoint: string, protectedAccountKeyName: string, queueEndpoint: string, storageAccountName: string, tableEndpoint: string } | undefined>;
+    public readonly diagnosticsConfig!: pulumi.Output<outputs.servicefabric.ClusterDiagnosticsConfig | undefined>;
     /**
      * One or more `fabricSettings` blocks as defined below.
      */
-    public readonly fabricSettings!: pulumi.Output<{ name: string, parameters?: {[key: string]: any} }[] | undefined>;
+    public readonly fabricSettings!: pulumi.Output<outputs.servicefabric.ClusterFabricSetting[] | undefined>;
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -116,7 +118,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    public readonly nodeTypes!: pulumi.Output<{ applicationPorts: { endPort: number, startPort: number }, capacities?: {[key: string]: any}, clientEndpointPort: number, durabilityLevel?: string, ephemeralPorts: { endPort: number, startPort: number }, httpEndpointPort: number, instanceCount: number, isPrimary: boolean, name: string, placementProperties?: {[key: string]: any}, reverseProxyEndpointPort?: number }[]>;
+    public readonly nodeTypes!: pulumi.Output<outputs.servicefabric.ClusterNodeType[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
@@ -128,7 +130,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * A `reverseProxyCertificate` block as defined below.
      */
-    public readonly reverseProxyCertificate!: pulumi.Output<{ thumbprint: string, thumbprintSecondary?: string, x509StoreName: string } | undefined>;
+    public readonly reverseProxyCertificate!: pulumi.Output<outputs.servicefabric.ClusterReverseProxyCertificate | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -235,19 +237,19 @@ export interface ClusterState {
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    readonly azureActiveDirectory?: pulumi.Input<{ clientApplicationId: pulumi.Input<string>, clusterApplicationId: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
+    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory>;
     /**
      * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      */
-    readonly certificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
+    readonly certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate>;
     /**
      * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      */
-    readonly certificateCommonNames?: pulumi.Input<{ commonNames: pulumi.Input<pulumi.Input<{ certificateCommonName: pulumi.Input<string>, certificateIssuerThumbprint?: pulumi.Input<string> }>[]>, x509StoreName: pulumi.Input<string> }>;
+    readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
     /**
      * One or two `clientCertificateThumbprint` blocks as defined below.
      */
-    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<{ isAdmin: pulumi.Input<boolean>, thumbprint: pulumi.Input<string> }>[]>;
+    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      */
@@ -259,11 +261,11 @@ export interface ClusterState {
     /**
      * A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly diagnosticsConfig?: pulumi.Input<{ blobEndpoint: pulumi.Input<string>, protectedAccountKeyName: pulumi.Input<string>, queueEndpoint: pulumi.Input<string>, storageAccountName: pulumi.Input<string>, tableEndpoint: pulumi.Input<string> }>;
+    readonly diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
     /**
      * One or more `fabricSettings` blocks as defined below.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[]>;
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -279,7 +281,7 @@ export interface ClusterState {
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    readonly nodeTypes?: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, capacities?: pulumi.Input<{[key: string]: any}>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string>, placementProperties?: pulumi.Input<{[key: string]: any}>, reverseProxyEndpointPort?: pulumi.Input<number> }>[]>;
+    readonly nodeTypes?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterNodeType>[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
@@ -291,7 +293,7 @@ export interface ClusterState {
     /**
      * A `reverseProxyCertificate` block as defined below.
      */
-    readonly reverseProxyCertificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
+    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -317,19 +319,19 @@ export interface ClusterArgs {
     /**
      * An `azureActiveDirectory` block as defined below.
      */
-    readonly azureActiveDirectory?: pulumi.Input<{ clientApplicationId: pulumi.Input<string>, clusterApplicationId: pulumi.Input<string>, tenantId: pulumi.Input<string> }>;
+    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.ClusterAzureActiveDirectory>;
     /**
      * A `certificate` block as defined below. Conflicts with `certificateCommonNames`.
      */
-    readonly certificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
+    readonly certificate?: pulumi.Input<inputs.servicefabric.ClusterCertificate>;
     /**
      * A `certificateCommonNames` block as defined below. Conflicts with `certificate`.
      */
-    readonly certificateCommonNames?: pulumi.Input<{ commonNames: pulumi.Input<pulumi.Input<{ certificateCommonName: pulumi.Input<string>, certificateIssuerThumbprint?: pulumi.Input<string> }>[]>, x509StoreName: pulumi.Input<string> }>;
+    readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.ClusterCertificateCommonNames>;
     /**
      * One or two `clientCertificateThumbprint` blocks as defined below.
      */
-    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<{ isAdmin: pulumi.Input<boolean>, thumbprint: pulumi.Input<string> }>[]>;
+    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterClientCertificateThumbprint>[]>;
     /**
      * Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster.
      */
@@ -337,11 +339,11 @@ export interface ClusterArgs {
     /**
      * A `diagnosticsConfig` block as defined below. Changing this forces a new resource to be created.
      */
-    readonly diagnosticsConfig?: pulumi.Input<{ blobEndpoint: pulumi.Input<string>, protectedAccountKeyName: pulumi.Input<string>, queueEndpoint: pulumi.Input<string>, storageAccountName: pulumi.Input<string>, tableEndpoint: pulumi.Input<string> }>;
+    readonly diagnosticsConfig?: pulumi.Input<inputs.servicefabric.ClusterDiagnosticsConfig>;
     /**
      * One or more `fabricSettings` blocks as defined below.
      */
-    readonly fabricSettings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, parameters?: pulumi.Input<{[key: string]: any}> }>[]>;
+    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterFabricSetting>[]>;
     /**
      * Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created.
      */
@@ -357,7 +359,7 @@ export interface ClusterArgs {
     /**
      * One or more `nodeType` blocks as defined below.
      */
-    readonly nodeTypes: pulumi.Input<pulumi.Input<{ applicationPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, capacities?: pulumi.Input<{[key: string]: any}>, clientEndpointPort: pulumi.Input<number>, durabilityLevel?: pulumi.Input<string>, ephemeralPorts?: pulumi.Input<{ endPort: pulumi.Input<number>, startPort: pulumi.Input<number> }>, httpEndpointPort: pulumi.Input<number>, instanceCount: pulumi.Input<number>, isPrimary: pulumi.Input<boolean>, name: pulumi.Input<string>, placementProperties?: pulumi.Input<{[key: string]: any}>, reverseProxyEndpointPort?: pulumi.Input<number> }>[]>;
+    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.ClusterNodeType>[]>;
     /**
      * Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`.
      */
@@ -369,7 +371,7 @@ export interface ClusterArgs {
     /**
      * A `reverseProxyCertificate` block as defined below.
      */
-    readonly reverseProxyCertificate?: pulumi.Input<{ thumbprint: pulumi.Input<string>, thumbprintSecondary?: pulumi.Input<string>, x509StoreName: pulumi.Input<string> }>;
+    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.ClusterReverseProxyCertificate>;
     /**
      * A mapping of tags to assign to the resource.
      */

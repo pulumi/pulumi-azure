@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.monitoring.getLogProfile({
+ * const test = azure.monitoring.getLogProfile({
  *     name: "test-logprofile",
- * }));
+ * });
  * 
  * export const logProfileStorageAccountId = test.storageAccountId;
  * ```
@@ -60,7 +62,7 @@ export interface GetLogProfileResult {
      */
     readonly locations: string[];
     readonly name: string;
-    readonly retentionPolicy: { days: number, enabled: boolean };
+    readonly retentionPolicy: outputs.monitoring.GetLogProfileRetentionPolicy;
     /**
      * The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
      */

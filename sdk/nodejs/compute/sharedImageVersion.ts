@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,15 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const existingImage = pulumi.output(azure.compute.getImage({
+ * const existingImage = azure.compute.getImage({
  *     name: "search-api",
  *     resourceGroupName: "packerimages",
- * }));
- * const existingSharedImage = pulumi.output(azure.compute.getSharedImage({
+ * });
+ * const existingSharedImage = azure.compute.getSharedImage({
  *     galleryName: "existingGallery",
  *     name: "existing-image",
  *     resourceGroupName: "existing-resources",
- * }));
+ * });
  * const test = new azure.compute.SharedImageVersion("test", {
  *     galleryName: existingSharedImage.galleryName,
  *     imageName: existingSharedImage.name,
@@ -102,7 +104,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
     /**
      * One or more `targetRegion` blocks as documented below.
      */
-    public readonly targetRegions!: pulumi.Output<{ name: string, regionalReplicaCount: number }[]>;
+    public readonly targetRegions!: pulumi.Output<outputs.compute.SharedImageVersionTargetRegion[]>;
 
     /**
      * Create a SharedImageVersion resource with the given unique name, arguments, and options.
@@ -202,7 +204,7 @@ export interface SharedImageVersionState {
     /**
      * One or more `targetRegion` blocks as documented below.
      */
-    readonly targetRegions?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, regionalReplicaCount: pulumi.Input<number> }>[]>;
+    readonly targetRegions?: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[]>;
 }
 
 /**
@@ -244,5 +246,5 @@ export interface SharedImageVersionArgs {
     /**
      * One or more `targetRegion` blocks as documented below.
      */
-    readonly targetRegions: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, regionalReplicaCount: pulumi.Input<number> }>[]>;
+    readonly targetRegions: pulumi.Input<pulumi.Input<inputs.compute.SharedImageVersionTargetRegion>[]>;
 }

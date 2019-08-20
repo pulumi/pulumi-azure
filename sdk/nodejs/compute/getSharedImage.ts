@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -15,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.compute.getSharedImage({
+ * const test = azure.compute.getSharedImage({
  *     galleryName: "my-image-gallery",
  *     name: "my-image",
  *     resourceGroupName: "example-resources",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image.html.markdown.
@@ -75,7 +77,7 @@ export interface GetSharedImageResult {
     /**
      * An `identifier` block as defined below.
      */
-    readonly identifiers: { offer: string, publisher: string, sku: string }[];
+    readonly identifiers: outputs.compute.GetSharedImageIdentifier[];
     /**
      * The supported Azure location where the Shared Image Gallery exists.
      */

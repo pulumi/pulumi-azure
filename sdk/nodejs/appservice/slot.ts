@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -172,7 +174,7 @@ export class Slot extends pulumi.CustomResource {
     /**
      * An `connectionString` block as defined below.
      */
-    public readonly connectionStrings!: pulumi.Output<{ name: string, type: string, value: string }[]>;
+    public readonly connectionStrings!: pulumi.Output<outputs.appservice.SlotConnectionString[]>;
     /**
      * The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
      */
@@ -188,7 +190,7 @@ export class Slot extends pulumi.CustomResource {
     /**
      * A Managed Service Identity block as defined below.
      */
-    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string } | undefined>;
+    public readonly identity!: pulumi.Output<outputs.appservice.SlotIdentity | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -204,11 +206,11 @@ export class Slot extends pulumi.CustomResource {
     /**
      * A `siteConfig` object as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean, windowsFxVersion: string }>;
+    public readonly siteConfig!: pulumi.Output<outputs.appservice.SlotSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredential!: pulumi.Output<{ password: string, username: string }>;
+    public /*out*/ readonly siteCredential!: pulumi.Output<outputs.appservice.SlotSiteCredential>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -302,7 +304,7 @@ export interface SlotState {
     /**
      * An `connectionString` block as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.SlotConnectionString>[]>;
     /**
      * The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
      */
@@ -318,7 +320,7 @@ export interface SlotState {
     /**
      * A Managed Service Identity block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.appservice.SlotIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -334,11 +336,11 @@ export interface SlotState {
     /**
      * A `siteConfig` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean>, windowsFxVersion?: pulumi.Input<string> }>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.SlotSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    readonly siteCredential?: pulumi.Input<{ password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
+    readonly siteCredential?: pulumi.Input<inputs.appservice.SlotSiteCredential>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -368,7 +370,7 @@ export interface SlotArgs {
     /**
      * An `connectionString` block as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.SlotConnectionString>[]>;
     /**
      * Is the App Service Slot Enabled?
      */
@@ -380,7 +382,7 @@ export interface SlotArgs {
     /**
      * A Managed Service Identity block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.appservice.SlotIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -396,7 +398,7 @@ export interface SlotArgs {
     /**
      * A `siteConfig` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean>, windowsFxVersion?: pulumi.Input<string> }>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.SlotSiteConfig>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.network.getRouteTable({
+ * const test = azure.network.getRouteTable({
  *     name: "myroutetable",
  *     resourceGroupName: "some-resource-group",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/route_table.html.markdown.
@@ -67,7 +69,7 @@ export interface GetRouteTableResult {
     /**
      * One or more `route` blocks as documented below.
      */
-    readonly routes: { addressPrefix: string, name: string, nextHopInIpAddress: string, nextHopType: string }[];
+    readonly routes: outputs.network.GetRouteTableRoute[];
     /**
      * The collection of Subnets associated with this route table.
      */

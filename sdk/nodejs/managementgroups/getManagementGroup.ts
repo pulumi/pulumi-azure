@@ -13,9 +13,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.management.getGroup({
+ * const test = azure.management.getGroup({
  *     groupId: "00000000-0000-0000-0000-000000000000",
- * }));
+ * });
  * 
  * export const displayName = test.displayName;
  * ```

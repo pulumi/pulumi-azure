@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -19,10 +21,10 @@ import * as utilities from "../utilities";
  *     name: "acctvn",
  *     resourceGroupName: "acctestRG",
  * });
- * const datasourcemd = pulumi.output(azure.compute.getManagedDisk({
+ * const datasourcemd = azure.compute.getManagedDisk({
  *     name: "testManagedDisk",
  *     resourceGroupName: "acctestRG",
- * }));
+ * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
  *     name: "acctsub",

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -42,66 +44,6 @@ import * as utilities from "../utilities";
  *     resourceGroupName: test.name,
  *     virtualNetworkName: test2VirtualNetwork.name,
  * });
- * ```
- * 
- * ## Example Usage (Global virtual network peering)
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const config = new pulumi.Config();
- * const location = config.get("location") || [
- *     "uksouth",
- *     "southeastasia",
- * ];
- * const vnetAddressSpace = config.get("vnetAddressSpace") || [
- *     "10.0.0.0/16",
- *     "10.1.0.0/16",
- * ];
- * 
- * const vnetResourceGroup: azure.core.ResourceGroup[] = [];
- * for (let i = 0; i < location.length; i++) {
- *     vnetResourceGroup.push(new azure.core.ResourceGroup(`vnet-${i}`, {
- *         location: location[i],
- *         name: `rg-global-vnet-peering-${i}`,
- *     }));
- * }
- * const vnetVirtualNetwork: azure.network.VirtualNetwork[] = [];
- * for (let i = 0; i < location.length; i++) {
- *     vnetVirtualNetwork.push(new azure.network.VirtualNetwork(`vnet-${i}`, {
- *         addressSpaces: [vnetAddressSpace[i]],
- *         location: pulumi.all(vnetResourceGroup.map(v => v.location)).apply(location => location.map(v => v)[i]),
- *         name: `vnet-${i}`,
- *         resourceGroupName: pulumi.all(vnetResourceGroup.map(v => v.name)).apply(name => name.map(v => v)[i]),
- *     }));
- * }
- * const nva: azure.network.Subnet[] = [];
- * for (let i = 0; i < location.length; i++) {
- *     nva.push(new azure.network.Subnet(`nva-${i}`, {
- *         addressPrefix: pulumi.all(vnetVirtualNetwork.map(v => v.addressSpaces)).apply(addressSpaces => (() => {
- *             throw "tf2pulumi error: NYI: call to cidrsubnet";
- *             return (() => { throw "NYI: call to cidrsubnet"; })();
- *         })()),
- *         name: "nva",
- *         resourceGroupName: pulumi.all(vnetResourceGroup.map(v => v.name)).apply(name => name.map(v => v)[i]),
- *         virtualNetworkName: pulumi.all(vnetVirtualNetwork.map(v => v.name)).apply(name => name.map(v => v)[i]),
- *     }));
- * }
- * // enable global peering between the two virtual network 
- * const peering: azure.network.VirtualNetworkPeering[] = [];
- * for (let i = 0; i < location.length; i++) {
- *     peering.push(new azure.network.VirtualNetworkPeering(`peering-${i}`, {
- *         allowForwardedTraffic: true,
- *         // `allowGatewayTransit` must be set to false for vnet Global Peering
- *         allowGatewayTransit: false,
- *         allowVirtualNetworkAccess: true,
- *         name: pulumi.all(vnetVirtualNetwork.map(v => v.name)).apply(name => `peering-to-${name.map(v => v)[(1 - i)]}`),
- *         remoteVirtualNetworkId: pulumi.all(vnetVirtualNetwork.map(v => v.id)).apply(id => id.map(v => v)[(1 - i)]),
- *         resourceGroupName: pulumi.all(vnetResourceGroup.map(v => v.name)).apply(name => name.map(v => v)[i]),
- *         virtualNetworkName: pulumi.all(vnetVirtualNetwork.map(v => v.name)).apply(name => name.map(v => v)[i]),
- *     }));
- * }
  * ```
  * 
  * ## Note

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.notificationhub.getHub({
+ * const test = azure.notificationhub.getHub({
  *     name: "notification-hub",
  *     namespaceName: "namespace-name",
  *     resourceGroupName: "resource-group-name",
- * }));
+ * });
  * 
  * export const id = test.id;
  * ```
@@ -66,11 +68,11 @@ export interface GetHubResult {
     /**
      * A `apnsCredential` block as defined below.
      */
-    readonly apnsCredentials: { applicationMode: string, bundleId: string, keyId: string, teamId: string, token: string }[];
+    readonly apnsCredentials: outputs.notificationhub.GetHubApnsCredential[];
     /**
      * A `gcmCredential` block as defined below.
      */
-    readonly gcmCredentials: { apiKey: string }[];
+    readonly gcmCredentials: outputs.notificationhub.GetHubGcmCredential[];
     /**
      * The Azure Region in which this Notification Hub exists.
      */

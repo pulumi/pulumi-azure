@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +83,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
      */
-    public readonly routes!: pulumi.Output<{ addressPrefix: string, name: string, nextHopInIpAddress?: string, nextHopType: string }[]>;
+    public readonly routes!: pulumi.Output<outputs.network.RouteTableRoute[]>;
     /**
      * The collection of Subnets associated with this route table.
      */
@@ -157,7 +159,7 @@ export interface RouteTableState {
     /**
      * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, nextHopInIpAddress?: pulumi.Input<string>, nextHopType: pulumi.Input<string> }>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
     /**
      * The collection of Subnets associated with this route table.
      */
@@ -191,7 +193,7 @@ export interface RouteTableArgs {
     /**
      * [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<{ addressPrefix: pulumi.Input<string>, name: pulumi.Input<string>, nextHopInIpAddress?: pulumi.Input<string>, nextHopType: pulumi.Input<string> }>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.RouteTableRoute>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

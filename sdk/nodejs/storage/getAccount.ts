@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.storage.getAccount({
+ * const test = azure.storage.getAccount({
  *     name: "packerimages",
  *     resourceGroupName: "packer-storage",
- * }));
+ * });
  * 
  * export const storageAccountTier = test.accountTier;
  * ```
@@ -80,7 +82,7 @@ export interface GetAccountResult {
     /**
      * A `customDomain` block as documented below.
      */
-    readonly customDomain: { name: string };
+    readonly customDomain: outputs.storage.GetAccountCustomDomain;
     /**
      * Are Encryption Services are enabled for Blob storage? See [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/)
      * for more information.

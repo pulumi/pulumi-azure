@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.batch.getPool({
+ * const test = azure.batch.getPool({
  *     accountName: "testbatchaccount",
  *     name: "testbatchpool",
  *     resourceGroupName: "test",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
@@ -46,10 +48,10 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetPoolArgs {
     readonly accountName: string;
-    readonly certificates?: { id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[];
+    readonly certificates?: inputs.batch.GetPoolCertificate[];
     readonly name: string;
     readonly resourceGroupName: string;
-    readonly startTask?: { commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles?: { autoStorageContainerName?: string, blobPrefix?: string, fileMode?: string, filePath?: string, httpUrl?: string, storageContainerUrl?: string }[], userIdentities?: { autoUsers?: { elevationLevel?: string, scope?: string }[], userName?: string }[], waitForSuccess?: boolean };
+    readonly startTask?: inputs.batch.GetPoolStartTask;
 }
 
 /**
@@ -63,20 +65,20 @@ export interface GetPoolResult {
     /**
      * A `autoScale` block that describes the scale settings when using auto scale.
      */
-    readonly autoScales: { evaluationInterval: string, formula: string }[];
+    readonly autoScales: outputs.batch.GetPoolAutoScale[];
     /**
      * One or more `certificate` blocks that describe the certificates installed on each compute node in the pool.
      */
-    readonly certificates?: { id: string, storeLocation: string, storeName?: string, visibilities?: string[] }[];
+    readonly certificates?: outputs.batch.GetPoolCertificate[];
     /**
      * The container configuration used in the pool's VMs.
      */
-    readonly containerConfigurations: { type: string }[];
+    readonly containerConfigurations: outputs.batch.GetPoolContainerConfiguration[];
     readonly displayName: string;
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
-    readonly fixedScales: { resizeTimeout: string, targetDedicatedNodes: number, targetLowPriorityNodes: number }[];
+    readonly fixedScales: outputs.batch.GetPoolFixedScale[];
     /**
      * The maximum number of tasks that can run concurrently on a single compute node in the pool.
      */
@@ -93,11 +95,11 @@ export interface GetPoolResult {
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
      */
-    readonly startTask?: { commandLine: string, environment?: {[key: string]: any}, maxTaskRetryCount?: number, resourceFiles: { autoStorageContainerName: string, blobPrefix: string, fileMode: string, filePath: string, httpUrl: string, storageContainerUrl: string }[], userIdentities: { autoUsers: { elevationLevel: string, scope: string }[], userName: string }[], waitForSuccess?: boolean };
+    readonly startTask?: outputs.batch.GetPoolStartTask;
     /**
      * The reference of the storage image used by the nodes in the Batch pool.
      */
-    readonly storageImageReferences: { id: string, offer: string, publisher: string, sku: string, version: string }[];
+    readonly storageImageReferences: outputs.batch.GetPoolStorageImageReference[];
     /**
      * The size of the VM created in the Batch pool.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,22 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const builtin = pulumi.output(azure.authorization.getBuiltinRoleDefinition({
+ * const builtin = azure.authorization.getBuiltinRoleDefinition({
  *     name: "Contributor",
- * }));
- * const primary = pulumi.output(azure.core.getSubscription({}));
+ * });
+ * const primary = azure.core.getSubscription({});
  * const customRoleDefinition = new azure.authorization.RoleDefinition("custom", {
  *     name: "CustomRoleDef",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.id,
  * });
- * const customAuthorizationRoleDefinition = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinition({
+ * const customAuthorizationRoleDefinition = customRoleDefinition.roleDefinitionId.apply(roleDefinitionId => azure.authorization.getRoleDefinition({
  *     roleDefinitionId: roleDefinitionId,
- *     scope: primary.id,
+ *     scope: primary, // /subscriptions/00000000-0000-0000-0000-000000000000
  * }));
- * const customByname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinition({
+ * const customByname = customRoleDefinition.name.apply(name => azure.authorization.getRoleDefinition({
  *     name: name,
- *     scope: primary.id,
+ *     scope: primary,
  * }));
  * 
  * export const contributorRoleDefinitionId = azurerm_role_definition_builtin.id;
@@ -89,7 +91,7 @@ export interface GetRoleDefinitionResult {
     /**
      * a `permissions` block as documented below.
      */
-    readonly permissions: { actions: string[], dataActions?: string[], notActions: string[], notDataActions?: string[] }[];
+    readonly permissions: outputs.authorization.GetRoleDefinitionPermission[];
     readonly roleDefinitionId: string;
     readonly scope?: string;
     /**

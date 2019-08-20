@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.appservice.getAppService({
+ * const test = azure.appservice.getAppService({
  *     name: "search-app-service",
  *     resourceGroupName: "search-service",
- * }));
+ * });
  * 
  * export const appServiceId = test.id;
  * ```
@@ -76,7 +78,7 @@ export interface GetAppServiceResult {
     /**
      * An `connectionString` block as defined below.
      */
-    readonly connectionStrings: { name: string, type: string, value: string }[];
+    readonly connectionStrings: outputs.appservice.GetAppServiceConnectionString[];
     readonly defaultSiteHostname: string;
     /**
      * Is the App Service Enabled?
@@ -106,9 +108,9 @@ export interface GetAppServiceResult {
     /**
      * A `siteConfig` block as defined below.
      */
-    readonly siteConfigs: { alwaysOn: boolean, appCommandLine: string, cors: { allowedOrigins: string[], supportCredentials: boolean }, defaultDocuments: string[], dotnetFrameworkVersion: string, ftpsState: string, http2Enabled: boolean, ipRestrictions: { ipAddress: string, subnetMask: string }[], javaContainer: string, javaContainerVersion: string, javaVersion: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion: string, pythonVersion: string, remoteDebuggingEnabled: boolean, remoteDebuggingVersion: string, scmType: string, use32BitWorkerProcess: boolean, virtualNetworkName: string, websocketsEnabled: boolean, windowsFxVersion: string }[];
-    readonly siteCredentials: { password: string, username: string }[];
-    readonly sourceControls: { branch: string, repoUrl: string }[];
+    readonly siteConfigs: outputs.appservice.GetAppServiceSiteConfig[];
+    readonly siteCredentials: outputs.appservice.GetAppServiceSiteCredential[];
+    readonly sourceControls: outputs.appservice.GetAppServiceSourceControl[];
     /**
      * A mapping of tags to assign to the resource.
      */

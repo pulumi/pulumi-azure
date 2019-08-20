@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const available = pulumi.output(azure.core.getSubscriptions({}));
+ * const available = azure.core.getSubscriptions({});
  * 
  * export const availableSubscriptions = available.subscriptions;
  * export const firstAvailableSubscriptionDisplayName = available.subscriptions[0].displayName;
@@ -61,7 +62,7 @@ export interface GetSubscriptionsResult {
     /**
      * One or more `subscription` blocks as defined below.
      */
-    readonly subscriptions: { displayName: string, locationPlacementId: string, quotaId: string, spendingLimit: string, state: string, subscriptionId: string }[];
+    readonly subscriptions: outputs.core.GetSubscriptionsSubscription[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

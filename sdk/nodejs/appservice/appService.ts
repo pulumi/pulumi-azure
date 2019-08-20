@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -45,7 +47,7 @@ export class AppService extends pulumi.CustomResource {
     /**
      * A `authSettings` block as defined below.
      */
-    public readonly authSettings!: pulumi.Output<{ activeDirectory?: { allowedAudiences?: string[], clientId: string, clientSecret?: string }, additionalLoginParams?: {[key: string]: any}, allowedExternalRedirectUrls?: string[], defaultProvider?: string, enabled: boolean, facebook?: { appId: string, appSecret: string, oauthScopes?: string[] }, google?: { clientId: string, clientSecret: string, oauthScopes?: string[] }, issuer?: string, microsoft?: { clientId: string, clientSecret: string, oauthScopes?: string[] }, runtimeVersion?: string, tokenRefreshExtensionHours?: number, tokenStoreEnabled?: boolean, twitter?: { consumerKey: string, consumerSecret: string }, unauthenticatedClientAction?: string }>;
+    public readonly authSettings!: pulumi.Output<outputs.appservice.AppServiceAuthSettings>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -57,7 +59,7 @@ export class AppService extends pulumi.CustomResource {
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    public readonly connectionStrings!: pulumi.Output<{ name: string, type: string, value: string }[]>;
+    public readonly connectionStrings!: pulumi.Output<outputs.appservice.AppServiceConnectionString[]>;
     /**
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      */
@@ -73,7 +75,7 @@ export class AppService extends pulumi.CustomResource {
     /**
      * A Managed Service Identity block as defined below.
      */
-    public readonly identity!: pulumi.Output<{ principalId: string, tenantId: string, type: string }>;
+    public readonly identity!: pulumi.Output<outputs.appservice.AppServiceIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -81,7 +83,7 @@ export class AppService extends pulumi.CustomResource {
     /**
      * A `logs` block as defined below.
      */
-    public readonly logs!: pulumi.Output<{ applicationLogs?: { azureBlobStorage?: { level: string, retentionInDays: number, sasUrl: string } } }>;
+    public readonly logs!: pulumi.Output<outputs.appservice.AppServiceLogs>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
@@ -101,15 +103,15 @@ export class AppService extends pulumi.CustomResource {
     /**
      * A `siteConfig` block as defined below.
      */
-    public readonly siteConfig!: pulumi.Output<{ alwaysOn?: boolean, appCommandLine?: string, cors: { allowedOrigins: string[], supportCredentials?: boolean }, defaultDocuments?: string[], dotnetFrameworkVersion?: string, ftpsState: string, http2Enabled?: boolean, ipRestrictions: { ipAddress: string, subnetMask?: string }[], javaContainer?: string, javaContainerVersion?: string, javaVersion?: string, linuxFxVersion: string, localMysqlEnabled: boolean, managedPipelineMode: string, minTlsVersion: string, phpVersion?: string, pythonVersion?: string, remoteDebuggingEnabled?: boolean, remoteDebuggingVersion: string, scmType?: string, use32BitWorkerProcess?: boolean, virtualNetworkName?: string, websocketsEnabled: boolean, windowsFxVersion: string }>;
+    public readonly siteConfig!: pulumi.Output<outputs.appservice.AppServiceSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    public /*out*/ readonly siteCredential!: pulumi.Output<{ password: string, username: string }>;
+    public /*out*/ readonly siteCredential!: pulumi.Output<outputs.appservice.AppServiceSiteCredential>;
     /**
      * A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
      */
-    public /*out*/ readonly sourceControl!: pulumi.Output<{ branch: string, repoUrl: string }>;
+    public /*out*/ readonly sourceControl!: pulumi.Output<outputs.appservice.AppServiceSourceControl>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -202,7 +204,7 @@ export interface AppServiceState {
     /**
      * A `authSettings` block as defined below.
      */
-    readonly authSettings?: pulumi.Input<{ activeDirectory?: pulumi.Input<{ allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>, clientId: pulumi.Input<string>, clientSecret?: pulumi.Input<string> }>, additionalLoginParams?: pulumi.Input<{[key: string]: any}>, allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>, defaultProvider?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, facebook?: pulumi.Input<{ appId: pulumi.Input<string>, appSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, google?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, issuer?: pulumi.Input<string>, microsoft?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, runtimeVersion?: pulumi.Input<string>, tokenRefreshExtensionHours?: pulumi.Input<number>, tokenStoreEnabled?: pulumi.Input<boolean>, twitter?: pulumi.Input<{ consumerKey: pulumi.Input<string>, consumerSecret: pulumi.Input<string> }>, unauthenticatedClientAction?: pulumi.Input<string> }>;
+    readonly authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -214,7 +216,7 @@ export interface AppServiceState {
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceConnectionString>[]>;
     /**
      * The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      */
@@ -230,7 +232,7 @@ export interface AppServiceState {
     /**
      * A Managed Service Identity block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -238,7 +240,7 @@ export interface AppServiceState {
     /**
      * A `logs` block as defined below.
      */
-    readonly logs?: pulumi.Input<{ applicationLogs?: pulumi.Input<{ azureBlobStorage?: pulumi.Input<{ level: pulumi.Input<string>, retentionInDays: pulumi.Input<number>, sasUrl: pulumi.Input<string> }> }> }>;
+    readonly logs?: pulumi.Input<inputs.appservice.AppServiceLogs>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
@@ -258,15 +260,15 @@ export interface AppServiceState {
     /**
      * A `siteConfig` block as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean>, windowsFxVersion?: pulumi.Input<string> }>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig>;
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      */
-    readonly siteCredential?: pulumi.Input<{ password?: pulumi.Input<string>, username?: pulumi.Input<string> }>;
+    readonly siteCredential?: pulumi.Input<inputs.appservice.AppServiceSiteCredential>;
     /**
      * A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
      */
-    readonly sourceControl?: pulumi.Input<{ branch?: pulumi.Input<string>, repoUrl?: pulumi.Input<string> }>;
+    readonly sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -288,7 +290,7 @@ export interface AppServiceArgs {
     /**
      * A `authSettings` block as defined below.
      */
-    readonly authSettings?: pulumi.Input<{ activeDirectory?: pulumi.Input<{ allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>, clientId: pulumi.Input<string>, clientSecret?: pulumi.Input<string> }>, additionalLoginParams?: pulumi.Input<{[key: string]: any}>, allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>, defaultProvider?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, facebook?: pulumi.Input<{ appId: pulumi.Input<string>, appSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, google?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, issuer?: pulumi.Input<string>, microsoft?: pulumi.Input<{ clientId: pulumi.Input<string>, clientSecret: pulumi.Input<string>, oauthScopes?: pulumi.Input<pulumi.Input<string>[]> }>, runtimeVersion?: pulumi.Input<string>, tokenRefreshExtensionHours?: pulumi.Input<number>, tokenStoreEnabled?: pulumi.Input<boolean>, twitter?: pulumi.Input<{ consumerKey: pulumi.Input<string>, consumerSecret: pulumi.Input<string> }>, unauthenticatedClientAction?: pulumi.Input<string> }>;
+    readonly authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -300,7 +302,7 @@ export interface AppServiceArgs {
     /**
      * One or more `connectionString` blocks as defined below.
      */
-    readonly connectionStrings?: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, type: pulumi.Input<string>, value: pulumi.Input<string> }>[]>;
+    readonly connectionStrings?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceConnectionString>[]>;
     /**
      * Is the App Service Enabled?
      */
@@ -312,7 +314,7 @@ export interface AppServiceArgs {
     /**
      * A Managed Service Identity block as defined below.
      */
-    readonly identity?: pulumi.Input<{ principalId?: pulumi.Input<string>, tenantId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.appservice.AppServiceIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -320,7 +322,7 @@ export interface AppServiceArgs {
     /**
      * A `logs` block as defined below.
      */
-    readonly logs?: pulumi.Input<{ applicationLogs?: pulumi.Input<{ azureBlobStorage?: pulumi.Input<{ level: pulumi.Input<string>, retentionInDays: pulumi.Input<number>, sasUrl: pulumi.Input<string> }> }> }>;
+    readonly logs?: pulumi.Input<inputs.appservice.AppServiceLogs>;
     /**
      * Specifies the name of the App Service. Changing this forces a new resource to be created.
      */
@@ -332,7 +334,7 @@ export interface AppServiceArgs {
     /**
      * A `siteConfig` block as defined below.
      */
-    readonly siteConfig?: pulumi.Input<{ alwaysOn?: pulumi.Input<boolean>, appCommandLine?: pulumi.Input<string>, cors?: pulumi.Input<{ allowedOrigins: pulumi.Input<pulumi.Input<string>[]>, supportCredentials?: pulumi.Input<boolean> }>, defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>, dotnetFrameworkVersion?: pulumi.Input<string>, ftpsState?: pulumi.Input<string>, http2Enabled?: pulumi.Input<boolean>, ipRestrictions?: pulumi.Input<pulumi.Input<{ ipAddress: pulumi.Input<string>, subnetMask?: pulumi.Input<string> }>[]>, javaContainer?: pulumi.Input<string>, javaContainerVersion?: pulumi.Input<string>, javaVersion?: pulumi.Input<string>, linuxFxVersion?: pulumi.Input<string>, localMysqlEnabled?: pulumi.Input<boolean>, managedPipelineMode?: pulumi.Input<string>, minTlsVersion?: pulumi.Input<string>, phpVersion?: pulumi.Input<string>, pythonVersion?: pulumi.Input<string>, remoteDebuggingEnabled?: pulumi.Input<boolean>, remoteDebuggingVersion?: pulumi.Input<string>, scmType?: pulumi.Input<string>, use32BitWorkerProcess?: pulumi.Input<boolean>, virtualNetworkName?: pulumi.Input<string>, websocketsEnabled?: pulumi.Input<boolean>, windowsFxVersion?: pulumi.Input<string> }>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig>;
     /**
      * A mapping of tags to assign to the resource.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -102,7 +104,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    public readonly sku!: pulumi.Output<{ family: string, tier: string }>;
+    public readonly sku!: pulumi.Output<outputs.network.ExpressRouteCircuitSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -214,7 +216,7 @@ export interface ExpressRouteCircuitState {
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    readonly sku?: pulumi.Input<{ family: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.network.ExpressRouteCircuitSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -256,7 +258,7 @@ export interface ExpressRouteCircuitArgs {
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    readonly sku: pulumi.Input<{ family: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputs.network.ExpressRouteCircuitSku>;
     /**
      * A mapping of tags to assign to the resource.
      */

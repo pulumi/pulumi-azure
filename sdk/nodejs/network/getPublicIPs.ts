@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.network.getPublicIPs({
+ * const test = azure.network.getPublicIPs({
  *     attached: false,
  *     resourceGroupName: "pip-test",
- * }));
+ * });
  * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
@@ -71,7 +73,7 @@ export interface GetPublicIPsResult {
     /**
      * A List of `publicIps` blocks as defined below filtered by the criteria above.
      */
-    readonly publicIps: { domainNameLabel: string, fqdn: string, id: string, ipAddress: string, name: string }[];
+    readonly publicIps: outputs.network.GetPublicIPsPublicIp[];
     readonly resourceGroupName: string;
     /**
      * id is the provider-assigned unique ID for this managed resource.

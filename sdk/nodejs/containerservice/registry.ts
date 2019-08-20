@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -98,7 +100,7 @@ export class Registry extends pulumi.CustomResource {
      * The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
      */
     public readonly sku!: pulumi.Output<string | undefined>;
-    public readonly storageAccount!: pulumi.Output<{ accessKey: string, name: string } | undefined>;
+    public readonly storageAccount!: pulumi.Output<outputs.containerservice.RegistryStorageAccount | undefined>;
     /**
      * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
      */
@@ -201,7 +203,7 @@ export interface RegistryState {
      * The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
      */
     readonly sku?: pulumi.Input<string>;
-    readonly storageAccount?: pulumi.Input<{ accessKey: pulumi.Input<string>, name: pulumi.Input<string> }>;
+    readonly storageAccount?: pulumi.Input<inputs.containerservice.RegistryStorageAccount>;
     /**
      * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
      */
@@ -240,7 +242,7 @@ export interface RegistryArgs {
      * The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
      */
     readonly sku?: pulumi.Input<string>;
-    readonly storageAccount?: pulumi.Input<{ accessKey: pulumi.Input<string>, name: pulumi.Input<string> }>;
+    readonly storageAccount?: pulumi.Input<inputs.containerservice.RegistryStorageAccount>;
     /**
      * The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +81,7 @@ export class Profile extends pulumi.CustomResource {
         return obj['__pulumiType'] === Profile.__pulumiType;
     }
 
-    public readonly containerNetworkInterface!: pulumi.Output<{ ipConfigurations: { name: string, subnetId: string }[], name: string }>;
+    public readonly containerNetworkInterface!: pulumi.Output<outputs.network.ProfileContainerNetworkInterface>;
     /**
      * One or more Resource IDs of Azure Container Network Interfaces.
      */
@@ -149,7 +151,7 @@ export class Profile extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Profile resources.
  */
 export interface ProfileState {
-    readonly containerNetworkInterface?: pulumi.Input<{ ipConfigurations: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>;
+    readonly containerNetworkInterface?: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
     /**
      * One or more Resource IDs of Azure Container Network Interfaces.
      */
@@ -176,7 +178,7 @@ export interface ProfileState {
  * The set of arguments for constructing a Profile resource.
  */
 export interface ProfileArgs {
-    readonly containerNetworkInterface: pulumi.Input<{ ipConfigurations: pulumi.Input<pulumi.Input<{ name: pulumi.Input<string>, subnetId: pulumi.Input<string> }>[]>, name: pulumi.Input<string> }>;
+    readonly containerNetworkInterface: pulumi.Input<inputs.network.ProfileContainerNetworkInterface>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

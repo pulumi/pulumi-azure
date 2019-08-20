@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const search = pulumi.output(azure.compute.getImage({
+ * const search = azure.compute.getImage({
  *     name: "search-api",
  *     resourceGroupName: "packerimages",
- * }));
+ * });
  * 
  * export const imageId = search.id;
  * ```
@@ -70,7 +72,7 @@ export interface GetImageResult {
     /**
      * a collection of `dataDisk` blocks as defined below.
      */
-    readonly dataDisks: { blobUri: string, caching: string, lun: number, managedDiskId: string, sizeGb: number }[];
+    readonly dataDisks: outputs.compute.GetImageDataDisk[];
     /**
      * the Azure Location where this Image exists.
      */
@@ -83,7 +85,7 @@ export interface GetImageResult {
     /**
      * a `osDisk` block as defined below.
      */
-    readonly osDisks: { blobUri: string, caching: string, managedDiskId: string, osState: string, osType: string, sizeGb: number }[];
+    readonly osDisks: outputs.compute.GetImageOsDisk[];
     readonly resourceGroupName: string;
     readonly sortDescending?: boolean;
     /**

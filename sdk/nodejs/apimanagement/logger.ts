@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -81,7 +83,7 @@ export class Logger extends pulumi.CustomResource {
     /**
      * An `applicationInsights` block as documented below.
      */
-    public readonly applicationInsights!: pulumi.Output<{ instrumentationKey: string } | undefined>;
+    public readonly applicationInsights!: pulumi.Output<outputs.apimanagement.LoggerApplicationInsights | undefined>;
     /**
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      */
@@ -93,7 +95,7 @@ export class Logger extends pulumi.CustomResource {
     /**
      * An `eventhub` block as documented below.
      */
-    public readonly eventhub!: pulumi.Output<{ connectionString: string, name: string } | undefined>;
+    public readonly eventhub!: pulumi.Output<outputs.apimanagement.LoggerEventhub | undefined>;
     /**
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
@@ -160,7 +162,7 @@ export interface LoggerState {
     /**
      * An `applicationInsights` block as documented below.
      */
-    readonly applicationInsights?: pulumi.Input<{ instrumentationKey: pulumi.Input<string> }>;
+    readonly applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights>;
     /**
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      */
@@ -172,7 +174,7 @@ export interface LoggerState {
     /**
      * An `eventhub` block as documented below.
      */
-    readonly eventhub?: pulumi.Input<{ connectionString: pulumi.Input<string>, name: pulumi.Input<string> }>;
+    readonly eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub>;
     /**
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */
@@ -194,7 +196,7 @@ export interface LoggerArgs {
     /**
      * An `applicationInsights` block as documented below.
      */
-    readonly applicationInsights?: pulumi.Input<{ instrumentationKey: pulumi.Input<string> }>;
+    readonly applicationInsights?: pulumi.Input<inputs.apimanagement.LoggerApplicationInsights>;
     /**
      * Specifies whether records should be buffered in the Logger prior to publishing. Defaults to `true`.
      */
@@ -206,7 +208,7 @@ export interface LoggerArgs {
     /**
      * An `eventhub` block as documented below.
      */
-    readonly eventhub?: pulumi.Input<{ connectionString: pulumi.Input<string>, name: pulumi.Input<string> }>;
+    readonly eventhub?: pulumi.Input<inputs.apimanagement.LoggerEventhub>;
     /**
      * The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
      */

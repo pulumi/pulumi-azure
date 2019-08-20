@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -100,7 +102,7 @@ export class RunBook extends pulumi.CustomResource {
     /**
      * The published runbook content link.
      */
-    public readonly publishContentLink!: pulumi.Output<{ hash?: { algorithm: string, value: string }, uri: string, version?: string }>;
+    public readonly publishContentLink!: pulumi.Output<outputs.automation.RunBookPublishContentLink>;
     /**
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      */
@@ -215,7 +217,7 @@ export interface RunBookState {
     /**
      * The published runbook content link.
      */
-    readonly publishContentLink?: pulumi.Input<{ hash?: pulumi.Input<{ algorithm: pulumi.Input<string>, value: pulumi.Input<string> }>, uri: pulumi.Input<string>, version?: pulumi.Input<string> }>;
+    readonly publishContentLink?: pulumi.Input<inputs.automation.RunBookPublishContentLink>;
     /**
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      */
@@ -265,7 +267,7 @@ export interface RunBookArgs {
     /**
      * The published runbook content link.
      */
-    readonly publishContentLink: pulumi.Input<{ hash?: pulumi.Input<{ algorithm: pulumi.Input<string>, value: pulumi.Input<string> }>, uri: pulumi.Input<string>, version?: pulumi.Input<string> }>;
+    readonly publishContentLink: pulumi.Input<inputs.automation.RunBookPublishContentLink>;
     /**
      * The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
      */

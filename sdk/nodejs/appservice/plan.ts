@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 import {Kind} from "./kind";
@@ -156,7 +158,7 @@ export class Plan extends pulumi.CustomResource {
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
     public readonly perSiteScaling!: pulumi.Output<boolean>;
-    public readonly properties!: pulumi.Output<{ appServiceEnvironmentId: string, perSiteScaling: boolean, reserved: boolean }>;
+    public readonly properties!: pulumi.Output<outputs.appservice.PlanProperties>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */
@@ -168,7 +170,7 @@ export class Plan extends pulumi.CustomResource {
     /**
      * A `sku` block as documented below.
      */
-    public readonly sku!: pulumi.Output<{ capacity: number, size: string, tier: string }>;
+    public readonly sku!: pulumi.Output<outputs.appservice.PlanSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -265,7 +267,7 @@ export interface PlanState {
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
     readonly perSiteScaling?: pulumi.Input<boolean>;
-    readonly properties?: pulumi.Input<{ appServiceEnvironmentId?: pulumi.Input<string>, perSiteScaling?: pulumi.Input<boolean>, reserved?: pulumi.Input<boolean> }>;
+    readonly properties?: pulumi.Input<inputs.appservice.PlanProperties>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */
@@ -277,7 +279,7 @@ export interface PlanState {
     /**
      * A `sku` block as documented below.
      */
-    readonly sku?: pulumi.Input<{ capacity?: pulumi.Input<number>, size: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.appservice.PlanSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -313,7 +315,7 @@ export interface PlanArgs {
      * Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
      */
     readonly perSiteScaling?: pulumi.Input<boolean>;
-    readonly properties?: pulumi.Input<{ appServiceEnvironmentId?: pulumi.Input<string>, perSiteScaling?: pulumi.Input<boolean>, reserved?: pulumi.Input<boolean> }>;
+    readonly properties?: pulumi.Input<inputs.appservice.PlanProperties>;
     /**
      * Is this App Service Plan `Reserved`. Defaults to `false`.
      */
@@ -325,7 +327,7 @@ export interface PlanArgs {
     /**
      * A `sku` block as documented below.
      */
-    readonly sku: pulumi.Input<{ capacity?: pulumi.Input<number>, size: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputs.appservice.PlanSku>;
     /**
      * A mapping of tags to assign to the resource.
      */

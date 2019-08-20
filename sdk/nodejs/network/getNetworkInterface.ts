@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.network.getNetworkInterface({
+ * const test = azure.network.getNetworkInterface({
  *     name: "acctest-nic",
  *     resourceGroupName: "networking",
- * }));
+ * });
  * 
  * export const networkInterfaceId = test.id;
  * ```
@@ -81,7 +83,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * One or more `ipConfiguration` blocks as defined below.
      */
-    readonly ipConfigurations: { applicationGatewayBackendAddressPoolsIds: string[], applicationSecurityGroupIds: string[], loadBalancerBackendAddressPoolsIds: string[], loadBalancerInboundNatRulesIds: string[], name: string, primary: boolean, privateIpAddress: string, privateIpAddressAllocation: string, privateIpAddressVersion: string, publicIpAddressId: string, subnetId: string }[];
+    readonly ipConfigurations: outputs.network.GetNetworkInterfaceIpConfiguration[];
     /**
      * The location of the specified Network Interface.
      */

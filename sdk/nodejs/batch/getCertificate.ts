@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = pulumi.output(azure.batch.getCertificate({
+ * const example = azure.batch.getCertificate({
  *     accountName: "examplebatchaccount",
  *     name: "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
  *     resourceGroupName: "example",
- * }));
+ * });
  * 
  * export const thumbprint = example.thumbprint;
  * ```

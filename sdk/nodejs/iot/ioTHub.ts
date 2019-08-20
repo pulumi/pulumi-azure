@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -97,7 +99,7 @@ export class IoTHub extends pulumi.CustomResource {
     /**
      * An `endpoint` block as defined below.
      */
-    public readonly endpoints!: pulumi.Output<{ batchFrequencyInSeconds?: number, connectionString: string, containerName?: string, encoding?: string, fileNameFormat?: string, maxChunkSizeInBytes?: number, name: string, type: string }[] | undefined>;
+    public readonly endpoints!: pulumi.Output<outputs.iot.IoTHubEndpoint[] | undefined>;
     /**
      * The EventHub compatible endpoint for events data
      */
@@ -117,7 +119,7 @@ export class IoTHub extends pulumi.CustomResource {
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
-    public readonly fallbackRoute!: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], source?: string }>;
+    public readonly fallbackRoute!: pulumi.Output<outputs.iot.IoTHubFallbackRoute>;
     /**
      * The hostname of the IotHub Resource.
      */
@@ -125,7 +127,7 @@ export class IoTHub extends pulumi.CustomResource {
     /**
      * One or more `ipFilterRule` blocks as defined below.
      */
-    public readonly ipFilterRules!: pulumi.Output<{ action: string, ipMask: string, name: string }[] | undefined>;
+    public readonly ipFilterRules!: pulumi.Output<outputs.iot.IoTHubIpFilterRule[] | undefined>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
@@ -141,15 +143,15 @@ export class IoTHub extends pulumi.CustomResource {
     /**
      * A `route` block as defined below.
      */
-    public readonly routes!: pulumi.Output<{ condition?: string, enabled: boolean, endpointNames: string[], name: string, source: string }[] | undefined>;
+    public readonly routes!: pulumi.Output<outputs.iot.IoTHubRoute[] | undefined>;
     /**
      * One or more `sharedAccessPolicy` blocks as defined below.
      */
-    public /*out*/ readonly sharedAccessPolicies!: pulumi.Output<{ keyName: string, permissions: string, primaryKey: string, secondaryKey: string }[]>;
+    public /*out*/ readonly sharedAccessPolicies!: pulumi.Output<outputs.iot.IoTHubSharedAccessPolicy[]>;
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<{ capacity: number, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<outputs.iot.IoTHubSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -227,7 +229,7 @@ export interface IoTHubState {
     /**
      * An `endpoint` block as defined below.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<{ batchFrequencyInSeconds?: pulumi.Input<number>, connectionString: pulumi.Input<string>, containerName?: pulumi.Input<string>, encoding?: pulumi.Input<string>, fileNameFormat?: pulumi.Input<string>, maxChunkSizeInBytes?: pulumi.Input<number>, name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
     /**
      * The EventHub compatible endpoint for events data
      */
@@ -247,7 +249,7 @@ export interface IoTHubState {
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
-    readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
+    readonly fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
     /**
      * The hostname of the IotHub Resource.
      */
@@ -255,7 +257,7 @@ export interface IoTHubState {
     /**
      * One or more `ipFilterRule` blocks as defined below.
      */
-    readonly ipFilterRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, ipMask: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
@@ -271,15 +273,15 @@ export interface IoTHubState {
     /**
      * A `route` block as defined below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<{ condition?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, endpointNames: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, source: pulumi.Input<string> }>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[]>;
     /**
      * One or more `sharedAccessPolicy` blocks as defined below.
      */
-    readonly sharedAccessPolicies?: pulumi.Input<pulumi.Input<{ keyName?: pulumi.Input<string>, permissions?: pulumi.Input<string>, primaryKey?: pulumi.Input<string>, secondaryKey?: pulumi.Input<string> }>[]>;
+    readonly sharedAccessPolicies?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubSharedAccessPolicy>[]>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.iot.IoTHubSku>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -294,15 +296,15 @@ export interface IoTHubArgs {
     /**
      * An `endpoint` block as defined below.
      */
-    readonly endpoints?: pulumi.Input<pulumi.Input<{ batchFrequencyInSeconds?: pulumi.Input<number>, connectionString: pulumi.Input<string>, containerName?: pulumi.Input<string>, encoding?: pulumi.Input<string>, fileNameFormat?: pulumi.Input<string>, maxChunkSizeInBytes?: pulumi.Input<number>, name: pulumi.Input<string>, type: pulumi.Input<string> }>[]>;
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubEndpoint>[]>;
     /**
      * A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
      */
-    readonly fallbackRoute?: pulumi.Input<{ condition?: pulumi.Input<string>, enabled?: pulumi.Input<boolean>, endpointNames?: pulumi.Input<pulumi.Input<string>[]>, source?: pulumi.Input<string> }>;
+    readonly fallbackRoute?: pulumi.Input<inputs.iot.IoTHubFallbackRoute>;
     /**
      * One or more `ipFilterRule` blocks as defined below.
      */
-    readonly ipFilterRules?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<string>, ipMask: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly ipFilterRules?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubIpFilterRule>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
@@ -318,11 +320,11 @@ export interface IoTHubArgs {
     /**
      * A `route` block as defined below.
      */
-    readonly routes?: pulumi.Input<pulumi.Input<{ condition?: pulumi.Input<string>, enabled: pulumi.Input<boolean>, endpointNames: pulumi.Input<pulumi.Input<string>[]>, name: pulumi.Input<string>, source: pulumi.Input<string> }>[]>;
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.iot.IoTHubRoute>[]>;
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputs.iot.IoTHubSku>;
     /**
      * A mapping of tags to assign to the resource.
      */

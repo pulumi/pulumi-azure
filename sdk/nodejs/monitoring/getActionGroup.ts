@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const example = pulumi.output(azure.monitoring.getActionGroup({
+ * const example = azure.monitoring.getActionGroup({
  *     name: "tfex-actiongroup",
  *     resourceGroupName: "example-rg",
- * }));
+ * });
  * 
  * export const actionGroupId = example.id;
  * ```
@@ -60,7 +62,7 @@ export interface GetActionGroupResult {
     /**
      * One or more `emailReceiver` blocks as defined below.
      */
-    readonly emailReceivers: { emailAddress: string, name: string }[];
+    readonly emailReceivers: outputs.monitoring.GetActionGroupEmailReceiver[];
     /**
      * Whether this action group is enabled.
      */
@@ -77,11 +79,11 @@ export interface GetActionGroupResult {
     /**
      * One or more `smsReceiver ` blocks as defined below.
      */
-    readonly smsReceivers: { countryCode: string, name: string, phoneNumber: string }[];
+    readonly smsReceivers: outputs.monitoring.GetActionGroupSmsReceiver[];
     /**
      * One or more `webhookReceiver ` blocks as defined below.
      */
-    readonly webhookReceivers: { name: string, serviceUri: string }[];
+    readonly webhookReceivers: outputs.monitoring.GetActionGroupWebhookReceiver[];
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

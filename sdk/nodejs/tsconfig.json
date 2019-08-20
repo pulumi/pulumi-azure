@@ -460,6 +460,9 @@
         "trafficmanager/getGeographicalLocation.ts",
         "trafficmanager/index.ts",
         "trafficmanager/profile.ts",
+        "types/index.ts",
+        "types/input.ts",
+        "types/output.ts",
         "util.ts",
         "utilities.ts"
     ]

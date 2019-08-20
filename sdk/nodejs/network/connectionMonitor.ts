@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -136,7 +138,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * A `destination` block as defined below.
      */
-    public readonly destination!: pulumi.Output<{ address?: string, port: number, virtualMachineId?: string }>;
+    public readonly destination!: pulumi.Output<outputs.network.ConnectionMonitorDestination>;
     /**
      * Monitoring interval in seconds. Defaults to `60`.
      */
@@ -160,7 +162,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * A `source` block as defined below.
      */
-    public readonly source!: pulumi.Output<{ port?: number, virtualMachineId: string }>;
+    public readonly source!: pulumi.Output<outputs.network.ConnectionMonitorSource>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -233,7 +235,7 @@ export interface ConnectionMonitorState {
     /**
      * A `destination` block as defined below.
      */
-    readonly destination?: pulumi.Input<{ address?: pulumi.Input<string>, port: pulumi.Input<number>, virtualMachineId?: pulumi.Input<string> }>;
+    readonly destination?: pulumi.Input<inputs.network.ConnectionMonitorDestination>;
     /**
      * Monitoring interval in seconds. Defaults to `60`.
      */
@@ -257,7 +259,7 @@ export interface ConnectionMonitorState {
     /**
      * A `source` block as defined below.
      */
-    readonly source?: pulumi.Input<{ port?: pulumi.Input<number>, virtualMachineId: pulumi.Input<string> }>;
+    readonly source?: pulumi.Input<inputs.network.ConnectionMonitorSource>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -275,7 +277,7 @@ export interface ConnectionMonitorArgs {
     /**
      * A `destination` block as defined below.
      */
-    readonly destination: pulumi.Input<{ address?: pulumi.Input<string>, port: pulumi.Input<number>, virtualMachineId?: pulumi.Input<string> }>;
+    readonly destination: pulumi.Input<inputs.network.ConnectionMonitorDestination>;
     /**
      * Monitoring interval in seconds. Defaults to `60`.
      */
@@ -299,7 +301,7 @@ export interface ConnectionMonitorArgs {
     /**
      * A `source` block as defined below.
      */
-    readonly source: pulumi.Input<{ port?: pulumi.Input<number>, virtualMachineId: pulumi.Input<string> }>;
+    readonly source: pulumi.Input<inputs.network.ConnectionMonitorSource>;
     /**
      * A mapping of tags to assign to the resource.
      */

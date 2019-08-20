@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -93,7 +95,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
-    public readonly import!: pulumi.Output<{ administratorLogin: string, administratorLoginPassword: string, authenticationType: string, operationMode?: string, storageKey: string, storageKeyType: string, storageUri: string } | undefined>;
+    public readonly import!: pulumi.Output<outputs.sql.DatabaseImport | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -146,7 +148,7 @@ export class Database extends pulumi.CustomResource {
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
-    public readonly threatDetectionPolicy!: pulumi.Output<{ disabledAlerts?: string[], emailAccountAdmins?: string, emailAddresses?: string[], retentionDays?: number, state?: string, storageAccountAccessKey?: string, storageEndpoint?: string, useServerDefault?: string }>;
+    public readonly threatDetectionPolicy!: pulumi.Output<outputs.sql.DatabaseThreatDetectionPolicy>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -254,7 +256,7 @@ export interface DatabaseState {
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
-    readonly import?: pulumi.Input<{ administratorLogin: pulumi.Input<string>, administratorLoginPassword: pulumi.Input<string>, authenticationType: pulumi.Input<string>, operationMode?: pulumi.Input<string>, storageKey: pulumi.Input<string>, storageKeyType: pulumi.Input<string>, storageUri: pulumi.Input<string> }>;
+    readonly import?: pulumi.Input<inputs.sql.DatabaseImport>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -307,7 +309,7 @@ export interface DatabaseState {
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
-    readonly threatDetectionPolicy?: pulumi.Input<{ disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>, emailAccountAdmins?: pulumi.Input<string>, emailAddresses?: pulumi.Input<pulumi.Input<string>[]>, retentionDays?: pulumi.Input<number>, state?: pulumi.Input<string>, storageAccountAccessKey?: pulumi.Input<string>, storageEndpoint?: pulumi.Input<string>, useServerDefault?: pulumi.Input<string> }>;
+    readonly threatDetectionPolicy?: pulumi.Input<inputs.sql.DatabaseThreatDetectionPolicy>;
 }
 
 /**
@@ -333,7 +335,7 @@ export interface DatabaseArgs {
     /**
      * A Database Import block as documented below. `createMode` must be set to `Default`.
      */
-    readonly import?: pulumi.Input<{ administratorLogin: pulumi.Input<string>, administratorLoginPassword: pulumi.Input<string>, authenticationType: pulumi.Input<string>, operationMode?: pulumi.Input<string>, storageKey: pulumi.Input<string>, storageKeyType: pulumi.Input<string>, storageUri: pulumi.Input<string> }>;
+    readonly import?: pulumi.Input<inputs.sql.DatabaseImport>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -386,5 +388,5 @@ export interface DatabaseArgs {
     /**
      * Threat detection policy configuration. The `threatDetectionPolicy` block supports fields documented below.
      */
-    readonly threatDetectionPolicy?: pulumi.Input<{ disabledAlerts?: pulumi.Input<pulumi.Input<string>[]>, emailAccountAdmins?: pulumi.Input<string>, emailAddresses?: pulumi.Input<pulumi.Input<string>[]>, retentionDays?: pulumi.Input<number>, state?: pulumi.Input<string>, storageAccountAccessKey?: pulumi.Input<string>, storageEndpoint?: pulumi.Input<string>, useServerDefault?: pulumi.Input<string> }>;
+    readonly threatDetectionPolicy?: pulumi.Input<inputs.sql.DatabaseThreatDetectionPolicy>;
 }

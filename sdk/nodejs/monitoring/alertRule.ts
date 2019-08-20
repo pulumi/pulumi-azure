@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -113,7 +115,7 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * A `emailAction` block as defined below.
      */
-    public readonly emailAction!: pulumi.Output<{ customEmails: string[], sendToServiceOwners: boolean }>;
+    public readonly emailAction!: pulumi.Output<outputs.monitoring.AlertRuleEmailAction>;
     /**
      * If `true`, the alert rule is enabled. Defaults to `true`.
      */
@@ -157,7 +159,7 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * A `webhookAction` block as defined below.
      */
-    public readonly webhookAction!: pulumi.Output<{ properties: {[key: string]: string}, serviceUri: string }>;
+    public readonly webhookAction!: pulumi.Output<outputs.monitoring.AlertRuleWebhookAction>;
 
     /**
      * Create a AlertRule resource with the given unique name, arguments, and options.
@@ -249,7 +251,7 @@ export interface AlertRuleState {
     /**
      * A `emailAction` block as defined below.
      */
-    readonly emailAction?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToServiceOwners?: pulumi.Input<boolean> }>;
+    readonly emailAction?: pulumi.Input<inputs.monitoring.AlertRuleEmailAction>;
     /**
      * If `true`, the alert rule is enabled. Defaults to `true`.
      */
@@ -293,7 +295,7 @@ export interface AlertRuleState {
     /**
      * A `webhookAction` block as defined below.
      */
-    readonly webhookAction?: pulumi.Input<{ properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serviceUri: pulumi.Input<string> }>;
+    readonly webhookAction?: pulumi.Input<inputs.monitoring.AlertRuleWebhookAction>;
 }
 
 /**
@@ -311,7 +313,7 @@ export interface AlertRuleArgs {
     /**
      * A `emailAction` block as defined below.
      */
-    readonly emailAction?: pulumi.Input<{ customEmails?: pulumi.Input<pulumi.Input<string>[]>, sendToServiceOwners?: pulumi.Input<boolean> }>;
+    readonly emailAction?: pulumi.Input<inputs.monitoring.AlertRuleEmailAction>;
     /**
      * If `true`, the alert rule is enabled. Defaults to `true`.
      */
@@ -355,5 +357,5 @@ export interface AlertRuleArgs {
     /**
      * A `webhookAction` block as defined below.
      */
-    readonly webhookAction?: pulumi.Input<{ properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>, serviceUri: pulumi.Input<string> }>;
+    readonly webhookAction?: pulumi.Input<inputs.monitoring.AlertRuleWebhookAction>;
 }

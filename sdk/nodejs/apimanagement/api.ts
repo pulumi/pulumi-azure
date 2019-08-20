@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -87,7 +89,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * A `import` block as documented below.
      */
-    public readonly import!: pulumi.Output<{ contentFormat: string, contentValue: string, wsdlSelector?: { endpointName: string, serviceName: string } } | undefined>;
+    public readonly import!: pulumi.Output<outputs.apimanagement.ApiImport | undefined>;
     /**
      * Is this the current API Revision?
      */
@@ -127,7 +129,7 @@ export class Api extends pulumi.CustomResource {
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    public readonly subscriptionKeyParameterNames!: pulumi.Output<{ header: string, query: string }>;
+    public readonly subscriptionKeyParameterNames!: pulumi.Output<outputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
      * The Version number of this API, if this API is versioned.
      */
@@ -232,7 +234,7 @@ export interface ApiState {
     /**
      * A `import` block as documented below.
      */
-    readonly import?: pulumi.Input<{ contentFormat: pulumi.Input<string>, contentValue: pulumi.Input<string>, wsdlSelector?: pulumi.Input<{ endpointName: pulumi.Input<string>, serviceName: pulumi.Input<string> }> }>;
+    readonly import?: pulumi.Input<inputs.apimanagement.ApiImport>;
     /**
      * Is this the current API Revision?
      */
@@ -272,7 +274,7 @@ export interface ApiState {
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    readonly subscriptionKeyParameterNames?: pulumi.Input<{ header: pulumi.Input<string>, query: pulumi.Input<string> }>;
+    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
     /**
      * The Version number of this API, if this API is versioned.
      */
@@ -302,7 +304,7 @@ export interface ApiArgs {
     /**
      * A `import` block as documented below.
      */
-    readonly import?: pulumi.Input<{ contentFormat: pulumi.Input<string>, contentValue: pulumi.Input<string>, wsdlSelector?: pulumi.Input<{ endpointName: pulumi.Input<string>, serviceName: pulumi.Input<string> }> }>;
+    readonly import?: pulumi.Input<inputs.apimanagement.ApiImport>;
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
      */
@@ -334,5 +336,5 @@ export interface ApiArgs {
     /**
      * A `subscriptionKeyParameterNames` block as documented below.
      */
-    readonly subscriptionKeyParameterNames?: pulumi.Input<{ header: pulumi.Input<string>, query: pulumi.Input<string> }>;
+    readonly subscriptionKeyParameterNames?: pulumi.Input<inputs.apimanagement.ApiSubscriptionKeyParameterNames>;
 }

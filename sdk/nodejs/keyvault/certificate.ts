@@ -2,106 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Key Vault Certificate.
- * 
- * ## Example Usage (Importing a PFX)
- * 
- * > **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- * 
- * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "West Europe",
- *     name: "key-vault-certificate-example",
- * });
- * const current = pulumi.output(azure.core.getClientConfig({}));
- * const testKeyVault = new azure.keyvault.KeyVault("test", {
- *     accessPolicies: [{
- *         certificatePermissions: [
- *             "create",
- *             "delete",
- *             "deleteissuers",
- *             "get",
- *             "getissuers",
- *             "import",
- *             "list",
- *             "listissuers",
- *             "managecontacts",
- *             "manageissuers",
- *             "setissuers",
- *             "update",
- *         ],
- *         keyPermissions: [
- *             "backup",
- *             "create",
- *             "decrypt",
- *             "delete",
- *             "encrypt",
- *             "get",
- *             "import",
- *             "list",
- *             "purge",
- *             "recover",
- *             "restore",
- *             "sign",
- *             "unwrapKey",
- *             "update",
- *             "verify",
- *             "wrapKey",
- *         ],
- *         objectId: current.servicePrincipalObjectId,
- *         secretPermissions: [
- *             "backup",
- *             "delete",
- *             "get",
- *             "list",
- *             "purge",
- *             "recover",
- *             "restore",
- *             "set",
- *         ],
- *         tenantId: current.tenantId,
- *     }],
- *     location: testResourceGroup.location,
- *     name: "keyvaultcertexample",
- *     resourceGroupName: testResourceGroup.name,
- *     skuName: "standard",
- *     tags: {
- *         environment: "Production",
- *     },
- *     tenantId: current.tenantId,
- * });
- * const testCertificate = new azure.keyvault.Certificate("test", {
- *     certificate: {
- *         contents: (() => {
- *             throw "tf2pulumi error: NYI: call to filebase64";
- *             return (() => { throw "NYI: call to filebase64"; })();
- *         })(),
- *         password: "",
- *     },
- *     certificatePolicy: {
- *         issuerParameters: {
- *             name: "Self",
- *         },
- *         keyProperties: {
- *             exportable: true,
- *             keySize: 2048,
- *             keyType: "RSA",
- *             reuseKey: false,
- *         },
- *         secretProperties: {
- *             contentType: "application/x-pkcs12",
- *         },
- *     },
- *     keyVaultId: testKeyVault.id,
- *     name: "imported-cert",
- * });
- * ```
  * 
  * ## Example Usage (Generating a new certificate)
  * 
@@ -113,7 +19,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     name: "key-vault-certificate-example",
  * });
- * const current = pulumi.output(azure.core.getClientConfig({}));
+ * const current = azure.core.getClientConfig({});
  * const testKeyVault = new azure.keyvault.KeyVault("test", {
  *     accessPolicies: [{
  *         certificatePermissions: [
@@ -251,7 +157,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    public readonly certificate!: pulumi.Output<{ contents: string, password?: string } | undefined>;
+    public readonly certificate!: pulumi.Output<outputs.keyvault.CertificateCertificate | undefined>;
     /**
      * The raw Key Vault Certificate.
      */
@@ -259,7 +165,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * A `certificatePolicy` block as defined below.
      */
-    public readonly certificatePolicy!: pulumi.Output<{ issuerParameters: { name: string }, keyProperties: { exportable: boolean, keySize: number, keyType: string, reuseKey: boolean }, lifetimeActions?: { action: { actionType: string }, trigger: { daysBeforeExpiry?: number, lifetimePercentage?: number } }[], secretProperties: { contentType: string }, x509CertificateProperties: { extendedKeyUsages: string[], keyUsages: string[], subject: string, subjectAlternativeNames: { dnsNames?: string[], emails?: string[], upns?: string[] }, validityInMonths: number } }>;
+    public readonly certificatePolicy!: pulumi.Output<outputs.keyvault.CertificateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
@@ -344,7 +250,7 @@ export interface CertificateState {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    readonly certificate?: pulumi.Input<{ contents: pulumi.Input<string>, password?: pulumi.Input<string> }>;
+    readonly certificate?: pulumi.Input<inputs.keyvault.CertificateCertificate>;
     /**
      * The raw Key Vault Certificate.
      */
@@ -352,7 +258,7 @@ export interface CertificateState {
     /**
      * A `certificatePolicy` block as defined below.
      */
-    readonly certificatePolicy?: pulumi.Input<{ issuerParameters: pulumi.Input<{ name: pulumi.Input<string> }>, keyProperties: pulumi.Input<{ exportable: pulumi.Input<boolean>, keySize: pulumi.Input<number>, keyType: pulumi.Input<string>, reuseKey: pulumi.Input<boolean> }>, lifetimeActions?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ actionType: pulumi.Input<string> }>, trigger: pulumi.Input<{ daysBeforeExpiry?: pulumi.Input<number>, lifetimePercentage?: pulumi.Input<number> }> }>[]>, secretProperties: pulumi.Input<{ contentType: pulumi.Input<string> }>, x509CertificateProperties?: pulumi.Input<{ extendedKeyUsages?: pulumi.Input<pulumi.Input<string>[]>, keyUsages: pulumi.Input<pulumi.Input<string>[]>, subject: pulumi.Input<string>, subjectAlternativeNames?: pulumi.Input<{ dnsNames?: pulumi.Input<pulumi.Input<string>[]>, emails?: pulumi.Input<pulumi.Input<string>[]>, upns?: pulumi.Input<pulumi.Input<string>[]> }>, validityInMonths: pulumi.Input<number> }> }>;
+    readonly certificatePolicy?: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */
@@ -387,11 +293,11 @@ export interface CertificateArgs {
     /**
      * A `certificate` block as defined below, used to Import an existing certificate.
      */
-    readonly certificate?: pulumi.Input<{ contents: pulumi.Input<string>, password?: pulumi.Input<string> }>;
+    readonly certificate?: pulumi.Input<inputs.keyvault.CertificateCertificate>;
     /**
      * A `certificatePolicy` block as defined below.
      */
-    readonly certificatePolicy: pulumi.Input<{ issuerParameters: pulumi.Input<{ name: pulumi.Input<string> }>, keyProperties: pulumi.Input<{ exportable: pulumi.Input<boolean>, keySize: pulumi.Input<number>, keyType: pulumi.Input<string>, reuseKey: pulumi.Input<boolean> }>, lifetimeActions?: pulumi.Input<pulumi.Input<{ action: pulumi.Input<{ actionType: pulumi.Input<string> }>, trigger: pulumi.Input<{ daysBeforeExpiry?: pulumi.Input<number>, lifetimePercentage?: pulumi.Input<number> }> }>[]>, secretProperties: pulumi.Input<{ contentType: pulumi.Input<string> }>, x509CertificateProperties?: pulumi.Input<{ extendedKeyUsages?: pulumi.Input<pulumi.Input<string>[]>, keyUsages: pulumi.Input<pulumi.Input<string>[]>, subject: pulumi.Input<string>, subjectAlternativeNames?: pulumi.Input<{ dnsNames?: pulumi.Input<pulumi.Input<string>[]>, emails?: pulumi.Input<pulumi.Input<string>[]>, upns?: pulumi.Input<pulumi.Input<string>[]> }>, validityInMonths: pulumi.Input<number> }> }>;
+    readonly certificatePolicy: pulumi.Input<inputs.keyvault.CertificateCertificatePolicy>;
     /**
      * The ID of the Key Vault where the Certificate should be created.
      */

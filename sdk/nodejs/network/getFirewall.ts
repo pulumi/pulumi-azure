@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -13,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const test = pulumi.output(azure.network.getFirewall({
+ * const test = azure.network.getFirewall({
  *     name: "firewall1",
  *     resourceGroupName: "firewall-RG",
- * }));
+ * });
  * 
  * export const firewallPrivateIp = test.ipConfiguration.privateIpAddress;
  * ```
@@ -60,7 +62,7 @@ export interface GetFirewallResult {
     /**
      * A `ipConfiguration` block as defined below.
      */
-    readonly ipConfiguration: { internalPublicIpAddressId: string, name: string, privateIpAddress: string, publicIpAddressId: string, subnetId: string };
+    readonly ipConfiguration: outputs.network.GetFirewallIpConfiguration;
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -19,7 +21,7 @@ import * as utilities from "../utilities";
  *     location: "northeurope",
  *     name: "example",
  * });
- * const current = pulumi.output(azure.core.getClientConfig({}));
+ * const current = azure.core.getClientConfig({});
  * const exampleFactory = new azure.datafactory.Factory("example", {
  *     location: exampleResourceGroup.location,
  *     name: "example",

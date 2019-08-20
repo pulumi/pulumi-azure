@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -41,7 +43,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * A `bootDiagnostics` block.
      */
-    public readonly bootDiagnostics!: pulumi.Output<{ enabled: boolean, storageUri: string } | undefined>;
+    public readonly bootDiagnostics!: pulumi.Output<outputs.compute.VirtualMachineBootDiagnostics | undefined>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      */
@@ -53,7 +55,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * A `identity` block.
      */
-    public readonly identity!: pulumi.Output<{ identityIds?: string[], principalId: string, type: string }>;
+    public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineIdentity>;
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      */
@@ -73,23 +75,23 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
-    public readonly osProfile!: pulumi.Output<{ adminPassword?: string, adminUsername: string, computerName: string, customData: string } | undefined>;
+    public readonly osProfile!: pulumi.Output<outputs.compute.VirtualMachineOsProfile | undefined>;
     /**
      * A `osProfileLinuxConfig` block.
      */
-    public readonly osProfileLinuxConfig!: pulumi.Output<{ disablePasswordAuthentication: boolean, sshKeys?: { keyData: string, path: string }[] } | undefined>;
+    public readonly osProfileLinuxConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileLinuxConfig | undefined>;
     /**
      * One or more `osProfileSecrets` blocks.
      */
-    public readonly osProfileSecrets!: pulumi.Output<{ sourceVaultId: string, vaultCertificates?: { certificateStore?: string, certificateUrl: string }[] }[] | undefined>;
+    public readonly osProfileSecrets!: pulumi.Output<outputs.compute.VirtualMachineOsProfileSecret[] | undefined>;
     /**
      * A `osProfileWindowsConfig` block.
      */
-    public readonly osProfileWindowsConfig!: pulumi.Output<{ additionalUnattendConfigs?: { component: string, content: string, pass: string, settingName: string }[], enableAutomaticUpgrades?: boolean, provisionVmAgent?: boolean, timezone?: string, winrms?: { certificateUrl?: string, protocol: string }[] } | undefined>;
+    public readonly osProfileWindowsConfig!: pulumi.Output<outputs.compute.VirtualMachineOsProfileWindowsConfig | undefined>;
     /**
      * A `plan` block.
      */
-    public readonly plan!: pulumi.Output<{ name: string, product: string, publisher: string } | undefined>;
+    public readonly plan!: pulumi.Output<outputs.compute.VirtualMachinePlan | undefined>;
     /**
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      */
@@ -101,15 +103,15 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * One or more `storageDataDisk` blocks.
      */
-    public readonly storageDataDisks!: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, lun: number, managedDiskId: string, managedDiskType: string, name: string, vhdUri?: string, writeAcceleratorEnabled?: boolean }[]>;
+    public readonly storageDataDisks!: pulumi.Output<outputs.compute.VirtualMachineStorageDataDisk[]>;
     /**
      * A `storageImageReference` block.
      */
-    public readonly storageImageReference!: pulumi.Output<{ id?: string, offer?: string, publisher?: string, sku?: string, version: string }>;
+    public readonly storageImageReference!: pulumi.Output<outputs.compute.VirtualMachineStorageImageReference>;
     /**
      * A `storageOsDisk` block.
      */
-    public readonly storageOsDisk!: pulumi.Output<{ caching: string, createOption: string, diskSizeGb: number, imageUri?: string, managedDiskId: string, managedDiskType: string, name: string, osType: string, vhdUri?: string, writeAcceleratorEnabled?: boolean }>;
+    public readonly storageOsDisk!: pulumi.Output<outputs.compute.VirtualMachineStorageOsDisk>;
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
@@ -216,7 +218,7 @@ export interface VirtualMachineState {
     /**
      * A `bootDiagnostics` block.
      */
-    readonly bootDiagnostics?: pulumi.Input<{ enabled: pulumi.Input<boolean>, storageUri: pulumi.Input<string> }>;
+    readonly bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      */
@@ -228,7 +230,7 @@ export interface VirtualMachineState {
     /**
      * A `identity` block.
      */
-    readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.compute.VirtualMachineIdentity>;
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      */
@@ -248,23 +250,23 @@ export interface VirtualMachineState {
     /**
      * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
-    readonly osProfile?: pulumi.Input<{ adminPassword?: pulumi.Input<string>, adminUsername: pulumi.Input<string>, computerName: pulumi.Input<string>, customData?: pulumi.Input<string> }>;
+    readonly osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
     /**
      * A `osProfileLinuxConfig` block.
      */
-    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication: pulumi.Input<boolean>, sshKeys?: pulumi.Input<pulumi.Input<{ keyData: pulumi.Input<string>, path: pulumi.Input<string> }>[]> }>;
+    readonly osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
     /**
      * One or more `osProfileSecrets` blocks.
      */
-    readonly osProfileSecrets?: pulumi.Input<pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }>[]> }>[]>;
+    readonly osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
     /**
      * A `osProfileWindowsConfig` block.
      */
-    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }>[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, timezone?: pulumi.Input<string>, winrms?: pulumi.Input<pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }>[]> }>;
+    readonly osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
     /**
      * A `plan` block.
      */
-    readonly plan?: pulumi.Input<{ name: pulumi.Input<string>, product: pulumi.Input<string>, publisher: pulumi.Input<string> }>;
+    readonly plan?: pulumi.Input<inputs.compute.VirtualMachinePlan>;
     /**
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      */
@@ -276,15 +278,15 @@ export interface VirtualMachineState {
     /**
      * One or more `storageDataDisk` blocks.
      */
-    readonly storageDataDisks?: pulumi.Input<pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, vhdUri?: pulumi.Input<string>, writeAcceleratorEnabled?: pulumi.Input<boolean> }>[]>;
+    readonly storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
      * A `storageImageReference` block.
      */
-    readonly storageImageReference?: pulumi.Input<{ id?: pulumi.Input<string>, offer?: pulumi.Input<string>, publisher?: pulumi.Input<string>, sku?: pulumi.Input<string>, version?: pulumi.Input<string> }>;
+    readonly storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference>;
     /**
      * A `storageOsDisk` block.
      */
-    readonly storageOsDisk?: pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, imageUri?: pulumi.Input<string>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, osType?: pulumi.Input<string>, vhdUri?: pulumi.Input<string>, writeAcceleratorEnabled?: pulumi.Input<boolean> }>;
+    readonly storageOsDisk?: pulumi.Input<inputs.compute.VirtualMachineStorageOsDisk>;
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */
@@ -310,7 +312,7 @@ export interface VirtualMachineArgs {
     /**
      * A `bootDiagnostics` block.
      */
-    readonly bootDiagnostics?: pulumi.Input<{ enabled: pulumi.Input<boolean>, storageUri: pulumi.Input<string> }>;
+    readonly bootDiagnostics?: pulumi.Input<inputs.compute.VirtualMachineBootDiagnostics>;
     /**
      * Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
      */
@@ -322,7 +324,7 @@ export interface VirtualMachineArgs {
     /**
      * A `identity` block.
      */
-    readonly identity?: pulumi.Input<{ identityIds?: pulumi.Input<pulumi.Input<string>[]>, principalId?: pulumi.Input<string>, type: pulumi.Input<string> }>;
+    readonly identity?: pulumi.Input<inputs.compute.VirtualMachineIdentity>;
     /**
      * Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
      */
@@ -342,23 +344,23 @@ export interface VirtualMachineArgs {
     /**
      * An `osProfile` block. Required when `createOption` in the `storageOsDisk` block is set to `FromImage`.
      */
-    readonly osProfile?: pulumi.Input<{ adminPassword?: pulumi.Input<string>, adminUsername: pulumi.Input<string>, computerName: pulumi.Input<string>, customData?: pulumi.Input<string> }>;
+    readonly osProfile?: pulumi.Input<inputs.compute.VirtualMachineOsProfile>;
     /**
      * A `osProfileLinuxConfig` block.
      */
-    readonly osProfileLinuxConfig?: pulumi.Input<{ disablePasswordAuthentication: pulumi.Input<boolean>, sshKeys?: pulumi.Input<pulumi.Input<{ keyData: pulumi.Input<string>, path: pulumi.Input<string> }>[]> }>;
+    readonly osProfileLinuxConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileLinuxConfig>;
     /**
      * One or more `osProfileSecrets` blocks.
      */
-    readonly osProfileSecrets?: pulumi.Input<pulumi.Input<{ sourceVaultId: pulumi.Input<string>, vaultCertificates?: pulumi.Input<pulumi.Input<{ certificateStore?: pulumi.Input<string>, certificateUrl: pulumi.Input<string> }>[]> }>[]>;
+    readonly osProfileSecrets?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineOsProfileSecret>[]>;
     /**
      * A `osProfileWindowsConfig` block.
      */
-    readonly osProfileWindowsConfig?: pulumi.Input<{ additionalUnattendConfigs?: pulumi.Input<pulumi.Input<{ component: pulumi.Input<string>, content: pulumi.Input<string>, pass: pulumi.Input<string>, settingName: pulumi.Input<string> }>[]>, enableAutomaticUpgrades?: pulumi.Input<boolean>, provisionVmAgent?: pulumi.Input<boolean>, timezone?: pulumi.Input<string>, winrms?: pulumi.Input<pulumi.Input<{ certificateUrl?: pulumi.Input<string>, protocol: pulumi.Input<string> }>[]> }>;
+    readonly osProfileWindowsConfig?: pulumi.Input<inputs.compute.VirtualMachineOsProfileWindowsConfig>;
     /**
      * A `plan` block.
      */
-    readonly plan?: pulumi.Input<{ name: pulumi.Input<string>, product: pulumi.Input<string>, publisher: pulumi.Input<string> }>;
+    readonly plan?: pulumi.Input<inputs.compute.VirtualMachinePlan>;
     /**
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      */
@@ -370,15 +372,15 @@ export interface VirtualMachineArgs {
     /**
      * One or more `storageDataDisk` blocks.
      */
-    readonly storageDataDisks?: pulumi.Input<pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, lun: pulumi.Input<number>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, vhdUri?: pulumi.Input<string>, writeAcceleratorEnabled?: pulumi.Input<boolean> }>[]>;
+    readonly storageDataDisks?: pulumi.Input<pulumi.Input<inputs.compute.VirtualMachineStorageDataDisk>[]>;
     /**
      * A `storageImageReference` block.
      */
-    readonly storageImageReference?: pulumi.Input<{ id?: pulumi.Input<string>, offer?: pulumi.Input<string>, publisher?: pulumi.Input<string>, sku?: pulumi.Input<string>, version?: pulumi.Input<string> }>;
+    readonly storageImageReference?: pulumi.Input<inputs.compute.VirtualMachineStorageImageReference>;
     /**
      * A `storageOsDisk` block.
      */
-    readonly storageOsDisk: pulumi.Input<{ caching?: pulumi.Input<string>, createOption: pulumi.Input<string>, diskSizeGb?: pulumi.Input<number>, imageUri?: pulumi.Input<string>, managedDiskId?: pulumi.Input<string>, managedDiskType?: pulumi.Input<string>, name: pulumi.Input<string>, osType?: pulumi.Input<string>, vhdUri?: pulumi.Input<string>, writeAcceleratorEnabled?: pulumi.Input<boolean> }>;
+    readonly storageOsDisk: pulumi.Input<inputs.compute.VirtualMachineStorageOsDisk>;
     /**
      * A mapping of tags to assign to the Virtual Machine.
      */

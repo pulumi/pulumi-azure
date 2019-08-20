@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +73,7 @@ export class Snapshot extends pulumi.CustomResource {
      * The size of the Snapshotted Disk in GB.
      */
     public readonly diskSizeGb!: pulumi.Output<number>;
-    public readonly encryptionSettings!: pulumi.Output<{ diskEncryptionKey?: { secretUrl: string, sourceVaultId: string }, enabled: boolean, keyEncryptionKey?: { keyUrl: string, sourceVaultId: string } } | undefined>;
+    public readonly encryptionSettings!: pulumi.Output<outputs.compute.SnapshotEncryptionSettings | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -165,7 +167,7 @@ export interface SnapshotState {
      * The size of the Snapshotted Disk in GB.
      */
     readonly diskSizeGb?: pulumi.Input<number>;
-    readonly encryptionSettings?: pulumi.Input<{ diskEncryptionKey?: pulumi.Input<{ secretUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, keyEncryptionKey?: pulumi.Input<{ keyUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }> }>;
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -208,7 +210,7 @@ export interface SnapshotArgs {
      * The size of the Snapshotted Disk in GB.
      */
     readonly diskSizeGb?: pulumi.Input<number>;
-    readonly encryptionSettings?: pulumi.Input<{ diskEncryptionKey?: pulumi.Input<{ secretUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }>, enabled: pulumi.Input<boolean>, keyEncryptionKey?: pulumi.Input<{ keyUrl: pulumi.Input<string>, sourceVaultId: pulumi.Input<string> }> }>;
+    readonly encryptionSettings?: pulumi.Input<inputs.compute.SnapshotEncryptionSettings>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

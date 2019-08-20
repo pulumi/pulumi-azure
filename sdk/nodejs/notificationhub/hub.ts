@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -64,11 +66,11 @@ export class Hub extends pulumi.CustomResource {
     /**
      * A `apnsCredential` block as defined below.
      */
-    public readonly apnsCredential!: pulumi.Output<{ applicationMode: string, bundleId: string, keyId: string, teamId: string, token: string } | undefined>;
+    public readonly apnsCredential!: pulumi.Output<outputs.notificationhub.HubApnsCredential | undefined>;
     /**
      * A `gcmCredential` block as defined below.
      */
-    public readonly gcmCredential!: pulumi.Output<{ apiKey: string } | undefined>;
+    public readonly gcmCredential!: pulumi.Output<outputs.notificationhub.HubGcmCredential | undefined>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
@@ -137,11 +139,11 @@ export interface HubState {
     /**
      * A `apnsCredential` block as defined below.
      */
-    readonly apnsCredential?: pulumi.Input<{ applicationMode: pulumi.Input<string>, bundleId: pulumi.Input<string>, keyId: pulumi.Input<string>, teamId: pulumi.Input<string>, token: pulumi.Input<string> }>;
+    readonly apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
     /**
      * A `gcmCredential` block as defined below.
      */
-    readonly gcmCredential?: pulumi.Input<{ apiKey: pulumi.Input<string> }>;
+    readonly gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */
@@ -167,11 +169,11 @@ export interface HubArgs {
     /**
      * A `apnsCredential` block as defined below.
      */
-    readonly apnsCredential?: pulumi.Input<{ applicationMode: pulumi.Input<string>, bundleId: pulumi.Input<string>, keyId: pulumi.Input<string>, teamId: pulumi.Input<string>, token: pulumi.Input<string> }>;
+    readonly apnsCredential?: pulumi.Input<inputs.notificationhub.HubApnsCredential>;
     /**
      * A `gcmCredential` block as defined below.
      */
-    readonly gcmCredential?: pulumi.Input<{ apiKey: pulumi.Input<string> }>;
+    readonly gcmCredential?: pulumi.Input<inputs.notificationhub.HubGcmCredential>;
     /**
      * The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created.
      */

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -66,7 +68,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * A `peerings` block for the ExpressRoute circuit as documented below
      */
-    readonly peerings: { azureAsn: number, peerAsn: number, peeringType: string, primaryPeerAddressPrefix: string, secondaryPeerAddressPrefix: string, sharedKey: string, vlanId: number }[];
+    readonly peerings: outputs.network.GetExpressRouteCircuitPeering[];
     readonly resourceGroupName: string;
     /**
      * The string needed by the service provider to provision the ExpressRoute circuit.
@@ -75,7 +77,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * A `serviceProviderProperties` block for the ExpressRoute circuit as documented below
      */
-    readonly serviceProviderProperties: { bandwidthInMbps: number, peeringLocation: string, serviceProviderName: string }[];
+    readonly serviceProviderProperties: outputs.network.GetExpressRouteCircuitServiceProviderProperty[];
     /**
      * The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
      */
@@ -83,7 +85,7 @@ export interface GetExpressRouteCircuitResult {
     /**
      * A `sku` block for the ExpressRoute circuit as documented below.
      */
-    readonly sku: { family: string, tier: string };
+    readonly sku: outputs.network.GetExpressRouteCircuitSku;
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

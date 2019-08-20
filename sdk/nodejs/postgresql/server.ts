@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -95,7 +97,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * A `sku` block as defined below.
      */
-    public readonly sku!: pulumi.Output<{ capacity: number, family: string, name: string, tier: string }>;
+    public readonly sku!: pulumi.Output<outputs.postgresql.ServerSku>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
      */
@@ -103,7 +105,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * A `storageProfile` block as defined below.
      */
-    public readonly storageProfile!: pulumi.Output<{ backupRetentionDays?: number, geoRedundantBackup?: string, storageMb: number }>;
+    public readonly storageProfile!: pulumi.Output<outputs.postgresql.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -213,7 +215,7 @@ export interface ServerState {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku?: pulumi.Input<{ capacity: pulumi.Input<number>, family: pulumi.Input<string>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku?: pulumi.Input<inputs.postgresql.ServerSku>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
      */
@@ -221,7 +223,7 @@ export interface ServerState {
     /**
      * A `storageProfile` block as defined below.
      */
-    readonly storageProfile?: pulumi.Input<{ backupRetentionDays?: pulumi.Input<number>, geoRedundantBackup?: pulumi.Input<string>, storageMb: pulumi.Input<number> }>;
+    readonly storageProfile?: pulumi.Input<inputs.postgresql.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -259,7 +261,7 @@ export interface ServerArgs {
     /**
      * A `sku` block as defined below.
      */
-    readonly sku: pulumi.Input<{ capacity: pulumi.Input<number>, family: pulumi.Input<string>, name: pulumi.Input<string>, tier: pulumi.Input<string> }>;
+    readonly sku: pulumi.Input<inputs.postgresql.ServerSku>;
     /**
      * Specifies if SSL should be enforced on connections. Possible values are `Enabled` and `Disabled`.
      */
@@ -267,7 +269,7 @@ export interface ServerArgs {
     /**
      * A `storageProfile` block as defined below.
      */
-    readonly storageProfile: pulumi.Input<{ backupRetentionDays?: pulumi.Input<number>, geoRedundantBackup?: pulumi.Input<string>, storageMb: pulumi.Input<number> }>;
+    readonly storageProfile: pulumi.Input<inputs.postgresql.ServerStorageProfile>;
     /**
      * A mapping of tags to assign to the resource.
      */
