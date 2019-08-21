@@ -8,7 +8,6 @@ const exampleResourceGroup = new azure.core.ResourceGroup("example");
 // has created the correct alias between `azure.eventhub.Namespace` and
 // `azure.servicebus.Namespace`
 const exampleNamespace = new azure.eventhub.Namespace("example", {
-    name: "servicebus-namespavce",
     resourceGroupName: exampleResourceGroup.name,
     sku: "Standard",
     tags: {
