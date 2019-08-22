@@ -13,6 +13,7 @@ CHANGELOG
   azure.eventhub.servicebus* -> azure.servicebus.*
   azure.trafficmanager.* -> azure.network.*s
 * Upgrade to pulumi-terraform@14e049b09d
+* Upgrade to v1.33.0 of the Azurerm Terraform Provider
 
 ---
 

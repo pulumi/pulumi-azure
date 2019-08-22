@@ -55,7 +55,7 @@ func TestExamples(t *testing.T) {
 	shortTests := []integration.ProgramTestOptions{
 		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "minimal")}),
 		jsBase.With(integration.ProgramTestOptions{
-			Dir:           path.Join(cwd, "eventgrid"),
+			Dir: path.Join(cwd, "eventgrid"),
 		}),
 		jsBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "eventhub"),
@@ -78,8 +78,9 @@ func TestExamples(t *testing.T) {
 			RunUpdateTest: true,
 		}),
 		jsBase.With(integration.ProgramTestOptions{
-			Dir:           path.Join(cwd, "table"),
-			RunUpdateTest: true,
+			Dir:                  path.Join(cwd, "table"),
+			RunUpdateTest:        true,
+			ExpectRefreshChanges: true,
 		}),
 		jsBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "timer"),
