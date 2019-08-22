@@ -9,6 +9,10 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class TrafficManagerEndpoint(pulumi.CustomResource):
+    custom_headers: pulumi.Output[list]
+    """
+    One or more `custom_header` blocks as defined below
+    """
     endpoint_location: pulumi.Output[str]
     """
     Specifies the Azure location of the Endpoint,
@@ -57,6 +61,10 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
     The name of the resource group in which to
     create the Traffic Manager endpoint.
     """
+    subnets: pulumi.Output[list]
+    """
+    One or more `subnet` blocks as defined below
+    """
     target: pulumi.Output[str]
     """
     The FQDN DNS name of the target. This argument must be
@@ -82,12 +90,13 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
     endpoint, this must be specified for Profiles using the  `Weighted` traffic
     routing method. Supports values between 1 and 1000.
     """
-    def __init__(__self__, resource_name, opts=None, endpoint_location=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, target=None, target_resource_id=None, type=None, weight=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, custom_headers=None, endpoint_location=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Traffic Manager Endpoint.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] custom_headers: One or more `custom_header` blocks as defined below
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method
                if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
@@ -111,6 +120,7 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
                create the Traffic Manager endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Traffic Manager endpoint.
+        :param pulumi.Input[list] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target. This argument must be
                provided for an endpoint of type `externalEndpoints`, for other types it
                will be computed.
@@ -144,6 +154,7 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['custom_headers'] = custom_headers
             __props__['endpoint_location'] = endpoint_location
             __props__['endpoint_status'] = endpoint_status
             __props__['geo_mappings'] = geo_mappings
@@ -156,6 +167,7 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['subnets'] = subnets
             __props__['target'] = target
             __props__['target_resource_id'] = target_resource_id
             if type is None:
@@ -172,13 +184,14 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, target=None, target_resource_id=None, type=None, weight=None):
+    def get(resource_name, id, opts=None, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mappings=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None):
         """
         Get an existing TrafficManagerEndpoint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] custom_headers: One or more `custom_header` blocks as defined below
         :param pulumi.Input[str] endpoint_location: Specifies the Azure location of the Endpoint,
                this must be specified for Profiles using the `Performance` routing method
                if the Endpoint is of either type `nestedEndpoints` or `externalEndpoints`.
@@ -202,6 +215,7 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
                create the Traffic Manager endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the Traffic Manager endpoint.
+        :param pulumi.Input[list] subnets: One or more `subnet` blocks as defined below
         :param pulumi.Input[str] target: The FQDN DNS name of the target. This argument must be
                provided for an endpoint of type `externalEndpoints`, for other types it
                will be computed.
@@ -221,6 +235,7 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
         opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["custom_headers"] = custom_headers
         __props__["endpoint_location"] = endpoint_location
         __props__["endpoint_monitor_status"] = endpoint_monitor_status
         __props__["endpoint_status"] = endpoint_status
@@ -230,6 +245,7 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
         __props__["priority"] = priority
         __props__["profile_name"] = profile_name
         __props__["resource_group_name"] = resource_group_name
+        __props__["subnets"] = subnets
         __props__["target"] = target
         __props__["target_resource_id"] = target_resource_id
         __props__["type"] = type

@@ -75,9 +75,6 @@ export class ApiPolicy extends pulumi.CustomResource {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
-    /**
-     * The XML Content for this Policy.
-     */
     public readonly xmlContent!: pulumi.Output<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
@@ -145,9 +142,6 @@ export interface ApiPolicyState {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
-    /**
-     * The XML Content for this Policy.
-     */
     readonly xmlContent?: pulumi.Input<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.
@@ -171,9 +165,6 @@ export interface ApiPolicyArgs {
      * The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
-    /**
-     * The XML Content for this Policy.
-     */
     readonly xmlContent?: pulumi.Input<string>;
     /**
      * A link to a Policy XML Document, which must be publicly available.

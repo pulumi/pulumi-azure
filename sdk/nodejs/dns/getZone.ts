@@ -88,7 +88,7 @@ export interface GetZoneResult {
      */
     readonly tags: {[key: string]: any};
     /**
-     * The type of this DNS zone, such as `Public` or `Private`.
+     * (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
      */
     readonly zoneType: string;
     /**

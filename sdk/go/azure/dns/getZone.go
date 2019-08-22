@@ -60,7 +60,7 @@ type GetZoneResult struct {
 	ResourceGroupName interface{}
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags interface{}
-	// The type of this DNS zone, such as `Public` or `Private`.
+	// (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
 	ZoneType interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}

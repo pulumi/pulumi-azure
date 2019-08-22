@@ -28,6 +28,7 @@ func NewIoTHub(ctx *pulumi.Context,
 	if args == nil {
 		inputs["endpoints"] = nil
 		inputs["fallbackRoute"] = nil
+		inputs["fileUpload"] = nil
 		inputs["ipFilterRules"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
@@ -38,6 +39,7 @@ func NewIoTHub(ctx *pulumi.Context,
 	} else {
 		inputs["endpoints"] = args.Endpoints
 		inputs["fallbackRoute"] = args.FallbackRoute
+		inputs["fileUpload"] = args.FileUpload
 		inputs["ipFilterRules"] = args.IpFilterRules
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
@@ -72,6 +74,7 @@ func GetIoTHub(ctx *pulumi.Context,
 		inputs["eventHubOperationsEndpoint"] = state.EventHubOperationsEndpoint
 		inputs["eventHubOperationsPath"] = state.EventHubOperationsPath
 		inputs["fallbackRoute"] = state.FallbackRoute
+		inputs["fileUpload"] = state.FileUpload
 		inputs["hostname"] = state.Hostname
 		inputs["ipFilterRules"] = state.IpFilterRules
 		inputs["location"] = state.Location
@@ -128,6 +131,11 @@ func (r *IoTHub) EventHubOperationsPath() *pulumi.StringOutput {
 // A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 func (r *IoTHub) FallbackRoute() *pulumi.Output {
 	return r.s.State["fallbackRoute"]
+}
+
+// A `fileUpload` block as defined below.
+func (r *IoTHub) FileUpload() *pulumi.Output {
+	return r.s.State["fileUpload"]
 }
 
 // The hostname of the IotHub Resource.
@@ -193,6 +201,8 @@ type IoTHubState struct {
 	EventHubOperationsPath interface{}
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	FallbackRoute interface{}
+	// A `fileUpload` block as defined below.
+	FileUpload interface{}
 	// The hostname of the IotHub Resource.
 	Hostname interface{}
 	// One or more `ipFilterRule` blocks as defined below.
@@ -220,6 +230,8 @@ type IoTHubArgs struct {
 	Endpoints interface{}
 	// A `fallbackRoute` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
 	FallbackRoute interface{}
+	// A `fileUpload` block as defined below.
+	FileUpload interface{}
 	// One or more `ipFilterRule` blocks as defined below.
 	IpFilterRules interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.

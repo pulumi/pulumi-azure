@@ -39,7 +39,7 @@ class Group(pulumi.CustomResource):
     """
     ip_address_type: pulumi.Output[str]
     """
-    Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+    Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
     """
     location: pulumi.Output[str]
     """
@@ -48,6 +48,10 @@ class Group(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     Specifies the name of the Container Group. Changing this forces a new resource to be created.
+    """
+    network_profile_id: pulumi.Output[str]
+    """
+    Network profile ID for deploying to virtual network.
     """
     os_type: pulumi.Output[str]
     """
@@ -65,7 +69,7 @@ class Group(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, identity=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, identity=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, network_profile_id=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manage as an Azure Container Group instance.
         
@@ -76,9 +80,10 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] dns_name_label: The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[list] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to virtual network.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
@@ -113,6 +118,7 @@ class Group(pulumi.CustomResource):
             __props__['ip_address_type'] = ip_address_type
             __props__['location'] = location
             __props__['name'] = name
+            __props__['network_profile_id'] = network_profile_id
             if os_type is None:
                 raise TypeError("Missing required property 'os_type'")
             __props__['os_type'] = os_type
@@ -130,7 +136,7 @@ class Group(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, containers=None, diagnostics=None, dns_name_label=None, fqdn=None, identity=None, image_registry_credentials=None, ip_address=None, ip_address_type=None, location=None, name=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None):
+    def get(resource_name, id, opts=None, containers=None, diagnostics=None, dns_name_label=None, fqdn=None, identity=None, image_registry_credentials=None, ip_address=None, ip_address_type=None, location=None, name=None, network_profile_id=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None):
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -144,9 +150,10 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: An `identity` block as defined below.
         :param pulumi.Input[list] image_registry_credentials: A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ip_address: The IP address allocated to the container group.
-        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] ip_address_type: Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `network_profile_id` also needs to be set.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container Group. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] network_profile_id: Network profile ID for deploying to virtual network.
         :param pulumi.Input[str] os_type: The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] restart_policy: Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created.
@@ -167,6 +174,7 @@ class Group(pulumi.CustomResource):
         __props__["ip_address_type"] = ip_address_type
         __props__["location"] = location
         __props__["name"] = name
+        __props__["network_profile_id"] = network_profile_id
         __props__["os_type"] = os_type
         __props__["resource_group_name"] = resource_group_name
         __props__["restart_policy"] = restart_policy

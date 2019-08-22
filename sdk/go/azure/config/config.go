@@ -8,6 +8,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi/config"
 )
 
+// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
+// Certificate
 func GetClientCertificatePassword(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:clientCertificatePassword")
 	if err == nil {
@@ -19,6 +21,8 @@ func GetClientCertificatePassword(ctx *pulumi.Context) string {
 	return v
 }
 
+// The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+// Principal using a Client Certificate.
 func GetClientCertificatePath(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:clientCertificatePath")
 	if err == nil {
@@ -30,6 +34,7 @@ func GetClientCertificatePath(ctx *pulumi.Context) string {
 	return v
 }
 
+// The Client ID which should be used.
 func GetClientId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:clientId")
 	if err == nil {
@@ -41,6 +46,7 @@ func GetClientId(ctx *pulumi.Context) string {
 	return v
 }
 
+// The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
 func GetClientSecret(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:clientSecret")
 	if err == nil {
@@ -52,6 +58,13 @@ func GetClientSecret(ctx *pulumi.Context) string {
 	return v
 }
 
+// This will disable the x-ms-correlation-request-id header.
+func GetDisableCorrelationRequestId(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "azure:disableCorrelationRequestId")
+}
+
+// The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
+// public.
 func GetEnvironment(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:environment")
 	if err == nil {
@@ -63,6 +76,8 @@ func GetEnvironment(ctx *pulumi.Context) string {
 	return v
 }
 
+// The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
+// automatically.
 func GetMsiEndpoint(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:msiEndpoint")
 	if err == nil {
@@ -74,6 +89,7 @@ func GetMsiEndpoint(ctx *pulumi.Context) string {
 	return v
 }
 
+// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 func GetPartnerId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:partnerId")
 	if err == nil {
@@ -85,6 +101,7 @@ func GetPartnerId(ctx *pulumi.Context) string {
 	return v
 }
 
+// This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
 func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:skipCredentialsValidation")
 	if err == nil {
@@ -96,6 +113,8 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	return v
 }
 
+// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
+// registered?
 func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:skipProviderRegistration")
 	if err == nil {
@@ -107,6 +126,7 @@ func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 	return v
 }
 
+// The Subscription ID which should be used.
 func GetSubscriptionId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:subscriptionId")
 	if err == nil {
@@ -118,6 +138,7 @@ func GetSubscriptionId(ctx *pulumi.Context) string {
 	return v
 }
 
+// The Tenant ID which should be used.
 func GetTenantId(ctx *pulumi.Context) string {
 	v, err := config.Try(ctx, "azure:tenantId")
 	if err == nil {
@@ -129,6 +150,7 @@ func GetTenantId(ctx *pulumi.Context) string {
 	return v
 }
 
+// Allowed Managed Service Identity be used for Authentication.
 func GetUseMsi(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:useMsi")
 	if err == nil {

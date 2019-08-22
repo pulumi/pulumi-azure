@@ -111,7 +111,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `10.2`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
      */
     public readonly version!: pulumi.Output<string>;
 
@@ -229,7 +229,7 @@ export interface ServerState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `10.2`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
      */
     readonly version?: pulumi.Input<string>;
 }
@@ -275,7 +275,7 @@ export interface ServerArgs {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
-     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `10.2`. Changing this forces a new resource to be created.
+     * Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `11`. Changing this forces a new resource to be created.
      */
     readonly version: pulumi.Input<string>;
 }

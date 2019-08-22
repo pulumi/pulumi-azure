@@ -37,6 +37,7 @@ func NewGroup(ctx *pulumi.Context,
 		inputs["ipAddressType"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
+		inputs["networkProfileId"] = nil
 		inputs["osType"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["restartPolicy"] = nil
@@ -50,6 +51,7 @@ func NewGroup(ctx *pulumi.Context,
 		inputs["ipAddressType"] = args.IpAddressType
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
+		inputs["networkProfileId"] = args.NetworkProfileId
 		inputs["osType"] = args.OsType
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["restartPolicy"] = args.RestartPolicy
@@ -80,6 +82,7 @@ func GetGroup(ctx *pulumi.Context,
 		inputs["ipAddressType"] = state.IpAddressType
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
+		inputs["networkProfileId"] = state.NetworkProfileId
 		inputs["osType"] = state.OsType
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["restartPolicy"] = state.RestartPolicy
@@ -137,7 +140,7 @@ func (r *Group) IpAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipAddress"])
 }
 
-// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+// Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 func (r *Group) IpAddressType() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ipAddressType"])
 }
@@ -150,6 +153,11 @@ func (r *Group) Location() *pulumi.StringOutput {
 // Specifies the name of the Container Group. Changing this forces a new resource to be created.
 func (r *Group) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
+}
+
+// Network profile ID for deploying to virtual network.
+func (r *Group) NetworkProfileId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["networkProfileId"])
 }
 
 // The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
@@ -188,12 +196,14 @@ type GroupState struct {
 	ImageRegistryCredentials interface{}
 	// The IP address allocated to the container group.
 	IpAddress interface{}
-	// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+	// Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name interface{}
+	// Network profile ID for deploying to virtual network.
+	NetworkProfileId interface{}
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType interface{}
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.
@@ -216,12 +226,14 @@ type GroupArgs struct {
 	Identity interface{}
 	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials interface{}
-	// Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+	// Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
 	IpAddressType interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name interface{}
+	// Network profile ID for deploying to virtual network.
+	NetworkProfileId interface{}
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType interface{}
 	// The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created.

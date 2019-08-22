@@ -2,8 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./fabric";
 export * from "./getVMProtectionPolicy";
 export * from "./getVault";
+export * from "./networkMapping";
 export * from "./protectedVM";
+export * from "./protectionContainer";
+export * from "./protectionContainerMapping";
 export * from "./protectionPolicyVM";
+export * from "./replicatedVM";
+export * from "./replicationPolicy";
 export * from "./vault";

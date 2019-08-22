@@ -12,7 +12,7 @@ class GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
-    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_admin_configs=None, kube_admin_config_raw=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, id=None):
+    def __init__(__self__, addon_profiles=None, agent_pool_profiles=None, dns_prefix=None, fqdn=None, kube_admin_configs=None, kube_admin_config_raw=None, kube_configs=None, kube_config_raw=None, kubernetes_version=None, linux_profiles=None, location=None, name=None, network_profiles=None, node_resource_group=None, resource_group_name=None, role_based_access_controls=None, service_principals=None, tags=None, windows_profiles=None, id=None):
         if addon_profiles and not isinstance(addon_profiles, list):
             raise TypeError("Expected argument 'addon_profiles' to be a list")
         __self__.addon_profiles = addon_profiles
@@ -118,6 +118,12 @@ class GetKubernetesClusterResult:
         """
         A mapping of tags assigned to this resource.
         """
+        if windows_profiles and not isinstance(windows_profiles, list):
+            raise TypeError("Expected argument 'windows_profiles' to be a list")
+        __self__.windows_profiles = windows_profiles
+        """
+        A `windows_profile` block as documented below.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -148,6 +154,7 @@ class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
             role_based_access_controls=self.role_based_access_controls,
             service_principals=self.service_principals,
             tags=self.tags,
+            windows_profiles=self.windows_profiles,
             id=self.id)
 
 def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
@@ -188,4 +195,5 @@ def get_kubernetes_cluster(name=None,resource_group_name=None,opts=None):
         role_based_access_controls=__ret__.get('roleBasedAccessControls'),
         service_principals=__ret__.get('servicePrincipals'),
         tags=__ret__.get('tags'),
+        windows_profiles=__ret__.get('windowsProfiles'),
         id=__ret__.get('id'))

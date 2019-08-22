@@ -173,6 +173,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly httpListeners!: pulumi.Output<outputs.network.ApplicationGatewayHttpListener[]>;
     /**
+     * A `identity` block.
+     */
+    public readonly identity!: pulumi.Output<outputs.network.ApplicationGatewayIdentity>;
+    /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -252,6 +256,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["frontendPorts"] = state ? state.frontendPorts : undefined;
             inputs["gatewayIpConfigurations"] = state ? state.gatewayIpConfigurations : undefined;
             inputs["httpListeners"] = state ? state.httpListeners : undefined;
+            inputs["identity"] = state ? state.identity : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["probes"] = state ? state.probes : undefined;
@@ -306,6 +311,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["frontendPorts"] = args ? args.frontendPorts : undefined;
             inputs["gatewayIpConfigurations"] = args ? args.gatewayIpConfigurations : undefined;
             inputs["httpListeners"] = args ? args.httpListeners : undefined;
+            inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["probes"] = args ? args.probes : undefined;
@@ -381,6 +387,10 @@ export interface ApplicationGatewayState {
      * One or more `httpListener` blocks as defined below.
      */
     readonly httpListeners?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
+    /**
+     * A `identity` block.
+     */
+    readonly identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */
@@ -488,6 +498,10 @@ export interface ApplicationGatewayArgs {
      * One or more `httpListener` blocks as defined below.
      */
     readonly httpListeners: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayHttpListener>[]>;
+    /**
+     * A `identity` block.
+     */
+    readonly identity?: pulumi.Input<inputs.network.ApplicationGatewayIdentity>;
     /**
      * The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
      */

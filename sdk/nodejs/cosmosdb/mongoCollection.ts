@@ -19,9 +19,14 @@ import * as utilities from "../utilities";
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
  * });
+ * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
+ *     accountName: exampleAccount.name,
+ *     name: "tfex-cosmos-mongo-db",
+ *     resourceGroupName: exampleAccount.resourceGroupName,
+ * });
  * const exampleMongoCollection = new azure.cosmosdb.MongoCollection("example", {
  *     accountName: exampleAccount.name,
- *     databaseName: exampleAccount.name,
+ *     databaseName: exampleMongoDatabase.name,
  *     defaultTtlSeconds: 777,
  *     indexes: [
  *         {
@@ -36,11 +41,6 @@ import * as utilities from "../utilities";
  *     name: "tfex-cosmos-mongo-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     shardKey: "uniqueKey",
- * });
- * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
- *     accountName: exampleAccount.name,
- *     name: "tfex-cosmos-mongo-db",
- *     resourceGroupName: exampleAccount.resourceGroupName,
  * });
  * ```
  *

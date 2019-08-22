@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -30,9 +32,12 @@ import * as utilities from "../utilities";
  *         ttl: 100,
  *     }],
  *     monitorConfigs: [{
+ *         intervalInSeconds: 30,
  *         path: "/",
  *         port: 80,
  *         protocol: "http",
+ *         timeoutInSeconds: 9,
+ *         toleratedNumberOfFailures: 3,
  *     }],
  *     name: server.hex,
  *     resourceGroupName: testResourceGroup.name,
@@ -80,6 +85,10 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    /**
+     * One or more `customHeader` blocks as defined below
+     */
+    public readonly customHeaders!: pulumi.Output<outputs.trafficmanager.EndpointCustomHeader[] | undefined>;
     /**
      * Specifies the Azure location of the Endpoint,
      * this must be specified for Profiles using the `Performance` routing method
@@ -129,6 +138,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * One or more `subnet` blocks as defined below
+     */
+    public readonly subnets!: pulumi.Output<outputs.trafficmanager.EndpointSubnet[] | undefined>;
+    /**
      * The FQDN DNS name of the target. This argument must be
      * provided for an endpoint of type `externalEndpoints`, for other types it
      * will be computed.
@@ -166,6 +179,7 @@ export class Endpoint extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as EndpointState | undefined;
+            inputs["customHeaders"] = state ? state.customHeaders : undefined;
             inputs["endpointLocation"] = state ? state.endpointLocation : undefined;
             inputs["endpointMonitorStatus"] = state ? state.endpointMonitorStatus : undefined;
             inputs["endpointStatus"] = state ? state.endpointStatus : undefined;
@@ -175,6 +189,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["priority"] = state ? state.priority : undefined;
             inputs["profileName"] = state ? state.profileName : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            inputs["subnets"] = state ? state.subnets : undefined;
             inputs["target"] = state ? state.target : undefined;
             inputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             inputs["type"] = state ? state.type : undefined;
@@ -190,6 +205,7 @@ export class Endpoint extends pulumi.CustomResource {
             if (!args || args.type === undefined) {
                 throw new Error("Missing required property 'type'");
             }
+            inputs["customHeaders"] = args ? args.customHeaders : undefined;
             inputs["endpointLocation"] = args ? args.endpointLocation : undefined;
             inputs["endpointStatus"] = args ? args.endpointStatus : undefined;
             inputs["geoMappings"] = args ? args.geoMappings : undefined;
@@ -198,6 +214,7 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["priority"] = args ? args.priority : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnets"] = args ? args.subnets : undefined;
             inputs["target"] = args ? args.target : undefined;
             inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["type"] = args ? args.type : undefined;
@@ -219,6 +236,10 @@ export class Endpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Endpoint resources.
  */
 export interface EndpointState {
+    /**
+     * One or more `customHeader` blocks as defined below
+     */
+    readonly customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointCustomHeader>[]>;
     /**
      * Specifies the Azure location of the Endpoint,
      * this must be specified for Profiles using the `Performance` routing method
@@ -268,6 +289,10 @@ export interface EndpointState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
+     * One or more `subnet` blocks as defined below
+     */
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointSubnet>[]>;
+    /**
      * The FQDN DNS name of the target. This argument must be
      * provided for an endpoint of type `externalEndpoints`, for other types it
      * will be computed.
@@ -298,6 +323,10 @@ export interface EndpointState {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
+    /**
+     * One or more `customHeader` blocks as defined below
+     */
+    readonly customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointCustomHeader>[]>;
     /**
      * Specifies the Azure location of the Endpoint,
      * this must be specified for Profiles using the `Performance` routing method
@@ -345,6 +374,10 @@ export interface EndpointArgs {
      * create the Traffic Manager endpoint.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * One or more `subnet` blocks as defined below
+     */
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointSubnet>[]>;
     /**
      * The FQDN DNS name of the target. This argument must be
      * provided for an endpoint of type `externalEndpoints`, for other types it

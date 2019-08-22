@@ -45,6 +45,7 @@ const (
 	// modules; in general, we took naming inspiration from the Azure SDK for Go:
 	// https://godoc.org/github.com/Azure/azure-sdk-for-go
 	azureAD                  = "ad"                  // Active Directory (AAD)
+	azureAnalysisServices    = "analysisservices"    // Analysis Services
 	azureAPIManagement       = "apimanagement"       // API Management
 	azureAppInsights         = "appinsights"         // AppInsights
 	azureAppService          = "appservice"          // App Service
@@ -71,6 +72,7 @@ const (
 	azureLogAnalytics        = "loganalytics"        // Log Analytics
 	azureLogicApps           = "logicapps"           // Logic Apps
 	azureLB                  = "lb"                  // Load Balancer
+	azureMaps                = "maps"                // Maps
 	azureMariaDB             = "mariadb"             // MariaDB
 	azureEventGrid           = "eventgrid"           // Event Grid
 	azureEventHub            = "eventhub"            // Event Hub
@@ -320,6 +322,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_property":                {Tok: azureResource(azureAPIManagement, "Property")},
 			"azurerm_api_management_subscription":            {Tok: azureResource(azureAPIManagement, "Subscription")},
 			"azurerm_api_management_user":                    {Tok: azureResource(azureAPIManagement, "User")},
+			"azurerm_api_management_backend":                 {Tok: azureResource(azureAPIManagement, "Backend")},
 
 			// AppInsights
 			"azurerm_application_insights":         {Tok: azureResource(azureAppInsights, "Insights")},
@@ -423,11 +426,13 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"azurerm_container_registry_webhook": {Tok: azureResource(azureContainerService, "RegistryWebhook")},
 
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
 			"azurerm_batch_certificate": {Tok: azureResource(azureBatch, "Certificate")},
 			"azurerm_batch_pool":        {Tok: azureResource(azureBatch, "Pool")},
+			"azurerm_batch_application": {Tok: azureResource(azureBatch, "Application")},
 
 			// Core
 			"azurerm_resource_group": {
@@ -518,6 +523,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dev_test_policy":                  {Tok: azureResource(azureDevTest, "Policy")},
 			"azurerm_dev_test_virtual_network":         {Tok: azureResource(azureDevTest, "VirtualNetwork")},
 			"azurerm_dev_test_windows_virtual_machine": {Tok: azureResource(azureDevTest, "WindowsVirtualMachine")},
+			"azurerm_dev_test_schedule": {
+				Tok: azureResource(azureDevTest, "Schedule"),
+				Docs: &tfbridge.DocInfo{
+					Source: "dev_test_lab_schedule.html.markdown",
+				},
+			},
 
 			// DNS
 			"azurerm_dns_a_record":     {Tok: azureResource(azureDNS, "ARecord")},
@@ -630,9 +641,11 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_logic_app_workflow":             {Tok: azureResource(azureLogicApps, "Workflow")},
 
 			// MariaDB
-			"azurerm_mariadb_database":      {Tok: azureResource(azureMariaDB, "Database")},
-			"azurerm_mariadb_firewall_rule": {Tok: azureResource(azureMariaDB, "FirewallRule")},
-			"azurerm_mariadb_server":        {Tok: azureResource(azureMariaDB, "Server")},
+			"azurerm_mariadb_database":             {Tok: azureResource(azureMariaDB, "Database")},
+			"azurerm_mariadb_firewall_rule":        {Tok: azureResource(azureMariaDB, "FirewallRule")},
+			"azurerm_mariadb_server":               {Tok: azureResource(azureMariaDB, "Server")},
+			"azurerm_mariadb_configuration":        {Tok: azureResource(azureMariaDB, "Configuration")},
+			"azurerm_mariadb_virtual_network_rule": {Tok: azureResource(azureMariaDB, "VirtualNetworkRule")},
 
 			// Notification Hub
 			"azurerm_notification_hub":                    {Tok: azureResource(azureNotificationHub, "Hub")},
@@ -656,6 +669,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_mongo_database":     {Tok: azureResource(azureCosmosDB, "MongoDatabase")},
 			"azurerm_cosmosdb_sql_database":       {Tok: azureResource(azureCosmosDB, "SqlDatabase")},
 			"azurerm_cosmosdb_table":              {Tok: azureResource(azureCosmosDB, "Table")},
+			"azurerm_cosmosdb_sql_container":      {Tok: azureResource(azureCosmosDB, "SqlContainer")},
 
 			// Media Services
 			"azurerm_media_services_account": {Tok: azureResource(azureMediaServices, "Account")},
@@ -693,7 +707,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_policy_set_definition": {Tok: azureResource(azurePolicy, "PolicySetDefinition")},
 
 			// Private Dns
-			"azurerm_private_dns_zone": {Tok: azureResource(azurePrivateDNS, "Zone")},
+			"azurerm_private_dns_zone":         {Tok: azureResource(azurePrivateDNS, "Zone")},
+			"azurerm_private_dns_a_record":     {Tok: azureResource(azurePrivateDNS, "ARecord")},
+			"azurerm_private_dns_cname_record": {Tok: azureResource(azurePrivateDNS, "CNAME")},
 
 			// SQL
 			"azurerm_sql_elasticpool":   {Tok: azureResource(azureSQL, "ElasticPool")},
@@ -706,6 +722,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"azurerm_sql_active_directory_administrator": {Tok: azureResource(azureSQL, "ActiveDirectoryAdministrator")},
+			"azurerm_sql_failover_group":                 {Tok: azureResource(azureSQL, "FailoverGroup")},
 
 			// Network
 			"azurerm_virtual_network": {
@@ -806,11 +823,23 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "express_route_circuit_authorization.html.markdown",
 				},
 			},
+			"azurerm_virtual_wan": {Tok: azureResource(azureNetwork, "VirtualWan")},
 
 			// Recovery Services
-			"azurerm_recovery_services_protected_vm":         {Tok: azureResource(azureRecoveryServices, "ProtectedVM")},
-			"azurerm_recovery_services_protection_policy_vm": {Tok: azureResource(azureRecoveryServices, "ProtectionPolicyVM")},
-			"azurerm_recovery_services_vault":                {Tok: azureResource(azureRecoveryServices, "Vault")},
+			"azurerm_recovery_services_protected_vm":                 {Tok: azureResource(azureRecoveryServices, "ProtectedVM")},
+			"azurerm_recovery_services_protection_policy_vm":         {Tok: azureResource(azureRecoveryServices, "ProtectionPolicyVM")},
+			"azurerm_recovery_services_vault":                        {Tok: azureResource(azureRecoveryServices, "Vault")},
+			"azurerm_recovery_services_fabric":                       {Tok: azureResource(azureRecoveryServices, "Fabric")},
+			"azurerm_recovery_services_protection_container":         {Tok: azureResource(azureRecoveryServices, "ProtectionContainer")},
+			"azurerm_recovery_services_protection_container_mapping": {Tok: azureResource(azureRecoveryServices, "ProtectionContainerMapping")},
+			"azurerm_recovery_services_replication_policy":           {Tok: azureResource(azureRecoveryServices, "ReplicationPolicy")},
+			"azurerm_recovery_network_mapping":                       {Tok: azureResource(azureRecoveryServices, "NetworkMapping")},
+			"azurerm_recovery_replicated_vm": {
+				Tok: azureResource(azureRecoveryServices, "ReplicatedVM"),
+				Docs: &tfbridge.DocInfo{
+					Source: "recovery_services_replicated_vm.html.markdown",
+				},
+			},
 
 			// Redis
 			"azurerm_redis_cache":         {Tok: azureResource(azureRedis, "Cache")},
@@ -868,6 +897,8 @@ func Provider() tfbridge.ProviderInfo {
 					// Max length of a table name is 63.
 					azureName: AutoNameWithMaxLength(azureName, 63),
 				}},
+			"azurerm_storage_share_directory": {Tok: azureResource(azureStorage, "ShareDirectory")},
+			"azurerm_storage_table_entity":    {Tok: azureResource(azureStorage, "TableEntity")},
 
 			//StreamAnalytics
 			"azurerm_stream_analytics_function_javascript_udf": {Tok: azureResource(azureStreamAnalytics, "FunctionJavaScriptUDF")},
@@ -879,6 +910,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_stream_analytics_stream_input_blob":       {Tok: azureResource(azureStreamAnalytics, "StreamInputBlob")},
 			"azurerm_stream_analytics_stream_input_eventhub":   {Tok: azureResource(azureStreamAnalytics, "StreamInputEventHub")},
 			"azurerm_stream_analytics_stream_input_iothub":     {Tok: azureResource(azureStreamAnalytics, "StreamInputIotHub")},
+
+			// Maps
+			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
+
+			// Analysis Services
+			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_application_insights":      {Tok: azureDataSource(azureAppInsights, "getInsights")},
@@ -924,6 +961,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_cosmosdb_account":             {Tok: azureDataSource(azureCosmosDB, "getAccount")},
 			"azurerm_data_lake_store":              {Tok: azureDataSource(azureDatalake, "getStore")},
 			"azurerm_dev_test_lab":                 {Tok: azureDataSource(azureDevTest, "getLab")},
+			"azurerm_dev_test_virtual_network":     {Tok: azureDataSource(azureDevTest, "getVirtualNetwork")},
 			"azurerm_image":                        {Tok: azureDataSource(azureCompute, "getImage")},
 			"azurerm_shared_image":                 {Tok: azureDataSource(azureCompute, "getSharedImage")},
 			"azurerm_shared_image_gallery":         {Tok: azureDataSource(azureCompute, "getSharedImageGallery")},
@@ -1012,6 +1050,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_virtual_machine":                        {Tok: azureDataSource(azureCompute, "getVirtualMachine")},
 			"azurerm_hdinsight_cluster":                      {Tok: azureDataSource(azureHdInsight, "getCluster")},
 			"azurerm_stream_analytics_job":                   {Tok: azureDataSource(azureStreamAnalytics, "getJob")},
+			"azurerm_mssql_elasticpool":                      {Tok: azureDataSource(azureMSSQL, "getElasticpool")},
+			"azurerm_maps_account":                           {Tok: azureDataSource(azureMaps, "getAccount")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			DevDependencies: map[string]string{

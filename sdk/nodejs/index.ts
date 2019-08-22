@@ -8,6 +8,7 @@ export * from "./util";
 
 // Export sub-modules:
 import * as ad from "./ad/index";
+import * as analysisservices from "./analysisservices/index";
 import * as apimanagement from "./apimanagement/index";
 import * as appinsights from "./appinsights/index";
 import * as appservice from "./appservice/index";
@@ -40,6 +41,7 @@ import * as logicapps from "./logicapps/index";
 import * as management from "./management/index";
 import * as managementgroups from "./managementgroups/index";
 import * as managementresource from "./managementresource/index";
+import * as maps from "./maps/index";
 import * as mariadb from "./mariadb/index";
 import * as mediaservices from "./mediaservices/index";
 import * as monitoring from "./monitoring/index";
@@ -67,4 +69,4 @@ import * as storage from "./storage/index";
 import * as streamanalytics from "./streamanalytics/index";
 import * as trafficmanager from "./trafficmanager/index";
 import * as types from "./types/index";
-export {ad, apimanagement, appinsights, appservice, authorization, automation, autoscale, batch, cdn, cognitive, compute, config, containerservice, core, cosmosdb, databricks, datafactory, datalake, ddosprotection, devspace, devtest, dns, eventgrid, eventhub, hdinsight, iot, keyvault, lb, loganalytics, logicapps, management, managementgroups, managementresource, mariadb, mediaservices, monitoring, msi, mssql, mysql, network, notificationhub, operationalinsights, policy, postgresql, privatedns, recoveryservices, redis, relay, role, scheduler, search, securitycenter, servicebus, servicefabric, signalr, sql, storage, streamanalytics, trafficmanager, types};
+export {ad, analysisservices, apimanagement, appinsights, appservice, authorization, automation, autoscale, batch, cdn, cognitive, compute, config, containerservice, core, cosmosdb, databricks, datafactory, datalake, ddosprotection, devspace, devtest, dns, eventgrid, eventhub, hdinsight, iot, keyvault, lb, loganalytics, logicapps, management, managementgroups, managementresource, maps, mariadb, mediaservices, monitoring, msi, mssql, mysql, network, notificationhub, operationalinsights, policy, postgresql, privatedns, recoveryservices, redis, relay, role, scheduler, search, securitycenter, servicebus, servicefabric, signalr, sql, storage, streamanalytics, trafficmanager, types};

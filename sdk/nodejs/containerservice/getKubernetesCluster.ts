@@ -130,6 +130,10 @@ export interface GetKubernetesClusterResult {
      */
     readonly tags: {[key: string]: any};
     /**
+     * A `windowsProfile` block as documented below.
+     */
+    readonly windowsProfiles: outputs.containerservice.GetKubernetesClusterWindowsProfile[];
+    /**
      * id is the provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

@@ -64,6 +64,10 @@ export interface GetAccountResult {
      */
     readonly accountEndpoint: string;
     /**
+     * The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+     */
+    readonly keyVaultReferences: outputs.batch.GetAccountKeyVaultReference[];
+    /**
      * The Azure Region in which this Batch account exists.
      */
     readonly location: string;

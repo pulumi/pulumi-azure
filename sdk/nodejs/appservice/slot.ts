@@ -168,6 +168,10 @@ export class Slot extends pulumi.CustomResource {
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: any}>;
     /**
+     * A `authSettings` block as defined below.
+     */
+    public readonly authSettings!: pulumi.Output<outputs.appservice.SlotAuthSettings>;
+    /**
      * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
     public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
@@ -190,7 +194,7 @@ export class Slot extends pulumi.CustomResource {
     /**
      * A Managed Service Identity block as defined below.
      */
-    public readonly identity!: pulumi.Output<outputs.appservice.SlotIdentity | undefined>;
+    public readonly identity!: pulumi.Output<outputs.appservice.SlotIdentity>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -231,6 +235,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["appServiceName"] = state ? state.appServiceName : undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
+            inputs["authSettings"] = state ? state.authSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["defaultSiteHostname"] = state ? state.defaultSiteHostname : undefined;
@@ -257,6 +262,7 @@ export class Slot extends pulumi.CustomResource {
             inputs["appServiceName"] = args ? args.appServiceName : undefined;
             inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
             inputs["appSettings"] = args ? args.appSettings : undefined;
+            inputs["authSettings"] = args ? args.authSettings : undefined;
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
@@ -297,6 +303,10 @@ export interface SlotState {
      * A key-value pair of App Settings.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * A `authSettings` block as defined below.
+     */
+    readonly authSettings?: pulumi.Input<inputs.appservice.SlotAuthSettings>;
     /**
      * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -363,6 +373,10 @@ export interface SlotArgs {
      * A key-value pair of App Settings.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * A `authSettings` block as defined below.
+     */
+    readonly authSettings?: pulumi.Input<inputs.appservice.SlotAuthSettings>;
     /**
      * Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
      */

@@ -3,4 +3,6 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .a_record import *
+from .cname import *
 from .zone import *

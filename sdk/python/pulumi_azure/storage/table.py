@@ -9,29 +9,32 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Table(pulumi.CustomResource):
+    acls: pulumi.Output[list]
+    """
+    One or more `acl` blocks as defined below.
+    """
     name: pulumi.Output[str]
     """
     The name of the storage table. Must be unique within the storage account the table is located.
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to
-    create the storage table. Changing this forces a new resource to be created.
+    The name of the resource group in which to create the storage table.
     """
     storage_account_name: pulumi.Output[str]
     """
     Specifies the storage account in which to create the storage table.
     Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acls=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Storage Table.
+        Manage a Table within an Azure Storage Account.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] name: The name of the storage table. Must be unique within the storage account the table is located.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the storage table. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage table.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
                Changing this forces a new resource to be created.
 
@@ -54,9 +57,8 @@ class Table(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['acls'] = acls
             __props__['name'] = name
-            if resource_group_name is None:
-                raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
@@ -68,16 +70,16 @@ class Table(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, resource_group_name=None, storage_account_name=None):
+    def get(resource_name, id, opts=None, acls=None, name=None, resource_group_name=None, storage_account_name=None):
         """
         Get an existing Table resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[str] name: The name of the storage table. Must be unique within the storage account the table is located.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the storage table. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage table.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
                Changing this forces a new resource to be created.
 
@@ -86,6 +88,7 @@ class Table(pulumi.CustomResource):
         opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["acls"] = acls
         __props__["name"] = name
         __props__["resource_group_name"] = resource_group_name
         __props__["storage_account_name"] = storage_account_name

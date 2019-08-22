@@ -34,6 +34,7 @@ func NewSlot(ctx *pulumi.Context,
 		inputs["appServiceName"] = nil
 		inputs["appServicePlanId"] = nil
 		inputs["appSettings"] = nil
+		inputs["authSettings"] = nil
 		inputs["clientAffinityEnabled"] = nil
 		inputs["connectionStrings"] = nil
 		inputs["enabled"] = nil
@@ -48,6 +49,7 @@ func NewSlot(ctx *pulumi.Context,
 		inputs["appServiceName"] = args.AppServiceName
 		inputs["appServicePlanId"] = args.AppServicePlanId
 		inputs["appSettings"] = args.AppSettings
+		inputs["authSettings"] = args.AuthSettings
 		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
 		inputs["connectionStrings"] = args.ConnectionStrings
 		inputs["enabled"] = args.Enabled
@@ -77,6 +79,7 @@ func GetSlot(ctx *pulumi.Context,
 		inputs["appServiceName"] = state.AppServiceName
 		inputs["appServicePlanId"] = state.AppServicePlanId
 		inputs["appSettings"] = state.AppSettings
+		inputs["authSettings"] = state.AuthSettings
 		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
 		inputs["connectionStrings"] = state.ConnectionStrings
 		inputs["defaultSiteHostname"] = state.DefaultSiteHostname
@@ -120,6 +123,11 @@ func (r *Slot) AppServicePlanId() *pulumi.StringOutput {
 // A key-value pair of App Settings.
 func (r *Slot) AppSettings() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["appSettings"])
+}
+
+// A `authSettings` block as defined below.
+func (r *Slot) AuthSettings() *pulumi.Output {
+	return r.s.State["authSettings"]
 }
 
 // Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
@@ -190,6 +198,8 @@ type SlotState struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
+	// A `authSettings` block as defined below.
+	AuthSettings interface{}
 	// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// An `connectionString` block as defined below.
@@ -224,6 +234,8 @@ type SlotArgs struct {
 	AppServicePlanId interface{}
 	// A key-value pair of App Settings.
 	AppSettings interface{}
+	// A `authSettings` block as defined below.
+	AuthSettings interface{}
 	// Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// An `connectionString` block as defined below.

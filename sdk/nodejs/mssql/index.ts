@@ -3,3 +3,4 @@
 
 // Export members:
 export * from "./elasticPool";
+export * from "./getElasticpool";

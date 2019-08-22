@@ -8,4 +8,5 @@ export * from "./getRegistry";
 export * from "./group";
 export * from "./kubernetesCluster";
 export * from "./registry";
+export * from "./registryWebhook";
 export * from "./service";

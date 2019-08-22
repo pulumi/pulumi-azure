@@ -41,7 +41,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly capacity!: pulumi.Output<number>;
     /**
-     * Enable the non-SSL port (6789) - disabled by default.
+     * Enable the non-SSL port (6379) - disabled by default.
      */
     public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface CacheState {
      */
     readonly capacity?: pulumi.Input<number>;
     /**
-     * Enable the non-SSL port (6789) - disabled by default.
+     * Enable the non-SSL port (6379) - disabled by default.
      */
     readonly enableNonSslPort?: pulumi.Input<boolean>;
     /**
@@ -294,7 +294,7 @@ export interface CacheArgs {
      */
     readonly capacity: pulumi.Input<number>;
     /**
-     * Enable the non-SSL port (6789) - disabled by default.
+     * Enable the non-SSL port (6379) - disabled by default.
      */
     readonly enableNonSslPort?: pulumi.Input<boolean>;
     /**
