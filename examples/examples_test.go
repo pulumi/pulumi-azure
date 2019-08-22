@@ -64,7 +64,10 @@ func TestExamples(t *testing.T) {
 		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "table")}),
 		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "timer")}),
 		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "topic")}),
-		jsBase.With(integration.ProgramTestOptions{Dir: path.Join(cwd, "webserver")}),
+		jsBase.With(integration.ProgramTestOptions{
+			Dir: path.Join(cwd, "webserver"),
+			ExpectRefreshChanges: true,
+		}),
 		jsBase.With(integration.ProgramTestOptions{
 			Dir: path.Join(cwd, "http"),
 			ExtraRuntimeValidation: validateAPITest(func(body string) {
