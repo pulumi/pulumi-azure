@@ -22,7 +22,7 @@ require (
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/pelletier/go-toml v1.3.0 // indirect
 	github.com/pkg/errors v0.8.1
-	github.com/pulumi/pulumi v1.0.0-beta.2
+	github.com/pulumi/pulumi v1.0.0-beta.2.0.20190820080809-cfd3b8ce09c6
 	github.com/pulumi/pulumi-terraform v0.18.4-0.20190816182908-14e049b09dcf
 	github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f // indirect
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
