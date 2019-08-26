@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.0.0-beta.2 (2019-08-26)
 * Several modules have been renamed to better align with their terraform equivalents. The existing modules are still 
   available, but will be deprecated and removed in the future. 'Aliases' have been used to ensure that moving to the new 
   modules will not result in any changes to existing resources. The renamed modules are:
@@ -13,8 +18,8 @@ CHANGELOG
   azure.eventhub.servicebus* -> azure.servicebus.*
   azure.trafficmanager.* -> azure.network.*s
 * Upgrade to pulumi-terraform@14e049b09d
-
----
+* Update pulumi-terraform reference to 58c7473d0
+* Use 1.0-beta versions of python dependencies
 
 ## 1.0.0-beta.1 (2019-08-13)
 * Fix the location of callback functions ([#328](https://github.com/pulumi/pulumi-azure/pull/328))
