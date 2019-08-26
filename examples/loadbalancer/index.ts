@@ -33,12 +33,6 @@ const vnet = new azure.network.VirtualNetwork("vnet", {
     }],
 });
 
-const subnet = new azure.network.Subnet("subnet", {
-    resourceGroupName: resourceGroup.name,
-    virtualNetworkName: vnet.name,
-    addressPrefix: "10.0.2.0/24",
-});
-
 const lb = new azure.lb.LoadBalancer("lb", {
     resourceGroupName: resourceGroup.name,
     frontendIpConfigurations: [{
@@ -88,7 +82,7 @@ const networkinterface = new azure.network.NetworkInterface("networkinterface", 
     ipConfigurations: [
         {
             name: "ipconfig",
-            subnetId: subnet.id,
+            subnetId: vnet.subnets[0].id,
             privateIpAddressAllocation: "dynamic",
         },
     ],
