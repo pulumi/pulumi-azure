@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class UserAssignedIdentity(pulumi.CustomResource):
@@ -78,7 +79,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__['client_id'] = None
             __props__['principal_id'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:msi/userAssignedIdentity:UserAssignedIdentity")])
-        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserAssignedIdentity, __self__).__init__(
             'azure:authorization/userAssignedIdentity:UserAssignedIdentity',
             resource_name,
@@ -90,6 +91,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         Get an existing UserAssignedIdentity resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -105,7 +107,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/user_assigned_identity.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["client_id"] = client_id
