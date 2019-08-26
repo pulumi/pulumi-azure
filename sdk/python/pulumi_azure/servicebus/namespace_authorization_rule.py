@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class NamespaceAuthorizationRule(pulumi.CustomResource):
@@ -96,7 +97,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             __props__['secondary_connection_string'] = None
             __props__['secondary_key'] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/namespaceAuthorizationRule:NamespaceAuthorizationRule")])
-        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAuthorizationRule, __self__).__init__(
             'azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule',
             resource_name,
@@ -108,6 +109,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Get an existing NamespaceAuthorizationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -124,7 +126,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/servicebus_namespace_authorization_rule.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["listen"] = listen

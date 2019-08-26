@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class EventSubscription(pulumi.CustomResource):
@@ -116,7 +117,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__['topic_name'] = topic_name
             __props__['webhook_endpoint'] = webhook_endpoint
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/eventSubscription:EventSubscription")])
-        opts = alias_opts if opts is None else opts.merge(alias_opts)
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventSubscription, __self__).__init__(
             'azure:eventgrid/eventSubscription:EventSubscription',
             resource_name,
@@ -128,6 +129,7 @@ class EventSubscription(pulumi.CustomResource):
         """
         Get an existing EventSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +149,7 @@ class EventSubscription(pulumi.CustomResource):
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_event_subscription.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["event_delivery_schema"] = event_delivery_schema
