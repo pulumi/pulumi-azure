@@ -13,12 +13,18 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, account_endpoint=None, location=None, name=None, pool_allocation_mode=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, storage_account_id=None, tags=None, id=None):
+    def __init__(__self__, account_endpoint=None, key_vault_references=None, location=None, name=None, pool_allocation_mode=None, primary_access_key=None, resource_group_name=None, secondary_access_key=None, storage_account_id=None, tags=None, id=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         __self__.account_endpoint = account_endpoint
         """
         The account endpoint used to interact with the Batch service.
+        """
+        if key_vault_references and not isinstance(key_vault_references, list):
+            raise TypeError("Expected argument 'key_vault_references' to be a list")
+        __self__.key_vault_references = key_vault_references
+        """
+        The `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -78,6 +84,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             account_endpoint=self.account_endpoint,
+            key_vault_references=self.key_vault_references,
             location=self.location,
             name=self.name,
             pool_allocation_mode=self.pool_allocation_mode,
@@ -109,6 +116,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
 
     return AwaitableGetAccountResult(
         account_endpoint=__ret__.get('accountEndpoint'),
+        key_vault_references=__ret__.get('keyVaultReferences'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
         pool_allocation_mode=__ret__.get('poolAllocationMode'),

@@ -33,9 +33,12 @@ import * as utilities from "../utilities";
  *         ttl: 100,
  *     }],
  *     monitorConfigs: [{
+ *         intervalInSeconds: 30,
  *         path: "/",
  *         port: 80,
  *         protocol: "http",
+ *         timeoutInSeconds: 9,
+ *         toleratedNumberOfFailures: 3,
  *     }],
  *     name: server.hex,
  *     resourceGroupName: testResourceGroup.name,

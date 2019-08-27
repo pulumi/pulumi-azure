@@ -12,38 +12,47 @@ from .. import utilities, tables
 class Container(pulumi.CustomResource):
     container_access_type: pulumi.Output[str]
     """
-    The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
+    The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+    """
+    has_immutability_policy: pulumi.Output[bool]
+    """
+    Is there an Immutability Policy configured on this Storage Container?
+    """
+    has_legal_hold: pulumi.Output[bool]
+    """
+    Is there a Legal Hold configured on this Storage Container?
+    """
+    metadata: pulumi.Output[dict]
+    """
+    A mapping of MetaData for this Container.
     """
     name: pulumi.Output[str]
     """
-    The name of the storage container. Must be unique within the storage service the container is located.
+    The name of the Container which should be created within the Storage Account.
     """
     properties: pulumi.Output[dict]
     """
-    Key-value definition of additional properties associated to the storage container
+    (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to
-    create the storage container. Changing this forces a new resource to be created.
+    The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
     """
     storage_account_name: pulumi.Output[str]
     """
-    Specifies the storage account in which to create the storage container.
-    Changing this forces a new resource to be created.
+    The name of the Storage Account where the Container should be created.
     """
-    def __init__(__self__, resource_name, opts=None, container_access_type=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, container_access_type=None, metadata=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Storage Container.
+        Manage a Container within an Azure Storage Account.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] container_access_type: The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
-        :param pulumi.Input[str] name: The name of the storage container. Must be unique within the storage service the container is located.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the storage container. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
+        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
         """
@@ -65,13 +74,14 @@ class Container(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['container_access_type'] = container_access_type
+            __props__['metadata'] = metadata
             __props__['name'] = name
-            if resource_group_name is None:
-                raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
             __props__['storage_account_name'] = storage_account_name
+            __props__['has_immutability_policy'] = None
+            __props__['has_legal_hold'] = None
             __props__['properties'] = None
         super(Container, __self__).__init__(
             'azure:storage/container:Container',
@@ -80,7 +90,7 @@ class Container(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, container_access_type=None, name=None, properties=None, resource_group_name=None, storage_account_name=None):
+    def get(resource_name, id, opts=None, container_access_type=None, has_immutability_policy=None, has_legal_hold=None, metadata=None, name=None, properties=None, resource_group_name=None, storage_account_name=None):
         """
         Get an existing Container resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -88,13 +98,14 @@ class Container(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] container_access_type: The 'interface' for access the container provides. Can be either `blob`, `container` or `private`. Defaults to `private`.
-        :param pulumi.Input[str] name: The name of the storage container. Must be unique within the storage service the container is located.
-        :param pulumi.Input[dict] properties: Key-value definition of additional properties associated to the storage container
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the storage container. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container.
-               Changing this forces a new resource to be created.
+        :param pulumi.Input[str] container_access_type: The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`.
+        :param pulumi.Input[bool] has_immutability_policy: Is there an Immutability Policy configured on this Storage Container?
+        :param pulumi.Input[bool] has_legal_hold: Is there a Legal Hold configured on this Storage Container?
+        :param pulumi.Input[dict] metadata: A mapping of MetaData for this Container.
+        :param pulumi.Input[str] name: The name of the Container which should be created within the Storage Account.
+        :param pulumi.Input[dict] properties: (**Deprecated**) Key-value definition of additional properties associated to the Storage Container
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container. This field is no longer used and will be removed in 2.0. 
+        :param pulumi.Input[str] storage_account_name: The name of the Storage Account where the Container should be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_container.html.markdown.
         """
@@ -102,6 +113,9 @@ class Container(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["container_access_type"] = container_access_type
+        __props__["has_immutability_policy"] = has_immutability_policy
+        __props__["has_legal_hold"] = has_legal_hold
+        __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["properties"] = properties
         __props__["resource_group_name"] = resource_group_name

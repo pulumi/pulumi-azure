@@ -152,7 +152,7 @@ func (r *Cache) Capacity() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["capacity"])
 }
 
-// Enable the non-SSL port (6789) - disabled by default.
+// Enable the non-SSL port (6379) - disabled by default.
 func (r *Cache) EnableNonSslPort() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["enableNonSslPort"])
 }
@@ -253,7 +253,7 @@ func (r *Cache) Zones() *pulumi.StringOutput {
 type CacheState struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
 	Capacity interface{}
-	// Enable the non-SSL port (6789) - disabled by default.
+	// Enable the non-SSL port (6379) - disabled by default.
 	EnableNonSslPort interface{}
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family interface{}
@@ -299,7 +299,7 @@ type CacheState struct {
 type CacheArgs struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
 	Capacity interface{}
-	// Enable the non-SSL port (6789) - disabled by default.
+	// Enable the non-SSL port (6379) - disabled by default.
 	EnableNonSslPort interface{}
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family interface{}

@@ -48,6 +48,10 @@ class IoTHub(pulumi.CustomResource):
       * `endpointNames` (`list`)
       * `source` (`str`)
     """
+    file_upload: pulumi.Output[dict]
+    """
+    A `file_upload` block as defined below.
+    """
     hostname: pulumi.Output[str]
     """
     The hostname of the IotHub Resource.
@@ -104,7 +108,7 @@ class IoTHub(pulumi.CustomResource):
     A mapping of tags to assign to the resource.
     """
     type: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, endpoints=None, fallback_route=None, ip_filter_rules=None, location=None, name=None, resource_group_name=None, routes=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, endpoints=None, fallback_route=None, file_upload=None, ip_filter_rules=None, location=None, name=None, resource_group_name=None, routes=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an IotHub
         
@@ -112,6 +116,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] endpoints: An `endpoint` block as defined below.
         :param pulumi.Input[dict] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        :param pulumi.Input[dict] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[list] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
@@ -179,6 +184,7 @@ class IoTHub(pulumi.CustomResource):
 
             __props__['endpoints'] = endpoints
             __props__['fallback_route'] = fallback_route
+            __props__['file_upload'] = file_upload
             __props__['ip_filter_rules'] = ip_filter_rules
             __props__['location'] = location
             __props__['name'] = name
@@ -204,7 +210,7 @@ class IoTHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, endpoints=None, event_hub_events_endpoint=None, event_hub_events_path=None, event_hub_operations_endpoint=None, event_hub_operations_path=None, fallback_route=None, hostname=None, ip_filter_rules=None, location=None, name=None, resource_group_name=None, routes=None, shared_access_policies=None, sku=None, tags=None, type=None):
+    def get(resource_name, id, opts=None, endpoints=None, event_hub_events_endpoint=None, event_hub_events_path=None, event_hub_operations_endpoint=None, event_hub_operations_path=None, fallback_route=None, file_upload=None, hostname=None, ip_filter_rules=None, location=None, name=None, resource_group_name=None, routes=None, shared_access_policies=None, sku=None, tags=None, type=None):
         """
         Get an existing IoTHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -218,6 +224,7 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[str] event_hub_operations_endpoint: The EventHub compatible endpoint for operational data
         :param pulumi.Input[str] event_hub_operations_path: The EventHub compatible path for operational data
         :param pulumi.Input[dict] fallback_route: A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+        :param pulumi.Input[dict] file_upload: A `file_upload` block as defined below.
         :param pulumi.Input[str] hostname: The hostname of the IotHub Resource.
         :param pulumi.Input[list] ip_filter_rules: One or more `ip_filter_rule` blocks as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
@@ -284,6 +291,7 @@ class IoTHub(pulumi.CustomResource):
         __props__["event_hub_operations_endpoint"] = event_hub_operations_endpoint
         __props__["event_hub_operations_path"] = event_hub_operations_path
         __props__["fallback_route"] = fallback_route
+        __props__["file_upload"] = file_upload
         __props__["hostname"] = hostname
         __props__["ip_filter_rules"] = ip_filter_rules
         __props__["location"] = location

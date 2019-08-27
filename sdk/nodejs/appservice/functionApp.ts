@@ -117,6 +117,10 @@ export class FunctionApp extends pulumi.CustomResource {
      */
     public readonly appSettings!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
+     * A `authSettings` block as defined below.
+     */
+    public readonly authSettings!: pulumi.Output<outputs.appservice.FunctionAppAuthSettings>;
+    /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */
     public readonly clientAffinityEnabled!: pulumi.Output<boolean>;
@@ -203,6 +207,7 @@ export class FunctionApp extends pulumi.CustomResource {
             const state = argsOrState as FunctionAppState | undefined;
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
+            inputs["authSettings"] = state ? state.authSettings : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
             inputs["defaultHostname"] = state ? state.defaultHostname : undefined;
@@ -234,6 +239,7 @@ export class FunctionApp extends pulumi.CustomResource {
             }
             inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
             inputs["appSettings"] = args ? args.appSettings : undefined;
+            inputs["authSettings"] = args ? args.authSettings : undefined;
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
             inputs["enableBuiltinLogging"] = args ? args.enableBuiltinLogging : undefined;
@@ -276,6 +282,10 @@ export interface FunctionAppState {
      * A key-value pair of App Settings.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * A `authSettings` block as defined below.
+     */
+    readonly authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -362,6 +372,10 @@ export interface FunctionAppArgs {
      * A key-value pair of App Settings.
      */
     readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * A `authSettings` block as defined below.
+     */
+    readonly authSettings?: pulumi.Input<inputs.appservice.FunctionAppAuthSettings>;
     /**
      * Should the Function App send session affinity cookies, which route client requests in the same session to the same instance?
      */

@@ -936,6 +936,8 @@ github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802172948-7252388e774b 
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802172948-7252388e774b/go.mod h1:+skWiPtKr9JCm/YcKBRDiBG8gkE4wTxDHp6NoMLiYxA=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802205635-509cc1c361f3 h1:bvawCO8a1IDIwWmd6KrbIHlIxIczBWGBvG6whcSDR9U=
 github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802205635-509cc1c361f3/go.mod h1:KYDjv/NgatzEQGeWGHiZr0u0lZa7G3qxzPx+ssSsqTk=
+github.com/pulumi/terraform-provider-azurerm v0.0.0-20190827111041-e23ae7e6cb81 h1:SXSE4T8V9V8crJUPcAo8xmkqsjp+HquPjqfhTUUhQlg=
+github.com/pulumi/terraform-provider-azurerm v0.0.0-20190827111041-e23ae7e6cb81/go.mod h1:p0/MR/4jfe7F4knDIH6cIgj8prNZ+72N7SME1cuXshE=
 github.com/pulumi/terraform-provider-azurerm v1.38.1-0.20190802162515-7252388e774b/go.mod h1:+skWiPtKr9JCm/YcKBRDiBG8gkE4wTxDHp6NoMLiYxA=
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/reconquest/loreley v0.0.0-20160708080500-2ab6b7470a54/go.mod h1:1NF/j951kWm+ZnRXpOkBqweImgwhlzFVwTA4A0V7TEU=
@@ -1062,6 +1064,8 @@ github.com/tmc/grpc-websocket-proxy v0.0.0-20170815181823-89b8d40f7ca8/go.mod h1
 github.com/tmc/grpc-websocket-proxy v0.0.0-20171017195756-830351dc03c6/go.mod h1:ncp9v5uamzpCO7NfCPTXjqaC+bZgJeR0sMTm6dMHP7U=
 github.com/tombuildsstuff/giovanni v0.3.0 h1:uOaTgr6mp5iba02s+pz+ugBZuygIhA2tN+FZAsivOvg=
 github.com/tombuildsstuff/giovanni v0.3.0/go.mod h1:3UHcoRZCvWTjXMWCJ0epD1VROlPMwZeeof3vfP6NiWM=
+github.com/tombuildsstuff/giovanni v0.3.2 h1:uKt7irq74daF0lvaA0X9bEuFKSDhceVy4DyWVPDRYeU=
+github.com/tombuildsstuff/giovanni v0.3.2/go.mod h1:3UHcoRZCvWTjXMWCJ0epD1VROlPMwZeeof3vfP6NiWM=
 github.com/tv42/httpunix v0.0.0-20150427012821-b75d8614f926/go.mod h1:9ESjWnEqriFuLhtthL60Sar/7RFoluCcXsuvEwTV5KM=
 github.com/uber-go/atomic v1.3.2/go.mod h1:/Ct5t2lcmbJ4OSe/waGBoaVvVqtO0bmtfVNex1PFV8g=
 github.com/uber/jaeger-client-go v2.15.0+incompatible/go.mod h1:WVhlPFC8FDjOFMMWRy2pZqQJSXxYSwNYOkTr/Z6d3Kk=

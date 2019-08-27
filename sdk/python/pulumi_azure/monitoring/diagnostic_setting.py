@@ -29,6 +29,10 @@ class DiagnosticSetting(pulumi.CustomResource):
         * `days` (`float`)
         * `enabled` (`bool`)
     """
+    log_analytics_destination_type: pulumi.Output[str]
+    """
+    When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+    """
     log_analytics_workspace_id: pulumi.Output[str]
     """
     Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
@@ -56,7 +60,7 @@ class DiagnosticSetting(pulumi.CustomResource):
     """
     The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
     """
-    def __init__(__self__, resource_name, opts=None, eventhub_authorization_rule_id=None, eventhub_name=None, logs=None, log_analytics_workspace_id=None, metrics=None, name=None, storage_account_id=None, target_resource_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, eventhub_authorization_rule_id=None, eventhub_name=None, logs=None, log_analytics_destination_type=None, log_analytics_workspace_id=None, metrics=None, name=None, storage_account_id=None, target_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Diagnostic Setting for an existing Resource.
         
@@ -65,6 +69,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[list] logs: One or more `log` blocks as defined below.
+        :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[list] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
@@ -111,6 +116,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__['eventhub_authorization_rule_id'] = eventhub_authorization_rule_id
             __props__['eventhub_name'] = eventhub_name
             __props__['logs'] = logs
+            __props__['log_analytics_destination_type'] = log_analytics_destination_type
             __props__['log_analytics_workspace_id'] = log_analytics_workspace_id
             __props__['metrics'] = metrics
             __props__['name'] = name
@@ -125,7 +131,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, eventhub_authorization_rule_id=None, eventhub_name=None, logs=None, log_analytics_workspace_id=None, metrics=None, name=None, storage_account_id=None, target_resource_id=None):
+    def get(resource_name, id, opts=None, eventhub_authorization_rule_id=None, eventhub_name=None, logs=None, log_analytics_destination_type=None, log_analytics_workspace_id=None, metrics=None, name=None, storage_account_id=None, target_resource_id=None):
         """
         Get an existing DiagnosticSetting resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -136,6 +142,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[list] logs: One or more `log` blocks as defined below.
+        :param pulumi.Input[str] log_analytics_destination_type: When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
         :param pulumi.Input[list] metrics: One or more `metric` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
@@ -168,6 +175,7 @@ class DiagnosticSetting(pulumi.CustomResource):
         __props__["eventhub_authorization_rule_id"] = eventhub_authorization_rule_id
         __props__["eventhub_name"] = eventhub_name
         __props__["logs"] = logs
+        __props__["log_analytics_destination_type"] = log_analytics_destination_type
         __props__["log_analytics_workspace_id"] = log_analytics_workspace_id
         __props__["metrics"] = metrics
         __props__["name"] = name

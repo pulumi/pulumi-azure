@@ -26,12 +26,14 @@ func NewDps(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["linkedHubs"] = nil
 		inputs["location"] = nil
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["sku"] = nil
 		inputs["tags"] = nil
 	} else {
+		inputs["linkedHubs"] = args.LinkedHubs
 		inputs["location"] = args.Location
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
@@ -51,6 +53,7 @@ func GetDps(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *DpsState, opts ...pulumi.ResourceOpt) (*Dps, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["linkedHubs"] = state.LinkedHubs
 		inputs["location"] = state.Location
 		inputs["name"] = state.Name
 		inputs["resourceGroupName"] = state.ResourceGroupName
@@ -72,6 +75,11 @@ func (r *Dps) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *Dps) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// A `linkedHub` block as defined below.
+func (r *Dps) LinkedHubs() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["linkedHubs"])
 }
 
 // Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
@@ -101,6 +109,8 @@ func (r *Dps) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering Dps resources.
 type DpsState struct {
+	// A `linkedHub` block as defined below.
+	LinkedHubs interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
@@ -115,6 +125,8 @@ type DpsState struct {
 
 // The set of arguments for constructing a Dps resource.
 type DpsArgs struct {
+	// A `linkedHub` block as defined below.
+	LinkedHubs interface{}
 	// Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
 	Location interface{}
 	// Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.

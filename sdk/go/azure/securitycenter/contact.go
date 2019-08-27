@@ -29,9 +29,6 @@ func NewContact(ctx *pulumi.Context,
 	if args == nil || args.Email == nil {
 		return nil, errors.New("missing required argument 'Email'")
 	}
-	if args == nil || args.Phone == nil {
-		return nil, errors.New("missing required argument 'Phone'")
-	}
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["alertNotifications"] = nil

@@ -444,6 +444,27 @@ export namespace appservice {
         consumerSecret: string;
     }
 
+    export interface AppServiceBackup {
+        /**
+         * Is the App Service Enabled?
+         */
+        enabled?: boolean;
+        /**
+         * Specifies the name of the App Service. Changing this forces a new resource to be created.
+         */
+        name: string;
+        schedule: outputs.appservice.AppServiceBackupSchedule;
+        storageAccountUrl: string;
+    }
+
+    export interface AppServiceBackupSchedule {
+        frequencyInterval: number;
+        frequencyUnit: string;
+        keepAtLeastOneBackup?: boolean;
+        retentionPeriodInDays?: number;
+        startTime?: string;
+    }
+
     export interface AppServiceConnectionString {
         /**
          * Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -454,6 +475,7 @@ export namespace appservice {
     }
 
     export interface AppServiceIdentity {
+        identityIds?: string[];
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
          */
@@ -466,7 +488,8 @@ export namespace appservice {
     }
 
     export interface AppServiceLogs {
-        applicationLogs?: outputs.appservice.AppServiceLogsApplicationLogs;
+        applicationLogs: outputs.appservice.AppServiceLogsApplicationLogs;
+        httpLogs: outputs.appservice.AppServiceLogsHttpLogs;
     }
 
     export interface AppServiceLogsApplicationLogs {
@@ -477,6 +500,15 @@ export namespace appservice {
         level: string;
         retentionInDays: number;
         sasUrl: string;
+    }
+
+    export interface AppServiceLogsHttpLogs {
+        fileSystem?: outputs.appservice.AppServiceLogsHttpLogsFileSystem;
+    }
+
+    export interface AppServiceLogsHttpLogsFileSystem {
+        retentionInDays: number;
+        retentionInMb: number;
     }
 
     export interface AppServiceSiteConfig {
@@ -538,13 +570,74 @@ export namespace appservice {
         repoUrl: string;
     }
 
+    export interface AppServiceStorageAccount {
+        accessKey: string;
+        accountName: string;
+        mountPath?: string;
+        /**
+         * Specifies the name of the App Service. Changing this forces a new resource to be created.
+         */
+        name: string;
+        shareName: string;
+        type: string;
+    }
+
+    export interface FunctionAppAuthSettings {
+        activeDirectory?: outputs.appservice.FunctionAppAuthSettingsActiveDirectory;
+        additionalLoginParams?: {[key: string]: any};
+        allowedExternalRedirectUrls?: string[];
+        defaultProvider?: string;
+        /**
+         * Is the Function App enabled?
+         */
+        enabled: boolean;
+        facebook?: outputs.appservice.FunctionAppAuthSettingsFacebook;
+        google?: outputs.appservice.FunctionAppAuthSettingsGoogle;
+        issuer?: string;
+        microsoft?: outputs.appservice.FunctionAppAuthSettingsMicrosoft;
+        runtimeVersion?: string;
+        tokenRefreshExtensionHours?: number;
+        tokenStoreEnabled?: boolean;
+        twitter?: outputs.appservice.FunctionAppAuthSettingsTwitter;
+        unauthenticatedClientAction?: string;
+    }
+
+    export interface FunctionAppAuthSettingsActiveDirectory {
+        allowedAudiences?: string[];
+        clientId: string;
+        clientSecret?: string;
+    }
+
+    export interface FunctionAppAuthSettingsFacebook {
+        appId: string;
+        appSecret: string;
+        oauthScopes?: string[];
+    }
+
+    export interface FunctionAppAuthSettingsGoogle {
+        clientId: string;
+        clientSecret: string;
+        oauthScopes?: string[];
+    }
+
+    export interface FunctionAppAuthSettingsMicrosoft {
+        clientId: string;
+        clientSecret: string;
+        oauthScopes?: string[];
+    }
+
+    export interface FunctionAppAuthSettingsTwitter {
+        consumerKey: string;
+        consumerSecret: string;
+    }
+
     export interface FunctionAppConnectionString {
         /**
          * The name of the Connection String.
          */
         name: string;
         /**
-         * Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
          */
         type: string;
         /**
@@ -563,7 +656,7 @@ export namespace appservice {
          */
         tenantId: string;
         /**
-         * Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
          */
         type: string;
     }
@@ -574,6 +667,10 @@ export namespace appservice {
          */
         alwaysOn?: boolean;
         /**
+         * A `cors` block as defined below.
+         */
+        cors: outputs.appservice.FunctionAppSiteConfigCors;
+        /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
         linuxFxVersion: string;
@@ -582,9 +679,18 @@ export namespace appservice {
          */
         use32BitWorkerProcess?: boolean;
         /**
+         * The name of the Virtual Network which this App Service should be attached to.
+         */
+        virtualNetworkName?: string;
+        /**
          * Should WebSockets be enabled?
          */
         websocketsEnabled?: boolean;
+    }
+
+    export interface FunctionAppSiteConfigCors {
+        allowedOrigins: string[];
+        supportCredentials?: boolean;
     }
 
     export interface FunctionAppSiteCredential {
@@ -804,6 +910,55 @@ export namespace appservice {
         tier: string;
     }
 
+    export interface SlotAuthSettings {
+        activeDirectory?: outputs.appservice.SlotAuthSettingsActiveDirectory;
+        additionalLoginParams?: {[key: string]: any};
+        allowedExternalRedirectUrls?: string[];
+        defaultProvider?: string;
+        /**
+         * Is the App Service Slot Enabled?
+         */
+        enabled: boolean;
+        facebook?: outputs.appservice.SlotAuthSettingsFacebook;
+        google?: outputs.appservice.SlotAuthSettingsGoogle;
+        issuer?: string;
+        microsoft?: outputs.appservice.SlotAuthSettingsMicrosoft;
+        runtimeVersion?: string;
+        tokenRefreshExtensionHours?: number;
+        tokenStoreEnabled?: boolean;
+        twitter?: outputs.appservice.SlotAuthSettingsTwitter;
+        unauthenticatedClientAction?: string;
+    }
+
+    export interface SlotAuthSettingsActiveDirectory {
+        allowedAudiences?: string[];
+        clientId: string;
+        clientSecret?: string;
+    }
+
+    export interface SlotAuthSettingsFacebook {
+        appId: string;
+        appSecret: string;
+        oauthScopes?: string[];
+    }
+
+    export interface SlotAuthSettingsGoogle {
+        clientId: string;
+        clientSecret: string;
+        oauthScopes?: string[];
+    }
+
+    export interface SlotAuthSettingsMicrosoft {
+        clientId: string;
+        clientSecret: string;
+        oauthScopes?: string[];
+    }
+
+    export interface SlotAuthSettingsTwitter {
+        consumerKey: string;
+        consumerSecret: string;
+    }
+
     export interface SlotConnectionString {
         /**
          * The name of the Connection String.
@@ -820,6 +975,7 @@ export namespace appservice {
     }
 
     export interface SlotIdentity {
+        identityIds?: string[];
         principalId: string;
         tenantId: string;
         /**
@@ -1094,6 +1250,25 @@ export namespace autoscale {
 }
 
 export namespace batch {
+    export interface AccountKeyVaultReference {
+        /**
+         * The Batch account ID.
+         */
+        id: string;
+        url: string;
+    }
+
+    export interface GetAccountKeyVaultReference {
+        /**
+         * The Azure identifier of the Azure KeyVault reference.
+         */
+        id: string;
+        /**
+         * The HTTPS URL of the Azure KeyVault reference.
+         */
+        url: string;
+    }
+
     export interface GetPoolAutoScale {
         /**
          * The interval to wait before evaluating if the pool needs to be scaled.
@@ -1126,9 +1301,28 @@ export namespace batch {
 
     export interface GetPoolContainerConfiguration {
         /**
+         * Additional container registries from which container images can be pulled by the pool's VMs.
+         */
+        containerRegistries: outputs.batch.GetPoolContainerConfigurationContainerRegistry[];
+        /**
          * The type of container configuration.
          */
         type: string;
+    }
+
+    export interface GetPoolContainerConfigurationContainerRegistry {
+        /**
+         * The password to log into the registry server.
+         */
+        password: string;
+        /**
+         * The container registry URL. The default is "docker.io".
+         */
+        registryServer: string;
+        /**
+         * The user name to log into the registry server.
+         */
+        userName: string;
     }
 
     export interface GetPoolFixedScale {
@@ -1206,7 +1400,7 @@ export namespace batch {
          */
         autoUsers: outputs.batch.GetPoolStartTaskUserIdentityAutoUser[];
         /**
-         * The username to be used by the Batch pool start task.
+         * The user name to log into the registry server.
          */
         userName: string;
     }
@@ -1249,7 +1443,14 @@ export namespace batch {
     }
 
     export interface PoolContainerConfiguration {
+        containerRegistries?: outputs.batch.PoolContainerConfigurationContainerRegistry[];
         type?: string;
+    }
+
+    export interface PoolContainerConfigurationContainerRegistry {
+        password: string;
+        registryServer: string;
+        userName: string;
     }
 
     export interface PoolFixedScale {
@@ -1291,10 +1492,10 @@ export namespace batch {
          * The Batch pool ID.
          */
         id?: string;
-        offer: string;
-        publisher: string;
-        sku: string;
-        version: string;
+        offer?: string;
+        publisher?: string;
+        sku?: string;
+        version?: string;
     }
 }
 
@@ -2057,6 +2258,10 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterAgentPoolProfile {
         /**
+         * The availability zones used for the nodes. 
+         */
+        availabilityZones: string[];
+        /**
          * The number of Agents (VM's) in the Pool.
          */
         count: number;
@@ -2065,13 +2270,29 @@ export namespace containerservice {
          */
         dnsPrefix: string;
         /**
+         * If the auto-scaler is enabled. 
+         */
+        enableAutoScaling: boolean;
+        /**
+         * Maximum number of nodes for auto-scaling
+         */
+        maxCount: number;
+        /**
          * The maximum number of pods that can run on each agent.
          */
         maxPods: number;
         /**
+         * Minimum number of nodes for auto-scaling 
+         */
+        minCount: number;
+        /**
          * The name of the managed Kubernetes Cluster.
          */
         name: string;
+        /**
+         * The list of Kubernetes taints which are applied to nodes in the agent pool
+         */
+        nodeTaints?: string[];
         /**
          * The size of the Agent VM's Operating System Disk in GB.
          */
@@ -2150,7 +2371,7 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterLinuxProfile {
         /**
-         * The username associated with the administrator account of the managed Kubernetes Cluster.
+         * The username associated with the administrator account of the Windows VMs.
          */
         adminUsername: string;
         /**
@@ -2175,6 +2396,7 @@ export namespace containerservice {
          * IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
          */
         dockerBridgeCidr: string;
+        loadBalancerSku: string;
         /**
          * Network plugin used such as `azure` or `kubenet`.
          */
@@ -2224,6 +2446,13 @@ export namespace containerservice {
          * The Client ID of the Service Principal used by this Managed Kubernetes Cluster.
          */
         clientId: string;
+    }
+
+    export interface GetKubernetesClusterWindowsProfile {
+        /**
+         * The username associated with the administrator account of the Windows VMs.
+         */
+        adminUsername: string;
     }
 
     export interface GroupContainer {
@@ -2306,7 +2535,7 @@ export namespace containerservice {
     }
 
     export interface GroupDiagnosticsLogAnalytics {
-        logType: string;
+        logType?: string;
         metadata?: {[key: string]: string};
         workspaceId: string;
         workspaceKey: string;
@@ -2352,20 +2581,25 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterAgentPoolProfile {
+        availabilityZones?: string[];
         count?: number;
         /**
          * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
          */
         dnsPrefix: string;
+        enableAutoScaling?: boolean;
         /**
          * The FQDN of the Azure Kubernetes Managed Cluster.
          */
         fqdn: string;
+        maxCount?: number;
         maxPods: number;
+        minCount?: number;
         /**
          * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
          */
         name: string;
+        nodeTaints?: string[];
         osDiskSizeGb: number;
         osType?: string;
         type?: string;
@@ -2439,6 +2673,7 @@ export namespace containerservice {
     export interface KubernetesClusterNetworkProfile {
         dnsServiceIp: string;
         dockerBridgeCidr: string;
+        loadBalancerSku?: string;
         networkPlugin: string;
         networkPolicy: string;
         podCidr: string;
@@ -2460,6 +2695,33 @@ export namespace containerservice {
     export interface KubernetesClusterServicePrincipal {
         clientId: string;
         clientSecret: string;
+    }
+
+    export interface KubernetesClusterWindowsProfile {
+        adminPassword?: string;
+        adminUsername: string;
+    }
+
+    export interface RegistryNetworkRuleSet {
+        /**
+         * The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+         */
+        defaultAction?: string;
+        /**
+         * One or more `ipRule` blocks as defined below.
+         */
+        ipRules?: outputs.containerservice.RegistryNetworkRuleSetIpRule[];
+    }
+
+    export interface RegistryNetworkRuleSetIpRule {
+        /**
+         * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+         */
+        action: string;
+        /**
+         * The CIDR block from which requests will match the rule.
+         */
+        ipRange: string;
     }
 
     export interface RegistryStorageAccount {
@@ -2562,7 +2824,14 @@ export namespace core {
          * The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
          */
         state: string;
+        /**
+         * The subscription GUID.
+         */
         subscriptionId: string;
+        /**
+         * The subscription tenant ID.
+         */
+        tenantId: string;
     }
 }
 
@@ -3544,6 +3813,17 @@ export namespace hdinsight {
 }
 
 export namespace iot {
+    export interface DpsLinkedHub {
+        allocationWeight?: number;
+        applyAllocationPolicy?: boolean;
+        connectionString: string;
+        hostname: string;
+        /**
+         * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+         */
+        location: string;
+    }
+
     export interface DpsSku {
         capacity: number;
         /**
@@ -3572,6 +3852,16 @@ export namespace iot {
         enabled: boolean;
         endpointNames: string[];
         source?: string;
+    }
+
+    export interface IoTHubFileUpload {
+        connectionString: string;
+        containerName: string;
+        defaultTtl: string;
+        lockDuration: string;
+        maxDeliveryCount?: number;
+        notifications?: boolean;
+        sasTtl: string;
     }
 
     export interface IoTHubIpFilterRule {
@@ -4594,6 +4884,11 @@ export namespace network {
         statusCode: string;
     }
 
+    export interface ApplicationGatewayIdentity {
+        identityIds: string;
+        type?: string;
+    }
+
     export interface ApplicationGatewayProbe {
         host?: string;
         /**
@@ -5479,15 +5774,33 @@ export namespace network {
         name: string;
     }
 
+    export interface TrafficManagerEndpointCustomHeader {
+        /**
+         * The name of the Traffic Manager endpoint. Changing this forces a
+         * new resource to be created.
+         */
+        name: string;
+        value: string;
+    }
+
+    export interface TrafficManagerEndpointSubnet {
+        first: string;
+        last?: string;
+        scope?: number;
+    }
+
     export interface TrafficManagerProfileDnsConfig {
         relativeName: string;
         ttl: number;
     }
 
     export interface TrafficManagerProfileMonitorConfig {
+        intervalInSeconds?: number;
         path?: string;
         port: number;
         protocol: string;
+        timeoutInSeconds?: number;
+        toleratedNumberOfFailures?: number;
     }
 
     export interface VirtualNetworkDdosProtectionPlan {
@@ -5682,7 +5995,7 @@ export namespace postgresql {
          */
         backupRetentionDays?: number;
         /**
-         * Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
+         * Enable/Disable Geo-redundant for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.  This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
          */
         geoRedundantBackup?: string;
         /**
@@ -6189,12 +6502,9 @@ export namespace sql {
 export namespace storage {
     export interface AccountCustomDomain {
         /**
-         * The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+         * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
          */
         name: string;
-        /**
-         * Should the Custom Domain Name be validated by using indirect CNAME validation?
-         */
         useSubdomain?: boolean;
     }
 
@@ -6207,30 +6517,51 @@ export namespace storage {
          * The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
          */
         tenantId: string;
-        /**
-         * Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
-         */
         type: string;
     }
 
     export interface AccountNetworkRules {
-        /**
-         * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-         * any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
-         */
         bypasses: string[];
-        /**
-         * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-         */
-        defaultAction?: string;
-        /**
-         * List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
-         */
+        defaultAction: string;
         ipRules: string[];
-        /**
-         * A list of resource ids for subnets.
-         */
         virtualNetworkSubnetIds: string[];
+    }
+
+    export interface AccountQueueProperties {
+        corsRules?: outputs.storage.AccountQueuePropertiesCorsRule[];
+        hourMetrics?: outputs.storage.AccountQueuePropertiesHourMetrics;
+        logging?: outputs.storage.AccountQueuePropertiesLogging;
+        minuteMetrics?: outputs.storage.AccountQueuePropertiesMinuteMetrics;
+    }
+
+    export interface AccountQueuePropertiesCorsRule {
+        allowedHeaders: string[];
+        allowedMethods: string[];
+        allowedOrigins: string[];
+        exposedHeaders: string[];
+        maxAgeInSeconds: number;
+    }
+
+    export interface AccountQueuePropertiesHourMetrics {
+        enabled: boolean;
+        includeApis?: boolean;
+        retentionPolicyDays?: number;
+        version: string;
+    }
+
+    export interface AccountQueuePropertiesLogging {
+        delete: boolean;
+        read: boolean;
+        retentionPolicyDays?: number;
+        version: string;
+        write: boolean;
+    }
+
+    export interface AccountQueuePropertiesMinuteMetrics {
+        enabled: boolean;
+        includeApis?: boolean;
+        retentionPolicyDays?: number;
+        version: string;
     }
 
     export interface GetAccountCustomDomain {
@@ -6262,6 +6593,34 @@ export namespace storage {
         file: boolean;
         queue: boolean;
         table: boolean;
+    }
+
+    export interface ShareAcl {
+        accessPolicies?: outputs.storage.ShareAclAccessPolicy[];
+        /**
+         * The ID of the File Share.
+         */
+        id: string;
+    }
+
+    export interface ShareAclAccessPolicy {
+        expiry: string;
+        permissions: string;
+        start: string;
+    }
+
+    export interface TableAcl {
+        accessPolicies?: outputs.storage.TableAclAccessPolicy[];
+        /**
+         * The ID of the Table within the Storage Account.
+         */
+        id: string;
+    }
+
+    export interface TableAclAccessPolicy {
+        expiry: string;
+        permissions: string;
+        start: string;
     }
 }
 
@@ -6315,14 +6674,32 @@ export namespace streamanalytics {
 }
 
 export namespace trafficmanager {
+    export interface EndpointCustomHeader {
+        /**
+         * The name of the Traffic Manager endpoint. Changing this forces a
+         * new resource to be created.
+         */
+        name: string;
+        value: string;
+    }
+
+    export interface EndpointSubnet {
+        first: string;
+        last?: string;
+        scope?: number;
+    }
+
     export interface ProfileDnsConfig {
         relativeName: string;
         ttl: number;
     }
 
     export interface ProfileMonitorConfig {
+        intervalInSeconds?: number;
         path?: string;
         port: number;
         protocol: string;
+        timeoutInSeconds?: number;
+        toleratedNumberOfFailures?: number;
     }
 }

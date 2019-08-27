@@ -82,7 +82,7 @@ export class Blob extends pulumi.CustomResource {
     /**
      * A map of custom blob metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located.
      */

@@ -67,7 +67,7 @@ export class Contact extends pulumi.CustomResource {
     /**
      * The phone number of the Security Center Contact.
      */
-    public readonly phone!: pulumi.Output<string>;
+    public readonly phone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -95,9 +95,6 @@ export class Contact extends pulumi.CustomResource {
             }
             if (!args || args.email === undefined) {
                 throw new Error("Missing required property 'email'");
-            }
-            if (!args || args.phone === undefined) {
-                throw new Error("Missing required property 'phone'");
             }
             inputs["alertNotifications"] = args ? args.alertNotifications : undefined;
             inputs["alertsToAdmins"] = args ? args.alertsToAdmins : undefined;
@@ -156,5 +153,5 @@ export interface ContactArgs {
     /**
      * The phone number of the Security Center Contact.
      */
-    readonly phone: pulumi.Input<string>;
+    readonly phone?: pulumi.Input<string>;
 }

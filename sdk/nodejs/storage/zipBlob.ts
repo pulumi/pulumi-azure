@@ -35,7 +35,7 @@ export class ZipBlob extends pulumi.CustomResource {
 
     public readonly attempts!: pulumi.Output<number | undefined>;
     public readonly contentType!: pulumi.Output<string | undefined>;
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
     public readonly name!: pulumi.Output<string>;
     public readonly parallelism!: pulumi.Output<number | undefined>;
     public readonly resourceGroupName!: pulumi.Output<string>;

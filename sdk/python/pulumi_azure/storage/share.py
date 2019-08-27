@@ -10,13 +10,21 @@ from typing import Union
 from .. import utilities, tables
 
 class Share(pulumi.CustomResource):
+    acls: pulumi.Output[list]
+    """
+    One or more `acl` blocks as defined below.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    A mapping of MetaData for this File Share.
+    """
     name: pulumi.Output[str]
     """
     The name of the share. Must be unique within the storage account where the share is located.
     """
     quota: pulumi.Output[float]
     """
-    The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
+    The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -30,16 +38,18 @@ class Share(pulumi.CustomResource):
     """
     url: pulumi.Output[str]
     """
-    The URL of the share
+    The URL of the File Share
     """
-    def __init__(__self__, resource_name, opts=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, acls=None, metadata=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Storage File Share.
+        Manages a File Share within Azure Storage.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[dict] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
-        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
+        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
@@ -64,10 +74,10 @@ class Share(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['acls'] = acls
+            __props__['metadata'] = metadata
             __props__['name'] = name
             __props__['quota'] = quota
-            if resource_group_name is None:
-                raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
@@ -80,7 +90,7 @@ class Share(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, url=None):
+    def get(resource_name, id, opts=None, acls=None, metadata=None, name=None, quota=None, resource_group_name=None, storage_account_name=None, url=None):
         """
         Get an existing Share resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -88,19 +98,23 @@ class Share(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] acls: One or more `acl` blocks as defined below.
+        :param pulumi.Input[dict] metadata: A mapping of MetaData for this File Share.
         :param pulumi.Input[str] name: The name of the share. Must be unique within the storage account where the share is located.
-        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
+        :param pulumi.Input[float] quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
-        :param pulumi.Input[str] url: The URL of the share
+        :param pulumi.Input[str] url: The URL of the File Share
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["acls"] = acls
+        __props__["metadata"] = metadata
         __props__["name"] = name
         __props__["quota"] = quota
         __props__["resource_group_name"] = resource_group_name

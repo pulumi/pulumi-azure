@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Azure Storage File Share.
+ * Manages a File Share within Azure Storage.
  * 
  * ## Example Usage
  * 
@@ -16,20 +16,19 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * 
  * const testResourceGroup = new azure.core.ResourceGroup("test", {
- *     location: "westus",
+ *     location: "West Europe",
  *     name: "azuretest",
  * });
  * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: "westus",
+ *     location: testResourceGroup.location,
  *     name: "azureteststorage",
  *     resourceGroupName: testResourceGroup.name,
  * });
  * const testshare = new azure.storage.Share("testshare", {
  *     name: "sharename",
  *     quota: 50,
- *     resourceGroupName: testResourceGroup.name,
  *     storageAccountName: testAccount.name,
  * });
  * ```
@@ -64,11 +63,19 @@ export class Share extends pulumi.CustomResource {
     }
 
     /**
+     * One or more `acl` blocks as defined below.
+     */
+    public readonly acls!: pulumi.Output<outputs.storage.ShareAcl[] | undefined>;
+    /**
+     * A mapping of MetaData for this File Share.
+     */
+    public readonly metadata!: pulumi.Output<{[key: string]: any} | undefined>;
+    /**
      * The name of the share. Must be unique within the storage account where the share is located.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
      */
     public readonly quota!: pulumi.Output<number | undefined>;
     /**
@@ -82,7 +89,7 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
-     * The URL of the share
+     * The URL of the File Share
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
 
@@ -98,6 +105,8 @@ export class Share extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ShareState | undefined;
+            inputs["acls"] = state ? state.acls : undefined;
+            inputs["metadata"] = state ? state.metadata : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["quota"] = state ? state.quota : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -105,12 +114,11 @@ export class Share extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ShareArgs | undefined;
-            if (!args || args.resourceGroupName === undefined) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             if (!args || args.storageAccountName === undefined) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
+            inputs["acls"] = args ? args.acls : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["quota"] = args ? args.quota : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -133,11 +141,19 @@ export class Share extends pulumi.CustomResource {
  */
 export interface ShareState {
     /**
+     * One or more `acl` blocks as defined below.
+     */
+    readonly acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
+    /**
+     * A mapping of MetaData for this File Share.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The name of the share. Must be unique within the storage account where the share is located.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
      */
     readonly quota?: pulumi.Input<number>;
     /**
@@ -151,7 +167,7 @@ export interface ShareState {
      */
     readonly storageAccountName?: pulumi.Input<string>;
     /**
-     * The URL of the share
+     * The URL of the File Share
      */
     readonly url?: pulumi.Input<string>;
 }
@@ -161,18 +177,26 @@ export interface ShareState {
  */
 export interface ShareArgs {
     /**
+     * One or more `acl` blocks as defined below.
+     */
+    readonly acls?: pulumi.Input<pulumi.Input<inputs.storage.ShareAcl>[]>;
+    /**
+     * A mapping of MetaData for this File Share.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The name of the share. Must be unique within the storage account where the share is located.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB). Default is 5120.
+     * The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5 TB (5120 GB) for Standard storage accounts or 100 TB (102400 GB) for Premium storage accounts. Default is 5120.
      */
     readonly quota?: pulumi.Input<number>;
     /**
      * The name of the resource group in which to
      * create the share. Changing this forces a new resource to be created.
      */
-    readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceGroupName?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the share.
      * Changing this forces a new resource to be created.

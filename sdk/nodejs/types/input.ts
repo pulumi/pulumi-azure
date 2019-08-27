@@ -324,6 +324,27 @@ export namespace appservice {
         consumerSecret: pulumi.Input<string>;
     }
 
+    export interface AppServiceBackup {
+        /**
+         * Is the App Service Enabled?
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Specifies the name of the App Service. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        schedule: pulumi.Input<inputs.appservice.AppServiceBackupSchedule>;
+        storageAccountUrl: pulumi.Input<string>;
+    }
+
+    export interface AppServiceBackupSchedule {
+        frequencyInterval: pulumi.Input<number>;
+        frequencyUnit: pulumi.Input<string>;
+        keepAtLeastOneBackup?: pulumi.Input<boolean>;
+        retentionPeriodInDays?: pulumi.Input<number>;
+        startTime?: pulumi.Input<string>;
+    }
+
     export interface AppServiceConnectionString {
         /**
          * Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -334,6 +355,7 @@ export namespace appservice {
     }
 
     export interface AppServiceIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
          */
@@ -347,6 +369,7 @@ export namespace appservice {
 
     export interface AppServiceLogs {
         applicationLogs?: pulumi.Input<inputs.appservice.AppServiceLogsApplicationLogs>;
+        httpLogs?: pulumi.Input<inputs.appservice.AppServiceLogsHttpLogs>;
     }
 
     export interface AppServiceLogsApplicationLogs {
@@ -357,6 +380,15 @@ export namespace appservice {
         level: pulumi.Input<string>;
         retentionInDays: pulumi.Input<number>;
         sasUrl: pulumi.Input<string>;
+    }
+
+    export interface AppServiceLogsHttpLogs {
+        fileSystem?: pulumi.Input<inputs.appservice.AppServiceLogsHttpLogsFileSystem>;
+    }
+
+    export interface AppServiceLogsHttpLogsFileSystem {
+        retentionInDays: pulumi.Input<number>;
+        retentionInMb: pulumi.Input<number>;
     }
 
     export interface AppServiceSiteConfig {
@@ -418,13 +450,74 @@ export namespace appservice {
         repoUrl?: pulumi.Input<string>;
     }
 
+    export interface AppServiceStorageAccount {
+        accessKey: pulumi.Input<string>;
+        accountName: pulumi.Input<string>;
+        mountPath?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the App Service. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        shareName: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppAuthSettings {
+        activeDirectory?: pulumi.Input<inputs.appservice.FunctionAppAuthSettingsActiveDirectory>;
+        additionalLoginParams?: pulumi.Input<{[key: string]: any}>;
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Is the Function App enabled?
+         */
+        enabled: pulumi.Input<boolean>;
+        facebook?: pulumi.Input<inputs.appservice.FunctionAppAuthSettingsFacebook>;
+        google?: pulumi.Input<inputs.appservice.FunctionAppAuthSettingsGoogle>;
+        issuer?: pulumi.Input<string>;
+        microsoft?: pulumi.Input<inputs.appservice.FunctionAppAuthSettingsMicrosoft>;
+        runtimeVersion?: pulumi.Input<string>;
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        twitter?: pulumi.Input<inputs.appservice.FunctionAppAuthSettingsTwitter>;
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppAuthSettingsActiveDirectory {
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        clientId: pulumi.Input<string>;
+        clientSecret?: pulumi.Input<string>;
+    }
+
+    export interface FunctionAppAuthSettingsFacebook {
+        appId: pulumi.Input<string>;
+        appSecret: pulumi.Input<string>;
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FunctionAppAuthSettingsGoogle {
+        clientId: pulumi.Input<string>;
+        clientSecret: pulumi.Input<string>;
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FunctionAppAuthSettingsMicrosoft {
+        clientId: pulumi.Input<string>;
+        clientSecret: pulumi.Input<string>;
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FunctionAppAuthSettingsTwitter {
+        consumerKey: pulumi.Input<string>;
+        consumerSecret: pulumi.Input<string>;
+    }
+
     export interface FunctionAppConnectionString {
         /**
          * The name of the Connection String.
          */
         name: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
          */
         type: pulumi.Input<string>;
         /**
@@ -443,7 +536,7 @@ export namespace appservice {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+         * The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
          */
         type: pulumi.Input<string>;
     }
@@ -454,6 +547,10 @@ export namespace appservice {
          */
         alwaysOn?: pulumi.Input<boolean>;
         /**
+         * A `cors` block as defined below.
+         */
+        cors?: pulumi.Input<inputs.appservice.FunctionAppSiteConfigCors>;
+        /**
          * Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
          */
         linuxFxVersion?: pulumi.Input<string>;
@@ -462,9 +559,18 @@ export namespace appservice {
          */
         use32BitWorkerProcess?: pulumi.Input<boolean>;
         /**
+         * The name of the Virtual Network which this App Service should be attached to.
+         */
+        virtualNetworkName?: pulumi.Input<string>;
+        /**
          * Should WebSockets be enabled?
          */
         websocketsEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface FunctionAppSiteConfigCors {
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        supportCredentials?: pulumi.Input<boolean>;
     }
 
     export interface FunctionAppSiteCredential {
@@ -508,6 +614,55 @@ export namespace appservice {
         tier: pulumi.Input<string>;
     }
 
+    export interface SlotAuthSettings {
+        activeDirectory?: pulumi.Input<inputs.appservice.SlotAuthSettingsActiveDirectory>;
+        additionalLoginParams?: pulumi.Input<{[key: string]: any}>;
+        allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
+        defaultProvider?: pulumi.Input<string>;
+        /**
+         * Is the App Service Slot Enabled?
+         */
+        enabled: pulumi.Input<boolean>;
+        facebook?: pulumi.Input<inputs.appservice.SlotAuthSettingsFacebook>;
+        google?: pulumi.Input<inputs.appservice.SlotAuthSettingsGoogle>;
+        issuer?: pulumi.Input<string>;
+        microsoft?: pulumi.Input<inputs.appservice.SlotAuthSettingsMicrosoft>;
+        runtimeVersion?: pulumi.Input<string>;
+        tokenRefreshExtensionHours?: pulumi.Input<number>;
+        tokenStoreEnabled?: pulumi.Input<boolean>;
+        twitter?: pulumi.Input<inputs.appservice.SlotAuthSettingsTwitter>;
+        unauthenticatedClientAction?: pulumi.Input<string>;
+    }
+
+    export interface SlotAuthSettingsActiveDirectory {
+        allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
+        clientId: pulumi.Input<string>;
+        clientSecret?: pulumi.Input<string>;
+    }
+
+    export interface SlotAuthSettingsFacebook {
+        appId: pulumi.Input<string>;
+        appSecret: pulumi.Input<string>;
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SlotAuthSettingsGoogle {
+        clientId: pulumi.Input<string>;
+        clientSecret: pulumi.Input<string>;
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SlotAuthSettingsMicrosoft {
+        clientId: pulumi.Input<string>;
+        clientSecret: pulumi.Input<string>;
+        oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SlotAuthSettingsTwitter {
+        consumerKey: pulumi.Input<string>;
+        consumerSecret: pulumi.Input<string>;
+    }
+
     export interface SlotConnectionString {
         /**
          * The name of the Connection String.
@@ -524,6 +679,7 @@ export namespace appservice {
     }
 
     export interface SlotIdentity {
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
         principalId?: pulumi.Input<string>;
         tenantId?: pulumi.Input<string>;
         /**
@@ -766,6 +922,14 @@ export namespace autoscale {
 }
 
 export namespace batch {
+    export interface AccountKeyVaultReference {
+        /**
+         * The Batch account ID.
+         */
+        id: pulumi.Input<string>;
+        url: pulumi.Input<string>;
+    }
+
     export interface GetPoolCertificate {
         /**
          * The fully qualified ID of the certificate installed on the pool.
@@ -845,7 +1009,7 @@ export namespace batch {
          */
         autoUsers?: inputs.batch.GetPoolStartTaskUserIdentityAutoUser[];
         /**
-         * The username to be used by the Batch pool start task.
+         * The user name to log into the registry server.
          */
         userName?: string;
     }
@@ -877,7 +1041,14 @@ export namespace batch {
     }
 
     export interface PoolContainerConfiguration {
+        containerRegistries?: pulumi.Input<pulumi.Input<inputs.batch.PoolContainerConfigurationContainerRegistry>[]>;
         type?: pulumi.Input<string>;
+    }
+
+    export interface PoolContainerConfigurationContainerRegistry {
+        password: pulumi.Input<string>;
+        registryServer: pulumi.Input<string>;
+        userName: pulumi.Input<string>;
     }
 
     export interface PoolFixedScale {
@@ -919,10 +1090,10 @@ export namespace batch {
          * The Batch pool ID.
          */
         id?: pulumi.Input<string>;
-        offer: pulumi.Input<string>;
-        publisher: pulumi.Input<string>;
-        sku: pulumi.Input<string>;
-        version: pulumi.Input<string>;
+        offer?: pulumi.Input<string>;
+        publisher?: pulumi.Input<string>;
+        sku?: pulumi.Input<string>;
+        version?: pulumi.Input<string>;
     }
 }
 
@@ -1638,7 +1809,7 @@ export namespace containerservice {
     }
 
     export interface GroupDiagnosticsLogAnalytics {
-        logType: pulumi.Input<string>;
+        logType?: pulumi.Input<string>;
         metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         workspaceId: pulumi.Input<string>;
         workspaceKey: pulumi.Input<string>;
@@ -1684,20 +1855,25 @@ export namespace containerservice {
     }
 
     export interface KubernetesClusterAgentPoolProfile {
+        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
         count?: pulumi.Input<number>;
         /**
          * DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
          */
         dnsPrefix?: pulumi.Input<string>;
+        enableAutoScaling?: pulumi.Input<boolean>;
         /**
          * The FQDN of the Azure Kubernetes Managed Cluster.
          */
         fqdn?: pulumi.Input<string>;
+        maxCount?: pulumi.Input<number>;
         maxPods?: pulumi.Input<number>;
+        minCount?: pulumi.Input<number>;
         /**
          * The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
          */
         name: pulumi.Input<string>;
+        nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
         osDiskSizeGb?: pulumi.Input<number>;
         osType?: pulumi.Input<string>;
         type?: pulumi.Input<string>;
@@ -1771,6 +1947,7 @@ export namespace containerservice {
     export interface KubernetesClusterNetworkProfile {
         dnsServiceIp?: pulumi.Input<string>;
         dockerBridgeCidr?: pulumi.Input<string>;
+        loadBalancerSku?: pulumi.Input<string>;
         networkPlugin: pulumi.Input<string>;
         networkPolicy?: pulumi.Input<string>;
         podCidr?: pulumi.Input<string>;
@@ -1792,6 +1969,33 @@ export namespace containerservice {
     export interface KubernetesClusterServicePrincipal {
         clientId: pulumi.Input<string>;
         clientSecret: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterWindowsProfile {
+        adminPassword?: pulumi.Input<string>;
+        adminUsername: pulumi.Input<string>;
+    }
+
+    export interface RegistryNetworkRuleSet {
+        /**
+         * The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+         */
+        defaultAction?: pulumi.Input<string>;
+        /**
+         * One or more `ipRule` blocks as defined below.
+         */
+        ipRules?: pulumi.Input<pulumi.Input<inputs.containerservice.RegistryNetworkRuleSetIpRule>[]>;
+    }
+
+    export interface RegistryNetworkRuleSetIpRule {
+        /**
+         * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+         */
+        action: pulumi.Input<string>;
+        /**
+         * The CIDR block from which requests will match the rule.
+         */
+        ipRange: pulumi.Input<string>;
     }
 
     export interface RegistryStorageAccount {
@@ -2797,6 +3001,17 @@ export namespace hdinsight {
 }
 
 export namespace iot {
+    export interface DpsLinkedHub {
+        allocationWeight?: pulumi.Input<number>;
+        applyAllocationPolicy?: pulumi.Input<boolean>;
+        connectionString: pulumi.Input<string>;
+        hostname?: pulumi.Input<string>;
+        /**
+         * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
+         */
+        location: pulumi.Input<string>;
+    }
+
     export interface DpsSku {
         capacity: pulumi.Input<number>;
         /**
@@ -2825,6 +3040,16 @@ export namespace iot {
         enabled?: pulumi.Input<boolean>;
         endpointNames?: pulumi.Input<pulumi.Input<string>[]>;
         source?: pulumi.Input<string>;
+    }
+
+    export interface IoTHubFileUpload {
+        connectionString: pulumi.Input<string>;
+        containerName: pulumi.Input<string>;
+        defaultTtl?: pulumi.Input<string>;
+        lockDuration?: pulumi.Input<string>;
+        maxDeliveryCount?: pulumi.Input<number>;
+        notifications?: pulumi.Input<boolean>;
+        sasTtl?: pulumi.Input<string>;
     }
 
     export interface IoTHubIpFilterRule {
@@ -3727,6 +3952,11 @@ export namespace network {
         statusCode: pulumi.Input<string>;
     }
 
+    export interface ApplicationGatewayIdentity {
+        identityIds: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
+    }
+
     export interface ApplicationGatewayProbe {
         host?: pulumi.Input<string>;
         /**
@@ -4255,15 +4485,33 @@ export namespace network {
         name: pulumi.Input<string>;
     }
 
+    export interface TrafficManagerEndpointCustomHeader {
+        /**
+         * The name of the Traffic Manager endpoint. Changing this forces a
+         * new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface TrafficManagerEndpointSubnet {
+        first: pulumi.Input<string>;
+        last?: pulumi.Input<string>;
+        scope?: pulumi.Input<number>;
+    }
+
     export interface TrafficManagerProfileDnsConfig {
         relativeName: pulumi.Input<string>;
         ttl: pulumi.Input<number>;
     }
 
     export interface TrafficManagerProfileMonitorConfig {
+        intervalInSeconds?: pulumi.Input<number>;
         path?: pulumi.Input<string>;
         port: pulumi.Input<number>;
         protocol: pulumi.Input<string>;
+        timeoutInSeconds?: pulumi.Input<number>;
+        toleratedNumberOfFailures?: pulumi.Input<number>;
     }
 
     export interface VirtualNetworkDdosProtectionPlan {
@@ -4421,7 +4669,7 @@ export namespace postgresql {
          */
         backupRetentionDays?: pulumi.Input<number>;
         /**
-         * Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
+         * Enable/Disable Geo-redundant for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.  This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. The Basic tier only offers locally redundant backup storage.
          */
         geoRedundantBackup?: pulumi.Input<string>;
         /**
@@ -4825,12 +5073,9 @@ export namespace sql {
 export namespace storage {
     export interface AccountCustomDomain {
         /**
-         * The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+         * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
          */
         name: pulumi.Input<string>;
-        /**
-         * Should the Custom Domain Name be validated by using indirect CNAME validation?
-         */
         useSubdomain?: pulumi.Input<boolean>;
     }
 
@@ -4843,30 +5088,51 @@ export namespace storage {
          * The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
          */
         tenantId?: pulumi.Input<string>;
-        /**
-         * Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
-         */
         type: pulumi.Input<string>;
     }
 
     export interface AccountNetworkRules {
-        /**
-         * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-         * any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
-         */
         bypasses?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-         */
-        defaultAction?: pulumi.Input<string>;
-        /**
-         * List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
-         */
+        defaultAction: pulumi.Input<string>;
         ipRules?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * A list of resource ids for subnets.
-         */
         virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AccountQueueProperties {
+        corsRules?: pulumi.Input<pulumi.Input<inputs.storage.AccountQueuePropertiesCorsRule>[]>;
+        hourMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesHourMetrics>;
+        logging?: pulumi.Input<inputs.storage.AccountQueuePropertiesLogging>;
+        minuteMetrics?: pulumi.Input<inputs.storage.AccountQueuePropertiesMinuteMetrics>;
+    }
+
+    export interface AccountQueuePropertiesCorsRule {
+        allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        exposedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        maxAgeInSeconds: pulumi.Input<number>;
+    }
+
+    export interface AccountQueuePropertiesHourMetrics {
+        enabled: pulumi.Input<boolean>;
+        includeApis?: pulumi.Input<boolean>;
+        retentionPolicyDays?: pulumi.Input<number>;
+        version: pulumi.Input<string>;
+    }
+
+    export interface AccountQueuePropertiesLogging {
+        delete: pulumi.Input<boolean>;
+        read: pulumi.Input<boolean>;
+        retentionPolicyDays?: pulumi.Input<number>;
+        version: pulumi.Input<string>;
+        write: pulumi.Input<boolean>;
+    }
+
+    export interface AccountQueuePropertiesMinuteMetrics {
+        enabled: pulumi.Input<boolean>;
+        includeApis?: pulumi.Input<boolean>;
+        retentionPolicyDays?: pulumi.Input<number>;
+        version: pulumi.Input<string>;
     }
 
     export interface GetAccountSASPermissions {
@@ -4891,6 +5157,34 @@ export namespace storage {
         file: boolean;
         queue: boolean;
         table: boolean;
+    }
+
+    export interface ShareAcl {
+        accessPolicies?: pulumi.Input<pulumi.Input<inputs.storage.ShareAclAccessPolicy>[]>;
+        /**
+         * The ID of the File Share.
+         */
+        id: pulumi.Input<string>;
+    }
+
+    export interface ShareAclAccessPolicy {
+        expiry: pulumi.Input<string>;
+        permissions: pulumi.Input<string>;
+        start: pulumi.Input<string>;
+    }
+
+    export interface TableAcl {
+        accessPolicies?: pulumi.Input<pulumi.Input<inputs.storage.TableAclAccessPolicy>[]>;
+        /**
+         * The ID of the Table within the Storage Account.
+         */
+        id: pulumi.Input<string>;
+    }
+
+    export interface TableAclAccessPolicy {
+        expiry: pulumi.Input<string>;
+        permissions: pulumi.Input<string>;
+        start: pulumi.Input<string>;
     }
 }
 
@@ -4944,14 +5238,32 @@ export namespace streamanalytics {
 }
 
 export namespace trafficmanager {
+    export interface EndpointCustomHeader {
+        /**
+         * The name of the Traffic Manager endpoint. Changing this forces a
+         * new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface EndpointSubnet {
+        first: pulumi.Input<string>;
+        last?: pulumi.Input<string>;
+        scope?: pulumi.Input<number>;
+    }
+
     export interface ProfileDnsConfig {
         relativeName: pulumi.Input<string>;
         ttl: pulumi.Input<number>;
     }
 
     export interface ProfileMonitorConfig {
+        intervalInSeconds?: pulumi.Input<number>;
         path?: pulumi.Input<string>;
         port: pulumi.Input<number>;
         protocol: pulumi.Input<string>;
+        timeoutInSeconds?: pulumi.Input<number>;
+        toleratedNumberOfFailures?: pulumi.Input<number>;
     }
 }
