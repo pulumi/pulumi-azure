@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Upgrade to pulumi-terraform 3f206601e7
+* Update to v1.33.1 of the Terraform AzureRM Provider
 
 ---
 
