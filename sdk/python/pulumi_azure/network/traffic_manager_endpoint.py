@@ -13,6 +13,10 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
     custom_headers: pulumi.Output[list]
     """
     One or more `custom_header` blocks as defined below
+    
+      * `name` (`str`) - The name of the Traffic Manager endpoint. Changing this forces a
+        new resource to be created.
+      * `value` (`str`)
     """
     endpoint_location: pulumi.Output[str]
     """
@@ -65,6 +69,10 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
     subnets: pulumi.Output[list]
     """
     One or more `subnet` blocks as defined below
+    
+      * `first` (`str`)
+      * `last` (`str`)
+      * `scope` (`float`)
     """
     target: pulumi.Output[str]
     """
@@ -135,6 +143,18 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[float] weight: Specifies how much traffic should be distributed to this
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
+        
+        The **custom_headers** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Traffic Manager endpoint. Changing this forces a
+            new resource to be created.
+          * `value` (`pulumi.Input[str]`)
+        
+        The **subnets** object supports the following:
+        
+          * `first` (`pulumi.Input[str]`)
+          * `last` (`pulumi.Input[str]`)
+          * `scope` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
         """
@@ -231,6 +251,18 @@ class TrafficManagerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[float] weight: Specifies how much traffic should be distributed to this
                endpoint, this must be specified for Profiles using the  `Weighted` traffic
                routing method. Supports values between 1 and 1000.
+        
+        The **custom_headers** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Traffic Manager endpoint. Changing this forces a
+            new resource to be created.
+          * `value` (`pulumi.Input[str]`)
+        
+        The **subnets** object supports the following:
+        
+          * `first` (`pulumi.Input[str]`)
+          * `last` (`pulumi.Input[str]`)
+          * `scope` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_endpoint.html.markdown.
         """

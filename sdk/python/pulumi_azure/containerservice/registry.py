@@ -41,6 +41,12 @@ class Registry(pulumi.CustomResource):
     network_rule_set: pulumi.Output[dict]
     """
     A `network_rule_set` block as documented below.
+    
+      * `defaultAction` (`str`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+      * `ipRules` (`list`) - One or more `ip_rule` blocks as defined below.
+    
+        * `action` (`str`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+        * `ipRange` (`str`) - The CIDR block from which requests will match the rule.
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -77,6 +83,14 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **network_rule_set** object supports the following:
+        
+          * `defaultAction` (`pulumi.Input[str]`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+          * `ipRules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
+        
+            * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+            * `ipRange` (`pulumi.Input[str]`) - The CIDR block from which requests will match the rule.
         
         The **storage_account** object supports the following:
         
@@ -144,6 +158,14 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **network_rule_set** object supports the following:
+        
+          * `defaultAction` (`pulumi.Input[str]`) - The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
+          * `ipRules` (`pulumi.Input[list]`) - One or more `ip_rule` blocks as defined below.
+        
+            * `action` (`pulumi.Input[str]`) - The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+            * `ipRange` (`pulumi.Input[str]`) - The CIDR block from which requests will match the rule.
         
         The **storage_account** object supports the following:
         

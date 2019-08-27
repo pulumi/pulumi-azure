@@ -13,6 +13,12 @@ class Dps(pulumi.CustomResource):
     linked_hubs: pulumi.Output[list]
     """
     A `linked_hub` block as defined below.
+    
+      * `allocationWeight` (`float`)
+      * `applyAllocationPolicy` (`bool`)
+      * `connection_string` (`str`)
+      * `hostname` (`str`)
+      * `location` (`str`) - Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
     """
     location: pulumi.Output[str]
     """
@@ -50,6 +56,14 @@ class Dps(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **linked_hubs** object supports the following:
+        
+          * `allocationWeight` (`pulumi.Input[float]`)
+          * `applyAllocationPolicy` (`pulumi.Input[bool]`)
+          * `connection_string` (`pulumi.Input[str]`)
+          * `hostname` (`pulumi.Input[str]`)
+          * `location` (`pulumi.Input[str]`) - Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         
         The **sku** object supports the following:
         
@@ -107,6 +121,14 @@ class Dps(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **linked_hubs** object supports the following:
+        
+          * `allocationWeight` (`pulumi.Input[float]`)
+          * `applyAllocationPolicy` (`pulumi.Input[bool]`)
+          * `connection_string` (`pulumi.Input[str]`)
+          * `hostname` (`pulumi.Input[str]`)
+          * `location` (`pulumi.Input[str]`) - Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
         
         The **sku** object supports the following:
         

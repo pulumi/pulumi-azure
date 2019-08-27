@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 
+export namespace analysisservices {
+    export interface ServerIpv4FirewallRule {
+        /**
+         * Specifies the name of the firewall rule.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * End of the firewall rule range as IPv4 address.
+         */
+        rangeEnd: pulumi.Input<string>;
+        /**
+         * Start of the firewall rule range as IPv4 address.
+         */
+        rangeStart: pulumi.Input<string>;
+    }
+}
+
 export namespace apimanagement {
     export interface ApiImport {
         contentFormat: pulumi.Input<string>;
@@ -135,6 +152,48 @@ export namespace apimanagement {
          */
         name: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface BackendCredentials {
+        authorization?: pulumi.Input<inputs.apimanagement.BackendCredentialsAuthorization>;
+        certificates?: pulumi.Input<pulumi.Input<string>[]>;
+        header?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        query?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface BackendCredentialsAuthorization {
+        parameter?: pulumi.Input<string>;
+        scheme?: pulumi.Input<string>;
+    }
+
+    export interface BackendProxy {
+        password?: pulumi.Input<string>;
+        /**
+         * The URL of the backend host.
+         */
+        url: pulumi.Input<string>;
+        username: pulumi.Input<string>;
+    }
+
+    export interface BackendServiceFabricCluster {
+        clientCertificateThumbprint: pulumi.Input<string>;
+        managementEndpoints: pulumi.Input<pulumi.Input<string>[]>;
+        maxPartitionResolutionRetries: pulumi.Input<number>;
+        serverCertificateThumbprints?: pulumi.Input<pulumi.Input<string>[]>;
+        serverX509Names?: pulumi.Input<pulumi.Input<inputs.apimanagement.BackendServiceFabricClusterServerX509Name>[]>;
+    }
+
+    export interface BackendServiceFabricClusterServerX509Name {
+        issuerCertificateThumbprint: pulumi.Input<string>;
+        /**
+         * The name of the API Management backend. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface BackendTls {
+        validateCertificateChain?: pulumi.Input<boolean>;
+        validateCertificateName?: pulumi.Input<boolean>;
     }
 
     export interface LoggerApplicationInsights {
@@ -2144,6 +2203,10 @@ export namespace cosmosdb {
         key: pulumi.Input<string>;
         unique?: pulumi.Input<boolean>;
     }
+
+    export interface SqlContainerUniqueKey {
+        paths: pulumi.Input<pulumi.Input<string>[]>;
+    }
 }
 
 export namespace datafactory {
@@ -2241,6 +2304,25 @@ export namespace devtest {
          */
         frontendPort?: pulumi.Input<number>;
         protocol: pulumi.Input<string>;
+    }
+
+    export interface ScheduleDailyRecurrence {
+        time: pulumi.Input<string>;
+    }
+
+    export interface ScheduleHourlyRecurrence {
+        minute: pulumi.Input<number>;
+    }
+
+    export interface ScheduleNotificationSettings {
+        status?: pulumi.Input<string>;
+        timeInMinutes?: pulumi.Input<number>;
+        webhookUrl?: pulumi.Input<string>;
+    }
+
+    export interface ScheduleWeeklyRecurrence {
+        time: pulumi.Input<string>;
+        weekDays?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface VirtualNetworkSubnet {
@@ -4707,6 +4789,14 @@ export namespace recoveryservices {
         weekdays: pulumi.Input<pulumi.Input<string>[]>;
         weeks: pulumi.Input<pulumi.Input<string>[]>;
     }
+
+    export interface ReplicatedVmManagedDisk {
+        diskId: pulumi.Input<string>;
+        stagingStorageAccountId: pulumi.Input<string>;
+        targetDiskType: pulumi.Input<string>;
+        targetReplicaDiskType: pulumi.Input<string>;
+        targetResourceGroupId: pulumi.Input<string>;
+    }
 }
 
 export namespace redis {
@@ -5067,6 +5157,39 @@ export namespace sql {
          * Should the default server policy be used? Defaults to `Disabled`.
          */
         useServerDefault?: pulumi.Input<string>;
+    }
+
+    export interface FailoverGroupPartnerServer {
+        /**
+         * the SQL server ID
+         */
+        id: pulumi.Input<string>;
+        /**
+         * the location of a SQL server in `partnerServers`
+         */
+        location?: pulumi.Input<string>;
+        /**
+         * the current role of the SQL server named in `serverName`
+         */
+        role?: pulumi.Input<string>;
+    }
+
+    export interface FailoverGroupReadWriteEndpointFailoverPolicy {
+        /**
+         * Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
+         */
+        graceMinutes?: pulumi.Input<number>;
+        /**
+         * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+         */
+        mode: pulumi.Input<string>;
+    }
+
+    export interface FailoverGroupReadonlyEndpointFailoverPolicy {
+        /**
+         * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+         */
+        mode: pulumi.Input<string>;
     }
 }
 

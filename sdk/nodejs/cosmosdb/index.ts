@@ -7,6 +7,7 @@ export * from "./cassandraKeyspace";
 export * from "./getAccount";
 export * from "./mongoCollection";
 export * from "./mongoDatabase";
+export * from "./sqlContainer";
 export * from "./sqlDatabase";
 export * from "./table";
 export * from "./zMixins";

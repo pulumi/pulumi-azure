@@ -35,8 +35,8 @@ class Account(pulumi.CustomResource):
     """
     A `custom_domain` block as documented below.
     
-      * `name` (`str`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
-      * `useSubdomain` (`bool`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
+      * `name` (`str`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+      * `useSubdomain` (`bool`)
     """
     enable_advanced_threat_protection: pulumi.Output[bool]
     """
@@ -57,15 +57,11 @@ class Account(pulumi.CustomResource):
     """
     identity: pulumi.Output[dict]
     """
-<<<<<<< HEAD
-    A Managed Service Identity block as defined below.
+    A `identity` block as defined below.
     
       * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
       * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
-      * `type` (`str`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
-=======
-    A `identity` block as defined below.
->>>>>>> cdfd5c1e... Update to terraform-providers-azurerm v1.33.1
+      * `type` (`str`)
     """
     is_hns_enabled: pulumi.Output[bool]
     """
@@ -83,11 +79,10 @@ class Account(pulumi.CustomResource):
     """
     A `network_rules` block as documented below.
     
-      * `bypasses` (`list`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-        any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
-      * `defaultAction` (`str`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-      * `ipRules` (`list`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
-      * `virtualNetworkSubnetIds` (`list`) - A list of resource ids for subnets.
+      * `bypasses` (`list`)
+      * `defaultAction` (`str`)
+      * `ipRules` (`list`)
+      * `virtualNetworkSubnetIds` (`list`)
     """
     primary_access_key: pulumi.Output[str]
     """
@@ -156,6 +151,36 @@ class Account(pulumi.CustomResource):
     queue_properties: pulumi.Output[dict]
     """
     A `queue_properties` block as defined below.
+    
+      * `corsRules` (`list`)
+    
+        * `allowedHeaders` (`list`)
+        * `allowedMethods` (`list`)
+        * `allowedOrigins` (`list`)
+        * `exposedHeaders` (`list`)
+        * `maxAgeInSeconds` (`float`)
+    
+      * `hourMetrics` (`dict`)
+    
+        * `enabled` (`bool`)
+        * `includeApis` (`bool`)
+        * `retentionPolicyDays` (`float`)
+        * `version` (`str`)
+    
+      * `logging` (`dict`)
+    
+        * `delete` (`bool`)
+        * `read` (`bool`)
+        * `retentionPolicyDays` (`float`)
+        * `version` (`str`)
+        * `write` (`bool`)
+    
+      * `minuteMetrics` (`dict`)
+    
+        * `enabled` (`bool`)
+        * `includeApis` (`bool`)
+        * `retentionPolicyDays` (`float`)
+        * `version` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -257,22 +282,53 @@ class Account(pulumi.CustomResource):
         
         The **custom_domain** object supports the following:
         
-          * `name` (`pulumi.Input[str]`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
-          * `useSubdomain` (`pulumi.Input[bool]`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+          * `useSubdomain` (`pulumi.Input[bool]`)
         
         The **identity** object supports the following:
         
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`)
         
         The **network_rules** object supports the following:
         
-          * `bypasses` (`pulumi.Input[list]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-            any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
-          * `defaultAction` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-          * `ipRules` (`pulumi.Input[list]`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
-          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`) - A list of resource ids for subnets.
+          * `bypasses` (`pulumi.Input[list]`)
+          * `defaultAction` (`pulumi.Input[str]`)
+          * `ipRules` (`pulumi.Input[list]`)
+          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
+        
+        The **queue_properties** object supports the following:
+        
+          * `corsRules` (`pulumi.Input[list]`)
+        
+            * `allowedHeaders` (`pulumi.Input[list]`)
+            * `allowedMethods` (`pulumi.Input[list]`)
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `exposedHeaders` (`pulumi.Input[list]`)
+            * `maxAgeInSeconds` (`pulumi.Input[float]`)
+        
+          * `hourMetrics` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `includeApis` (`pulumi.Input[bool]`)
+            * `retentionPolicyDays` (`pulumi.Input[float]`)
+            * `version` (`pulumi.Input[str]`)
+        
+          * `logging` (`pulumi.Input[dict]`)
+        
+            * `delete` (`pulumi.Input[bool]`)
+            * `read` (`pulumi.Input[bool]`)
+            * `retentionPolicyDays` (`pulumi.Input[float]`)
+            * `version` (`pulumi.Input[str]`)
+            * `write` (`pulumi.Input[bool]`)
+        
+          * `minuteMetrics` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `includeApis` (`pulumi.Input[bool]`)
+            * `retentionPolicyDays` (`pulumi.Input[float]`)
+            * `version` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
         """
@@ -419,22 +475,53 @@ class Account(pulumi.CustomResource):
         
         The **custom_domain** object supports the following:
         
-          * `name` (`pulumi.Input[str]`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
-          * `useSubdomain` (`pulumi.Input[bool]`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+          * `useSubdomain` (`pulumi.Input[bool]`)
         
         The **identity** object supports the following:
         
           * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
           * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`)
         
         The **network_rules** object supports the following:
         
-          * `bypasses` (`pulumi.Input[list]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
-            any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
-          * `defaultAction` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
-          * `ipRules` (`pulumi.Input[list]`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
-          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`) - A list of resource ids for subnets.
+          * `bypasses` (`pulumi.Input[list]`)
+          * `defaultAction` (`pulumi.Input[str]`)
+          * `ipRules` (`pulumi.Input[list]`)
+          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
+        
+        The **queue_properties** object supports the following:
+        
+          * `corsRules` (`pulumi.Input[list]`)
+        
+            * `allowedHeaders` (`pulumi.Input[list]`)
+            * `allowedMethods` (`pulumi.Input[list]`)
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `exposedHeaders` (`pulumi.Input[list]`)
+            * `maxAgeInSeconds` (`pulumi.Input[float]`)
+        
+          * `hourMetrics` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `includeApis` (`pulumi.Input[bool]`)
+            * `retentionPolicyDays` (`pulumi.Input[float]`)
+            * `version` (`pulumi.Input[str]`)
+        
+          * `logging` (`pulumi.Input[dict]`)
+        
+            * `delete` (`pulumi.Input[bool]`)
+            * `read` (`pulumi.Input[bool]`)
+            * `retentionPolicyDays` (`pulumi.Input[float]`)
+            * `version` (`pulumi.Input[str]`)
+            * `write` (`pulumi.Input[bool]`)
+        
+          * `minuteMetrics` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `includeApis` (`pulumi.Input[bool]`)
+            * `retentionPolicyDays` (`pulumi.Input[float]`)
+            * `version` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
         """

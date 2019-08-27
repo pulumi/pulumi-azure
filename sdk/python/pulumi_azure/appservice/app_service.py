@@ -94,6 +94,7 @@ class AppService(pulumi.CustomResource):
     """
     A Managed Service Identity block as defined below.
     
+      * `identityIds` (`list`)
       * `principalId` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
       * `tenantId` (`str`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
       * `type` (`str`)
@@ -113,6 +114,13 @@ class AppService(pulumi.CustomResource):
           * `level` (`str`)
           * `retentionInDays` (`float`)
           * `sasUrl` (`str`)
+    
+      * `httpLogs` (`dict`)
+    
+        * `fileSystem` (`dict`)
+    
+          * `retentionInDays` (`float`)
+          * `retentionInMb` (`float`)
     """
     name: pulumi.Output[str]
     """
@@ -184,6 +192,13 @@ class AppService(pulumi.CustomResource):
     storage_accounts: pulumi.Output[list]
     """
     One or more `storage_account` blocks as defined below.
+    
+      * `accessKey` (`str`)
+      * `accountName` (`str`)
+      * `mountPath` (`str`)
+      * `name` (`str`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+      * `shareName` (`str`)
+      * `type` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -255,6 +270,20 @@ class AppService(pulumi.CustomResource):
         
           * `unauthenticatedClientAction` (`pulumi.Input[str]`)
         
+        The **backup** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Enabled?
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+          * `schedule` (`pulumi.Input[dict]`)
+        
+            * `frequencyInterval` (`pulumi.Input[float]`)
+            * `frequencyUnit` (`pulumi.Input[str]`)
+            * `keepAtLeastOneBackup` (`pulumi.Input[bool]`)
+            * `retentionPeriodInDays` (`pulumi.Input[float]`)
+            * `startTime` (`pulumi.Input[str]`)
+        
+          * `storageAccountUrl` (`pulumi.Input[str]`)
+        
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -263,6 +292,7 @@ class AppService(pulumi.CustomResource):
         
         The **identity** object supports the following:
         
+          * `identityIds` (`pulumi.Input[list]`)
           * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `type` (`pulumi.Input[str]`)
@@ -276,6 +306,13 @@ class AppService(pulumi.CustomResource):
               * `level` (`pulumi.Input[str]`)
               * `retentionInDays` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
+        
+          * `httpLogs` (`pulumi.Input[dict]`)
+        
+            * `fileSystem` (`pulumi.Input[dict]`)
+        
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retentionInMb` (`pulumi.Input[float]`)
         
         The **site_config** object supports the following:
         
@@ -311,6 +348,15 @@ class AppService(pulumi.CustomResource):
           * `virtualNetworkName` (`pulumi.Input[str]`)
           * `websocketsEnabled` (`pulumi.Input[bool]`)
           * `windowsFxVersion` (`pulumi.Input[str]`)
+        
+        The **storage_accounts** object supports the following:
+        
+          * `accessKey` (`pulumi.Input[str]`)
+          * `accountName` (`pulumi.Input[str]`)
+          * `mountPath` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+          * `shareName` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
         """
@@ -435,6 +481,20 @@ class AppService(pulumi.CustomResource):
         
           * `unauthenticatedClientAction` (`pulumi.Input[str]`)
         
+        The **backup** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Enabled?
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+          * `schedule` (`pulumi.Input[dict]`)
+        
+            * `frequencyInterval` (`pulumi.Input[float]`)
+            * `frequencyUnit` (`pulumi.Input[str]`)
+            * `keepAtLeastOneBackup` (`pulumi.Input[bool]`)
+            * `retentionPeriodInDays` (`pulumi.Input[float]`)
+            * `startTime` (`pulumi.Input[str]`)
+        
+          * `storageAccountUrl` (`pulumi.Input[str]`)
+        
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
@@ -443,6 +503,7 @@ class AppService(pulumi.CustomResource):
         
         The **identity** object supports the following:
         
+          * `identityIds` (`pulumi.Input[list]`)
           * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `type` (`pulumi.Input[str]`)
@@ -456,6 +517,13 @@ class AppService(pulumi.CustomResource):
               * `level` (`pulumi.Input[str]`)
               * `retentionInDays` (`pulumi.Input[float]`)
               * `sasUrl` (`pulumi.Input[str]`)
+        
+          * `httpLogs` (`pulumi.Input[dict]`)
+        
+            * `fileSystem` (`pulumi.Input[dict]`)
+        
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `retentionInMb` (`pulumi.Input[float]`)
         
         The **site_config** object supports the following:
         
@@ -501,6 +569,15 @@ class AppService(pulumi.CustomResource):
         
           * `branch` (`pulumi.Input[str]`) - Branch name of the Git repository for this App Service.
           * `repoUrl` (`pulumi.Input[str]`) - URL of the Git repository for this App Service.
+        
+        The **storage_accounts** object supports the following:
+        
+          * `accessKey` (`pulumi.Input[str]`)
+          * `accountName` (`pulumi.Input[str]`)
+          * `mountPath` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+          * `shareName` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
         """

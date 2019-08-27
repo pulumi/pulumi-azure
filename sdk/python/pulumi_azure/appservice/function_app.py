@@ -21,6 +21,45 @@ class FunctionApp(pulumi.CustomResource):
     auth_settings: pulumi.Output[dict]
     """
     A `auth_settings` block as defined below.
+    
+      * `activeDirectory` (`dict`)
+    
+        * `allowedAudiences` (`list`)
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+    
+      * `additionalLoginParams` (`dict`)
+      * `allowedExternalRedirectUrls` (`list`)
+      * `defaultProvider` (`str`)
+      * `enabled` (`bool`) - Is the Function App enabled?
+      * `facebook` (`dict`)
+    
+        * `app_id` (`str`)
+        * `appSecret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `google` (`dict`)
+    
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `issuer` (`str`)
+      * `microsoft` (`dict`)
+    
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `runtimeVersion` (`str`)
+      * `tokenRefreshExtensionHours` (`float`)
+      * `tokenStoreEnabled` (`bool`)
+      * `twitter` (`dict`)
+    
+        * `consumerKey` (`str`)
+        * `consumerSecret` (`str`)
+    
+      * `unauthenticatedClientAction` (`str`)
     """
     client_affinity_enabled: pulumi.Output[bool]
     """
@@ -31,7 +70,7 @@ class FunctionApp(pulumi.CustomResource):
     An `connection_string` block as defined below.
     
       * `name` (`str`) - The name of the Connection String.
-      * `type` (`str`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
       * `value` (`str`) - The value for the Connection String.
     """
     default_hostname: pulumi.Output[str]
@@ -56,7 +95,7 @@ class FunctionApp(pulumi.CustomResource):
     
       * `principalId` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
       * `tenantId` (`str`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-      * `type` (`str`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
     """
     kind: pulumi.Output[str]
     """
@@ -87,8 +126,14 @@ class FunctionApp(pulumi.CustomResource):
     A `site_config` object as defined below.
     
       * `alwaysOn` (`bool`) - Should the Function App be loaded at all times? Defaults to `false`.
+      * `cors` (`dict`) - A `cors` block as defined below.
+    
+        * `allowedOrigins` (`list`)
+        * `supportCredentials` (`bool`)
+    
       * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
       * `use32BitWorkerProcess` (`bool`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+      * `virtualNetworkName` (`str`) - The name of the Virtual Network which this App Service should be attached to.
       * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
     """
     site_credential: pulumi.Output[dict]
@@ -133,23 +178,70 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         
+        The **auth_settings** object supports the following:
+        
+          * `activeDirectory` (`pulumi.Input[dict]`)
+        
+            * `allowedAudiences` (`pulumi.Input[list]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+        
+          * `additionalLoginParams` (`pulumi.Input[dict]`)
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
+          * `defaultProvider` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the Function App enabled?
+          * `facebook` (`pulumi.Input[dict]`)
+        
+            * `app_id` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `google` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `issuer` (`pulumi.Input[str]`)
+          * `microsoft` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `runtimeVersion` (`pulumi.Input[str]`)
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
+          * `twitter` (`pulumi.Input[dict]`)
+        
+            * `consumerKey` (`pulumi.Input[str]`)
+            * `consumerSecret` (`pulumi.Input[str]`)
+        
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+        
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
           * `value` (`pulumi.Input[str]`) - The value for the Connection String.
         
         The **identity** object supports the following:
         
           * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         
         The **site_config** object supports the following:
         
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
+          * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
+        
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `supportCredentials` (`pulumi.Input[bool]`)
+        
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
@@ -235,23 +327,70 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         
+        The **auth_settings** object supports the following:
+        
+          * `activeDirectory` (`pulumi.Input[dict]`)
+        
+            * `allowedAudiences` (`pulumi.Input[list]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+        
+          * `additionalLoginParams` (`pulumi.Input[dict]`)
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
+          * `defaultProvider` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the Function App enabled?
+          * `facebook` (`pulumi.Input[dict]`)
+        
+            * `app_id` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `google` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `issuer` (`pulumi.Input[str]`)
+          * `microsoft` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `runtimeVersion` (`pulumi.Input[str]`)
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
+          * `twitter` (`pulumi.Input[dict]`)
+        
+            * `consumerKey` (`pulumi.Input[str]`)
+            * `consumerSecret` (`pulumi.Input[str]`)
+        
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+        
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
           * `value` (`pulumi.Input[str]`) - The value for the Connection String.
         
         The **identity** object supports the following:
         
           * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
           * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
-          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
         
         The **site_config** object supports the following:
         
           * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
+          * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
+        
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `supportCredentials` (`pulumi.Input[bool]`)
+        
           * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
           * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service should be attached to.
           * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
         
         The **site_credential** object supports the following:

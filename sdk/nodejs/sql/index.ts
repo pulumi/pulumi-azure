@@ -5,6 +5,7 @@
 export * from "./activeDirectoryAdministrator";
 export * from "./database";
 export * from "./elasticPool";
+export * from "./failoverGroup";
 export * from "./firewallRule";
 export * from "./getServer";
 export * from "./sqlServer";

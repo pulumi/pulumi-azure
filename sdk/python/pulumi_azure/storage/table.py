@@ -13,6 +13,14 @@ class Table(pulumi.CustomResource):
     acls: pulumi.Output[list]
     """
     One or more `acl` blocks as defined below.
+    
+      * `access_policies` (`list`)
+    
+        * `expiry` (`str`)
+        * `permissions` (`str`)
+        * `start` (`str`)
+    
+      * `id` (`str`) - The ID of the Table within the Storage Account.
     """
     name: pulumi.Output[str]
     """
@@ -38,6 +46,16 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage table.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
                Changing this forces a new resource to be created.
+        
+        The **acls** object supports the following:
+        
+          * `access_policies` (`pulumi.Input[list]`)
+        
+            * `expiry` (`pulumi.Input[str]`)
+            * `permissions` (`pulumi.Input[str]`)
+            * `start` (`pulumi.Input[str]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the Table within the Storage Account.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
         """
@@ -84,6 +102,16 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage table.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage table.
                Changing this forces a new resource to be created.
+        
+        The **acls** object supports the following:
+        
+          * `access_policies` (`pulumi.Input[list]`)
+        
+            * `expiry` (`pulumi.Input[str]`)
+            * `permissions` (`pulumi.Input[str]`)
+            * `start` (`pulumi.Input[str]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the Table within the Storage Account.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_table.html.markdown.
         """

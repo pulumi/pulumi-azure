@@ -25,6 +25,45 @@ class Slot(pulumi.CustomResource):
     auth_settings: pulumi.Output[dict]
     """
     A `auth_settings` block as defined below.
+    
+      * `activeDirectory` (`dict`)
+    
+        * `allowedAudiences` (`list`)
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+    
+      * `additionalLoginParams` (`dict`)
+      * `allowedExternalRedirectUrls` (`list`)
+      * `defaultProvider` (`str`)
+      * `enabled` (`bool`) - Is the App Service Slot Enabled?
+      * `facebook` (`dict`)
+    
+        * `app_id` (`str`)
+        * `appSecret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `google` (`dict`)
+    
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `issuer` (`str`)
+      * `microsoft` (`dict`)
+    
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `runtimeVersion` (`str`)
+      * `tokenRefreshExtensionHours` (`float`)
+      * `tokenStoreEnabled` (`bool`)
+      * `twitter` (`dict`)
+    
+        * `consumerKey` (`str`)
+        * `consumerSecret` (`str`)
+    
+      * `unauthenticatedClientAction` (`str`)
     """
     client_affinity_enabled: pulumi.Output[bool]
     """
@@ -54,6 +93,7 @@ class Slot(pulumi.CustomResource):
     """
     A Managed Service Identity block as defined below.
     
+      * `identityIds` (`list`)
       * `principalId` (`str`)
       * `tenantId` (`str`)
       * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
@@ -141,6 +181,47 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
+        The **auth_settings** object supports the following:
+        
+          * `activeDirectory` (`pulumi.Input[dict]`)
+        
+            * `allowedAudiences` (`pulumi.Input[list]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+        
+          * `additionalLoginParams` (`pulumi.Input[dict]`)
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
+          * `defaultProvider` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Slot Enabled?
+          * `facebook` (`pulumi.Input[dict]`)
+        
+            * `app_id` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `google` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `issuer` (`pulumi.Input[str]`)
+          * `microsoft` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `runtimeVersion` (`pulumi.Input[str]`)
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
+          * `twitter` (`pulumi.Input[dict]`)
+        
+            * `consumerKey` (`pulumi.Input[str]`)
+            * `consumerSecret` (`pulumi.Input[str]`)
+        
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+        
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
@@ -149,6 +230,7 @@ class Slot(pulumi.CustomResource):
         
         The **identity** object supports the following:
         
+          * `identityIds` (`pulumi.Input[list]`)
           * `principalId` (`pulumi.Input[str]`)
           * `tenantId` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
@@ -261,6 +343,47 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[dict] site_credential: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
+        The **auth_settings** object supports the following:
+        
+          * `activeDirectory` (`pulumi.Input[dict]`)
+        
+            * `allowedAudiences` (`pulumi.Input[list]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+        
+          * `additionalLoginParams` (`pulumi.Input[dict]`)
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
+          * `defaultProvider` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Slot Enabled?
+          * `facebook` (`pulumi.Input[dict]`)
+        
+            * `app_id` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `google` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `issuer` (`pulumi.Input[str]`)
+          * `microsoft` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `runtimeVersion` (`pulumi.Input[str]`)
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
+          * `twitter` (`pulumi.Input[dict]`)
+        
+            * `consumerKey` (`pulumi.Input[str]`)
+            * `consumerSecret` (`pulumi.Input[str]`)
+        
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+        
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
@@ -269,6 +392,7 @@ class Slot(pulumi.CustomResource):
         
         The **identity** object supports the following:
         
+          * `identityIds` (`pulumi.Input[list]`)
           * `principalId` (`pulumi.Input[str]`)
           * `tenantId` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.

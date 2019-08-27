@@ -4,6 +4,23 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as outputs from "../types/output";
 
+export namespace analysisservices {
+    export interface ServerIpv4FirewallRule {
+        /**
+         * Specifies the name of the firewall rule.
+         */
+        name: string;
+        /**
+         * End of the firewall rule range as IPv4 address.
+         */
+        rangeEnd: string;
+        /**
+         * Start of the firewall rule range as IPv4 address.
+         */
+        rangeStart: string;
+    }
+}
+
 export namespace apimanagement {
     export interface ApiImport {
         contentFormat: string;
@@ -135,6 +152,48 @@ export namespace apimanagement {
          */
         name: string;
         value: string;
+    }
+
+    export interface BackendCredentials {
+        authorization?: outputs.apimanagement.BackendCredentialsAuthorization;
+        certificates?: string[];
+        header?: {[key: string]: string};
+        query?: {[key: string]: string};
+    }
+
+    export interface BackendCredentialsAuthorization {
+        parameter?: string;
+        scheme?: string;
+    }
+
+    export interface BackendProxy {
+        password?: string;
+        /**
+         * The URL of the backend host.
+         */
+        url: string;
+        username: string;
+    }
+
+    export interface BackendServiceFabricCluster {
+        clientCertificateThumbprint: string;
+        managementEndpoints: string[];
+        maxPartitionResolutionRetries: number;
+        serverCertificateThumbprints?: string[];
+        serverX509Names?: outputs.apimanagement.BackendServiceFabricClusterServerX509Name[];
+    }
+
+    export interface BackendServiceFabricClusterServerX509Name {
+        issuerCertificateThumbprint: string;
+        /**
+         * The name of the API Management backend. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+
+    export interface BackendTls {
+        validateCertificateChain?: boolean;
+        validateCertificateName?: boolean;
     }
 
     export interface GetApiSubscriptionKeyParameterName {
@@ -2941,6 +3000,10 @@ export namespace cosmosdb {
         key: string;
         unique?: boolean;
     }
+
+    export interface SqlContainerUniqueKey {
+        paths: string[];
+    }
 }
 
 export namespace datafactory {
@@ -3024,6 +3087,41 @@ export namespace devspace {
 }
 
 export namespace devtest {
+    export interface GetVirtualNetworkAllowedSubnet {
+        /**
+         * Indicates if this subnet allows public IP addresses. Possible values are `Allow`, `Default` and `Deny`.
+         */
+        allowPublicIp: string;
+        /**
+         * The name of the subnet.
+         */
+        labSubnetName: string;
+        /**
+         * The resource identifier for the subnet.
+         */
+        resourceId: string;
+    }
+
+    export interface GetVirtualNetworkSubnetOverrides {
+        /**
+         * The name of the subnet.
+         */
+        labSubnetName: string;
+        /**
+         * The resource identifier for the subnet.
+         */
+        resourceId: string;
+        /**
+         * Indicates if the subnet can be used for VM creation.  Possible values are `Allow`, `Default` and `Deny`.
+         */
+        useInVmCreationPermission: string;
+        usePublicIpAddressPermission: string;
+        /**
+         * The virtual network pool associated with this subnet.
+         */
+        virtualNetworkPoolName: string;
+    }
+
     export interface LinuxVirtualMachineGalleryImageReference {
         offer: string;
         publisher: string;
@@ -3038,6 +3136,25 @@ export namespace devtest {
          */
         frontendPort: number;
         protocol: string;
+    }
+
+    export interface ScheduleDailyRecurrence {
+        time: string;
+    }
+
+    export interface ScheduleHourlyRecurrence {
+        minute: number;
+    }
+
+    export interface ScheduleNotificationSettings {
+        status?: string;
+        timeInMinutes?: number;
+        webhookUrl?: string;
+    }
+
+    export interface ScheduleWeeklyRecurrence {
+        time: string;
+        weekDays?: string[];
     }
 
     export interface VirtualNetworkSubnet {
@@ -6033,6 +6150,14 @@ export namespace recoveryservices {
         weekdays: string[];
         weeks: string[];
     }
+
+    export interface ReplicatedVmManagedDisk {
+        diskId: string;
+        stagingStorageAccountId: string;
+        targetDiskType: string;
+        targetReplicaDiskType: string;
+        targetResourceGroupId: string;
+    }
 }
 
 export namespace redis {
@@ -6496,6 +6621,39 @@ export namespace sql {
          * Should the default server policy be used? Defaults to `Disabled`.
          */
         useServerDefault?: string;
+    }
+
+    export interface FailoverGroupPartnerServer {
+        /**
+         * the SQL server ID
+         */
+        id: string;
+        /**
+         * the location of a SQL server in `partnerServers`
+         */
+        location: string;
+        /**
+         * the current role of the SQL server named in `serverName`
+         */
+        role: string;
+    }
+
+    export interface FailoverGroupReadWriteEndpointFailoverPolicy {
+        /**
+         * Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
+         */
+        graceMinutes?: number;
+        /**
+         * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+         */
+        mode: string;
+    }
+
+    export interface FailoverGroupReadonlyEndpointFailoverPolicy {
+        /**
+         * Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+         */
+        mode: string;
     }
 }
 

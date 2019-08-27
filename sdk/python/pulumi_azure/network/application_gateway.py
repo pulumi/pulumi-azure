@@ -132,6 +132,9 @@ class ApplicationGateway(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     A `identity` block.
+    
+      * `identityIds` (`str`)
+      * `type` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -438,6 +441,11 @@ class ApplicationGateway(pulumi.CustomResource):
           * `requireSni` (`pulumi.Input[bool]`)
           * `sslCertificateId` (`pulumi.Input[str]`) - The ID of the associated SSL Certificate.
           * `sslCertificateName` (`pulumi.Input[str]`)
+        
+        The **identity** object supports the following:
+        
+          * `identityIds` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
         
         The **probes** object supports the following:
         
@@ -778,6 +786,11 @@ class ApplicationGateway(pulumi.CustomResource):
           * `requireSni` (`pulumi.Input[bool]`)
           * `sslCertificateId` (`pulumi.Input[str]`) - The ID of the associated SSL Certificate.
           * `sslCertificateName` (`pulumi.Input[str]`)
+        
+        The **identity** object supports the following:
+        
+          * `identityIds` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
         
         The **probes** object supports the following:
         

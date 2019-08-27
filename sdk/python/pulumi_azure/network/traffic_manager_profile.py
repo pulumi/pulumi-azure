@@ -27,9 +27,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
     This block specifies the Endpoint monitoring
     configuration for the Profile, it supports the fields documented below.
     
+      * `interval_in_seconds` (`float`)
       * `path` (`str`)
       * `port` (`float`)
       * `protocol` (`str`)
+      * `timeoutInSeconds` (`float`)
+      * `toleratedNumberOfFailures` (`float`)
     """
     name: pulumi.Output[str]
     """
@@ -96,9 +99,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
         
         The **monitor_configs** object supports the following:
         
+          * `interval_in_seconds` (`pulumi.Input[float]`)
           * `path` (`pulumi.Input[str]`)
           * `port` (`pulumi.Input[float]`)
           * `protocol` (`pulumi.Input[str]`)
+          * `timeoutInSeconds` (`pulumi.Input[float]`)
+          * `toleratedNumberOfFailures` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
         """
@@ -179,9 +185,12 @@ class TrafficManagerProfile(pulumi.CustomResource):
         
         The **monitor_configs** object supports the following:
         
+          * `interval_in_seconds` (`pulumi.Input[float]`)
           * `path` (`pulumi.Input[str]`)
           * `port` (`pulumi.Input[float]`)
           * `protocol` (`pulumi.Input[str]`)
+          * `timeoutInSeconds` (`pulumi.Input[float]`)
+          * `toleratedNumberOfFailures` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile.html.markdown.
         """

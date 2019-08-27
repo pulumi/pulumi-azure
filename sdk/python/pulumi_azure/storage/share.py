@@ -13,6 +13,14 @@ class Share(pulumi.CustomResource):
     acls: pulumi.Output[list]
     """
     One or more `acl` blocks as defined below.
+    
+      * `access_policies` (`list`)
+    
+        * `expiry` (`str`)
+        * `permissions` (`str`)
+        * `start` (`str`)
+    
+      * `id` (`str`) - The ID of the File Share.
     """
     metadata: pulumi.Output[dict]
     """
@@ -54,6 +62,16 @@ class Share(pulumi.CustomResource):
                create the share. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
+        
+        The **acls** object supports the following:
+        
+          * `access_policies` (`pulumi.Input[list]`)
+        
+            * `expiry` (`pulumi.Input[str]`)
+            * `permissions` (`pulumi.Input[str]`)
+            * `start` (`pulumi.Input[str]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the File Share.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
         """
@@ -107,6 +125,16 @@ class Share(pulumi.CustomResource):
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the share.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the File Share
+        
+        The **acls** object supports the following:
+        
+          * `access_policies` (`pulumi.Input[list]`)
+        
+            * `expiry` (`pulumi.Input[str]`)
+            * `permissions` (`pulumi.Input[str]`)
+            * `start` (`pulumi.Input[str]`)
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the File Share.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_share.html.markdown.
         """

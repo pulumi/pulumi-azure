@@ -34,6 +34,12 @@ class Pool(pulumi.CustomResource):
     """
     The container configuration used in the pool's VMs.
     
+      * `containerRegistries` (`list`)
+    
+        * `password` (`str`)
+        * `registryServer` (`str`)
+        * `userName` (`str`)
+    
       * `type` (`str`)
     """
     display_name: pulumi.Output[str]
@@ -139,6 +145,12 @@ class Pool(pulumi.CustomResource):
           * `visibilities` (`pulumi.Input[list]`)
         
         The **container_configuration** object supports the following:
+        
+          * `containerRegistries` (`pulumi.Input[list]`)
+        
+            * `password` (`pulumi.Input[str]`)
+            * `registryServer` (`pulumi.Input[str]`)
+            * `userName` (`pulumi.Input[str]`)
         
           * `type` (`pulumi.Input[str]`)
         
@@ -266,6 +278,12 @@ class Pool(pulumi.CustomResource):
           * `visibilities` (`pulumi.Input[list]`)
         
         The **container_configuration** object supports the following:
+        
+          * `containerRegistries` (`pulumi.Input[list]`)
+        
+            * `password` (`pulumi.Input[str]`)
+            * `registryServer` (`pulumi.Input[str]`)
+            * `userName` (`pulumi.Input[str]`)
         
           * `type` (`pulumi.Input[str]`)
         

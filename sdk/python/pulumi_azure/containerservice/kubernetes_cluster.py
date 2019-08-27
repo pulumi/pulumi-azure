@@ -11,36 +11,20 @@ from .. import utilities, tables
 
 class KubernetesCluster(pulumi.CustomResource):
     addon_profile: pulumi.Output[dict]
-<<<<<<< HEAD
-    """
-    A `addon_profile` block.
-    
-      * `aciConnectorLinux` (`dict`)
-    
-        * `enabled` (`bool`)
-        * `subnetName` (`str`)
-    
-      * `httpApplicationRouting` (`dict`) - A `http_application_routing` block as defined below.
-    
-        * `enabled` (`bool`)
-        * `httpApplicationRoutingZoneName` (`str`) - The Zone Name of the HTTP Application Routing.
-    
-      * `omsAgent` (`dict`)
-    
-        * `enabled` (`bool`)
-        * `logAnalyticsWorkspaceId` (`str`)
-    """
-=======
->>>>>>> cdfd5c1e... Update to terraform-providers-azurerm v1.33.1
     agent_pool_profiles: pulumi.Output[list]
     """
     One or more `agent_pool_profile` blocks as defined below.
     
+      * `availabilityZones` (`list`)
       * `count` (`float`)
       * `dns_prefix` (`str`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+      * `enableAutoScaling` (`bool`)
       * `fqdn` (`str`) - The FQDN of the Azure Kubernetes Managed Cluster.
+      * `maxCount` (`float`)
       * `maxPods` (`float`)
+      * `minCount` (`float`)
       * `name` (`str`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+      * `nodeTaints` (`list`)
       * `osDiskSizeGb` (`float`)
       * `os_type` (`str`)
       * `type` (`str`)
@@ -89,17 +73,6 @@ class KubernetesCluster(pulumi.CustomResource):
     """
     kubernetes_version: pulumi.Output[str]
     linux_profile: pulumi.Output[dict]
-<<<<<<< HEAD
-    """
-    A `linux_profile` block.
-    
-      * `admin_username` (`str`)
-      * `sshKey` (`dict`)
-    
-        * `keyData` (`str`)
-    """
-=======
->>>>>>> cdfd5c1e... Update to terraform-providers-azurerm v1.33.1
     location: pulumi.Output[str]
     """
     The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created.
@@ -109,19 +82,6 @@ class KubernetesCluster(pulumi.CustomResource):
     The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
     """
     network_profile: pulumi.Output[dict]
-<<<<<<< HEAD
-    """
-    A `network_profile` block.
-    
-      * `dnsServiceIp` (`str`)
-      * `dockerBridgeCidr` (`str`)
-      * `networkPlugin` (`str`)
-      * `networkPolicy` (`str`)
-      * `podCidr` (`str`)
-      * `serviceCidr` (`str`)
-    """
-=======
->>>>>>> cdfd5c1e... Update to terraform-providers-azurerm v1.33.1
     node_resource_group: pulumi.Output[str]
     """
     The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
@@ -131,21 +91,6 @@ class KubernetesCluster(pulumi.CustomResource):
     Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
     """
     role_based_access_control: pulumi.Output[dict]
-<<<<<<< HEAD
-    """
-    A `role_based_access_control` block. Changing this forces a new resource to be created.
-    
-      * `azureActiveDirectory` (`dict`)
-    
-        * `clientAppId` (`str`)
-        * `serverAppId` (`str`)
-        * `serverAppSecret` (`str`)
-        * `tenantId` (`str`)
-    
-      * `enabled` (`bool`)
-    """
-=======
->>>>>>> cdfd5c1e... Update to terraform-providers-azurerm v1.33.1
     service_principal: pulumi.Output[dict]
     """
     A `service_principal` block as documented below.
@@ -170,8 +115,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] node_resource_group: The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
-<<<<<<< HEAD
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
         The **addon_profile** object supports the following:
         
@@ -192,11 +135,16 @@ class KubernetesCluster(pulumi.CustomResource):
         
         The **agent_pool_profiles** object supports the following:
         
+          * `availabilityZones` (`pulumi.Input[list]`)
           * `count` (`pulumi.Input[float]`)
           * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+          * `enableAutoScaling` (`pulumi.Input[bool]`)
           * `fqdn` (`pulumi.Input[str]`) - The FQDN of the Azure Kubernetes Managed Cluster.
+          * `maxCount` (`pulumi.Input[float]`)
           * `maxPods` (`pulumi.Input[float]`)
+          * `minCount` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+          * `nodeTaints` (`pulumi.Input[list]`)
           * `osDiskSizeGb` (`pulumi.Input[float]`)
           * `os_type` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
@@ -214,6 +162,7 @@ class KubernetesCluster(pulumi.CustomResource):
         
           * `dnsServiceIp` (`pulumi.Input[str]`)
           * `dockerBridgeCidr` (`pulumi.Input[str]`)
+          * `loadBalancerSku` (`pulumi.Input[str]`)
           * `networkPlugin` (`pulumi.Input[str]`)
           * `networkPolicy` (`pulumi.Input[str]`)
           * `podCidr` (`pulumi.Input[str]`)
@@ -234,8 +183,11 @@ class KubernetesCluster(pulumi.CustomResource):
         
           * `client_id` (`pulumi.Input[str]`)
           * `client_secret` (`pulumi.Input[str]`)
-=======
->>>>>>> cdfd5c1e... Update to terraform-providers-azurerm v1.33.1
+        
+        The **windows_profile** object supports the following:
+        
+          * `admin_password` (`pulumi.Input[str]`)
+          * `admin_username` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
         """
@@ -312,8 +264,6 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] node_resource_group: The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
-<<<<<<< HEAD
-        :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
         The **addon_profile** object supports the following:
         
@@ -334,11 +284,16 @@ class KubernetesCluster(pulumi.CustomResource):
         
         The **agent_pool_profiles** object supports the following:
         
+          * `availabilityZones` (`pulumi.Input[list]`)
           * `count` (`pulumi.Input[float]`)
           * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+          * `enableAutoScaling` (`pulumi.Input[bool]`)
           * `fqdn` (`pulumi.Input[str]`) - The FQDN of the Azure Kubernetes Managed Cluster.
+          * `maxCount` (`pulumi.Input[float]`)
           * `maxPods` (`pulumi.Input[float]`)
+          * `minCount` (`pulumi.Input[float]`)
           * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+          * `nodeTaints` (`pulumi.Input[list]`)
           * `osDiskSizeGb` (`pulumi.Input[float]`)
           * `os_type` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`)
@@ -374,6 +329,7 @@ class KubernetesCluster(pulumi.CustomResource):
         
           * `dnsServiceIp` (`pulumi.Input[str]`)
           * `dockerBridgeCidr` (`pulumi.Input[str]`)
+          * `loadBalancerSku` (`pulumi.Input[str]`)
           * `networkPlugin` (`pulumi.Input[str]`)
           * `networkPolicy` (`pulumi.Input[str]`)
           * `podCidr` (`pulumi.Input[str]`)
@@ -394,8 +350,11 @@ class KubernetesCluster(pulumi.CustomResource):
         
           * `client_id` (`pulumi.Input[str]`)
           * `client_secret` (`pulumi.Input[str]`)
-=======
->>>>>>> cdfd5c1e... Update to terraform-providers-azurerm v1.33.1
+        
+        The **windows_profile** object supports the following:
+        
+          * `admin_password` (`pulumi.Input[str]`)
+          * `admin_username` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
         """

@@ -6,6 +6,7 @@
 from .active_directory_administrator import *
 from .database import *
 from .elastic_pool import *
+from .failover_group import *
 from .firewall_rule import *
 from .sql_server import *
 from .virtual_network_rule import *

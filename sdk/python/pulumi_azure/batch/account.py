@@ -17,6 +17,9 @@ class Account(pulumi.CustomResource):
     key_vault_reference: pulumi.Output[dict]
     """
     A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+    
+      * `id` (`str`) - The Batch account ID.
+      * `url` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -63,6 +66,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **key_vault_reference** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Batch account ID.
+          * `url` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
         """
@@ -120,6 +128,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **key_vault_reference** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Batch account ID.
+          * `url` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_account.html.markdown.
         """

@@ -51,6 +51,14 @@ class IoTHub(pulumi.CustomResource):
     file_upload: pulumi.Output[dict]
     """
     A `file_upload` block as defined below.
+    
+      * `connection_string` (`str`)
+      * `containerName` (`str`)
+      * `defaultTtl` (`str`)
+      * `lock_duration` (`str`)
+      * `max_delivery_count` (`float`)
+      * `notifications` (`bool`)
+      * `sasTtl` (`str`)
     """
     hostname: pulumi.Output[str]
     """
@@ -142,6 +150,16 @@ class IoTHub(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`)
           * `endpointNames` (`pulumi.Input[list]`)
           * `source` (`pulumi.Input[str]`)
+        
+        The **file_upload** object supports the following:
+        
+          * `connection_string` (`pulumi.Input[str]`)
+          * `containerName` (`pulumi.Input[str]`)
+          * `defaultTtl` (`pulumi.Input[str]`)
+          * `lock_duration` (`pulumi.Input[str]`)
+          * `max_delivery_count` (`pulumi.Input[float]`)
+          * `notifications` (`pulumi.Input[bool]`)
+          * `sasTtl` (`pulumi.Input[str]`)
         
         The **ip_filter_rules** object supports the following:
         
@@ -252,6 +270,16 @@ class IoTHub(pulumi.CustomResource):
           * `enabled` (`pulumi.Input[bool]`)
           * `endpointNames` (`pulumi.Input[list]`)
           * `source` (`pulumi.Input[str]`)
+        
+        The **file_upload** object supports the following:
+        
+          * `connection_string` (`pulumi.Input[str]`)
+          * `containerName` (`pulumi.Input[str]`)
+          * `defaultTtl` (`pulumi.Input[str]`)
+          * `lock_duration` (`pulumi.Input[str]`)
+          * `max_delivery_count` (`pulumi.Input[float]`)
+          * `notifications` (`pulumi.Input[bool]`)
+          * `sasTtl` (`pulumi.Input[str]`)
         
         The **ip_filter_rules** object supports the following:
         
