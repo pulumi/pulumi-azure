@@ -7,8 +7,6 @@ require (
 	github.com/Azure/go-autorest/autorest v0.8.0 // indirect
 	github.com/Azure/go-autorest/autorest/azure/auth v0.1.0 // indirect
 	github.com/Azure/go-autorest/autorest/azure/cli v0.1.0
-	github.com/Azure/go-autorest/autorest/to v0.2.0 // indirect
-	github.com/Azure/go-autorest/autorest/validation v0.1.0 // indirect
 	github.com/Nvveen/Gotty v0.0.0-20170406111628-a8b993ba6abd // indirect
 	github.com/chzyer/logex v1.1.11-0.20160617073814-96a4d311aa9b // indirect
 	github.com/coreos/bbolt v1.3.1-coreos.1 // indirect
@@ -45,5 +43,5 @@ replace (
 	github.com/Nvveen/Gotty => github.com/ijc25/Gotty v0.0.0-20170406111628-a8b993ba6abd
 	github.com/Sirupsen/logrus => github.com/sirupsen/logrus v1.4.2-0.20190403091019-9b3cdde74fbe
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
-	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20190802205635-509cc1c361f3
+	github.com/terraform-providers/terraform-provider-azurerm => github.com/pulumi/terraform-provider-azurerm v0.0.0-20190827111041-e23ae7e6cb81
 )
