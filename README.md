@@ -3,7 +3,13 @@
 # Microsoft Azure Resource Provider
 
 The Microsoft Azure resource provider for Pulumi lets you use Azure resources in your cloud programs.  To use
-this package, please [install the Pulumi CLI first](https://pulumi.io/).
+this package, please [install the Pulumi CLI first](https://pulumi.io/). For a streamlined Pulumi walkthrough, including language runtime installation and Azure configuration, click "Get Started" below.
+
+<div>
+    <a href="https://www.pulumi.com/docs/get-started/azure" title="Get Started">
+       <img src="https://www.pulumi.com/images/get-started.svg" width="120">
+    </a>
+</div>
 
 ## Installing
 
