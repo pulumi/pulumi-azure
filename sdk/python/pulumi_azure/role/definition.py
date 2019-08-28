@@ -25,6 +25,11 @@ class Definition(pulumi.CustomResource):
     permissions: pulumi.Output[list]
     """
     A `permissions` block as defined below.
+    
+      * `actions` (`list`)
+      * `dataActions` (`list`)
+      * `notActions` (`list`)
+      * `notDataActions` (`list`)
     """
     role_definition_id: pulumi.Output[str]
     """
@@ -46,6 +51,13 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[list] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
+        
+        The **permissions** object supports the following:
+        
+          * `actions` (`pulumi.Input[list]`)
+          * `dataActions` (`pulumi.Input[list]`)
+          * `notActions` (`pulumi.Input[list]`)
+          * `notDataActions` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition_legacy.html.markdown.
         """
@@ -99,6 +111,13 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[list] permissions: A `permissions` block as defined below.
         :param pulumi.Input[str] role_definition_id: A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope: The scope at which the Role Definition applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
+        
+        The **permissions** object supports the following:
+        
+          * `actions` (`pulumi.Input[list]`)
+          * `dataActions` (`pulumi.Input[list]`)
+          * `notActions` (`pulumi.Input[list]`)
+          * `notDataActions` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_definition_legacy.html.markdown.
         """

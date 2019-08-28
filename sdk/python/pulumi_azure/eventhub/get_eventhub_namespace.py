@@ -115,6 +115,9 @@ class AwaitableGetEventhubNamespaceResult(GetEventhubNamespaceResult):
 def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing EventHub Namespace.
+    
+    :param str name: The name of the EventHub Namespace.
+    :param str resource_group_name: The Name of the Resource Group where the EventHub Namespace exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/eventhub_namespace_legacy.html.markdown.
     """
@@ -123,7 +126,7 @@ def get_eventhub_namespace(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:eventhub/getEventhubNamespace:getEventhubNamespace', __args__, opts=opts).value

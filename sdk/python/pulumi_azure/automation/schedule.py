@@ -38,6 +38,9 @@ class Schedule(pulumi.CustomResource):
     monthly_occurrences: pulumi.Output[list]
     """
     List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+    
+      * `day` (`str`)
+      * `occurrence` (`float`)
     """
     name: pulumi.Output[str]
     """
@@ -77,6 +80,11 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
         :param pulumi.Input[list] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        
+        The **monthly_occurrences** object supports the following:
+        
+          * `day` (`pulumi.Input[str]`)
+          * `occurrence` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_schedule.html.markdown.
         """
@@ -141,6 +149,11 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://msdn.microsoft.com/en-us/library/ms912391(v=winembedded.11).aspx
         :param pulumi.Input[list] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        
+        The **monthly_occurrences** object supports the following:
+        
+          * `day` (`pulumi.Input[str]`)
+          * `occurrence` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_schedule.html.markdown.
         """

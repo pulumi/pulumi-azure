@@ -33,6 +33,9 @@ class Controller(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block as documented below. Changing this forces a new resource to be created.
+    
+      * `name` (`str`) - Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
+      * `tier` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -60,6 +63,11 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_container_host_credentials_base64: Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_container_host_resource_id: The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
         """
@@ -123,6 +131,11 @@ class Controller(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_container_host_credentials_base64: Base64 encoding of `kube_config_raw` of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_container_host_resource_id: The resource id of Azure Kubernetes Service cluster. Changing this forces a new resource to be created.
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the DevSpace Controller. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/devspace_controller.html.markdown.
         """

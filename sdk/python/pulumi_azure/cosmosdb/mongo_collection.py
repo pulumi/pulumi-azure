@@ -22,6 +22,9 @@ class MongoCollection(pulumi.CustomResource):
     indexes: pulumi.Output[list]
     """
     One or more `indexes` blocks as defined below.
+    
+      * `key` (`str`)
+      * `unique` (`bool`)
     """
     name: pulumi.Output[str]
     """
@@ -47,6 +50,11 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. 
+        
+        The **indexes** object supports the following:
+        
+          * `key` (`pulumi.Input[str]`)
+          * `unique` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
         """
@@ -101,6 +109,11 @@ class MongoCollection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Mongo Collection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Mongo Collection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] shard_key: The name of the key to partition on for sharding. There must not be any other unique index keys. 
+        
+        The **indexes** object supports the following:
+        
+          * `key` (`pulumi.Input[str]`)
+          * `unique` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cosmosdb_mongo_collection.html.markdown.
         """

@@ -109,6 +109,9 @@ class AwaitableGetJobResult(GetJobResult):
 def get_job(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Stream Analytics Job.
+    
+    :param str name: Specifies the name of the Stream Analytics Job.
+    :param str resource_group_name: Specifies the name of the resource group the Stream Analytics Job is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/stream_analytics_job.html.markdown.
     """
@@ -117,7 +120,7 @@ def get_job(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:streamanalytics/getJob:getJob', __args__, opts=opts).value

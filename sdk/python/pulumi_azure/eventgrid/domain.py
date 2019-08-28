@@ -17,10 +17,21 @@ class Domain(pulumi.CustomResource):
     input_mapping_default_values: pulumi.Output[dict]
     """
     A `input_mapping_default_values` block as defined below.
+    
+      * `dataVersion` (`str`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `eventType` (`str`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `subject` (`str`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
     input_mapping_fields: pulumi.Output[dict]
     """
     A `input_mapping_fields` block as defined below.
+    
+      * `dataVersion` (`str`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `eventTime` (`str`) - Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `eventType` (`str`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `id` (`str`) - Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `subject` (`str`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+      * `topic` (`str`) - Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
     """
     input_schema: pulumi.Output[str]
     """
@@ -55,6 +66,21 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **input_mapping_default_values** object supports the following:
+        
+          * `dataVersion` (`pulumi.Input[str]`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventType` (`pulumi.Input[str]`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `subject` (`pulumi.Input[str]`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        
+        The **input_mapping_fields** object supports the following:
+        
+          * `dataVersion` (`pulumi.Input[str]`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventTime` (`pulumi.Input[str]`) - Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventType` (`pulumi.Input[str]`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `id` (`pulumi.Input[str]`) - Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `subject` (`pulumi.Input[str]`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `topic` (`pulumi.Input[str]`) - Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
         """
@@ -110,6 +136,21 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the EventGrid Domain resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **input_mapping_default_values** object supports the following:
+        
+          * `dataVersion` (`pulumi.Input[str]`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventType` (`pulumi.Input[str]`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `subject` (`pulumi.Input[str]`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+        
+        The **input_mapping_fields** object supports the following:
+        
+          * `dataVersion` (`pulumi.Input[str]`) - Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventTime` (`pulumi.Input[str]`) - Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `eventType` (`pulumi.Input[str]`) - Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `id` (`pulumi.Input[str]`) - Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `subject` (`pulumi.Input[str]`) - Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+          * `topic` (`pulumi.Input[str]`) - Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventgrid_domain.html.markdown.
         """

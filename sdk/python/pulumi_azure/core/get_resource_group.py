@@ -49,6 +49,8 @@ class AwaitableGetResourceGroupResult(GetResourceGroupResult):
 def get_resource_group(name=None,opts=None):
     """
     Use this data source to access information about an existing Resource Group.
+    
+    :param str name: Specifies the name of the resource group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/resource_group.html.markdown.
     """
@@ -56,7 +58,7 @@ def get_resource_group(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:core/getResourceGroup:getResourceGroup', __args__, opts=opts).value

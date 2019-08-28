@@ -25,6 +25,10 @@ class Dps(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block as defined below.
+    
+      * `capacity` (`float`)
+      * `name` (`str`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+      * `tier` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -41,6 +45,12 @@ class Dps(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iot_dps.html.markdown.
         """
@@ -90,6 +100,12 @@ class Dps(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iot_dps.html.markdown.
         """

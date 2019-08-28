@@ -13,6 +13,15 @@ class IoTHub(pulumi.CustomResource):
     endpoints: pulumi.Output[list]
     """
     An `endpoint` block as defined below.
+    
+      * `batchFrequencyInSeconds` (`float`)
+      * `connection_string` (`str`)
+      * `containerName` (`str`)
+      * `encoding` (`str`)
+      * `fileNameFormat` (`str`)
+      * `maxChunkSizeInBytes` (`float`)
+      * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+      * `type` (`str`)
     """
     event_hub_events_endpoint: pulumi.Output[str]
     """
@@ -33,6 +42,11 @@ class IoTHub(pulumi.CustomResource):
     fallback_route: pulumi.Output[dict]
     """
     A `fallback_route` block as defined below. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events.
+    
+      * `condition` (`str`)
+      * `enabled` (`bool`)
+      * `endpointNames` (`list`)
+      * `source` (`str`)
     """
     hostname: pulumi.Output[str]
     """
@@ -41,6 +55,10 @@ class IoTHub(pulumi.CustomResource):
     ip_filter_rules: pulumi.Output[list]
     """
     One or more `ip_filter_rule` blocks as defined below.
+    
+      * `action` (`str`)
+      * `ipMask` (`str`)
+      * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
     """
     location: pulumi.Output[str]
     """
@@ -57,14 +75,29 @@ class IoTHub(pulumi.CustomResource):
     routes: pulumi.Output[list]
     """
     A `route` block as defined below.
+    
+      * `condition` (`str`)
+      * `enabled` (`bool`)
+      * `endpointNames` (`list`)
+      * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+      * `source` (`str`)
     """
     shared_access_policies: pulumi.Output[list]
     """
     One or more `shared_access_policy` blocks as defined below.
+    
+      * `keyName` (`str`) - The name of the shared access policy.
+      * `permissions` (`str`) - The permissions assigned to the shared access policy.
+      * `primary_key` (`str`) - The primary key.
+      * `secondary_key` (`str`) - The secondary key.
     """
     sku: pulumi.Output[dict]
     """
     A `sku` block as defined below.
+    
+      * `capacity` (`float`)
+      * `name` (`str`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+      * `tier` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -86,6 +119,44 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[list] routes: A `route` block as defined below.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **endpoints** object supports the following:
+        
+          * `batchFrequencyInSeconds` (`pulumi.Input[float]`)
+          * `connection_string` (`pulumi.Input[str]`)
+          * `containerName` (`pulumi.Input[str]`)
+          * `encoding` (`pulumi.Input[str]`)
+          * `fileNameFormat` (`pulumi.Input[str]`)
+          * `maxChunkSizeInBytes` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `type` (`pulumi.Input[str]`)
+        
+        The **fallback_route** object supports the following:
+        
+          * `condition` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`)
+          * `endpointNames` (`pulumi.Input[list]`)
+          * `source` (`pulumi.Input[str]`)
+        
+        The **ip_filter_rules** object supports the following:
+        
+          * `action` (`pulumi.Input[str]`)
+          * `ipMask` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        
+        The **routes** object supports the following:
+        
+          * `condition` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`)
+          * `endpointNames` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `source` (`pulumi.Input[str]`)
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub.html.markdown.
         """
@@ -156,6 +227,51 @@ class IoTHub(pulumi.CustomResource):
         :param pulumi.Input[list] shared_access_policies: One or more `shared_access_policy` blocks as defined below.
         :param pulumi.Input[dict] sku: A `sku` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **endpoints** object supports the following:
+        
+          * `batchFrequencyInSeconds` (`pulumi.Input[float]`)
+          * `connection_string` (`pulumi.Input[str]`)
+          * `containerName` (`pulumi.Input[str]`)
+          * `encoding` (`pulumi.Input[str]`)
+          * `fileNameFormat` (`pulumi.Input[str]`)
+          * `maxChunkSizeInBytes` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `type` (`pulumi.Input[str]`)
+        
+        The **fallback_route** object supports the following:
+        
+          * `condition` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`)
+          * `endpointNames` (`pulumi.Input[list]`)
+          * `source` (`pulumi.Input[str]`)
+        
+        The **ip_filter_rules** object supports the following:
+        
+          * `action` (`pulumi.Input[str]`)
+          * `ipMask` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        
+        The **routes** object supports the following:
+        
+          * `condition` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`)
+          * `endpointNames` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `source` (`pulumi.Input[str]`)
+        
+        The **shared_access_policies** object supports the following:
+        
+          * `keyName` (`pulumi.Input[str]`) - The name of the shared access policy.
+          * `permissions` (`pulumi.Input[str]`) - The permissions assigned to the shared access policy.
+          * `primary_key` (`pulumi.Input[str]`) - The primary key.
+          * `secondary_key` (`pulumi.Input[str]`) - The secondary key.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/iothub.html.markdown.
         """

@@ -37,6 +37,8 @@ class Namespace(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     ) A `sku` block as described below.
+    
+      * `name` (`str`) - The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
     """
     sku_name: pulumi.Output[str]
     """
@@ -55,6 +57,10 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_namespace.html.markdown.
         """
@@ -110,6 +116,10 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[str] servicebus_endpoint: The ServiceBus Endpoint for this Notification Hub Namespace.
         :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. Changing this forces a new resource to be created.
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub_namespace.html.markdown.
         """

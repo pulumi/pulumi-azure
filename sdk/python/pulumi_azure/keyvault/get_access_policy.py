@@ -56,6 +56,10 @@ class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
 def get_access_policy(name=None,opts=None):
     """
     Use this data source to access information about the permissions from the Management Key Vault Templates.
+    
+    :param str name: Specifies the name of the Management Template. Possible values are: `Key Management`,
+           `Secret Management`, `Certificate Management`, `Key & Secret Management`, `Key & Certificate Management`,
+           `Secret & Certificate Management`,  `Key, Secret, & Certificate Management`
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_access_policy.html.markdown.
     """
@@ -63,7 +67,7 @@ def get_access_policy(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getAccessPolicy:getAccessPolicy', __args__, opts=opts).value

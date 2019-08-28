@@ -45,6 +45,9 @@ class SharedImageVersion(pulumi.CustomResource):
     target_regions: pulumi.Output[list]
     """
     One or more `target_region` blocks as documented below.
+    
+      * `name` (`str`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+      * `regionalReplicaCount` (`float`)
     """
     def __init__(__self__, resource_name, opts=None, exclude_from_latest=None, gallery_name=None, image_name=None, location=None, managed_image_id=None, name=None, resource_group_name=None, tags=None, target_regions=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -63,6 +66,11 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[list] target_regions: One or more `target_region` blocks as documented below.
+        
+        The **target_regions** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+          * `regionalReplicaCount` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
         """
@@ -126,6 +134,11 @@ class SharedImageVersion(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[list] target_regions: One or more `target_region` blocks as documented below.
+        
+        The **target_regions** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The version number for this Image Version, such as `1.0.0`. Changing this forces a new resource to be created.
+          * `regionalReplicaCount` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image_version.html.markdown.
         """

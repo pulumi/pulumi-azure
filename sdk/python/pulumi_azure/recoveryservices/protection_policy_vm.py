@@ -13,6 +13,10 @@ class ProtectionPolicyVM(pulumi.CustomResource):
     backup: pulumi.Output[dict]
     """
     Configures the Policy backup frequecent, times & days as documented in the `backup` block below. 
+    
+      * `frequency` (`str`)
+      * `time` (`str`)
+      * `weekdays` (`list`)
     """
     name: pulumi.Output[str]
     """
@@ -29,18 +33,32 @@ class ProtectionPolicyVM(pulumi.CustomResource):
     retention_daily: pulumi.Output[dict]
     """
     Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+    
+      * `count` (`float`)
     """
     retention_monthly: pulumi.Output[dict]
     """
     Configures the policy monthly retention as documented in the `retention_monthly` block below.
+    
+      * `count` (`float`)
+      * `weekdays` (`list`)
+      * `weeks` (`list`)
     """
     retention_weekly: pulumi.Output[dict]
     """
     Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+    
+      * `count` (`float`)
+      * `weekdays` (`list`)
     """
     retention_yearly: pulumi.Output[dict]
     """
     Configures the policy yearly retention as documented in the `retention_yearly` block below.
+    
+      * `count` (`float`)
+      * `months` (`list`)
+      * `weekdays` (`list`)
+      * `weeks` (`list`)
     """
     tags: pulumi.Output[dict]
     """
@@ -66,6 +84,34 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
+        
+        The **backup** object supports the following:
+        
+          * `frequency` (`pulumi.Input[str]`)
+          * `time` (`pulumi.Input[str]`)
+          * `weekdays` (`pulumi.Input[list]`)
+        
+        The **retention_daily** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+        
+        The **retention_monthly** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+          * `weekdays` (`pulumi.Input[list]`)
+          * `weeks` (`pulumi.Input[list]`)
+        
+        The **retention_weekly** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+          * `weekdays` (`pulumi.Input[list]`)
+        
+        The **retention_yearly** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+          * `months` (`pulumi.Input[list]`)
+          * `weekdays` (`pulumi.Input[list]`)
+          * `weeks` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_policy_vm.html.markdown.
         """
@@ -127,6 +173,34 @@ class ProtectionPolicyVM(pulumi.CustomResource):
         :param pulumi.Input[dict] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: Specifies the timezone. Defaults to `UTC`
+        
+        The **backup** object supports the following:
+        
+          * `frequency` (`pulumi.Input[str]`)
+          * `time` (`pulumi.Input[str]`)
+          * `weekdays` (`pulumi.Input[list]`)
+        
+        The **retention_daily** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+        
+        The **retention_monthly** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+          * `weekdays` (`pulumi.Input[list]`)
+          * `weeks` (`pulumi.Input[list]`)
+        
+        The **retention_weekly** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+          * `weekdays` (`pulumi.Input[list]`)
+        
+        The **retention_yearly** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+          * `months` (`pulumi.Input[list]`)
+          * `weekdays` (`pulumi.Input[list]`)
+          * `weeks` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/recovery_services_protection_policy_vm.html.markdown.
         """

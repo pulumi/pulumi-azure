@@ -50,6 +50,10 @@ class AwaitableGetVMProtectionPolicyResult(GetVMProtectionPolicyResult):
 def get_vm_protection_policy(name=None,recovery_vault_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Recovery Services VM Protection Policy.
+    
+    :param str name: Specifies the name of the Recovery Services VM Protection Policy.
+    :param str recovery_vault_name: Specifies the name of the Recovery Services Vault.
+    :param str resource_group_name: The name of the resource group in which the Recovery Services VM Protection Policy resides.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/recovery_services_protection_policy_vm.html.markdown.
     """
@@ -59,7 +63,7 @@ def get_vm_protection_policy(name=None,recovery_vault_name=None,resource_group_n
     __args__['recoveryVaultName'] = recovery_vault_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:recoveryservices/getVMProtectionPolicy:getVMProtectionPolicy', __args__, opts=opts).value

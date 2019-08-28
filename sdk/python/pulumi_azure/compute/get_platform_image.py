@@ -54,6 +54,11 @@ class AwaitableGetPlatformImageResult(GetPlatformImageResult):
 def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=None):
     """
     Use this data source to access information about a Platform Image.
+    
+    :param str location: Specifies the Location to pull information about this Platform Image from.
+    :param str offer: Specifies the Offer associated with the Platform Image.
+    :param str publisher: Specifies the Publisher associated with the Platform Image.
+    :param str sku: Specifies the SKU of the Platform Image.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/platform_image.html.markdown.
     """
@@ -64,7 +69,7 @@ def get_platform_image(location=None,offer=None,publisher=None,sku=None,opts=Non
     __args__['publisher'] = publisher
     __args__['sku'] = sku
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getPlatformImage:getPlatformImage', __args__, opts=opts).value

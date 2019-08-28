@@ -21,6 +21,45 @@ class AppService(pulumi.CustomResource):
     auth_settings: pulumi.Output[dict]
     """
     A `auth_settings` block as defined below.
+    
+      * `activeDirectory` (`dict`)
+    
+        * `allowedAudiences` (`list`)
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+    
+      * `additionalLoginParams` (`dict`)
+      * `allowedExternalRedirectUrls` (`list`)
+      * `defaultProvider` (`str`)
+      * `enabled` (`bool`) - Is the App Service Enabled?
+      * `facebook` (`dict`)
+    
+        * `app_id` (`str`)
+        * `appSecret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `google` (`dict`)
+    
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `issuer` (`str`)
+      * `microsoft` (`dict`)
+    
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `runtimeVersion` (`str`)
+      * `tokenRefreshExtensionHours` (`float`)
+      * `tokenStoreEnabled` (`bool`)
+      * `twitter` (`dict`)
+    
+        * `consumerKey` (`str`)
+        * `consumerSecret` (`str`)
+    
+      * `unauthenticatedClientAction` (`str`)
     """
     client_affinity_enabled: pulumi.Output[bool]
     """
@@ -33,6 +72,10 @@ class AppService(pulumi.CustomResource):
     connection_strings: pulumi.Output[list]
     """
     One or more `connection_string` blocks as defined below.
+    
+      * `name` (`str`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+      * `type` (`str`)
+      * `value` (`str`)
     """
     default_site_hostname: pulumi.Output[str]
     """
@@ -49,6 +92,10 @@ class AppService(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     A Managed Service Identity block as defined below.
+    
+      * `principalId` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+      * `tenantId` (`str`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+      * `type` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -57,6 +104,14 @@ class AppService(pulumi.CustomResource):
     logs: pulumi.Output[dict]
     """
     A `logs` block as defined below.
+    
+      * `applicationLogs` (`dict`)
+    
+        * `azureBlobStorage` (`dict`)
+    
+          * `level` (`str`)
+          * `retentionInDays` (`float`)
+          * `sasUrl` (`str`)
     """
     name: pulumi.Output[str]
     """
@@ -77,14 +132,53 @@ class AppService(pulumi.CustomResource):
     site_config: pulumi.Output[dict]
     """
     A `site_config` block as defined below.
+    
+      * `alwaysOn` (`bool`)
+      * `appCommandLine` (`str`)
+      * `cors` (`dict`)
+    
+        * `allowedOrigins` (`list`)
+        * `supportCredentials` (`bool`)
+    
+      * `defaultDocuments` (`list`)
+      * `dotnetFrameworkVersion` (`str`)
+      * `ftpsState` (`str`)
+      * `http2Enabled` (`bool`)
+      * `ipRestrictions` (`list`)
+    
+        * `ipAddress` (`str`)
+        * `subnetMask` (`str`)
+    
+      * `javaContainer` (`str`)
+      * `javaContainerVersion` (`str`)
+      * `javaVersion` (`str`)
+      * `linuxFxVersion` (`str`)
+      * `localMysqlEnabled` (`bool`)
+      * `managedPipelineMode` (`str`)
+      * `minTlsVersion` (`str`)
+      * `phpVersion` (`str`)
+      * `pythonVersion` (`str`)
+      * `remoteDebuggingEnabled` (`bool`)
+      * `remoteDebuggingVersion` (`str`)
+      * `scmType` (`str`)
+      * `use32BitWorkerProcess` (`bool`)
+      * `virtualNetworkName` (`str`)
+      * `websocketsEnabled` (`bool`)
+      * `windowsFxVersion` (`str`)
     """
     site_credential: pulumi.Output[dict]
     """
     A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+    
+      * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
+      * `username` (`str`) - The username which can be used to publish to this App Service
     """
     source_control: pulumi.Output[dict]
     """
     A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
+    
+      * `branch` (`str`) - Branch name of the Git repository for this App Service.
+      * `repoUrl` (`str`) - URL of the Git repository for this App Service.
     """
     tags: pulumi.Output[dict]
     """
@@ -113,6 +207,104 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service.
         :param pulumi.Input[dict] site_config: A `site_config` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **auth_settings** object supports the following:
+        
+          * `activeDirectory` (`pulumi.Input[dict]`)
+        
+            * `allowedAudiences` (`pulumi.Input[list]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+        
+          * `additionalLoginParams` (`pulumi.Input[dict]`)
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
+          * `defaultProvider` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Enabled?
+          * `facebook` (`pulumi.Input[dict]`)
+        
+            * `app_id` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `google` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `issuer` (`pulumi.Input[str]`)
+          * `microsoft` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `runtimeVersion` (`pulumi.Input[str]`)
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
+          * `twitter` (`pulumi.Input[dict]`)
+        
+            * `consumerKey` (`pulumi.Input[str]`)
+            * `consumerSecret` (`pulumi.Input[str]`)
+        
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+        
+        The **connection_strings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+          * `type` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
+        
+        The **identity** object supports the following:
+        
+          * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `type` (`pulumi.Input[str]`)
+        
+        The **logs** object supports the following:
+        
+          * `applicationLogs` (`pulumi.Input[dict]`)
+        
+            * `azureBlobStorage` (`pulumi.Input[dict]`)
+        
+              * `level` (`pulumi.Input[str]`)
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `sasUrl` (`pulumi.Input[str]`)
+        
+        The **site_config** object supports the following:
+        
+          * `alwaysOn` (`pulumi.Input[bool]`)
+          * `appCommandLine` (`pulumi.Input[str]`)
+          * `cors` (`pulumi.Input[dict]`)
+        
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `supportCredentials` (`pulumi.Input[bool]`)
+        
+          * `defaultDocuments` (`pulumi.Input[list]`)
+          * `dotnetFrameworkVersion` (`pulumi.Input[str]`)
+          * `ftpsState` (`pulumi.Input[str]`)
+          * `http2Enabled` (`pulumi.Input[bool]`)
+          * `ipRestrictions` (`pulumi.Input[list]`)
+        
+            * `ipAddress` (`pulumi.Input[str]`)
+            * `subnetMask` (`pulumi.Input[str]`)
+        
+          * `javaContainer` (`pulumi.Input[str]`)
+          * `javaContainerVersion` (`pulumi.Input[str]`)
+          * `javaVersion` (`pulumi.Input[str]`)
+          * `linuxFxVersion` (`pulumi.Input[str]`)
+          * `localMysqlEnabled` (`pulumi.Input[bool]`)
+          * `managedPipelineMode` (`pulumi.Input[str]`)
+          * `minTlsVersion` (`pulumi.Input[str]`)
+          * `phpVersion` (`pulumi.Input[str]`)
+          * `pythonVersion` (`pulumi.Input[str]`)
+          * `remoteDebuggingEnabled` (`pulumi.Input[bool]`)
+          * `remoteDebuggingVersion` (`pulumi.Input[str]`)
+          * `scmType` (`pulumi.Input[str]`)
+          * `use32BitWorkerProcess` (`pulumi.Input[bool]`)
+          * `virtualNetworkName` (`pulumi.Input[str]`)
+          * `websocketsEnabled` (`pulumi.Input[bool]`)
+          * `windowsFxVersion` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
         """
@@ -192,6 +384,114 @@ class AppService(pulumi.CustomResource):
         :param pulumi.Input[dict] site_credential: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[dict] source_control: A `source_control` block as defined below, which contains the Source Control information when `scm_type` is set to `LocalGit`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **auth_settings** object supports the following:
+        
+          * `activeDirectory` (`pulumi.Input[dict]`)
+        
+            * `allowedAudiences` (`pulumi.Input[list]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+        
+          * `additionalLoginParams` (`pulumi.Input[dict]`)
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
+          * `defaultProvider` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Enabled?
+          * `facebook` (`pulumi.Input[dict]`)
+        
+            * `app_id` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `google` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `issuer` (`pulumi.Input[str]`)
+          * `microsoft` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `runtimeVersion` (`pulumi.Input[str]`)
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
+          * `twitter` (`pulumi.Input[dict]`)
+        
+            * `consumerKey` (`pulumi.Input[str]`)
+            * `consumerSecret` (`pulumi.Input[str]`)
+        
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+        
+        The **connection_strings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the App Service. Changing this forces a new resource to be created.
+          * `type` (`pulumi.Input[str]`)
+          * `value` (`pulumi.Input[str]`)
+        
+        The **identity** object supports the following:
+        
+          * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `type` (`pulumi.Input[str]`)
+        
+        The **logs** object supports the following:
+        
+          * `applicationLogs` (`pulumi.Input[dict]`)
+        
+            * `azureBlobStorage` (`pulumi.Input[dict]`)
+        
+              * `level` (`pulumi.Input[str]`)
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `sasUrl` (`pulumi.Input[str]`)
+        
+        The **site_config** object supports the following:
+        
+          * `alwaysOn` (`pulumi.Input[bool]`)
+          * `appCommandLine` (`pulumi.Input[str]`)
+          * `cors` (`pulumi.Input[dict]`)
+        
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `supportCredentials` (`pulumi.Input[bool]`)
+        
+          * `defaultDocuments` (`pulumi.Input[list]`)
+          * `dotnetFrameworkVersion` (`pulumi.Input[str]`)
+          * `ftpsState` (`pulumi.Input[str]`)
+          * `http2Enabled` (`pulumi.Input[bool]`)
+          * `ipRestrictions` (`pulumi.Input[list]`)
+        
+            * `ipAddress` (`pulumi.Input[str]`)
+            * `subnetMask` (`pulumi.Input[str]`)
+        
+          * `javaContainer` (`pulumi.Input[str]`)
+          * `javaContainerVersion` (`pulumi.Input[str]`)
+          * `javaVersion` (`pulumi.Input[str]`)
+          * `linuxFxVersion` (`pulumi.Input[str]`)
+          * `localMysqlEnabled` (`pulumi.Input[bool]`)
+          * `managedPipelineMode` (`pulumi.Input[str]`)
+          * `minTlsVersion` (`pulumi.Input[str]`)
+          * `phpVersion` (`pulumi.Input[str]`)
+          * `pythonVersion` (`pulumi.Input[str]`)
+          * `remoteDebuggingEnabled` (`pulumi.Input[bool]`)
+          * `remoteDebuggingVersion` (`pulumi.Input[str]`)
+          * `scmType` (`pulumi.Input[str]`)
+          * `use32BitWorkerProcess` (`pulumi.Input[bool]`)
+          * `virtualNetworkName` (`pulumi.Input[str]`)
+          * `websocketsEnabled` (`pulumi.Input[bool]`)
+          * `windowsFxVersion` (`pulumi.Input[str]`)
+        
+        The **site_credential** object supports the following:
+        
+          * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
+          * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
+        
+        The **source_control** object supports the following:
+        
+          * `branch` (`pulumi.Input[str]`) - Branch name of the Git repository for this App Service.
+          * `repoUrl` (`pulumi.Input[str]`) - URL of the Git repository for this App Service.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service.html.markdown.
         """

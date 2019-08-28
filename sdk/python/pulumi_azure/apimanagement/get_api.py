@@ -124,6 +124,11 @@ class AwaitableGetApiResult(GetApiResult):
 def get_api(api_management_name=None,name=None,resource_group_name=None,revision=None,opts=None):
     """
     Use this data source to access information about an existing API Management API.
+    
+    :param str api_management_name: The name of the API Management Service in which the API Management API exists.
+    :param str name: The name of the API Management API.
+    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
+    :param str revision: The Revision of the API Management API.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_api.html.markdown.
     """
@@ -134,7 +139,7 @@ def get_api(api_management_name=None,name=None,resource_group_name=None,revision
     __args__['resourceGroupName'] = resource_group_name
     __args__['revision'] = revision
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getApi:getApi', __args__, opts=opts).value

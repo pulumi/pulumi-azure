@@ -46,6 +46,9 @@ class AwaitableGetSubscriptionsResult(GetSubscriptionsResult):
 def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=None):
     """
     Use this data source to access information about all the Subscriptions currently available.
+    
+    :param str display_name_contains: A case-insensitive value which must be contained within the `display_name` field, used to filter the results
+    :param str display_name_prefix: A case-insensitive prefix which can be used to filter on the `display_name` field
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscriptions.html.markdown.
     """
@@ -54,7 +57,7 @@ def get_subscriptions(display_name_contains=None,display_name_prefix=None,opts=N
     __args__['displayNameContains'] = display_name_contains
     __args__['displayNamePrefix'] = display_name_prefix
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:core/getSubscriptions:getSubscriptions', __args__, opts=opts).value

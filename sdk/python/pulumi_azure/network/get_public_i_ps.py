@@ -54,6 +54,11 @@ class AwaitableGetPublicIPsResult(GetPublicIPsResult):
 def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about a set of existing Public IP Addresses.
+    
+    :param str allocation_type: The Allocation Type for the Public IP Address. Possible values include `Static` or `Dynamic`.
+    :param bool attached: Filter to include IP Addresses which are attached to a device, such as a VM/LB (`true`) or unattached (`false`).
+    :param str name_prefix: A prefix match used for the IP Addresses `name` field, case sensitive.
+    :param str resource_group_name: Specifies the name of the resource group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ips.html.markdown.
     """
@@ -64,7 +69,7 @@ def get_public_i_ps(allocation_type=None,attached=None,name_prefix=None,resource
     __args__['namePrefix'] = name_prefix
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIPs:getPublicIPs', __args__, opts=opts).value

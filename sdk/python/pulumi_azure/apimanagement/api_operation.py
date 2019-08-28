@@ -37,6 +37,41 @@ class ApiOperation(pulumi.CustomResource):
     request: pulumi.Output[dict]
     """
     A `request` block as defined below.
+    
+      * `description` (`str`) - A description for this API Operation, which may include HTML formatting tags.
+      * `headers` (`list`)
+    
+        * `defaultValue` (`str`)
+        * `description` (`str`) - A description for this API Operation, which may include HTML formatting tags.
+        * `name` (`str`)
+        * `required` (`bool`)
+        * `type` (`str`)
+        * `values` (`list`)
+    
+      * `queryParameters` (`list`)
+    
+        * `defaultValue` (`str`)
+        * `description` (`str`) - A description for this API Operation, which may include HTML formatting tags.
+        * `name` (`str`)
+        * `required` (`bool`)
+        * `type` (`str`)
+        * `values` (`list`)
+    
+      * `representations` (`list`)
+    
+        * `content_type` (`str`)
+        * `formParameters` (`list`)
+    
+          * `defaultValue` (`str`)
+          * `description` (`str`) - A description for this API Operation, which may include HTML formatting tags.
+          * `name` (`str`)
+          * `required` (`bool`)
+          * `type` (`str`)
+          * `values` (`list`)
+    
+        * `sample` (`str`)
+        * `schema_id` (`str`)
+        * `typeName` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -45,10 +80,45 @@ class ApiOperation(pulumi.CustomResource):
     responses: pulumi.Output[list]
     """
     One or more `response` blocks as defined below.
+    
+      * `description` (`str`) - A description for this API Operation, which may include HTML formatting tags.
+      * `headers` (`list`)
+    
+        * `defaultValue` (`str`)
+        * `description` (`str`) - A description for this API Operation, which may include HTML formatting tags.
+        * `name` (`str`)
+        * `required` (`bool`)
+        * `type` (`str`)
+        * `values` (`list`)
+    
+      * `representations` (`list`)
+    
+        * `content_type` (`str`)
+        * `formParameters` (`list`)
+    
+          * `defaultValue` (`str`)
+          * `description` (`str`) - A description for this API Operation, which may include HTML formatting tags.
+          * `name` (`str`)
+          * `required` (`bool`)
+          * `type` (`str`)
+          * `values` (`list`)
+    
+        * `sample` (`str`)
+        * `schema_id` (`str`)
+        * `typeName` (`str`)
+    
+      * `statusCode` (`float`)
     """
     template_parameters: pulumi.Output[list]
     """
     One or more `template_parameter` blocks as defined below.
+    
+      * `defaultValue` (`str`)
+      * `description` (`str`) - A description for this API Operation, which may include HTML formatting tags.
+      * `name` (`str`)
+      * `required` (`bool`)
+      * `type` (`str`)
+      * `values` (`list`)
     """
     url_template: pulumi.Output[str]
     """
@@ -71,6 +141,82 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[list] responses: One or more `response` blocks as defined below.
         :param pulumi.Input[list] template_parameters: One or more `template_parameter` blocks as defined below.
         :param pulumi.Input[str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
+        
+        The **request** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+          * `headers` (`pulumi.Input[list]`)
+        
+            * `defaultValue` (`pulumi.Input[str]`)
+            * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+            * `name` (`pulumi.Input[str]`)
+            * `required` (`pulumi.Input[bool]`)
+            * `type` (`pulumi.Input[str]`)
+            * `values` (`pulumi.Input[list]`)
+        
+          * `queryParameters` (`pulumi.Input[list]`)
+        
+            * `defaultValue` (`pulumi.Input[str]`)
+            * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+            * `name` (`pulumi.Input[str]`)
+            * `required` (`pulumi.Input[bool]`)
+            * `type` (`pulumi.Input[str]`)
+            * `values` (`pulumi.Input[list]`)
+        
+          * `representations` (`pulumi.Input[list]`)
+        
+            * `content_type` (`pulumi.Input[str]`)
+            * `formParameters` (`pulumi.Input[list]`)
+        
+              * `defaultValue` (`pulumi.Input[str]`)
+              * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+              * `name` (`pulumi.Input[str]`)
+              * `required` (`pulumi.Input[bool]`)
+              * `type` (`pulumi.Input[str]`)
+              * `values` (`pulumi.Input[list]`)
+        
+            * `sample` (`pulumi.Input[str]`)
+            * `schema_id` (`pulumi.Input[str]`)
+            * `typeName` (`pulumi.Input[str]`)
+        
+        The **responses** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+          * `headers` (`pulumi.Input[list]`)
+        
+            * `defaultValue` (`pulumi.Input[str]`)
+            * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+            * `name` (`pulumi.Input[str]`)
+            * `required` (`pulumi.Input[bool]`)
+            * `type` (`pulumi.Input[str]`)
+            * `values` (`pulumi.Input[list]`)
+        
+          * `representations` (`pulumi.Input[list]`)
+        
+            * `content_type` (`pulumi.Input[str]`)
+            * `formParameters` (`pulumi.Input[list]`)
+        
+              * `defaultValue` (`pulumi.Input[str]`)
+              * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+              * `name` (`pulumi.Input[str]`)
+              * `required` (`pulumi.Input[bool]`)
+              * `type` (`pulumi.Input[str]`)
+              * `values` (`pulumi.Input[list]`)
+        
+            * `sample` (`pulumi.Input[str]`)
+            * `schema_id` (`pulumi.Input[str]`)
+            * `typeName` (`pulumi.Input[str]`)
+        
+          * `statusCode` (`pulumi.Input[float]`)
+        
+        The **template_parameters** object supports the following:
+        
+          * `defaultValue` (`pulumi.Input[str]`)
+          * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+          * `name` (`pulumi.Input[str]`)
+          * `required` (`pulumi.Input[bool]`)
+          * `type` (`pulumi.Input[str]`)
+          * `values` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation.html.markdown.
         """
@@ -142,6 +288,82 @@ class ApiOperation(pulumi.CustomResource):
         :param pulumi.Input[list] responses: One or more `response` blocks as defined below.
         :param pulumi.Input[list] template_parameters: One or more `template_parameter` blocks as defined below.
         :param pulumi.Input[str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
+        
+        The **request** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+          * `headers` (`pulumi.Input[list]`)
+        
+            * `defaultValue` (`pulumi.Input[str]`)
+            * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+            * `name` (`pulumi.Input[str]`)
+            * `required` (`pulumi.Input[bool]`)
+            * `type` (`pulumi.Input[str]`)
+            * `values` (`pulumi.Input[list]`)
+        
+          * `queryParameters` (`pulumi.Input[list]`)
+        
+            * `defaultValue` (`pulumi.Input[str]`)
+            * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+            * `name` (`pulumi.Input[str]`)
+            * `required` (`pulumi.Input[bool]`)
+            * `type` (`pulumi.Input[str]`)
+            * `values` (`pulumi.Input[list]`)
+        
+          * `representations` (`pulumi.Input[list]`)
+        
+            * `content_type` (`pulumi.Input[str]`)
+            * `formParameters` (`pulumi.Input[list]`)
+        
+              * `defaultValue` (`pulumi.Input[str]`)
+              * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+              * `name` (`pulumi.Input[str]`)
+              * `required` (`pulumi.Input[bool]`)
+              * `type` (`pulumi.Input[str]`)
+              * `values` (`pulumi.Input[list]`)
+        
+            * `sample` (`pulumi.Input[str]`)
+            * `schema_id` (`pulumi.Input[str]`)
+            * `typeName` (`pulumi.Input[str]`)
+        
+        The **responses** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+          * `headers` (`pulumi.Input[list]`)
+        
+            * `defaultValue` (`pulumi.Input[str]`)
+            * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+            * `name` (`pulumi.Input[str]`)
+            * `required` (`pulumi.Input[bool]`)
+            * `type` (`pulumi.Input[str]`)
+            * `values` (`pulumi.Input[list]`)
+        
+          * `representations` (`pulumi.Input[list]`)
+        
+            * `content_type` (`pulumi.Input[str]`)
+            * `formParameters` (`pulumi.Input[list]`)
+        
+              * `defaultValue` (`pulumi.Input[str]`)
+              * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+              * `name` (`pulumi.Input[str]`)
+              * `required` (`pulumi.Input[bool]`)
+              * `type` (`pulumi.Input[str]`)
+              * `values` (`pulumi.Input[list]`)
+        
+            * `sample` (`pulumi.Input[str]`)
+            * `schema_id` (`pulumi.Input[str]`)
+            * `typeName` (`pulumi.Input[str]`)
+        
+          * `statusCode` (`pulumi.Input[float]`)
+        
+        The **template_parameters** object supports the following:
+        
+          * `defaultValue` (`pulumi.Input[str]`)
+          * `description` (`pulumi.Input[str]`) - A description for this API Operation, which may include HTML formatting tags.
+          * `name` (`pulumi.Input[str]`)
+          * `required` (`pulumi.Input[bool]`)
+          * `type` (`pulumi.Input[str]`)
+          * `values` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api_operation.html.markdown.
         """

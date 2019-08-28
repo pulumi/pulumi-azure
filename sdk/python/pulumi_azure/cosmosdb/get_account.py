@@ -166,6 +166,9 @@ class AwaitableGetAccountResult(GetAccountResult):
 def get_account(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing CosmosDB (formally DocumentDB) Account.
+    
+    :param str name: Specifies the name of the CosmosDB Account.
+    :param str resource_group_name: Specifies the name of the resource group in which the CosmosDB Account resides.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/cosmosdb_account.html.markdown.
     """
@@ -174,7 +177,7 @@ def get_account(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:cosmosdb/getAccount:getAccount', __args__, opts=opts).value

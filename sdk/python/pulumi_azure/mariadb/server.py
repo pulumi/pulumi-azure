@@ -37,6 +37,11 @@ class Server(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block as defined below.
+    
+      * `capacity` (`float`)
+      * `family` (`str`)
+      * `name` (`str`) - Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+      * `tier` (`str`)
     """
     ssl_enforcement: pulumi.Output[str]
     """
@@ -45,6 +50,10 @@ class Server(pulumi.CustomResource):
     storage_profile: pulumi.Output[dict]
     """
     A `storage_profile` block as defined below.
+    
+      * `backupRetentionDays` (`float`)
+      * `geoRedundantBackup` (`str`)
+      * `storageMb` (`float`)
     """
     tags: pulumi.Output[dict]
     """
@@ -72,6 +81,19 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `family` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
+        
+        The **storage_profile** object supports the following:
+        
+          * `backupRetentionDays` (`pulumi.Input[float]`)
+          * `geoRedundantBackup` (`pulumi.Input[str]`)
+          * `storageMb` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_server.html.markdown.
         """
@@ -143,6 +165,19 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: Specifies the version of MariaDB to use. The valid value is `10.2`. Changing this forces a new resource to be created.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `family` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the MariaDB Server. Changing this forces a new resource to be created.
+          * `tier` (`pulumi.Input[str]`)
+        
+        The **storage_profile** object supports the following:
+        
+          * `backupRetentionDays` (`pulumi.Input[float]`)
+          * `geoRedundantBackup` (`pulumi.Input[str]`)
+          * `storageMb` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/mariadb_server.html.markdown.
         """

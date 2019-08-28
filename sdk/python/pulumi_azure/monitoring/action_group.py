@@ -13,6 +13,9 @@ class ActionGroup(pulumi.CustomResource):
     email_receivers: pulumi.Output[list]
     """
     One or more `email_receiver` blocks as defined below.
+    
+      * `emailAddress` (`str`) - The email address of this receiver.
+      * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
     """
     enabled: pulumi.Output[bool]
     """
@@ -33,6 +36,10 @@ class ActionGroup(pulumi.CustomResource):
     sms_receivers: pulumi.Output[list]
     """
     One or more `sms_receiver ` blocks as defined below.
+    
+      * `countryCode` (`str`) - The country code of the SMS receiver.
+      * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+      * `phoneNumber` (`str`) - The phone number of the SMS receiver.
     """
     tags: pulumi.Output[dict]
     """
@@ -41,6 +48,9 @@ class ActionGroup(pulumi.CustomResource):
     webhook_receivers: pulumi.Output[list]
     """
     One or more `webhook_receiver ` blocks as defined below.
+    
+      * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+      * `serviceUri` (`str`) - The URI where webhooks should be sent.
     """
     def __init__(__self__, resource_name, opts=None, email_receivers=None, enabled=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, tags=None, webhook_receivers=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -56,6 +66,22 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[list] sms_receivers: One or more `sms_receiver ` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] webhook_receivers: One or more `webhook_receiver ` blocks as defined below.
+        
+        The **email_receivers** object supports the following:
+        
+          * `emailAddress` (`pulumi.Input[str]`) - The email address of this receiver.
+          * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        
+        The **sms_receivers** object supports the following:
+        
+          * `countryCode` (`pulumi.Input[str]`) - The country code of the SMS receiver.
+          * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+          * `phoneNumber` (`pulumi.Input[str]`) - The phone number of the SMS receiver.
+        
+        The **webhook_receivers** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+          * `serviceUri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """
@@ -111,6 +137,22 @@ class ActionGroup(pulumi.CustomResource):
         :param pulumi.Input[list] sms_receivers: One or more `sms_receiver ` blocks as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[list] webhook_receivers: One or more `webhook_receiver ` blocks as defined below.
+        
+        The **email_receivers** object supports the following:
+        
+          * `emailAddress` (`pulumi.Input[str]`) - The email address of this receiver.
+          * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        
+        The **sms_receivers** object supports the following:
+        
+          * `countryCode` (`pulumi.Input[str]`) - The country code of the SMS receiver.
+          * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+          * `phoneNumber` (`pulumi.Input[str]`) - The phone number of the SMS receiver.
+        
+        The **webhook_receivers** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+          * `serviceUri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """

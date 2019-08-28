@@ -17,6 +17,10 @@ class Endpoint(pulumi.CustomResource):
     geo_filters: pulumi.Output[list]
     """
     A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
+    
+      * `action` (`str`)
+      * `countryCodes` (`list`)
+      * `relativePath` (`str`)
     """
     host_name: pulumi.Output[str]
     is_compression_enabled: pulumi.Output[bool]
@@ -46,6 +50,11 @@ class Endpoint(pulumi.CustomResource):
     origins: pulumi.Output[list]
     """
     The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below.
+    
+      * `host_name` (`str`)
+      * `httpPort` (`float`)
+      * `httpsPort` (`float`)
+      * `name` (`str`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
     """
     origin_host_header: pulumi.Output[str]
     """
@@ -97,6 +106,19 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **geo_filters** object supports the following:
+        
+          * `action` (`pulumi.Input[str]`)
+          * `countryCodes` (`pulumi.Input[list]`)
+          * `relativePath` (`pulumi.Input[str]`)
+        
+        The **origins** object supports the following:
+        
+          * `host_name` (`pulumi.Input[str]`)
+          * `httpPort` (`pulumi.Input[float]`)
+          * `httpsPort` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
         """
@@ -171,6 +193,19 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] querystring_caching_behaviour: Sets query string caching behavior. Allowed values are `IgnoreQueryString`, `BypassCaching` and `UseQueryString`. Defaults to `IgnoreQueryString`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the CDN Endpoint.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **geo_filters** object supports the following:
+        
+          * `action` (`pulumi.Input[str]`)
+          * `countryCodes` (`pulumi.Input[list]`)
+          * `relativePath` (`pulumi.Input[str]`)
+        
+        The **origins** object supports the following:
+        
+          * `host_name` (`pulumi.Input[str]`)
+          * `httpPort` (`pulumi.Input[float]`)
+          * `httpsPort` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/cdn_endpoint.html.markdown.
         """

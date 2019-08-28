@@ -13,14 +13,28 @@ class Service(pulumi.CustomResource):
     agent_pool_profile: pulumi.Output[dict]
     """
     A Agent Pool Profile's block as documented below.
+    
+      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+      * `dns_prefix` (`str`) - The DNS Prefix given to Agents in this Agent Pool.
+      * `fqdn` (`str`)
+      * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
+      * `vm_size` (`str`) - The VM Size of each of the Agent Pool VM's (e.g. Standard_F1 / Standard_D2v2).
     """
     diagnostics_profile: pulumi.Output[dict]
     """
     A VM Diagnostics Profile block as documented below.
+    
+      * `enabled` (`bool`) - Should VM Diagnostics be enabled for the Container Service VM's
+      * `storageUri` (`str`)
     """
     linux_profile: pulumi.Output[dict]
     """
     A Linux Profile block as documented below.
+    
+      * `admin_username` (`str`) - The Admin Username for the Cluster.
+      * `sshKey` (`dict`) - An SSH Key block as documented below.
+    
+        * `keyData` (`str`) - The Public SSH Key used to access the cluster.
     """
     location: pulumi.Output[str]
     """
@@ -29,6 +43,10 @@ class Service(pulumi.CustomResource):
     master_profile: pulumi.Output[dict]
     """
     A Master Profile block as documented below.
+    
+      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+      * `dns_prefix` (`str`) - The DNS Prefix given to Agents in this Agent Pool.
+      * `fqdn` (`str`)
     """
     name: pulumi.Output[str]
     """
@@ -45,6 +63,9 @@ class Service(pulumi.CustomResource):
     service_principal: pulumi.Output[dict]
     """
     A Service Principal block as documented below.
+    
+      * `client_id` (`str`) - The ID for the Service Principal.
+      * `client_secret` (`str`) - The secret password associated with the service principal.
     """
     tags: pulumi.Output[dict]
     """
@@ -73,6 +94,37 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A Service Principal block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **agent_pool_profile** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+          * `dns_prefix` (`pulumi.Input[str]`) - The DNS Prefix given to Agents in this Agent Pool.
+          * `fqdn` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
+          * `vm_size` (`pulumi.Input[str]`) - The VM Size of each of the Agent Pool VM's (e.g. Standard_F1 / Standard_D2v2).
+        
+        The **diagnostics_profile** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Should VM Diagnostics be enabled for the Container Service VM's
+          * `storageUri` (`pulumi.Input[str]`)
+        
+        The **linux_profile** object supports the following:
+        
+          * `admin_username` (`pulumi.Input[str]`) - The Admin Username for the Cluster.
+          * `sshKey` (`pulumi.Input[dict]`) - An SSH Key block as documented below.
+        
+            * `keyData` (`pulumi.Input[str]`) - The Public SSH Key used to access the cluster.
+        
+        The **master_profile** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+          * `dns_prefix` (`pulumi.Input[str]`) - The DNS Prefix given to Agents in this Agent Pool.
+          * `fqdn` (`pulumi.Input[str]`)
+        
+        The **service_principal** object supports the following:
+        
+          * `client_id` (`pulumi.Input[str]`) - The ID for the Service Principal.
+          * `client_secret` (`pulumi.Input[str]`) - The secret password associated with the service principal.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_service.html.markdown.
         """
@@ -140,6 +192,37 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A Service Principal block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **agent_pool_profile** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+          * `dns_prefix` (`pulumi.Input[str]`) - The DNS Prefix given to Agents in this Agent Pool.
+          * `fqdn` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
+          * `vm_size` (`pulumi.Input[str]`) - The VM Size of each of the Agent Pool VM's (e.g. Standard_F1 / Standard_D2v2).
+        
+        The **diagnostics_profile** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`) - Should VM Diagnostics be enabled for the Container Service VM's
+          * `storageUri` (`pulumi.Input[str]`)
+        
+        The **linux_profile** object supports the following:
+        
+          * `admin_username` (`pulumi.Input[str]`) - The Admin Username for the Cluster.
+          * `sshKey` (`pulumi.Input[dict]`) - An SSH Key block as documented below.
+        
+            * `keyData` (`pulumi.Input[str]`) - The Public SSH Key used to access the cluster.
+        
+        The **master_profile** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+          * `dns_prefix` (`pulumi.Input[str]`) - The DNS Prefix given to Agents in this Agent Pool.
+          * `fqdn` (`pulumi.Input[str]`)
+        
+        The **service_principal** object supports the following:
+        
+          * `client_id` (`pulumi.Input[str]`) - The ID for the Service Principal.
+          * `client_secret` (`pulumi.Input[str]`) - The secret password associated with the service principal.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_service.html.markdown.
         """

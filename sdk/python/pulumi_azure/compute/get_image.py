@@ -85,6 +85,11 @@ class AwaitableGetImageResult(GetImageResult):
 def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending=None,opts=None):
     """
     Use this data source to access information about an existing Image.
+    
+    :param str name: The name of the Image.
+    :param str name_regex: Regex pattern of the image to match.
+    :param str resource_group_name: The Name of the Resource Group where this Image exists.
+    :param bool sort_descending: By default when matching by regex, images are sorted by name in ascending order and the first match is chosen, to sort descending, set this flag.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/image.html.markdown.
     """
@@ -95,7 +100,7 @@ def get_image(name=None,name_regex=None,resource_group_name=None,sort_descending
     __args__['resourceGroupName'] = resource_group_name
     __args__['sortDescending'] = sort_descending
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getImage:getImage', __args__, opts=opts).value

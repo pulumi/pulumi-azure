@@ -21,6 +21,13 @@ class DiagnosticSetting(pulumi.CustomResource):
     logs: pulumi.Output[list]
     """
     One or more `log` blocks as defined below.
+    
+      * `category` (`str`)
+      * `enabled` (`bool`)
+      * `retention_policy` (`dict`)
+    
+        * `days` (`float`)
+        * `enabled` (`bool`)
     """
     log_analytics_workspace_id: pulumi.Output[str]
     """
@@ -29,6 +36,13 @@ class DiagnosticSetting(pulumi.CustomResource):
     metrics: pulumi.Output[list]
     """
     One or more `metric` blocks as defined below.
+    
+      * `category` (`str`)
+      * `enabled` (`bool`)
+      * `retention_policy` (`dict`)
+    
+        * `days` (`float`)
+        * `enabled` (`bool`)
     """
     name: pulumi.Output[str]
     """
@@ -56,6 +70,24 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+        
+        The **logs** object supports the following:
+        
+          * `category` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`)
+          * `retention_policy` (`pulumi.Input[dict]`)
+        
+            * `days` (`pulumi.Input[float]`)
+            * `enabled` (`pulumi.Input[bool]`)
+        
+        The **metrics** object supports the following:
+        
+          * `category` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`)
+          * `retention_policy` (`pulumi.Input[dict]`)
+        
+            * `days` (`pulumi.Input[float]`)
+            * `enabled` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_diagnostic_setting.html.markdown.
         """
@@ -109,6 +141,24 @@ class DiagnosticSetting(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: With this parameter you can specify a storage account which should be used to send the logs to. Parameter must be a valid Azure Resource ID. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created.
+        
+        The **logs** object supports the following:
+        
+          * `category` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`)
+          * `retention_policy` (`pulumi.Input[dict]`)
+        
+            * `days` (`pulumi.Input[float]`)
+            * `enabled` (`pulumi.Input[bool]`)
+        
+        The **metrics** object supports the following:
+        
+          * `category` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`)
+          * `retention_policy` (`pulumi.Input[dict]`)
+        
+            * `days` (`pulumi.Input[float]`)
+            * `enabled` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_diagnostic_setting.html.markdown.
         """

@@ -25,6 +25,10 @@ class FunctionApp(pulumi.CustomResource):
     connection_strings: pulumi.Output[list]
     """
     An `connection_string` block as defined below.
+    
+      * `name` (`str`) - The name of the Connection String.
+      * `type` (`str`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+      * `value` (`str`) - The value for the Connection String.
     """
     default_hostname: pulumi.Output[str]
     """
@@ -45,6 +49,10 @@ class FunctionApp(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     An `identity` block as defined below.
+    
+      * `principalId` (`str`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+      * `tenantId` (`str`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+      * `type` (`str`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
     """
     kind: pulumi.Output[str]
     """
@@ -73,10 +81,18 @@ class FunctionApp(pulumi.CustomResource):
     site_config: pulumi.Output[dict]
     """
     A `site_config` object as defined below.
+    
+      * `alwaysOn` (`bool`) - Should the Function App be loaded at all times? Defaults to `false`.
+      * `linuxFxVersion` (`str`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+      * `use32BitWorkerProcess` (`bool`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+      * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
     """
     site_credential: pulumi.Output[dict]
     """
     A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+    
+      * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
+      * `username` (`str`) - The username which can be used to publish to this App Service
     """
     storage_connection_string: pulumi.Output[str]
     """
@@ -111,6 +127,25 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] storage_connection_string: The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
+        
+        The **connection_strings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Connection String.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+          * `value` (`pulumi.Input[str]`) - The value for the Connection String.
+        
+        The **identity** object supports the following:
+        
+          * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+        
+        The **site_config** object supports the following:
+        
+          * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
+          * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+          * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+          * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
         """
@@ -192,6 +227,30 @@ class FunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] storage_connection_string: The connection string of the backend storage account which will be used by this Function App (such as the dashboard, logs).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
+        
+        The **connection_strings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Connection String.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+          * `value` (`pulumi.Input[str]`) - The value for the Connection String.
+        
+        The **identity** object supports the following:
+        
+          * `principalId` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `tenantId` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the App Service. At this time the only allowed value is `SystemAssigned`.
+        
+        The **site_config** object supports the following:
+        
+          * `alwaysOn` (`pulumi.Input[bool]`) - Should the Function App be loaded at all times? Defaults to `false`.
+          * `linuxFxVersion` (`pulumi.Input[str]`) - Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+          * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+          * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
+        
+        The **site_credential** object supports the following:
+        
+          * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
+          * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/function_app.html.markdown.
         """

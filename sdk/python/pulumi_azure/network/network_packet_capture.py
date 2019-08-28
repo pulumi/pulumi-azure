@@ -13,6 +13,12 @@ class NetworkPacketCapture(pulumi.CustomResource):
     filters: pulumi.Output[list]
     """
     One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+    
+      * `localIpAddress` (`str`)
+      * `localPort` (`str`)
+      * `protocol` (`str`)
+      * `remoteIpAddress` (`str`)
+      * `remotePort` (`str`)
     """
     maximum_bytes_per_packet: pulumi.Output[float]
     """
@@ -41,6 +47,10 @@ class NetworkPacketCapture(pulumi.CustomResource):
     storage_location: pulumi.Output[dict]
     """
     A `storage_location` block as defined below. Changing this forces a new resource to be created.
+    
+      * `filePath` (`str`)
+      * `storage_account_id` (`str`)
+      * `storagePath` (`str`) - The URI of the storage path to save the packet capture.
     """
     target_resource_id: pulumi.Output[str]
     """
@@ -61,6 +71,20 @@ class NetworkPacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+        
+        The **filters** object supports the following:
+        
+          * `localIpAddress` (`pulumi.Input[str]`)
+          * `localPort` (`pulumi.Input[str]`)
+          * `protocol` (`pulumi.Input[str]`)
+          * `remoteIpAddress` (`pulumi.Input[str]`)
+          * `remotePort` (`pulumi.Input[str]`)
+        
+        The **storage_location** object supports the following:
+        
+          * `filePath` (`pulumi.Input[str]`)
+          * `storage_account_id` (`pulumi.Input[str]`)
+          * `storagePath` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_packet_capture.html.markdown.
         """
@@ -122,6 +146,20 @@ class NetworkPacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Resource to capture packets from. Changing this forces a new resource to be created.
+        
+        The **filters** object supports the following:
+        
+          * `localIpAddress` (`pulumi.Input[str]`)
+          * `localPort` (`pulumi.Input[str]`)
+          * `protocol` (`pulumi.Input[str]`)
+          * `remoteIpAddress` (`pulumi.Input[str]`)
+          * `remotePort` (`pulumi.Input[str]`)
+        
+        The **storage_location** object supports the following:
+        
+          * `filePath` (`pulumi.Input[str]`)
+          * `storage_account_id` (`pulumi.Input[str]`)
+          * `storagePath` (`pulumi.Input[str]`) - The URI of the storage path to save the packet capture.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_packet_capture.html.markdown.
         """

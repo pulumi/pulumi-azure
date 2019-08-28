@@ -65,6 +65,8 @@ def get_builtin_role_definition(name=None,opts=None):
     Use this data source to access information about a built-in Role Definition. To access information about a custom Role Definition, please see the `authorization.RoleDefinition` data source instead.
     
     > **NOTE:** The this datasource has been deprecated in favour of `authorization.RoleDefinition` that now can look up role definitions by name. As such this data source will be removed in version 2.0 of the AzureRM Provider.
+    
+    :param str name: Specifies the name of the built-in Role Definition. Possible values are: `Contributor`, `Owner`, `Reader` and `VirtualMachineContributor`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/builtin_role_definition_legacy.html.markdown.
     """
@@ -72,7 +74,7 @@ def get_builtin_role_definition(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:role/getBuiltinRoleDefinition:getBuiltinRoleDefinition', __args__, opts=opts).value

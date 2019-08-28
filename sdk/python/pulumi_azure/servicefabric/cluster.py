@@ -17,18 +17,36 @@ class Cluster(pulumi.CustomResource):
     azure_active_directory: pulumi.Output[dict]
     """
     An `azure_active_directory` block as defined below.
+    
+      * `clientApplicationId` (`str`)
+      * `clusterApplicationId` (`str`)
+      * `tenant_id` (`str`)
     """
     certificate: pulumi.Output[dict]
     """
     A `certificate` block as defined below. Conflicts with `certificate_common_names`.
+    
+      * `thumbprint` (`str`)
+      * `thumbprintSecondary` (`str`)
+      * `x509StoreName` (`str`)
     """
     certificate_common_names: pulumi.Output[dict]
     """
     A `certificate_common_names` block as defined below. Conflicts with `certificate`.
+    
+      * `commonNames` (`list`)
+    
+        * `certificateCommonName` (`str`)
+        * `certificateIssuerThumbprint` (`str`)
+    
+      * `x509StoreName` (`str`)
     """
     client_certificate_thumbprints: pulumi.Output[list]
     """
     One or two `client_certificate_thumbprint` blocks as defined below.
+    
+      * `isAdmin` (`bool`)
+      * `thumbprint` (`str`)
     """
     cluster_code_version: pulumi.Output[str]
     """
@@ -41,10 +59,19 @@ class Cluster(pulumi.CustomResource):
     diagnostics_config: pulumi.Output[dict]
     """
     A `diagnostics_config` block as defined below. Changing this forces a new resource to be created.
+    
+      * `blobEndpoint` (`str`)
+      * `protectedAccountKeyName` (`str`)
+      * `queueEndpoint` (`str`)
+      * `storageAccountName` (`str`)
+      * `tableEndpoint` (`str`)
     """
     fabric_settings: pulumi.Output[list]
     """
     One or more `fabric_settings` blocks as defined below.
+    
+      * `name` (`str`) - The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+      * `parameters` (`dict`)
     """
     location: pulumi.Output[str]
     """
@@ -61,6 +88,26 @@ class Cluster(pulumi.CustomResource):
     node_types: pulumi.Output[list]
     """
     One or more `node_type` blocks as defined below.
+    
+      * `applicationPorts` (`dict`)
+    
+        * `endPort` (`float`)
+        * `startPort` (`float`)
+    
+      * `capacities` (`dict`)
+      * `clientEndpointPort` (`float`)
+      * `durabilityLevel` (`str`)
+      * `ephemeralPorts` (`dict`)
+    
+        * `endPort` (`float`)
+        * `startPort` (`float`)
+    
+      * `httpEndpointPort` (`float`)
+      * `instanceCount` (`float`)
+      * `isPrimary` (`bool`)
+      * `name` (`str`) - The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+      * `placementProperties` (`dict`)
+      * `reverseProxyEndpointPort` (`float`)
     """
     reliability_level: pulumi.Output[str]
     """
@@ -73,6 +120,10 @@ class Cluster(pulumi.CustomResource):
     reverse_proxy_certificate: pulumi.Output[dict]
     """
     A `reverse_proxy_certificate` block as defined below.
+    
+      * `thumbprint` (`str`)
+      * `thumbprintSecondary` (`str`)
+      * `x509StoreName` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -110,6 +161,73 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
+        
+        The **azure_active_directory** object supports the following:
+        
+          * `clientApplicationId` (`pulumi.Input[str]`)
+          * `clusterApplicationId` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`)
+        
+        The **certificate** object supports the following:
+        
+          * `thumbprint` (`pulumi.Input[str]`)
+          * `thumbprintSecondary` (`pulumi.Input[str]`)
+          * `x509StoreName` (`pulumi.Input[str]`)
+        
+        The **certificate_common_names** object supports the following:
+        
+          * `commonNames` (`pulumi.Input[list]`)
+        
+            * `certificateCommonName` (`pulumi.Input[str]`)
+            * `certificateIssuerThumbprint` (`pulumi.Input[str]`)
+        
+          * `x509StoreName` (`pulumi.Input[str]`)
+        
+        The **client_certificate_thumbprints** object supports the following:
+        
+          * `isAdmin` (`pulumi.Input[bool]`)
+          * `thumbprint` (`pulumi.Input[str]`)
+        
+        The **diagnostics_config** object supports the following:
+        
+          * `blobEndpoint` (`pulumi.Input[str]`)
+          * `protectedAccountKeyName` (`pulumi.Input[str]`)
+          * `queueEndpoint` (`pulumi.Input[str]`)
+          * `storageAccountName` (`pulumi.Input[str]`)
+          * `tableEndpoint` (`pulumi.Input[str]`)
+        
+        The **fabric_settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+          * `parameters` (`pulumi.Input[dict]`)
+        
+        The **node_types** object supports the following:
+        
+          * `applicationPorts` (`pulumi.Input[dict]`)
+        
+            * `endPort` (`pulumi.Input[float]`)
+            * `startPort` (`pulumi.Input[float]`)
+        
+          * `capacities` (`pulumi.Input[dict]`)
+          * `clientEndpointPort` (`pulumi.Input[float]`)
+          * `durabilityLevel` (`pulumi.Input[str]`)
+          * `ephemeralPorts` (`pulumi.Input[dict]`)
+        
+            * `endPort` (`pulumi.Input[float]`)
+            * `startPort` (`pulumi.Input[float]`)
+        
+          * `httpEndpointPort` (`pulumi.Input[float]`)
+          * `instanceCount` (`pulumi.Input[float]`)
+          * `isPrimary` (`pulumi.Input[bool]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+          * `placementProperties` (`pulumi.Input[dict]`)
+          * `reverseProxyEndpointPort` (`pulumi.Input[float]`)
+        
+        The **reverse_proxy_certificate** object supports the following:
+        
+          * `thumbprint` (`pulumi.Input[str]`)
+          * `thumbprintSecondary` (`pulumi.Input[str]`)
+          * `x509StoreName` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/service_fabric_cluster.html.markdown.
         """
@@ -195,6 +313,73 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] upgrade_mode: Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`.
         :param pulumi.Input[str] vm_image: Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created.
+        
+        The **azure_active_directory** object supports the following:
+        
+          * `clientApplicationId` (`pulumi.Input[str]`)
+          * `clusterApplicationId` (`pulumi.Input[str]`)
+          * `tenant_id` (`pulumi.Input[str]`)
+        
+        The **certificate** object supports the following:
+        
+          * `thumbprint` (`pulumi.Input[str]`)
+          * `thumbprintSecondary` (`pulumi.Input[str]`)
+          * `x509StoreName` (`pulumi.Input[str]`)
+        
+        The **certificate_common_names** object supports the following:
+        
+          * `commonNames` (`pulumi.Input[list]`)
+        
+            * `certificateCommonName` (`pulumi.Input[str]`)
+            * `certificateIssuerThumbprint` (`pulumi.Input[str]`)
+        
+          * `x509StoreName` (`pulumi.Input[str]`)
+        
+        The **client_certificate_thumbprints** object supports the following:
+        
+          * `isAdmin` (`pulumi.Input[bool]`)
+          * `thumbprint` (`pulumi.Input[str]`)
+        
+        The **diagnostics_config** object supports the following:
+        
+          * `blobEndpoint` (`pulumi.Input[str]`)
+          * `protectedAccountKeyName` (`pulumi.Input[str]`)
+          * `queueEndpoint` (`pulumi.Input[str]`)
+          * `storageAccountName` (`pulumi.Input[str]`)
+          * `tableEndpoint` (`pulumi.Input[str]`)
+        
+        The **fabric_settings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+          * `parameters` (`pulumi.Input[dict]`)
+        
+        The **node_types** object supports the following:
+        
+          * `applicationPorts` (`pulumi.Input[dict]`)
+        
+            * `endPort` (`pulumi.Input[float]`)
+            * `startPort` (`pulumi.Input[float]`)
+        
+          * `capacities` (`pulumi.Input[dict]`)
+          * `clientEndpointPort` (`pulumi.Input[float]`)
+          * `durabilityLevel` (`pulumi.Input[str]`)
+          * `ephemeralPorts` (`pulumi.Input[dict]`)
+        
+            * `endPort` (`pulumi.Input[float]`)
+            * `startPort` (`pulumi.Input[float]`)
+        
+          * `httpEndpointPort` (`pulumi.Input[float]`)
+          * `instanceCount` (`pulumi.Input[float]`)
+          * `isPrimary` (`pulumi.Input[bool]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Service Fabric Cluster. Changing this forces a new resource to be created.
+          * `placementProperties` (`pulumi.Input[dict]`)
+          * `reverseProxyEndpointPort` (`pulumi.Input[float]`)
+        
+        The **reverse_proxy_certificate** object supports the following:
+        
+          * `thumbprint` (`pulumi.Input[str]`)
+          * `thumbprintSecondary` (`pulumi.Input[str]`)
+          * `x509StoreName` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/service_fabric_cluster.html.markdown.
         """

@@ -17,6 +17,8 @@ class TxtRecord(pulumi.CustomResource):
     records: pulumi.Output[list]
     """
     A list of values that make up the txt record. Each `record` block supports fields documented below.
+    
+      * `value` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -46,6 +48,10 @@ class TxtRecord(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        
+        The **records** object supports the following:
+        
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_txt_record.html.markdown.
         """
@@ -101,6 +107,10 @@ class TxtRecord(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        
+        The **records** object supports the following:
+        
+          * `value` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_txt_record.html.markdown.
         """

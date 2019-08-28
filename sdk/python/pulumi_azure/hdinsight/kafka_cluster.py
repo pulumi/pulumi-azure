@@ -17,10 +17,16 @@ class KafkaCluster(pulumi.CustomResource):
     component_version: pulumi.Output[dict]
     """
     A `component_version` block as defined below.
+    
+      * `kafka` (`str`)
     """
     gateway: pulumi.Output[dict]
     """
     A `gateway` block as defined below.
+    
+      * `enabled` (`bool`)
+      * `password` (`str`)
+      * `username` (`str`)
     """
     https_endpoint: pulumi.Output[str]
     """
@@ -41,6 +47,36 @@ class KafkaCluster(pulumi.CustomResource):
     roles: pulumi.Output[dict]
     """
     A `roles` block as defined below.
+    
+      * `headNode` (`dict`)
+    
+        * `password` (`str`)
+        * `sshKeys` (`list`)
+        * `subnetId` (`str`)
+        * `username` (`str`)
+        * `virtualNetworkId` (`str`)
+        * `vm_size` (`str`)
+    
+      * `workerNode` (`dict`)
+    
+        * `minInstanceCount` (`float`)
+        * `numberOfDisksPerNode` (`float`)
+        * `password` (`str`)
+        * `sshKeys` (`list`)
+        * `subnetId` (`str`)
+        * `targetInstanceCount` (`float`)
+        * `username` (`str`)
+        * `virtualNetworkId` (`str`)
+        * `vm_size` (`str`)
+    
+      * `zookeeperNode` (`dict`)
+    
+        * `password` (`str`)
+        * `sshKeys` (`list`)
+        * `subnetId` (`str`)
+        * `username` (`str`)
+        * `virtualNetworkId` (`str`)
+        * `vm_size` (`str`)
     """
     ssh_endpoint: pulumi.Output[str]
     """
@@ -49,6 +85,10 @@ class KafkaCluster(pulumi.CustomResource):
     storage_accounts: pulumi.Output[list]
     """
     One or more `storage_account` block as defined below.
+    
+      * `isDefault` (`bool`)
+      * `storageAccountKey` (`str`)
+      * `storageContainerId` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -74,6 +114,54 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        
+        The **component_version** object supports the following:
+        
+          * `kafka` (`pulumi.Input[str]`)
+        
+        The **gateway** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`)
+          * `password` (`pulumi.Input[str]`)
+          * `username` (`pulumi.Input[str]`)
+        
+        The **roles** object supports the following:
+        
+          * `headNode` (`pulumi.Input[dict]`)
+        
+            * `password` (`pulumi.Input[str]`)
+            * `sshKeys` (`pulumi.Input[list]`)
+            * `subnetId` (`pulumi.Input[str]`)
+            * `username` (`pulumi.Input[str]`)
+            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `vm_size` (`pulumi.Input[str]`)
+        
+          * `workerNode` (`pulumi.Input[dict]`)
+        
+            * `minInstanceCount` (`pulumi.Input[float]`)
+            * `numberOfDisksPerNode` (`pulumi.Input[float]`)
+            * `password` (`pulumi.Input[str]`)
+            * `sshKeys` (`pulumi.Input[list]`)
+            * `subnetId` (`pulumi.Input[str]`)
+            * `targetInstanceCount` (`pulumi.Input[float]`)
+            * `username` (`pulumi.Input[str]`)
+            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `vm_size` (`pulumi.Input[str]`)
+        
+          * `zookeeperNode` (`pulumi.Input[dict]`)
+        
+            * `password` (`pulumi.Input[str]`)
+            * `sshKeys` (`pulumi.Input[list]`)
+            * `subnetId` (`pulumi.Input[str]`)
+            * `username` (`pulumi.Input[str]`)
+            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `vm_size` (`pulumi.Input[str]`)
+        
+        The **storage_accounts** object supports the following:
+        
+          * `isDefault` (`pulumi.Input[bool]`)
+          * `storageAccountKey` (`pulumi.Input[str]`)
+          * `storageContainerId` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_kafka_cluster.html.markdown.
         """
@@ -147,6 +235,54 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[dict] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        
+        The **component_version** object supports the following:
+        
+          * `kafka` (`pulumi.Input[str]`)
+        
+        The **gateway** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`)
+          * `password` (`pulumi.Input[str]`)
+          * `username` (`pulumi.Input[str]`)
+        
+        The **roles** object supports the following:
+        
+          * `headNode` (`pulumi.Input[dict]`)
+        
+            * `password` (`pulumi.Input[str]`)
+            * `sshKeys` (`pulumi.Input[list]`)
+            * `subnetId` (`pulumi.Input[str]`)
+            * `username` (`pulumi.Input[str]`)
+            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `vm_size` (`pulumi.Input[str]`)
+        
+          * `workerNode` (`pulumi.Input[dict]`)
+        
+            * `minInstanceCount` (`pulumi.Input[float]`)
+            * `numberOfDisksPerNode` (`pulumi.Input[float]`)
+            * `password` (`pulumi.Input[str]`)
+            * `sshKeys` (`pulumi.Input[list]`)
+            * `subnetId` (`pulumi.Input[str]`)
+            * `targetInstanceCount` (`pulumi.Input[float]`)
+            * `username` (`pulumi.Input[str]`)
+            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `vm_size` (`pulumi.Input[str]`)
+        
+          * `zookeeperNode` (`pulumi.Input[dict]`)
+        
+            * `password` (`pulumi.Input[str]`)
+            * `sshKeys` (`pulumi.Input[list]`)
+            * `subnetId` (`pulumi.Input[str]`)
+            * `username` (`pulumi.Input[str]`)
+            * `virtualNetworkId` (`pulumi.Input[str]`)
+            * `vm_size` (`pulumi.Input[str]`)
+        
+        The **storage_accounts** object supports the following:
+        
+          * `isDefault` (`pulumi.Input[bool]`)
+          * `storageAccountKey` (`pulumi.Input[str]`)
+          * `storageContainerId` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/hdinsight_kafka_cluster.html.markdown.
         """

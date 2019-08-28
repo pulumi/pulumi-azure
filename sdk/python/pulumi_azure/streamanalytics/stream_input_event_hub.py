@@ -29,6 +29,10 @@ class StreamInputEventHub(pulumi.CustomResource):
     serialization: pulumi.Output[dict]
     """
     A `serialization` block as defined below.
+    
+      * `encoding` (`str`)
+      * `fieldDelimiter` (`str`)
+      * `type` (`str`)
     """
     servicebus_namespace: pulumi.Output[str]
     """
@@ -61,6 +65,12 @@ class StreamInputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+        
+        The **serialization** object supports the following:
+        
+          * `encoding` (`pulumi.Input[str]`)
+          * `fieldDelimiter` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
         """
@@ -130,6 +140,12 @@ class StreamInputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created. 
+        
+        The **serialization** object supports the following:
+        
+          * `encoding` (`pulumi.Input[str]`)
+          * `fieldDelimiter` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_stream_input_eventhub.html.markdown.
         """

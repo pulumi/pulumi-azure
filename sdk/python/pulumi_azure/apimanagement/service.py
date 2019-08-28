@@ -13,10 +13,18 @@ class Service(pulumi.CustomResource):
     additional_location: pulumi.Output[dict]
     """
     One or more `additional_location` blocks as defined below.
+    
+      * `gateway_regional_url` (`str`) - The URL of the Regional Gateway for the API Management Service in the specified region.
+      * `location` (`str`) - The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+      * `public_ip_addresses` (`list`) - Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
     """
     certificates: pulumi.Output[list]
     """
     One or more (up to 10) `certificate` blocks as defined below.
+    
+      * `certificatePassword` (`str`)
+      * `encodedCertificate` (`str`)
+      * `storeName` (`str`)
     """
     gateway_regional_url: pulumi.Output[str]
     """
@@ -29,10 +37,47 @@ class Service(pulumi.CustomResource):
     hostname_configuration: pulumi.Output[dict]
     """
     A `hostname_configuration` block as defined below.
+    
+      * `managements` (`list`)
+    
+        * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
+        * `certificatePassword` (`str`)
+        * `hostName` (`str`)
+        * `keyVaultId` (`str`)
+        * `negotiateClientCertificate` (`bool`)
+    
+      * `portals` (`list`)
+    
+        * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
+        * `certificatePassword` (`str`)
+        * `hostName` (`str`)
+        * `keyVaultId` (`str`)
+        * `negotiateClientCertificate` (`bool`)
+    
+      * `proxies` (`list`)
+    
+        * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
+        * `certificatePassword` (`str`)
+        * `defaultSslBinding` (`bool`)
+        * `hostName` (`str`)
+        * `keyVaultId` (`str`)
+        * `negotiateClientCertificate` (`bool`)
+    
+      * `scms` (`list`)
+    
+        * `certificate` (`str`) - One or more (up to 10) `certificate` blocks as defined below.
+        * `certificatePassword` (`str`)
+        * `hostName` (`str`)
+        * `keyVaultId` (`str`)
+        * `negotiateClientCertificate` (`bool`)
     """
     identity: pulumi.Output[dict]
     """
     An `identity` block is documented below.
+    
+      * `principalId` (`str`) - The Principal ID associated with this Managed Service Identity.
+      * `tenantId` (`str`) - The Tenant ID associated with this Managed Service Identity.
+      * `type` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -53,6 +98,9 @@ class Service(pulumi.CustomResource):
     policy: pulumi.Output[dict]
     """
     A `policy` block as defined below.
+    
+      * `xml_content` (`str`)
+      * `xml_link` (`str`)
     """
     portal_url: pulumi.Output[str]
     """
@@ -81,18 +129,39 @@ class Service(pulumi.CustomResource):
     security: pulumi.Output[dict]
     """
     A `security` block as defined below.
+    
+      * `disableBackendSsl30` (`bool`)
+      * `disableBackendTls10` (`bool`)
+      * `disableBackendTls11` (`bool`)
+      * `disableFrontendSsl30` (`bool`)
+      * `disableFrontendTls10` (`bool`)
+      * `disableFrontendTls11` (`bool`)
+      * `disableTripleDesChipers` (`bool`)
+      * `disableTripleDesCiphers` (`bool`)
     """
     sign_in: pulumi.Output[dict]
     """
     A `sign_in` block as defined below.
+    
+      * `enabled` (`bool`)
     """
     sign_up: pulumi.Output[dict]
     """
     A `sign_up` block as defined below.
+    
+      * `enabled` (`bool`)
+      * `termsOfService` (`dict`)
+    
+        * `consentRequired` (`bool`)
+        * `enabled` (`bool`)
+        * `text` (`str`)
     """
     sku: pulumi.Output[dict]
     """
     A `sku` block as documented below.
+    
+      * `capacity` (`float`)
+      * `name` (`str`) - The name of the API Management Service. Changing this forces a new resource to be created.
     """
     tags: pulumi.Output[dict]
     """
@@ -120,6 +189,93 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
+        
+        The **additional_location** object supports the following:
+        
+          * `gateway_regional_url` (`pulumi.Input[str]`) - The URL of the Regional Gateway for the API Management Service in the specified region.
+          * `location` (`pulumi.Input[str]`) - The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+          * `public_ip_addresses` (`pulumi.Input[list]`) - Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        
+        The **certificates** object supports the following:
+        
+          * `certificatePassword` (`pulumi.Input[str]`)
+          * `encodedCertificate` (`pulumi.Input[str]`)
+          * `storeName` (`pulumi.Input[str]`)
+        
+        The **hostname_configuration** object supports the following:
+        
+          * `managements` (`pulumi.Input[list]`)
+        
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`)
+            * `hostName` (`pulumi.Input[str]`)
+            * `keyVaultId` (`pulumi.Input[str]`)
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`)
+        
+          * `portals` (`pulumi.Input[list]`)
+        
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`)
+            * `hostName` (`pulumi.Input[str]`)
+            * `keyVaultId` (`pulumi.Input[str]`)
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`)
+        
+          * `proxies` (`pulumi.Input[list]`)
+        
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`)
+            * `defaultSslBinding` (`pulumi.Input[bool]`)
+            * `hostName` (`pulumi.Input[str]`)
+            * `keyVaultId` (`pulumi.Input[str]`)
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`)
+        
+          * `scms` (`pulumi.Input[list]`)
+        
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`)
+            * `hostName` (`pulumi.Input[str]`)
+            * `keyVaultId` (`pulumi.Input[str]`)
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`)
+        
+        The **identity** object supports the following:
+        
+          * `principalId` (`pulumi.Input[str]`) - The Principal ID associated with this Managed Service Identity.
+          * `tenantId` (`pulumi.Input[str]`) - The Tenant ID associated with this Managed Service Identity.
+          * `type` (`pulumi.Input[str]`)
+        
+        The **policy** object supports the following:
+        
+          * `xml_content` (`pulumi.Input[str]`)
+          * `xml_link` (`pulumi.Input[str]`)
+        
+        The **security** object supports the following:
+        
+          * `disableBackendSsl30` (`pulumi.Input[bool]`)
+          * `disableBackendTls10` (`pulumi.Input[bool]`)
+          * `disableBackendTls11` (`pulumi.Input[bool]`)
+          * `disableFrontendSsl30` (`pulumi.Input[bool]`)
+          * `disableFrontendTls10` (`pulumi.Input[bool]`)
+          * `disableFrontendTls11` (`pulumi.Input[bool]`)
+          * `disableTripleDesChipers` (`pulumi.Input[bool]`)
+          * `disableTripleDesCiphers` (`pulumi.Input[bool]`)
+        
+        The **sign_in** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`)
+        
+        The **sign_up** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`)
+          * `termsOfService` (`pulumi.Input[dict]`)
+        
+            * `consentRequired` (`pulumi.Input[bool]`)
+            * `enabled` (`pulumi.Input[bool]`)
+            * `text` (`pulumi.Input[str]`)
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the API Management Service. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management.html.markdown.
         """
@@ -207,6 +363,93 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[dict] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags assigned to the resource.
+        
+        The **additional_location** object supports the following:
+        
+          * `gateway_regional_url` (`pulumi.Input[str]`) - The URL of the Regional Gateway for the API Management Service in the specified region.
+          * `location` (`pulumi.Input[str]`) - The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
+          * `public_ip_addresses` (`pulumi.Input[list]`) - Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+        
+        The **certificates** object supports the following:
+        
+          * `certificatePassword` (`pulumi.Input[str]`)
+          * `encodedCertificate` (`pulumi.Input[str]`)
+          * `storeName` (`pulumi.Input[str]`)
+        
+        The **hostname_configuration** object supports the following:
+        
+          * `managements` (`pulumi.Input[list]`)
+        
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`)
+            * `hostName` (`pulumi.Input[str]`)
+            * `keyVaultId` (`pulumi.Input[str]`)
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`)
+        
+          * `portals` (`pulumi.Input[list]`)
+        
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`)
+            * `hostName` (`pulumi.Input[str]`)
+            * `keyVaultId` (`pulumi.Input[str]`)
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`)
+        
+          * `proxies` (`pulumi.Input[list]`)
+        
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`)
+            * `defaultSslBinding` (`pulumi.Input[bool]`)
+            * `hostName` (`pulumi.Input[str]`)
+            * `keyVaultId` (`pulumi.Input[str]`)
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`)
+        
+          * `scms` (`pulumi.Input[list]`)
+        
+            * `certificate` (`pulumi.Input[str]`) - One or more (up to 10) `certificate` blocks as defined below.
+            * `certificatePassword` (`pulumi.Input[str]`)
+            * `hostName` (`pulumi.Input[str]`)
+            * `keyVaultId` (`pulumi.Input[str]`)
+            * `negotiateClientCertificate` (`pulumi.Input[bool]`)
+        
+        The **identity** object supports the following:
+        
+          * `principalId` (`pulumi.Input[str]`) - The Principal ID associated with this Managed Service Identity.
+          * `tenantId` (`pulumi.Input[str]`) - The Tenant ID associated with this Managed Service Identity.
+          * `type` (`pulumi.Input[str]`)
+        
+        The **policy** object supports the following:
+        
+          * `xml_content` (`pulumi.Input[str]`)
+          * `xml_link` (`pulumi.Input[str]`)
+        
+        The **security** object supports the following:
+        
+          * `disableBackendSsl30` (`pulumi.Input[bool]`)
+          * `disableBackendTls10` (`pulumi.Input[bool]`)
+          * `disableBackendTls11` (`pulumi.Input[bool]`)
+          * `disableFrontendSsl30` (`pulumi.Input[bool]`)
+          * `disableFrontendTls10` (`pulumi.Input[bool]`)
+          * `disableFrontendTls11` (`pulumi.Input[bool]`)
+          * `disableTripleDesChipers` (`pulumi.Input[bool]`)
+          * `disableTripleDesCiphers` (`pulumi.Input[bool]`)
+        
+        The **sign_in** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`)
+        
+        The **sign_up** object supports the following:
+        
+          * `enabled` (`pulumi.Input[bool]`)
+          * `termsOfService` (`pulumi.Input[dict]`)
+        
+            * `consentRequired` (`pulumi.Input[bool]`)
+            * `enabled` (`pulumi.Input[bool]`)
+            * `text` (`pulumi.Input[str]`)
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the API Management Service. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management.html.markdown.
         """

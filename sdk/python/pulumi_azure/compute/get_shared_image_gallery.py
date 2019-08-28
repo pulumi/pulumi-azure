@@ -66,6 +66,9 @@ def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
     Use this data source to access information about an existing Shared Image Gallery.
     
     > **NOTE** Shared Image Galleries are currently in Public Preview. You can find more information, including [how to register for the Public Preview here](https://azure.microsoft.com/en-gb/blog/announcing-the-public-preview-of-shared-image-gallery/).
+    
+    :param str name: The name of the Shared Image Gallery.
+    :param str resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/shared_image_gallery.html.markdown.
     """
@@ -74,7 +77,7 @@ def get_shared_image_gallery(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImageGallery:getSharedImageGallery', __args__, opts=opts).value

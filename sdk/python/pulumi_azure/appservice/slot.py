@@ -29,6 +29,10 @@ class Slot(pulumi.CustomResource):
     connection_strings: pulumi.Output[list]
     """
     An `connection_string` block as defined below.
+    
+      * `name` (`str`) - The name of the Connection String.
+      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+      * `value` (`str`) - The value for the Connection String.
     """
     default_site_hostname: pulumi.Output[str]
     """
@@ -45,6 +49,10 @@ class Slot(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     A Managed Service Identity block as defined below.
+    
+      * `principalId` (`str`)
+      * `tenantId` (`str`)
+      * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
     """
     location: pulumi.Output[str]
     """
@@ -61,10 +69,46 @@ class Slot(pulumi.CustomResource):
     site_config: pulumi.Output[dict]
     """
     A `site_config` object as defined below.
+    
+      * `alwaysOn` (`bool`) - Should the app be loaded at all times? Defaults to `false`.
+      * `appCommandLine` (`str`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+      * `cors` (`dict`) - A `cors` block as defined below.
+    
+        * `allowedOrigins` (`list`)
+        * `supportCredentials` (`bool`)
+    
+      * `defaultDocuments` (`list`) - The ordering of default documents to load, if an address isn't specified.
+      * `dotnetFrameworkVersion` (`str`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+      * `ftpsState` (`str`)
+      * `http2Enabled` (`bool`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
+      * `ipRestrictions` (`list`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+    
+        * `ipAddress` (`str`)
+        * `subnetMask` (`str`)
+    
+      * `javaContainer` (`str`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+      * `javaContainerVersion` (`str`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+      * `javaVersion` (`str`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+      * `linuxFxVersion` (`str`)
+      * `localMysqlEnabled` (`bool`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+      * `managedPipelineMode` (`str`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+      * `minTlsVersion` (`str`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+      * `phpVersion` (`str`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+      * `pythonVersion` (`str`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
+      * `remoteDebuggingEnabled` (`bool`) - Is Remote Debugging Enabled? Defaults to `false`.
+      * `remoteDebuggingVersion` (`str`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+      * `scmType` (`str`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+      * `use32BitWorkerProcess` (`bool`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+      * `virtualNetworkName` (`str`) - The name of the Virtual Network which this App Service Slot should be attached to.
+      * `websocketsEnabled` (`bool`) - Should WebSockets be enabled?
+      * `windowsFxVersion` (`str`)
     """
     site_credential: pulumi.Output[dict]
     """
     A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
+    
+      * `password` (`str`) - The password associated with the username, which can be used to publish to this App Service.
+      * `username` (`str`) - The username which can be used to publish to this App Service
     """
     tags: pulumi.Output[dict]
     """
@@ -91,6 +135,53 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component.
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **connection_strings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Connection String.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+          * `value` (`pulumi.Input[str]`) - The value for the Connection String.
+        
+        The **identity** object supports the following:
+        
+          * `principalId` (`pulumi.Input[str]`)
+          * `tenantId` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        
+        The **site_config** object supports the following:
+        
+          * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
+          * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+          * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
+        
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `supportCredentials` (`pulumi.Input[bool]`)
+        
+          * `defaultDocuments` (`pulumi.Input[list]`) - The ordering of default documents to load, if an address isn't specified.
+          * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+          * `ftpsState` (`pulumi.Input[str]`)
+          * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        
+            * `ipAddress` (`pulumi.Input[str]`)
+            * `subnetMask` (`pulumi.Input[str]`)
+        
+          * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+          * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+          * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+          * `linuxFxVersion` (`pulumi.Input[str]`)
+          * `localMysqlEnabled` (`pulumi.Input[bool]`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+          * `managedPipelineMode` (`pulumi.Input[str]`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+          * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+          * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+          * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
+          * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
+          * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+          * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+          * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service Slot should be attached to.
+          * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
+          * `windowsFxVersion` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
         """
@@ -162,6 +253,58 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[dict] site_credential: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **connection_strings** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Connection String.
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+          * `value` (`pulumi.Input[str]`) - The value for the Connection String.
+        
+        The **identity** object supports the following:
+        
+          * `principalId` (`pulumi.Input[str]`)
+          * `tenantId` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
+        
+        The **site_config** object supports the following:
+        
+          * `alwaysOn` (`pulumi.Input[bool]`) - Should the app be loaded at all times? Defaults to `false`.
+          * `appCommandLine` (`pulumi.Input[str]`) - App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+          * `cors` (`pulumi.Input[dict]`) - A `cors` block as defined below.
+        
+            * `allowedOrigins` (`pulumi.Input[list]`)
+            * `supportCredentials` (`pulumi.Input[bool]`)
+        
+          * `defaultDocuments` (`pulumi.Input[list]`) - The ordering of default documents to load, if an address isn't specified.
+          * `dotnetFrameworkVersion` (`pulumi.Input[str]`) - The version of the .net framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .net framework for the .net CLR v2 - currently `.net 3.5`) and `v4.0` (which corresponds to the latest version of the .net CLR v4 - which at the time of writing is `.net 4.7.1`). [For more information on which .net CLR version to use based on the .net framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+          * `ftpsState` (`pulumi.Input[str]`)
+          * `http2Enabled` (`pulumi.Input[bool]`) - Is HTTP2 Enabled on this App Service? Defaults to `false`.
+          * `ipRestrictions` (`pulumi.Input[list]`) - A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing ip restrictions as defined below.
+        
+            * `ipAddress` (`pulumi.Input[str]`)
+            * `subnetMask` (`pulumi.Input[str]`)
+        
+          * `javaContainer` (`pulumi.Input[str]`) - The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JETTY` and `TOMCAT`.
+          * `javaContainerVersion` (`pulumi.Input[str]`) - The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+          * `javaVersion` (`pulumi.Input[str]`) - The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11`.
+          * `linuxFxVersion` (`pulumi.Input[str]`)
+          * `localMysqlEnabled` (`pulumi.Input[bool]`) - Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+          * `managedPipelineMode` (`pulumi.Input[str]`) - The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+          * `minTlsVersion` (`pulumi.Input[str]`) - The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+          * `phpVersion` (`pulumi.Input[str]`) - The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1` and `7.2`.
+          * `pythonVersion` (`pulumi.Input[str]`) - The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
+          * `remoteDebuggingEnabled` (`pulumi.Input[bool]`) - Is Remote Debugging Enabled? Defaults to `false`.
+          * `remoteDebuggingVersion` (`pulumi.Input[str]`) - Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
+          * `scmType` (`pulumi.Input[str]`) - The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO` and `VSTSRM`
+          * `use32BitWorkerProcess` (`pulumi.Input[bool]`) - Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+          * `virtualNetworkName` (`pulumi.Input[str]`) - The name of the Virtual Network which this App Service Slot should be attached to.
+          * `websocketsEnabled` (`pulumi.Input[bool]`) - Should WebSockets be enabled?
+          * `windowsFxVersion` (`pulumi.Input[str]`)
+        
+        The **site_credential** object supports the following:
+        
+          * `password` (`pulumi.Input[str]`) - The password associated with the username, which can be used to publish to this App Service.
+          * `username` (`pulumi.Input[str]`) - The username which can be used to publish to this App Service
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_slot.html.markdown.
         """

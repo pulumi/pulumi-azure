@@ -36,6 +36,15 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
     A `ipsec_policy` block which is documented below.
     Only a single policy can be defined for a connection. For details on
     custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell).
+    
+      * `dhGroup` (`str`)
+      * `ikeEncryption` (`str`)
+      * `ikeIntegrity` (`str`)
+      * `ipsecEncryption` (`str`)
+      * `ipsecIntegrity` (`str`)
+      * `pfsGroup` (`str`)
+      * `saDatasize` (`float`)
+      * `saLifetime` (`float`)
     """
     local_network_gateway_id: pulumi.Output[str]
     """
@@ -144,6 +153,17 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
                in which the connection will be created. Changing the gateway forces a new
                resource to be created.
+        
+        The **ipsec_policy** object supports the following:
+        
+          * `dhGroup` (`pulumi.Input[str]`)
+          * `ikeEncryption` (`pulumi.Input[str]`)
+          * `ikeIntegrity` (`pulumi.Input[str]`)
+          * `ipsecEncryption` (`pulumi.Input[str]`)
+          * `ipsecIntegrity` (`pulumi.Input[str]`)
+          * `pfsGroup` (`pulumi.Input[str]`)
+          * `saDatasize` (`pulumi.Input[float]`)
+          * `saLifetime` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
         """
@@ -241,6 +261,17 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[str] virtual_network_gateway_id: The ID of the Virtual Network Gateway
                in which the connection will be created. Changing the gateway forces a new
                resource to be created.
+        
+        The **ipsec_policy** object supports the following:
+        
+          * `dhGroup` (`pulumi.Input[str]`)
+          * `ikeEncryption` (`pulumi.Input[str]`)
+          * `ikeIntegrity` (`pulumi.Input[str]`)
+          * `ipsecEncryption` (`pulumi.Input[str]`)
+          * `ipsecIntegrity` (`pulumi.Input[str]`)
+          * `pfsGroup` (`pulumi.Input[str]`)
+          * `saDatasize` (`pulumi.Input[float]`)
+          * `saLifetime` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway_connection.html.markdown.
         """

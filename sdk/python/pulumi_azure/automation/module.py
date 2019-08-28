@@ -17,6 +17,13 @@ class Module(pulumi.CustomResource):
     module_link: pulumi.Output[dict]
     """
     The published Module link.
+    
+      * `hash` (`dict`)
+    
+        * `algorithm` (`str`)
+        * `value` (`str`)
+    
+      * `uri` (`str`) - The uri of the module content (zip or nupkg).
     """
     name: pulumi.Output[str]
     """
@@ -36,6 +43,15 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[dict] module_link: The published Module link.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
+        
+        The **module_link** object supports the following:
+        
+          * `hash` (`pulumi.Input[dict]`)
+        
+            * `algorithm` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+        
+          * `uri` (`pulumi.Input[str]`) - The uri of the module content (zip or nupkg).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
         """
@@ -85,6 +101,15 @@ class Module(pulumi.CustomResource):
         :param pulumi.Input[dict] module_link: The published Module link.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Module is created. Changing this forces a new resource to be created.
+        
+        The **module_link** object supports the following:
+        
+          * `hash` (`pulumi.Input[dict]`)
+        
+            * `algorithm` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+        
+          * `uri` (`pulumi.Input[str]`) - The uri of the module content (zip or nupkg).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_module.html.markdown.
         """

@@ -62,6 +62,19 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **encryption_settings** object supports the following:
+        
+          * `diskEncryptionKey` (`pulumi.Input[dict]`)
+        
+            * `secretUrl` (`pulumi.Input[str]`)
+            * `sourceVaultId` (`pulumi.Input[str]`)
+        
+          * `enabled` (`pulumi.Input[bool]`)
+          * `keyEncryptionKey` (`pulumi.Input[dict]`)
+        
+            * `keyUrl` (`pulumi.Input[str]`)
+            * `sourceVaultId` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
         """
@@ -120,6 +133,19 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **encryption_settings** object supports the following:
+        
+          * `diskEncryptionKey` (`pulumi.Input[dict]`)
+        
+            * `secretUrl` (`pulumi.Input[str]`)
+            * `sourceVaultId` (`pulumi.Input[str]`)
+        
+          * `enabled` (`pulumi.Input[bool]`)
+          * `keyEncryptionKey` (`pulumi.Input[dict]`)
+        
+            * `keyUrl` (`pulumi.Input[str]`)
+            * `sourceVaultId` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/snapshot.html.markdown.
         """

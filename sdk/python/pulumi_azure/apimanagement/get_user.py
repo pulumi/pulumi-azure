@@ -78,6 +78,10 @@ class AwaitableGetUserResult(GetUserResult):
 def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts=None):
     """
     Use this data source to access information about an existing API Management User.
+    
+    :param str api_management_name: The Name of the API Management Service in which this User exists.
+    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
+    :param str user_id: The Identifier for the User.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_user.html.markdown.
     """
@@ -87,7 +91,7 @@ def get_user(api_management_name=None,resource_group_name=None,user_id=None,opts
     __args__['resourceGroupName'] = resource_group_name
     __args__['userId'] = user_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getUser:getUser', __args__, opts=opts).value

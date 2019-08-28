@@ -36,6 +36,9 @@ class Account(pulumi.CustomResource):
     custom_domain: pulumi.Output[dict]
     """
     A `custom_domain` block as documented below.
+    
+      * `name` (`str`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+      * `useSubdomain` (`bool`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
     """
     enable_blob_encryption: pulumi.Output[bool]
     """
@@ -53,6 +56,10 @@ class Account(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     A Managed Service Identity block as defined below.
+    
+      * `principal_id` (`str`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+      * `tenant_id` (`str`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+      * `type` (`str`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
     """
     is_hns_enabled: pulumi.Output[bool]
     """
@@ -70,6 +77,12 @@ class Account(pulumi.CustomResource):
     network_rules: pulumi.Output[dict]
     """
     A `network_rules` block as documented below.
+    
+      * `bypasses` (`list`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+        any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+      * `defaultAction` (`str`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+      * `ipRules` (`list`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+      * `virtualNetworkSubnetIds` (`list`) - A list of resource ids for subnets.
     """
     primary_access_key: pulumi.Output[str]
     """
@@ -235,6 +248,25 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **custom_domain** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+          * `useSubdomain` (`pulumi.Input[bool]`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
+        
+        The **identity** object supports the following:
+        
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+        
+        The **network_rules** object supports the following:
+        
+          * `bypasses` (`pulumi.Input[list]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+            any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+          * `defaultAction` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+          * `ipRules` (`pulumi.Input[list]`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`) - A list of resource ids for subnets.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
         """
@@ -378,6 +410,25 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_web_endpoint: The endpoint URL for web storage in the secondary location.
         :param pulumi.Input[str] secondary_web_host: The hostname with port if applicable for web storage in the secondary location.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **custom_domain** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+          * `useSubdomain` (`pulumi.Input[bool]`) - Should the Custom Domain Name be validated by using indirect CNAME validation?
+        
+        The **identity** object supports the following:
+        
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+          * `type` (`pulumi.Input[str]`) - Specifies the identity type of the Storage Account. At this time the only allowed value is `SystemAssigned`.
+        
+        The **network_rules** object supports the following:
+        
+          * `bypasses` (`pulumi.Input[list]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
+            any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+          * `defaultAction` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+          * `ipRules` (`pulumi.Input[list]`) - List of public IP or IP ranges in CIDR Format. Only IPV4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
+          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`) - A list of resource ids for subnets.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_account.html.markdown.
         """

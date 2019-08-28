@@ -71,6 +71,38 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
     
     Note that this is an [Account SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-an-account-sas)
     and *not* a [Service SAS](https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas).
+    
+    :param str connection_string: The connection string for the storage account to which this SAS applies. Typically directly from the `primary_connection_string` attribute of a `storage.Account` resource.
+    :param str expiry: The expiration time and date of this SAS. Must be a valid ISO-8601 format time/date string.
+    :param bool https_only: Only permit `https` access. If `false`, both `http` and `https` are permitted. Defaults to `true`.
+    :param dict permissions: A `permissions` block as defined below.
+    :param dict resource_types: A `resource_types` block as defined below.
+    :param dict services: A `services` block as defined below.
+    :param str start: The starting time and date of validity of this SAS. Must be a valid ISO-8601 format time/date string.
+    
+    The **permissions** object supports the following:
+    
+      * `add` (`bool`)
+      * `create` (`bool`)
+      * `delete` (`bool`)
+      * `list` (`bool`)
+      * `process` (`bool`)
+      * `read` (`bool`)
+      * `update` (`bool`)
+      * `write` (`bool`)
+    
+    The **resource_types** object supports the following:
+    
+      * `container` (`bool`)
+      * `object` (`bool`)
+      * `service` (`bool`)
+    
+    The **services** object supports the following:
+    
+      * `blob` (`bool`)
+      * `file` (`bool`)
+      * `queue` (`bool`)
+      * `table` (`bool`)
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/storage_account_sas.html.markdown.
     """
@@ -84,7 +116,7 @@ def get_account_sas(connection_string=None,expiry=None,https_only=None,permissio
     __args__['services'] = services
     __args__['start'] = start
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:storage/getAccountSAS:getAccountSAS', __args__, opts=opts).value

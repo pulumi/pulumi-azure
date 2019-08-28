@@ -81,6 +81,9 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
 def get_workflow(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Logic App Workflow.
+    
+    :param str name: The name of the Logic App Workflow.
+    :param str resource_group_name: The name of the Resource Group in which the Logic App Workflow exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/logic_app_workflow.html.markdown.
     """
@@ -89,7 +92,7 @@ def get_workflow(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:logicapps/getWorkflow:getWorkflow', __args__, opts=opts).value

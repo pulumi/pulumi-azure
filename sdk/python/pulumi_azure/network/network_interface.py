@@ -34,6 +34,18 @@ class NetworkInterface(pulumi.CustomResource):
     ip_configurations: pulumi.Output[list]
     """
     One or more `ip_configuration` associated with this NIC as documented below.
+    
+      * `applicationGatewayBackendAddressPoolsIds` (`list`)
+      * `applicationSecurityGroupIds` (`list`)
+      * `loadBalancerBackendAddressPoolsIds` (`list`)
+      * `loadBalancerInboundNatRulesIds` (`list`)
+      * `name` (`str`) - The name of the network interface. Changing this forces a new resource to be created.
+      * `primary` (`bool`)
+      * `private_ip_address` (`str`) - The first private IP address of the network interface.
+      * `privateIpAddressAllocation` (`str`)
+      * `privateIpAddressVersion` (`str`)
+      * `publicIpAddressId` (`str`)
+      * `subnet_id` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -90,6 +102,20 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: Reference to a VM with which this NIC has been associated.
+        
+        The **ip_configurations** object supports the following:
+        
+          * `applicationGatewayBackendAddressPoolsIds` (`pulumi.Input[list]`)
+          * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
+          * `loadBalancerBackendAddressPoolsIds` (`pulumi.Input[list]`)
+          * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - The name of the network interface. Changing this forces a new resource to be created.
+          * `primary` (`pulumi.Input[bool]`)
+          * `private_ip_address` (`pulumi.Input[str]`) - The first private IP address of the network interface.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
+          * `privateIpAddressVersion` (`pulumi.Input[str]`)
+          * `publicIpAddressId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
         """
@@ -160,6 +186,20 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network interface. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: Reference to a VM with which this NIC has been associated.
+        
+        The **ip_configurations** object supports the following:
+        
+          * `applicationGatewayBackendAddressPoolsIds` (`pulumi.Input[list]`)
+          * `applicationSecurityGroupIds` (`pulumi.Input[list]`)
+          * `loadBalancerBackendAddressPoolsIds` (`pulumi.Input[list]`)
+          * `loadBalancerInboundNatRulesIds` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - The name of the network interface. Changing this forces a new resource to be created.
+          * `primary` (`pulumi.Input[bool]`)
+          * `private_ip_address` (`pulumi.Input[str]`) - The first private IP address of the network interface.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
+          * `privateIpAddressVersion` (`pulumi.Input[str]`)
+          * `publicIpAddressId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_interface.html.markdown.
         """

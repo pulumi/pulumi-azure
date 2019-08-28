@@ -14,6 +14,9 @@ class Profile(pulumi.CustomResource):
     """
     This block specifies the DNS configuration of the
     Profile, it supports the fields documented below.
+    
+      * `relativeName` (`str`)
+      * `ttl` (`float`)
     """
     fqdn: pulumi.Output[str]
     """
@@ -23,6 +26,10 @@ class Profile(pulumi.CustomResource):
     """
     This block specifies the Endpoint monitoring
     configuration for the Profile, it supports the fields documented below.
+    
+      * `path` (`str`)
+      * `port` (`float`)
+      * `protocol` (`str`)
     """
     name: pulumi.Output[str]
     """
@@ -81,6 +88,17 @@ class Profile(pulumi.CustomResource):
                - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
                - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
                - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
+        
+        The **dns_configs** object supports the following:
+        
+          * `relativeName` (`pulumi.Input[str]`)
+          * `ttl` (`pulumi.Input[float]`)
+        
+        The **monitor_configs** object supports the following:
+        
+          * `path` (`pulumi.Input[str]`)
+          * `port` (`pulumi.Input[float]`)
+          * `protocol` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile_legacy.html.markdown.
         """
@@ -151,6 +169,17 @@ class Profile(pulumi.CustomResource):
                - `Priority` - Traffic is routed to the Endpoint with the lowest `priority` value.
                - `Subnet` - Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile.
                - `Weighted` - Traffic is spread across Endpoints proportional to their `weight` value.
+        
+        The **dns_configs** object supports the following:
+        
+          * `relativeName` (`pulumi.Input[str]`)
+          * `ttl` (`pulumi.Input[float]`)
+        
+        The **monitor_configs** object supports the following:
+        
+          * `path` (`pulumi.Input[str]`)
+          * `port` (`pulumi.Input[float]`)
+          * `protocol` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/traffic_manager_profile_legacy.html.markdown.
         """

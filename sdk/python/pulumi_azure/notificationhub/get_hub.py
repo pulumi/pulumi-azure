@@ -64,6 +64,10 @@ class AwaitableGetHubResult(GetHubResult):
 def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Notification Hub within a Notification Hub Namespace.
+    
+    :param str name: Specifies the Name of the Notification Hub.
+    :param str namespace_name: Specifies the Name of the Notification Hub Namespace which contains the Notification Hub.
+    :param str resource_group_name: Specifies the Name of the Resource Group within which the Notification Hub exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/notification_hub.html.markdown.
     """
@@ -73,7 +77,7 @@ def get_hub(name=None,namespace_name=None,resource_group_name=None,opts=None):
     __args__['namespaceName'] = namespace_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:notificationhub/getHub:getHub', __args__, opts=opts).value

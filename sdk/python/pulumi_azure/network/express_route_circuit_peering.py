@@ -21,6 +21,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
     microsoft_peering_config: pulumi.Output[dict]
     """
     A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+    
+      * `advertisedPublicPrefixes` (`list`)
     """
     peer_asn: pulumi.Output[float]
     """
@@ -75,6 +77,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_peer_address_prefix: A `/30` subnet for the secondary link.
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
         :param pulumi.Input[float] vlan_id: A valid VLAN ID to establish this peering on.
+        
+        The **microsoft_peering_config** object supports the following:
+        
+          * `advertisedPublicPrefixes` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_peering.html.markdown.
         """
@@ -147,6 +153,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         :param pulumi.Input[str] secondary_peer_address_prefix: A `/30` subnet for the secondary link.
         :param pulumi.Input[str] shared_key: The shared key. Can be a maximum of 25 characters.
         :param pulumi.Input[float] vlan_id: A valid VLAN ID to establish this peering on.
+        
+        The **microsoft_peering_config** object supports the following:
+        
+          * `advertisedPublicPrefixes` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit_peering.html.markdown.
         """

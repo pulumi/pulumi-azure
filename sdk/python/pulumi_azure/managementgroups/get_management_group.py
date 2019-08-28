@@ -56,6 +56,8 @@ class AwaitableGetManagementGroupResult(GetManagementGroupResult):
 def get_management_group(group_id=None,opts=None):
     """
     Use this data source to access information about an existing Management Group.
+    
+    :param str group_id: Specifies the UUID of this Management Group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/management_group_legacy.html.markdown.
     """
@@ -63,7 +65,7 @@ def get_management_group(group_id=None,opts=None):
 
     __args__['groupId'] = group_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:managementgroups/getManagementGroup:getManagementGroup', __args__, opts=opts).value

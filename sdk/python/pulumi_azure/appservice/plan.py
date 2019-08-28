@@ -51,6 +51,10 @@ class Plan(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block as documented below.
+    
+      * `capacity` (`float`) - Specifies the number of workers associated with this App Service Plan.
+      * `size` (`str`) - Specifies the plan's instance size.
+      * `tier` (`str`) - Specifies the plan's pricing tier.
     """
     tags: pulumi.Output[dict]
     """
@@ -72,6 +76,18 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **properties** object supports the following:
+        
+          * `app_service_environment_id` (`pulumi.Input[str]`) - The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+          * `per_site_scaling` (`pulumi.Input[bool]`) - Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+          * `reserved` (`pulumi.Input[bool]`) - Is this App Service Plan `Reserved`. Defaults to `false`.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`) - Specifies the number of workers associated with this App Service Plan.
+          * `size` (`pulumi.Input[str]`) - Specifies the plan's instance size.
+          * `tier` (`pulumi.Input[str]`) - Specifies the plan's pricing tier.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_plan.html.markdown.
         """
@@ -135,6 +151,18 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component.
         :param pulumi.Input[dict] sku: A `sku` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **properties** object supports the following:
+        
+          * `app_service_environment_id` (`pulumi.Input[str]`) - The ID of the App Service Environment where the App Service Plan should be located. Changing forces a new resource to be created.
+          * `per_site_scaling` (`pulumi.Input[bool]`) - Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.  Defaults to `false`.
+          * `reserved` (`pulumi.Input[bool]`) - Is this App Service Plan `Reserved`. Defaults to `false`.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`) - Specifies the number of workers associated with this App Service Plan.
+          * `size` (`pulumi.Input[str]`) - Specifies the plan's instance size.
+          * `tier` (`pulumi.Input[str]`) - Specifies the plan's pricing tier.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/app_service_plan.html.markdown.
         """

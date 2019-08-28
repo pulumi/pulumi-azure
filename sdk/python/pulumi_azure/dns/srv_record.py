@@ -17,6 +17,11 @@ class SrvRecord(pulumi.CustomResource):
     records: pulumi.Output[list]
     """
     A list of values that make up the SRV record. Each `record` block supports fields documented below.
+    
+      * `port` (`float`)
+      * `priority` (`float`)
+      * `target` (`str`)
+      * `weight` (`float`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -46,6 +51,13 @@ class SrvRecord(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        
+        The **records** object supports the following:
+        
+          * `port` (`pulumi.Input[float]`)
+          * `priority` (`pulumi.Input[float]`)
+          * `target` (`pulumi.Input[str]`)
+          * `weight` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_srv_record.html.markdown.
         """
@@ -101,6 +113,13 @@ class SrvRecord(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        
+        The **records** object supports the following:
+        
+          * `port` (`pulumi.Input[float]`)
+          * `priority` (`pulumi.Input[float]`)
+          * `target` (`pulumi.Input[str]`)
+          * `weight` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_srv_record.html.markdown.
         """

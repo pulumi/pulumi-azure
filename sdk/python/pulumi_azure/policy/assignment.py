@@ -21,6 +21,10 @@ class Assignment(pulumi.CustomResource):
     identity: pulumi.Output[dict]
     """
     An `identity` block.
+    
+      * `principal_id` (`str`) - The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
+      * `tenant_id` (`str`) - The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
+      * `type` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -57,6 +61,12 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[list] not_scopes: A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition to be applied at the specified Scope.
+        
+        The **identity** object supports the following:
+        
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_assignment.html.markdown.
         """
@@ -113,6 +123,12 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[list] not_scopes: A list of the Policy Assignment's excluded scopes. The list must contain Resource IDs (such as Subscriptions e.g. `/subscriptions/00000000-0000-0000-000000000000` or Resource Groups e.g.`/subscriptions/00000000-0000-0000-000000000000/resourceGroups/myResourceGroup`). 
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON object that maps to the Parameters field from the Policy Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] policy_definition_id: The ID of the Policy Definition to be applied at the specified Scope.
+        
+        The **identity** object supports the following:
+        
+          * `principal_id` (`pulumi.Input[str]`) - The Principal ID of this Policy Assignment if `type` is `SystemAssigned`.
+          * `tenant_id` (`pulumi.Input[str]`) - The Tenant ID of this Policy Assignment if `type` is `SystemAssigned`.
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/policy_assignment.html.markdown.
         """

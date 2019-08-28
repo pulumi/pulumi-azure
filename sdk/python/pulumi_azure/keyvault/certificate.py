@@ -13,6 +13,9 @@ class Certificate(pulumi.CustomResource):
     certificate: pulumi.Output[dict]
     """
     A `certificate` block as defined below, used to Import an existing certificate.
+    
+      * `contents` (`str`) - The base64-encoded certificate contents. Changing this forces a new resource to be created.
+      * `password` (`str`) - The password associated with the certificate. Changing this forces a new resource to be created.
     """
     certificate_data: pulumi.Output[str]
     """
@@ -21,6 +24,45 @@ class Certificate(pulumi.CustomResource):
     certificate_policy: pulumi.Output[dict]
     """
     A `certificate_policy` block as defined below.
+    
+      * `issuerParameters` (`dict`) - A `issuer_parameters` block as defined below.
+    
+        * `name` (`str`) - The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
+    
+      * `keyProperties` (`dict`) - A `key_properties` block as defined below.
+    
+        * `exportable` (`bool`) - Is this Certificate Exportable? Changing this forces a new resource to be created.
+        * `key_size` (`float`) - The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+        * `key_type` (`str`) - Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+        * `reuseKey` (`bool`) - Is the key reusable? Changing this forces a new resource to be created.
+    
+      * `lifetimeActions` (`list`) - A `lifetime_action` block as defined below.
+    
+        * `action` (`dict`) - A `action` block as defined below.
+    
+          * `actionType` (`str`) - The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+    
+        * `trigger` (`dict`) - A `trigger` block as defined below.
+    
+          * `daysBeforeExpiry` (`float`) - The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+          * `lifetimePercentage` (`float`) - The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+    
+      * `secretProperties` (`dict`) - A `secret_properties` block as defined below.
+    
+        * `content_type` (`str`) - The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+    
+      * `x509CertificateProperties` (`dict`) - A `x509_certificate_properties` block as defined below.
+    
+        * `extendedKeyUsages` (`list`) - A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+        * `keyUsages` (`list`) - A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+        * `subject` (`str`) - The Certificate's Subject. Changing this forces a new resource to be created.
+        * `subjectAlternativeNames` (`dict`) - A `subject_alternative_names` block as defined below.
+    
+          * `dnsNames` (`list`) - A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+          * `emails` (`list`) - A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+          * `upns` (`list`) - A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+    
+        * `validityInMonths` (`float`) - The Certificates Validity Period in Months. Changing this forces a new resource to be created.
     """
     key_vault_id: pulumi.Output[str]
     """
@@ -58,6 +100,52 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created.
         :param pulumi.Input[str] name: The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **certificate** object supports the following:
+        
+          * `contents` (`pulumi.Input[str]`) - The base64-encoded certificate contents. Changing this forces a new resource to be created.
+          * `password` (`pulumi.Input[str]`) - The password associated with the certificate. Changing this forces a new resource to be created.
+        
+        The **certificate_policy** object supports the following:
+        
+          * `issuerParameters` (`pulumi.Input[dict]`) - A `issuer_parameters` block as defined below.
+        
+            * `name` (`pulumi.Input[str]`) - The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
+        
+          * `keyProperties` (`pulumi.Input[dict]`) - A `key_properties` block as defined below.
+        
+            * `exportable` (`pulumi.Input[bool]`) - Is this Certificate Exportable? Changing this forces a new resource to be created.
+            * `key_size` (`pulumi.Input[float]`) - The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+            * `key_type` (`pulumi.Input[str]`) - Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+            * `reuseKey` (`pulumi.Input[bool]`) - Is the key reusable? Changing this forces a new resource to be created.
+        
+          * `lifetimeActions` (`pulumi.Input[list]`) - A `lifetime_action` block as defined below.
+        
+            * `action` (`pulumi.Input[dict]`) - A `action` block as defined below.
+        
+              * `actionType` (`pulumi.Input[str]`) - The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+        
+            * `trigger` (`pulumi.Input[dict]`) - A `trigger` block as defined below.
+        
+              * `daysBeforeExpiry` (`pulumi.Input[float]`) - The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+              * `lifetimePercentage` (`pulumi.Input[float]`) - The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        
+          * `secretProperties` (`pulumi.Input[dict]`) - A `secret_properties` block as defined below.
+        
+            * `content_type` (`pulumi.Input[str]`) - The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+        
+          * `x509CertificateProperties` (`pulumi.Input[dict]`) - A `x509_certificate_properties` block as defined below.
+        
+            * `extendedKeyUsages` (`pulumi.Input[list]`) - A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+            * `keyUsages` (`pulumi.Input[list]`) - A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+            * `subject` (`pulumi.Input[str]`) - The Certificate's Subject. Changing this forces a new resource to be created.
+            * `subjectAlternativeNames` (`pulumi.Input[dict]`) - A `subject_alternative_names` block as defined below.
+        
+              * `dnsNames` (`pulumi.Input[list]`) - A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+              * `emails` (`pulumi.Input[list]`) - A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+              * `upns` (`pulumi.Input[list]`) - A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        
+            * `validityInMonths` (`pulumi.Input[float]`) - The Certificates Validity Period in Months. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
         """
@@ -116,6 +204,52 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] thumbprint: The X509 Thumbprint of the Key Vault Certificate returned as hex string.
         :param pulumi.Input[str] version: The current version of the Key Vault Certificate.
+        
+        The **certificate** object supports the following:
+        
+          * `contents` (`pulumi.Input[str]`) - The base64-encoded certificate contents. Changing this forces a new resource to be created.
+          * `password` (`pulumi.Input[str]`) - The password associated with the certificate. Changing this forces a new resource to be created.
+        
+        The **certificate_policy** object supports the following:
+        
+          * `issuerParameters` (`pulumi.Input[dict]`) - A `issuer_parameters` block as defined below.
+        
+            * `name` (`pulumi.Input[str]`) - The name of the Certificate Issuer. Possible values include `Self`, or the name of a certificate issuing authority supported by Azure. Changing this forces a new resource to be created.
+        
+          * `keyProperties` (`pulumi.Input[dict]`) - A `key_properties` block as defined below.
+        
+            * `exportable` (`pulumi.Input[bool]`) - Is this Certificate Exportable? Changing this forces a new resource to be created.
+            * `key_size` (`pulumi.Input[float]`) - The size of the Key used in the Certificate. Possible values include `2048` and `4096`. Changing this forces a new resource to be created.
+            * `key_type` (`pulumi.Input[str]`) - Specifies the Type of Key, such as `RSA`. Changing this forces a new resource to be created.
+            * `reuseKey` (`pulumi.Input[bool]`) - Is the key reusable? Changing this forces a new resource to be created.
+        
+          * `lifetimeActions` (`pulumi.Input[list]`) - A `lifetime_action` block as defined below.
+        
+            * `action` (`pulumi.Input[dict]`) - A `action` block as defined below.
+        
+              * `actionType` (`pulumi.Input[str]`) - The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
+        
+            * `trigger` (`pulumi.Input[dict]`) - A `trigger` block as defined below.
+        
+              * `daysBeforeExpiry` (`pulumi.Input[float]`) - The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
+              * `lifetimePercentage` (`pulumi.Input[float]`) - The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `days_before_expiry`.
+        
+          * `secretProperties` (`pulumi.Input[dict]`) - A `secret_properties` block as defined below.
+        
+            * `content_type` (`pulumi.Input[str]`) - The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
+        
+          * `x509CertificateProperties` (`pulumi.Input[dict]`) - A `x509_certificate_properties` block as defined below.
+        
+            * `extendedKeyUsages` (`pulumi.Input[list]`) - A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
+            * `keyUsages` (`pulumi.Input[list]`) - A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
+            * `subject` (`pulumi.Input[str]`) - The Certificate's Subject. Changing this forces a new resource to be created.
+            * `subjectAlternativeNames` (`pulumi.Input[dict]`) - A `subject_alternative_names` block as defined below.
+        
+              * `dnsNames` (`pulumi.Input[list]`) - A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
+              * `emails` (`pulumi.Input[list]`) - A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
+              * `upns` (`pulumi.Input[list]`) - A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
+        
+            * `validityInMonths` (`pulumi.Input[float]`) - The Certificates Validity Period in Months. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault_certificate.html.markdown.
         """

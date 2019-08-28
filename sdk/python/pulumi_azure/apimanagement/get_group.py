@@ -71,6 +71,10 @@ class AwaitableGetGroupResult(GetGroupResult):
 def get_group(api_management_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing API Management Group.
+    
+    :param str api_management_name: The Name of the API Management Service in which this Group exists.
+    :param str name: The Name of the API Management Group.
+    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_group.html.markdown.
     """
@@ -80,7 +84,7 @@ def get_group(api_management_name=None,name=None,resource_group_name=None,opts=N
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getGroup:getGroup', __args__, opts=opts).value

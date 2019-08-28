@@ -101,6 +101,9 @@ class AwaitableGetPublicIPResult(GetPublicIPResult):
 def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Public IP Address.
+    
+    :param str name: Specifies the name of the public IP address.
+    :param str resource_group_name: Specifies the name of the resource group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/public_ip.html.markdown.
     """
@@ -111,7 +114,7 @@ def get_public_ip(name=None,resource_group_name=None,tags=None,zones=None,opts=N
     __args__['tags'] = tags
     __args__['zones'] = zones
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getPublicIP:getPublicIP', __args__, opts=opts).value

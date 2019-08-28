@@ -35,6 +35,8 @@ class AwaitableGetTrafficManagerResult(GetTrafficManagerResult):
 def get_traffic_manager(name=None,opts=None):
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
+    
+    :param str name: Specifies the name of the Location, for example `World`, `Europe` or `Germany`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/traffic_manager_geographical_location.html.markdown.
     """
@@ -42,7 +44,7 @@ def get_traffic_manager(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getTrafficManager:getTrafficManager', __args__, opts=opts).value

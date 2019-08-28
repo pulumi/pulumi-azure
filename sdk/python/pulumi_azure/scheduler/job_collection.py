@@ -21,6 +21,11 @@ class JobCollection(pulumi.CustomResource):
     quota: pulumi.Output[dict]
     """
     Configures the Job collection quotas as documented in the `quota` block below. 
+    
+      * `maxJobCount` (`float`)
+      * `maxRecurrenceFrequency` (`str`)
+      * `maxRecurrenceInterval` (`float`)
+      * `maxRetryInterval` (`float`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -53,6 +58,13 @@ class JobCollection(pulumi.CustomResource):
         :param pulumi.Input[str] sku: Sets the Job Collection's pricing level's SKU. Possible values include: `Standard`, `Free`, `P10Premium`, `P20Premium`.
         :param pulumi.Input[str] state: Sets Job Collection's state. Possible values include: `Enabled`, `Disabled`, `Suspended`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **quota** object supports the following:
+        
+          * `maxJobCount` (`pulumi.Input[float]`)
+          * `maxRecurrenceFrequency` (`pulumi.Input[str]`)
+          * `maxRecurrenceInterval` (`pulumi.Input[float]`)
+          * `maxRetryInterval` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job_collection.html.markdown.
         """
@@ -106,6 +118,13 @@ class JobCollection(pulumi.CustomResource):
         :param pulumi.Input[str] sku: Sets the Job Collection's pricing level's SKU. Possible values include: `Standard`, `Free`, `P10Premium`, `P20Premium`.
         :param pulumi.Input[str] state: Sets Job Collection's state. Possible values include: `Enabled`, `Disabled`, `Suspended`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **quota** object supports the following:
+        
+          * `maxJobCount` (`pulumi.Input[float]`)
+          * `maxRecurrenceFrequency` (`pulumi.Input[str]`)
+          * `maxRecurrenceInterval` (`pulumi.Input[float]`)
+          * `maxRetryInterval` (`pulumi.Input[float]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/scheduler_job_collection.html.markdown.
         """

@@ -37,6 +37,8 @@ class Account(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     ) A `sku` block as described below.
+    
+      * `name` (`str`) - Specifies the name of the Automation Account. Changing this forces a new resource to be created.
     """
     sku_name: pulumi.Output[str]
     """
@@ -58,6 +60,10 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The SKU name of the account - only `Basic` is supported at this time.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_account.html.markdown.
         """
@@ -113,6 +119,10 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The SKU name of the account - only `Basic` is supported at this time.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_account.html.markdown.
         """

@@ -29,6 +29,10 @@ class VirtualNetwork(pulumi.CustomResource):
     subnet: pulumi.Output[dict]
     """
     A `subnet` block as defined below.
+    
+      * `name` (`str`) - Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
+      * `useInVirtualMachineCreation` (`str`)
+      * `usePublicIpAddress` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -50,6 +54,12 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] subnet: A `subnet` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **subnet** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
+          * `useInVirtualMachineCreation` (`pulumi.Input[str]`)
+          * `usePublicIpAddress` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_virtual_network.html.markdown.
         """
@@ -103,6 +113,12 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[dict] subnet: A `subnet` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Dev Test Virtual Network.
+        
+        The **subnet** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
+          * `useInVirtualMachineCreation` (`pulumi.Input[str]`)
+          * `usePublicIpAddress` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dev_test_virtual_network.html.markdown.
         """

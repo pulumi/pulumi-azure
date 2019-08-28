@@ -33,6 +33,17 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
     rules: pulumi.Output[list]
     """
     One or more `rule` blocks as defined below.
+    
+      * `description` (`str`)
+      * `fqdnTags` (`list`)
+      * `name` (`str`) - Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+      * `protocols` (`list`)
+    
+        * `port` (`float`)
+        * `type` (`str`)
+    
+      * `sourceAddresses` (`list`)
+      * `targetFqdns` (`list`)
     """
     def __init__(__self__, resource_name, opts=None, action=None, azure_firewall_name=None, name=None, priority=None, resource_group_name=None, rules=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -46,6 +57,19 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] rules: One or more `rule` blocks as defined below.
+        
+        The **rules** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`)
+          * `fqdnTags` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+          * `protocols` (`pulumi.Input[list]`)
+        
+            * `port` (`pulumi.Input[float]`)
+            * `type` (`pulumi.Input[str]`)
+        
+          * `sourceAddresses` (`pulumi.Input[list]`)
+          * `targetFqdns` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_application_rule_collection.html.markdown.
         """
@@ -103,6 +127,19 @@ class FirewallApplicationRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] rules: One or more `rule` blocks as defined below.
+        
+        The **rules** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`)
+          * `fqdnTags` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Application Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+          * `protocols` (`pulumi.Input[list]`)
+        
+            * `port` (`pulumi.Input[float]`)
+            * `type` (`pulumi.Input[str]`)
+        
+          * `sourceAddresses` (`pulumi.Input[list]`)
+          * `targetFqdns` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_application_rule_collection.html.markdown.
         """

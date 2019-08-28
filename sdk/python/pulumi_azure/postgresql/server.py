@@ -37,6 +37,11 @@ class Server(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block as defined below.
+    
+      * `capacity` (`float`) - The scale up/out capacity, representing server's compute units.
+      * `family` (`str`) - The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
+      * `name` (`str`) - Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+      * `tier` (`str`) - The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
     """
     ssl_enforcement: pulumi.Output[str]
     """
@@ -45,6 +50,10 @@ class Server(pulumi.CustomResource):
     storage_profile: pulumi.Output[dict]
     """
     A `storage_profile` block as defined below.
+    
+      * `backupRetentionDays` (`float`) - Backup retention days for the server, supported values are between `7` and `35` days.
+      * `geoRedundantBackup` (`str`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
+      * `storageMb` (`float`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
     """
     tags: pulumi.Output[dict]
     """
@@ -70,6 +79,19 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `10.2`. Changing this forces a new resource to be created.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`) - The scale up/out capacity, representing server's compute units.
+          * `family` (`pulumi.Input[str]`) - The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
+          * `name` (`pulumi.Input[str]`) - Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+          * `tier` (`pulumi.Input[str]`) - The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
+        
+        The **storage_profile** object supports the following:
+        
+          * `backupRetentionDays` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
+          * `geoRedundantBackup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
+          * `storageMb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_server.html.markdown.
         """
@@ -141,6 +163,19 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[dict] storage_profile: A `storage_profile` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, and `10.2`. Changing this forces a new resource to be created.
+        
+        The **sku** object supports the following:
+        
+          * `capacity` (`pulumi.Input[float]`) - The scale up/out capacity, representing server's compute units.
+          * `family` (`pulumi.Input[str]`) - The `family` of hardware `Gen4` or `Gen5`, before selecting your `family` check the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers#compute-generations-vcores-and-memory) for availability in your region.
+          * `name` (`pulumi.Input[str]`) - Specifies the SKU Name for this PostgreSQL Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. B_Gen4_1, GP_Gen5_8). For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#sku).
+          * `tier` (`pulumi.Input[str]`) - The tier of the particular SKU. Possible values are `Basic`, `GeneralPurpose`, and `MemoryOptimized`. For more information see the [product documentation](https://docs.microsoft.com/en-us/azure/postgresql/concepts-pricing-tiers).
+        
+        The **storage_profile** object supports the following:
+        
+          * `backupRetentionDays` (`pulumi.Input[float]`) - Backup retention days for the server, supported values are between `7` and `35` days.
+          * `geoRedundantBackup` (`pulumi.Input[str]`) - Enable Geo-redundant or not for server backup. Valid values for this property are `Enabled` or `Disabled`, not supported for the `basic` tier.
+          * `storageMb` (`pulumi.Input[float]`) - Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `4194304` MB(4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/en-us/rest/api/postgresql/servers/create#StorageProfile).
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/postgresql_server.html.markdown.
         """

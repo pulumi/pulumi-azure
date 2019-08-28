@@ -67,6 +67,8 @@ class AwaitableGetLogProfileResult(GetLogProfileResult):
 def get_log_profile(name=None,opts=None):
     """
     Use this data source to access the properties of a Log Profile.
+    
+    :param str name: Specifies the Name of the Log Profile.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_log_profile.html.markdown.
     """
@@ -74,7 +76,7 @@ def get_log_profile(name=None,opts=None):
 
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getLogProfile:getLogProfile', __args__, opts=opts).value

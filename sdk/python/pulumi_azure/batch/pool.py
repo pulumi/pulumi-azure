@@ -17,14 +17,24 @@ class Pool(pulumi.CustomResource):
     auto_scale: pulumi.Output[dict]
     """
     A `auto_scale` block that describes the scale settings when using auto scale.
+    
+      * `evaluationInterval` (`str`)
+      * `formula` (`str`)
     """
     certificates: pulumi.Output[list]
     """
     One or more `certificate` blocks that describe the certificates to be installed on each compute node in the pool.
+    
+      * `id` (`str`) - The Batch pool ID.
+      * `storeLocation` (`str`)
+      * `storeName` (`str`)
+      * `visibilities` (`list`)
     """
     container_configuration: pulumi.Output[dict]
     """
     The container configuration used in the pool's VMs.
+    
+      * `type` (`str`)
     """
     display_name: pulumi.Output[str]
     """
@@ -33,6 +43,10 @@ class Pool(pulumi.CustomResource):
     fixed_scale: pulumi.Output[dict]
     """
     A `fixed_scale` block that describes the scale settings when using fixed scale.
+    
+      * `resizeTimeout` (`str`)
+      * `targetDedicatedNodes` (`float`)
+      * `targetLowPriorityNodes` (`float`)
     """
     max_tasks_per_node: pulumi.Output[float]
     """
@@ -53,11 +67,40 @@ class Pool(pulumi.CustomResource):
     start_task: pulumi.Output[dict]
     """
     A `start_task` block that describes the start task settings for the Batch pool.
+    
+      * `commandLine` (`str`)
+      * `environment` (`dict`)
+      * `maxTaskRetryCount` (`float`)
+      * `resourceFiles` (`list`)
+    
+        * `autoStorageContainerName` (`str`)
+        * `blobPrefix` (`str`)
+        * `fileMode` (`str`)
+        * `filePath` (`str`)
+        * `httpUrl` (`str`)
+        * `storageContainerUrl` (`str`)
+    
+      * `userIdentity` (`dict`)
+    
+        * `autoUser` (`dict`)
+    
+          * `elevationLevel` (`str`)
+          * `scope` (`str`)
+    
+        * `userName` (`str`)
+    
+      * `waitForSuccess` (`bool`)
     """
     stop_pending_resize_operation: pulumi.Output[bool]
     storage_image_reference: pulumi.Output[dict]
     """
     A `storage_image_reference` for the virtual machines that will compose the Batch pool.
+    
+      * `id` (`str`) - The Batch pool ID.
+      * `offer` (`str`)
+      * `publisher` (`str`)
+      * `sku` (`str`)
+      * `version` (`str`)
     """
     vm_size: pulumi.Output[str]
     """
@@ -82,6 +125,61 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[dict] start_task: A `start_task` block that describes the start task settings for the Batch pool.
         :param pulumi.Input[dict] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
+        
+        The **auto_scale** object supports the following:
+        
+          * `evaluationInterval` (`pulumi.Input[str]`)
+          * `formula` (`pulumi.Input[str]`)
+        
+        The **certificates** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Batch pool ID.
+          * `storeLocation` (`pulumi.Input[str]`)
+          * `storeName` (`pulumi.Input[str]`)
+          * `visibilities` (`pulumi.Input[list]`)
+        
+        The **container_configuration** object supports the following:
+        
+          * `type` (`pulumi.Input[str]`)
+        
+        The **fixed_scale** object supports the following:
+        
+          * `resizeTimeout` (`pulumi.Input[str]`)
+          * `targetDedicatedNodes` (`pulumi.Input[float]`)
+          * `targetLowPriorityNodes` (`pulumi.Input[float]`)
+        
+        The **start_task** object supports the following:
+        
+          * `commandLine` (`pulumi.Input[str]`)
+          * `environment` (`pulumi.Input[dict]`)
+          * `maxTaskRetryCount` (`pulumi.Input[float]`)
+          * `resourceFiles` (`pulumi.Input[list]`)
+        
+            * `autoStorageContainerName` (`pulumi.Input[str]`)
+            * `blobPrefix` (`pulumi.Input[str]`)
+            * `fileMode` (`pulumi.Input[str]`)
+            * `filePath` (`pulumi.Input[str]`)
+            * `httpUrl` (`pulumi.Input[str]`)
+            * `storageContainerUrl` (`pulumi.Input[str]`)
+        
+          * `userIdentity` (`pulumi.Input[dict]`)
+        
+            * `autoUser` (`pulumi.Input[dict]`)
+        
+              * `elevationLevel` (`pulumi.Input[str]`)
+              * `scope` (`pulumi.Input[str]`)
+        
+            * `userName` (`pulumi.Input[str]`)
+        
+          * `waitForSuccess` (`pulumi.Input[bool]`)
+        
+        The **storage_image_reference** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Batch pool ID.
+          * `offer` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`)
+          * `sku` (`pulumi.Input[str]`)
+          * `version` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
         """
@@ -154,6 +252,61 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[dict] start_task: A `start_task` block that describes the start task settings for the Batch pool.
         :param pulumi.Input[dict] storage_image_reference: A `storage_image_reference` for the virtual machines that will compose the Batch pool.
         :param pulumi.Input[str] vm_size: Specifies the size of the VM created in the Batch pool.
+        
+        The **auto_scale** object supports the following:
+        
+          * `evaluationInterval` (`pulumi.Input[str]`)
+          * `formula` (`pulumi.Input[str]`)
+        
+        The **certificates** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Batch pool ID.
+          * `storeLocation` (`pulumi.Input[str]`)
+          * `storeName` (`pulumi.Input[str]`)
+          * `visibilities` (`pulumi.Input[list]`)
+        
+        The **container_configuration** object supports the following:
+        
+          * `type` (`pulumi.Input[str]`)
+        
+        The **fixed_scale** object supports the following:
+        
+          * `resizeTimeout` (`pulumi.Input[str]`)
+          * `targetDedicatedNodes` (`pulumi.Input[float]`)
+          * `targetLowPriorityNodes` (`pulumi.Input[float]`)
+        
+        The **start_task** object supports the following:
+        
+          * `commandLine` (`pulumi.Input[str]`)
+          * `environment` (`pulumi.Input[dict]`)
+          * `maxTaskRetryCount` (`pulumi.Input[float]`)
+          * `resourceFiles` (`pulumi.Input[list]`)
+        
+            * `autoStorageContainerName` (`pulumi.Input[str]`)
+            * `blobPrefix` (`pulumi.Input[str]`)
+            * `fileMode` (`pulumi.Input[str]`)
+            * `filePath` (`pulumi.Input[str]`)
+            * `httpUrl` (`pulumi.Input[str]`)
+            * `storageContainerUrl` (`pulumi.Input[str]`)
+        
+          * `userIdentity` (`pulumi.Input[dict]`)
+        
+            * `autoUser` (`pulumi.Input[dict]`)
+        
+              * `elevationLevel` (`pulumi.Input[str]`)
+              * `scope` (`pulumi.Input[str]`)
+        
+            * `userName` (`pulumi.Input[str]`)
+        
+          * `waitForSuccess` (`pulumi.Input[bool]`)
+        
+        The **storage_image_reference** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Batch pool ID.
+          * `offer` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`)
+          * `sku` (`pulumi.Input[str]`)
+          * `version` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/batch_pool.html.markdown.
         """

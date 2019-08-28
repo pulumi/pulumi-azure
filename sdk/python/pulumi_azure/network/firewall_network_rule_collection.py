@@ -33,6 +33,13 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
     rules: pulumi.Output[list]
     """
     One or more `rule` blocks as defined below.
+    
+      * `description` (`str`)
+      * `destinationAddresses` (`list`)
+      * `destinationPorts` (`list`)
+      * `name` (`str`) - Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+      * `protocols` (`list`)
+      * `sourceAddresses` (`list`)
     """
     def __init__(__self__, resource_name, opts=None, action=None, azure_firewall_name=None, name=None, priority=None, resource_group_name=None, rules=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -46,6 +53,15 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] rules: One or more `rule` blocks as defined below.
+        
+        The **rules** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`)
+          * `destinationAddresses` (`pulumi.Input[list]`)
+          * `destinationPorts` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+          * `protocols` (`pulumi.Input[list]`)
+          * `sourceAddresses` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_network_rule_collection.html.markdown.
         """
@@ -103,6 +119,15 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[float] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[list] rules: One or more `rule` blocks as defined below.
+        
+        The **rules** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`)
+          * `destinationAddresses` (`pulumi.Input[list]`)
+          * `destinationPorts` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
+          * `protocols` (`pulumi.Input[list]`)
+          * `sourceAddresses` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall_network_rule_collection.html.markdown.
         """

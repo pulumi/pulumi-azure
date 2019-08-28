@@ -71,6 +71,10 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
 def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     """
     Use this data source to access information about an existing Role Definition.
+    
+    :param str name: Specifies the Name of either a built-in or custom Role Definition.
+    :param str role_definition_id: Specifies the ID of the Role Definition as a UUID/GUID.
+    :param str scope: Specifies the Scope at which the Custom Role Definition exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/role_definition.html.markdown.
     """
@@ -80,7 +84,7 @@ def get_role_definition(name=None,role_definition_id=None,scope=None,opts=None):
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:authorization/getRoleDefinition:getRoleDefinition', __args__, opts=opts).value

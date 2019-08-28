@@ -19,6 +19,12 @@ class LocalNetworkGateway(pulumi.CustomResource):
     """
     A `bgp_settings` block as defined below containing the
     Local Network Gateway's BGP speaker settings.
+    
+      * `asn` (`float`) - The BGP speaker's ASN.
+      * `bgpPeeringAddress` (`str`) - The BGP peering address and BGP identifier
+        of this BGP speaker.
+      * `peerWeight` (`float`) - The weight added to routes learned from this
+        BGP speaker.
     """
     gateway_address: pulumi.Output[str]
     """
@@ -63,6 +69,14 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the local network gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **bgp_settings** object supports the following:
+        
+          * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
+          * `bgpPeeringAddress` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier
+            of this BGP speaker.
+          * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes learned from this
+            BGP speaker.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
         """
@@ -124,6 +138,14 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the local network gateway.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **bgp_settings** object supports the following:
+        
+          * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
+          * `bgpPeeringAddress` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier
+            of this BGP speaker.
+          * `peerWeight` (`pulumi.Input[float]`) - The weight added to routes learned from this
+            BGP speaker.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/local_network_gateway.html.markdown.
         """

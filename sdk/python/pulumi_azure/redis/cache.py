@@ -42,6 +42,9 @@ class Cache(pulumi.CustomResource):
     patch_schedules: pulumi.Output[list]
     """
     A list of `patch_schedule` blocks as defined below - only available for Premium SKU's.
+    
+      * `dayOfWeek` (`str`)
+      * `startHourUtc` (`float`)
     """
     port: pulumi.Output[float]
     """
@@ -58,6 +61,21 @@ class Cache(pulumi.CustomResource):
     redis_configuration: pulumi.Output[dict]
     """
     A `redis_configuration` as defined below - with some limitations by SKU - defaults/details are shown below.
+    
+      * `aofBackupEnabled` (`bool`)
+      * `aofStorageConnectionString0` (`str`)
+      * `aofStorageConnectionString1` (`str`)
+      * `enableAuthentication` (`bool`)
+      * `maxclients` (`float`) - Returns the max number of connected clients at the same time.
+      * `maxfragmentationmemoryReserved` (`float`)
+      * `maxmemoryDelta` (`float`)
+      * `maxmemoryPolicy` (`str`)
+      * `maxmemoryReserved` (`float`)
+      * `notifyKeyspaceEvents` (`str`)
+      * `rdbBackupEnabled` (`bool`)
+      * `rdbBackupFrequency` (`float`)
+      * `rdbBackupMaxSnapshotCount` (`float`)
+      * `rdbStorageConnectionString` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -142,6 +160,28 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+        
+        The **patch_schedules** object supports the following:
+        
+          * `dayOfWeek` (`pulumi.Input[str]`)
+          * `startHourUtc` (`pulumi.Input[float]`)
+        
+        The **redis_configuration** object supports the following:
+        
+          * `aofBackupEnabled` (`pulumi.Input[bool]`)
+          * `aofStorageConnectionString0` (`pulumi.Input[str]`)
+          * `aofStorageConnectionString1` (`pulumi.Input[str]`)
+          * `enableAuthentication` (`pulumi.Input[bool]`)
+          * `maxclients` (`pulumi.Input[float]`) - Returns the max number of connected clients at the same time.
+          * `maxfragmentationmemoryReserved` (`pulumi.Input[float]`)
+          * `maxmemoryDelta` (`pulumi.Input[float]`)
+          * `maxmemoryPolicy` (`pulumi.Input[str]`)
+          * `maxmemoryReserved` (`pulumi.Input[float]`)
+          * `notifyKeyspaceEvents` (`pulumi.Input[str]`)
+          * `rdbBackupEnabled` (`pulumi.Input[bool]`)
+          * `rdbBackupFrequency` (`pulumi.Input[float]`)
+          * `rdbBackupMaxSnapshotCount` (`pulumi.Input[float]`)
+          * `rdbStorageConnectionString` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
         """
@@ -227,6 +267,28 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within which the Redis Cache should be deployed. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Redis Cache should be allocated in.
+        
+        The **patch_schedules** object supports the following:
+        
+          * `dayOfWeek` (`pulumi.Input[str]`)
+          * `startHourUtc` (`pulumi.Input[float]`)
+        
+        The **redis_configuration** object supports the following:
+        
+          * `aofBackupEnabled` (`pulumi.Input[bool]`)
+          * `aofStorageConnectionString0` (`pulumi.Input[str]`)
+          * `aofStorageConnectionString1` (`pulumi.Input[str]`)
+          * `enableAuthentication` (`pulumi.Input[bool]`)
+          * `maxclients` (`pulumi.Input[float]`) - Returns the max number of connected clients at the same time.
+          * `maxfragmentationmemoryReserved` (`pulumi.Input[float]`)
+          * `maxmemoryDelta` (`pulumi.Input[float]`)
+          * `maxmemoryPolicy` (`pulumi.Input[str]`)
+          * `maxmemoryReserved` (`pulumi.Input[float]`)
+          * `notifyKeyspaceEvents` (`pulumi.Input[str]`)
+          * `rdbBackupEnabled` (`pulumi.Input[bool]`)
+          * `rdbBackupFrequency` (`pulumi.Input[float]`)
+          * `rdbBackupMaxSnapshotCount` (`pulumi.Input[float]`)
+          * `rdbStorageConnectionString` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/redis_cache.html.markdown.
         """
