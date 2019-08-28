@@ -41,6 +41,14 @@ class RunBook(pulumi.CustomResource):
     publish_content_link: pulumi.Output[dict]
     """
     The published runbook content link.
+    
+      * `hash` (`dict`)
+    
+        * `algorithm` (`str`)
+        * `value` (`str`)
+    
+      * `uri` (`str`) - The uri of the runbook content.
+      * `version` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -71,6 +79,16 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **publish_content_link** object supports the following:
+        
+          * `hash` (`pulumi.Input[dict]`)
+        
+            * `algorithm` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+        
+          * `uri` (`pulumi.Input[str]`) - The uri of the runbook content.
+          * `version` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_runbook.html.markdown.
         """
@@ -140,6 +158,16 @@ class RunBook(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_type: The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell` or `Script`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **publish_content_link** object supports the following:
+        
+          * `hash` (`pulumi.Input[dict]`)
+        
+            * `algorithm` (`pulumi.Input[str]`)
+            * `value` (`pulumi.Input[str]`)
+        
+          * `uri` (`pulumi.Input[str]`) - The uri of the runbook content.
+          * `version` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/automation_runbook.html.markdown.
         """

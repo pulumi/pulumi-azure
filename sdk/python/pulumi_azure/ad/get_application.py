@@ -80,6 +80,11 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 
 def get_application(name=None,object_id=None,opts=None):
     """
+    Use this data source to access information about an existing resource.
+    
+    :param str name: Specifies the name of the Application within Azure Active Directory.
+    :param str object_id: Specifies the Object ID of the Application within Azure Active Directory.
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_application.html.markdown.
     """
     __args__ = dict()
@@ -87,7 +92,7 @@ def get_application(name=None,object_id=None,opts=None):
     __args__['name'] = name
     __args__['objectId'] = object_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:ad/getApplication:getApplication', __args__, opts=opts).value

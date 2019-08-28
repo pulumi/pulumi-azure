@@ -74,6 +74,9 @@ def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
     
     > **Note:** All arguments including the secret value will be stored in the raw state as plain-text.
     [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
+    
+    :param str key_vault_id: Specifies the ID of the Key Vault Key Vault instance where the Secret resides, available on the `keyvault.KeyVault` Data Source / Resource.
+    :param str name: Specifies the name of the Key Vault Secret.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/key_vault_secret.html.markdown.
     """
@@ -83,7 +86,7 @@ def get_secret(key_vault_id=None,name=None,vault_uri=None,opts=None):
     __args__['name'] = name
     __args__['vaultUri'] = vault_uri
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:keyvault/getSecret:getSecret', __args__, opts=opts).value

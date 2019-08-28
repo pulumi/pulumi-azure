@@ -17,6 +17,12 @@ class Subnet(pulumi.CustomResource):
     delegations: pulumi.Output[list]
     """
     One or more `delegation` blocks as defined below.
+    
+      * `name` (`str`) - The name of the subnet. Changing this forces a new resource to be created.
+      * `serviceDelegation` (`dict`)
+    
+        * `actions` (`list`)
+        * `name` (`str`) - The name of the subnet. Changing this forces a new resource to be created.
     """
     ip_configurations: pulumi.Output[list]
     """
@@ -65,6 +71,14 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to associate with the subnet.
         :param pulumi.Input[list] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql` and `Microsoft.Storage`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
+        
+        The **delegations** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the subnet. Changing this forces a new resource to be created.
+          * `serviceDelegation` (`pulumi.Input[dict]`)
+        
+            * `actions` (`pulumi.Input[list]`)
+            * `name` (`pulumi.Input[str]`) - The name of the subnet. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
         """
@@ -124,6 +138,14 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[str] route_table_id: The ID of the Route Table to associate with the subnet.
         :param pulumi.Input[list] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql` and `Microsoft.Storage`.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
+        
+        The **delegations** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the subnet. Changing this forces a new resource to be created.
+          * `serviceDelegation` (`pulumi.Input[dict]`)
+        
+            * `actions` (`pulumi.Input[list]`)
+            * `name` (`pulumi.Input[str]`) - The name of the subnet. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/subnet.html.markdown.
         """

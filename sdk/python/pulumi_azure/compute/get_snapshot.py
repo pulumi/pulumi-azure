@@ -83,6 +83,9 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
 def get_snapshot(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Snapshot.
+    
+    :param str name: Specifies the name of the Snapshot.
+    :param str resource_group_name: Specifies the name of the resource group the Snapshot is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/snapshot.html.markdown.
     """
@@ -91,7 +94,7 @@ def get_snapshot(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getSnapshot:getSnapshot', __args__, opts=opts).value

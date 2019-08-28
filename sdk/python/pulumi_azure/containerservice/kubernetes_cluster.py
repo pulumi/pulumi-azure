@@ -13,10 +13,36 @@ class KubernetesCluster(pulumi.CustomResource):
     addon_profile: pulumi.Output[dict]
     """
     A `addon_profile` block.
+    
+      * `aciConnectorLinux` (`dict`)
+    
+        * `enabled` (`bool`)
+        * `subnetName` (`str`)
+    
+      * `httpApplicationRouting` (`dict`) - A `http_application_routing` block as defined below.
+    
+        * `enabled` (`bool`)
+        * `httpApplicationRoutingZoneName` (`str`) - The Zone Name of the HTTP Application Routing.
+    
+      * `omsAgent` (`dict`)
+    
+        * `enabled` (`bool`)
+        * `logAnalyticsWorkspaceId` (`str`)
     """
     agent_pool_profiles: pulumi.Output[list]
     """
     One or more `agent_pool_profile` blocks as defined below.
+    
+      * `count` (`float`)
+      * `dns_prefix` (`str`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+      * `fqdn` (`str`) - The FQDN of the Azure Kubernetes Managed Cluster.
+      * `maxPods` (`float`)
+      * `name` (`str`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+      * `osDiskSizeGb` (`float`)
+      * `os_type` (`str`)
+      * `type` (`str`)
+      * `vm_size` (`str`)
+      * `vnetSubnetId` (`str`)
     """
     api_server_authorized_ip_ranges: pulumi.Output[list]
     """
@@ -33,6 +59,13 @@ class KubernetesCluster(pulumi.CustomResource):
     kube_admin_config: pulumi.Output[dict]
     """
     A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled.
+    
+      * `clientCertificate` (`str`) - Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+      * `clientKey` (`str`) - Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+      * `clusterCaCertificate` (`str`) - Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+      * `host` (`str`) - The Kubernetes cluster server host.
+      * `password` (`str`) - A password or token used to authenticate to the Kubernetes cluster.
+      * `username` (`str`) - A username used to authenticate to the Kubernetes cluster.
     """
     kube_admin_config_raw: pulumi.Output[str]
     """
@@ -41,6 +74,13 @@ class KubernetesCluster(pulumi.CustomResource):
     kube_config: pulumi.Output[dict]
     """
     A `kube_config` block as defined below.
+    
+      * `clientCertificate` (`str`) - Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+      * `clientKey` (`str`) - Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+      * `clusterCaCertificate` (`str`) - Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+      * `host` (`str`) - The Kubernetes cluster server host.
+      * `password` (`str`) - A password or token used to authenticate to the Kubernetes cluster.
+      * `username` (`str`) - A username used to authenticate to the Kubernetes cluster.
     """
     kube_config_raw: pulumi.Output[str]
     """
@@ -53,6 +93,11 @@ class KubernetesCluster(pulumi.CustomResource):
     linux_profile: pulumi.Output[dict]
     """
     A `linux_profile` block.
+    
+      * `admin_username` (`str`)
+      * `sshKey` (`dict`)
+    
+        * `keyData` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -65,6 +110,13 @@ class KubernetesCluster(pulumi.CustomResource):
     network_profile: pulumi.Output[dict]
     """
     A `network_profile` block.
+    
+      * `dnsServiceIp` (`str`)
+      * `dockerBridgeCidr` (`str`)
+      * `networkPlugin` (`str`)
+      * `networkPolicy` (`str`)
+      * `podCidr` (`str`)
+      * `serviceCidr` (`str`)
     """
     node_resource_group: pulumi.Output[str]
     """
@@ -77,10 +129,22 @@ class KubernetesCluster(pulumi.CustomResource):
     role_based_access_control: pulumi.Output[dict]
     """
     A `role_based_access_control` block. Changing this forces a new resource to be created.
+    
+      * `azureActiveDirectory` (`dict`)
+    
+        * `clientAppId` (`str`)
+        * `serverAppId` (`str`)
+        * `serverAppSecret` (`str`)
+        * `tenantId` (`str`)
+    
+      * `enabled` (`bool`)
     """
     service_principal: pulumi.Output[dict]
     """
     A `service_principal` block as documented below.
+    
+      * `client_id` (`str`)
+      * `client_secret` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -107,6 +171,68 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **addon_profile** object supports the following:
+        
+          * `aciConnectorLinux` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `subnetName` (`pulumi.Input[str]`)
+        
+          * `httpApplicationRouting` (`pulumi.Input[dict]`) - A `http_application_routing` block as defined below.
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `httpApplicationRoutingZoneName` (`pulumi.Input[str]`) - The Zone Name of the HTTP Application Routing.
+        
+          * `omsAgent` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `logAnalyticsWorkspaceId` (`pulumi.Input[str]`)
+        
+        The **agent_pool_profiles** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+          * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+          * `fqdn` (`pulumi.Input[str]`) - The FQDN of the Azure Kubernetes Managed Cluster.
+          * `maxPods` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+          * `osDiskSizeGb` (`pulumi.Input[float]`)
+          * `os_type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
+          * `vm_size` (`pulumi.Input[str]`)
+          * `vnetSubnetId` (`pulumi.Input[str]`)
+        
+        The **linux_profile** object supports the following:
+        
+          * `admin_username` (`pulumi.Input[str]`)
+          * `sshKey` (`pulumi.Input[dict]`)
+        
+            * `keyData` (`pulumi.Input[str]`)
+        
+        The **network_profile** object supports the following:
+        
+          * `dnsServiceIp` (`pulumi.Input[str]`)
+          * `dockerBridgeCidr` (`pulumi.Input[str]`)
+          * `networkPlugin` (`pulumi.Input[str]`)
+          * `networkPolicy` (`pulumi.Input[str]`)
+          * `podCidr` (`pulumi.Input[str]`)
+          * `serviceCidr` (`pulumi.Input[str]`)
+        
+        The **role_based_access_control** object supports the following:
+        
+          * `azureActiveDirectory` (`pulumi.Input[dict]`)
+        
+            * `clientAppId` (`pulumi.Input[str]`)
+            * `serverAppId` (`pulumi.Input[str]`)
+            * `serverAppSecret` (`pulumi.Input[str]`)
+            * `tenantId` (`pulumi.Input[str]`)
+        
+          * `enabled` (`pulumi.Input[bool]`)
+        
+        The **service_principal** object supports the following:
+        
+          * `client_id` (`pulumi.Input[str]`)
+          * `client_secret` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
         """
@@ -188,6 +314,86 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[dict] role_based_access_control: A `role_based_access_control` block. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] service_principal: A `service_principal` block as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **addon_profile** object supports the following:
+        
+          * `aciConnectorLinux` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `subnetName` (`pulumi.Input[str]`)
+        
+          * `httpApplicationRouting` (`pulumi.Input[dict]`) - A `http_application_routing` block as defined below.
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `httpApplicationRoutingZoneName` (`pulumi.Input[str]`) - The Zone Name of the HTTP Application Routing.
+        
+          * `omsAgent` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+            * `logAnalyticsWorkspaceId` (`pulumi.Input[str]`)
+        
+        The **agent_pool_profiles** object supports the following:
+        
+          * `count` (`pulumi.Input[float]`)
+          * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
+          * `fqdn` (`pulumi.Input[str]`) - The FQDN of the Azure Kubernetes Managed Cluster.
+          * `maxPods` (`pulumi.Input[float]`)
+          * `name` (`pulumi.Input[str]`) - The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created.
+          * `osDiskSizeGb` (`pulumi.Input[float]`)
+          * `os_type` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
+          * `vm_size` (`pulumi.Input[str]`)
+          * `vnetSubnetId` (`pulumi.Input[str]`)
+        
+        The **kube_admin_config** object supports the following:
+        
+          * `clientCertificate` (`pulumi.Input[str]`) - Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+          * `clientKey` (`pulumi.Input[str]`) - Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+          * `clusterCaCertificate` (`pulumi.Input[str]`) - Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+          * `host` (`pulumi.Input[str]`) - The Kubernetes cluster server host.
+          * `password` (`pulumi.Input[str]`) - A password or token used to authenticate to the Kubernetes cluster.
+          * `username` (`pulumi.Input[str]`) - A username used to authenticate to the Kubernetes cluster.
+        
+        The **kube_config** object supports the following:
+        
+          * `clientCertificate` (`pulumi.Input[str]`) - Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+          * `clientKey` (`pulumi.Input[str]`) - Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+          * `clusterCaCertificate` (`pulumi.Input[str]`) - Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+          * `host` (`pulumi.Input[str]`) - The Kubernetes cluster server host.
+          * `password` (`pulumi.Input[str]`) - A password or token used to authenticate to the Kubernetes cluster.
+          * `username` (`pulumi.Input[str]`) - A username used to authenticate to the Kubernetes cluster.
+        
+        The **linux_profile** object supports the following:
+        
+          * `admin_username` (`pulumi.Input[str]`)
+          * `sshKey` (`pulumi.Input[dict]`)
+        
+            * `keyData` (`pulumi.Input[str]`)
+        
+        The **network_profile** object supports the following:
+        
+          * `dnsServiceIp` (`pulumi.Input[str]`)
+          * `dockerBridgeCidr` (`pulumi.Input[str]`)
+          * `networkPlugin` (`pulumi.Input[str]`)
+          * `networkPolicy` (`pulumi.Input[str]`)
+          * `podCidr` (`pulumi.Input[str]`)
+          * `serviceCidr` (`pulumi.Input[str]`)
+        
+        The **role_based_access_control** object supports the following:
+        
+          * `azureActiveDirectory` (`pulumi.Input[dict]`)
+        
+            * `clientAppId` (`pulumi.Input[str]`)
+            * `serverAppId` (`pulumi.Input[str]`)
+            * `serverAppSecret` (`pulumi.Input[str]`)
+            * `tenantId` (`pulumi.Input[str]`)
+        
+          * `enabled` (`pulumi.Input[bool]`)
+        
+        The **service_principal** object supports the following:
+        
+          * `client_id` (`pulumi.Input[str]`)
+          * `client_secret` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/kubernetes_cluster.html.markdown.
         """

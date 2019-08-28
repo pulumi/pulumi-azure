@@ -116,6 +116,39 @@ class AwaitableGetPoolResult(GetPoolResult):
 def get_pool(account_name=None,certificates=None,name=None,resource_group_name=None,start_task=None,opts=None):
     """
     Use this data source to access information about an existing Batch pool
+    
+    
+    The **certificates** object supports the following:
+    
+      * `id` (`str`) - The fully qualified ID of the certificate installed on the pool.
+      * `storeLocation` (`str`) - The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
+      * `storeName` (`str`) - The name of the certificate store on the compute node into which the certificate is installed.
+      * `visibilities` (`list`) - Which user accounts on the compute node have access to the private data of the certificate.
+    
+    The **start_task** object supports the following:
+    
+      * `commandLine` (`str`) - The command line executed by the start task.
+      * `environment` (`dict`) - A map of strings (key,value) that represents the environment variables to set in the start task.
+      * `maxTaskRetryCount` (`float`) - The number of retry count.
+      * `resourceFiles` (`list`) - (Optional) One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
+    
+        * `autoStorageContainerName` (`str`) - The storage container name in the auto storage account.
+        * `blobPrefix` (`str`) - The blob prefix used when downloading blobs from an Azure Storage container.
+        * `fileMode` (`str`) - The file permission mode attribute represented as a string in octal format (e.g. `"0644"`).
+        * `filePath` (`str`) - The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
+        * `httpUrl` (`str`) - The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
+        * `storageContainerUrl` (`str`) - The URL of the blob container within Azure Blob Storage.
+    
+      * `userIdentities` (`list`) - A `user_identity` block that describes the user identity under which the start task runs.
+    
+        * `autoUsers` (`list`) - A `auto_user` block that describes the user identity under which the start task runs.
+    
+          * `elevationLevel` (`str`) - The elevation level of the user identity under which the start task runs.
+          * `scope` (`str`) - The scope of the user identity under which the start task runs.
+    
+        * `userName` (`str`) - The username to be used by the Batch pool start task.
+    
+      * `waitForSuccess` (`bool`) - A flag that indicates if the Batch pool should wait for the start task to be completed.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_pool.html.markdown.
     """
@@ -127,7 +160,7 @@ def get_pool(account_name=None,certificates=None,name=None,resource_group_name=N
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTask'] = start_task
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:batch/getPool:getPool', __args__, opts=opts).value

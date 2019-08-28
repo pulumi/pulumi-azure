@@ -25,6 +25,13 @@ class Api(pulumi.CustomResource):
     import_: pulumi.Output[dict]
     """
     A `import` block as documented below.
+    
+      * `contentFormat` (`str`)
+      * `contentValue` (`str`)
+      * `wsdlSelector` (`dict`)
+    
+        * `endpointName` (`str`)
+        * `serviceName` (`str`)
     """
     is_current: pulumi.Output[bool]
     """
@@ -65,6 +72,9 @@ class Api(pulumi.CustomResource):
     subscription_key_parameter_names: pulumi.Output[dict]
     """
     A `subscription_key_parameter_names` block as documented below.
+    
+      * `header` (`str`)
+      * `query` (`str`)
     """
     version: pulumi.Output[str]
     """
@@ -92,6 +102,20 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         :param pulumi.Input[dict] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
+        
+        The **import_** object supports the following:
+        
+          * `contentFormat` (`pulumi.Input[str]`)
+          * `contentValue` (`pulumi.Input[str]`)
+          * `wsdlSelector` (`pulumi.Input[dict]`)
+        
+            * `endpointName` (`pulumi.Input[str]`)
+            * `serviceName` (`pulumi.Input[str]`)
+        
+        The **subscription_key_parameter_names** object supports the following:
+        
+          * `header` (`pulumi.Input[str]`)
+          * `query` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api.html.markdown.
         """
@@ -171,6 +195,20 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[dict] subscription_key_parameter_names: A `subscription_key_parameter_names` block as documented below.
         :param pulumi.Input[str] version: The Version number of this API, if this API is versioned.
         :param pulumi.Input[str] version_set_id: The ID of the Version Set which this API is associated with.
+        
+        The **import_** object supports the following:
+        
+          * `contentFormat` (`pulumi.Input[str]`)
+          * `contentValue` (`pulumi.Input[str]`)
+          * `wsdlSelector` (`pulumi.Input[dict]`)
+        
+            * `endpointName` (`pulumi.Input[str]`)
+            * `serviceName` (`pulumi.Input[str]`)
+        
+        The **subscription_key_parameter_names** object supports the following:
+        
+          * `header` (`pulumi.Input[str]`)
+          * `query` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/api_management_api.html.markdown.
         """

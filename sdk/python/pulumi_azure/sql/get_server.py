@@ -74,6 +74,9 @@ class AwaitableGetServerResult(GetServerResult):
 def get_server(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing SQL Azure Database Server.
+    
+    :param str name: The name of the SQL Server.
+    :param str resource_group_name: Specifies the name of the Resource Group where the SQL Server exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/sql_server.html.markdown.
     """
@@ -82,7 +85,7 @@ def get_server(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:sql/getServer:getServer', __args__, opts=opts).value

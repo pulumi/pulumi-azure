@@ -13,6 +13,12 @@ class Firewall(pulumi.CustomResource):
     ip_configuration: pulumi.Output[dict]
     """
     A `ip_configuration` block as documented below.
+    
+      * `internalPublicIpAddressId` (`str`)
+      * `name` (`str`) - Specifies the name of the Firewall. Changing this forces a new resource to be created.
+      * `private_ip_address` (`str`) - The private IP address of the Azure Firewall.
+      * `publicIpAddressId` (`str`)
+      * `subnet_id` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -41,6 +47,14 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ip_configuration** object supports the following:
+        
+          * `internalPublicIpAddressId` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Firewall. Changing this forces a new resource to be created.
+          * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the Azure Firewall.
+          * `publicIpAddressId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall.html.markdown.
         """
@@ -90,6 +104,14 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ip_configuration** object supports the following:
+        
+          * `internalPublicIpAddressId` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Firewall. Changing this forces a new resource to be created.
+          * `private_ip_address` (`pulumi.Input[str]`) - The private IP address of the Azure Firewall.
+          * `publicIpAddressId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/firewall.html.markdown.
         """

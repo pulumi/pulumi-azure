@@ -49,6 +49,10 @@ class DatasetMysql(pulumi.CustomResource):
     schema_columns: pulumi.Output[list]
     """
     A `schema_column` block as defined below.
+    
+      * `description` (`str`) - The description for the Data Factory Dataset MySQL.
+      * `name` (`str`) - Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+      * `type` (`str`)
     """
     table_name: pulumi.Output[str]
     """
@@ -71,6 +75,12 @@ class DatasetMysql(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
         :param pulumi.Input[list] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
+        
+        The **schema_columns** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`) - The description for the Data Factory Dataset MySQL.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
         """
@@ -134,6 +144,12 @@ class DatasetMysql(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Data Factory Dataset MySQL. Changing this forces a new resource
         :param pulumi.Input[list] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
+        
+        The **schema_columns** object supports the following:
+        
+          * `description` (`pulumi.Input[str]`) - The description for the Data Factory Dataset MySQL.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/en-us/azure/data-factory/naming-rules) for all restrictions.
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/data_factory_dataset_mysql.html.markdown.
         """

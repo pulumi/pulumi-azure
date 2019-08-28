@@ -29,6 +29,11 @@ class RouteTable(pulumi.CustomResource):
     routes: pulumi.Output[list]
     """
     [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
+    
+      * `address_prefix` (`str`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
+      * `name` (`str`) - The name of the route.
+      * `next_hop_in_ip_address` (`str`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+      * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
     """
     subnets: pulumi.Output[list]
     """
@@ -50,6 +55,13 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the route table. Changing this forces a new resource to be created.
         :param pulumi.Input[list] routes: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **routes** object supports the following:
+        
+          * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
+          * `name` (`pulumi.Input[str]`) - The name of the route.
+          * `next_hop_in_ip_address` (`pulumi.Input[str]`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+          * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
         """
@@ -101,6 +113,13 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[list] routes: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing routes. Each object accepts the arguments documented below.
         :param pulumi.Input[list] subnets: The collection of Subnets associated with this route table.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **routes** object supports the following:
+        
+          * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies, such as 10.1.0.0/16
+          * `name` (`pulumi.Input[str]`) - The name of the route.
+          * `next_hop_in_ip_address` (`pulumi.Input[str]`) - Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
+          * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/route_table.html.markdown.
         """

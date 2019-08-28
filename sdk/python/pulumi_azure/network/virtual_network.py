@@ -19,6 +19,9 @@ class VirtualNetwork(pulumi.CustomResource):
     ddos_protection_plan: pulumi.Output[dict]
     """
     A `ddos_protection_plan` block as documented below.
+    
+      * `enable` (`bool`)
+      * `id` (`str`) - The ID of this subnet.
     """
     dns_servers: pulumi.Output[list]
     """
@@ -43,6 +46,12 @@ class VirtualNetwork(pulumi.CustomResource):
     """
     Can be specified multiple times to define multiple
     subnets. Each `subnet` block supports fields documented below.
+    
+      * `address_prefix` (`str`)
+      * `id` (`str`) - The ID of this subnet.
+      * `name` (`str`) - The name of the virtual network. Changing this forces a
+        new resource to be created.
+      * `securityGroup` (`str`)
     """
     tags: pulumi.Output[dict]
     """
@@ -73,6 +82,19 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[list] subnets: Can be specified multiple times to define multiple
                subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ddos_protection_plan** object supports the following:
+        
+          * `enable` (`pulumi.Input[bool]`)
+          * `id` (`pulumi.Input[str]`) - The ID of this subnet.
+        
+        The **subnets** object supports the following:
+        
+          * `address_prefix` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - The ID of this subnet.
+          * `name` (`pulumi.Input[str]`) - The name of the virtual network. Changing this forces a
+            new resource to be created.
+          * `securityGroup` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network.html.markdown.
         """
@@ -134,6 +156,19 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[list] subnets: Can be specified multiple times to define multiple
                subnets. Each `subnet` block supports fields documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **ddos_protection_plan** object supports the following:
+        
+          * `enable` (`pulumi.Input[bool]`)
+          * `id` (`pulumi.Input[str]`) - The ID of this subnet.
+        
+        The **subnets** object supports the following:
+        
+          * `address_prefix` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - The ID of this subnet.
+          * `name` (`pulumi.Input[str]`) - The name of the virtual network. Changing this forces a
+            new resource to be created.
+          * `securityGroup` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network.html.markdown.
         """

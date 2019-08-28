@@ -71,6 +71,10 @@ class AwaitableGetCertificateResult(GetCertificateResult):
 def get_certificate(account_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing certificate in a Batch Account.
+    
+    :param str account_name: The name of the Batch account.
+    :param str name: The name of the Batch certificate.
+    :param str resource_group_name: The Name of the Resource Group where this Batch account exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/batch_certificate.html.markdown.
     """
@@ -80,7 +84,7 @@ def get_certificate(account_name=None,name=None,resource_group_name=None,opts=No
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:batch/getCertificate:getCertificate', __args__, opts=opts).value

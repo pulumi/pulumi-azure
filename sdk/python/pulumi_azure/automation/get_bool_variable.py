@@ -64,6 +64,10 @@ class AwaitableGetBoolVariableResult(GetBoolVariableResult):
 def get_bool_variable(automation_account_name=None,name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Automation Bool Variable.
+    
+    :param str automation_account_name: The name of the automation account in which the Automation Variable exists.
+    :param str name: The name of the Automation Variable.
+    :param str resource_group_name: The Name of the Resource Group where the automation account exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/automation_variable_bool.html.markdown.
     """
@@ -73,7 +77,7 @@ def get_bool_variable(automation_account_name=None,name=None,resource_group_name
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:automation/getBoolVariable:getBoolVariable', __args__, opts=opts).value

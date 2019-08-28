@@ -25,6 +25,23 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     security_rules: pulumi.Output[list]
     """
     [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
+    
+      * `access` (`str`) - Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+      * `description` (`str`) - A description for this rule. Restricted to 140 characters.
+      * `destination_address_prefix` (`str`) - CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+      * `destination_address_prefixes` (`list`) - List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+      * `destination_application_security_group_ids` (`list`) - A List of destination Application Security Group ID's
+      * `destination_port_range` (`str`) - Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+      * `destination_port_ranges` (`list`) - List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+      * `direction` (`str`) - The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+      * `name` (`str`) - The name of the security rule.
+      * `priority` (`float`) - Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+      * `protocol` (`str`) - Network protocol this rule applies to. Can be `Tcp`, `Udp` or `*` to match both.
+      * `source_address_prefix` (`str`) - CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+      * `source_address_prefixes` (`list`) - List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+      * `source_application_security_group_ids` (`list`) - A List of source Application Security Group ID's
+      * `source_port_range` (`str`) - Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+      * `source_port_ranges` (`list`) - List of source ports or port ranges. This is required if `source_port_range` is not specified.
     """
     tags: pulumi.Output[dict]
     """
@@ -45,6 +62,25 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
         :param pulumi.Input[list] security_rules: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **security_rules** object supports the following:
+        
+          * `access` (`pulumi.Input[str]`) - Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+          * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 characters.
+          * `destination_address_prefix` (`pulumi.Input[str]`) - CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+          * `destination_address_prefixes` (`pulumi.Input[list]`) - List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+          * `destination_application_security_group_ids` (`pulumi.Input[list]`) - A List of destination Application Security Group ID's
+          * `destination_port_range` (`pulumi.Input[str]`) - Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+          * `destination_port_ranges` (`pulumi.Input[list]`) - List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+          * `direction` (`pulumi.Input[str]`) - The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+          * `name` (`pulumi.Input[str]`) - The name of the security rule.
+          * `priority` (`pulumi.Input[float]`) - Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+          * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to. Can be `Tcp`, `Udp` or `*` to match both.
+          * `source_address_prefix` (`pulumi.Input[str]`) - CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+          * `source_address_prefixes` (`pulumi.Input[list]`) - List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+          * `source_application_security_group_ids` (`pulumi.Input[list]`) - A List of source Application Security Group ID's
+          * `source_port_range` (`pulumi.Input[str]`) - Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+          * `source_port_ranges` (`pulumi.Input[list]`) - List of source ports or port ranges. This is required if `source_port_range` is not specified.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
         """
@@ -92,6 +128,25 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the network security group. Changing this forces a new resource to be created.
         :param pulumi.Input[list] security_rules: [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing security rules, as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **security_rules** object supports the following:
+        
+          * `access` (`pulumi.Input[str]`) - Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
+          * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 characters.
+          * `destination_address_prefix` (`pulumi.Input[str]`) - CIDR or destination IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `destination_address_prefixes` is not specified.
+          * `destination_address_prefixes` (`pulumi.Input[list]`) - List of destination address prefixes. Tags may not be used. This is required if `destination_address_prefix` is not specified.
+          * `destination_application_security_group_ids` (`pulumi.Input[list]`) - A List of destination Application Security Group ID's
+          * `destination_port_range` (`pulumi.Input[str]`) - Destination Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `destination_port_ranges` is not specified.
+          * `destination_port_ranges` (`pulumi.Input[list]`) - List of destination ports or port ranges. This is required if `destination_port_range` is not specified.
+          * `direction` (`pulumi.Input[str]`) - The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`.
+          * `name` (`pulumi.Input[str]`) - The name of the security rule.
+          * `priority` (`pulumi.Input[float]`) - Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+          * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to. Can be `Tcp`, `Udp` or `*` to match both.
+          * `source_address_prefix` (`pulumi.Input[str]`) - CIDR or source IP range or * to match any IP. Tags such as ‘VirtualNetwork’, ‘AzureLoadBalancer’ and ‘Internet’ can also be used. This is required if `source_address_prefixes` is not specified.
+          * `source_address_prefixes` (`pulumi.Input[list]`) - List of source address prefixes. Tags may not be used. This is required if `source_address_prefix` is not specified.
+          * `source_application_security_group_ids` (`pulumi.Input[list]`) - A List of source Application Security Group ID's
+          * `source_port_range` (`pulumi.Input[str]`) - Source Port or Range. Integer or range between `0` and `65535` or `*` to match any. This is required if `source_port_ranges` is not specified.
+          * `source_port_ranges` (`pulumi.Input[list]`) - List of source ports or port ranges. This is required if `source_port_range` is not specified.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/network_security_group.html.markdown.
         """

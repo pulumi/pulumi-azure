@@ -92,6 +92,10 @@ class AwaitableGetProductResult(GetProductResult):
 def get_product(api_management_name=None,product_id=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing API Management Product.
+    
+    :param str api_management_name: The Name of the API Management Service in which this Product exists.
+    :param str product_id: The Identifier for the API Management Product.
+    :param str resource_group_name: The Name of the Resource Group in which the API Management Service exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/api_management_product.html.markdown.
     """
@@ -101,7 +105,7 @@ def get_product(api_management_name=None,product_id=None,resource_group_name=Non
     __args__['productId'] = product_id
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:apimanagement/getProduct:getProduct', __args__, opts=opts).value

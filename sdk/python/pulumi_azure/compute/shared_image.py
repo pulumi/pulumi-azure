@@ -25,6 +25,10 @@ class SharedImage(pulumi.CustomResource):
     identifier: pulumi.Output[dict]
     """
     An `identifier` block as defined below.
+    
+      * `offer` (`str`)
+      * `publisher` (`str`)
+      * `sku` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -73,6 +77,12 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Shared Image.
+        
+        The **identifier** object supports the following:
+        
+          * `offer` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`)
+          * `sku` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
         """
@@ -138,6 +148,12 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] release_note_uri: The URI containing the Release Notes associated with this Shared Image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Shared Image.
+        
+        The **identifier** object supports the following:
+        
+          * `offer` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`)
+          * `sku` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/shared_image.html.markdown.
         """

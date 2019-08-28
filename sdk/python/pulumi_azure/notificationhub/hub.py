@@ -13,10 +13,18 @@ class Hub(pulumi.CustomResource):
     apns_credential: pulumi.Output[dict]
     """
     A `apns_credential` block as defined below.
+    
+      * `applicationMode` (`str`)
+      * `bundleId` (`str`)
+      * `key_id` (`str`)
+      * `teamId` (`str`)
+      * `token` (`str`)
     """
     gcm_credential: pulumi.Output[dict]
     """
     A `gcm_credential` block as defined below.
+    
+      * `api_key` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -46,6 +54,18 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
+        
+        The **apns_credential** object supports the following:
+        
+          * `applicationMode` (`pulumi.Input[str]`)
+          * `bundleId` (`pulumi.Input[str]`)
+          * `key_id` (`pulumi.Input[str]`)
+          * `teamId` (`pulumi.Input[str]`)
+          * `token` (`pulumi.Input[str]`)
+        
+        The **gcm_credential** object supports the following:
+        
+          * `api_key` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub.html.markdown.
         """
@@ -97,6 +117,18 @@ class Hub(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name to use for this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] namespace_name: The name of the Notification Hub Namespace in which to create this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
+        
+        The **apns_credential** object supports the following:
+        
+          * `applicationMode` (`pulumi.Input[str]`)
+          * `bundleId` (`pulumi.Input[str]`)
+          * `key_id` (`pulumi.Input[str]`)
+          * `teamId` (`pulumi.Input[str]`)
+          * `token` (`pulumi.Input[str]`)
+        
+        The **gcm_credential** object supports the following:
+        
+          * `api_key` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/notification_hub.html.markdown.
         """

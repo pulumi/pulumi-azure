@@ -36,6 +36,12 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     One or two `ip_configuration` blocks documented below.
     An active-standby gateway requires exactly one `ip_configuration` block whereas
     an active-active gateway requires exactly two `ip_configuration` blocks.
+    
+      * `name` (`str`) - The name of the Virtual Network Gateway. Changing the name
+        forces a new resource to be created.
+      * `privateIpAddressAllocation` (`str`)
+      * `publicIpAddressId` (`str`)
+      * `subnet_id` (`str`)
     """
     location: pulumi.Output[str]
     """
@@ -76,6 +82,23 @@ class VirtualNetworkGateway(pulumi.CustomResource):
     A `vpn_client_configuration` block which
     is documented below. In this block the Virtual Network Gateway can be configured
     to accept IPSec point-to-site connections.
+    
+      * `address_spaces` (`list`)
+      * `radiusServerAddress` (`str`)
+      * `radiusServerSecret` (`str`)
+      * `revokedCertificates` (`list`)
+    
+        * `name` (`str`) - The name of the Virtual Network Gateway. Changing the name
+          forces a new resource to be created.
+        * `thumbprint` (`str`)
+    
+      * `rootCertificates` (`list`)
+    
+        * `name` (`str`) - The name of the Virtual Network Gateway. Changing the name
+          forces a new resource to be created.
+        * `publicCertData` (`str`)
+    
+      * `vpnClientProtocols` (`list`)
     """
     vpn_type: pulumi.Output[str]
     """
@@ -125,6 +148,39 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
                options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        
+        The **bgp_settings** object supports the following:
+        
+          * `asn` (`pulumi.Input[float]`)
+          * `peerWeight` (`pulumi.Input[float]`)
+          * `peeringAddress` (`pulumi.Input[str]`)
+        
+        The **ip_configurations** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
+            forces a new resource to be created.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
+          * `publicIpAddressId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
+        
+        The **vpn_client_configuration** object supports the following:
+        
+          * `address_spaces` (`pulumi.Input[list]`)
+          * `radiusServerAddress` (`pulumi.Input[str]`)
+          * `radiusServerSecret` (`pulumi.Input[str]`)
+          * `revokedCertificates` (`pulumi.Input[list]`)
+        
+            * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
+              forces a new resource to be created.
+            * `thumbprint` (`pulumi.Input[str]`)
+        
+          * `rootCertificates` (`pulumi.Input[list]`)
+        
+            * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
+              forces a new resource to be created.
+            * `publicCertData` (`pulumi.Input[str]`)
+        
+          * `vpnClientProtocols` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
         """
@@ -216,6 +272,39 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid
                options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`.
+        
+        The **bgp_settings** object supports the following:
+        
+          * `asn` (`pulumi.Input[float]`)
+          * `peerWeight` (`pulumi.Input[float]`)
+          * `peeringAddress` (`pulumi.Input[str]`)
+        
+        The **ip_configurations** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
+            forces a new resource to be created.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`)
+          * `publicIpAddressId` (`pulumi.Input[str]`)
+          * `subnet_id` (`pulumi.Input[str]`)
+        
+        The **vpn_client_configuration** object supports the following:
+        
+          * `address_spaces` (`pulumi.Input[list]`)
+          * `radiusServerAddress` (`pulumi.Input[str]`)
+          * `radiusServerSecret` (`pulumi.Input[str]`)
+          * `revokedCertificates` (`pulumi.Input[list]`)
+        
+            * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
+              forces a new resource to be created.
+            * `thumbprint` (`pulumi.Input[str]`)
+        
+          * `rootCertificates` (`pulumi.Input[list]`)
+        
+            * `name` (`pulumi.Input[str]`) - The name of the Virtual Network Gateway. Changing the name
+              forces a new resource to be created.
+            * `publicCertData` (`pulumi.Input[str]`)
+        
+          * `vpnClientProtocols` (`pulumi.Input[list]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/virtual_network_gateway.html.markdown.
         """

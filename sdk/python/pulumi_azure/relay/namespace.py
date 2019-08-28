@@ -45,6 +45,8 @@ class Namespace(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     ) A `sku` block as described below.
+    
+      * `name` (`str`) - Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
     """
     sku_name: pulumi.Output[str]
     """
@@ -66,6 +68,10 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
         """
@@ -125,6 +131,10 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: ) A `sku` block as described below.
         :param pulumi.Input[str] sku_name: The name of the SKU to use. At this time the only supported value is `Standard`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/relay_namespace.html.markdown.
         """

@@ -13,6 +13,14 @@ class KeyVault(pulumi.CustomResource):
     access_policies: pulumi.Output[list]
     """
     [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of up to 16 objects describing access policies, as described below.
+    
+      * `application_id` (`str`)
+      * `certificate_permissions` (`list`)
+      * `key_permissions` (`list`)
+      * `object_id` (`str`)
+      * `secret_permissions` (`list`)
+      * `storage_permissions` (`list`)
+      * `tenant_id` (`str`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
     """
     enabled_for_deployment: pulumi.Output[bool]
     """
@@ -37,6 +45,11 @@ class KeyVault(pulumi.CustomResource):
     network_acls: pulumi.Output[dict]
     """
     A `network_acls` block as defined below.
+    
+      * `bypass` (`str`)
+      * `defaultAction` (`str`)
+      * `ipRules` (`list`)
+      * `virtualNetworkSubnetIds` (`list`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -45,6 +58,8 @@ class KeyVault(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     ) A `sku` block as described below.
+    
+      * `name` (`str`) - Specifies the name of the Key Vault. Changing this forces a new resource to be created.
     """
     sku_name: pulumi.Output[str]
     """
@@ -82,6 +97,27 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        
+        The **access_policies** object supports the following:
+        
+          * `application_id` (`pulumi.Input[str]`)
+          * `certificate_permissions` (`pulumi.Input[list]`)
+          * `key_permissions` (`pulumi.Input[list]`)
+          * `object_id` (`pulumi.Input[str]`)
+          * `secret_permissions` (`pulumi.Input[list]`)
+          * `storage_permissions` (`pulumi.Input[list]`)
+          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        
+        The **network_acls** object supports the following:
+        
+          * `bypass` (`pulumi.Input[str]`)
+          * `defaultAction` (`pulumi.Input[str]`)
+          * `ipRules` (`pulumi.Input[list]`)
+          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
         """
@@ -147,6 +183,27 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
         :param pulumi.Input[str] vault_uri: The URI of the Key Vault, used for performing operations on keys and secrets.
+        
+        The **access_policies** object supports the following:
+        
+          * `application_id` (`pulumi.Input[str]`)
+          * `certificate_permissions` (`pulumi.Input[list]`)
+          * `key_permissions` (`pulumi.Input[list]`)
+          * `object_id` (`pulumi.Input[str]`)
+          * `secret_permissions` (`pulumi.Input[list]`)
+          * `storage_permissions` (`pulumi.Input[list]`)
+          * `tenant_id` (`pulumi.Input[str]`) - The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault.
+        
+        The **network_acls** object supports the following:
+        
+          * `bypass` (`pulumi.Input[str]`)
+          * `defaultAction` (`pulumi.Input[str]`)
+          * `ipRules` (`pulumi.Input[list]`)
+          * `virtualNetworkSubnetIds` (`pulumi.Input[list]`)
+        
+        The **sku** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Key Vault. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/key_vault.html.markdown.
         """

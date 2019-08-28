@@ -25,6 +25,9 @@ class OutboundRule(pulumi.CustomResource):
     frontend_ip_configurations: pulumi.Output[list]
     """
     One or more `frontend_ip_configuration` blocks as defined below.
+    
+      * `id` (`str`) - The ID of the Load Balancer to which the resource is attached.
+      * `name` (`str`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
     """
     idle_timeout_in_minutes: pulumi.Output[float]
     """
@@ -63,6 +66,11 @@ class OutboundRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+        
+        The **frontend_ip_configurations** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer to which the resource is attached.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
         """
@@ -124,6 +132,11 @@ class OutboundRule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protocol: The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
+        
+        The **frontend_ip_configurations** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The ID of the Load Balancer to which the resource is attached.
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Outbound Rule. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb_outbound_rule.html.markdown.
         """

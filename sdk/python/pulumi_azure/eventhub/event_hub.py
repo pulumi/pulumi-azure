@@ -13,6 +13,19 @@ class EventHub(pulumi.CustomResource):
     capture_description: pulumi.Output[dict]
     """
     A `capture_description` block as defined below.
+    
+      * `destination` (`dict`)
+    
+        * `archiveNameFormat` (`str`)
+        * `blobContainerName` (`str`)
+        * `name` (`str`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+        * `storage_account_id` (`str`)
+    
+      * `enabled` (`bool`)
+      * `encoding` (`str`)
+      * `intervalInSeconds` (`float`)
+      * `sizeLimitInBytes` (`float`)
+      * `skipEmptyArchives` (`bool`)
     """
     location: pulumi.Output[str]
     message_retention: pulumi.Output[float]
@@ -51,6 +64,21 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_name: Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created.
         :param pulumi.Input[float] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+        
+        The **capture_description** object supports the following:
+        
+          * `destination` (`pulumi.Input[dict]`)
+        
+            * `archiveNameFormat` (`pulumi.Input[str]`)
+            * `blobContainerName` (`pulumi.Input[str]`)
+            * `name` (`pulumi.Input[str]`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+            * `storage_account_id` (`pulumi.Input[str]`)
+        
+          * `enabled` (`pulumi.Input[bool]`)
+          * `encoding` (`pulumi.Input[str]`)
+          * `intervalInSeconds` (`pulumi.Input[float]`)
+          * `sizeLimitInBytes` (`pulumi.Input[float]`)
+          * `skipEmptyArchives` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub.html.markdown.
         """
@@ -109,6 +137,21 @@ class EventHub(pulumi.CustomResource):
         :param pulumi.Input[float] partition_count: Specifies the current number of shards on the Event Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[list] partition_ids: The identifiers for partitions created for Event Hubs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
+        
+        The **capture_description** object supports the following:
+        
+          * `destination` (`pulumi.Input[dict]`)
+        
+            * `archiveNameFormat` (`pulumi.Input[str]`)
+            * `blobContainerName` (`pulumi.Input[str]`)
+            * `name` (`pulumi.Input[str]`) - Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
+            * `storage_account_id` (`pulumi.Input[str]`)
+        
+          * `enabled` (`pulumi.Input[bool]`)
+          * `encoding` (`pulumi.Input[str]`)
+          * `intervalInSeconds` (`pulumi.Input[float]`)
+          * `sizeLimitInBytes` (`pulumi.Input[float]`)
+          * `skipEmptyArchives` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub.html.markdown.
         """

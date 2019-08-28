@@ -17,6 +17,9 @@ class MxRecord(pulumi.CustomResource):
     records: pulumi.Output[list]
     """
     A list of values that make up the MX record. Each `record` block supports fields documented below.
+    
+      * `exchange` (`str`)
+      * `preference` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -46,6 +49,11 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        
+        The **records** object supports the following:
+        
+          * `exchange` (`pulumi.Input[str]`)
+          * `preference` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_mx_record.html.markdown.
         """
@@ -101,6 +109,11 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[float] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        
+        The **records** object supports the following:
+        
+          * `exchange` (`pulumi.Input[str]`)
+          * `preference` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/dns_mx_record.html.markdown.
         """

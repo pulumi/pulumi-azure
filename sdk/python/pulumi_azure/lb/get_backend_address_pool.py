@@ -39,6 +39,9 @@ class AwaitableGetBackendAddressPoolResult(GetBackendAddressPoolResult):
 def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     """
     Use this data source to access information about an existing Load Balancer Backend Address Pool.
+    
+    :param str loadbalancer_id: The ID of the Load Balancer in which the Backend Address Pool exists.
+    :param str name: Specifies the name of the Backend Address Pool.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/lb_backend_address_pool.html.markdown.
     """
@@ -47,7 +50,7 @@ def get_backend_address_pool(loadbalancer_id=None,name=None,opts=None):
     __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:lb/getBackendAddressPool:getBackendAddressPool', __args__, opts=opts).value

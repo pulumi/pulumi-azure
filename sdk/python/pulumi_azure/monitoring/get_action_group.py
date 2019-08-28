@@ -77,6 +77,9 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
 def get_action_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access the properties of an Action Group.
+    
+    :param str name: Specifies the name of the Action Group.
+    :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/monitor_action_group.html.markdown.
     """
@@ -85,7 +88,7 @@ def get_action_group(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:monitoring/getActionGroup:getActionGroup', __args__, opts=opts).value

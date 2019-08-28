@@ -150,6 +150,9 @@ class AwaitableGetCacheResult(GetCacheResult):
 def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Redis Cache
+    
+    :param str name: The name of the Redis cache
+    :param str resource_group_name: The name of the resource group the Redis cache instance is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/redis_cache.html.markdown.
     """
@@ -159,7 +162,7 @@ def get_cache(name=None,resource_group_name=None,zones=None,opts=None):
     __args__['resourceGroupName'] = resource_group_name
     __args__['zones'] = zones
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:redis/getCache:getCache', __args__, opts=opts).value

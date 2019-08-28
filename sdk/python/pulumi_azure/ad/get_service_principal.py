@@ -42,6 +42,12 @@ class AwaitableGetServicePrincipalResult(GetServicePrincipalResult):
 
 def get_service_principal(application_id=None,display_name=None,object_id=None,opts=None):
     """
+    Use this data source to access information about an existing resource.
+    
+    :param str application_id: The ID of the Azure AD Application for which to create a Service Principal.
+    :param str display_name: The Display Name of the Azure AD Application associated with this Service Principal.
+    :param str object_id: The ID of the Azure AD Service Principal.
+
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/azuread_service_principal.html.markdown.
     """
     __args__ = dict()
@@ -50,7 +56,7 @@ def get_service_principal(application_id=None,display_name=None,object_id=None,o
     __args__['displayName'] = display_name
     __args__['objectId'] = object_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:ad/getServicePrincipal:getServicePrincipal', __args__, opts=opts).value

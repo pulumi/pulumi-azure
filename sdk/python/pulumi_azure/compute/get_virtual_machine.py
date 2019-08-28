@@ -39,6 +39,9 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
 def get_virtual_machine(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Virtual Machine.
+    
+    :param str name: Specifies the name of the Virtual Machine.
+    :param str resource_group_name: Specifies the name of the resource group the Virtual Machine is located in.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/virtual_machine.html.markdown.
     """
@@ -47,7 +50,7 @@ def get_virtual_machine(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getVirtualMachine:getVirtualMachine', __args__, opts=opts).value

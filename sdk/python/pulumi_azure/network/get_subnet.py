@@ -78,6 +78,10 @@ class AwaitableGetSubnetResult(GetSubnetResult):
 def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts=None):
     """
     Use this data source to access information about an existing Subnet within a Virtual Network.
+    
+    :param str name: Specifies the name of the Subnet.
+    :param str resource_group_name: Specifies the name of the resource group the Virtual Network is located in.
+    :param str virtual_network_name: Specifies the name of the Virtual Network this Subnet is located within.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subnet.html.markdown.
     """
@@ -87,7 +91,7 @@ def get_subnet(name=None,resource_group_name=None,virtual_network_name=None,opts
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkName'] = virtual_network_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getSubnet:getSubnet', __args__, opts=opts).value

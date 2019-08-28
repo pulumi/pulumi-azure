@@ -22,6 +22,17 @@ class ManagedDisk(pulumi.CustomResource):
     encryption_settings: pulumi.Output[dict]
     """
     an `encryption_settings` block as defined below.
+    
+      * `diskEncryptionKey` (`dict`) - A `disk_encryption_key` block as defined below.
+    
+        * `secretUrl` (`str`) - The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+        * `sourceVaultId` (`str`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
+    
+      * `enabled` (`bool`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+      * `keyEncryptionKey` (`dict`) - A `key_encryption_key` block as defined below.
+    
+        * `keyUrl` (`str`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+        * `sourceVaultId` (`str`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
     """
     image_reference_id: pulumi.Output[str]
     """
@@ -95,6 +106,19 @@ class ManagedDisk(pulumi.CustomResource):
                Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
+        
+        The **encryption_settings** object supports the following:
+        
+          * `diskEncryptionKey` (`pulumi.Input[dict]`) - A `disk_encryption_key` block as defined below.
+        
+            * `secretUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+            * `sourceVaultId` (`pulumi.Input[str]`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
+        
+          * `enabled` (`pulumi.Input[bool]`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+          * `keyEncryptionKey` (`pulumi.Input[dict]`) - A `key_encryption_key` block as defined below.
+        
+            * `keyUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+            * `sourceVaultId` (`pulumi.Input[str]`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
         """
@@ -169,6 +193,19 @@ class ManagedDisk(pulumi.CustomResource):
                Allowable values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zones: A collection containing the availability zone to allocate the Managed Disk in.
+        
+        The **encryption_settings** object supports the following:
+        
+          * `diskEncryptionKey` (`pulumi.Input[dict]`) - A `disk_encryption_key` block as defined below.
+        
+            * `secretUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+            * `sourceVaultId` (`pulumi.Input[str]`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
+        
+          * `enabled` (`pulumi.Input[bool]`) - Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+          * `keyEncryptionKey` (`pulumi.Input[dict]`) - A `key_encryption_key` block as defined below.
+        
+            * `keyUrl` (`pulumi.Input[str]`) - The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+            * `sourceVaultId` (`pulumi.Input[str]`) - The URL of the Key Vault. This can be found as `vault_uri` on the `keyvault.KeyVault` resource.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/managed_disk.html.markdown.
         """

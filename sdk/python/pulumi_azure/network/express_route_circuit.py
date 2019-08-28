@@ -49,6 +49,9 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     A `sku` block for the ExpressRoute circuit as documented below.
+    
+      * `family` (`str`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+      * `tier` (`str`) - The service tier. Possible values are `Standard` or `Premium`.
     """
     tags: pulumi.Output[dict]
     """
@@ -69,6 +72,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] service_provider_name: The name of the ExpressRoute Service Provider.
         :param pulumi.Input[dict] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **sku** object supports the following:
+        
+          * `family` (`pulumi.Input[str]`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+          * `tier` (`pulumi.Input[str]`) - The service tier. Possible values are `Standard` or `Premium`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
         """
@@ -136,6 +144,11 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] service_provider_provisioning_state: The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are "NotProvisioned", "Provisioning", "Provisioned", and "Deprovisioning".
         :param pulumi.Input[dict] sku: A `sku` block for the ExpressRoute circuit as documented below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **sku** object supports the following:
+        
+          * `family` (`pulumi.Input[str]`) - The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
+          * `tier` (`pulumi.Input[str]`) - The service tier. Possible values are `Standard` or `Premium`.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/express_route_circuit.html.markdown.
         """

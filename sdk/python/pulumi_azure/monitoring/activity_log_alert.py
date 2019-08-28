@@ -13,10 +13,24 @@ class ActivityLogAlert(pulumi.CustomResource):
     actions: pulumi.Output[list]
     """
     One or more `action` blocks as defined below.
+    
+      * `actionGroupId` (`str`)
+      * `webhookProperties` (`dict`)
     """
     criteria: pulumi.Output[dict]
     """
     A `criteria` block as defined below.
+    
+      * `caller` (`str`)
+      * `category` (`str`)
+      * `level` (`str`)
+      * `operationName` (`str`)
+      * `resourceGroup` (`str`)
+      * `resource_id` (`str`)
+      * `resourceProvider` (`str`)
+      * `resourceType` (`str`)
+      * `status` (`str`)
+      * `subStatus` (`str`)
     """
     description: pulumi.Output[str]
     """
@@ -56,6 +70,24 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
         :param pulumi.Input[list] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **actions** object supports the following:
+        
+          * `actionGroupId` (`pulumi.Input[str]`)
+          * `webhookProperties` (`pulumi.Input[dict]`)
+        
+        The **criteria** object supports the following:
+        
+          * `caller` (`pulumi.Input[str]`)
+          * `category` (`pulumi.Input[str]`)
+          * `level` (`pulumi.Input[str]`)
+          * `operationName` (`pulumi.Input[str]`)
+          * `resourceGroup` (`pulumi.Input[str]`)
+          * `resource_id` (`pulumi.Input[str]`)
+          * `resourceProvider` (`pulumi.Input[str]`)
+          * `resourceType` (`pulumi.Input[str]`)
+          * `status` (`pulumi.Input[str]`)
+          * `subStatus` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
         """
@@ -113,6 +145,24 @@ class ActivityLogAlert(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the activity log alert instance.
         :param pulumi.Input[list] scopes: The Scope at which the Activity Log should be applied, for example a the Resource ID of a Subscription or a Resource (such as a Storage Account).
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **actions** object supports the following:
+        
+          * `actionGroupId` (`pulumi.Input[str]`)
+          * `webhookProperties` (`pulumi.Input[dict]`)
+        
+        The **criteria** object supports the following:
+        
+          * `caller` (`pulumi.Input[str]`)
+          * `category` (`pulumi.Input[str]`)
+          * `level` (`pulumi.Input[str]`)
+          * `operationName` (`pulumi.Input[str]`)
+          * `resourceGroup` (`pulumi.Input[str]`)
+          * `resource_id` (`pulumi.Input[str]`)
+          * `resourceProvider` (`pulumi.Input[str]`)
+          * `resourceType` (`pulumi.Input[str]`)
+          * `status` (`pulumi.Input[str]`)
+          * `subStatus` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_activity_log_alert.html.markdown.
         """

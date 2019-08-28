@@ -13,6 +13,17 @@ class LoadBalancer(pulumi.CustomResource):
     frontend_ip_configurations: pulumi.Output[list]
     """
     One or multiple `frontend_ip_configuration` blocks as documented below.
+    
+      * `inbound_nat_rules` (`list`)
+      * `load_balancer_rules` (`list`)
+      * `name` (`str`) - Specifies the name of the frontend ip configuration.
+      * `outboundRules` (`list`)
+      * `private_ip_address` (`str`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+      * `privateIpAddressAllocation` (`str`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+      * `publicIpAddressId` (`str`) - The ID of a Public IP Address which should be associated with the Load Balancer.
+      * `publicIpPrefixId` (`str`) - The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
+      * `subnetId` (`str`) - The ID of the Subnet which should be associated with the IP Configuration.
+      * `zones` (`str`) - A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
     """
     location: pulumi.Output[str]
     """
@@ -54,6 +65,19 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **frontend_ip_configurations** object supports the following:
+        
+          * `inbound_nat_rules` (`pulumi.Input[list]`)
+          * `load_balancer_rules` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the frontend ip configuration.
+          * `outboundRules` (`pulumi.Input[list]`)
+          * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of a Public IP Address which should be associated with the Load Balancer.
+          * `publicIpPrefixId` (`pulumi.Input[str]`) - The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
+          * `subnetId` (`pulumi.Input[str]`) - The ID of the Subnet which should be associated with the IP Configuration.
+          * `zones` (`pulumi.Input[str]`) - A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
         """
@@ -107,6 +131,19 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which to create the Load Balancer.
         :param pulumi.Input[str] sku: The SKU of the Azure Load Balancer. Accepted values are `Basic` and `Standard`. Defaults to `Basic`.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **frontend_ip_configurations** object supports the following:
+        
+          * `inbound_nat_rules` (`pulumi.Input[list]`)
+          * `load_balancer_rules` (`pulumi.Input[list]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the frontend ip configuration.
+          * `outboundRules` (`pulumi.Input[list]`)
+          * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
+          * `privateIpAddressAllocation` (`pulumi.Input[str]`) - The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
+          * `publicIpAddressId` (`pulumi.Input[str]`) - The ID of a Public IP Address which should be associated with the Load Balancer.
+          * `publicIpPrefixId` (`pulumi.Input[str]`) - The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
+          * `subnetId` (`pulumi.Input[str]`) - The ID of the Subnet which should be associated with the IP Configuration.
+          * `zones` (`pulumi.Input[str]`) - A list of Availability Zones which the Load Balancer's IP Addresses should be created in.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/lb.html.markdown.
         """

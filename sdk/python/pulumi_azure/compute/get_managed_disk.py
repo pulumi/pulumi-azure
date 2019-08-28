@@ -92,6 +92,9 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
 def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opts=None):
     """
     Use this data source to access information about an existing Managed Disk.
+    
+    :param str name: Specifies the name of the Managed Disk.
+    :param str resource_group_name: Specifies the name of the resource group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/managed_disk.html.markdown.
     """
@@ -102,7 +105,7 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
     __args__['tags'] = tags
     __args__['zones'] = zones
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:compute/getManagedDisk:getManagedDisk', __args__, opts=opts).value

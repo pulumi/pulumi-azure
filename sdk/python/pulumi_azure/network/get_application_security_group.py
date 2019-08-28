@@ -53,6 +53,9 @@ class AwaitableGetApplicationSecurityGroupResult(GetApplicationSecurityGroupResu
 def get_application_security_group(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing Application Security Group.
+    
+    :param str name: The name of the Application Security Group.
+    :param str resource_group_name: The name of the resource group in which the Application Security Group exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/application_security_group.html.markdown.
     """
@@ -61,7 +64,7 @@ def get_application_security_group(name=None,resource_group_name=None,opts=None)
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup', __args__, opts=opts).value

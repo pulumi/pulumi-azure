@@ -21,6 +21,9 @@ class MetricAlertRule(pulumi.CustomResource):
     email_action: pulumi.Output[dict]
     """
     A `email_action` block as defined below.
+    
+      * `customEmails` (`list`) - A list of email addresses to be notified when the alert is triggered.
+      * `sendToServiceOwners` (`bool`) - If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
     """
     enabled: pulumi.Output[bool]
     """
@@ -65,6 +68,9 @@ class MetricAlertRule(pulumi.CustomResource):
     webhook_action: pulumi.Output[dict]
     """
     A `webhook_action` block as defined below.
+    
+      * `properties` (`dict`) - A dictionary of custom properties to include with the webhook POST operation payload.
+      * `serviceUri` (`str`) - The service uri of the webhook to POST the notification when the alert is triggered.
     """
     def __init__(__self__, resource_name, opts=None, aggregation=None, description=None, email_action=None, enabled=None, location=None, metric_name=None, name=None, operator=None, period=None, resource_group_name=None, resource_id=None, tags=None, threshold=None, webhook_action=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -86,6 +92,16 @@ class MetricAlertRule(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[float] threshold: The threshold value that activates the alert.
         :param pulumi.Input[dict] webhook_action: A `webhook_action` block as defined below.
+        
+        The **email_action** object supports the following:
+        
+          * `customEmails` (`pulumi.Input[list]`) - A list of email addresses to be notified when the alert is triggered.
+          * `sendToServiceOwners` (`pulumi.Input[bool]`) - If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
+        
+        The **webhook_action** object supports the following:
+        
+          * `properties` (`pulumi.Input[dict]`) - A dictionary of custom properties to include with the webhook POST operation payload.
+          * `serviceUri` (`pulumi.Input[str]`) - The service uri of the webhook to POST the notification when the alert is triggered.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alertrule.html.markdown.
         """
@@ -163,6 +179,16 @@ class MetricAlertRule(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
         :param pulumi.Input[float] threshold: The threshold value that activates the alert.
         :param pulumi.Input[dict] webhook_action: A `webhook_action` block as defined below.
+        
+        The **email_action** object supports the following:
+        
+          * `customEmails` (`pulumi.Input[list]`) - A list of email addresses to be notified when the alert is triggered.
+          * `sendToServiceOwners` (`pulumi.Input[bool]`) - If `true`, the administrators (service and co-administrators) of the subscription are notified when the alert is triggered. Defaults to `false`.
+        
+        The **webhook_action** object supports the following:
+        
+          * `properties` (`pulumi.Input[dict]`) - A dictionary of custom properties to include with the webhook POST operation payload.
+          * `serviceUri` (`pulumi.Input[str]`) - The service uri of the webhook to POST the notification when the alert is triggered.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alertrule.html.markdown.
         """

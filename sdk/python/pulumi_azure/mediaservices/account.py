@@ -25,6 +25,9 @@ class Account(pulumi.CustomResource):
     storage_accounts: pulumi.Output[list]
     """
     One or more `storage_account` blocks as defined below.
+    
+      * `id` (`str`) - The Resource ID of the Media Services Account.
+      * `isPrimary` (`bool`)
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, storage_accounts=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -36,6 +39,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` blocks as defined below.
+        
+        The **storage_accounts** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Resource ID of the Media Services Account.
+          * `isPrimary` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
         """
@@ -83,6 +91,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
         :param pulumi.Input[list] storage_accounts: One or more `storage_account` blocks as defined below.
+        
+        The **storage_accounts** object supports the following:
+        
+          * `id` (`pulumi.Input[str]`) - The Resource ID of the Media Services Account.
+          * `isPrimary` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/media_services_account.html.markdown.
         """

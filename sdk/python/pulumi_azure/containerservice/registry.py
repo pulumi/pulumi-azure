@@ -72,6 +72,11 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **storage_account** object supports the following:
+        
+          * `accessKey` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
         """
@@ -132,6 +137,11 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] sku: The SKU name of the the container registry. Possible values are `Classic` (which was previously `Basic`), `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[str] storage_account_id: The ID of a Storage Account which must be located in the same Azure Region as the Container Registry.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        
+        The **storage_account** object supports the following:
+        
+          * `accessKey` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Specifies the name of the Container Registry. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/container_registry.html.markdown.
         """

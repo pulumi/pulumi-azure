@@ -88,6 +88,9 @@ class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
 def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
     """
     Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
+    
+    :param str display_name: Specifies the name of the Policy Definition.
+    :param str management_group_id: Only retrieve Policy Definitions from this Management Group.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/policy_definition.html.markdown.
     """
@@ -96,7 +99,7 @@ def get_policy_defintion(display_name=None,management_group_id=None,opts=None):
     __args__['displayName'] = display_name
     __args__['managementGroupId'] = management_group_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:policy/getPolicyDefintion:getPolicyDefintion', __args__, opts=opts).value

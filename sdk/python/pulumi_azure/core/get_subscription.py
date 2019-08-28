@@ -73,6 +73,8 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
 def get_subscription(subscription_id=None,opts=None):
     """
     Use this data source to access information about an existing Subscription.
+    
+    :param str subscription_id: Specifies the ID of the subscription. If this argument is omitted, the subscription ID of the current Azure Resource Manager provider is used.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/subscription.html.markdown.
     """
@@ -80,7 +82,7 @@ def get_subscription(subscription_id=None,opts=None):
 
     __args__['subscriptionId'] = subscription_id
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:core/getSubscription:getSubscription', __args__, opts=opts).value

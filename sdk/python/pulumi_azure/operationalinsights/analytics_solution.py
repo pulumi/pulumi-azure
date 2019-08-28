@@ -17,6 +17,11 @@ class AnalyticsSolution(pulumi.CustomResource):
     plan: pulumi.Output[dict]
     """
     A `plan` block as documented below.
+    
+      * `name` (`str`)
+      * `product` (`str`)
+      * `promotionCode` (`str`)
+      * `publisher` (`str`)
     """
     resource_group_name: pulumi.Output[str]
     """
@@ -46,6 +51,13 @@ class AnalyticsSolution(pulumi.CustomResource):
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_name: The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
+        
+        The **plan** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`)
+          * `product` (`pulumi.Input[str]`)
+          * `promotionCode` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
         """
@@ -103,6 +115,13 @@ class AnalyticsSolution(pulumi.CustomResource):
         :param pulumi.Input[str] solution_name: Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_name: The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
+        
+        The **plan** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`)
+          * `product` (`pulumi.Input[str]`)
+          * `promotionCode` (`pulumi.Input[str]`)
+          * `publisher` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/log_analytics_solution.html.markdown.
         """

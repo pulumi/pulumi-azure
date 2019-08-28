@@ -29,6 +29,11 @@ class OutputBlob(pulumi.CustomResource):
     serialization: pulumi.Output[dict]
     """
     A `serialization` block as defined below.
+    
+      * `encoding` (`str`)
+      * `fieldDelimiter` (`str`)
+      * `format` (`str`)
+      * `type` (`str`)
     """
     storage_account_key: pulumi.Output[str]
     """
@@ -66,6 +71,13 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+        
+        The **serialization** object supports the following:
+        
+          * `encoding` (`pulumi.Input[str]`)
+          * `fieldDelimiter` (`pulumi.Input[str]`)
+          * `format` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_blob.html.markdown.
         """
@@ -139,6 +151,13 @@ class OutputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
+        
+        The **serialization** object supports the following:
+        
+          * `encoding` (`pulumi.Input[str]`)
+          * `fieldDelimiter` (`pulumi.Input[str]`)
+          * `format` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/stream_analytics_output_blob.html.markdown.
         """

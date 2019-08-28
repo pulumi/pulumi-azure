@@ -67,6 +67,9 @@ class AwaitableGetUserAssignedIdentityResult(GetUserAssignedIdentityResult):
 def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     """
     Use this data source to access information about an existing User Assigned Identity.
+    
+    :param str name: The name of the User Assigned Identity.
+    :param str resource_group_name: The name of the Resource Group in which the User Assigned Identity exists.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/user_assigned_identity_legacy.html.markdown.
     """
@@ -75,7 +78,7 @@ def get_user_assigned_identity(name=None,resource_group_name=None,opts=None):
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:core/getUserAssignedIdentity:getUserAssignedIdentity', __args__, opts=opts).value

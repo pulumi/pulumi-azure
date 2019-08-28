@@ -53,6 +53,9 @@ class AwaitableGetKubernetesServiceVersionsResult(GetKubernetesServiceVersionsRe
 def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None):
     """
     Use this data source to retrieve the version of Kubernetes supported by Azure Kubernetes Service.
+    
+    :param str location: Specifies the location in which to query for versions.
+    :param str version_prefix: A prefix filter for the versions of Kubernetes which should be returned; for example `1.` will return `1.9` to `1.14`, whereas `1.12` will return `1.12.2`.
 
     > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/d/kubernetes_service_versions.html.markdown.
     """
@@ -61,7 +64,7 @@ def get_kubernetes_service_versions(location=None,version_prefix=None,opts=None)
     __args__['location'] = location
     __args__['versionPrefix'] = version_prefix
     if opts is None:
-        opts = pulumi.ResourceOptions()
+        opts = pulumi.InvokeOptions()
     if opts.version is None:
         opts.version = utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getKubernetesServiceVersions:getKubernetesServiceVersions', __args__, opts=opts).value
