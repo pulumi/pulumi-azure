@@ -50,7 +50,7 @@ class ActionGroup(pulumi.CustomResource):
     One or more `webhook_receiver ` blocks as defined below.
     
       * `name` (`str`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-      * `serviceUri` (`str`) - The URI where webhooks should be sent.
+      * `service_uri` (`str`) - The URI where webhooks should be sent.
     """
     def __init__(__self__, resource_name, opts=None, email_receivers=None, enabled=None, name=None, resource_group_name=None, short_name=None, sms_receivers=None, tags=None, webhook_receivers=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -81,7 +81,7 @@ class ActionGroup(pulumi.CustomResource):
         The **webhook_receivers** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-          * `serviceUri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
+          * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """
@@ -152,7 +152,7 @@ class ActionGroup(pulumi.CustomResource):
         The **webhook_receivers** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
-          * `serviceUri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
+          * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_action_group.html.markdown.
         """

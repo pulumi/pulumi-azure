@@ -19,6 +19,10 @@ import * as utilities from "../utilities";
  * 
  * const policy = new azure.policy.Definition("policy", {
  *     displayName: "acceptance test policy definition",
+ *     metadata: `    {
+ *     "category": "General"
+ *     }
+ *   `,
  *     mode: "Indexed",
  *     name: "accTestPolicy",
  *     parameters: `	{

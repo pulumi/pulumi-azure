@@ -13,7 +13,7 @@ class GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
     """
-    def __init__(__self__, display_name=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None, id=None):
+    def __init__(__self__, display_name=None, location_placement_id=None, quota_id=None, spending_limit=None, state=None, subscription_id=None, tenant_id=None, id=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         __self__.display_name = display_name
@@ -50,6 +50,12 @@ class GetSubscriptionResult:
         """
         The subscription GUID.
         """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The subscription tenant ID.
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
@@ -68,6 +74,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             spending_limit=self.spending_limit,
             state=self.state,
             subscription_id=self.subscription_id,
+            tenant_id=self.tenant_id,
             id=self.id)
 
 def get_subscription(subscription_id=None,opts=None):
@@ -94,4 +101,5 @@ def get_subscription(subscription_id=None,opts=None):
         spending_limit=__ret__.get('spendingLimit'),
         state=__ret__.get('state'),
         subscription_id=__ret__.get('subscriptionId'),
+        tenant_id=__ret__.get('tenantId'),
         id=__ret__.get('id'))

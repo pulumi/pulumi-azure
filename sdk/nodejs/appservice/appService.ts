@@ -48,6 +48,7 @@ export class AppService extends pulumi.CustomResource {
      * A `authSettings` block as defined below.
      */
     public readonly authSettings!: pulumi.Output<outputs.appservice.AppServiceAuthSettings>;
+    public readonly backup!: pulumi.Output<outputs.appservice.AppServiceBackup | undefined>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -113,6 +114,10 @@ export class AppService extends pulumi.CustomResource {
      */
     public /*out*/ readonly sourceControl!: pulumi.Output<outputs.appservice.AppServiceSourceControl>;
     /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    public readonly storageAccounts!: pulumi.Output<outputs.appservice.AppServiceStorageAccount[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
@@ -132,6 +137,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["appServicePlanId"] = state ? state.appServicePlanId : undefined;
             inputs["appSettings"] = state ? state.appSettings : undefined;
             inputs["authSettings"] = state ? state.authSettings : undefined;
+            inputs["backup"] = state ? state.backup : undefined;
             inputs["clientAffinityEnabled"] = state ? state.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = state ? state.clientCertEnabled : undefined;
             inputs["connectionStrings"] = state ? state.connectionStrings : undefined;
@@ -148,6 +154,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["siteConfig"] = state ? state.siteConfig : undefined;
             inputs["siteCredential"] = state ? state.siteCredential : undefined;
             inputs["sourceControl"] = state ? state.sourceControl : undefined;
+            inputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AppServiceArgs | undefined;
@@ -160,6 +167,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["appServicePlanId"] = args ? args.appServicePlanId : undefined;
             inputs["appSettings"] = args ? args.appSettings : undefined;
             inputs["authSettings"] = args ? args.authSettings : undefined;
+            inputs["backup"] = args ? args.backup : undefined;
             inputs["clientAffinityEnabled"] = args ? args.clientAffinityEnabled : undefined;
             inputs["clientCertEnabled"] = args ? args.clientCertEnabled : undefined;
             inputs["connectionStrings"] = args ? args.connectionStrings : undefined;
@@ -171,6 +179,7 @@ export class AppService extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["siteConfig"] = args ? args.siteConfig : undefined;
+            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["defaultSiteHostname"] = undefined /*out*/;
             inputs["outboundIpAddresses"] = undefined /*out*/;
@@ -205,6 +214,7 @@ export interface AppServiceState {
      * A `authSettings` block as defined below.
      */
     readonly authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings>;
+    readonly backup?: pulumi.Input<inputs.appservice.AppServiceBackup>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -270,6 +280,10 @@ export interface AppServiceState {
      */
     readonly sourceControl?: pulumi.Input<inputs.appservice.AppServiceSourceControl>;
     /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceStorageAccount>[]>;
+    /**
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
@@ -291,6 +305,7 @@ export interface AppServiceArgs {
      * A `authSettings` block as defined below.
      */
     readonly authSettings?: pulumi.Input<inputs.appservice.AppServiceAuthSettings>;
+    readonly backup?: pulumi.Input<inputs.appservice.AppServiceBackup>;
     /**
      * Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      */
@@ -335,6 +350,10 @@ export interface AppServiceArgs {
      * A `siteConfig` block as defined below.
      */
     readonly siteConfig?: pulumi.Input<inputs.appservice.AppServiceSiteConfig>;
+    /**
+     * One or more `storageAccount` blocks as defined below.
+     */
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.AppServiceStorageAccount>[]>;
     /**
      * A mapping of tags to assign to the resource.
      */

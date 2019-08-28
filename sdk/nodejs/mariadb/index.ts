@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./configuration";
 export * from "./database";
 export * from "./firewallRule";
 export * from "./server";
+export * from "./virtualNetworkRule";

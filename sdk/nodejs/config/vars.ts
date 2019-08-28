@@ -6,16 +6,61 @@ import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("azure");
 
+/**
+ * The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
+ * Certificate
+ */
 export let clientCertificatePassword: string | undefined = __config.get("clientCertificatePassword") || (utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD") || "");
+/**
+ * The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service
+ * Principal using a Client Certificate.
+ */
 export let clientCertificatePath: string | undefined = __config.get("clientCertificatePath") || (utilities.getEnv("ARM_CLIENT_CERTIFICATE_PATH") || "");
+/**
+ * The Client ID which should be used.
+ */
 export let clientId: string | undefined = __config.get("clientId") || (utilities.getEnv("ARM_CLIENT_ID") || "");
+/**
+ * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
+ */
 export let clientSecret: string | undefined = __config.get("clientSecret") || (utilities.getEnv("ARM_CLIENT_SECRET") || "");
+/**
+ * This will disable the x-ms-correlation-request-id header.
+ */
+export let disableCorrelationRequestId: boolean | undefined = __config.getObject<boolean>("disableCorrelationRequestId");
+/**
+ * The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to
+ * public.
+ */
 export let environment: string | undefined = __config.get("environment") || (utilities.getEnv("ARM_ENVIRONMENT") || "public");
+/**
+ * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
+ * automatically.
+ */
 export let msiEndpoint: string | undefined = __config.get("msiEndpoint") || (utilities.getEnv("ARM_MSI_ENDPOINT") || "");
+/**
+ * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
+ */
 export let partnerId: string | undefined = __config.get("partnerId") || (utilities.getEnv("ARM_PARTNER_ID") || "");
+/**
+ * This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
+ */
 export let skipCredentialsValidation: boolean | undefined = __config.getObject<boolean>("skipCredentialsValidation") || (utilities.getEnvBoolean("ARM_SKIP_CREDENTIALS_VALIDATION") || false);
+/**
+ * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
+ * registered?
+ */
 export let skipProviderRegistration: boolean | undefined = __config.getObject<boolean>("skipProviderRegistration") || (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false);
+/**
+ * The Subscription ID which should be used.
+ */
 export let subscriptionId: string | undefined = __config.get("subscriptionId") || (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
+/**
+ * The Tenant ID which should be used.
+ */
 export let tenantId: string | undefined = __config.get("tenantId") || (utilities.getEnv("ARM_TENANT_ID") || "");
+/**
+ * Allowed Managed Service Identity be used for Authentication.
+ */
 export let useMsi: boolean | undefined = __config.getObject<boolean>("useMsi") || (utilities.getEnvBoolean("ARM_USE_MSI") || false);
 export let location: string | undefined = __config.get("location") || utilities.getEnv("ARM_LOCATION");

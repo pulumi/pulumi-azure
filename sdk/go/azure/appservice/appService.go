@@ -31,6 +31,7 @@ func NewAppService(ctx *pulumi.Context,
 		inputs["appServicePlanId"] = nil
 		inputs["appSettings"] = nil
 		inputs["authSettings"] = nil
+		inputs["backup"] = nil
 		inputs["clientAffinityEnabled"] = nil
 		inputs["clientCertEnabled"] = nil
 		inputs["connectionStrings"] = nil
@@ -42,11 +43,13 @@ func NewAppService(ctx *pulumi.Context,
 		inputs["name"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["siteConfig"] = nil
+		inputs["storageAccounts"] = nil
 		inputs["tags"] = nil
 	} else {
 		inputs["appServicePlanId"] = args.AppServicePlanId
 		inputs["appSettings"] = args.AppSettings
 		inputs["authSettings"] = args.AuthSettings
+		inputs["backup"] = args.Backup
 		inputs["clientAffinityEnabled"] = args.ClientAffinityEnabled
 		inputs["clientCertEnabled"] = args.ClientCertEnabled
 		inputs["connectionStrings"] = args.ConnectionStrings
@@ -58,6 +61,7 @@ func NewAppService(ctx *pulumi.Context,
 		inputs["name"] = args.Name
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["siteConfig"] = args.SiteConfig
+		inputs["storageAccounts"] = args.StorageAccounts
 		inputs["tags"] = args.Tags
 	}
 	inputs["defaultSiteHostname"] = nil
@@ -81,6 +85,7 @@ func GetAppService(ctx *pulumi.Context,
 		inputs["appServicePlanId"] = state.AppServicePlanId
 		inputs["appSettings"] = state.AppSettings
 		inputs["authSettings"] = state.AuthSettings
+		inputs["backup"] = state.Backup
 		inputs["clientAffinityEnabled"] = state.ClientAffinityEnabled
 		inputs["clientCertEnabled"] = state.ClientCertEnabled
 		inputs["connectionStrings"] = state.ConnectionStrings
@@ -97,6 +102,7 @@ func GetAppService(ctx *pulumi.Context,
 		inputs["siteConfig"] = state.SiteConfig
 		inputs["siteCredential"] = state.SiteCredential
 		inputs["sourceControl"] = state.SourceControl
+		inputs["storageAccounts"] = state.StorageAccounts
 		inputs["tags"] = state.Tags
 	}
 	s, err := ctx.ReadResource("azure:appservice/appService:AppService", name, id, inputs, opts...)
@@ -129,6 +135,10 @@ func (r *AppService) AppSettings() *pulumi.MapOutput {
 // A `authSettings` block as defined below.
 func (r *AppService) AuthSettings() *pulumi.Output {
 	return r.s.State["authSettings"]
+}
+
+func (r *AppService) Backup() *pulumi.Output {
+	return r.s.State["backup"]
 }
 
 // Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
@@ -211,6 +221,11 @@ func (r *AppService) SourceControl() *pulumi.Output {
 	return r.s.State["sourceControl"]
 }
 
+// One or more `storageAccount` blocks as defined below.
+func (r *AppService) StorageAccounts() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["storageAccounts"])
+}
+
 // A mapping of tags to assign to the resource.
 func (r *AppService) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
@@ -224,6 +239,7 @@ type AppServiceState struct {
 	AppSettings interface{}
 	// A `authSettings` block as defined below.
 	AuthSettings interface{}
+	Backup interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
@@ -256,6 +272,8 @@ type AppServiceState struct {
 	SiteCredential interface{}
 	// A `sourceControl` block as defined below, which contains the Source Control information when `scmType` is set to `LocalGit`.
 	SourceControl interface{}
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }
@@ -268,6 +286,7 @@ type AppServiceArgs struct {
 	AppSettings interface{}
 	// A `authSettings` block as defined below.
 	AuthSettings interface{}
+	Backup interface{}
 	// Should the App Service send session affinity cookies, which route client requests in the same session to the same instance?
 	ClientAffinityEnabled interface{}
 	// Does the App Service require client certificates for incoming requests? Defaults to `false`.
@@ -290,6 +309,8 @@ type AppServiceArgs struct {
 	ResourceGroupName interface{}
 	// A `siteConfig` block as defined below.
 	SiteConfig interface{}
+	// One or more `storageAccount` blocks as defined below.
+	StorageAccounts interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
 }

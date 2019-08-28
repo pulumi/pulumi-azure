@@ -61,6 +61,10 @@ export class Dps extends pulumi.CustomResource {
     }
 
     /**
+     * A `linkedHub` block as defined below.
+     */
+    public readonly linkedHubs!: pulumi.Output<outputs.iot.DpsLinkedHub[] | undefined>;
+    /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class Dps extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DpsState | undefined;
+            inputs["linkedHubs"] = state ? state.linkedHubs : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -106,6 +111,7 @@ export class Dps extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["linkedHubs"] = args ? args.linkedHubs : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -127,6 +133,10 @@ export class Dps extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Dps resources.
  */
 export interface DpsState {
+    /**
+     * A `linkedHub` block as defined below.
+     */
+    readonly linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.DpsLinkedHub>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */
@@ -153,6 +163,10 @@ export interface DpsState {
  * The set of arguments for constructing a Dps resource.
  */
 export interface DpsArgs {
+    /**
+     * A `linkedHub` block as defined below.
+     */
+    readonly linkedHubs?: pulumi.Input<pulumi.Input<inputs.iot.DpsLinkedHub>[]>;
     /**
      * Specifies the supported Azure location where the resource has to be createc. Changing this forces a new resource to be created.
      */

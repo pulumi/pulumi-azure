@@ -73,6 +73,33 @@ import * as utilities from "../utilities";
  *     scope: primary.id,
  * });
  * ```
+ * 
+ * ## Example Usage (Custom Role & Management Group)
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * 
+ * const testClientConfig = azure.core.getClientConfig({});
+ * const testGroup = azure.management.getGroup({});
+ * const primary = azure.core.getSubscription({});
+ * const testRoleDefinition = new azure.authorization.RoleDefinition("test", {
+ *     assignableScopes: [primary.id],
+ *     name: "my-custom-role-definition",
+ *     permissions: [{
+ *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+ *         notActions: [],
+ *     }],
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     scope: primary.id,
+ * });
+ * const testAssignment = new azure.authorization.Assignment("test", {
+ *     name: "00000000-0000-0000-0000-000000000000",
+ *     principalId: testClientConfig.clientId,
+ *     roleDefinitionId: testRoleDefinition.id,
+ *     scope: azurerm_management_group_primary.id,
+ * });
+ * ```
  *
  * > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/role_assignment.html.markdown.
  */
@@ -120,7 +147,7 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly roleDefinitionName!: pulumi.Output<string>;
     /**
-     * The scope at which the Role Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
+     * The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
      */
     public readonly scope!: pulumi.Output<string>;
 
@@ -189,7 +216,7 @@ export interface AssignmentState {
      */
     readonly roleDefinitionName?: pulumi.Input<string>;
     /**
-     * The scope at which the Role Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
+     * The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
      */
     readonly scope?: pulumi.Input<string>;
 }
@@ -215,7 +242,7 @@ export interface AssignmentArgs {
      */
     readonly roleDefinitionName?: pulumi.Input<string>;
     /**
-     * The scope at which the Role Assignment applies too, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. Changing this forces a new resource to be created.
+     * The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
      */
     readonly scope: pulumi.Input<string>;
 }

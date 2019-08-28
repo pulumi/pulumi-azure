@@ -89,6 +89,10 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly logs!: pulumi.Output<outputs.monitoring.DiagnosticSettingLog[] | undefined>;
     /**
+     * When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     */
+    public readonly logAnalyticsDestinationType!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
     public readonly logAnalyticsWorkspaceId!: pulumi.Output<string | undefined>;
@@ -124,6 +128,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["eventhubAuthorizationRuleId"] = state ? state.eventhubAuthorizationRuleId : undefined;
             inputs["eventhubName"] = state ? state.eventhubName : undefined;
             inputs["logs"] = state ? state.logs : undefined;
+            inputs["logAnalyticsDestinationType"] = state ? state.logAnalyticsDestinationType : undefined;
             inputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             inputs["metrics"] = state ? state.metrics : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -137,6 +142,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             inputs["eventhubAuthorizationRuleId"] = args ? args.eventhubAuthorizationRuleId : undefined;
             inputs["eventhubName"] = args ? args.eventhubName : undefined;
             inputs["logs"] = args ? args.logs : undefined;
+            inputs["logAnalyticsDestinationType"] = args ? args.logAnalyticsDestinationType : undefined;
             inputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             inputs["metrics"] = args ? args.metrics : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -170,6 +176,10 @@ export interface DiagnosticSettingState {
      * One or more `log` blocks as defined below.
      */
     readonly logs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingLog>[]>;
+    /**
+     * When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     */
+    readonly logAnalyticsDestinationType?: pulumi.Input<string>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */
@@ -208,6 +218,10 @@ export interface DiagnosticSettingArgs {
      * One or more `log` blocks as defined below.
      */
     readonly logs?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingLog>[]>;
+    /**
+     * When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+     */
+    readonly logAnalyticsDestinationType?: pulumi.Input<string>;
     /**
      * Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
      */

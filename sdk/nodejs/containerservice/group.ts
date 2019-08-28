@@ -65,7 +65,7 @@ export class Group extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
-     * Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+     * Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
     public readonly ipAddressType!: pulumi.Output<string | undefined>;
     /**
@@ -76,6 +76,10 @@ export class Group extends pulumi.CustomResource {
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Network profile ID for deploying to virtual network.
+     */
+    public readonly networkProfileId!: pulumi.Output<string | undefined>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
@@ -115,6 +119,7 @@ export class Group extends pulumi.CustomResource {
             inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["networkProfileId"] = state ? state.networkProfileId : undefined;
             inputs["osType"] = state ? state.osType : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["restartPolicy"] = state ? state.restartPolicy : undefined;
@@ -138,6 +143,7 @@ export class Group extends pulumi.CustomResource {
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["networkProfileId"] = args ? args.networkProfileId : undefined;
             inputs["osType"] = args ? args.osType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["restartPolicy"] = args ? args.restartPolicy : undefined;
@@ -189,7 +195,7 @@ export interface GroupState {
      */
     readonly ipAddress?: pulumi.Input<string>;
     /**
-     * Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+     * Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
     readonly ipAddressType?: pulumi.Input<string>;
     /**
@@ -200,6 +206,10 @@ export interface GroupState {
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Network profile ID for deploying to virtual network.
+     */
+    readonly networkProfileId?: pulumi.Input<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
@@ -243,7 +253,7 @@ export interface GroupArgs {
      */
     readonly imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
     /**
-     * Specifies the ip address type of the container. `Public` is the only acceptable value at this time. Changing this forces a new resource to be created.
+     * Specifies the ip address type of the container. `Public` or `Private`. Changing this forces a new resource to be created. If set to `Private`, `networkProfileId` also needs to be set.
      */
     readonly ipAddressType?: pulumi.Input<string>;
     /**
@@ -254,6 +264,10 @@ export interface GroupArgs {
      * Specifies the name of the Container Group. Changing this forces a new resource to be created.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * Network profile ID for deploying to virtual network.
+     */
+    readonly networkProfileId?: pulumi.Input<string>;
     /**
      * The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
      */
