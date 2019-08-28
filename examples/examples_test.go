@@ -77,10 +77,10 @@ func TestExamples(t *testing.T) {
 			Dir:           path.Join(cwd, "queue"),
 			RunUpdateTest: true,
 		}),
-		jsBase.With(integration.ProgramTestOptions{
-			Dir:           path.Join(cwd, "table"),
-			RunUpdateTest: true,
-		}),
+		//jsBase.With(integration.ProgramTestOptions{
+		//	Dir:           path.Join(cwd, "table"),
+		//	RunUpdateTest: true,
+		//}),
 		jsBase.With(integration.ProgramTestOptions{
 			Dir:           path.Join(cwd, "timer"),
 			RunUpdateTest: true,
