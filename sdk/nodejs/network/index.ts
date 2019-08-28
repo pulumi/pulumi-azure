@@ -53,3 +53,4 @@ export * from "./virtualNetwork";
 export * from "./virtualNetworkGateway";
 export * from "./virtualNetworkGatewayConnection";
 export * from "./virtualNetworkPeering";
+export * from "./virtualWan";

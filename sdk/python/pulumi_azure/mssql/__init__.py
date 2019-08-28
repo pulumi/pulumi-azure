@@ -4,3 +4,4 @@
 
 # Export this package's modules as members:
 from .elastic_pool import *
+from .get_elastic_pool import *

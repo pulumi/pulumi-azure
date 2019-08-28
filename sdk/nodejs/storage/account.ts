@@ -104,7 +104,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      */
     public readonly accessTier!: pulumi.Output<string>;
     /**
@@ -112,9 +112,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accountEncryptionSource!: pulumi.Output<string | undefined>;
     /**
-     * Defines the Kind of account. Valid options are `Storage`,
-     * `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-     * Defaults to `Storage`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
      */
     public readonly accountKind!: pulumi.Output<string | undefined>;
     /**
@@ -122,7 +120,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly accountReplicationType!: pulumi.Output<string>;
     /**
-     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
+     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     public readonly accountTier!: pulumi.Output<string>;
     public readonly accountType!: pulumi.Output<string>;
@@ -130,6 +128,10 @@ export class Account extends pulumi.CustomResource {
      * A `customDomain` block as documented below.
      */
     public readonly customDomain!: pulumi.Output<outputs.storage.AccountCustomDomain | undefined>;
+    /**
+     * Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+     */
+    public readonly enableAdvancedThreatProtection!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
@@ -144,7 +146,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly enableHttpsTrafficOnly!: pulumi.Output<boolean | undefined>;
     /**
-     * A Managed Service Identity block as defined below.
+     * A `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.storage.AccountIdentity>;
     /**
@@ -152,18 +154,17 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly isHnsEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the supported Azure location where the
-     * resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+     * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
     public readonly name!: pulumi.Output<string>;
     /**
      * A `networkRules` block as documented below.
      */
-    public readonly networkRules!: pulumi.Output<outputs.storage.AccountNetworkRules | undefined>;
+    public readonly networkRules!: pulumi.Output<outputs.storage.AccountNetworkRules>;
     /**
      * The primary access key for the storage account.
      */
@@ -229,8 +230,11 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryWebHost!: pulumi.Output<string>;
     /**
-     * The name of the resource group in which to
-     * create the storage account. Changing this forces a new resource to be created.
+     * A `queueProperties` block as defined below.
+     */
+    public readonly queueProperties!: pulumi.Output<outputs.storage.AccountQueueProperties>;
+    /**
+     * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -321,6 +325,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountTier"] = state ? state.accountTier : undefined;
             inputs["accountType"] = state ? state.accountType : undefined;
             inputs["customDomain"] = state ? state.customDomain : undefined;
+            inputs["enableAdvancedThreatProtection"] = state ? state.enableAdvancedThreatProtection : undefined;
             inputs["enableBlobEncryption"] = state ? state.enableBlobEncryption : undefined;
             inputs["enableFileEncryption"] = state ? state.enableFileEncryption : undefined;
             inputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
@@ -345,6 +350,7 @@ export class Account extends pulumi.CustomResource {
             inputs["primaryTableHost"] = state ? state.primaryTableHost : undefined;
             inputs["primaryWebEndpoint"] = state ? state.primaryWebEndpoint : undefined;
             inputs["primaryWebHost"] = state ? state.primaryWebHost : undefined;
+            inputs["queueProperties"] = state ? state.queueProperties : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
             inputs["secondaryBlobConnectionString"] = state ? state.secondaryBlobConnectionString : undefined;
@@ -381,6 +387,7 @@ export class Account extends pulumi.CustomResource {
             inputs["accountTier"] = args ? args.accountTier : undefined;
             inputs["accountType"] = args ? args.accountType : undefined;
             inputs["customDomain"] = args ? args.customDomain : undefined;
+            inputs["enableAdvancedThreatProtection"] = args ? args.enableAdvancedThreatProtection : undefined;
             inputs["enableBlobEncryption"] = args ? args.enableBlobEncryption : undefined;
             inputs["enableFileEncryption"] = args ? args.enableFileEncryption : undefined;
             inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
@@ -389,6 +396,7 @@ export class Account extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkRules"] = args ? args.networkRules : undefined;
+            inputs["queueProperties"] = args ? args.queueProperties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["primaryAccessKey"] = undefined /*out*/;
@@ -440,7 +448,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
-     * Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      */
     readonly accessTier?: pulumi.Input<string>;
     /**
@@ -448,9 +456,7 @@ export interface AccountState {
      */
     readonly accountEncryptionSource?: pulumi.Input<string>;
     /**
-     * Defines the Kind of account. Valid options are `Storage`,
-     * `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-     * Defaults to `Storage`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
      */
     readonly accountKind?: pulumi.Input<string>;
     /**
@@ -458,7 +464,7 @@ export interface AccountState {
      */
     readonly accountReplicationType?: pulumi.Input<string>;
     /**
-     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
+     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     readonly accountTier?: pulumi.Input<string>;
     readonly accountType?: pulumi.Input<string>;
@@ -466,6 +472,10 @@ export interface AccountState {
      * A `customDomain` block as documented below.
      */
     readonly customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
+    /**
+     * Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+     */
+    readonly enableAdvancedThreatProtection?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
@@ -480,7 +490,7 @@ export interface AccountState {
      */
     readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
-     * A Managed Service Identity block as defined below.
+     * A `identity` block as defined below.
      */
     readonly identity?: pulumi.Input<inputs.storage.AccountIdentity>;
     /**
@@ -488,12 +498,11 @@ export interface AccountState {
      */
     readonly isHnsEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the
-     * resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+     * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -565,8 +574,11 @@ export interface AccountState {
      */
     readonly primaryWebHost?: pulumi.Input<string>;
     /**
-     * The name of the resource group in which to
-     * create the storage account. Changing this forces a new resource to be created.
+     * A `queueProperties` block as defined below.
+     */
+    readonly queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
+    /**
+     * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
@@ -644,7 +656,7 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
-     * Defines the access tier for `BlobStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot` and `Cool`, defaults to `Hot`.
      */
     readonly accessTier?: pulumi.Input<string>;
     /**
@@ -652,9 +664,7 @@ export interface AccountArgs {
      */
     readonly accountEncryptionSource?: pulumi.Input<string>;
     /**
-     * Defines the Kind of account. Valid options are `Storage`,
-     * `StorageV2` and `BlobStorage`. Changing this forces a new resource to be created.
-     * Defaults to `Storage`.
+     * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Changing this forces a new resource to be created. Defaults to `Storage`.
      */
     readonly accountKind?: pulumi.Input<string>;
     /**
@@ -662,7 +672,7 @@ export interface AccountArgs {
      */
     readonly accountReplicationType: pulumi.Input<string>;
     /**
-     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. Changing this forces a new resource to be created
+     * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      */
     readonly accountTier: pulumi.Input<string>;
     readonly accountType?: pulumi.Input<string>;
@@ -670,6 +680,10 @@ export interface AccountArgs {
      * A `customDomain` block as documented below.
      */
     readonly customDomain?: pulumi.Input<inputs.storage.AccountCustomDomain>;
+    /**
+     * Boolean flag which controls if advanced threat protection is enabled, see [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-advanced-threat-protection) for more information. Defaults to `false`.
+     */
+    readonly enableAdvancedThreatProtection?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls if Encryption Services are enabled for Blob storage, see [here](https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/) for more information. Defaults to `true`.
      */
@@ -684,7 +698,7 @@ export interface AccountArgs {
      */
     readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
     /**
-     * A Managed Service Identity block as defined below.
+     * A `identity` block as defined below.
      */
     readonly identity?: pulumi.Input<inputs.storage.AccountIdentity>;
     /**
@@ -692,12 +706,11 @@ export interface AccountArgs {
      */
     readonly isHnsEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the supported Azure location where the
-     * resource exists. Changing this forces a new resource to be created.
+     * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+     * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -705,8 +718,11 @@ export interface AccountArgs {
      */
     readonly networkRules?: pulumi.Input<inputs.storage.AccountNetworkRules>;
     /**
-     * The name of the resource group in which to
-     * create the storage account. Changing this forces a new resource to be created.
+     * A `queueProperties` block as defined below.
+     */
+    readonly queueProperties?: pulumi.Input<inputs.storage.AccountQueueProperties>;
+    /**
+     * The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**

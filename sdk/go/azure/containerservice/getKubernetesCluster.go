@@ -42,6 +42,7 @@ func LookupKubernetesCluster(ctx *pulumi.Context, args *GetKubernetesClusterArgs
 		RoleBasedAccessControls: outputs["roleBasedAccessControls"],
 		ServicePrincipals: outputs["servicePrincipals"],
 		Tags: outputs["tags"],
+		WindowsProfiles: outputs["windowsProfiles"],
 		Id: outputs["id"],
 	}, nil
 }
@@ -91,6 +92,8 @@ type GetKubernetesClusterResult struct {
 	ServicePrincipals interface{}
 	// A mapping of tags assigned to this resource.
 	Tags interface{}
+	// A `windowsProfile` block as documented below.
+	WindowsProfiles interface{}
 	// id is the provider-assigned unique ID for this managed resource.
 	Id interface{}
 }

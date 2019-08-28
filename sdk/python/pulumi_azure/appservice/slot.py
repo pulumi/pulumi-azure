@@ -22,6 +22,49 @@ class Slot(pulumi.CustomResource):
     """
     A key-value pair of App Settings.
     """
+    auth_settings: pulumi.Output[dict]
+    """
+    A `auth_settings` block as defined below.
+    
+      * `activeDirectory` (`dict`)
+    
+        * `allowedAudiences` (`list`)
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+    
+      * `additionalLoginParams` (`dict`)
+      * `allowedExternalRedirectUrls` (`list`)
+      * `defaultProvider` (`str`)
+      * `enabled` (`bool`) - Is the App Service Slot Enabled?
+      * `facebook` (`dict`)
+    
+        * `app_id` (`str`)
+        * `appSecret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `google` (`dict`)
+    
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `issuer` (`str`)
+      * `microsoft` (`dict`)
+    
+        * `client_id` (`str`)
+        * `client_secret` (`str`)
+        * `oauthScopes` (`list`)
+    
+      * `runtimeVersion` (`str`)
+      * `tokenRefreshExtensionHours` (`float`)
+      * `tokenStoreEnabled` (`bool`)
+      * `twitter` (`dict`)
+    
+        * `consumerKey` (`str`)
+        * `consumerSecret` (`str`)
+    
+      * `unauthenticatedClientAction` (`str`)
+    """
     client_affinity_enabled: pulumi.Output[bool]
     """
     Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
@@ -50,6 +93,7 @@ class Slot(pulumi.CustomResource):
     """
     A Managed Service Identity block as defined below.
     
+      * `identityIds` (`list`)
       * `principalId` (`str`)
       * `tenantId` (`str`)
       * `type` (`str`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
@@ -114,7 +158,7 @@ class Slot(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
-    def __init__(__self__, resource_name, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an App Service Slot (within an App Service).
         
@@ -125,6 +169,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled?
@@ -136,6 +181,47 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[dict] site_config: A `site_config` object as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
+        The **auth_settings** object supports the following:
+        
+          * `activeDirectory` (`pulumi.Input[dict]`)
+        
+            * `allowedAudiences` (`pulumi.Input[list]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+        
+          * `additionalLoginParams` (`pulumi.Input[dict]`)
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
+          * `defaultProvider` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Slot Enabled?
+          * `facebook` (`pulumi.Input[dict]`)
+        
+            * `app_id` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `google` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `issuer` (`pulumi.Input[str]`)
+          * `microsoft` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `runtimeVersion` (`pulumi.Input[str]`)
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
+          * `twitter` (`pulumi.Input[dict]`)
+        
+            * `consumerKey` (`pulumi.Input[str]`)
+            * `consumerSecret` (`pulumi.Input[str]`)
+        
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+        
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
@@ -144,6 +230,7 @@ class Slot(pulumi.CustomResource):
         
         The **identity** object supports the following:
         
+          * `identityIds` (`pulumi.Input[list]`)
           * `principalId` (`pulumi.Input[str]`)
           * `tenantId` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
@@ -209,6 +296,7 @@ class Slot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_service_plan_id'")
             __props__['app_service_plan_id'] = app_service_plan_id
             __props__['app_settings'] = app_settings
+            __props__['auth_settings'] = auth_settings
             __props__['client_affinity_enabled'] = client_affinity_enabled
             __props__['connection_strings'] = connection_strings
             __props__['enabled'] = enabled
@@ -230,7 +318,7 @@ class Slot(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, site_credential=None, tags=None):
+    def get(resource_name, id, opts=None, app_service_name=None, app_service_plan_id=None, app_settings=None, auth_settings=None, client_affinity_enabled=None, connection_strings=None, default_site_hostname=None, enabled=None, https_only=None, identity=None, location=None, name=None, resource_group_name=None, site_config=None, site_credential=None, tags=None):
         """
         Get an existing Slot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -241,6 +329,7 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] app_settings: A key-value pair of App Settings.
+        :param pulumi.Input[dict] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[list] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
@@ -254,6 +343,47 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[dict] site_credential: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
         
+        The **auth_settings** object supports the following:
+        
+          * `activeDirectory` (`pulumi.Input[dict]`)
+        
+            * `allowedAudiences` (`pulumi.Input[list]`)
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+        
+          * `additionalLoginParams` (`pulumi.Input[dict]`)
+          * `allowedExternalRedirectUrls` (`pulumi.Input[list]`)
+          * `defaultProvider` (`pulumi.Input[str]`)
+          * `enabled` (`pulumi.Input[bool]`) - Is the App Service Slot Enabled?
+          * `facebook` (`pulumi.Input[dict]`)
+        
+            * `app_id` (`pulumi.Input[str]`)
+            * `appSecret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `google` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `issuer` (`pulumi.Input[str]`)
+          * `microsoft` (`pulumi.Input[dict]`)
+        
+            * `client_id` (`pulumi.Input[str]`)
+            * `client_secret` (`pulumi.Input[str]`)
+            * `oauthScopes` (`pulumi.Input[list]`)
+        
+          * `runtimeVersion` (`pulumi.Input[str]`)
+          * `tokenRefreshExtensionHours` (`pulumi.Input[float]`)
+          * `tokenStoreEnabled` (`pulumi.Input[bool]`)
+          * `twitter` (`pulumi.Input[dict]`)
+        
+            * `consumerKey` (`pulumi.Input[str]`)
+            * `consumerSecret` (`pulumi.Input[str]`)
+        
+          * `unauthenticatedClientAction` (`pulumi.Input[str]`)
+        
         The **connection_strings** object supports the following:
         
           * `name` (`pulumi.Input[str]`) - The name of the Connection String.
@@ -262,6 +392,7 @@ class Slot(pulumi.CustomResource):
         
         The **identity** object supports the following:
         
+          * `identityIds` (`pulumi.Input[list]`)
           * `principalId` (`pulumi.Input[str]`)
           * `tenantId` (`pulumi.Input[str]`)
           * `type` (`pulumi.Input[str]`) - The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and  `SQLServer`.
@@ -314,6 +445,7 @@ class Slot(pulumi.CustomResource):
         __props__["app_service_name"] = app_service_name
         __props__["app_service_plan_id"] = app_service_plan_id
         __props__["app_settings"] = app_settings
+        __props__["auth_settings"] = auth_settings
         __props__["client_affinity_enabled"] = client_affinity_enabled
         __props__["connection_strings"] = connection_strings
         __props__["default_site_hostname"] = default_site_hostname

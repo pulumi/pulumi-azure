@@ -92,7 +92,6 @@ func (r *ApiPolicy) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The XML Content for this Policy.
 func (r *ApiPolicy) XmlContent() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["xmlContent"])
 }
@@ -110,7 +109,6 @@ type ApiPolicyState struct {
 	ApiName interface{}
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The XML Content for this Policy.
 	XmlContent interface{}
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink interface{}
@@ -124,7 +122,6 @@ type ApiPolicyArgs struct {
 	ApiName interface{}
 	// The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
-	// The XML Content for this Policy.
 	XmlContent interface{}
 	// A link to a Policy XML Document, which must be publicly available.
 	XmlLink interface{}

@@ -22,6 +22,7 @@ func LookupAccount(ctx *pulumi.Context, args *GetAccountArgs) (*GetAccountResult
 	}
 	return &GetAccountResult{
 		AccountEndpoint: outputs["accountEndpoint"],
+		KeyVaultReferences: outputs["keyVaultReferences"],
 		Location: outputs["location"],
 		Name: outputs["name"],
 		PoolAllocationMode: outputs["poolAllocationMode"],
@@ -46,6 +47,8 @@ type GetAccountArgs struct {
 type GetAccountResult struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint interface{}
+	// The `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+	KeyVaultReferences interface{}
 	// The Azure Region in which this Batch account exists.
 	Location interface{}
 	// The Batch account name.

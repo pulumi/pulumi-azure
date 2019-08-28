@@ -129,6 +129,13 @@ class ApplicationGateway(pulumi.CustomResource):
       * `sslCertificateId` (`str`) - The ID of the associated SSL Certificate.
       * `sslCertificateName` (`str`)
     """
+    identity: pulumi.Output[dict]
+    """
+    A `identity` block.
+    
+      * `identityIds` (`str`)
+      * `type` (`str`)
+    """
     location: pulumi.Output[str]
     """
     The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -309,7 +316,7 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A collection of availability zones to spread the Application Gateway over.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Gateway.
         
@@ -327,6 +334,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] http_listeners: One or more `http_listener` blocks as defined below.
+        :param pulumi.Input[dict] identity: A `identity` block.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[list] probes: One or more `probe` blocks as defined below.
@@ -433,6 +441,11 @@ class ApplicationGateway(pulumi.CustomResource):
           * `requireSni` (`pulumi.Input[bool]`)
           * `sslCertificateId` (`pulumi.Input[str]`) - The ID of the associated SSL Certificate.
           * `sslCertificateName` (`pulumi.Input[str]`)
+        
+        The **identity** object supports the following:
+        
+          * `identityIds` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
         
         The **probes** object supports the following:
         
@@ -618,6 +631,7 @@ class ApplicationGateway(pulumi.CustomResource):
             if http_listeners is None:
                 raise TypeError("Missing required property 'http_listeners'")
             __props__['http_listeners'] = http_listeners
+            __props__['identity'] = identity
             __props__['location'] = location
             __props__['name'] = name
             __props__['probes'] = probes
@@ -645,7 +659,7 @@ class ApplicationGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None):
+    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None):
         """
         Get an existing ApplicationGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -665,6 +679,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[list] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
         :param pulumi.Input[list] http_listeners: One or more `http_listener` blocks as defined below.
+        :param pulumi.Input[dict] identity: A `identity` block.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[list] probes: One or more `probe` blocks as defined below.
@@ -771,6 +786,11 @@ class ApplicationGateway(pulumi.CustomResource):
           * `requireSni` (`pulumi.Input[bool]`)
           * `sslCertificateId` (`pulumi.Input[str]`) - The ID of the associated SSL Certificate.
           * `sslCertificateName` (`pulumi.Input[str]`)
+        
+        The **identity** object supports the following:
+        
+          * `identityIds` (`pulumi.Input[str]`)
+          * `type` (`pulumi.Input[str]`)
         
         The **probes** object supports the following:
         
@@ -930,6 +950,7 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__["frontend_ports"] = frontend_ports
         __props__["gateway_ip_configurations"] = gateway_ip_configurations
         __props__["http_listeners"] = http_listeners
+        __props__["identity"] = identity
         __props__["location"] = location
         __props__["name"] = name
         __props__["probes"] = probes

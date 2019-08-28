@@ -70,7 +70,7 @@ class MetricAlertRule(pulumi.CustomResource):
     A `webhook_action` block as defined below.
     
       * `properties` (`dict`) - A dictionary of custom properties to include with the webhook POST operation payload.
-      * `serviceUri` (`str`) - The service uri of the webhook to POST the notification when the alert is triggered.
+      * `service_uri` (`str`) - The service uri of the webhook to POST the notification when the alert is triggered.
     """
     def __init__(__self__, resource_name, opts=None, aggregation=None, description=None, email_action=None, enabled=None, location=None, metric_name=None, name=None, operator=None, period=None, resource_group_name=None, resource_id=None, tags=None, threshold=None, webhook_action=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -101,7 +101,7 @@ class MetricAlertRule(pulumi.CustomResource):
         The **webhook_action** object supports the following:
         
           * `properties` (`pulumi.Input[dict]`) - A dictionary of custom properties to include with the webhook POST operation payload.
-          * `serviceUri` (`pulumi.Input[str]`) - The service uri of the webhook to POST the notification when the alert is triggered.
+          * `service_uri` (`pulumi.Input[str]`) - The service uri of the webhook to POST the notification when the alert is triggered.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alertrule.html.markdown.
         """
@@ -188,7 +188,7 @@ class MetricAlertRule(pulumi.CustomResource):
         The **webhook_action** object supports the following:
         
           * `properties` (`pulumi.Input[dict]`) - A dictionary of custom properties to include with the webhook POST operation payload.
-          * `serviceUri` (`pulumi.Input[str]`) - The service uri of the webhook to POST the notification when the alert is triggered.
+          * `service_uri` (`pulumi.Input[str]`) - The service uri of the webhook to POST the notification when the alert is triggered.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/monitor_metric_alertrule.html.markdown.
         """

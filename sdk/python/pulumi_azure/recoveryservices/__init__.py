@@ -3,8 +3,14 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .network_mapping import *
+from .replicated_vm import *
+from .fabric import *
 from .protected_vm import *
+from .protection_container import *
+from .protection_container_mapping import *
 from .protection_policy_vm import *
+from .replication_policy import *
 from .vault import *
 from .get_vm_protection_policy import *
 from .get_vault import *

@@ -35,7 +35,7 @@ class AutoscaleSetting(pulumi.CustomResource):
       * `webhooks` (`list`)
     
         * `properties` (`dict`)
-        * `serviceUri` (`str`)
+        * `service_uri` (`str`)
     """
     profiles: pulumi.Output[list]
     """
@@ -119,7 +119,7 @@ class AutoscaleSetting(pulumi.CustomResource):
           * `webhooks` (`pulumi.Input[list]`)
         
             * `properties` (`pulumi.Input[dict]`)
-            * `serviceUri` (`pulumi.Input[str]`)
+            * `service_uri` (`pulumi.Input[str]`)
         
         The **profiles** object supports the following:
         
@@ -231,7 +231,7 @@ class AutoscaleSetting(pulumi.CustomResource):
           * `webhooks` (`pulumi.Input[list]`)
         
             * `properties` (`pulumi.Input[dict]`)
-            * `serviceUri` (`pulumi.Input[str]`)
+            * `service_uri` (`pulumi.Input[str]`)
         
         The **profiles** object supports the following:
         

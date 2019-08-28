@@ -3,8 +3,10 @@
 
 // Export members:
 export * from "./getLab";
+export * from "./getVirtualNetwork";
 export * from "./lab";
 export * from "./linuxVirtualMachine";
 export * from "./policy";
+export * from "./schedule";
 export * from "./virtualNetwork";
 export * from "./windowsVirtualMachine";

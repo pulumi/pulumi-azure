@@ -80,7 +80,7 @@ func (r *ProtectedVM) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+// Specifies the id of the backup policy to use.
 func (r *ProtectedVM) BackupPolicyId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["backupPolicyId"])
 }
@@ -107,7 +107,7 @@ func (r *ProtectedVM) Tags() *pulumi.MapOutput {
 
 // Input properties used for looking up and filtering ProtectedVM resources.
 type ProtectedVMState struct {
-	// Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+	// Specifies the id of the backup policy to use.
 	BackupPolicyId interface{}
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName interface{}
@@ -121,7 +121,7 @@ type ProtectedVMState struct {
 
 // The set of arguments for constructing a ProtectedVM resource.
 type ProtectedVMArgs struct {
-	// Specifies the id of the backup policy to use. Changing this forces a new resource to be created.
+	// Specifies the id of the backup policy to use.
 	BackupPolicyId interface{}
 	// Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
 	RecoveryVaultName interface{}

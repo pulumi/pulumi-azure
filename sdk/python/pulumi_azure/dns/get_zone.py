@@ -60,7 +60,7 @@ class GetZoneResult:
             raise TypeError("Expected argument 'zone_type' to be a str")
         __self__.zone_type = zone_type
         """
-        The type of this DNS zone, such as `Public` or `Private`.
+        (**Deprecated**) The type of this DNS zone, such as `Public` or `Private`.
         """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")

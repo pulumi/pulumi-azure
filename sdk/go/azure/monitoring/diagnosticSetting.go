@@ -26,6 +26,7 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 		inputs["eventhubAuthorizationRuleId"] = nil
 		inputs["eventhubName"] = nil
 		inputs["logs"] = nil
+		inputs["logAnalyticsDestinationType"] = nil
 		inputs["logAnalyticsWorkspaceId"] = nil
 		inputs["metrics"] = nil
 		inputs["name"] = nil
@@ -35,6 +36,7 @@ func NewDiagnosticSetting(ctx *pulumi.Context,
 		inputs["eventhubAuthorizationRuleId"] = args.EventhubAuthorizationRuleId
 		inputs["eventhubName"] = args.EventhubName
 		inputs["logs"] = args.Logs
+		inputs["logAnalyticsDestinationType"] = args.LogAnalyticsDestinationType
 		inputs["logAnalyticsWorkspaceId"] = args.LogAnalyticsWorkspaceId
 		inputs["metrics"] = args.Metrics
 		inputs["name"] = args.Name
@@ -57,6 +59,7 @@ func GetDiagnosticSetting(ctx *pulumi.Context,
 		inputs["eventhubAuthorizationRuleId"] = state.EventhubAuthorizationRuleId
 		inputs["eventhubName"] = state.EventhubName
 		inputs["logs"] = state.Logs
+		inputs["logAnalyticsDestinationType"] = state.LogAnalyticsDestinationType
 		inputs["logAnalyticsWorkspaceId"] = state.LogAnalyticsWorkspaceId
 		inputs["metrics"] = state.Metrics
 		inputs["name"] = state.Name
@@ -95,6 +98,11 @@ func (r *DiagnosticSetting) Logs() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["logs"])
 }
 
+// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+func (r *DiagnosticSetting) LogAnalyticsDestinationType() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["logAnalyticsDestinationType"])
+}
+
 // Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 func (r *DiagnosticSetting) LogAnalyticsWorkspaceId() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["logAnalyticsWorkspaceId"])
@@ -128,6 +136,8 @@ type DiagnosticSettingState struct {
 	EventhubName interface{}
 	// One or more `log` blocks as defined below.
 	Logs interface{}
+	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	LogAnalyticsDestinationType interface{}
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId interface{}
 	// One or more `metric` blocks as defined below.
@@ -148,6 +158,8 @@ type DiagnosticSettingArgs struct {
 	EventhubName interface{}
 	// One or more `log` blocks as defined below.
 	Logs interface{}
+	// When set to 'Dedicated' logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy AzureDiagnostics table.
+	LogAnalyticsDestinationType interface{}
 	// Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. Changing this forces a new resource to be created.
 	LogAnalyticsWorkspaceId interface{}
 	// One or more `metric` blocks as defined below.

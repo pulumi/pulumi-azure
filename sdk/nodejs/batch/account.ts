@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -70,6 +72,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
     /**
+     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+     */
+    public readonly keyVaultReference!: pulumi.Output<outputs.batch.AccountKeyVaultReference | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -115,6 +121,7 @@ export class Account extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as AccountState | undefined;
             inputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
+            inputs["keyVaultReference"] = state ? state.keyVaultReference : undefined;
             inputs["location"] = state ? state.location : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["poolAllocationMode"] = state ? state.poolAllocationMode : undefined;
@@ -128,6 +135,7 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
@@ -157,6 +165,10 @@ export interface AccountState {
      * The account endpoint used to interact with the Batch service.
      */
     readonly accountEndpoint?: pulumi.Input<string>;
+    /**
+     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+     */
+    readonly keyVaultReference?: pulumi.Input<inputs.batch.AccountKeyVaultReference>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -195,6 +207,10 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * A `keyVaultReference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode. 
+     */
+    readonly keyVaultReference?: pulumi.Input<inputs.batch.AccountKeyVaultReference>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

@@ -40,6 +40,7 @@ from .virtual_network import *
 from .virtual_network_gateway import *
 from .virtual_network_gateway_connection import *
 from .virtual_network_peering import *
+from .virtual_wan import *
 from .get_application_security_group import *
 from .get_express_route_circuit import *
 from .get_firewall import *

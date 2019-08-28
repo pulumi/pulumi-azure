@@ -146,7 +146,7 @@ def get_pool(account_name=None,certificates=None,name=None,resource_group_name=N
           * `elevationLevel` (`str`) - The elevation level of the user identity under which the start task runs.
           * `scope` (`str`) - The scope of the user identity under which the start task runs.
     
-        * `userName` (`str`) - The username to be used by the Batch pool start task.
+        * `userName` (`str`) - The user name to log into the registry server.
     
       * `waitForSuccess` (`bool`) - A flag that indicates if the Batch pool should wait for the start task to be completed.
 
