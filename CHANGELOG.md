@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform 3f206601e7
-* Upgrade to v1.33.1 of the Azurerm Terraform Provider
+_(none)_
 
 ---
+
+## 1.0.0-rc.1 (2019-08-28)
+* Upgrade to pulumi-terraform 3f206601e7
+* Upgrade to v1.33.1 of the Azurerm Terraform Provider
 
 ## 1.0.0-beta.2 (2019-08-26)
 * Several modules have been renamed to better align with their terraform equivalents. The existing modules are still 
