@@ -2,7 +2,7 @@
 [![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fazure.svg)](https://npmjs.com/package/@pulumi/azure)
 [![Python version](https://badge.fury.io/py/pulumi-azure.svg)](https://pypi.org/project/pulumi-azure)
-[![GoDoc](https://godoc.org/github.com/pulumi/pulumi-gcp?status.svg)](https://godoc.org/github.com/pulumi/pulumi-azure)
+[![GoDoc](https://godoc.org/github.com/pulumi/pulumi-azure?status.svg)](https://godoc.org/github.com/pulumi/pulumi-azure)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-azure/blob/master/LICENSE)
 
 # Microsoft Azure Resource Provider
