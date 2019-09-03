@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 1.0.0 (2019-09-03)
+* Use 1.0 version of Pulumi dependency
+
 ## 1.0.0-rc.1 (2019-08-28)
 * Upgrade to pulumi-terraform 3f206601e7
 * Upgrade to v1.33.1 of the Azurerm Terraform Provider
