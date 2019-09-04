@@ -23,7 +23,6 @@ const storageAccount = new azure.storage.Account("storage", {
 });
 
 const queue = new azure.storage.Queue("queue", {
-    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
 });
 
@@ -34,7 +33,6 @@ const storageQueueFunc = queue.getEventFunction("storage-queue",
 
 // Storage Blobs
 const container = new azure.storage.Container("container", {
-    resourceGroupName: resourceGroup.name,
     storageAccountName: storageAccount.name,
     name: "blobs",
 });

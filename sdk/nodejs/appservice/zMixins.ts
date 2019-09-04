@@ -541,7 +541,6 @@ function createFunctionAppParts(name: string,
     }, opts);
 
     const container = args.container || new storageMod.Container(makeSafeStorageContainerName(name), {
-        resourceGroupName,
         storageAccountName: account.name,
         containerAccessType: "private",
     }, opts);
