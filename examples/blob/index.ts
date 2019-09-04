@@ -13,7 +13,6 @@ const storageAccount = new azure.storage.Account("storage", {
 
 // And a container to use to upload images into
 const storageContainer = new azure.storage.Container("images-container", {
-   resourceGroupName: resourceGroup.name,
    storageAccountName: storageAccount.name,
    name: "images",
 });
