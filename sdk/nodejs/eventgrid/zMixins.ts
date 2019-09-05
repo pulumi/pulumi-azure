@@ -15,6 +15,7 @@
 import * as pulumi from "@pulumi/pulumi";
 
 import * as eventgrid from "azure-eventgrid/lib/models";
+import fetch from "node-fetch";
 import * as appservice from "../appservice";
 import { ResourceGroup } from "../core";
 import { Account } from "../storage";
@@ -132,15 +133,45 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
         const keys = pulumi.output(this.functionApp.getHostKeys());
         const key = keys.systemKeys["eventgrid_extension"];
         const url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/runtime/webhooks/eventgrid?functionName=${name}&code=${key}`;
+        const liveUrl = url.apply(u => waitUntilEndpointIsUp(this, u));
 
         this.subscription = new EventSubscription(name, {
-            webhookEndpoint: { url },
+            webhookEndpoint: { url: liveUrl },
             scope: scope.id,
             ...args,
         }, { ...opts, parent: this });
 
         this.registerOutputs();
     }
+}
+
+async function waitUntilEndpointIsUp(resource: pulumi.Resource, url: string): Promise<string> {
+    if (pulumi.runtime.isDryRun()) {
+        return url;
+    }
+
+    // Prepare a sample webhook validation call.
+    const headers = { "aeg-event-type": "SubscriptionValidation" };
+    const body = "[{ \"data\": { \"validationCode\": \"pulumi-create\" }, \"eventType\": \"Microsoft.EventGrid.SubscriptionValidationEvent\" }]";
+
+    // Wait for up to 5 minutes
+    for (let i = 0; i < 30; i++) {
+        let status;
+        try {
+            const response = await fetch(url, { method: "POST", headers, body });
+            if (response.ok) {
+                return url;
+            }
+            status = `${response.status}: ${response.statusText}`;
+        } catch (e) {
+            status = `Error: ${e}`;
+        }
+        pulumi.log.info(`Waiting for Webhook ${url} to become available (${status}, ${i})`, resource);
+        // Wait for 10s between polls
+        await new Promise(r => setTimeout(r, 10000));
+    }
+
+    throw new Error("timed out waiting for Webhook to become up");
 }
 
 export interface StorageAccountEventGridCallbackSubscriptionArgs<T> extends EventGridCallbackSubscriptionArgs<T> {
