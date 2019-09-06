@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Fix an issue where `pulumi-azure` would fail to install on Windows (fixes [#356](https://github.com/pulumi/pulumi-azure/issues/356))
 
 ---
 
