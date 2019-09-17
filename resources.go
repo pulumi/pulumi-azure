@@ -539,9 +539,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_dns_ns_record": {
 				Tok: azureResource(azureDNS, "NsRecord"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					// This property is deprecated and renamed to `records`.  Don't pluralize this depreacted
+					// This property is deprecated and renamed to `records`.  Don't pluralize this deprecated
 					// version so that it doesn't conflict with the replacement.
 					"record": {Name: "record"},
+					// We need this explicit mapping to avoid automatic singularization when converting Pulumi
+					// to Terraform name, so that the deprecated singular property isn't picked up.
+					"records": {Name: "records"},
 				},
 			},
 			"azurerm_dns_ptr_record": {Tok: azureResource(azureDNS, "PtrRecord")},

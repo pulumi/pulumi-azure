@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Fix an issue where `pulumi-azure` would fail to install on Windows (fixes [#356](https://github.com/pulumi/pulumi-azure/issues/356))
+* Fix an issue where `records` property of `dns.NsRecord` was mistakenly mapped to the deprecated `record` property (fixes [#243](https://github.com/pulumi/pulumi-azure/issues/243))
+  [#361](https://github.com/pulumi/pulumi-azure/pull/361)
 
 ---
 
