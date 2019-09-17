@@ -6,8 +6,8 @@
 //
 // If this is your first time using this package, these two resources may be helpful:
 //
-// * [Azure Getting Started Guide](https://www.pulumi.com/docs/quickstart/azure): Get up and running quickly.
-// * [Azure Pulumi Setup Documentation](https://www.pulumi.com/docs/quickstart/azure/configure/): How to configure Pulumi
+// * [Azure Getting Started Guide](https://www.pulumi.com/docs/get-started/azure/): Get up and running quickly.
+// * [Azure Pulumi Setup Documentation](https://www.pulumi.com/docs/get-started/azure/configure/): How to configure Pulumi
 //     for use with your Azure account.
 //
 // Use the navigation below to see detailed documentation, including sample code, for each of the supported Azure services.
