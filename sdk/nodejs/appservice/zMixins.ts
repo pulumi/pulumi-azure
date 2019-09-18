@@ -516,9 +516,9 @@ function createFunctionAppParts(name: string,
         throw new Error("Deployment [archive] must be provided.");
     }
 
-    const { resourceGroupName, location } = getResourceGroupNameAndLocation(args, undefined);
+    const resourceGroupName = getResourceGroupName(args, undefined);
 
-    const resourceGroupArgs = { resourceGroupName, location };
+    const resourceGroupArgs = { resourceGroupName, location: args.location };
 
     const plan = args.plan || new appservice.Plan(name, {
         ...resourceGroupArgs,
@@ -767,21 +767,18 @@ interface BaseSubscriptionArgs {
 }
 
 /** @internal */
-export function getResourceGroupNameAndLocation(
+export function getResourceGroupName(
         args: BaseSubscriptionArgs, fallbackResourceGroupName: pulumi.Output<string> | undefined) {
 
     if (args.resourceGroup) {
-        return { resourceGroupName: args.resourceGroup.name, location: args.location || args.resourceGroup.location };
+        return args.resourceGroup.name;
     }
 
     if (!args.resourceGroupName && !fallbackResourceGroupName) {
         throw new Error("Either [args.resourceGroup] or [args.resourceGroupName] must be provided.");
     }
 
-    const resourceGroupName = util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName!);
-
-    const location = args.location || resourceGroupName.apply(n => core.getResourceGroup({ name: n })).location;
-    return { resourceGroupName, location };
+    return util.ifUndefined(args.resourceGroupName, fallbackResourceGroupName!);
 }
 
 function combineAppSettings(settings: pulumi.Input<{[key: string]: string}>[]): pulumi.Output<{[key: string]: string}> {

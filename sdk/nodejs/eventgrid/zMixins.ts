@@ -119,13 +119,12 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
                 args: EventGridCallbackSubscriptionArgs<T>,
                 opts: pulumi.ComponentResourceOptions = {}) {
 
-        const { resourceGroupName, location } =
-            appservice.getResourceGroupNameAndLocation(args, pulumi.output(scope.resourceGroupName));
+        const resourceGroupName = appservice.getResourceGroupName(args, pulumi.output(scope.resourceGroupName));
 
         super("azure:eventgrid:EventGridCallbackSubscription",
               name,
               new EventGridFunction(name, args),
-              { ...args, resourceGroupName, location },
+              { ...args, resourceGroupName },
               pulumi.mergeOptions(opts, {
                   aliases: [{ type: "azure:eventhub:EventGridCallbackSubscription" }],
               }));

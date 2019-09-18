@@ -89,12 +89,12 @@ export class IoTHubEventSubscription extends appservice.EventSubscription<EventH
     constructor(
         name: string, iotHub: IoTHub,
         args: IoTHubSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, iotHub.resourceGroupName);
+        const resourceGroupName = appservice.getResourceGroupName(args, iotHub.resourceGroupName);
 
         super("azure:eventhub:IoTHubEventSubscription",
             name,
             new IoTHubFunction(name, { ...args, iotHub }),
-            { ...args, resourceGroupName, location },
+            { ...args, resourceGroupName },
             { parent: iotHub, ...opts });
 
         this.iotHub = iotHub;

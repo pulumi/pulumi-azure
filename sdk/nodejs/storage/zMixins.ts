@@ -247,13 +247,12 @@ export class BlobEventSubscription extends appservice.EventSubscription<BlobCont
     constructor(
         name: string, container: storage.Container,
         args: BlobEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const { resourceGroupName, location } =
-            appservice.getResourceGroupNameAndLocation(args, container.resourceGroupName);
+        const resourceGroupName = appservice.getResourceGroupName(args, container.resourceGroupName);
 
         super("azure:storage:BlobEventSubscription",
             name,
             new BlobFunction(name, { ...args, container }),
-            { ...args, resourceGroupName, location },
+            { ...args, resourceGroupName },
             { parent: container, ...opts });
 
         this.registerOutputs();
@@ -524,12 +523,11 @@ export class QueueEventSubscription extends appservice.EventSubscription<QueueCo
 
         opts = { parent: queue, ...opts };
 
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, queue.resourceGroupName);
+        const resourceGroupName = appservice.getResourceGroupName(args, queue.resourceGroupName);
 
         super("azure:storage:QueueEventSubscription", name, new QueueFunction(name, { ...args, queue }), {
             ...args,
             resourceGroupName,
-            location,
         }, opts);
 
         this.registerOutputs();

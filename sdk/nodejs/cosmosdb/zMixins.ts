@@ -172,12 +172,12 @@ export class CosmosChangeFeedSubscription extends appservice.EventSubscription<C
     constructor(
         name: string, account: Account,
         args: CosmosChangeFeedSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, account.resourceGroupName);
+        const resourceGroupName = appservice.getResourceGroupName(args, account.resourceGroupName);
 
         super("azure:eventhub:CosmosChangeFeedSubscription",
             name,
             new CosmosDBFunction(name, { ...args, account }),
-            { ...args, resourceGroupName, location },
+            { ...args, resourceGroupName },
             { parent: account, ...opts });
 
         this.account = account;

@@ -190,12 +190,12 @@ export class QueueEventSubscription extends appservice.EventSubscription<Service
     constructor(
         name: string, queue: Queue,
         args: QueueEventSubscriptionArgs, opts: pulumi.ComponentResourceOptions = {}) {
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, queue.resourceGroupName);
+        const resourceGroupName = appservice.getResourceGroupName(args, queue.resourceGroupName);
 
         super("azure:servicehub:QueueEventSubscription",
             name,
             new ServiceBusFunction(name, { ...args, queue }),
-            { ...args, resourceGroupName, location },
+            { ...args, resourceGroupName },
             pulumi.mergeOptions(
                 { parent: queue, ...opts },
                 { aliases: [{ type: "azure:eventhub:QueueEventSubscription" }]}));
@@ -261,7 +261,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<Service
 
         opts = { parent: topic, ...opts };
 
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, topic.resourceGroupName);
+        const resourceGroupName = appservice.getResourceGroupName(args, topic.resourceGroupName);
 
         const subscription = args.subscription || new Subscription(name, {
             resourceGroupName,
@@ -273,7 +273,7 @@ export class TopicEventSubscription extends appservice.EventSubscription<Service
         super("azure:servicehub:TopicEventSubscription",
             name,
             new ServiceBusFunction(name, { ...args, topic, subscription }),
-            { ...args, resourceGroupName, location },
+            { ...args, resourceGroupName },
             pulumi.mergeOptions(opts, {
                 aliases: [{ type: "azure:eventhub:TopicEventSubscription" }] }));
 
