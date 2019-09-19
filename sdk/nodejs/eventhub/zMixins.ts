@@ -177,12 +177,12 @@ export class EventHubSubscription extends appservice.EventSubscription<EventHubC
 
         opts = { parent: eventHub, ...opts };
 
-        const { resourceGroupName, location } = appservice.getResourceGroupNameAndLocation(args, eventHub.resourceGroupName);
+        const resourceGroupName = appservice.getResourceGroupName(args, eventHub.resourceGroupName);
 
         super("azure:eventhub:EventHubSubscription",
             name,
             new EventHubFunction(name, { ...args, eventHub }),
-            { ...args, resourceGroupName, location },
+            { ...args, resourceGroupName },
             opts);
 
         this.eventHub = eventHub;
