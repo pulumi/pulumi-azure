@@ -10,8 +10,6 @@ let db = new cosmosdb.Account("test", {
     offerType: "Standard",
     consistencyPolicy: {
         consistencyLevel: "Session",
-        maxIntervalInSeconds: 5,
-        maxStalenessPrefix: 100,
     },
     geoLocations: [{ location: resourceGroup.location, failoverPriority: 0 }],
 });
