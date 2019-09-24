@@ -66,7 +66,7 @@ export interface GetClusterResult {
     /**
      * A map of versions of software used on this HDInsights Cluster.
      */
-    readonly componentVersions: {[key: string]: any};
+    readonly componentVersions: {[key: string]: string};
     /**
      * The SSH Endpoint of the Edge Node for this HDInsight Cluster, if an Edge Node exists.
      */
@@ -96,7 +96,7 @@ export interface GetClusterResult {
     /**
      * A map of tags assigned to the HDInsight Cluster.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The SKU / Tier of this HDInsight Cluster.
      */

@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
+// Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
 // 
 // > **Note:** All arguments including the `servicePrincipalKey` will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //

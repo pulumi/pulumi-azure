@@ -28,7 +28,7 @@ class ShareDirectory(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, metadata=None, name=None, share_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a Directory within an Azure Storage File Share.
+        Manages a Directory within an Azure Storage File Share.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -146,7 +146,7 @@ class Group(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_name_label=None, identity=None, image_registry_credentials=None, ip_address_type=None, location=None, name=None, network_profile_id=None, os_type=None, resource_group_name=None, restart_policy=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage as an Azure Container Group instance.
+        Manages as an Azure Container Group instance.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

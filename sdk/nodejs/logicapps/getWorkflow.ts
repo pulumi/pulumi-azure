@@ -69,12 +69,12 @@ export interface GetWorkflowResult {
     /**
      * A map of Key-Value pairs.
      */
-    readonly parameters: {[key: string]: any};
+    readonly parameters: {[key: string]: string};
     readonly resourceGroupName: string;
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The Schema used for this Logic App Workflow.
      */

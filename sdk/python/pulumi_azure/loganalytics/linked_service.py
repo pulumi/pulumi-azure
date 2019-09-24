@@ -14,7 +14,7 @@ class LinkedService(pulumi.CustomResource):
     """
     Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
     """
-    linked_service_properties: pulumi.Output[list]
+    linked_service_properties: pulumi.Output[dict]
     """
     A `linked_service_properties` block as defined below.
     
@@ -47,7 +47,7 @@ class LinkedService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] linked_service_properties: A `linked_service_properties` block as defined below.
+        :param pulumi.Input[dict] linked_service_properties: A `linked_service_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
@@ -103,7 +103,7 @@ class LinkedService(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_service_name: Name of the type of linkedServices resource to connect to the Log Analytics Workspace specified in `workspace_name`. Currently it defaults to and only supports `automation` as a value. Changing this forces a new resource to be created.
-        :param pulumi.Input[list] linked_service_properties: A `linked_service_properties` block as defined below.
+        :param pulumi.Input[dict] linked_service_properties: A `linked_service_properties` block as defined below.
         :param pulumi.Input[str] name: The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The resource id of the resource that will be linked to the workspace. This field has been deprecated in favour of the top-level `resource_id` field and will be removed in v2.0 of the AzureRM Provider.

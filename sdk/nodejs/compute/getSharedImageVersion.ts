@@ -93,7 +93,7 @@ export interface GetSharedImageVersionResult {
     /**
      * A mapping of tags assigned to the Shared Image.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * One or more `targetRegion` blocks as documented below.
      */

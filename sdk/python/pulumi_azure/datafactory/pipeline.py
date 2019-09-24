@@ -40,7 +40,7 @@ class Pipeline(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, annotations=None, data_factory_name=None, description=None, name=None, parameters=None, resource_group_name=None, variables=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a Pipeline inside a Azure Data Factory.
+        Manages a Pipeline inside a Azure Data Factory.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

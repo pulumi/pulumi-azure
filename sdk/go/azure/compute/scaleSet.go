@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage a virtual machine scale set.
+// Manages a virtual machine scale set.
 // 
 // > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
 // [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -58,6 +58,7 @@ func NewScaleSet(ctx *pulumi.Context,
 		inputs["overprovision"] = nil
 		inputs["plan"] = nil
 		inputs["priority"] = nil
+		inputs["proximityPlacementGroupId"] = nil
 		inputs["resourceGroupName"] = nil
 		inputs["rollingUpgradePolicy"] = nil
 		inputs["singlePlacementGroup"] = nil
@@ -86,6 +87,7 @@ func NewScaleSet(ctx *pulumi.Context,
 		inputs["overprovision"] = args.Overprovision
 		inputs["plan"] = args.Plan
 		inputs["priority"] = args.Priority
+		inputs["proximityPlacementGroupId"] = args.ProximityPlacementGroupId
 		inputs["resourceGroupName"] = args.ResourceGroupName
 		inputs["rollingUpgradePolicy"] = args.RollingUpgradePolicy
 		inputs["singlePlacementGroup"] = args.SinglePlacementGroup
@@ -127,6 +129,7 @@ func GetScaleSet(ctx *pulumi.Context,
 		inputs["overprovision"] = state.Overprovision
 		inputs["plan"] = state.Plan
 		inputs["priority"] = state.Priority
+		inputs["proximityPlacementGroupId"] = state.ProximityPlacementGroupId
 		inputs["resourceGroupName"] = state.ResourceGroupName
 		inputs["rollingUpgradePolicy"] = state.RollingUpgradePolicy
 		inputs["singlePlacementGroup"] = state.SinglePlacementGroup
@@ -239,6 +242,11 @@ func (r *ScaleSet) Priority() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["priority"])
 }
 
+// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+func (r *ScaleSet) ProximityPlacementGroupId() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["proximityPlacementGroupId"])
+}
+
 // The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 func (r *ScaleSet) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
@@ -324,6 +332,8 @@ type ScaleSetState struct {
 	Plan interface{}
 	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
 	Priority interface{}
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId interface{}
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.
@@ -381,6 +391,8 @@ type ScaleSetArgs struct {
 	Plan interface{}
 	// Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
 	Priority interface{}
+	// The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+	ProximityPlacementGroupId interface{}
 	// The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
 	// A `rollingUpgradePolicy` block as defined below. This is only applicable when the `upgradePolicyMode` is `Rolling`.

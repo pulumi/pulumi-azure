@@ -139,6 +139,10 @@ export class Assignment extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
+     * The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+     */
+    public /*out*/ readonly principalType!: pulumi.Output<string>;
+    /**
      * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
     public readonly roleDefinitionId!: pulumi.Output<string>;
@@ -150,6 +154,10 @@ export class Assignment extends pulumi.CustomResource {
      * The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
      */
     public readonly scope!: pulumi.Output<string>;
+    /**
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+     */
+    public readonly skipServicePrincipalAadCheck!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -165,9 +173,11 @@ export class Assignment extends pulumi.CustomResource {
             const state = argsOrState as AssignmentState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["principalId"] = state ? state.principalId : undefined;
+            inputs["principalType"] = state ? state.principalType : undefined;
             inputs["roleDefinitionId"] = state ? state.roleDefinitionId : undefined;
             inputs["roleDefinitionName"] = state ? state.roleDefinitionName : undefined;
             inputs["scope"] = state ? state.scope : undefined;
+            inputs["skipServicePrincipalAadCheck"] = state ? state.skipServicePrincipalAadCheck : undefined;
         } else {
             const args = argsOrState as AssignmentArgs | undefined;
             if (!args || args.principalId === undefined) {
@@ -181,6 +191,8 @@ export class Assignment extends pulumi.CustomResource {
             inputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
             inputs["roleDefinitionName"] = args ? args.roleDefinitionName : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["skipServicePrincipalAadCheck"] = args ? args.skipServicePrincipalAadCheck : undefined;
+            inputs["principalType"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -206,6 +218,10 @@ export interface AssignmentState {
      */
     readonly principalId?: pulumi.Input<string>;
     /**
+     * The type of the `principalId`, e.g. User, Group, Service Principal, Application, etc.
+     */
+    readonly principalType?: pulumi.Input<string>;
+    /**
      * The Scoped-ID of the Role Definition. Changing this forces a new resource to be created. Conflicts with `roleDefinitionName`.
      */
     readonly roleDefinitionId?: pulumi.Input<string>;
@@ -217,6 +233,10 @@ export interface AssignmentState {
      * The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
      */
     readonly scope?: pulumi.Input<string>;
+    /**
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+     */
+    readonly skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }
 
 /**
@@ -243,4 +263,8 @@ export interface AssignmentArgs {
      * The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`, or `/providers/Microsoft.Management/managementGroups/myMG`. Changing this forces a new resource to be created.
      */
     readonly scope: pulumi.Input<string>;
+    /**
+     * If the `principalId` is a newly provisioned `Service Principal` set this value to `true` to skip the `Azure Active Directory` check which may fail due to replication lag. This argument is only valid if the `principalId` is a `Service Principal` identity. If it is not a `Service Principal` identity it will cause the role assignment to fail. Defaults to `false`.
+     */
+    readonly skipServicePrincipalAadCheck?: pulumi.Input<boolean>;
 }

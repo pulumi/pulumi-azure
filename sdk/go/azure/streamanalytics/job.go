@@ -18,24 +18,6 @@ type Job struct {
 // NewJob registers a new resource with the given unique name, arguments, and options.
 func NewJob(ctx *pulumi.Context,
 	name string, args *JobArgs, opts ...pulumi.ResourceOpt) (*Job, error) {
-	if args == nil || args.CompatibilityLevel == nil {
-		return nil, errors.New("missing required argument 'CompatibilityLevel'")
-	}
-	if args == nil || args.DataLocale == nil {
-		return nil, errors.New("missing required argument 'DataLocale'")
-	}
-	if args == nil || args.EventsLateArrivalMaxDelayInSeconds == nil {
-		return nil, errors.New("missing required argument 'EventsLateArrivalMaxDelayInSeconds'")
-	}
-	if args == nil || args.EventsOutOfOrderMaxDelayInSeconds == nil {
-		return nil, errors.New("missing required argument 'EventsOutOfOrderMaxDelayInSeconds'")
-	}
-	if args == nil || args.EventsOutOfOrderPolicy == nil {
-		return nil, errors.New("missing required argument 'EventsOutOfOrderPolicy'")
-	}
-	if args == nil || args.OutputErrorPolicy == nil {
-		return nil, errors.New("missing required argument 'OutputErrorPolicy'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -128,17 +110,17 @@ func (r *Job) DataLocale() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["dataLocale"])
 }
 
-// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).
+// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
 func (r *Job) EventsLateArrivalMaxDelayInSeconds() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["eventsLateArrivalMaxDelayInSeconds"])
 }
 
-// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s).
+// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
 func (r *Job) EventsOutOfOrderMaxDelayInSeconds() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["eventsOutOfOrderMaxDelayInSeconds"])
 }
 
-// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.
+// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
 func (r *Job) EventsOutOfOrderPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["eventsOutOfOrderPolicy"])
 }
@@ -158,7 +140,7 @@ func (r *Job) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
 func (r *Job) OutputErrorPolicy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["outputErrorPolicy"])
 }
@@ -189,11 +171,11 @@ type JobState struct {
 	CompatibilityLevel interface{}
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
 	DataLocale interface{}
-	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).
+	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
 	EventsLateArrivalMaxDelayInSeconds interface{}
-	// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s).
+	// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
 	EventsOutOfOrderMaxDelayInSeconds interface{}
-	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.
+	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
 	EventsOutOfOrderPolicy interface{}
 	// The Job ID assigned by the Stream Analytics Job.
 	JobId interface{}
@@ -201,7 +183,7 @@ type JobState struct {
 	Location interface{}
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	Name interface{}
-	// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+	// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
 	OutputErrorPolicy interface{}
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}
@@ -219,17 +201,17 @@ type JobArgs struct {
 	CompatibilityLevel interface{}
 	// Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
 	DataLocale interface{}
-	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).
+	// Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
 	EventsLateArrivalMaxDelayInSeconds interface{}
-	// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s).
+	// Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
 	EventsOutOfOrderMaxDelayInSeconds interface{}
-	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.
+	// Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
 	EventsOutOfOrderPolicy interface{}
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location interface{}
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	Name interface{}
-	// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+	// Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
 	OutputErrorPolicy interface{}
 	// The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
 	ResourceGroupName interface{}

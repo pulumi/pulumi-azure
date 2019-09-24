@@ -77,6 +77,10 @@ export class AvailabilitySet extends pulumi.CustomResource {
      */
     public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
     /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["platformFaultDomainCount"] = state ? state.platformFaultDomainCount : undefined;
             inputs["platformUpdateDomainCount"] = state ? state.platformUpdateDomainCount : undefined;
+            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["tags"] = state ? state.tags : undefined;
         } else {
@@ -114,6 +119,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
             inputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
+            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
         }
@@ -153,6 +159,10 @@ export interface AvailabilitySetState {
      */
     readonly platformUpdateDomainCount?: pulumi.Input<number>;
     /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -186,6 +196,10 @@ export interface AvailabilitySetArgs {
      * Specifies the number of update domains that are used. Defaults to 5.
      */
     readonly platformUpdateDomainCount?: pulumi.Input<number>;
+    /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the availability set. Changing this forces a new resource to be created.
      */

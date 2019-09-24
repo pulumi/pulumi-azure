@@ -3,6 +3,7 @@
 
 // Export members:
 export * from "./getNamespace";
+export * from "./getNamespaceAuthorizationRule";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./queue";

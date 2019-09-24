@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a [metric-based alert rule](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) in Azure Monitor.
  * 
- * > **NOTE:** This resource has been deprecated in favour of the `azure.monitoring.MetricAlertRule` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
+ * > **NOTE:** This resource has been [deprecated](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement) in favour of the `azure.monitoring.MetricAlert` resource and will be removed in the next major version of the AzureRM Provider. The new resource shares the same fields as this one, and information on migrating across can be found in this guide.
  * 
  * ## Example Usage (CPU Percentage of a virtual machine)
  * 
@@ -151,7 +151,7 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
      * The threshold value that activates the alert.
      */
@@ -287,7 +287,7 @@ export interface AlertRuleState {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The threshold value that activates the alert.
      */
@@ -349,7 +349,7 @@ export interface AlertRuleArgs {
     /**
      * A mapping of tags to assign to the resource. Changing this forces a new resource to be created.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The threshold value that activates the alert.
      */

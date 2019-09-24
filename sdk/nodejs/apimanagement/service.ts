@@ -64,7 +64,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    public readonly additionalLocation!: pulumi.Output<outputs.apimanagement.ServiceAdditionalLocation | undefined>;
+    public readonly additionalLocations!: pulumi.Output<outputs.apimanagement.ServiceAdditionalLocation[] | undefined>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */
@@ -162,7 +162,7 @@ export class Service extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["additionalLocation"] = state ? state.additionalLocation : undefined;
+            inputs["additionalLocations"] = state ? state.additionalLocations : undefined;
             inputs["certificates"] = state ? state.certificates : undefined;
             inputs["gatewayRegionalUrl"] = state ? state.gatewayRegionalUrl : undefined;
             inputs["gatewayUrl"] = state ? state.gatewayUrl : undefined;
@@ -198,7 +198,7 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
-            inputs["additionalLocation"] = args ? args.additionalLocation : undefined;
+            inputs["additionalLocations"] = args ? args.additionalLocations : undefined;
             inputs["certificates"] = args ? args.certificates : undefined;
             inputs["hostnameConfiguration"] = args ? args.hostnameConfiguration : undefined;
             inputs["identity"] = args ? args.identity : undefined;
@@ -239,7 +239,7 @@ export interface ServiceState {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    readonly additionalLocation?: pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>;
+    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */
@@ -333,7 +333,7 @@ export interface ServiceArgs {
     /**
      * One or more `additionalLocation` blocks as defined below.
      */
-    readonly additionalLocation?: pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>;
+    readonly additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.ServiceAdditionalLocation>[]>;
     /**
      * One or more (up to 10) `certificate` blocks as defined below.
      */

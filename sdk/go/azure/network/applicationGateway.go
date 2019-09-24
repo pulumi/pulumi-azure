@@ -70,6 +70,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["sslCertificates"] = nil
 		inputs["sslPolicies"] = nil
 		inputs["tags"] = nil
+		inputs["trustedRootCertificates"] = nil
 		inputs["urlPathMaps"] = nil
 		inputs["wafConfiguration"] = nil
 		inputs["zones"] = nil
@@ -97,6 +98,7 @@ func NewApplicationGateway(ctx *pulumi.Context,
 		inputs["sslCertificates"] = args.SslCertificates
 		inputs["sslPolicies"] = args.SslPolicies
 		inputs["tags"] = args.Tags
+		inputs["trustedRootCertificates"] = args.TrustedRootCertificates
 		inputs["urlPathMaps"] = args.UrlPathMaps
 		inputs["wafConfiguration"] = args.WafConfiguration
 		inputs["zones"] = args.Zones
@@ -137,6 +139,7 @@ func GetApplicationGateway(ctx *pulumi.Context,
 		inputs["sslCertificates"] = state.SslCertificates
 		inputs["sslPolicies"] = state.SslPolicies
 		inputs["tags"] = state.Tags
+		inputs["trustedRootCertificates"] = state.TrustedRootCertificates
 		inputs["urlPathMaps"] = state.UrlPathMaps
 		inputs["wafConfiguration"] = state.WafConfiguration
 		inputs["zones"] = state.Zones
@@ -274,6 +277,11 @@ func (r *ApplicationGateway) Tags() *pulumi.MapOutput {
 	return (*pulumi.MapOutput)(r.s.State["tags"])
 }
 
+// One or more `trustedRootCertificate` blocks as defined below.
+func (r *ApplicationGateway) TrustedRootCertificates() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["trustedRootCertificates"])
+}
+
 // One or more `urlPathMap` blocks as defined below.
 func (r *ApplicationGateway) UrlPathMaps() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["urlPathMaps"])
@@ -338,6 +346,8 @@ type ApplicationGatewayState struct {
 	SslPolicies interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// One or more `trustedRootCertificate` blocks as defined below.
+	TrustedRootCertificates interface{}
 	// One or more `urlPathMap` blocks as defined below.
 	UrlPathMaps interface{}
 	// A `wafConfiguration` block as defined below.
@@ -395,6 +405,8 @@ type ApplicationGatewayArgs struct {
 	SslPolicies interface{}
 	// A mapping of tags to assign to the resource.
 	Tags interface{}
+	// One or more `trustedRootCertificate` blocks as defined below.
+	TrustedRootCertificates interface{}
 	// One or more `urlPathMap` blocks as defined below.
 	UrlPathMaps interface{}
 	// A `wafConfiguration` block as defined below.

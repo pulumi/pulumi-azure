@@ -44,6 +44,7 @@ from .virtual_wan import *
 from .get_application_security_group import *
 from .get_express_route_circuit import *
 from .get_firewall import *
+from .get_network_ddos_protection_plan import *
 from .get_network_interface import *
 from .get_network_security_group import *
 from .get_network_watcher import *

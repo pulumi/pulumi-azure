@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Load Balancer Resource.
+ * Manages a Load Balancer Resource.
  * 
  * ## Example Usage
  * 

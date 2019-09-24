@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Recovery Services Vault.
+ * Manages an Recovery Services Vault.
  * 
  * ## Example Usage
  * 

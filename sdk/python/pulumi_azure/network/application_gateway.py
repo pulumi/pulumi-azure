@@ -261,6 +261,14 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A mapping of tags to assign to the resource.
     """
+    trusted_root_certificates: pulumi.Output[list]
+    """
+    One or more `trusted_root_certificate` blocks as defined below.
+    
+      * `data` (`str`)
+      * `id` (`str`) - The ID of the Rewrite Rule Set
+      * `name` (`str`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+    """
     url_path_maps: pulumi.Output[list]
     """
     One or more `url_path_map` blocks as defined below.
@@ -316,7 +324,7 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     A collection of availability zones to spread the Application Gateway over.
     """
-    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages an Application Gateway.
         
@@ -346,6 +354,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[list] ssl_policies: a `ssl policy` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[list] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[dict] waf_configuration: A `waf_configuration` block as defined below.
         :param pulumi.Input[list] zones: A collection of availability zones to spread the Application Gateway over.
@@ -541,6 +550,12 @@ class ApplicationGateway(pulumi.CustomResource):
           * `minProtocolVersion` (`pulumi.Input[str]`)
           * `policyName` (`pulumi.Input[str]`)
           * `policyType` (`pulumi.Input[str]`)
+        
+        The **trusted_root_certificates** object supports the following:
+        
+          * `data` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
+          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
         
         The **url_path_maps** object supports the following:
         
@@ -649,6 +664,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['ssl_certificates'] = ssl_certificates
             __props__['ssl_policies'] = ssl_policies
             __props__['tags'] = tags
+            __props__['trusted_root_certificates'] = trusted_root_certificates
             __props__['url_path_maps'] = url_path_maps
             __props__['waf_configuration'] = waf_configuration
             __props__['zones'] = zones
@@ -659,7 +675,7 @@ class ApplicationGateway(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, url_path_maps=None, waf_configuration=None, zones=None):
+    def get(resource_name, id, opts=None, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings=None, custom_error_configurations=None, disabled_ssl_protocols=None, enable_http2=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, identity=None, location=None, name=None, probes=None, redirect_configurations=None, request_routing_rules=None, resource_group_name=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policies=None, tags=None, trusted_root_certificates=None, url_path_maps=None, waf_configuration=None, zones=None):
         """
         Get an existing ApplicationGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -691,6 +707,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[list] ssl_certificates: One or more `ssl_certificate` blocks as defined below.
         :param pulumi.Input[list] ssl_policies: a `ssl policy` block as defined below.
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[list] trusted_root_certificates: One or more `trusted_root_certificate` blocks as defined below.
         :param pulumi.Input[list] url_path_maps: One or more `url_path_map` blocks as defined below.
         :param pulumi.Input[dict] waf_configuration: A `waf_configuration` block as defined below.
         :param pulumi.Input[list] zones: A collection of availability zones to spread the Application Gateway over.
@@ -887,6 +904,12 @@ class ApplicationGateway(pulumi.CustomResource):
           * `policyName` (`pulumi.Input[str]`)
           * `policyType` (`pulumi.Input[str]`)
         
+        The **trusted_root_certificates** object supports the following:
+        
+          * `data` (`pulumi.Input[str]`)
+          * `id` (`pulumi.Input[str]`) - The ID of the Rewrite Rule Set
+          * `name` (`pulumi.Input[str]`) - The name of the Application Gateway. Changing this forces a new resource to be created.
+        
         The **url_path_maps** object supports the following:
         
           * `defaultBackendAddressPoolId` (`pulumi.Input[str]`) - The ID of the Default Backend Address Pool.
@@ -962,6 +985,7 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__["ssl_certificates"] = ssl_certificates
         __props__["ssl_policies"] = ssl_policies
         __props__["tags"] = tags
+        __props__["trusted_root_certificates"] = trusted_root_certificates
         __props__["url_path_maps"] = url_path_maps
         __props__["waf_configuration"] = waf_configuration
         __props__["zones"] = zones

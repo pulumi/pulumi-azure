@@ -69,7 +69,7 @@ export interface GetSharedImageGalleryResult {
     /**
      * A mapping of tags which are assigned to the Shared Image Gallery.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The unique name assigned to the Shared Image Gallery.
      */

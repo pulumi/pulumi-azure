@@ -37,7 +37,7 @@ class Table(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, acls=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a Table within an Azure Storage Account.
+        Manages a Table within an Azure Storage Account.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

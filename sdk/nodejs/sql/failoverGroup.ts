@@ -90,7 +90,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly databases!: pulumi.Output<string[] | undefined>;
     /**
-     * the location of a SQL server in `partnerServers`
+     * the location of the failover group.
      */
     public /*out*/ readonly location!: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * the current role of the SQL server named in `serverName`
+     * local replication role of the failover group instance.
      */
     public /*out*/ readonly role!: pulumi.Output<string>;
     /**
@@ -193,7 +193,7 @@ export interface FailoverGroupState {
      */
     readonly databases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * the location of a SQL server in `partnerServers`
+     * the location of the failover group.
      */
     readonly location?: pulumi.Input<string>;
     /**
@@ -217,7 +217,7 @@ export interface FailoverGroupState {
      */
     readonly resourceGroupName?: pulumi.Input<string>;
     /**
-     * the current role of the SQL server named in `serverName`
+     * local replication role of the failover group instance.
      */
     readonly role?: pulumi.Input<string>;
     /**

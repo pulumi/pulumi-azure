@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage Azure Batch Application instance.
+ * Manages Azure Batch Application instance.
  * 
  * ## Example Usage
  * 

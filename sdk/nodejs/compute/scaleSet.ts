@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a virtual machine scale set.
+ * Manages a virtual machine scale set.
  * 
  * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.
  * [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
@@ -339,6 +339,10 @@ export class ScaleSet extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -408,6 +412,7 @@ export class ScaleSet extends pulumi.CustomResource {
             inputs["overprovision"] = state ? state.overprovision : undefined;
             inputs["plan"] = state ? state.plan : undefined;
             inputs["priority"] = state ? state.priority : undefined;
+            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
             inputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
@@ -455,6 +460,7 @@ export class ScaleSet extends pulumi.CustomResource {
             inputs["overprovision"] = args ? args.overprovision : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["priority"] = args ? args.priority : undefined;
+            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
             inputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
@@ -546,6 +552,10 @@ export interface ScaleSetState {
      * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
      */
     readonly priority?: pulumi.Input<string>;
+    /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
      */
@@ -657,6 +667,10 @@ export interface ScaleSetArgs {
      * Specifies the priority for the Virtual Machines in the Scale Set. Defaults to `Regular`. Possible values are `Low` and `Regular`.
      */
     readonly priority?: pulumi.Input<string>;
+    /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created.
      */

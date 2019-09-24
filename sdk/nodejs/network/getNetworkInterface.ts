@@ -112,7 +112,7 @@ export interface GetNetworkInterfaceResult {
     /**
      * List the tags associated to the specified Network Interface.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The ID of the virtual machine that the specified Network Interface is attached to.
      */

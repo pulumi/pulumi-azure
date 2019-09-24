@@ -138,7 +138,7 @@ func (r *MetricAlert) ResourceGroupName() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["resourceGroupName"])
 }
 
-// The resource ID at which the metric criteria should be applied.
+// A set of strings of resource IDs at which the metric criteria should be applied.
 func (r *MetricAlert) Scopes() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["scopes"])
 }
@@ -176,7 +176,7 @@ type MetricAlertState struct {
 	Name interface{}
 	// The name of the resource group in which to create the Metric Alert instance.
 	ResourceGroupName interface{}
-	// The resource ID at which the metric criteria should be applied.
+	// A set of strings of resource IDs at which the metric criteria should be applied.
 	Scopes interface{}
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
 	Severity interface{}
@@ -204,7 +204,7 @@ type MetricAlertArgs struct {
 	Name interface{}
 	// The name of the resource group in which to create the Metric Alert instance.
 	ResourceGroupName interface{}
-	// The resource ID at which the metric criteria should be applied.
+	// A set of strings of resource IDs at which the metric criteria should be applied.
 	Scopes interface{}
 	// The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`.
 	Severity interface{}

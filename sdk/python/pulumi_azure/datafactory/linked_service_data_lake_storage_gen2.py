@@ -60,7 +60,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, additional_properties=None, annotations=None, data_factory_name=None, description=None, integration_runtime_name=None, name=None, parameters=None, resource_group_name=None, service_principal_id=None, service_principal_key=None, tenant=None, url=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
+        Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
         
         > **Note:** All arguments including the `service_principal_key` will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
         

@@ -117,6 +117,11 @@ class AppService(pulumi.CustomResource):
     
       * `httpLogs` (`dict`)
     
+        * `azureBlobStorage` (`dict`)
+    
+          * `retentionInDays` (`float`)
+          * `sasUrl` (`str`)
+    
         * `fileSystem` (`dict`)
     
           * `retentionInDays` (`float`)
@@ -157,6 +162,7 @@ class AppService(pulumi.CustomResource):
     
         * `ipAddress` (`str`)
         * `subnetMask` (`str`)
+        * `virtualNetworkSubnetId` (`str`)
     
       * `javaContainer` (`str`)
       * `javaContainerVersion` (`str`)
@@ -309,6 +315,11 @@ class AppService(pulumi.CustomResource):
         
           * `httpLogs` (`pulumi.Input[dict]`)
         
+            * `azureBlobStorage` (`pulumi.Input[dict]`)
+        
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `sasUrl` (`pulumi.Input[str]`)
+        
             * `fileSystem` (`pulumi.Input[dict]`)
         
               * `retentionInDays` (`pulumi.Input[float]`)
@@ -331,6 +342,7 @@ class AppService(pulumi.CustomResource):
         
             * `ipAddress` (`pulumi.Input[str]`)
             * `subnetMask` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
         
           * `javaContainer` (`pulumi.Input[str]`)
           * `javaContainerVersion` (`pulumi.Input[str]`)
@@ -520,6 +532,11 @@ class AppService(pulumi.CustomResource):
         
           * `httpLogs` (`pulumi.Input[dict]`)
         
+            * `azureBlobStorage` (`pulumi.Input[dict]`)
+        
+              * `retentionInDays` (`pulumi.Input[float]`)
+              * `sasUrl` (`pulumi.Input[str]`)
+        
             * `fileSystem` (`pulumi.Input[dict]`)
         
               * `retentionInDays` (`pulumi.Input[float]`)
@@ -542,6 +559,7 @@ class AppService(pulumi.CustomResource):
         
             * `ipAddress` (`pulumi.Input[str]`)
             * `subnetMask` (`pulumi.Input[str]`)
+            * `virtualNetworkSubnetId` (`pulumi.Input[str]`)
         
           * `javaContainer` (`pulumi.Input[str]`)
           * `javaContainerVersion` (`pulumi.Input[str]`)

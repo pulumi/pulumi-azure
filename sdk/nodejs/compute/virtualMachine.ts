@@ -37,6 +37,10 @@ export class VirtualMachine extends pulumi.CustomResource {
     }
 
     /**
+     * A `additionalCapabilities` block.
+     */
+    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.VirtualMachineAdditionalCapabilities | undefined>;
+    /**
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
     public readonly availabilitySetId!: pulumi.Output<string>;
@@ -97,6 +101,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      */
     public readonly primaryNetworkInterfaceId!: pulumi.Output<string | undefined>;
     /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    public readonly proximityPlacementGroupId!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -137,6 +145,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VirtualMachineState | undefined;
+            inputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
             inputs["availabilitySetId"] = state ? state.availabilitySetId : undefined;
             inputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
             inputs["deleteDataDisksOnTermination"] = state ? state.deleteDataDisksOnTermination : undefined;
@@ -152,6 +161,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["osProfileWindowsConfig"] = state ? state.osProfileWindowsConfig : undefined;
             inputs["plan"] = state ? state.plan : undefined;
             inputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
+            inputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             inputs["storageDataDisks"] = state ? state.storageDataDisks : undefined;
             inputs["storageImageReference"] = state ? state.storageImageReference : undefined;
@@ -173,6 +183,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (!args || args.vmSize === undefined) {
                 throw new Error("Missing required property 'vmSize'");
             }
+            inputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             inputs["availabilitySetId"] = args ? args.availabilitySetId : undefined;
             inputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
             inputs["deleteDataDisksOnTermination"] = args ? args.deleteDataDisksOnTermination : undefined;
@@ -188,6 +199,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             inputs["osProfileWindowsConfig"] = args ? args.osProfileWindowsConfig : undefined;
             inputs["plan"] = args ? args.plan : undefined;
             inputs["primaryNetworkInterfaceId"] = args ? args.primaryNetworkInterfaceId : undefined;
+            inputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["storageDataDisks"] = args ? args.storageDataDisks : undefined;
             inputs["storageImageReference"] = args ? args.storageImageReference : undefined;
@@ -211,6 +223,10 @@ export class VirtualMachine extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualMachine resources.
  */
 export interface VirtualMachineState {
+    /**
+     * A `additionalCapabilities` block.
+     */
+    readonly additionalCapabilities?: pulumi.Input<inputs.compute.VirtualMachineAdditionalCapabilities>;
     /**
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -272,6 +288,10 @@ export interface VirtualMachineState {
      */
     readonly primaryNetworkInterfaceId?: pulumi.Input<string>;
     /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
+    /**
      * Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
     readonly resourceGroupName?: pulumi.Input<string>;
@@ -305,6 +325,10 @@ export interface VirtualMachineState {
  * The set of arguments for constructing a VirtualMachine resource.
  */
 export interface VirtualMachineArgs {
+    /**
+     * A `additionalCapabilities` block.
+     */
+    readonly additionalCapabilities?: pulumi.Input<inputs.compute.VirtualMachineAdditionalCapabilities>;
     /**
      * The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */
@@ -365,6 +389,10 @@ export interface VirtualMachineArgs {
      * The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
      */
     readonly primaryNetworkInterfaceId?: pulumi.Input<string>;
+    /**
+     * The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+     */
+    readonly proximityPlacementGroupId?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
      */

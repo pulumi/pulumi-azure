@@ -13,10 +13,22 @@ class GetManagedDiskResult:
     """
     A collection of values returned by getManagedDisk.
     """
-    def __init__(__self__, create_option=None, disk_size_gb=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None, id=None):
+    def __init__(__self__, create_option=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, name=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_type=None, tags=None, zones=None, id=None):
         if create_option and not isinstance(create_option, str):
             raise TypeError("Expected argument 'create_option' to be a str")
         __self__.create_option = create_option
+        if disk_iops_read_write and not isinstance(disk_iops_read_write, float):
+            raise TypeError("Expected argument 'disk_iops_read_write' to be a float")
+        __self__.disk_iops_read_write = disk_iops_read_write
+        """
+        The number of IOPS allowed for this disk. One operation can transfer between 4k and 256k bytes.
+        """
+        if disk_mbps_read_write and not isinstance(disk_mbps_read_write, float):
+            raise TypeError("Expected argument 'disk_mbps_read_write' to be a float")
+        __self__.disk_mbps_read_write = disk_mbps_read_write
+        """
+        The bandwidth allowed for this disk. 
+        """
         if disk_size_gb and not isinstance(disk_size_gb, float):
             raise TypeError("Expected argument 'disk_size_gb' to be a float")
         __self__.disk_size_gb = disk_size_gb
@@ -78,6 +90,8 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
             yield self
         return GetManagedDiskResult(
             create_option=self.create_option,
+            disk_iops_read_write=self.disk_iops_read_write,
+            disk_mbps_read_write=self.disk_mbps_read_write,
             disk_size_gb=self.disk_size_gb,
             name=self.name,
             os_type=self.os_type,
@@ -112,6 +126,8 @@ def get_managed_disk(name=None,resource_group_name=None,tags=None,zones=None,opt
 
     return AwaitableGetManagedDiskResult(
         create_option=__ret__.get('createOption'),
+        disk_iops_read_write=__ret__.get('diskIopsReadWrite'),
+        disk_mbps_read_write=__ret__.get('diskMbpsReadWrite'),
         disk_size_gb=__ret__.get('diskSizeGb'),
         name=__ret__.get('name'),
         os_type=__ret__.get('osType'),

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a ServiceBus Topic.
+ * Manages a ServiceBus Topic.
  * 
  * **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
  * 

@@ -86,7 +86,7 @@ class Topic(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_filtering_messages_before_publishing=None, enable_partitioning=None, location=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, resource_group_name=None, status=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a ServiceBus Topic.
+        Manages a ServiceBus Topic.
         
         **Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
         

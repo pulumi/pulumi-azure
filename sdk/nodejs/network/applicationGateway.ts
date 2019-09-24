@@ -221,6 +221,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: any}>;
     /**
+     * One or more `trustedRootCertificate` blocks as defined below.
+     */
+    public readonly trustedRootCertificates!: pulumi.Output<outputs.network.ApplicationGatewayTrustedRootCertificate[] | undefined>;
+    /**
      * One or more `urlPathMap` blocks as defined below.
      */
     public readonly urlPathMaps!: pulumi.Output<outputs.network.ApplicationGatewayUrlPathMap[] | undefined>;
@@ -268,6 +272,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["sslCertificates"] = state ? state.sslCertificates : undefined;
             inputs["sslPolicies"] = state ? state.sslPolicies : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["trustedRootCertificates"] = state ? state.trustedRootCertificates : undefined;
             inputs["urlPathMaps"] = state ? state.urlPathMaps : undefined;
             inputs["wafConfiguration"] = state ? state.wafConfiguration : undefined;
             inputs["zones"] = state ? state.zones : undefined;
@@ -323,6 +328,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             inputs["sslCertificates"] = args ? args.sslCertificates : undefined;
             inputs["sslPolicies"] = args ? args.sslPolicies : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trustedRootCertificates"] = args ? args.trustedRootCertificates : undefined;
             inputs["urlPathMaps"] = args ? args.urlPathMaps : undefined;
             inputs["wafConfiguration"] = args ? args.wafConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
@@ -436,6 +442,10 @@ export interface ApplicationGatewayState {
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
     /**
+     * One or more `trustedRootCertificate` blocks as defined below.
+     */
+    readonly trustedRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedRootCertificate>[]>;
+    /**
      * One or more `urlPathMap` blocks as defined below.
      */
     readonly urlPathMaps?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayUrlPathMap>[]>;
@@ -546,6 +556,10 @@ export interface ApplicationGatewayArgs {
      * A mapping of tags to assign to the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * One or more `trustedRootCertificate` blocks as defined below.
+     */
+    readonly trustedRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayTrustedRootCertificate>[]>;
     /**
      * One or more `urlPathMap` blocks as defined below.
      */

@@ -5,9 +5,11 @@
 # Export this package's modules as members:
 from .app_service import *
 from .active_slot import *
+from .certificate import *
 from .custom_hostname_binding import *
 from .plan import *
 from .slot import *
+from .source_code_token import *
 from .function_app import *
 from .get_app_service import *
 from .get_app_service_plan import *

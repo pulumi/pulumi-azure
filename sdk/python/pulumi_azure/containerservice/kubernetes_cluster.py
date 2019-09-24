@@ -128,6 +128,10 @@ class KubernetesCluster(pulumi.CustomResource):
             * `enabled` (`pulumi.Input[bool]`)
             * `httpApplicationRoutingZoneName` (`pulumi.Input[str]`) - The Zone Name of the HTTP Application Routing.
         
+          * `kubeDashboard` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
+        
           * `omsAgent` (`pulumi.Input[dict]`)
         
             * `enabled` (`pulumi.Input[bool]`)
@@ -276,6 +280,10 @@ class KubernetesCluster(pulumi.CustomResource):
         
             * `enabled` (`pulumi.Input[bool]`)
             * `httpApplicationRoutingZoneName` (`pulumi.Input[str]`) - The Zone Name of the HTTP Application Routing.
+        
+          * `kubeDashboard` (`pulumi.Input[dict]`)
+        
+            * `enabled` (`pulumi.Input[bool]`)
         
           * `omsAgent` (`pulumi.Input[dict]`)
         

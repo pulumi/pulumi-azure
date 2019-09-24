@@ -24,6 +24,8 @@ func LookupManagedDisk(ctx *pulumi.Context, args *GetManagedDiskArgs) (*GetManag
 	}
 	return &GetManagedDiskResult{
 		CreateOption: outputs["createOption"],
+		DiskIopsReadWrite: outputs["diskIopsReadWrite"],
+		DiskMbpsReadWrite: outputs["diskMbpsReadWrite"],
 		DiskSizeGb: outputs["diskSizeGb"],
 		Name: outputs["name"],
 		OsType: outputs["osType"],
@@ -50,6 +52,10 @@ type GetManagedDiskArgs struct {
 // A collection of values returned by getManagedDisk.
 type GetManagedDiskResult struct {
 	CreateOption interface{}
+	// The number of IOPS allowed for this disk. One operation can transfer between 4k and 256k bytes.
+	DiskIopsReadWrite interface{}
+	// The bandwidth allowed for this disk. 
+	DiskMbpsReadWrite interface{}
 	// The size of the managed disk in gigabytes.
 	DiskSizeGb interface{}
 	Name interface{}

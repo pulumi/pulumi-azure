@@ -92,7 +92,7 @@ export interface GetRegistryResult {
     /**
      * A map of tags assigned to the Container Registry.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * id is the provider-assigned unique ID for this managed resource.
      */

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a PostgreSQL Server.
+ * Manages a PostgreSQL Server.
  * 
  * ## Example Usage
  * 
@@ -33,6 +33,7 @@ import * as utilities from "../utilities";
  *     },
  *     sslEnforcement: "Enabled",
  *     storageProfile: {
+ *         autoGrow: "Enabled",
  *         backupRetentionDays: 7,
  *         geoRedundantBackup: "Disabled",
  *         storageMb: 5120,

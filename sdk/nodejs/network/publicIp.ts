@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Public IP Address.
+ * Manages a Public IP Address.
  * 
  * ## Example Usage
  * 

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage an EventHub Namespace.
+ * Manages an EventHub Namespace.
  * 
  * ## Example Usage
  * 
@@ -87,7 +87,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultSecondaryKey!: pulumi.Output<string>;
     /**
-     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
      */
     public readonly kafkaEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface EventHubNamespaceState {
      */
     readonly defaultSecondaryKey?: pulumi.Input<string>;
     /**
-     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
      */
     readonly kafkaEnabled?: pulumi.Input<boolean>;
     /**
@@ -246,7 +246,7 @@ export interface EventHubNamespaceArgs {
      */
     readonly capacity?: pulumi.Input<number>;
     /**
-     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+     * Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
      */
     readonly kafkaEnabled?: pulumi.Input<boolean>;
     /**

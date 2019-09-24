@@ -34,7 +34,10 @@ import * as utilities from "../utilities";
  *     delegations: [{
  *         name: "acctestdelegation",
  *         serviceDelegation: {
- *             actions: ["Microsoft.Network/virtualNetworks/subnets/action"],
+ *             actions: [
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *                 "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+ *             ],
  *             name: "Microsoft.ContainerInstance/containerGroups",
  *         },
  *     }],

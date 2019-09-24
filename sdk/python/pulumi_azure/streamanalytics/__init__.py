@@ -9,6 +9,7 @@ from .output_blob import *
 from .output_event_hub import *
 from .output_mssql import *
 from .output_service_bus_queue import *
+from .output_servicebus_topic import *
 from .stream_input_blob import *
 from .stream_input_event_hub import *
 from .stream_input_iot_hub import *

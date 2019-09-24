@@ -10,6 +10,10 @@ from typing import Union
 from .. import utilities, tables
 
 class Blob(pulumi.CustomResource):
+    access_tier: pulumi.Output[str]
+    """
+    The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
+    """
     attempts: pulumi.Output[float]
     """
     The number of attempts to make per page or block when uploading. Defaults to `1`.
@@ -32,8 +36,7 @@ class Blob(pulumi.CustomResource):
     """
     resource_group_name: pulumi.Output[str]
     """
-    The name of the resource group in which to
-    create the storage container. Changing this forces a new resource to be created.
+    The name of the resource group in which to create the storage container.
     """
     size: pulumi.Output[float]
     """
@@ -41,12 +44,16 @@ class Blob(pulumi.CustomResource):
     """
     source: pulumi.Output[str]
     """
-    An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+    An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `source_content` or `source_uri` is specified.
+    """
+    source_content: pulumi.Output[str]
+    """
+    The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
     """
     source_uri: pulumi.Output[str]
     """
     The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-    for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+    for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
     """
     storage_account_name: pulumi.Output[str]
     """
@@ -59,35 +66,34 @@ class Blob(pulumi.CustomResource):
     """
     type: pulumi.Output[str]
     """
-    The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-    this becomes required.
+    The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
     """
     url: pulumi.Output[str]
     """
     The URL of the blob
     """
-    def __init__(__self__, resource_name, opts=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Storage Blob.
+        Manages a Blob within a Storage Container.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         :param pulumi.Input[float] attempts: The number of attempts to make per page or block when uploading. Defaults to `1`.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[dict] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the storage container. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container.
         :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-        :param pulumi.Input[str] source: An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+        :param pulumi.Input[str] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `source_content` or `source_uri` is specified.
+        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-               for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+               for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created.
-        :param pulumi.Input[str] type: The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-               this becomes required.
+        :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
         """
@@ -108,16 +114,16 @@ class Blob(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['access_tier'] = access_tier
             __props__['attempts'] = attempts
             __props__['content_type'] = content_type
             __props__['metadata'] = metadata
             __props__['name'] = name
             __props__['parallelism'] = parallelism
-            if resource_group_name is None:
-                raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['size'] = size
             __props__['source'] = source
+            __props__['source_content'] = source_content
             __props__['source_uri'] = source_uri
             if storage_account_name is None:
                 raise TypeError("Missing required property 'storage_account_name'")
@@ -125,6 +131,8 @@ class Blob(pulumi.CustomResource):
             if storage_container_name is None:
                 raise TypeError("Missing required property 'storage_container_name'")
             __props__['storage_container_name'] = storage_container_name
+            if type is None:
+                raise TypeError("Missing required property 'type'")
             __props__['type'] = type
             __props__['url'] = None
         super(Blob, __self__).__init__(
@@ -134,7 +142,7 @@ class Blob(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, url=None):
+    def get(resource_name, id, opts=None, access_tier=None, attempts=None, content_type=None, metadata=None, name=None, parallelism=None, resource_group_name=None, size=None, source=None, source_content=None, source_uri=None, storage_account_name=None, storage_container_name=None, type=None, url=None):
         """
         Get an existing Blob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -142,22 +150,22 @@ class Blob(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
         :param pulumi.Input[float] attempts: The number of attempts to make per page or block when uploading. Defaults to `1`.
         :param pulumi.Input[str] content_type: The content type of the storage blob. Cannot be defined if `source_uri` is defined. Defaults to `application/octet-stream`.
         :param pulumi.Input[dict] metadata: A map of custom blob metadata.
         :param pulumi.Input[str] name: The name of the storage blob. Must be unique within the storage container the blob is located.
         :param pulumi.Input[float] parallelism: The number of workers per CPU core to run for concurrent uploads. Defaults to `8`.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the storage container. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage container.
         :param pulumi.Input[float] size: Used only for `page` blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to 0.
-        :param pulumi.Input[str] source: An absolute path to a file on the local system. Cannot be defined if `source_uri` is defined.
+        :param pulumi.Input[str] source: An absolute path to a file on the local system. This field cannot be specified for Append blobs and annot be specified if `source_content` or `source_uri` is specified.
+        :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents
-               for the blob to be created. Changing this forces a new resource to be created. Cannot be defined if `source` is defined.
+               for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container.
                Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created.
-        :param pulumi.Input[str] type: The type of the storage blob to be created. One of either `block` or `page`. When not copying from an existing blob,
-               this becomes required.
+        :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the blob
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/storage_blob.html.markdown.
@@ -165,6 +173,7 @@ class Blob(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["access_tier"] = access_tier
         __props__["attempts"] = attempts
         __props__["content_type"] = content_type
         __props__["metadata"] = metadata
@@ -173,6 +182,7 @@ class Blob(pulumi.CustomResource):
         __props__["resource_group_name"] = resource_group_name
         __props__["size"] = size
         __props__["source"] = source
+        __props__["source_content"] = source_content
         __props__["source_uri"] = source_uri
         __props__["storage_account_name"] = storage_account_name
         __props__["storage_container_name"] = storage_container_name

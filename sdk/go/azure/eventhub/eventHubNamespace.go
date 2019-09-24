@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage an EventHub Namespace.
+// Manages an EventHub Namespace.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/website/docs/r/eventhub_namespace.html.markdown.
 type EventHubNamespace struct {
@@ -126,7 +126,7 @@ func (r *EventHubNamespace) DefaultSecondaryKey() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultSecondaryKey"])
 }
 
-// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+// Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
 func (r *EventHubNamespace) KafkaEnabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["kafkaEnabled"])
 }
@@ -177,7 +177,7 @@ type EventHubNamespaceState struct {
 	DefaultSecondaryConnectionString interface{}
 	// The secondary access key for the authorization rule `RootManageSharedAccessKey`.
 	DefaultSecondaryKey interface{}
-	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
 	KafkaEnabled interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}
@@ -199,7 +199,7 @@ type EventHubNamespaceArgs struct {
 	AutoInflateEnabled interface{}
 	// Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Valid values range from 1 - 20.
 	Capacity interface{}
-	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`.
+	// Is Kafka enabled for the EventHub Namespace? Defaults to `false`. Changing this forces a new resource to be created.
 	KafkaEnabled interface{}
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location interface{}

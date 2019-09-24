@@ -89,7 +89,7 @@ export interface GetKeyResult {
     /**
      * A mapping of tags assigned to this Key Vault Key.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     readonly vaultUri: string;
     /**
      * The current version of the Key Vault Key.

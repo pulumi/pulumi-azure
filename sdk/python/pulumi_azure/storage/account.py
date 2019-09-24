@@ -256,7 +256,7 @@ class Account(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, access_tier=None, account_encryption_source=None, account_kind=None, account_replication_type=None, account_tier=None, account_type=None, custom_domain=None, enable_advanced_threat_protection=None, enable_blob_encryption=None, enable_file_encryption=None, enable_https_traffic_only=None, identity=None, is_hns_enabled=None, location=None, name=None, network_rules=None, queue_properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage an Azure Storage Account.
+        Manages an Azure Storage Account.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

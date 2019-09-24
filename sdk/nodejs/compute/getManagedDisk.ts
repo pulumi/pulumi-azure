@@ -131,6 +131,14 @@ export interface GetManagedDiskArgs {
 export interface GetManagedDiskResult {
     readonly createOption: string;
     /**
+     * The number of IOPS allowed for this disk. One operation can transfer between 4k and 256k bytes.
+     */
+    readonly diskIopsReadWrite: number;
+    /**
+     * The bandwidth allowed for this disk. 
+     */
+    readonly diskMbpsReadWrite: number;
+    /**
      * The size of the managed disk in gigabytes.
      */
     readonly diskSizeGb: number;

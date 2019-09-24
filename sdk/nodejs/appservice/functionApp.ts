@@ -115,7 +115,7 @@ export class FunctionApp extends pulumi.CustomResource {
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly appSettings!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A `authSettings` block as defined below.
      */
@@ -281,7 +281,7 @@ export interface FunctionAppState {
     /**
      * A key-value pair of App Settings.
      */
-    readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    readonly appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `authSettings` block as defined below.
      */
@@ -371,7 +371,7 @@ export interface FunctionAppArgs {
     /**
      * A key-value pair of App Settings.
      */
-    readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    readonly appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `authSettings` block as defined below.
      */

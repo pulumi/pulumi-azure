@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Azure Storage Account.
+ * Manages an Azure Storage Account.
  * 
  * ## Example Usage
  * 
@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testrg = new azure.core.ResourceGroup("testrg", {
- *     location: "westus",
- *     name: "resourceGroupName",
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
  * });
- * const testsa = new azure.storage.Account("testsa", {
+ * const testAccount = new azure.storage.Account("test", {
  *     accountReplicationType: "GRS",
  *     accountTier: "Standard",
- *     location: "westus",
+ *     location: testResourceGroup.location,
  *     name: "storageaccountname",
- *     resourceGroupName: testrg.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
@@ -37,20 +37,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * 
- * const testrg = new azure.core.ResourceGroup("testrg", {
- *     location: "westus",
- *     name: "resourceGroupName",
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     location: "West Europe",
+ *     name: "example-resources",
  * });
  * const testVirtualNetwork = new azure.network.VirtualNetwork("test", {
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: testrg.location,
+ *     location: testResourceGroup.location,
  *     name: "virtnetname",
- *     resourceGroupName: testrg.name,
+ *     resourceGroupName: testResourceGroup.name,
  * });
  * const testSubnet = new azure.network.Subnet("test", {
  *     addressPrefix: "10.0.2.0/24",
  *     name: "subnetname",
- *     resourceGroupName: testrg.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     serviceEndpoints: [
  *         "Microsoft.Sql",
  *         "Microsoft.Storage",
@@ -60,14 +60,14 @@ import * as utilities from "../utilities";
  * const testsa = new azure.storage.Account("testsa", {
  *     accountReplicationType: "LRS",
  *     accountTier: "Standard",
- *     location: testrg.location,
+ *     location: testResourceGroup.location,
  *     name: "storageaccountname",
  *     networkRules: {
  *         defaultAction: "Deny",
  *         ipRules: ["100.0.0.1"],
  *         virtualNetworkSubnetIds: [testSubnet.id],
  *     },
- *     resourceGroupName: testrg.name,
+ *     resourceGroupName: testResourceGroup.name,
  *     tags: {
  *         environment: "staging",
  *     },
@@ -304,7 +304,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * A mapping of tags to assign to the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -648,7 +648,7 @@ export interface AccountState {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -728,5 +728,5 @@ export interface AccountArgs {
     /**
      * A mapping of tags to assign to the resource.
      */
-    readonly tags?: pulumi.Input<{[key: string]: any}>;
+    readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

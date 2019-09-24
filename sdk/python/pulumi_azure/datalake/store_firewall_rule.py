@@ -32,7 +32,7 @@ class StoreFirewallRule(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, end_ip_address=None, name=None, resource_group_name=None, start_ip_address=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a Azure Data Lake Store Firewall Rule.
+        Manages a Azure Data Lake Store Firewall Rule.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

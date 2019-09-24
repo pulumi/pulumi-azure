@@ -13,7 +13,7 @@ class GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
-    def __init__(__self__, address_spaces=None, address_spaces_collection=None, dns_servers=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None, id=None):
+    def __init__(__self__, address_spaces=None, address_spaces_collection=None, dns_servers=None, location=None, name=None, resource_group_name=None, subnets=None, vnet_peerings=None, id=None):
         if address_spaces and not isinstance(address_spaces, list):
             raise TypeError("Expected argument 'address_spaces' to be a list")
         __self__.address_spaces = address_spaces
@@ -28,6 +28,12 @@ class GetVirtualNetworkResult:
         __self__.dns_servers = dns_servers
         """
         The list of DNS servers used by the virtual network.
+        """
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        __self__.location = location
+        """
+        Location of the virtual network.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -62,6 +68,7 @@ class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
             address_spaces=self.address_spaces,
             address_spaces_collection=self.address_spaces_collection,
             dns_servers=self.dns_servers,
+            location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
             subnets=self.subnets,
@@ -91,6 +98,7 @@ def get_virtual_network(name=None,resource_group_name=None,opts=None):
         address_spaces=__ret__.get('addressSpaces'),
         address_spaces_collection=__ret__.get('addressSpacesCollection'),
         dns_servers=__ret__.get('dnsServers'),
+        location=__ret__.get('location'),
         name=__ret__.get('name'),
         resource_group_name=__ret__.get('resourceGroupName'),
         subnets=__ret__.get('subnets'),

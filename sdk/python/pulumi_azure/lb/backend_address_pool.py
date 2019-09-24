@@ -33,7 +33,7 @@ class BackendAddressPool(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, loadbalancer_id=None, location=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
-        Manage a Load Balancer Backend Address Pool.
+        Manages a Load Balancer Backend Address Pool.
         
         > **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
         

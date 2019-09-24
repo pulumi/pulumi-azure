@@ -66,7 +66,7 @@ export class ActionHttp extends pulumi.CustomResource {
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    public readonly headers!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly headers!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
@@ -142,7 +142,7 @@ export interface ActionHttpState {
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    readonly headers?: pulumi.Input<{[key: string]: any}>;
+    readonly headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */
@@ -172,7 +172,7 @@ export interface ActionHttpArgs {
     /**
      * Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
      */
-    readonly headers?: pulumi.Input<{[key: string]: any}>;
+    readonly headers?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created.
      */

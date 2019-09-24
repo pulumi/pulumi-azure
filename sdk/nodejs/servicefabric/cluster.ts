@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Service Fabric Cluster.
+ * Manages a Service Fabric Cluster.
  * 
  * ## Example Usage
  * 

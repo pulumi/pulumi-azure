@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// Manage a Azure Data Lake Store File.
+// Manages a Azure Data Lake Store File.
 // 
 // > **Note:** If you want to change the data in the remote file without changing the `localFilePath`, then 
 // taint the resource so the `datalake.StoreFile` gets recreated with the new data.

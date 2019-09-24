@@ -73,7 +73,7 @@ export interface GetSecretResult {
     /**
      * Any tags assigned to this resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * The value of the Key Vault Secret.
      */

@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Directory within an Azure Storage File Share.
+ * Manages a Directory within an Azure Storage File Share.
  * 
  * ## Example Usage
  * 

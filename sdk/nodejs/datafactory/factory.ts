@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Manage an Azure Data Factory (Version 2).
+ * Manages an Azure Data Factory (Version 2).
  * 
  * ## Example Usage
  * 

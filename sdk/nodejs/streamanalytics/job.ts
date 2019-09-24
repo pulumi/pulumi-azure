@@ -78,17 +78,17 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly dataLocale!: pulumi.Output<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
      */
-    public readonly eventsLateArrivalMaxDelayInSeconds!: pulumi.Output<number>;
+    public readonly eventsLateArrivalMaxDelayInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s).
+     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
      */
-    public readonly eventsOutOfOrderMaxDelayInSeconds!: pulumi.Output<number>;
+    public readonly eventsOutOfOrderMaxDelayInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.
+     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
      */
-    public readonly eventsOutOfOrderPolicy!: pulumi.Output<string>;
+    public readonly eventsOutOfOrderPolicy!: pulumi.Output<string | undefined>;
     /**
      * The Job ID assigned by the Stream Analytics Job.
      */
@@ -102,9 +102,9 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
      */
-    public readonly outputErrorPolicy!: pulumi.Output<string>;
+    public readonly outputErrorPolicy!: pulumi.Output<string | undefined>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */
@@ -149,24 +149,6 @@ export class Job extends pulumi.CustomResource {
             inputs["transformationQuery"] = state ? state.transformationQuery : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
-            if (!args || args.compatibilityLevel === undefined) {
-                throw new Error("Missing required property 'compatibilityLevel'");
-            }
-            if (!args || args.dataLocale === undefined) {
-                throw new Error("Missing required property 'dataLocale'");
-            }
-            if (!args || args.eventsLateArrivalMaxDelayInSeconds === undefined) {
-                throw new Error("Missing required property 'eventsLateArrivalMaxDelayInSeconds'");
-            }
-            if (!args || args.eventsOutOfOrderMaxDelayInSeconds === undefined) {
-                throw new Error("Missing required property 'eventsOutOfOrderMaxDelayInSeconds'");
-            }
-            if (!args || args.eventsOutOfOrderPolicy === undefined) {
-                throw new Error("Missing required property 'eventsOutOfOrderPolicy'");
-            }
-            if (!args || args.outputErrorPolicy === undefined) {
-                throw new Error("Missing required property 'outputErrorPolicy'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -214,15 +196,15 @@ export interface JobState {
      */
     readonly dataLocale?: pulumi.Input<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
      */
     readonly eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s).
+     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
      */
     readonly eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.
+     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
      */
     readonly eventsOutOfOrderPolicy?: pulumi.Input<string>;
     /**
@@ -238,7 +220,7 @@ export interface JobState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
      */
     readonly outputErrorPolicy?: pulumi.Input<string>;
     /**
@@ -266,23 +248,23 @@ export interface JobArgs {
     /**
      * Specifies the compatibility level for this job - which controls certain runtime behaviors of the streaming job. Possible values are `1.0` and 1.1`.
      */
-    readonly compatibilityLevel: pulumi.Input<string>;
+    readonly compatibilityLevel?: pulumi.Input<string>;
     /**
      * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx).
      */
-    readonly dataLocale: pulumi.Input<string>;
+    readonly dataLocale?: pulumi.Input<string>;
     /**
-     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).
+     * Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s).  Default is `0`.
      */
-    readonly eventsLateArrivalMaxDelayInSeconds: pulumi.Input<number>;
+    readonly eventsLateArrivalMaxDelayInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s).
+     * Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `5`.
      */
-    readonly eventsOutOfOrderMaxDelayInSeconds: pulumi.Input<number>;
+    readonly eventsOutOfOrderMaxDelayInSeconds?: pulumi.Input<number>;
     /**
-     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.
+     * Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`.  Default is `Adjust`.
      */
-    readonly eventsOutOfOrderPolicy: pulumi.Input<string>;
+    readonly eventsOutOfOrderPolicy?: pulumi.Input<string>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
@@ -292,9 +274,9 @@ export interface JobArgs {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. 
+     * Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`.  Default is `Drop`.
      */
-    readonly outputErrorPolicy: pulumi.Input<string>;
+    readonly outputErrorPolicy?: pulumi.Input<string>;
     /**
      * The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
      */

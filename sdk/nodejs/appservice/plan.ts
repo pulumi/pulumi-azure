@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 import {Kind} from "./kind";
 
 /**
- * Manage an App Service Plan component.
+ * Manages an App Service Plan component.
  * 
  * ## Example Usage (Dedicated)
  * 

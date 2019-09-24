@@ -10,6 +10,12 @@ from typing import Union
 from .. import utilities, tables
 
 class VirtualMachine(pulumi.CustomResource):
+    additional_capabilities: pulumi.Output[dict]
+    """
+    A `additional_capabilities` block.
+    
+      * `ultraSsdEnabled` (`bool`)
+    """
     availability_set_id: pulumi.Output[str]
     """
     The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -113,6 +119,10 @@ class VirtualMachine(pulumi.CustomResource):
     """
     The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
     """
+    proximity_placement_group_id: pulumi.Output[str]
+    """
+    The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
+    """
     resource_group_name: pulumi.Output[str]
     """
     Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
@@ -168,7 +178,7 @@ class VirtualMachine(pulumi.CustomResource):
     """
     A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
     """
-    def __init__(__self__, resource_name, opts=None, availability_set_id=None, boot_diagnostics=None, delete_data_disks_on_termination=None, delete_os_disk_on_termination=None, identity=None, license_type=None, location=None, name=None, network_interface_ids=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, plan=None, primary_network_interface_id=None, resource_group_name=None, storage_data_disks=None, storage_image_reference=None, storage_os_disk=None, tags=None, vm_size=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_capabilities=None, availability_set_id=None, boot_diagnostics=None, delete_data_disks_on_termination=None, delete_os_disk_on_termination=None, identity=None, license_type=None, location=None, name=None, network_interface_ids=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, plan=None, primary_network_interface_id=None, proximity_placement_group_id=None, resource_group_name=None, storage_data_disks=None, storage_image_reference=None, storage_os_disk=None, tags=None, vm_size=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Manages a Virtual Machine.
         
@@ -176,6 +186,7 @@ class VirtualMachine(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block.
         :param pulumi.Input[str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block.
         :param pulumi.Input[bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
@@ -191,6 +202,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] os_profile_windows_config: A `os_profile_windows_config` block.
         :param pulumi.Input[dict] plan: A `plan` block.
         :param pulumi.Input[str] primary_network_interface_id: The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[list] storage_data_disks: One or more `storage_data_disk` blocks.
         :param pulumi.Input[dict] storage_image_reference: A `storage_image_reference` block.
@@ -198,6 +210,10 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+        
+        The **additional_capabilities** object supports the following:
+        
+          * `ultraSsdEnabled` (`pulumi.Input[bool]`)
         
         The **boot_diagnostics** object supports the following:
         
@@ -308,6 +324,7 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['additional_capabilities'] = additional_capabilities
             __props__['availability_set_id'] = availability_set_id
             __props__['boot_diagnostics'] = boot_diagnostics
             __props__['delete_data_disks_on_termination'] = delete_data_disks_on_termination
@@ -325,6 +342,7 @@ class VirtualMachine(pulumi.CustomResource):
             __props__['os_profile_windows_config'] = os_profile_windows_config
             __props__['plan'] = plan
             __props__['primary_network_interface_id'] = primary_network_interface_id
+            __props__['proximity_placement_group_id'] = proximity_placement_group_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -345,7 +363,7 @@ class VirtualMachine(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, availability_set_id=None, boot_diagnostics=None, delete_data_disks_on_termination=None, delete_os_disk_on_termination=None, identity=None, license_type=None, location=None, name=None, network_interface_ids=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, plan=None, primary_network_interface_id=None, resource_group_name=None, storage_data_disks=None, storage_image_reference=None, storage_os_disk=None, tags=None, vm_size=None, zones=None):
+    def get(resource_name, id, opts=None, additional_capabilities=None, availability_set_id=None, boot_diagnostics=None, delete_data_disks_on_termination=None, delete_os_disk_on_termination=None, identity=None, license_type=None, location=None, name=None, network_interface_ids=None, os_profile=None, os_profile_linux_config=None, os_profile_secrets=None, os_profile_windows_config=None, plan=None, primary_network_interface_id=None, proximity_placement_group_id=None, resource_group_name=None, storage_data_disks=None, storage_image_reference=None, storage_os_disk=None, tags=None, vm_size=None, zones=None):
         """
         Get an existing VirtualMachine resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -353,6 +371,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] additional_capabilities: A `additional_capabilities` block.
         :param pulumi.Input[str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[dict] boot_diagnostics: A `boot_diagnostics` block.
         :param pulumi.Input[bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
@@ -368,6 +387,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] os_profile_windows_config: A `os_profile_windows_config` block.
         :param pulumi.Input[dict] plan: A `plan` block.
         :param pulumi.Input[str] primary_network_interface_id: The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
+        :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[list] storage_data_disks: One or more `storage_data_disk` blocks.
         :param pulumi.Input[dict] storage_image_reference: A `storage_image_reference` block.
@@ -375,6 +395,10 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-size-specs/).
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in.
+        
+        The **additional_capabilities** object supports the following:
+        
+          * `ultraSsdEnabled` (`pulumi.Input[bool]`)
         
         The **boot_diagnostics** object supports the following:
         
@@ -471,6 +495,7 @@ class VirtualMachine(pulumi.CustomResource):
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+        __props__["additional_capabilities"] = additional_capabilities
         __props__["availability_set_id"] = availability_set_id
         __props__["boot_diagnostics"] = boot_diagnostics
         __props__["delete_data_disks_on_termination"] = delete_data_disks_on_termination
@@ -486,6 +511,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__["os_profile_windows_config"] = os_profile_windows_config
         __props__["plan"] = plan
         __props__["primary_network_interface_id"] = primary_network_interface_id
+        __props__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__["resource_group_name"] = resource_group_name
         __props__["storage_data_disks"] = storage_data_disks
         __props__["storage_image_reference"] = storage_image_reference

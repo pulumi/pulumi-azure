@@ -122,7 +122,7 @@ export interface GetAccountResult {
     /**
      * A mapping of tags assigned to the resource.
      */
-    readonly tags: {[key: string]: any};
+    readonly tags: {[key: string]: string};
     /**
      * Subnets that are allowed to access this CosmosDB account.
      */

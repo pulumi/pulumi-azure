@@ -68,7 +68,7 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * A map of Key-Value pairs.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: any} | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
      */
@@ -150,7 +150,7 @@ export interface WorkflowState {
     /**
      * A map of Key-Value pairs.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
      */
@@ -184,7 +184,7 @@ export interface WorkflowArgs {
     /**
      * A map of Key-Value pairs.
      */
-    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created.
      */

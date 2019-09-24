@@ -166,7 +166,7 @@ export class Slot extends pulumi.CustomResource {
     /**
      * A key-value pair of App Settings.
      */
-    public readonly appSettings!: pulumi.Output<{[key: string]: any}>;
+    public readonly appSettings!: pulumi.Output<{[key: string]: string}>;
     /**
      * A `authSettings` block as defined below.
      */
@@ -302,7 +302,7 @@ export interface SlotState {
     /**
      * A key-value pair of App Settings.
      */
-    readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    readonly appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `authSettings` block as defined below.
      */
@@ -372,7 +372,7 @@ export interface SlotArgs {
     /**
      * A key-value pair of App Settings.
      */
-    readonly appSettings?: pulumi.Input<{[key: string]: any}>;
+    readonly appSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A `authSettings` block as defined below.
      */

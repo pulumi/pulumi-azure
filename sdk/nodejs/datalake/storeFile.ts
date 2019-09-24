@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manage a Azure Data Lake Store File.
+ * Manages a Azure Data Lake Store File.
  * 
  * > **Note:** If you want to change the data in the remote file without changing the `localFilePath`, then 
  * taint the resource so the `azure.datalake.StoreFile` gets recreated with the new data.

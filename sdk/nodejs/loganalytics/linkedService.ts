@@ -80,7 +80,7 @@ export class LinkedService extends pulumi.CustomResource {
     /**
      * A `linkedServiceProperties` block as defined below.
      */
-    public readonly linkedServiceProperties!: pulumi.Output<outputs.loganalytics.LinkedServiceLinkedServiceProperty[]>;
+    public readonly linkedServiceProperties!: pulumi.Output<outputs.loganalytics.LinkedServiceLinkedServiceProperties>;
     /**
      * The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
      */
@@ -159,7 +159,7 @@ export interface LinkedServiceState {
     /**
      * A `linkedServiceProperties` block as defined below.
      */
-    readonly linkedServiceProperties?: pulumi.Input<pulumi.Input<inputs.loganalytics.LinkedServiceLinkedServiceProperty>[]>;
+    readonly linkedServiceProperties?: pulumi.Input<inputs.loganalytics.LinkedServiceLinkedServiceProperties>;
     /**
      * The automatically generated name of the Linked Service. This cannot be specified. The format is always `<workspace_name>/<linked_service_name>` e.g. `workspace1/Automation`
      */
@@ -193,7 +193,7 @@ export interface LinkedServiceArgs {
     /**
      * A `linkedServiceProperties` block as defined below.
      */
-    readonly linkedServiceProperties?: pulumi.Input<pulumi.Input<inputs.loganalytics.LinkedServiceLinkedServiceProperty>[]>;
+    readonly linkedServiceProperties?: pulumi.Input<inputs.loganalytics.LinkedServiceLinkedServiceProperties>;
     /**
      * The name of the resource group in which the Log Analytics Linked Service is created. Changing this forces a new resource to be created.
      */
