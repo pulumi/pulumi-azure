@@ -7,11 +7,11 @@ require (
 	github.com/djherbis/times v1.2.0 // indirect
 	github.com/gofrs/flock v0.7.1 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
-	github.com/hashicorp/terraform v0.12.6
+	github.com/hashicorp/terraform v0.12.8
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/pulumi/pulumi v1.1.0
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20190828172748-3f206601e7a1
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20190924145130-e75e14d70f0f
 	github.com/reconquest/loreley v0.0.0-20190408221007-9e95b93c818f // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709
 	github.com/terraform-providers/terraform-provider-azurerm v1.31.0
