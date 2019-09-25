@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("aks");
+const resourceGroup = new azure.core.ResourceGroup("msi-rg");
 
 // In Step 2 of this test, we will make sure that the `azure.msi.UserAssignedIdentity` resource
 // has been correctly Aliased to `azure.authorization.UserAssignedIdentity` this will ensure

@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+const exampleResourceGroup = new azure.core.ResourceGroup("sb-rg", {
     name: "my-servicebus",
 });
 const exampleNamespace = new azure.servicebus.Namespace("example", {

@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const exampleResourceGroup = new azure.core.ResourceGroup("example");
+const exampleResourceGroup = new azure.core.ResourceGroup("sb-rg");
 
 // In Step 2 of this test, we will check that the renamespacing of the provider
 // has created the correct alias between `azure.eventhub.Namespace` and

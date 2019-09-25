@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
+const resourceGroup = new azure.core.ResourceGroup("aci-volume-rg");
 
 const storageAccount = new azure.storage.Account("storageaccount", {
     resourceGroupName: resourceGroup.name,

@@ -3,7 +3,7 @@
 import * as azure from "@pulumi/azure";
 import * as pulumi from "@pulumi/pulumi";
 
-const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
+const resourceGroup = new azure.core.ResourceGroup("lb-rg");
 
 const storageaccount = new azure.storage.Account("storageaccount", {
     resourceGroupName: resourceGroup.name,

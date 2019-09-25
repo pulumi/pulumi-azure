@@ -1,6 +1,6 @@
 import * as azure from '@pulumi/azure';
 
-const resourceGroup = new azure.core.ResourceGroup('example');
+const resourceGroup = new azure.core.ResourceGroup("timer-rg");
 
 new azure.appservice.TimerSubscription('everyminute', {
     resourceGroup,

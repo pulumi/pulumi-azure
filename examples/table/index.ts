@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
+const resourceGroup = new azure.core.ResourceGroup("table-rg");
 
 // Create a storage account for our queues
 const storageAccount = new azure.storage.Account("storage", {

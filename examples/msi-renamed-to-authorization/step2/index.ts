@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("aks");
+const resourceGroup = new azure.core.ResourceGroup("msi-rg");
 
 const testIdentity = new azure.authorization.UserAssignedIdentity("testIdentity", {
     name: "search-api",

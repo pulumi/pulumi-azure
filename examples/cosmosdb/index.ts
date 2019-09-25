@@ -3,7 +3,7 @@
 import * as azure from "@pulumi/azure";
 import * as cosmosdb from "@pulumi/azure/cosmosdb";
 
-const resourceGroup = new azure.core.ResourceGroup("test");
+const resourceGroup = new azure.core.ResourceGroup("cosmos-rg");
 
 let db = new cosmosdb.Account("test", {
     resourceGroupName: resourceGroup.name,

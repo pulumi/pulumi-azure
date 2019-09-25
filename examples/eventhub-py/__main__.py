@@ -2,7 +2,7 @@
 
 import pulumi
 from pulumi_azure import core, eventhub
-resource_group = core.ResourceGroup('eventhub-py-example')
+resource_group = core.ResourceGroup('eventhub-py-rg')
 
 namespace = eventhub.EventHubNamespace('eventhub-py-eg',
     resource_group_name=resource_group.name,

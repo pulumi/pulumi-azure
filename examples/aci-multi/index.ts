@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
+const resourceGroup = new azure.core.ResourceGroup("aci-multi-rg");
 
 const containerGroup = new azure.containerservice.Group("containergroup", {
     resourceGroupName: resourceGroup.name,

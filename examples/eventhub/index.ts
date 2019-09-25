@@ -3,7 +3,7 @@
 import * as azure from "@pulumi/azure";
 import * as eventhub from "@pulumi/azure/eventhub";
 
-const resourceGroup = new azure.core.ResourceGroup("test");
+const resourceGroup = new azure.core.ResourceGroup("eventhub-rg");
 
 const namespace = new eventhub.EventHubNamespace("test", {
     resourceGroupName: resourceGroup.name,

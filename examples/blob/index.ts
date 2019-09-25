@@ -2,7 +2,7 @@
 
 import * as azure from "@pulumi/azure";
 
-const resourceGroup = new azure.core.ResourceGroup("resourcegroup");
+const resourceGroup = new azure.core.ResourceGroup("blob-rg");
 
 // Create a storage account for our images
 const storageAccount = new azure.storage.Account("storage", {
